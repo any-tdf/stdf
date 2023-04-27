@@ -1,0 +1,75 @@
+export default {
+    common: {
+        slotEmpty: '슬롯이 비어 있습니다!',
+        loading: '로딩 중...',
+        noData: '데이터가 없습니다',
+        noMoreData: '데이터가 더 이상 없습니다',
+    },
+    actionSheet: {
+        cancelText: '취소',
+    },
+    bottomSheet: {
+        title: '제목',
+    },
+    dialog: {
+        title: '경고',
+        content: '내용',
+        primaryText: '확인',
+        secondaryText: '취소',
+    },
+    input: {
+        pleaseInput: '비밀번호를 입력해주세요',
+    },
+    modal: {
+        title: '제목',
+        content: '내용',
+        btnText: '확인',
+    },
+    navBar: {
+        title: '제목',
+    },
+    picker: {
+        defaultTitle: '선택해주세요',
+        defaultCancel: '취소',
+        defaultConfirm: '확인',
+    },
+    asyncPicker: {
+        defaultTitle: '선택해주세요',
+        defaultCancel: '취소',
+        defaultConfirm: '확인',
+        defaultNext: '다음',
+        defaultPrev: '이전',
+        defaultSelected: '선택됨',
+    },
+    rate: {
+        error1: '합계를 감소시키십시오!',
+        error2: '합계를 1로 나누십시오!',
+        error3: '또는 합계를 1로 나눌 수 없는 경우',
+        error4: '또는 값이 0.5 미만인 경우!',
+        error5: '측정 값은 20보다 작아야합니다. 모바일 단말기에서 식별하거나 물을 통해 측정할 수 없습니다!',
+    },
+    timePicker: {
+        defaultTitle: '선택해주세요',
+        defaultCancel: '취소',
+        defaultConfirm: '확인',
+        defaultYear: '년',
+        defaultMonth: '월',
+        defaultDay: '일',
+        defaultHour: '시간',
+        defaultMinute: '분',
+        defaultSecond: '초',
+    },
+    calendar: {
+        weekTextList: ['일', '월', '화', '수', '목', '금', '토'],
+        weekSundayStartTextList: ['토', '일', '월', '화', '수', '목', '금'],
+        monthTextList: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        confirmText: '확인',
+        selectedText: '선택됨',
+        dayText: '일',
+        beforeText: '이전',
+        afterText: '이후',
+        currentWeekText: '이번 주',
+        currentMonthText: '이번 달',
+        currentQuarterText: '이번 분기',
+    },
+};
