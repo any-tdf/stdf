@@ -29,7 +29,7 @@ import { Button } from 'stdf';
 
 ### 搭建工程
 
-此处用 Vite 示例创建工程，参考 [Vite 文档](https://vitejs.cn/vite3-cn/guide/#trying-vite-online)。
+此处用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
 ```sh
 npm create vite@latest

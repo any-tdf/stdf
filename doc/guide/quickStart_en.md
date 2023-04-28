@@ -29,7 +29,7 @@ import { Button } from 'stdf';
 
 ### Construction project
 
-Use the Vite example to create the project here. See [Vite documentation](https://vitejs.cn/vite3-cn/guide/#trying-vite-online).
+Use the Vite example to create the project here. See [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
 ```sh
 npm create vite@latest
