@@ -16,18 +16,18 @@
 
 # 介绍
 
-基于 Svelte 与 Tailwind 的移动 web 组件库。
+基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
 
-Simple - 简单、Thin - 轻量、Design - 设计、Fast - 快速
+> **S**imple - 简单 · **T**hin - 轻量 · **D**esign - 设计 · **F**ast - 快速
 
 # 特性
 
 -   🚀 无运行时，无虚拟 DOM，线上运行更快；
 -   🧰 API 丰富，轻松配置出符合需求的组件样式；
+-   ✍ 基于 Svelte 和 Tailwind，编码迅速轻松；
 -   🍭 支持暗色模式；
 -   📖 提供丰富的中英文文档和组件示例；
 -   🌍 支持国际化，已内置 60+ 种语言包；
--   ✍ 基于 Svelte 和 Tailwind，编码迅速轻松；
 -   🫰 交互友好，动画参数可配，可自定义主题；
 -   🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等。
 
@@ -63,7 +63,6 @@ import { Button } from 'stdf';
 可以手机扫描以下二维码访问手机端 Demo：
 
 <img src="https://stdf.design/assets/qr/demo_qr.png" width="220" height="220" >
-
 
 # 开源协议
 

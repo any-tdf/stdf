@@ -16,18 +16,18 @@
 
 # Introduction
 
-Mobile web component library based on Svelte and Tailwind.
+Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
 
-Simple · Thin · Design · Fast
+> **S**imple · **T**hin · **D**esign · **F**ast
 
 # Features
 
 -   🚀 No runtime, no virtual DOM, runs faster online;
 -   🧰 Rich API, easily configure component styles that meet your needs;
+-   ✍ Based on Svelte and Tailwind, coding is quick and easy;
 -   🍭 Supports dark mode;
 -   📖 Provides extensive Chinese and English documentation and component examples;
 -   🌍 Supports internationalization, with 60+ built-in language packages;
--   ✍ Based on Svelte and Tailwind, coding is quick and easy;
 -   🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
 -   🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS.
 
