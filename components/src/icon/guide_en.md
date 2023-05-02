@@ -37,6 +37,10 @@ Usage is as follows:
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
 
+You can go to the `node_modules/stdf/assets/fonts/stdf.remixicon.symbol.svg` to view the SVG Sprites composed of these icons.
+
+You can go to the `node_modules/stdf/assets/svg_base/` to view svg source file of these icons.
+
 Currently, whether it is Webpack, Vite, or Rollup for front-end packaging tools, there are corresponding SVG Sprite synthesis plugins. You can choose one or combine it manually.
 
 ## Icon Name
