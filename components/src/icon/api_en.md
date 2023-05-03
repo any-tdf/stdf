@@ -2,7 +2,7 @@
 
 | Properties | Type        | Default value              | Optional value | required | Description                                                           |
 | ---------- | ----------- | -------------------------- | -------------- | -------- | --------------------------------------------------------------------- |
-| name       | String/slot | ''                         | Remix/slot     | Y        | Icon name.                                                            |
+| name       | String/slot | ''                         | SVG Sprites name/slot     | Y        | Icon name.                                                            |
 | size       | Number      | 24                         | -              | N        | Icon size.                                                            |
 | theme      | Boolean     | false                      | true/false     | N        | Whether to follow the theme color (including bright and dark colors). |
 | alpha      | Number      | 1                          | 0 - 1          | N        | Icon transparency.                                                    |

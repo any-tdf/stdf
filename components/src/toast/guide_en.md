@@ -18,7 +18,7 @@ Note: Because the toast has an animation duration (default 300ms or another cust
 
 ## Type
 
-By default, the toast has predefined content for five types: 'success', 'error', 'warning', 'info' and 'loading'. You can also customize the content by setting the `type` property. If `type` is set to an empty string, no icon will be displayed. Otherwise, the icon corresponding to the name of the Remix Icon passed to the `type` property will be displayed.
+By default, the toast has predefined content for five types: 'success', 'error', 'warning', 'info' and 'loading'. You can also customize the content by setting the `type` property. If `type` is set to an empty string, no icon will be displayed. Otherwise, the icon corresponding to the name of the SVG Sprites Icon passed to the `type` property will be displayed.
 
 ## Use Slot
 

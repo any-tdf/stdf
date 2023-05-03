@@ -20,7 +20,7 @@ transitionParams 具体支持的参数请参考 [svelte/transition](https://svel
 
 ## type
 
-Toast 内部默认为 'success'/'error'/'warning'/'info'/'loading' 五种情况设置了对应的内容，也可以通过 `type` 属性自定义，传 '' 不显示，传入其他 Remix Icon 名称显示对应的 Icon，请参考示例。
+Toast 内部默认为 'success'/'error'/'warning'/'info'/'loading' 五种情况设置了对应的内容，也可以通过 `type` 属性自定义，传 '' 不显示，传入其他 SVG Sprites 名称显示对应的 Icon，请参考示例。
 
 ## useSlot
 

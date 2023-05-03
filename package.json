@@ -1,12 +1,12 @@
 {
 	"name": "stdf",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Mobile Web component library based on Svelte and Tailwind",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"cpREADME": "cp README.md ./components",
-		"updateV": "node updatedV.js",
+		"updateV": "node updateV.js",
 		"publish": "cd components && npm publish",
 		"preGit": "npm run cpREADME && npm run updateV && npm run publish"
 	},

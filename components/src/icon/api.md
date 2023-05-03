@@ -2,7 +2,7 @@
 
 | 属性       | 类型          | 默认值              | 可选值        | 必传  | 说明                             |
 |----------|-------------|------------------|------------|-----|--------------------------------|
-| name     | String/slot | ''               | Remix/slot | Y   | 图标名称。                          |
+| name     | String/slot | ''               | SVG Sprites name/slot | Y   | 图标名称。                          |
 | size     | Number      | 24               | -          | N   | 图标大小。                          |
 | theme    | Boolean     | false            | true/false | N   | 是否跟随主题色（包含亮色与暗色）。              |
 | alpha    | Number      | 1                | 0 - 1      | N   | 图标透明度。                         |
