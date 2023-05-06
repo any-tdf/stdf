@@ -30,6 +30,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 -   🌍 Supports internationalization, with 60+ built-in language packages;
 -   🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
 -   🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS.
+-   🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
 
 # Getting Started
 
