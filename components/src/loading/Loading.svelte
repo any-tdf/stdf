@@ -19,8 +19,12 @@
         Loading1_15,
         Loading1_16,
         Loading1_17,
+        Loading1_18,
+        Loading1_19,
+        Loading1_20,
+        Loading1_21,
     } from './loadings/oneColor';
-    import { Loading2_0, Loading2_1 } from './loadings/twoColor';
+    import { Loading2_0, Loading2_1, Loading2_2, Loading2_3, Loading2_4, Loading2_5 } from './loadings/twoColor';
     import { Loading4_0, Loading4_1, Loading4_2, Loading4_3 } from './loadings/fourColor';
 
     // 编号
@@ -189,12 +193,23 @@
         <Loading1_16 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
     {:else if type === '1_17'}
         <Loading1_17 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '1_18'}
+        <Loading1_18 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '1_19'}
+        <Loading1_19 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '1_20'}
+        <Loading1_20 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '1_21'}
+        <Loading1_21 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
 
         <!--twoColor-->
     {:else if type === '2_0'}
         <Loading2_0 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
-    {:else if type === '2_1'}
-        <Loading2_1 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '2_1'}<Loading2_1 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '2_2'}<Loading2_2 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '2_3'}<Loading2_3 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '2_4'}<Loading2_4 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+    {:else if type === '2_5'}<Loading2_5 {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
 
         <!--fourColor-->
     {:else if type === '4_0'}

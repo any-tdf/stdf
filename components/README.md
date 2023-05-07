@@ -3,7 +3,9 @@
   <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>
 
-[![npm (tag)](https://img.shields.io/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://img.shields.io/npm/dw/stdf)](https://www.npmjs.com/package/stdf)
+[![npm (tag)](https://img.shields.io/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://img.shields.io/npm/dw/stdf)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/dufu1991/stdf"/></a>
+
+</p>
 
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English Doc</a>
@@ -29,7 +31,8 @@
 -   📖 提供丰富的中英文文档和组件示例；
 -   🌍 支持国际化，已内置 60+ 种语言包；
 -   🫰 交互友好，动画参数可配，可自定义主题；
--   🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等。
+-   🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等；
+-   🫡 无三方依赖，无需担心三方库版本与安全问题。
 
 # 快速上手
 
