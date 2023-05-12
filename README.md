@@ -8,7 +8,7 @@
 </p>
 
   <h4>
-    <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English Doc</a>
+    <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
   <span> · </span>
     <a href="https://stdf.design?lang=zh_CN" target="_blank">中文网站</a>
   <span> · </span>
