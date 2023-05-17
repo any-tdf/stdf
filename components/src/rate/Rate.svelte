@@ -56,7 +56,7 @@
 
     // 当前语言
     // current language
-    const currentLang = getContext('lang') || 'zh_CN';
+    const currentLang = getContext('STDF_lang') || 'zh_CN';
 
     // 对传入数据进行一些报错或警告处理
     // some error or warning processing for the incoming data

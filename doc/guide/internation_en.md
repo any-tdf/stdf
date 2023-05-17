@@ -7,11 +7,12 @@ The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svel
 <script>
     import { setContext } from 'svelte'; // import setContext
     import en_US from 'stdf/lang/en_US'; // import language file
-    setContext('lang', en_US); // set language
+    
+    setContext('STDF_lang', en_US); // set language
 </script>
 ```
 
-All child components of this component (including STDF components) can obtain the current language configuration using `getContext('lang')`. More flexible is that another language can be configured in some parts of the application.
+All child components of this component (including STDF components) can obtain the current language configuration using `getContext('STDF_lang')`. More flexible is that another language can be configured in some parts of the application.
 
 Note that **Context switching is not reactive**, and language switching in most applications does not require real-time response.
 

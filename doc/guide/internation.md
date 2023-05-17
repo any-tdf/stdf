@@ -8,11 +8,11 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
     import { setContext } from 'svelte'; // 引入 setContext
     import en_US from 'stdf/lang/en_US'; // 导入语言文件
 
-    setContext('lang', en_US); // 设置语言
+    setContext('STDF_lang', en_US); // 设置语言
 </script>
 ```
 
-此组件的所有子孙组件（包含了 STDF 组件）都可以通过 `getContext('lang')` 获取到当前语言配置。更加灵活的是，甚至可以在应用内的某部分配置另一种语言。
+此组件的所有子孙组件（包含了 STDF 组件）都可以通过 `getContext('STDF_lang')` 获取到当前语言配置。更加灵活的是，甚至可以在应用内的某部分配置另一种语言。
 
 注意 **Context 的切换不是响应式的**，一般应用中语言的切换也不需要实时响应。
 

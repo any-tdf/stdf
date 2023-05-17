@@ -10,7 +10,7 @@
 
     // 当前语言
     // current language
-    const currentLang = getContext('lang') || zh_CN;
+    const currentLang = getContext('STDF_lang') || zh_CN;
     const pickerLang = currentLang.picker;
 
     // 是否显示

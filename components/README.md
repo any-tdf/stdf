@@ -5,41 +5,36 @@
 
 [![npm (tag)](https://img.shields.io/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://img.shields.io/npm/dt/stdf)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/dufu1991/stdf"/></a>
 
-</p>
-
   <h4>
-    <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
+    <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
   <span> · </span>
-    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
-  <span>
+    <a href="https://stdf.design?lang=en_US" target="_blank">Website<a>
   </h4>
 </div>
 
-# 介绍
+# Introduction
 
-基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
+Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
 
 > **S**imple · **T**hin · **D**esign · **F**ast
 
-> 简 单 · 轻 量 · 设 计 · 快 速
+# Features
 
-# 特性
+-   🚀 No runtime, no virtual DOM, runs faster online;
+-   🧰 Rich API, easily configure component styles that meet your needs;
+-   ✍ Based on Svelte and Tailwind, coding is quick and easy;
+-   🍭 Supports dark mode;
+-   📖 Provides extensive Chinese and English documentation and component examples;
+-   🌍 Supports internationalization, with 60+ built-in language packages;
+-   🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
+-   🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
+-   🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
 
--   🚀 无运行时，无虚拟 DOM，线上运行更快；
--   🧰 API 丰富，轻松配置出符合需求的组件样式；
--   ✍ 基于 Svelte 和 Tailwind，编码迅速轻松；
--   🍭 支持暗色模式；
--   📖 提供丰富的中英文文档和组件示例；
--   🌍 支持国际化，已内置 60+ 种语言包；
--   🫰 交互友好，动画参数可配，可自定义主题；
--   🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等；
--   🫡 无三方依赖，无需担心三方库版本与安全问题。
+# Getting Started
 
-# 快速上手
+## Installation
 
-## 安装
-
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
+If you have a project configured with Svelte and Tailwind, install directly.
 
 ```bash
 npm i stdf
@@ -49,7 +44,7 @@ yarn add stdf
 pnpm i stdf
 ```
 
-## 使用
+## Usage
 
 ```xml
 <!-- Button Demo -->
@@ -57,17 +52,17 @@ pnpm i stdf
 import { Button } from 'stdf';
 </script>
 
-<Button>默认</Button>
+<Button>Default</Button>
 ```
 
-😓 无工程？用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。并配置 Tailwind CSS，参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite)。
+😓 No project? Create a project with Vite and reference the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) and the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite) for CSS configuration.
 
-# 手机预览
+# Mobile Preview
 
-可以手机扫描以下二维码访问手机端 Demo：
+You can scan the QR code below on your mobile phone to access the mobile demo:
 
-<img src="https://stdf.design/assets/qr/demo_qr.png" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_qr_en.png" width="220" height="220" >
 
-# 开源协议
+# License
 
-本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
