@@ -10,9 +10,8 @@
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
   <span> · </span>
-    <a href="https://stdf.design?lang=zh_CN" target="_blank">中文网站</a>
-  <span> · </span>
-    <a href="https://stdf.design?lang=en_US" target="_blank">英文网站</a>
+    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
+  <span>
   </h4>
 </div>
 
@@ -20,7 +19,9 @@
 
 基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
 
-> **S**imple - 简单 · **T**hin - 轻量 · **D**esign - 设计 · **F**ast - 快速
+> **S**imple · **T**hin · **D**esign · **F**ast
+
+> 简 单 · 轻 量 · 设 计 · 快 速
 
 # 特性
 
