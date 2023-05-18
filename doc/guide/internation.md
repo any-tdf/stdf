@@ -91,7 +91,7 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
 
 ## 增加语言包
 
-如果找不到你需要的语言包，欢迎你在 [中文语言包]() 或 [英文语言包]() 的基础上创建一个新的语言包，并发一个 Pull Request。[语言对照表](http://www.lingoes.net/en/translator/langcode.htm)
+如果找不到你需要的语言包，欢迎你在 [中文语言包](https://github.com/dufu1991/stdf/blob/main/components/lang/zh_CN.js) 或 [英文语言包](https://github.com/dufu1991/stdf/blob/main/components/lang/en_US.js) 的基础上创建一个新的语言包，并发一个 Pull Request。[语言对照表](http://www.lingoes.net/en/translator/langcode.htm)
 
 基本步骤如下：
 
