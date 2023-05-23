@@ -4,7 +4,7 @@
 
 ## 0.0.6
 
--   新增 Loading 类型。
+-   新增 Loading 类型。详见：[Loading](https://stdf.design/#/components?nav=loading&tab=4)。
 
 ## 0.0.1
 

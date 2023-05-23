@@ -4,7 +4,7 @@
 
 ## 0.0.6
 
--   Add Loading type.
+-   Add Loading type. For more information, please see [Loading](https://stdf.design/#/components?nav=loading&tab=4).
 
 ## 0.0.1
 
