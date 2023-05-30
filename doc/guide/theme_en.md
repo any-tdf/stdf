@@ -1,4 +1,4 @@
-Based on the Tailwind configuration file `tailwind.config.js`, configure the theme color system. Please ensure that the following basic colors are configured.Reference [STDF Guide - Color](/#/Guide?nav=color).
+Based on the Tailwind configuration file `tailwind.config.js`, configure the theme color system. Please ensure that the following basic colors are configured. Reference [STDF Guide - Color](/#/Guide?nav=color).
 
 | Color Name  | Description                    | Default Value |
 | ----------- | ------------------------------ | ------------- |

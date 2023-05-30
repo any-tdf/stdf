@@ -48,16 +48,40 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-2. 在 tailwind.config.js 文件内添加模板文件。
+2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/src/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide?nav=color)。
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
-export default {
-    content: ['./index.html', './src/**/*.{js,ts,svelte}'],
+module.exports = {
+    // ...
+    content: ['./index.html', './src/**/*.{html,js,svelte}', './node_modules/stdf/src/**/*.svelte'],
     theme: {
-        extend: {},
+        colors: {
+            primary: '#0B24FB',
+            dark: '#FFC043',
+            purple: '#7356BF',
+            green: '#05944F',
+            orange: '#FF6937',
+            black: '#000000',
+            gray1: '#23262B',
+            gray2: '#2A2B2F',
+            gray3: '#303239',
+            gray4: '#373940',
+            gray5: '#414249',
+            gray6: '#747B84',
+            gray7: '#DADEE3',
+            gray8: '#EBEEF2',
+            gray9: '#F4F6F9',
+            gray10: '#FAFAFB',
+            success: '#11BB8D',
+            warning: '#B95000',
+            error: '#DA1414',
+            info: '#2E5AAC',
+            transparent: 'transparent',
+        },
     },
-    plugins: [],
+    darkMode: 'class',
+    // ...
 };
 ```
 
