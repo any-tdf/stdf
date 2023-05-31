@@ -96,4 +96,4 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
 基本步骤如下：
 
 1. 在 components/lang 文件夹中增加语言包。
-2. （可选）更新文档，在 site/doc/guide 文件夹更新 internation.md 和 internation_en.md 文件，请在语言列表中按照 lang 的字母顺序更新。
+2. （可选）更新文档，在 doc/guide 文件夹更新 [internation.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation.md) 和 [internation_en.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation_en.md) 文件，请在语言列表中按照 lang 的字母顺序更新。

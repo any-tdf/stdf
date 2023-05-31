@@ -96,4 +96,4 @@ If you cannot find the language pack you need, you are welcome to create a new l
 The basic steps are as follows:
 
 1. Add the language pack in the `components/lang` folder.
-2. (Optional) Update the documentation. Update the `internation.md` and `internation_en.md` files in the `site/doc/guide` folder. Please update the language list in alphabetical order by `lang`.
+2. (Optional) Update the documentation. Update the [internation.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation.md) and [internation_en.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation_en.md) files in the `doc/guide` folder. Please update the language list in alphabetical order by `lang`.
