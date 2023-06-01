@@ -1,3 +1,7 @@
+## 0.0.8
+
+-   Fix Calendar, please see [Calendar](https://stdf.design/#/components?nav=calendar&tab=4).
+
 ## 0.0.7
 
 -   The value of the Context for the multilingual package has been changed from "lang" to "STDF_lang" to avoid conflicts with the names of other language packages within the project.
@@ -5,7 +9,7 @@
 
 ## 0.0.6
 
--   Add Loading type. For more information, please see [Loading](https://stdf.design/#/components?nav=loading&tab=4).
+-   Add Loading type, For more information, please see [Loading](https://stdf.design/#/components?nav=loading&tab=4).
 
 ## 0.0.1
 

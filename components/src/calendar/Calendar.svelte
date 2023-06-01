@@ -378,10 +378,10 @@
                     {#each quickSelects as item}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <div
-                            class="text-xs px-2 py-1 cursor-pointer flex-none bg-white dark:bg-black dark:shadow-white/10 shadow dark:bg-white/5 rounded"
-                            class:bg-primary={isQuickSelect && quickSelectItem === item}
+                            class="text-xs px-2 py-1 cursor-pointer flex-none bg-white dark:bg-black dark:shadow-white/10 shadow rounded"
+                            class:!bg-primary={isQuickSelect && quickSelectItem === item}
                             class:text-white={isQuickSelect && quickSelectItem === item}
-                            class:dark:bg-dark={isQuickSelect && quickSelectItem === item}
+                            class:dark:!bg-dark={isQuickSelect && quickSelectItem === item}
                             class:dark:text-black={isQuickSelect && quickSelectItem === item}
                             on:click={() => quickSelectFunc(item)}
                         >
