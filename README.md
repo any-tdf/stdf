@@ -66,7 +66,7 @@ import { Button } from 'stdf';
 
 可以手机扫描以下二维码访问手机端 Demo：
 
-<img src="https://stdf.design/assets/qr/demo_qr.png" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_qr.jpg" width="220" height="220" >
 
 # 开源协议
 

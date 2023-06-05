@@ -61,7 +61,7 @@ import { Button } from 'stdf';
 
 You can scan the QR code below on your mobile phone to access the mobile demo:
 
-<img src="https://stdf.design/assets/qr/demo_qr_en.png" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_qr_en.jpg" width="220" height="220" >
 
 # License
 
