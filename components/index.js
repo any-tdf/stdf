@@ -37,7 +37,7 @@ import Modal from './src/modal/Modal.svelte';
 import Dialog from './src/dialog/Dialog.svelte';
 import ActionSheet from './src/actionSheet/ActionSheet.svelte';
 import Picker from './src/picker/Picker.svelte';
-import AsyncPicker from './src/AsyncPicker/AsyncPicker.svelte';
+import AsyncPicker from './src/asyncPicker/AsyncPicker.svelte';
 import TimePicker from './src/timePicker/TimePicker.svelte';
 import Calendar from './src/calendar/Calendar.svelte';
 

@@ -1,3 +1,7 @@
+## 0.0.9
+
+-   Fix AsyncPicker file path.
+
 ## 0.0.8
 
 -   Fix Calendar, please see [Calendar](https://stdf.design/#/components?nav=calendar&tab=4).

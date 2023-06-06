@@ -1,3 +1,7 @@
+## 0.0.9
+
+-   修复 AsyncPicker 文件路径。
+
 ## 0.0.8
 
 -   修复 Calendar，详见 [Calendar](https://stdf.design/#/components?nav=calendar&tab=4)。

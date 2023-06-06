@@ -7,7 +7,7 @@
 
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
-  <span> · </span>
+  <span> • </span>
     <a href="https://stdf.design?lang=en_US" target="_blank">Website<a>
   </h4>
 </div>
@@ -16,7 +16,7 @@
 
 Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
 
-> **S**imple · **T**hin · **D**esign · **F**ast
+> **S**imple • **T**hin • **D**esign • **F**ast
 
 # Features
 
@@ -61,7 +61,7 @@ import { Button } from 'stdf';
 
 You can scan the QR code below on your mobile phone to access the mobile demo:
 
-<img src="https://stdf.design/assets/qr/demo_qr_en.png" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_qr_en.jpg" width="220" height="220" >
 
 # License
 
