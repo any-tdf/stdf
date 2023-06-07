@@ -1,8 +1,8 @@
-<!-- "[!tag|A|0|]"表示一个 tag，其中A表示新增，B表示 BUG，O表示优化，第二个数字表示 BUG 等级，0暂无意义。 -->
-<!-- "[!issue|dufu1991|]"表示一个 issue 提出者，其中 dufu1991 是提出者的id。 -->
-<!-- "[!contribute|dufu1991|]"表示一个贡献者，其中 eric1932 是贡献者的id。 -->
+<!-- "[!tag|A|0|]" This represents a tag, where A stands for addition, B stands for bug, and O stands for optimization. The second digit represents the severity level of the bug, with 0 having no significance. -->
+<!-- "[!issue|dufu1991|]" Indicates an issue submitter, where dufu1991 is the submitter's ID. -->
+<!-- "[!contribute|dufu1991|]" Indicates a contributor, where dufu1991 is the ID of the contributor. -->
 
-<!-- 记得带上版本号和更新日期，以下是一个示例：
+<!-- Remember to include the version number and update date. Here is an example:
 
 ## 0.0.1
 
