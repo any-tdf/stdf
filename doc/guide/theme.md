@@ -1,3 +1,23 @@
+## 亮暗模式
+
+### 配置
+
+使用 Tailwind CSS 的暗色模式配置，请在 `tailwind.config.js` 配置 `darkMode: 'class'`，参考 [Dark Mode](https://tailwindcss.com/docs/dark-mode)。
+
+### 切换
+
+直接给 `html` 标签添加或删除 `dark` 类名即可。
+
+```js
+// 切换为亮色模式
+document.documentElement.classList.remove('dark');
+
+// 切换为暗色模式
+document.documentElement.classList.add('dark');
+```
+
+## 颜色配置
+
 基于 Tailwind 的配置文件 `tailwind.config.js` 配置主题颜色系统，请确保配置以下几种基本颜色。可参考 [STDF 指南 - 色彩](/#/guide?nav=color)。
 
 | 颜色名称    | 说明              | 默认值      |

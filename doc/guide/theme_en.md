@@ -1,3 +1,23 @@
+## Light/Dark Mode
+
+### Configuration
+
+To use Tailwind CSS's dark mode configuration, please configure `darkMode: 'class'` in `tailwind.config.js`. Refer to [Dark Mode](https://tailwindcss.com/docs/dark-mode) for more information.
+
+### Switching Modes
+
+Simply add or remove the `dark` class name to the `html` tag.
+
+```js
+// Switch to light mode
+document.documentElement.classList.remove('dark');
+
+// Switch to dark mode
+document.documentElement.classList.add('dark');
+```
+
+## Color Configuration
+
 Based on the Tailwind configuration file `tailwind.config.js`, configure the theme color system. Please ensure that the following basic colors are configured. Reference [STDF Guide - Color](/#/Guide?nav=color).
 
 | Color Name  | Description                    | Default Value |
