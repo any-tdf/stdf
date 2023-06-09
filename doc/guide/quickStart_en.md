@@ -7,11 +7,9 @@
 Svelte and Tailwind have been configured for direct installation.
 
 ```bash
-npm i stdf
+npm i stdf -D
 # or
-yarn add stdf
-# or
-pnpm i stdf
+pnpm i stdf -D
 ```
 
 ### Used in Svelte

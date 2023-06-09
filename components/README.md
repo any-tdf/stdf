@@ -37,11 +37,9 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 If you have a project configured with Svelte and Tailwind, install directly.
 
 ```bash
-npm i stdf
+npm i stdf -D
 # or
-yarn add stdf
-# or
-pnpm i stdf
+pnpm i stdf -D
 ```
 
 ## Usage

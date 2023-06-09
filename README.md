@@ -42,11 +42,9 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```bash
-npm i stdf
+npm i stdf -D
 # or
-yarn add stdf
-# or
-pnpm i stdf
+pnpm i stdf -D
 ```
 
 ## 使用
