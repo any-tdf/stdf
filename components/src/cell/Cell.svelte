@@ -136,7 +136,7 @@
         mxClass[mx] || mxClass['2']
     }${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${love ? ' text-xl' : ''} ${injClass}`}
 >
-    <div class={`flex justify-between py-4${line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}`}>
+    <div class={`flex justify-between gap-4 py-4${line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}`}>
         <!-- left -->
         <div class="flex justify-between">
             {#if left === ''}
