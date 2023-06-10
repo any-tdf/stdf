@@ -1,3 +1,11 @@
+## 2023-06-10
+
+Splitting and packaging documents and sample sites to speed up the initial loading speed.
+
+## 2023-05-03
+
+Separate component source code and documentation to avoid large node_modules size.
+
 ## 2023-04-27
 
 First commit.
