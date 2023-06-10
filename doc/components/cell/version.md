@@ -1,1 +1,5 @@
--   [!tag|O|0|] title 过长时与右侧 detail 挤到一块，增加一点间距。
+## 0.0.10
+
+-   [!tag|O|0|]增加 title 与右侧 detail 间距。
+
+<font size=1>2023-06-10</font>
