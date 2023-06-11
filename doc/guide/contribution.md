@@ -15,11 +15,7 @@
 
 调试 STDF 必须要有个工程环境，为此提供了一个简单的 Demo 工程。STDF 本身不受 Node 版本限制，Demo 使用 Vite 开发，所以请确保你的 Node.js 版本 >= 14.18+，参考 [Vite 官网](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
-> 推荐使用 [pnpm](https://pnpm.io/zh) 进行包管理。
-
-> 推荐安装针对 Svelte 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) 或者 [WebStorm 插件](https://plugins.jetbrains.com/plugin/12375-svelte) 进行开发。
-
-> 推荐安装针对 Tailwind 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)。WebStorm 默认集成，[了解更多](https://www.jetbrains.com/help/webstorm/tailwind-css.html)。
+> 推荐：使用 [pnpm](https://pnpm.io/zh) 进行包管理；安装针对 Svelte 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) 或者 [WebStorm 插件](https://plugins.jetbrains.com/plugin/12375-svelte) 进行开发；安装针对 Tailwind 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)，WebStorm 默认集成，[了解更多](https://www.jetbrains.com/help/webstorm/tailwind-css.html)。
 
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
 

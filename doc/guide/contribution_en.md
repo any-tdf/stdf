@@ -11,15 +11,11 @@ Below are guidelines for submitting feedback or code to STDF. Before submitting 
 
 ## Local Development
 
-Before local development, make sure that Git and Node.js are installed in your development environment.
+22Before local development, make sure that Git and Node.js are installed in your development environment.
 
 Debugging of STDF requires a project environment. Therefore, we provide a simple Demo project. The version of Node.js used by STDF is not limited; however, Vite is used for developing Demo projects. Therefore, ensure that your Node.js version >= 14.18+ (refer to [Vite official website](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)).
 
-> It is recommended to use [pnpm](https://pnpm.io) for package management.
->
-> It is recommended to install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [WebStorm plugin](https://plugins.jetbrains.com/plugin/12375-svelte) specifically designed for Svelte development.
->
-> It is recommended to install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) specifically designed for Tailwind CSS. WebStorm integrates it by default ([learn more here](https://www.jetbrains.com/help/webstorm/tailwind-css.html)).
+> Recommended: Use [pnpm](https://pnpm.io) for package management. Install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [WebStorm plugin](https://plugins.jetbrains.com/plugin/12375-svelte) specifically designed for Svelte development. Install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) specifically designed for Tailwind CSS. WebStorm integrates it by default ([learn more here](https://www.jetbrains.com/help/webstorm/tailwind-css.html)).
 
 Follow these steps below to quickly start up STDF Demo locally:
 
