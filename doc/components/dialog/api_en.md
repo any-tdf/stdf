@@ -1,5 +1,3 @@
-Translation:
-
 ## Dialog Props
 
 | Prop            | Type    | Default Value                            | Optional Values               | Required | Description                                                              |

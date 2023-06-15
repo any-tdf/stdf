@@ -1,5 +1,3 @@
-Translation:
-
 ## RadioGroup Props
 
 | Property   | Type    | Default | Options    | Required | Description                                                            |
