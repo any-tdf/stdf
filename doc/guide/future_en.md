@@ -1,24 +1,18 @@
 ## 💪 New Features 💪
 
-#### Components
-
-| Status  | Component  | Name       | Description                                                               |
-| ------- | ---------- | ---------- | ------------------------------------------------------------------------- |
-| Planned | Pagination | Pagination | Personally dislike infinite scrolling and plan to use click-to-load-more. |
-
-#### Business Components
-
-| Status  | Component    | Name          | Description                                                                   |
-| ------- | ------------ | ------------- | ----------------------------------------------------------------------------- |
-| Planned | NumKeyboard  | Num Keyboard  | Numeric keyboard panel.                                                       |
-| Planned | SecurityCode | Security Code | Generally used to enter digital verification codes received via SMS or email. |
+- [ ] Added Pagination component, as I dislike infinite scrolling and prefer click-to-load-more functionality.
+- [ ] Added NumKeyboard component for inputting numbers.
+- [ ] Added SecurityCode component for entering verification codes received via SMS or email.
 
 ---
 
 ## 👏 Improvements 👏
 
-#### Component
+- [ ] Improved source code comments according to JSDoc rules, added constraints on Props, and made it easier for IDEs to provide suggestions.
+- [ ] Increased the number of animation effects in the Skeleton screen component.
 
-| Status  | Component | Name     | Description                 |
-| ------- | --------- | -------- | --------------------------- |
-| Planned | Skeleton  | Skeleton | Add more animation effects. |
+---
+
+## 💪 Ongoing Development 💪
+
+- [ ] Expand the types of Loading components available.

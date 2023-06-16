@@ -1,3 +1,7 @@
+## 2023-06-16
+
+列入阮一峰老师的科技爱好者周刊。[科技爱好者周刊（第 259 期）](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html)
+
 ## 2023-05-03
 
 将组件源码与文档分开，避免 node_modules 体积过大。
