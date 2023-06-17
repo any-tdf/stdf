@@ -8,7 +8,7 @@
 | inputPosition     | String             | 'left'        | 'left'/'right'                                                                     | No       | The position of the input text.                               |
 | radius            | String             | 'base'        | 'none'/'base'/'xl'/'full'                                                          | No       | The style of the corner radius.                               |
 | inputStyle        | String             | 'block'       | 'block'/'line'                                                                     | No       | The style of the input field.                                 |
-| py                | String             | '1'           | '0'/'0.5'/'1'/'2'/'4'                                                              | No       | The vertical spacing.                                         |
+| py                | String             | '2'           | '0'/'0.5'/'1'/'2'/'3'/'4'/'6'                                                      | No       | The vertical spacing.                                         |
 | lineTransition    | String             | 'none'        | 'none'/'center'/'left'                                                             | No       | The position of linear transition.                            |
 | duration          | String             | 'base'        | 'fast'/'base'/'slow'/'slower'                                                      | No       | The transition duration.                                      |
 | value             | String             | ''            | -                                                                                  | No       | The value of the input field.                                 |

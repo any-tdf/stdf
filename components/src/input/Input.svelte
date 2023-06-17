@@ -77,7 +77,7 @@
 
     //垂直间距
     //Vertical spacing
-    export let py = '1';
+    export let py = '2';
 
     // 是否禁用
     // Whether to disable
@@ -202,14 +202,16 @@
         slower: 'duration-1000',
     };
 
-    // 山下间距样式
+    // 垂直间距样式
     // Vertical spacing style
     const pyObj = {
         '0': 'py-0',
         '0.5': 'py-0.5',
         '1': 'py-1',
         '2': 'py-2',
+        '3': 'py-3',
         '4': 'py-4',
+        '6': 'py-6',
     };
 
     // 获取焦点是派发事件
@@ -303,7 +305,7 @@
     };
 </script>
 
-<div class={`px-2 ${pyObj[py] || pyObj['1']}`}>
+<div class={`px-2 ${pyObj[py] || pyObj['2']}`}>
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label>
         <div class={`flex px-2 ${title === '' ? 'justify-end' : 'justify-between'}`}>
@@ -313,7 +315,7 @@
                 {:else if title === 'slot'}
                     <slot name="title">title {commonLang.slotEmpty}</slot>
                 {:else}
-                    <div class="text-sm font-semibold">{title}</div>
+                    <div class="text-sm font-semibold mb-1">{title}</div>
                 {/if}
             {/if}
             <div class="flex space-x-2 text-xs">
