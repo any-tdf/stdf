@@ -5,13 +5,11 @@ name: Auto publish npm
 
 on:
     push:
-        branches:
-            - main
         tags:
             - v*
 
 jobs:
-    build-and-publish:
+    publish:
         runs-on: ubuntu-latest
 
         steps:
