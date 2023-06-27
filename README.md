@@ -69,3 +69,7 @@ import { Button } from 'stdf';
 # 开源协议
 
 本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+
+# Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/dufu1991/stdf.svg)](https://starchart.cc/dufu1991/stdf)

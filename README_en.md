@@ -64,3 +64,7 @@ You can scan the QR code below on your mobile phone to access the mobile demo:
 # License
 
 This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+
+# Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/dufu1991/stdf.svg)](https://starchart.cc/dufu1991/stdf)
