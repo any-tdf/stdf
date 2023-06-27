@@ -7,8 +7,6 @@ on:
     push:
         branches:
             - main
-        tags:
-            - v*
 
 jobs:
     publish:
@@ -18,12 +16,20 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
+            - name: Check if version changed
+              id: version_changed
+              run: |
+                  cd components
+                  git diff HEAD^ HEAD -- components/package.json | grep 'version":' | grep -v '\/\/' > /dev/null
+                  echo "::set-output name=changed::$(echo $?)"
+
             - name: Setup Node.js environment
               uses: actions/setup-node@v1
               with:
                   node-version: 18.x
 
             - name: Publish
+              if: steps.version_changed.outputs.changed == '0'
               run: |
                   cd components
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
