@@ -5,6 +5,8 @@ name: Auto publish npm
 
 on:
     push:
+        branches:
+            - main
         tags:
             - v*
 
