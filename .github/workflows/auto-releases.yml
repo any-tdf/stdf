@@ -42,7 +42,7 @@ jobs:
               id: changelog
                 run: |
                     echo ::set-output name=changelog::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}')
-
+                    
             # 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包括换行，如
 
             #  ## 0.0.12
@@ -57,7 +57,7 @@ jobs:
               id: changelog_en
                 run: |
                     echo ::set-output name=changelog_en::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}')
-                    
+
             # 将两个内容合并为一个字符串，中间使用 --- 分隔
             - name: Get body
               id: body
