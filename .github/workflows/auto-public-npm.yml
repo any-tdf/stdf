@@ -1,0 +1,31 @@
+# 当分支 main 有 push 事件并且 tag 为 v* 时触发
+# 使用 GitHub Actions secrets 存储的 NPM_TOKEN 自动将本仓库 components 目录下的所有文件发布到 npm 上
+
+name: Auto publish npm
+
+on:
+    push:
+        branches:
+            - main
+        tags:
+            - 'v*'
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+
+            - name: Publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: |
+                  cd components
+                  npm publish --access=public

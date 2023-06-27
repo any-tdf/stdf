@@ -1,0 +1,88 @@
+# 当分支 main 有 push 事件并且 tag 为 v* 时触发，使用 GitHub Actions 执行以下步骤：
+# 读取 tag 内容，例如 v0.0.12，作为 Releases title
+# 读取仓库内的 /doc/guide/changelog.md 中第二个 ## 之前的内容
+# 再读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
+# 将两个内容合并为一个字符串，中间使用 --- 分隔
+# 组成内容示例为：
+# ## 0.0.12
+# -  新增了一个功能。
+# ---
+# -  Add a new feature.
+# 将合并的内容作为 Releases describe
+# Set as the latest release 并发布本次 Release
+
+name: Auto releases
+
+on:
+    push:
+        branches:
+            - main
+        tags:
+            - 'v*'
+
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            # 读取 tag 内容，例如 v0.0.12，作为 Releases title
+            - name: Get tag
+              id: tag
+              run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
+            # 读取仓库内的 /doc/guide/changelog.md 中第二个 ## 之前的内容，如
+
+            #  ## 0.0.12
+            #  -  新增了一个功能。
+            #  ## 0.0.11
+
+            # 只取第二个 ## 之前的内容，结果为：
+
+            #  ## 0.0.12
+            #  -  新增了一个功能。
+
+            - name: Get changelog
+              id: changelog
+              run: |
+                  echo ::set-output name=changelog::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md)
+
+            # 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，如
+
+            #  ## 0.0.12
+            #  -  Add a new feature.
+            #  ## 0.0.11
+
+            # 只取第一个二级标题与第二个二级标题之间的内容，结果为：
+
+            #  -  Add a new feature.
+
+            - name: Get changelog_en
+              id: changelog_en
+              run: |
+                  echo ::set-output name=changelog_en::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}')
+
+            # 将两个内容合并为一个字符串，中间使用 --- 分隔
+            - name: Get body
+              id: body
+              run: |
+                  echo ::set-output name=body::"${{ steps.changelog.outputs.changelog }}\n---\n${{ steps.changelog_en.outputs.changelog_en }}"
+
+            # 组成内容示例为：
+
+            # ## 0.0.12
+            # -  新增了一个功能。
+            # ---
+            # -  Add a new feature.
+
+            # 将合并的内容作为 Releases describe，并作为 latest release 发布本次 Release
+            - name: Release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ steps.tag.outputs.tag }}
+                  release_name: ${{ steps.tag.outputs.tag }}
+                  body: ${{ steps.body.outputs.body }}
+                  draft: false
+                  prerelease: false
