@@ -1,6 +1,6 @@
 {
     "name": "stdf",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Mobile Web component library based on Svelte and Tailwind",
     "main": "index.js",
     "scripts": {
