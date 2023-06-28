@@ -60,18 +60,25 @@ jobs:
             - name: Get body
               id: body
               run: |
-                  echo ::set-output name=body::"${{ steps.changelog.outputs.changelog }}\n---\n${{ steps.changelog_en.outputs.changelog_en }}"
+                  echo body=${{ steps.changelog.outputs.changelog }}\\n---\\n${{ steps.changelog_en.outputs.changelog_en }} >> $GITHUB_OUTPUT
+              #   echo ::set-output name=body::"${{ steps.changelog.outputs.changelog }}\n---\n${{ steps.changelog_en.outputs.changelog_en }}"
 
             # 组成内容示例为：
             # -  新增了一个功能。
             # ---
             # -  Add a new feature.
 
+            # 此处打印一下上述步骤中的输出内容 body，用来检查输出内容是否正确
+            - name: Log outputs
+              run: |
+                  cat $GITHUB_OUTPUT
+                  echo $GITHUB_OUTPUT
+
             # 将合并的内容作为 Releases describe，并作为 latest release 发布本次 Release
             - name: Release
               uses: actions/create-release@v1
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.STDF_GITHUB_TOKEN }}
               with:
                   tag_name: ${{ steps.tag.outputs.tag }}
                   release_name: ${{ steps.tag.outputs.tag }}
