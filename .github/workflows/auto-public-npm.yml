@@ -1,4 +1,4 @@
-# 当分支 main 有 push 事件并且此次 push 包含了 tag ，并且 tag 的格式为 v* 时，执行下面的任务
+# 当分支 main 有 push 事件并且此次 push 包含了 tag ，并且 tag 的格式为 v* 时，执行以下任务
 # 使用 GitHub Actions secrets 存储的 NPM_TOKEN 自动将本仓库 components 目录下的所有文件发布到 npm 上
 
 name: Auto publish npm
