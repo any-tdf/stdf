@@ -8,7 +8,7 @@ on:
         branches:
             - main
         paths:
-            - 'components/package.json'
+            - '/components/package.json'
 
 jobs:
     publish:
