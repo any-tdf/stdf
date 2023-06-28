@@ -17,8 +17,8 @@ on:
     push:
         branches:
             - main
-        paths:
-            - '/components/package.json'
+        tags:
+            - 'v*'
 
 jobs:
     release-please:
