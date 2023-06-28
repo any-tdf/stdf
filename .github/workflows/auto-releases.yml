@@ -17,8 +17,8 @@ on:
     push:
         branches:
             - main
-        tags:
-            - v*
+        paths:
+            - '/components/package.json'
 
 jobs:
     release-please:
@@ -30,35 +30,31 @@ jobs:
             - name: Get tag
               id: tag
               run: |
-                  echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+                  echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+              #   echo ::set-output name=tag::${GITHUB_REF#refs/*/}
             # 读取仓库内的 /doc/guide/changelog.md 中第一个二级标题与第二个二级标题之间的内容，包括换行，如
             #  ## 0.0.12
             #  -  新增了一个功能。
             #  ## 0.0.11
-
             # 只取第一个二级标题与第二个二级标题之间的内容，结果为：
-
             #  -  新增了一个功能。
-
             - name: Get changelog
               id: changelog
               run: |
-                  echo ::set-output name=changelog::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}')
+                  echo changelog=$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}') >> $GITHUB_OUTPUT
+              #   echo ::set-output name=changelog::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}')
 
             # 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包括换行，如
-
             #  ## 0.0.12
             #  -  Add a new feature.
             #  ## 0.0.11
-
             # 只取第一个二级标题与第二个二级标题之间的内容，结果为：
-
             #  -  Add a new feature.
-
             - name: Get changelog_en
               id: changelog_en
               run: |
-                  echo ::set-output name=changelog_en::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}')
+                  echo changelog_en=$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}') >> $GITHUB_OUTPUT
+              #   echo ::set-output name=changelog_en::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}')
 
             # 将两个内容合并为一个字符串，中间使用 --- 分隔
             - name: Get body

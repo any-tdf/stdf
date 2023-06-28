@@ -1,4 +1,4 @@
-# 当分支 main 有 push 事件时比对 /components/package.json 中的 version 字段是否有变化，如果有变化则执行发布，否则不执行发布
+# 当分支 main 有 push 事件并且此次 push 包含了 tag ，并且 tag 的格式为 v* 时，执行下面的任务
 # 使用 GitHub Actions secrets 存储的 NPM_TOKEN 自动将本仓库 components 目录下的所有文件发布到 npm 上
 
 name: Auto publish npm
@@ -7,6 +7,8 @@ on:
     push:
         branches:
             - main
+        paths:
+            - '/components/package.json'
 
 jobs:
     publish:
@@ -16,19 +18,12 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            #   比对 /components/package.json 中的 version 字段是否有变化，如果有变化则执行发布，否则不执行发布
-            - name: Check version changed
-              id: version_changed
-              run: |
-                  echo ::set-output name=changed::$(git diff --name-only HEAD^ HEAD | grep components/package.json | wc -l)
-
             - name: Setup Node.js environment
               uses: actions/setup-node@v1
               with:
                   node-version: 18.x
 
             - name: Publish
-              if: steps.version_changed.outputs.changed == '0'
               run: |
                   cd components
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
