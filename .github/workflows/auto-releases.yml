@@ -1,10 +1,8 @@
 # 当分支 main 有 push 事件并且 tag 为 v* 时触发，使用 GitHub Actions 执行以下步骤：
 # 读取 tag 内容，例如 v0.0.12，作为 Releases title
-# 读取仓库内的 /doc/guide/changelog.md 中第二个 ## 之前的内容
-# 再读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
+# 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
-# ## 0.0.12
 # -  新增了一个功能。
 # ---
 # -  Add a new feature.
