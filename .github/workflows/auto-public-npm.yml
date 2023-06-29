@@ -7,8 +7,6 @@ on:
     push:
         branches:
             - main
-        tags:
-            - 'v*'
 
 jobs:
     publish:
@@ -17,6 +15,14 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
+
+              # 读取最新push的 tag 内容，如果是 v 开头，则往下执行，否则退出
+            - name: Check tag
+                run: |
+                    if [[ $GITHUB_REF != 'refs/tags/v'* ]]; then
+                        echo "This is not a tag push. Skipping."
+                        exit 78
+                    fi
 
             - name: Setup Node.js environment
               uses: actions/setup-node@v1

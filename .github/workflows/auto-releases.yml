@@ -15,8 +15,6 @@ on:
     push:
         branches:
             - main
-        tags:
-            - 'v*'
 
 jobs:
     release-please:
@@ -24,55 +22,43 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
+            # 读取最新push的 tag 内容，如果是 v 开头，则往下执行，否则退出
+            - name: Check tag
+              run: |
+                  if [[ $GITHUB_REF != 'refs/tags/v'* ]]; then
+                      echo "This is not a tag push. Skipping."
+                      exit 78
+                  fi
+
             # 读取 tag 内容，例如 v0.0.12，作为 Releases title
             - name: Get tag
               id: tag
               run: |
                   echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
-              #   echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-            # 读取仓库内的 /doc/guide/changelog.md 中第一个二级标题与第二个二级标题之间的内容，包括换行，如
-            #  ## 0.0.12
-            #  -  新增了一个功能。
-            #  ## 0.0.11
-            # 只取第一个二级标题与第二个二级标题之间的内容，结果为：
-            #  -  新增了一个功能。
-            - name: Get changelog
-              id: changelog
-              run: |
-                  echo changelog=$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}') >> $GITHUB_OUTPUT
-              #   echo ::set-output name=changelog::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog.md | sed -n '/^## /{n;p;}')
 
-            # 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包括换行，如
-            #  ## 0.0.12
-            #  -  Add a new feature.
-            #  ## 0.0.11
-            # 只取第一个二级标题与第二个二级标题之间的内容，结果为：
-            #  -  Add a new feature.
-            - name: Get changelog_en
-              id: changelog_en
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+            # 安装 pnpm
+            - name: Install pnpm
               run: |
-                  echo changelog_en=$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}') >> $GITHUB_OUTPUT
-              #   echo ::set-output name=changelog_en::$(awk '/^## /{n++}{if(n==2){exit}}1' doc/guide/changelog_en.md | sed -n '/^## /{n;p;}')
+                  npm install -g pnpm
 
-            # 将两个内容合并为一个字符串，中间使用 --- 分隔
+            # cd 到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
+            - name: Install dependencies
+              run: |
+                  cd .github/workflows
+                  pnpm install
+
+            # 读取 releases.md 文件内容，作为 Releases describe
             - name: Get body
               id: body
               run: |
-                  echo body=${{ steps.changelog.outputs.changelog }}\\n---\\n${{ steps.changelog_en.outputs.changelog_en }} >> $GITHUB_OUTPUT
-              #   echo ::set-output name=body::"${{ steps.changelog.outputs.changelog }}\n---\n${{ steps.changelog_en.outputs.changelog_en }}"
+                  echo body=$(cat releases.md) >> $GITHUB_OUTPUT
+              #   echo ::set-output name=body::$(cat releases.md)
 
-            # 组成内容示例为：
-            # -  新增了一个功能。
-            # ---
-            # -  Add a new feature.
-
-            # 此处打印一下上述步骤中的输出内容 body，用来检查输出内容是否正确
-            - name: Log outputs
-              run: |
-                  cat $GITHUB_OUTPUT
-                  echo $GITHUB_OUTPUT
-
-            # 将合并的内容作为 Releases describe，并作为 latest release 发布本次 Release
+            # 作为 latest release 发布本次 Release
             - name: Release
               uses: actions/create-release@v1
               env:
@@ -83,3 +69,8 @@ jobs:
                   body: ${{ steps.body.outputs.body }}
                   draft: false
                   prerelease: false
+
+            # 删除 releases.md 文件
+            - name: Remove releases.md
+              run: |
+                  rm releases.md
