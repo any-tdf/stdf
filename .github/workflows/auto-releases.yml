@@ -71,6 +71,7 @@ jobs:
             # 执行 node releases.js，生成 releases.md 文件
             - name: Generate releases.md
               run: |
+                  cd .github/workflows
                   node releases.js
 
             # 读取 releases.md 文件内容，作为 Releases describe
