@@ -3,7 +3,8 @@
 # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
 # 如果不相同则此次不需要发布 Release，退出
 # 如果相同则继续往下执行
-# 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
+# 进入到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
+# releases.js 实现：读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
 # -  新增了一个功能。
@@ -46,12 +47,16 @@ jobs:
               run: |
                   npm install -g pnpm
 
-            # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 Get version 得到的 version 字段比较
-            # 如果不相同则此次不需要发布 Release，退出
-            # 如果相同则继续往下执行
-            - name: Check version
+            # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，
+            - name: Get md_version
+              id: md_version
               run: |
                   echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+              #   echo ::set-output name=md_version::$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]')
+
+            # 比较 Get version 与 Get md_version 的输出内容，如果不相同则此次不需要发布 Release，退出
+            - name: Check version
+              run: |
                   if [[ ${{ steps.version.outputs.version }} != ${{ steps.md_version.outputs.md_version }} ]]; then
                       echo "This is not a tag push. Skipping."
                       exit 78
