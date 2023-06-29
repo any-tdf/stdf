@@ -21,8 +21,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-           - name: Checkout
-            - uses: actions/checkout@v2
+            - name: Checkout
+              uses: actions/checkout@v2
+              
             # 读取最新push的 tag 内容，如果是 v 开头，则往下执行，否则退出
             - name: Check tag
               run: |
