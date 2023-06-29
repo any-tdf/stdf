@@ -1,3 +1,7 @@
+## 0.0.18
+
+-   0.0.12 ~ 0.0.17 versions have no updates, used to test GitHub Action.
+
 ## 0.0.11
 
 -   Optimize Input, please see [Input](https://stdf.design/#/components?nav=input&tab=4).
