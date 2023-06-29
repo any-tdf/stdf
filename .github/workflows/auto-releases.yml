@@ -1,5 +1,8 @@
 # 当分支 main 有 push 事件，并且此次 push 包含了 components 目录下的文件时，执行以下任务
 # 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
+# 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
+# 如果不相同则此次不需要发布 Release，退出
+# 如果相同则继续往下执行
 # 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
@@ -43,11 +46,23 @@ jobs:
               run: |
                   npm install -g pnpm
 
+            # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 Get version 得到的 version 字段比较
+            # 如果不相同则此次不需要发布 Release，退出
+            # 如果相同则继续往下执行
+            - name: Check version
+              run: |
+                  echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+                  if [[ ${{ steps.version.outputs.version }} != ${{ steps.md_version.outputs.md_version }} ]]; then
+                      echo "This is not a tag push. Skipping."
+                      exit 78
+                  fi
+
             # cd 到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
             - name: Install dependencies
               run: |
                   cd .github/workflows
                   pnpm install
+                  node releases.js
 
             # 读取 releases.md 文件内容，作为 Releases describe
             - name: Get body
