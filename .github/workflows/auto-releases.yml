@@ -38,15 +38,6 @@ jobs:
                   echo version=$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
               #   echo ::set-output name=version::$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 18.x
-            # 安装 pnpm
-            - name: Install pnpm
-              run: |
-                  npm install -g pnpm
-
             # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，
             - name: Get md_version
               id: md_version
@@ -61,6 +52,15 @@ jobs:
                       echo "This is not a tag push. Skipping."
                       exit 78
                   fi
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+            # 安装 pnpm
+            - name: Install pnpm
+              run: |
+                  npm install -g pnpm
 
             # cd 到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
             - name: Install dependencies
