@@ -83,7 +83,7 @@ jobs:
               run: |
                   echo body=$(cat <<EOF
                   ${{ steps.changelog.outputs.changelog }}
-                  ---
+                  \n---\n
                   ${{ steps.changelog_en.outputs.changelog_en }}
                   EOF
                   ) >> $GITHUB_OUTPUT
