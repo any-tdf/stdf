@@ -62,11 +62,15 @@ jobs:
               run: |
                   npm install -g pnpm
 
-            # cd 到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
+            # cd 到 .github/workflows 目录下，执行 pnpm install
             - name: Install dependencies
               run: |
                   cd .github/workflows
                   pnpm install
+
+            # 执行 node releases.js，生成 releases.md 文件
+            - name: Generate releases.md
+              run: |
                   node releases.js
 
             # 读取 releases.md 文件内容，作为 Releases describe
@@ -82,8 +86,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.STDF_GITHUB_TOKEN }}
               with:
-                  tag_name: ${{ steps.tag.outputs.version }}
-                  release_name: ${{ steps.tag.outputs.version }}
+                  tag_name: ${{ steps.version.outputs.version }}
+                  release_name: ${{ steps.version.outputs.version }}
                   body: ${{ steps.body.outputs.body }}
                   draft: false
                   prerelease: false
