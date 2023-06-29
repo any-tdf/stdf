@@ -69,10 +69,11 @@ jobs:
                   pnpm install
                   node releases.js
 
-            # 读取 releases.md 文件内容，作为 Releases describe
+            # cd 到 .github 目录下，读取 releases.md 文件内容，作为 Releases describe
             - name: Get body
               id: body
               run: |
+                  cd .github
                   echo body=$(cat releases.md) >> $GITHUB_OUTPUT
               #   echo ::set-output name=body::$(cat releases.md)
 

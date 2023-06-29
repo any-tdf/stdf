@@ -32,4 +32,7 @@ const changelogEnContent = changelogEn.match(/##\s[\d\.]+\n\n([\s\S]*?)\n\n##\s[
 
 const releasesContent = `${changelogContent}\n\n---\n\n${changelogEnContent}`;
 
+// 打印出 releasesContent
+console.log('releasesContent: ', releasesContent);
+
 fs.writeFileSync(releasesPath, releasesContent);
