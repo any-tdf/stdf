@@ -3,7 +3,7 @@
 # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
 # 如果不相同则此次不需要发布 Release，退出
 # 如果相同则继续往下执行
-# 进入到 .github/workflows 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
+# 进入到 .github 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
 # releases.js 实现：读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
@@ -62,16 +62,11 @@ jobs:
               run: |
                   npm install -g pnpm
 
-            # cd 到 .github/workflows 目录下，执行 pnpm install
+            # cd 到 .github 目录下，执行 pnpm install，执行 node releases.js，生成 releases.md 文件
             - name: Install dependencies
               run: |
-                  cd .github/workflows
+                  cd .github
                   pnpm install
-
-            # 执行 node releases.js，生成 releases.md 文件
-            - name: Generate releases.md
-              run: |
-                  cd .github/workflows
                   node releases.js
 
             # 读取 releases.md 文件内容，作为 Releases describe
