@@ -1,6 +1,6 @@
-## 0.0.24
+## 0.0.25
 
--   0.0.12 ~ 0.0.24 versions have no substantial updates, only for testing GitHub Action.
+-   0.0.12 ~ 0.0.25 versions have no substantial updates, only for testing GitHub Action.
 
 ## 0.0.11
 

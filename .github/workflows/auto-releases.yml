@@ -1,10 +1,10 @@
 # 当分支 main 有 push 事件，并且此次 push 包含了 components 目录下的文件时，执行以下任务
 # 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
-# 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
+# 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
 # 如果不相同则此次不需要发布 Release，退出
 # 如果相同则继续往下执行
-# 进入到 .github 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.txt 文件
-# releases.js 实现：读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
+# 读取仓库内的 /doc/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格
+# 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包含换行和空格
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
 # -  新增了一个功能。
@@ -12,6 +12,11 @@
 # -  Add a new feature.
 # 将合并的内容作为 Releases describe
 # Set as the latest release 并发布本次 Release
+
+
+# 进入到 .github 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.txt 文件
+# releases.js 实现：读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
+# 将两个内容合并为一个字符串，中间使用 --- 分隔
 
 name: Auto releases
 
@@ -36,43 +41,52 @@ jobs:
               run: |
                   echo version=$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，
+            # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格
             - name: Get md_version
               id: md_version
               run: |
                   echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 比较 Get version 与 Get md_version 的输出内容，如果不相同则此次不需要发布 Release，退出
+            # 读取仓库内的 /doc/guide/changelog_en.md 的第一行内容，去除 ## 和空格
+            - name: Get md_version_en
+              id: md_version_en
+              run: |
+                  echo md_version_en=$(cat doc/guide/changelog_en.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+
+            # 比较 Get version 与 Get md_version 和 Get md_version_en 三者的输出内容，如果不相同则此次不需要发布 Release，退出
             - name: Check version
               run: |
                   if [[ ${{ steps.version.outputs.version }} != ${{ steps.md_version.outputs.md_version }} ]]; then
                       echo "This is not a tag push. Skipping."
                       exit 78
                   fi
+                  if [[ ${{ steps.version.outputs.version }} != ${{ steps.md_version_en.outputs.md_version_en }} ]]; then
+                      echo "This is not a tag push. Skipping."
+                      exit 78
+                  fi
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 18.x
-
-            # 安装 pnpm
-            - name: Install pnpm
+            # 读取仓库内的 /doc/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格
+            - name: Get changelog
+              id: changelog
               run: |
-                  npm install -g pnpm
+                  echo changelog=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog.md | sed '/^$/d') >> $GITHUB_OUTPUT
 
-            # cd 到 .github 目录下，执行 pnpm install，执行 node releases.js，生成 releases.txt 文件
-            - name: Install dependencies and generate releases.txt
+            # 读取仓库内的 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包含换行和空格
+            - name: Get changelog_en
+              id: changelog_en
               run: |
-                  cd .github
-                  pnpm install
-                  node releases.js
+                  echo changelog_en=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog_en.md | sed '/^$/d') >> $GITHUB_OUTPUT
 
-            # cd 到 .github 目录下，读取 releases.txt 文件内容，保留其中的换行与空格，作为 Releases describe
+            # 将 Get changelog 和 Get changelog_en 两个输出内容合并为一个字符串，中间使用 --- 分隔，其中的换行和空格保留，--- 单独占一行
             - name: Get body
               id: body
               run: |
-                  cd .github
-                  echo -e body=$(cat releases.txt) >> $GITHUB_OUTPUT
+                  echo body=$(cat <<EOF
+                  ${{ steps.changelog.outputs.changelog }}
+                  ---
+                  ${{ steps.changelog_en.outputs.changelog_en }}
+                  EOF
+                  ) >> $GITHUB_OUTPUT
 
             # 作为 latest release 发布本次 Release
             - name: Release
@@ -85,3 +99,27 @@ jobs:
                   body: ${{ steps.body.outputs.body }}
                   draft: false
                   prerelease: false
+
+            #       - name: Setup Node.js environment
+            #   uses: actions/setup-node@v1
+            #   with:
+            #       node-version: 18.x
+
+            # # 安装 pnpm
+            # - name: Install pnpm
+            #   run: |
+            #       npm install -g pnpm
+
+            # # cd 到 .github 目录下，执行 pnpm install，执行 node releases.js，生成 releases.txt 文件
+            # - name: Install dependencies and generate releases.txt
+            #   run: |
+            #       cd .github
+            #       pnpm install
+            #       node releases.js
+
+            # # cd 到 .github 目录下，读取 releases.txt 文件内容，保留其中的换行与空格，作为 Releases describe
+            # - name: Get body
+            #   id: body
+            #   run: |
+            #       cd .github
+            #       echo body=$(cat releases.txt) >> $GITHUB_OUTPUT
