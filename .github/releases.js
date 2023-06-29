@@ -13,7 +13,7 @@
 
 // 获取内容暂存为变量 changelogContent
 // 英文版的 changelog_en.md 文件同理，获取内容暂存为变量 changelogEnContent
-// 然后将获取的两个内容按照 Markdown 格式用单独一行 --- 分开，保存到 ./releases.md 文件中
+// 然后将获取的两个内容按照 Markdown 格式用单独一行 --- 分开，保存到 ./releases.txt 文件中
 
 const fs = require('fs');
 const path = require('path');
@@ -21,7 +21,7 @@ const path = require('path');
 
 const changelogPath = path.resolve(__dirname, '../doc/guide/changelog.md');
 const changelogEnPath = path.resolve(__dirname, '../doc/guide/changelog_en.md');
-const releasesPath = path.resolve(__dirname, './releases.md');
+const releasesPath = path.resolve(__dirname, './releases.txt');
 
 const changelog = fs.readFileSync(changelogPath, 'utf-8');
 const changelogEn = fs.readFileSync(changelogEnPath, 'utf-8');

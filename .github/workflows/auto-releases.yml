@@ -3,7 +3,7 @@
 # 读取仓库内的 /doc/guide/changelog.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
 # 如果不相同则此次不需要发布 Release，退出
 # 如果相同则继续往下执行
-# 进入到 .github 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.md 文件
+# 进入到 .github 目录下，执行 pnpm install，再执行 node releases.js，生成 releases.txt 文件
 # releases.js 实现：读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
@@ -12,7 +12,6 @@
 # -  Add a new feature.
 # 将合并的内容作为 Releases describe
 # Set as the latest release 并发布本次 Release
-# 删除 releases.md 文件
 
 name: Auto releases
 
@@ -57,25 +56,25 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: 18.x
+
             # 安装 pnpm
             - name: Install pnpm
               run: |
                   npm install -g pnpm
 
-            # cd 到 .github 目录下，执行 pnpm install，执行 node releases.js，生成 releases.md 文件
-            - name: Install dependencies
+            # cd 到 .github 目录下，执行 pnpm install，执行 node releases.js，生成 releases.txt 文件
+            - name: Install dependencies and generate releases.txt
               run: |
                   cd .github
                   pnpm install
                   node releases.js
 
-            # cd 到 .github 目录下，读取 releases.md 文件内容，作为 Releases describe
+            # cd 到 .github 目录下，读取 releases.txt 文件内容，保留其中的换行与空格，作为 Releases describe
             - name: Get body
               id: body
               run: |
                   cd .github
-                  echo body=$(cat releases.md) >> $GITHUB_OUTPUT
-              #   echo ::set-output name=body::$(cat releases.md)
+                  echo body=$(cat releases.txt) >> $GITHUB_OUTPUT
 
             # 作为 latest release 发布本次 Release
             - name: Release
@@ -88,8 +87,3 @@ jobs:
                   body: ${{ steps.body.outputs.body }}
                   draft: false
                   prerelease: false
-
-            # 删除 releases.md 文件
-            - name: Remove releases.md
-              run: |
-                  rm releases.md
