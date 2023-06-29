@@ -1,5 +1,5 @@
-# 当分支 main 有 push 事件并且 tag 为 v* 时触发，使用 GitHub Actions 执行以下步骤：
-# 读取 tag 内容，例如 v0.0.12，作为 Releases title
+# 当分支 main 有 push 事件，并且此次 push 包含了 components 目录下的文件时，执行以下任务
+# 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
 # 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容
 # 将两个内容合并为一个字符串，中间使用 --- 分隔
 # 组成内容示例为：
@@ -8,6 +8,7 @@
 # -  Add a new feature.
 # 将合并的内容作为 Releases describe
 # Set as the latest release 并发布本次 Release
+# 删除 releases.md 文件
 
 name: Auto releases
 
@@ -15,6 +16,8 @@ on:
     push:
         branches:
             - main
+        paths:
+            - 'components/**'
 
 jobs:
     releases:
@@ -23,20 +26,13 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-              
-            # 读取最新push的 tag 内容，如果是 v 开头，则往下执行，否则退出
-            - name: Check tag
-              run: |
-                  if [[ $GITHUB_REF != 'refs/tags/v'* ]]; then
-                      echo "This is not a tag push. Skipping."
-                      exit 78
-                  fi
 
-            # 读取 tag 内容，例如 v0.0.12，作为 Releases title
-            - name: Get tag
-              id: tag
+            # 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
+            - name: Get version
+              id: version
               run: |
-                  echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+                  echo version=$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+              #   echo ::set-output name=version::$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 
             - name: Setup Node.js environment
               uses: actions/setup-node@v1
@@ -66,8 +62,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.STDF_GITHUB_TOKEN }}
               with:
-                  tag_name: ${{ steps.tag.outputs.tag }}
-                  release_name: ${{ steps.tag.outputs.tag }}
+                  tag_name: ${{ steps.tag.outputs.version }}
+                  release_name: ${{ steps.tag.outputs.version }}
                   body: ${{ steps.body.outputs.body }}
                   draft: false
                   prerelease: false
