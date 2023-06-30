@@ -1,6 +1,6 @@
 ## STDF 名称
 
-常规解释：S 代表 Simple（简单），T 代表 Thin（轻量），D 代表 Design（设计），F 代表 Fast（快速）。如此解释的话，STDF 代表一个使用简单、体积轻量、设计友好、开发快速的组件库。
+常规解释：S 代表 Simple（简单），T 代表 Thin（轻量），D 代表 Design（设计），F 代表 Fast（快速），STDF 代表一个使用简单、体积轻量、设计友好、开发快速的组件库。
 
 非常规解释：S 和 T 分别代表 Svelte 和 Tailwind，因为 STDF 是基于 Svelte 和 Tailwind 的。DF 可以看成诗人杜甫，不像李白那么浪漫飘逸，他注重的是实用性与易用性，这也是 STDF 的设计理念。希望每一位使用 STDF 的开发者都能写出诗一般的代码。
 
