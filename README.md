@@ -3,9 +3,7 @@
   <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>
 
-[![npm (tag)](https://img.shields.io/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://img.shields.io/npm/dt/stdf)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/dufu1991/stdf"/></a>
-
-</p>
+[![npm (tag)](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf?icon=github"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://badgen.net/github/license/dufu1991/stdf"/></a>
 
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
