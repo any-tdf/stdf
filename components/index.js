@@ -40,6 +40,7 @@ import Picker from './src/picker/Picker.svelte';
 import AsyncPicker from './src/asyncPicker/AsyncPicker.svelte';
 import TimePicker from './src/timePicker/TimePicker.svelte';
 import Calendar from './src/calendar/Calendar.svelte';
+import Pagination from './src/pagination/Pagination.svelte';
 
 export {
     Button,
@@ -83,5 +84,6 @@ export {
     Picker,
     AsyncPicker,
     TimePicker,
-    Calendar
+    Calendar,
+    Pagination,
 };
