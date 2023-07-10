@@ -1,3 +1,7 @@
+## 0.1.0
+
+-   新增 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=0)。
+
 ## 0.0.27
 
 -   0.0.12 ~ 0.0.27 版本无实质更新，仅用于测试 GitHub Action。

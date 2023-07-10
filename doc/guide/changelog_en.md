@@ -1,3 +1,7 @@
+## 0.1.0
+
+-   Add Pagination component, please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=0).
+
 ## 0.0.27
 
 -   0.0.12 ~ 0.0.27 versions have no substantial updates, only for testing GitHub Action.

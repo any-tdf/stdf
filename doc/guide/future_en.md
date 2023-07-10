@@ -1,8 +1,8 @@
 ## 💪 New Features 💪
 
-- [ ] Added Pagination component, as I dislike infinite scrolling and prefer click-to-load-more functionality.
 - [ ] Added NumKeyboard component for inputting numbers.
 - [ ] Added SecurityCode component for entering verification codes received via SMS or email.
+- [x] Added Pagination component.
 
 ---
 
