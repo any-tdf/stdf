@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Título',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Solo hay una página',
+    },
     picker: {
         defaultTitle: 'Elixir',
         defaultCancel: 'Cancelar',

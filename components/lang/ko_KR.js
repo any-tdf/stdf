@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: '제목',
     },
+    pagination: {
+        defaultOnlyOnePage: '한 페이지만 있습니다',
+    },
     picker: {
         defaultTitle: '선택해주세요',
         defaultCancel: '취소',

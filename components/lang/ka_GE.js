@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'სათაური',
     },
+    pagination: {
+        defaultOnlyOnePage: 'მხოლოდ 1 გვერდი',
+    },
     picker: {
         defaultTitle: 'აირჩიეთ',
         defaultCancel: 'გაუქმება',

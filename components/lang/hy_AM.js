@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Վերնագիր',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Միայն մեկ էջ',
+    },
     picker: {
         defaultTitle: 'Ընտրեք',
         defaultCancel: 'Չեղարկել',

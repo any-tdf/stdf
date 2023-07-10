@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Izenburua',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Orri bakarra',
+    },
     picker: {
         defaultTitle: 'Aukeratu mesedez',
         defaultCancel: 'Utzi',

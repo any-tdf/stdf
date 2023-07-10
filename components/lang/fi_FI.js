@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Otsikko',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Vain yksi sivu',
+    },
     picker: {
         defaultTitle: 'Valitse',
         defaultCancel: 'Peruuta',

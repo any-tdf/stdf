@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Title',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Only one page',
+    },
     picker: {
         defaultTitle: 'Please choose',
         defaultCancel: 'Cancel',

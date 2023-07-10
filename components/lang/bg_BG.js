@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Заглавие',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Само една',
+    },
     picker: {
         defaultTitle: 'Моля, изберете',
         defaultCancel: 'Отказ',

@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: "Titel",
     },
+    pagination: {
+        defaultOnlyOnePage: 'Kun en side',
+    },
     picker: {
         defaultTitle: "Vælg venligst",
         defaultCancel: "Annuller",

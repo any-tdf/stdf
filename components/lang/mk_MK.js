@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Наслов',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Само една страница',
+    },
     picker: {
         defaultTitle: 'Избери',
         defaultCancel: 'Откажи',

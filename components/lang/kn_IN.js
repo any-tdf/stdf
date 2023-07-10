@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'ಶೀರ್ಷಿಕೆ',
     },
+    pagination: {
+        defaultOnlyOnePage: 'ಒಂದು ಪುಟ ಮಾತ್ರ',
+    },
     picker: {
         defaultTitle: 'ಆಯ್ಕೆ ಮಾಡಿ',
         defaultCancel: 'ರದ್ದುಮಾಡಿ',

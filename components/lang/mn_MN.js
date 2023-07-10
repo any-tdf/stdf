@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Гарчиг',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Зөвхөн 1-р хуудас',
+    },
     picker: {
         defaultTitle: 'Сонгох',
         defaultCancel: 'Цуцлах',

@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'العنوان',
     },
+    pagination: {
+        defaultOnlyOnePage: 'فقط صفحة واحدة',
+    },
     picker: {
         defaultTitle: 'الرجاء الاختيار',
         defaultCancel: 'إلغاء',

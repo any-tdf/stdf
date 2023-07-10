@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Titill',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Aðeins ein síða',
+    },
     picker: {
         defaultTitle: 'Veldu vinsamlegast',
         defaultCancel: 'Hætta við',

@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Nosaukums',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Tikai viena lapa',
+    },
     picker: {
         defaultTitle: 'Izvēlieties',
         defaultCancel: 'Atcelt',

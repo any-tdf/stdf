@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'כותרת',
     },
+    pagination: {
+        defaultOnlyOnePage: 'רק דף אחד',
+    },
     picker: {
         defaultTitle: 'בחר',
         defaultCancel: 'בטל',

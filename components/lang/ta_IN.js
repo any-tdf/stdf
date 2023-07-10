@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'தலைப்பு',
     },
+    pagination: {
+        defaultOnlyOnePage: 'ஒரு பக்கம் மட்டுமே',
+    },
     picker: {
         defaultTitle: 'தயவு செய்து தேர்ந்தெடுக்கவும்',
         defaultCancel: 'ரத்துசெய்',

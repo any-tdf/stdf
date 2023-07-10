@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Teideal',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Níl ach leathanach amháin ann',
+    },
     picker: {
         defaultTitle: 'Roghnaigh',
         defaultCancel: 'Cealaigh',

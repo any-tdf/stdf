@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Titlu',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Doar o pagină',
+    },
     picker: {
         defaultTitle: 'Selectați vă rog',
         defaultCancel: 'Anulează',

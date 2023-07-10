@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'শিরোনাম',
     },
+    pagination: {
+        defaultOnlyOnePage: 'শুধুমাত্র একটি',
+    },
     picker: {
         defaultTitle: 'অনুগ্রহ করে নির্বাচন করুন',
         defaultCancel: 'বাতিল',

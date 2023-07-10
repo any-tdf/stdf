@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: '標題',
     },
+    pagination: {
+        defaultOnlyOnePage: '只有一頁',
+    },
     picker: {
         defaultTitle: '請選擇',
         defaultCancel: '取消',

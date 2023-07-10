@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Títol',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Només una pàgina',
+    },
     picker: {
         defaultTitle: 'Si us plau, trieu',
         defaultCancel: 'Cancel·lar',

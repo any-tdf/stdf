@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Pavadinimas',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Tik vienas puslapis',
+    },
     picker: {
         defaultTitle: 'Pasirinkite',
         defaultCancel: 'Atšaukti',

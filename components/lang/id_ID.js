@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Judul',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Hanya satu halaman',
+    },
     picker: {
         defaultTitle: 'Silakan pilih',
         defaultCancel: 'Batal',

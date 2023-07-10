@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'शीर्षक',
     },
+    pagination: {
+        defaultOnlyOnePage: 'केवल एक पृष्ठ',
+    },
     picker: {
         defaultTitle: 'चयन करें',
         defaultCancel: 'रद्द करें',

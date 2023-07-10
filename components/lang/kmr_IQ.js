@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Nav',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Tenê yek rûpel',
+    },
     picker: {
         defaultTitle: 'Hilbijêre',
         defaultCancel: 'Betalke',

@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Pealkiri',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Ainult üks leht',
+    },
     picker: {
         defaultTitle: 'Palun valige',
         defaultCancel: 'Tühista',

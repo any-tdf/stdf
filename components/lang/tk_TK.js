@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Başlyk',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Bir sahypa',
+    },
     picker: {
         defaultTitle: 'Saýlaň',
         defaultCancel: 'Gurnama',

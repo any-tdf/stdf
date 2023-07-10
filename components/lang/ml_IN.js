@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'ശീർഷകം',
     },
+    pagination: {
+        defaultOnlyOnePage: 'ഒരു പേജ് മാത്രം',
+    },
     picker: {
         defaultTitle: 'തിരഞ്ഞെടുക്കുക',
         defaultCancel: 'റദ്ദാക്കുക',

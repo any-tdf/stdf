@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Tiêu đề',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Chỉ có một trang',
+    },
     picker: {
         defaultTitle: 'Chọn',
         defaultCancel: 'Hủy',

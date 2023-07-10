@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'මාතෘකාව',
     },
+    pagination: {
+        defaultOnlyOnePage: 'එක් පිටුවක් පමණක් පවතී',
+    },
     picker: {
         defaultTitle: 'කරුණාකර තෝරන්න',
         defaultCancel: 'අවලංගු කරන්න',

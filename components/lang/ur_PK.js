@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'عنوان',
     },
+    pagination: {
+        defaultOnlyOnePage: 'صرف ایک صفحہ',
+    },
     picker: {
         defaultTitle: 'منتخب کریں',
         defaultCancel: 'منسوخ',

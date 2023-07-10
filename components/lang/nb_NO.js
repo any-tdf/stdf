@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Tittel',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Bare en side',
+    },
     picker: {
         defaultTitle: 'Vennligst velg',
         defaultCancel: 'Avbryt',

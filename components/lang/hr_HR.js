@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Naslov',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Samo jedna stranica',
+    },
     picker: {
         defaultTitle: 'Odaberite',
         defaultCancel: 'Otkaži',

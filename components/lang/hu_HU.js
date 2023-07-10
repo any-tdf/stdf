@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Cím',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Csak egy oldal',
+    },
     picker: {
         defaultTitle: 'Kérem válasszon',
         defaultCancel: 'Mégsem',

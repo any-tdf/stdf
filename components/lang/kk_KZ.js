@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Тақырып',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Тек 1 бет',
+    },
     picker: {
         defaultTitle: 'Таңдаңыз',
         defaultCancel: 'Болдырмау',

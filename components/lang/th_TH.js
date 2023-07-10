@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'หัวเรื่อง',
     },
+    pagination: {
+        defaultOnlyOnePage: 'เพียงหน้าเดียว',
+    },
     picker: {
         defaultTitle: 'กรุณาเลือก',
         defaultCancel: 'ยกเลิก',

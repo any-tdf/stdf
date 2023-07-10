@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'タイトル',
     },
+    pagination: {
+        defaultOnlyOnePage: '1ページのみ',
+    },
     picker: {
         defaultTitle: '選んでください',
         defaultCancel: 'キャンセル',

@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Τίτλος',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Μόνο μία',
+    },
     picker: {
         defaultTitle: 'Παρακαλώ επιλέξτε',
         defaultCancel: 'Ακύρωση',

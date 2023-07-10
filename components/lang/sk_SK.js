@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Titulok',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Len jedna stránka',
+    },
     picker: {
         defaultTitle: 'Prosím vyberte',
         defaultCancel: 'Zrušiť',

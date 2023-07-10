@@ -28,6 +28,9 @@ export default {
     navBar: {
         title: 'Başlık',
     },
+    pagination: {
+        defaultOnlyOnePage: 'Sadece bir sayfa',
+    },
     picker: {
         defaultTitle: 'Lütfen seçiniz',
         defaultCancel: 'İptal',
