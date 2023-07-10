@@ -1,3 +1,7 @@
+## 0.1.1
+
+-   Fix Pagination component bug.
+
 ## 0.1.0
 
 -   Add Pagination component, please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=0).

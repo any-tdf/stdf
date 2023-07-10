@@ -1,3 +1,7 @@
+## 0.1.1
+
+-   修复 Pagination 组件的 bug。
+
 ## 0.1.0
 
 -   新增 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=0)。
