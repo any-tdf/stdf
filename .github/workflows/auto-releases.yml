@@ -1,4 +1,4 @@
-# 当分支 main 有 push 事件，并且此次 push 包含了 components 目录下的文件时，执行以下任务
+# 当分支 main 有 push 事件，并且此次 push 包含了 components 和 doc 目录下的文件时，执行以下任务
 # 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
 # 读取仓库内的 /doc/guide/changelog.md 和 /doc/guide/changelog_en.md 的第一行内容，去除 ## 和空格，与 components/package.json 中的 version 字段比较
 # 如果不相同则此次不需要发布 Release，退出
@@ -15,6 +15,7 @@ on:
             - main
         paths:
             - 'components/**'
+            - 'doc/**'
 
 jobs:
     releases:
