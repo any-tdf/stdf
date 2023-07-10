@@ -1,6 +1,6 @@
 ## 0.1.1
 
--   Fix Pagination component bug.
+-   Fix Pagination.
 
 ## 0.1.0
 

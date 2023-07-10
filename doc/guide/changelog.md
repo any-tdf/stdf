@@ -1,6 +1,6 @@
 ## 0.1.1
 
--   修复 Pagination 组件的 bug。
+-   修复 Pagination。
 
 ## 0.1.0
 
