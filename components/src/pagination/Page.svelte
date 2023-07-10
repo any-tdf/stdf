@@ -34,7 +34,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     on:click
-    class="flex-1 py-2 border {active
+    class="flex-1 py-2 border cursor-pointer {active
         ? typeClass[type] || typeClass.border
         : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
 >

@@ -12,7 +12,8 @@
 
     // 当前语言
     // current language
-    const currentLang = getContext('STDF_lang') || zh_CN;
+    // const currentLang = getContext('STDF_lang') || zh_CN;
+    const currentLang = zh_CN;
     const commonLang = currentLang.common;
     const paginationLang = currentLang.pagination;
 
@@ -46,11 +47,11 @@
 
     // 是否显示后省略号的省略页码
     // show second level page in next ellipsis
-    export let showNextSecondPage = false;
+    export let showNextOmitPage = false;
 
     // 是否显示前省略号的省略页码
     // show second level page in pre ellipsis
-    export let showPreSecondPage = false;
+    export let showPreOmitPage = false;
 
     // 注入CSS
     // Inject CSS
@@ -136,14 +137,14 @@
     // 特殊情况处理
     // Special case handling
     if (totalPage <= maxShowPage) {
-        showNextSecondPage = false;
+        showNextOmitPage = false;
     }
 
     // 点击后省略号事件
     // click next ellipsis event
     const clickNextEllipsisFunc = () => {
         if (nextEllipsisPages.length > 0) {
-            showNextSecondPage = !showNextSecondPage;
+            showNextOmitPage = !showNextOmitPage;
         }
     };
 
@@ -151,15 +152,15 @@
     // click pre ellipsis event
     const clickPreEllipsisFunc = () => {
         if (preEllipsisPages.length > 0) {
-            showPreSecondPage = !showPreSecondPage;
+            showPreOmitPage = !showPreOmitPage;
         }
     };
 
     // 页码改变的回调，参数是改变后的页码及每页条数
     // onChange
     const onChange = () => {
-        showNextSecondPage = false;
-        showPreSecondPage = false;
+        showNextOmitPage = false;
+        showPreOmitPage = false;
         dispatch('change', current);
     };
 
@@ -194,8 +195,8 @@
     // click second page item event
     const clickSecondPageItemFunc = e => {
         current = e.detail;
-        showNextSecondPage = false;
-        showPreSecondPage = false;
+        showNextOmitPage = false;
+        showPreOmitPage = false;
         onChange();
     };
 
@@ -244,7 +245,7 @@
         {#if showPreEllipsis}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div
-                class="flex-1 py-2 border {showPreSecondPage
+                class="flex-1 py-2 border {showPreOmitPage
                     ? typeClass[type] || typeClass.border
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
                 on:click={clickPreEllipsisFunc}
@@ -281,7 +282,7 @@
         {#if showNextEllipsis}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div
-                class="flex-1 py-2 border {showNextSecondPage
+                class="flex-1 py-2 border {showNextOmitPage
                     ? typeClass[type] || typeClass.border
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
                 on:click={clickNextEllipsisFunc}
@@ -300,10 +301,10 @@
     >
         <Icon name="ri-arrow-right-s-line" size={20} />
     </div>
-    {#if showNextSecondPage}
+    {#if showNextOmitPage}
         <SecondPageNext {pageCol} Pages={nextEllipsisPages} {type} {radius} on:clickItem={clickSecondPageItemFunc} {maxShowPage} />
     {/if}
-    {#if showPreSecondPage}
+    {#if showPreOmitPage}
         <SecondPagePre {pageCol} Pages={preEllipsisPages} {type} {radius} on:clickItem={clickSecondPageItemFunc} {maxShowPage} />
     {/if}
 </div>
