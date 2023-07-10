@@ -12,8 +12,7 @@
 
     // 当前语言
     // current language
-    // const currentLang = getContext('STDF_lang') || zh_CN;
-    const currentLang = zh_CN;
+    const currentLang = getContext('STDF_lang') || zh_CN;
     const commonLang = currentLang.common;
     const paginationLang = currentLang.pagination;
 
