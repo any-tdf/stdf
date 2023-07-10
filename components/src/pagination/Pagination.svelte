@@ -1,13 +1,20 @@
 <script>
-    import { onMount, createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, getContext } from 'svelte';
     import Icon from '../icon/Icon.svelte';
     import Page from './Page.svelte';
     import SecondPageNext from './SecondPageNext.svelte';
     import SecondPagePre from './SecondPagePre.svelte';
+    import zh_CN from '../../lang/zh_CN';
 
     // 定义事件派发器
     // Define event dispatcher
     const dispatch = createEventDispatcher();
+
+    // 当前语言
+    // current language
+    const currentLang = getContext('STDF_lang') || zh_CN;
+    const commonLang = currentLang.common;
+    const paginationLang = currentLang.pagination;
 
     // 总条数
     // total
@@ -49,6 +56,14 @@
     // Inject CSS
     export let injClass = '';
 
+    // 无数据文本
+    // No data text
+    export let noDataText = commonLang.noData;
+
+    // 仅一页文本
+    // only one page text
+    export let onePageText = paginationLang.defaultOnlyOnePage;
+
     // 总页数
     // totalPage
     $: totalPage = Math.ceil(total / pageSize);
@@ -73,6 +88,8 @@
     // next ellipsis page array
     let nextEllipsisPages = [];
 
+    // 当页码变化时对一系列数据动态计算
+    // Dynamic calculation of a series of data when the page number changes
     $: {
         if (showPreEllipsis && showNextEllipsis) {
             if (maxShowPage === 5) {
@@ -116,11 +133,11 @@
         }
     }
 
-    onMount(() => {
-        if (totalPage <= maxShowPage) {
-            showNextSecondPage = false;
-        }
-    });
+    // 特殊情况处理
+    // Special case handling
+    if (totalPage <= maxShowPage) {
+        showNextSecondPage = false;
+    }
 
     // 点击后省略号事件
     // click next ellipsis event
@@ -182,12 +199,16 @@
         onChange();
     };
 
+    // 类型样式
+    // type class
     const typeClass = {
         border: 'border-primary dark:border-dark text-primary dark:text-dark',
         block: 'bg-primary text-white dark:bg-dark dark:text-black',
         bold: 'font-bold text-primary dark:text-dark border-transparent',
     };
 
+    // 圆角样式
+    // radius class
     const radiusClass = {
         base: 'rounded',
         md: 'rounded-md',
@@ -209,12 +230,14 @@
         <Icon name="ri-arrow-left-s-line" size={18} />
     </div>
     {#if totalPage === 0}
-        <div class="flex-1 py-2 border border-transparent">无数据</div>
+        <div class="flex-1 py-2 border border-transparent">{noDataText}</div>
     {:else if totalPage === 1}
-        <div class="flex-1 py-2 border border-transparent">仅一页</div>
+        <div class="flex-1 py-2 border border-transparent">{onePageText}</div>
     {:else if totalPage > 1 && totalPage <= maxShowPage}
         {#each new Array(totalPage) as item, index}
-            <Page active={current === index + 1} {type} {radius} on:click={() => clickItemFunc(index + 1)}>{index + 1}</Page>
+            <Page active={current === index + 1} {type} {radius} on:click={() => clickItemFunc(index + 1)}>
+                {index + 1}
+            </Page>
         {/each}
     {:else}
         <Page active={current === 1} {type} {radius} on:click={() => clickItemFunc(1)}>1</Page>
@@ -231,12 +254,16 @@
         {/if}
         {#if !showPreEllipsis && current <= maxShowPage - 1}
             {#each new Array(maxShowPage - 3) as item, index}
-                <Page active={current === index + 2} {type} {radius} on:click={() => clickItemFunc(index + 2)}>{index + 2}</Page>
+                <Page active={current === index + 2} {type} {radius} on:click={() => clickItemFunc(index + 2)}>
+                    {index + 2}
+                </Page>
             {/each}
         {/if}
         {#if middleShowPage.length > 0}
             {#each middleShowPage as item, index}
-                <Page active={index === (middleShowPage.length - 1) / 2} {type} {radius} on:click={() => clickItemFunc(item)}>{item}</Page>
+                <Page active={index === (middleShowPage.length - 1) / 2} {type} {radius} on:click={() => clickItemFunc(item)}>
+                    {item}
+                </Page>
             {/each}
         {/if}
         {#if !showNextEllipsis && current > totalPage - (maxShowPage - 3)}
