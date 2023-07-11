@@ -249,7 +249,11 @@
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
                 on:click={clickPreEllipsisFunc}
             >
-                <Icon name="ri-more-line" size={18} />
+                {#if type === 'bold' && showPreOmitPage}
+                    <Icon name="ri-more-fill" size={18} />
+                {:else}
+                    <Icon name="ri-more-line" size={18} />
+                {/if}
             </div>
         {/if}
         {#if !showPreEllipsis && current <= maxShowPage - 1}
@@ -286,7 +290,11 @@
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
                 on:click={clickNextEllipsisFunc}
             >
-                <Icon name="ri-more-line" size={18} />
+                {#if type === 'bold' && showNextOmitPage}
+                    <Icon name="ri-more-fill" size={18} />
+                {:else}
+                    <Icon name="ri-more-line" size={18} />
+                {/if}
             </div>
         {/if}
         <Page active={current === totalPage} {type} {radius} on:click={() => clickItemFunc(totalPage)}>{totalPage}</Page>
