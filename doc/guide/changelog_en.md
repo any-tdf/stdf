@@ -1,3 +1,7 @@
+## 0.1.2
+
+-   Pagination fine-tuning. Please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=4).
+
 ## 0.1.1
 
 -   Fix Pagination.

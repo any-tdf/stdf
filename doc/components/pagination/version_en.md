@@ -13,3 +13,9 @@
 -   [!tag|A|0|]新增。
 
 <font size=1>2022-07-18</font> -->
+
+## 0.1.2
+
+-   [!tag|O|0|]Fine-tune details. When type is set to bold and the ellipsis page numbers are expanded, the ellipsis icon will also be bold, matching the style logic of the highlighted page number text.
+
+<font size=1>2023-07-11</font>
