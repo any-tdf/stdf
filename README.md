@@ -1,15 +1,19 @@
 <div align="center">
-
+  
+  [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
+  [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
+  
   <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>
 
-[![npm (tag)](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf?icon=github"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://badgen.net/github/license/dufu1991/stdf"/></a>
-
+  [![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
+  [![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
+  [![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github)](https://github.com/dufu1991/stdf)
+  [![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
-  <span> • </span>
+    <span> • </span>
     <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
-  <span>
   </h4>
 </div>
 
