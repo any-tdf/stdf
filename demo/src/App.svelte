@@ -3,6 +3,7 @@
     import Router, { querystring, location, push } from 'svelte-spa-router';
     import { routes, routes_en } from './route';
     import { NavBar, Icon } from '../../components';
+    
     import zh_CN from 'stdf/lang/zh_CN';
     import en_US from 'stdf/lang/en_US';
     import menuList from './data/menuList';
