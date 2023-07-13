@@ -54,7 +54,7 @@ jobs:
                   password: ${{ secrets.ALIYUN_PRIVATE_KEY }}
                   source: demo/dist/*
                   target: /usr/share/nginx/demo_stdf/
-                  strip_components: 1
+                  strip_components: 2
             - name: Refresh CDN
               env:
                   ALIYUN_CDN_AK: ${{ secrets.ALIYUN_CDN_AK }}
