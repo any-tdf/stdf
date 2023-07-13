@@ -2,6 +2,7 @@
   
   [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
   [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
+  [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml)
   
   <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>

@@ -1,0 +1,62 @@
+# 当分支 main 有 push 事件，并且此次 push 包含了 demo 目录下的文件时触发，使用 GitHub Actions自动构建 Demo 并部署到服务器（使用 ubuntu-latest），具体步骤如下：
+# 1. cd demo 安装 nodejs , python3 , pip
+# 2. pip 依次安装 aliyun-python-sdk-cdn , aliyun-python-sdk-core , logging
+# 3. 安装 pnpm
+# 4. 安装依赖 pnpm install
+# 5. 打包 npm run build
+# 6. 使用 appleboy/scp-action@master 和 GitHub Actions secrets 存储的 ALIYUN_HOST ALIYUN_PORT ALIYUN_USERNAME ALIYUN_PRIVATE_KEY 将 dist 目录下所有文件上传到服务器上 /usr/share/nginx/demo_stdf 目录下
+# 7. 执行 Refresh-auto.py 刷新CDN缓存
+
+name: Auto deploy demo
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'demo/**'
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+            - name: Setup Python environment
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.x
+            - name: Install pip
+              run: python3 -m pip install --upgrade pip
+            - name: Install aliyun-python-sdk-cdn
+              run: python3 -m pip install aliyun-python-sdk-cdn
+            - name: Install aliyun-python-sdk-core
+              run: python3 -m pip install aliyun-python-sdk-core
+            - name: Install logging
+              run: python3 -m pip install logging
+            - name: Install pnpm
+              run: npm install -g pnpm
+            - name: Install dependencies and build
+              run: |
+                  cd demo
+                  pnpm install
+                  npm run build
+            - name: Upload
+              uses: appleboy/scp-action@master
+              with:
+                  host: ${{ secrets.ALIYUN_HOST }}
+                  username: ${{ secrets.ALIYUN_USERNAME }}
+                  port: ${{ secrets.ALIYUN_PORT }}
+                  key: ${{ secrets.ALIYUN_PRIVATE_KEY }}
+                  source: demo/dist/*
+                  target: /usr/share/nginx/demo_stdf/
+                  strip_components: 1
+            - name: Refresh CDN
+              env:
+                  ALIYUN_CDN_AK: ${{ secrets.ALIYUN_CDN_AK }}
+                  ALIYUN_CDN_SK: ${{ secrets.ALIYUN_CDN_SK }}
+              run: python3 demo/Refresh-auto.py -r demo/cdn-list.txt -t clear -o Directory
