@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(133, 133, 133, 0.3);
+}
+*::-webkit-scrollbar-track {
+    background-color: rgba(133, 133, 133, 0.1);
+}
+
+html {
+    overflow-y: overlay;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    -ms-overflow-style: none;
+}
+
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+button:focus {
+    outline: none;
+}
