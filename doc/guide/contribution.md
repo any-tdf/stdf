@@ -20,11 +20,11 @@
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
 
 ```bash
-## 克隆 STDF Demo 仓库
-git clone git@github.com:dufu1991/demo-stdf.git
+## 克隆 STDF 仓库
+git clone git@github.com:dufu1991/stdf.git
 
-## 进入项目目录
-cd demo-stdf
+## 进入项目 demo 目录
+cd stdf/demo
 
 ## 安装依赖
 pnpm i
@@ -37,9 +37,7 @@ npm run dev
 
 启动成功之后，可在浏览器中打开 `http://localhost:8888` 查看效果，请将浏览器的开发者工具切换为移动端模式。
 
-针对 Demo 内的组件，可以在 `node_modules/stdf/src` 目录下找到对应文件进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
-
-> 如果此仓库的 STDF 不是最新版本，请先升级到最新版本。
+可对 `components/src` 目录下组件源码进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
 
 如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) 即可开始在线调试。
 
@@ -52,11 +50,11 @@ npm run dev
 
 ### 流程
 
--   请先 fork 一份 STDF (https://github.com/dufu1991/stdf) 到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
--   基于 fork 后仓库的 main 分支新建一个分支，比如 `feature/add_Loading_type`，克隆至本地。
--   将上述 Demo 工程中内 `node_modules/stdf/src` 下修改并验证通过的组件文件复制到新分支中 `components/src` 对应目录下。
--   补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
--   提 Pull Request 到主仓库的 main 分支。
+-   请先 fork 一份 [STDF](https://github.com/dufu1991/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
+-   克隆你的仓库至本地。
+-   修改组件源码并在 Demo 中验证通过。
+-   「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
+-   提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
 -   Pull Request 会在 Review 通过后被合并到主仓库，并发布新版本至 npm。
 
 ### 注意事项

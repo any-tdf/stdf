@@ -2,29 +2,29 @@
 
 Thank you for using STDF.
 
-Below are guidelines for submitting feedback or code to STDF. Before submitting an issue or PR to STDF, please take a few minutes to read the following content.
+Below are guidelines for submitting feedback or code to STDF. Before submitting an issue or PR to STDF, please take a few minutes to read the following.
 
 ## Issue Guidelines
 
--   When encountering problems, please first confirm whether the problem has been recorded in the issue or has been fixed.
--   When submitting an issue, describe the problem briefly and add information about the environment and reproduction steps when the problem occurs.
+-   When encountering an issue, please first confirm whether the issue has already been recorded in the issue or has been fixed.
+-   When submitting an issue, please describe the issue briefly in language and add the environment and replication steps when the issue occurs.
 
 ## Local Development
 
-22Before local development, make sure that Git and Node.js are installed in your development environment.
+Before local development, please make sure that Git and Node.js are installed in your development environment.
 
-Debugging of STDF requires a project environment. Therefore, we provide a simple Demo project. The version of Node.js used by STDF is not limited; however, Vite is used for developing Demo projects. Therefore, ensure that your Node.js version >= 14.18+ (refer to [Vite official website](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)).
+Debugging STDF requires an engineering environment. For this purpose, a simple Demo project is provided. STDF itself is not limited by the Node version, and the Demo uses Vite for development, so please ensure that your Node.js version >= 14.18+, refer to the [Vite official website](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
-> Recommended: Use [pnpm](https://pnpm.io) for package management. Install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [WebStorm plugin](https://plugins.jetbrains.com/plugin/12375-svelte) specifically designed for Svelte development. Install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) specifically designed for Tailwind CSS. WebStorm integrates it by default ([learn more here](https://www.jetbrains.com/help/webstorm/tailwind-css.html)).
+> Recommended: Use [pnpm](https://pnpm.io/zh) for package management; install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [WebStorm plugin](https://plugins.jetbrains.com/plugin/12375-svelte) for Svelte development; install [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for Tailwind, WebStorm is integrated by default, [learn more](https://www.jetbrains.com/help/webstorm/tailwind-css.html).
 
-Follow these steps below to quickly start up STDF Demo locally:
+Follow the steps below to quickly start the STDF Demo locally.
 
 ```bash
-## Clone repository of STDF Demo
-git clone git@github.com:dufu1991/demo-stdf.git
+## Clone STDF repository
+git clone git@github.com:dufu1991/stdf.git
 
-## Enter the project directory
-cd demo-stdf
+## Enter the project demo directory
+cd stdf/demo
 
 ## Install dependencies
 pnpm i
@@ -35,34 +35,32 @@ npm i
 npm run dev
 ```
 
-After successful startup, you can open `http://localhost:8888` in your browser to view the effect. Please switch your browser's developer tools to mobile mode.
+After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.
 
-For components within Demo, you can find corresponding files under `node_modules/stdf/src` and modify them to see real-time modification effects. Note that both VS Code and WebStorm support jumping directly to component source code when calling components.
+You can modify the component source code under the `components/src` directory and view the modification effect in real-time. Note that both VS Code and WebStorm support directly jumping to the component source code when calling the component.
 
-> If STDF in this repository is not the latest version, please upgrade it first.
+If you don't want to develop locally, you can choose to use StackBlitz to debug online. Just open [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) to start online debugging.
 
-If you do not want local development, you can choose to use StackBlitz for simple online debugging. Simply open [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) to start online debugging.
+## Submitting PR
 
-## Submitting PRs
-
-If this is your first time submitting a Pull Request on GitHub, read these two articles:
+If you are submitting a Pull Request on GitHub for the first time, you can read the following two articles to learn:
 
 -   [First Contributions](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
--   [How To Contribute To Open Source Without Being A Jerk](https://segmentfault.com/a/1190000000736629)
+-   [How to contribute code elegantly on GitHub](https://segmentfault.com/a/1190000000736629)
 
 ### Process
 
--   Fork STDF (https://github.com/dufu1991/stdf) into your own repository; if already forked before, synchronize with the latest code from main repository.
--   Create a new branch based on main branch of forked repository such as `feature/add_Loading_type`, clone it locally.
--   Copy modified component files under `node_modules/stdf/src` in above mentioned Demo project and verify them successfully onto corresponding directories under `components/src`.
--   In the Chinese and English documents updated this time, the document is located in the `doc/components` directory. Depending on the specific modifications, it may be necessary to modify documents such as api, FAQ, guide, and version. When modifying the version, please add a tag. For details, refer to [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version_en.md?plain=1).
--   Submit a Pull Request to main branch of primary repository.
--   After the Pull Request is approved in Review, it will be merged into the main repository and a new version will be released to npm.
+-   Please fork a copy of [STDF](https://github.com/dufu1991/stdf) to your own repository. If you have already forked, please synchronize the latest code from the main repository.
+-   Clone your repository to your local machine.
+-   Modify the component source code and verify it in the Demo.
+-   「Optional」Supplement the Chinese and English documentation for this modification, which is located in the `doc/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, and other documents. For modifications to version, please add tags. Please refer to the [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1) for specific details.
+-   Submit the modified content to your repository, and then submit a Pull Request to the main repository.
+-   The Pull Request will be merged into the main repository after review and a new version will be released to npm.
 
 ### Notes
 
 When submitting a Pull Request, please note:
 
--   Keep your PR small enough. Generally, one PR only solves a single component file or adds a single feature to solve a single problem for ease of review.
--   When adding or modifying components, remember to verify them successfully in Demo project to ensure code stability.
--   Please add appropriate descriptions in PRs. If there are related issues, please indicate them.
+-   Keep your PR small enough, generally one PR only solves a single component file, solves a single problem, or adds a single function, to facilitate review.
+-   When adding or modifying existing components, remember to verify it in the Demo to ensure the stability of the code.
+-   Please add a suitable description in the PR. If there is a related issue, please indicate it.
