@@ -51,7 +51,7 @@ jobs:
                   host: ${{ secrets.ALIYUN_HOST }}
                   username: ${{ secrets.ALIYUN_USERNAME }}
                   port: ${{ secrets.ALIYUN_PORT }}
-                  key: ${{ secrets.ALIYUN_PRIVATE_KEY }}
+                  password: ${{ secrets.ALIYUN_PRIVATE_KEY }}
                   source: demo/dist/*
                   target: /usr/share/nginx/demo_stdf/
                   strip_components: 1
