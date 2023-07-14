@@ -4,7 +4,8 @@
   [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
   [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml)
   
-  <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
+   <img src="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png#gh-dark-mode-only" alt="logo" width="100" height="auto" />
+  <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png#gh-light-mode-only" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>
 
 [![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
@@ -66,11 +67,20 @@ import { Button } from 'stdf';
 
 You can scan the QR code below on your mobile phone to access the mobile demo:
 
-<img src="https://stdf.design/assets/qr/demo_qr_en.jpg" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_en_dark.png#gh-dark-mode-only" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_en.png#gh-light-mode-only" width="220" height="220" >
 
 # License
 
 This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+
+# Contributors
+
+Thanks to all the people who contribute to STDF!
+
+<a href="https://github.com/dufu1991/stdf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
+</a>
 
 # Stargazers over time
 

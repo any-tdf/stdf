@@ -3,14 +3,16 @@
   [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
   [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
   [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml)
-  
-  <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
+
+  <img src="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png#gh-dark-mode-only" alt="logo" width="100" height="auto" />
+  <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png#gh-light-mode-only" alt="logo" width="100" height="auto" />
   <h1>S T D F</h1>
 
-  [![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
-  [![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
-  [![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github)](https://github.com/dufu1991/stdf)
-  [![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
+[![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
+[![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
+[![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github)](https://github.com/dufu1991/stdf)
+[![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
+
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
     <span> • </span>
@@ -65,13 +67,23 @@ import { Button } from 'stdf';
 
 # 手机预览
 
-可以手机扫描以下二维码访问手机端 Demo：
+手机扫描以下二维码访问手机端 Demo：
 
-<img src="https://stdf.design/assets/qr/demo_qr.jpg" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_zh_dark.png#gh-dark-mode-only" width="220" height="220" >
+<img src="https://stdf.design/assets/qr/demo_zh.png#gh-light-mode-only" width="220" height="220" >
+
 
 # 开源协议
 
 本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+
+# 贡献者
+
+感谢所有为 STDF 做过贡献的人!
+
+<a href="https://github.com/dufu1991/stdf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
+</a>
 
 # Stargazers over time
 
