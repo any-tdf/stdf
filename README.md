@@ -4,8 +4,10 @@
   [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
   [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy.yml)
 
-  <img src="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png#gh-dark-mode-only" alt="logo" width="100" height="auto" />
-  <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png#gh-light-mode-only" alt="logo" width="100" height="auto" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
+    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="100" height="auto" />
+  </picture>
   <h1>S T D F</h1>
 
 [![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
@@ -69,9 +71,10 @@ import { Button } from 'stdf';
 
 手机扫描以下二维码访问手机端 Demo：
 
-<img src="https://stdf.design/assets/qr/demo_zh_dark.png#gh-dark-mode-only" width="220" height="220" >
-<img src="https://stdf.design/assets/qr/demo_zh.png#gh-light-mode-only" width="220" height="220" >
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_zh_dark.png">
+  <img src="https://stdf.design/assets/qr/demo_zh.png" width="220" height="220" >
+</picture>
 
 # 开源协议
 
