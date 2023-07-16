@@ -39,7 +39,7 @@ After the startup is successful, you can open `http://localhost:8888` in the bro
 
 You can modify the component source code under the `components/src` directory and view the modification effect in real-time. Note that both VS Code and WebStorm support directly jumping to the component source code when calling the component.
 
-If you don't want to develop locally, you can choose to use StackBlitz to debug online. Just open [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) to start online debugging.
+If you don't want to develop locally, you can choose to use StackBlitz to debug online. Just open [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf?startScript=dev_en) to start online debugging.
 
 ## Submitting PR
 
