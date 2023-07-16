@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a demo project for STDF.
+This is a demo project for [STDF](https://stdf.design).
 
 It is built with [Vite](https://vitejs.dev) + [Svelte](https://svelte.dev) + [Tailwind CSS](https://tailwindcss.com) + [STDF](https://stdf.design) + [svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router).
 
@@ -10,8 +10,6 @@ It is built with [Vite](https://vitejs.dev) + [Svelte](https://svelte.dev) + [Ta
 
 ```bash
 pnpm i
-# or
-npm i
 
 npm run dev
 ```
