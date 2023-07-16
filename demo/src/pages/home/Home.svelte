@@ -4,6 +4,7 @@
     import menuList from '../../data/menuList';
 
     // 循环 menuList，将所有元素的 childs 组成一个数组
+    // Cycle menuList, and combine the childs of all elements into an array
     const menuListArr = menuList.reduce((acc, cur) => {
         if (cur.childs) {
             acc.push(...cur.childs);
