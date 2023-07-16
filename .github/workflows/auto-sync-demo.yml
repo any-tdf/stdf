@@ -18,8 +18,8 @@ jobs:
 
             # 1. clone 仓库 github.com/dufu1991/stdf
             - name: Clone stdf
-                run: |
-                    git clone git@github.com:dufu1991/stdf.git
+              run: |
+                  git clone git@github.com:dufu1991/stdf.git
 
             # 2. cd 到 stdf 仓库的 demo 文件内，初始化本地仓库
             #    将 demo/src/App.svelte 文件内的 ../../components 替换为 stdf
