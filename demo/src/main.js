@@ -14,6 +14,7 @@ setTimeout(() => {
 }, 300);
 
 // 设置主题
+// Set theme
 if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.classList.add('dark');
 } else if (localStorage.getItem('theme') === 'light') {
@@ -26,6 +27,7 @@ if (localStorage.getItem('theme') === 'dark') {
     // }
 }
 //解决ios不支持按钮:active伪类
+// Solve the problem that ios does not support the button: active pseudo class
 document.body.addEventListener('touchstart', function () {
     //...空函数即可
 });
