@@ -64,6 +64,10 @@
     // only one page text
     export let onePageText = paginationLang.defaultOnlyOnePage;
 
+    // 连续模式
+    // continuous mode
+    export let continuous = false;
+
     // 总页数
     // totalPage
     $: totalPage = Math.ceil(total / pageSize);
@@ -235,19 +239,19 @@
         <div class="flex-1 py-2 border border-transparent">{onePageText}</div>
     {:else if totalPage > 1 && totalPage <= maxShowPage}
         {#each new Array(totalPage) as item, index}
-            <Page active={current === index + 1} {type} {radius} on:click={() => clickItemFunc(index + 1)}>
+            <Page active={current === index + 1} {type} {radius} on:click={() => !continuous && clickItemFunc(index + 1)}>
                 {index + 1}
             </Page>
         {/each}
     {:else}
-        <Page active={current === 1} {type} {radius} on:click={() => clickItemFunc(1)}>1</Page>
+        <Page active={current === 1} {type} {radius} on:click={() => !continuous && clickItemFunc(1)}>1</Page>
         {#if showPreEllipsis}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div
                 class="flex-1 py-2 border {showPreOmitPage
                     ? typeClass[type] || typeClass.border
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
-                on:click={clickPreEllipsisFunc}
+                on:click={!continuous && clickPreEllipsisFunc}
             >
                 {#if type === 'bold' && showPreOmitPage}
                     <Icon name="ri-more-fill" size={18} />
@@ -258,14 +262,14 @@
         {/if}
         {#if !showPreEllipsis && current <= maxShowPage - 1}
             {#each new Array(maxShowPage - 3) as item, index}
-                <Page active={current === index + 2} {type} {radius} on:click={() => clickItemFunc(index + 2)}>
+                <Page active={current === index + 2} {type} {radius} on:click={() => !continuous && clickItemFunc(index + 2)}>
                     {index + 2}
                 </Page>
             {/each}
         {/if}
         {#if middleShowPage.length > 0}
             {#each middleShowPage as item, index}
-                <Page active={index === (middleShowPage.length - 1) / 2} {type} {radius} on:click={() => clickItemFunc(item)}>
+                <Page active={index === (middleShowPage.length - 1) / 2} {type} {radius} on:click={() => !continuous && clickItemFunc(item)}>
                     {item}
                 </Page>
             {/each}
@@ -276,7 +280,7 @@
                     active={current === totalPage + index + 3 - maxShowPage}
                     {type}
                     {radius}
-                    on:click={() => clickItemFunc(totalPage + index + 3 - maxShowPage)}
+                    on:click={() => !continuous && clickItemFunc(totalPage + index + 3 - maxShowPage)}
                 >
                     {totalPage + index + 3 - maxShowPage}
                 </Page>
@@ -288,7 +292,7 @@
                 class="flex-1 py-2 border {showNextOmitPage
                     ? typeClass[type] || typeClass.border
                     : 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
-                on:click={clickNextEllipsisFunc}
+                on:click={!continuous && clickNextEllipsisFunc}
             >
                 {#if type === 'bold' && showNextOmitPage}
                     <Icon name="ri-more-fill" size={18} />
@@ -297,7 +301,7 @@
                 {/if}
             </div>
         {/if}
-        <Page active={current === totalPage} {type} {radius} on:click={() => clickItemFunc(totalPage)}>{totalPage}</Page>
+        <Page active={current === totalPage} {type} {radius} on:click={() => !continuous && clickItemFunc(totalPage)}>{totalPage}</Page>
     {/if}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div

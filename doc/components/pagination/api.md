@@ -14,6 +14,7 @@
 | injClass         | String  | ''                                       | Class                               | N    | 注入 CSS 名称。。    |
 | noDataText       | String  | 当前语言的 common.noData                 | -                                   | N    | 无数据显示文本。     |
 | onePageText      | String  | 当前语言的 pagination.defaultOnlyOnePage | -                                   | N    | 仅一页显示文本。     |
+| continuous       | Boolean | false                                    | true/false                          | N    | 是否是连续模式。     |
 
 ## Pagination Events
 

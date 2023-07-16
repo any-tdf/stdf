@@ -14,6 +14,7 @@
 | injClass         | String  | ''                                             | Class                               | N        | Injected CSS class name.                                         |
 | noDataText       | String  | Current language common.noData                 | -                                   | N        | Text to display when there is no data.                           |
 | onePageText      | String  | Current language pagination.defaultOnlyOnePage | -                                   | N        | Text to display when there is only one page.                     |
+| continuous       | Boolean | false                                          | true/false                          | N        | Whether it is a continuous mode.                                 |
 
 ## Pagination Events
 

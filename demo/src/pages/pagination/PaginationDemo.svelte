@@ -124,4 +124,8 @@
 </div>
 <Pagination {pageSize} total={totalData} on:change={changePageFunc} />
 
+<div class="mx-4 mt-8 font-bold text-lg">连续模式</div>
+<div class="mx-4 mb-4 text-xs">只允许点击上下页</div>
+<Pagination {total} continuous />
+
 <div class="pb-10" />

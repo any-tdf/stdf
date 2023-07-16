@@ -124,4 +124,8 @@
 </div>
 <Pagination {pageSize} total={totalData} on:change={changePageFunc} />
 
+<div class="mx-4 mt-8 font-bold text-lg">Continuous mode</div>
+<div class="mx-4 mb-4 text-xs">Only click on the previous page and next page</div>
+<Pagination {total} continuous />
+
 <div class="pb-10" />

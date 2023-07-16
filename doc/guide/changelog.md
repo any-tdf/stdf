@@ -1,3 +1,7 @@
+## 0.1.3
+
+-   Pagination 新增 Props。详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
+
 ## 0.1.2
 
 -   Pagination 细节优化。详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
