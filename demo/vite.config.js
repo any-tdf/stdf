@@ -11,7 +11,7 @@ export default defineConfig({
         hmr: true,
         host: '0.0.0.0',
         port: 8888,
-        // 是否开启 https
         https: false,
     },
+    build: { assetsDir: 'build' },
 });
