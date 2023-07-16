@@ -1,14 +1,25 @@
 <div align="center">
-
-  <img src="https://stdf.design/assets/images/stdf_512px.png" alt="logo" width="100" height="auto" />
+  
+  [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
+  [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
+  [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
+  [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
+  
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
+    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="100" height="auto" />
+  </picture>
   <h1>S T D F</h1>
 
-[![npm (tag)](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf) [![npm](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf) <a href="https://github.com/dufu1991/stdf"><img alt="GitHub" src="https://badgen.net/github/stars/dufu1991/stdf?icon=github"/></a> <a href="https://github.com/dufu1991/stdf/blob/main/LICENSE"><img alt="GitHub" src="https://badgen.net/github/license/dufu1991/stdf"/></a>
+[![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
+[![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
+[![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github)](https://github.com/dufu1991/stdf)
+[![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
 
   <h4>
     <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
-  <span> • </span>
-    <a href="https://stdf.design?lang=en_US" target="_blank">Website<a>
+    <span> • </span>
+    <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
   </h4>
 </div>
 
@@ -55,12 +66,25 @@ import { Button } from 'stdf';
 
 😓 No project? Create a project with Vite and reference the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) and the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite) for CSS configuration.
 
-# Mobile Preview
+# Preview
 
-You can scan the QR code below on your mobile phone to access the mobile demo:
+Please scan the QR code to access the mobile demo:
 
-<img src="https://stdf.design/assets/qr/demo_qr_en.jpg" width="220" height="220" >
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
+  <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
+</picture>
 
 # License
 
 This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+
+# Contributors
+
+<a href="https://github.com/dufu1991/stdf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
+</a>
+
+# Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/dufu1991/stdf.svg)](https://starchart.cc/dufu1991/stdf)
