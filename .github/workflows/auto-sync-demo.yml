@@ -18,11 +18,11 @@ jobs:
 
             # 1. clone 仓库 github.com/dufu1991/stdf，使用 secrets.STDF_GITHUB_TOKEN
             - name: Clone stdf 
-                uses: actions/checkout@v3
-                with:
-                    repository: dufu1991/stdf
-                    token: ${{ secrets.STDF_GITHUB_TOKEN }}
-                    path: stdf
+              uses: actions/checkout@v3
+              with:
+                  repository: dufu1991/stdf
+                  token: ${{ secrets.STDF_GITHUB_TOKEN }}
+                  path: stdf
                     
             # 2. cd 到 stdf 仓库的 demo 文件内，初始化本地仓库
             #    将 demo/src/App.svelte 文件内的 ../../components 替换为 stdf

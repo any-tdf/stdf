@@ -52,6 +52,7 @@ document.addEventListener(
     false
 );
 // 阻止双指放大
+// Prevent two finger zoom
 document.addEventListener('gesturestart', function (event) {
     event.preventDefault();
 });
