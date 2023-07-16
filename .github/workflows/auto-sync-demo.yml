@@ -17,16 +17,23 @@ jobs:
               uses: actions/checkout@v2
 
             # 1. clone 仓库 github.com/dufu1991/stdf，使用 secrets.STDF_GITHUB_TOKEN
-            - name: Clone stdf 
+            - name: Clone stdf
               uses: actions/checkout@v3
               with:
                   repository: dufu1991/stdf
                   token: ${{ secrets.STDF_GITHUB_TOKEN }}
                   path: stdf
-                    
-            # 2. cd 到 stdf 仓库的 demo 文件内，初始化本地仓库
+
+            # 2. 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
+            - name: Get version
+              id: version
+              run: |
+                  echo version=$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+
+            # 3. cd 到 stdf 仓库的 demo 文件内，初始化本地仓库
             #    将 demo/src/App.svelte 文件内的 ../../components 替换为 stdf
             #    将 demo/src/pages 目录下的所有子孙 .svelte 文件内的 ../../../../components 替换为 stdf
+            #    将 demo/package.json 内的第 15 行增加内容为 stdf，版本号为 ${{ steps.version.outputs.version }}
             #    将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
             - name: Init stdf demo
               run: |
@@ -36,10 +43,11 @@ jobs:
                   git config --global user.email 'GitHub Actions'
                   sed -i 's|../../components|stdf|g' src/App.svelte
                   sed -i 's|../../../../components|stdf|g' src/pages/**/*.svelte
+                  sed -i '15a\\n        "stdf": "${{ steps.version.outputs.version }}",\n' package.json
                   git add .
                   git commit -am "Github Actions auto commit: update demo from stdf."
 
-            # 3. 使用 secrets.GITHUB_TOKEN 将修改内容推送到 git@github.com:dufu1991/demo-stdf.git 的 main 分支
+            # 4. 使用 secrets.GITHUB_TOKEN 将修改内容推送到 git@github.com:dufu1991/demo-stdf.git 的 main 分支
             - name: Push to demo-stdf
               uses: ad-m/github-push-action@master
               with:
