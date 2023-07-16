@@ -65,9 +65,9 @@ import { Button } from 'stdf';
 
 😓 No project? Create a project with Vite and reference the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) and the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite) for CSS configuration.
 
-# Mobile Preview
+# Preview
 
-You can scan the QR code below on your mobile phone to access the mobile demo:
+Please scan the QR code to access the mobile demo:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
@@ -79,8 +79,6 @@ You can scan the QR code below on your mobile phone to access the mobile demo:
 This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
 
 # Contributors
-
-Thanks to all the people who contribute to STDF!
 
 <a href="https://github.com/dufu1991/stdf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />

@@ -67,9 +67,9 @@ import { Button } from 'stdf';
 
 😓 无工程？用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。并配置 Tailwind CSS，参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite)。
 
-# 手机预览
+# 预览
 
-手机扫描以下二维码访问手机端 Demo：
+扫描二维码访问移动端 Demo：
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_zh_dark.png">
@@ -81,8 +81,6 @@ import { Button } from 'stdf';
 本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
 
 # 贡献者
-
-感谢所有为 STDF 做过贡献的人!
 
 <a href="https://github.com/dufu1991/stdf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
