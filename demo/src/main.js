@@ -2,9 +2,11 @@ import App from './App.svelte';
 import './app.css';
 
 //截取字符?后面的所有字符
+// Intercept all characters after the character
 let urlLang = window.location.href.split('?')[1];
 let urlParams = new URLSearchParams(urlLang);
 // 设置语言
+// Set language
 let lang = urlParams.get('lang') ? urlParams.get('lang') : sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'zh_CN';
 sessionStorage.setItem('lang', lang);
 setTimeout(() => {
