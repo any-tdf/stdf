@@ -8,6 +8,7 @@
     import menuList from './data/menuList';
 
     // 循环 menuList，将所有元素的 childs 组成一个数组
+    // Cycle menuList, and combine the childs of all elements into an array
     const menuListArr = menuList.reduce((acc, cur) => {
         if (cur.childs) {
             acc.push(...cur.childs);
@@ -15,26 +16,31 @@
         return acc;
     }, []);
 
-    const params = new URLSearchParams('?' + $querystring); //获取参数
-    const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0'; //判断是否是iframe
-    setContext('iframe', isIframe); //设置iframe
+    const params = new URLSearchParams('?' + $querystring); //获取参数  get parameters
+    const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0'; //判断是否是iframe  judge whether it is iframe
+    setContext('iframe', isIframe); //设置iframe  setting iframe
     let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
     //截取字符?后面的所有字符
+    // intercept all characters after the character?
     let urlLang = window.location.href.split('?')[1];
     let urlParams = new URLSearchParams(urlLang);
     // 设置语言
+    // setting language
     const isZh = sessionStorage.getItem('lang') === 'zh_CN';
     setContext('STDF_lang', isZh ? zh_CN : en_US);
     $: showLeft = isIframe === '1' ? false : $location !== '/';
     //手动切换主题
+    // manually switch theme
     const toggleFun = () => {
         if (theme === 'dark') {
             // 切换到light
+            // switch to light
             theme = 'light';
             localStorage.setItem('theme', 'light');
             document.documentElement.classList.remove('dark');
         } else {
             // 切换到dark
+            // switch to dark
             theme = 'dark';
             localStorage.setItem('theme', 'dark');
             document.documentElement.classList.add('dark');
