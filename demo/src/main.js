@@ -33,6 +33,7 @@ document.body.addEventListener('touchstart', function () {
 });
 
 // 阻止双击放大
+// Prevent double click zoom
 document.addEventListener('touchstart', function (event) {
     if (event.touches.length > 1) {
         event.preventDefault();
