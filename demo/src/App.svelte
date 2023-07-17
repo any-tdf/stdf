@@ -51,7 +51,7 @@
     };
 </script>
 
-<main class="bg-gray9 dark:bg-gray5 text-black dark:text-white/90 relative min-h-screen text-justify w-screen antialiased">
+<main class="bg-gray9 dark:bg-gray3 text-black dark:text-white/90 relative min-h-screen text-justify w-screen antialiased">
     <div class="sticky z-10 top-0">
         <NavBar
             left={showLeft ? 'back' : ''}

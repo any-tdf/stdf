@@ -7,9 +7,9 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```bash
-npm i stdf -D
-# or
 pnpm i stdf -D
+# or
+npm i stdf -D
 ```
 
 ### 在 Svelte 中使用
@@ -48,19 +48,35 @@ npx tailwindcss init -p
 
 2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/src/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide?nav=color)。
 
+注意：Tailwind 配置文件中的 content 即表示所有可能用到 Tailwind 的文件，请不要遗漏。darkMode 请设置为 'class'，这是为了配合 STDF 的暗黑模式。
+
 ```javascript
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     // ...
-    content: ['./index.html', './src/**/*.{html,js,svelte}', './node_modules/stdf/src/**/*.svelte'],
+    content: ['./src/**/*.{html,js,svelte}', './src/App.svelte', './node_modules/stdf/src/**/*.svelte'],
     theme: {
         colors: {
+            // 主题色
             primary: '#0B24FB',
             dark: '#FFC043',
+            blue: '#0B24FB', // primary 别名
+            yellow: '#FFC043', // dark 别名
+
+            // 扩展色
             purple: '#7356BF',
             green: '#05944F',
             orange: '#FF6937',
+
+            // 功能色
+            success: '#11BB8D',
+            warning: '#B95000',
+            error: '#DA1414',
+            info: '#2E5AAC',
+
+            // 中性色
             black: '#000000',
+            white: '#fff',
             gray1: '#23262B',
             gray2: '#2A2B2F',
             gray3: '#303239',
@@ -71,10 +87,6 @@ module.exports = {
             gray8: '#EBEEF2',
             gray9: '#F4F6F9',
             gray10: '#FAFAFB',
-            success: '#11BB8D',
-            warning: '#B95000',
-            error: '#DA1414',
-            info: '#2E5AAC',
             transparent: 'transparent',
         },
     },

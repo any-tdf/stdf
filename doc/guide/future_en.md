@@ -1,22 +1,23 @@
 ## 💪 New Features 💪
 
-- [ ] Develop plugins that support VS Code and WebStorm, allowing for features such as displaying component APIs when hovering over the cursor.
-- [ ] Complete the Figma design step by step and connect it with component APIs according to Figma's Variable rules.
-- [ ] Develop scaffolding tools that support setting up projects use STDF according to configuration. Initial considerations include support for Vite, Webpack, SvelteKit, and other tools.
-- [ ] Implement custom theme colors according to the Tailwind CSS variable rules.
-- [ ] Added NumKeyboard component for inputting numbers.
-- [ ] Added SecurityCode component for entering verification codes received via SMS or email.
+- [ ] Develop a Vite plugin that supports merging all SVGs in a specified directory into an SVG symbol.
+- [ ] Develop a VS Code plugin that supports displaying STDF component API and other functions when hovering over the cursor.
+- [ ] Develop a template scaffold that supports initializing STDF projects according to configuration. Initial support for Vite and SvelteKit.
+- [ ] Implement custom theme colors according to Tailwind CSS variable rules.
+- [ ] Add NumKeyboard component, which is generally used for entering numbers.
+- [ ] Add SecurityCode component, which is generally used for entering numeric verification codes received via SMS or email.
 - [x] Added Pagination component.
 
 ---
 
 ## 👏 Improvements 👏
 
-- [ ] Improved source code comments according to JSDoc rules, added constraints on Props, and made it easier for IDEs to provide suggestions.
+- [ ] Improve source code type annotations according to JSDoc rules, constrain Props, and facilitate IDE prompts.
 - [ ] Increased the number of animation effects in the Skeleton screen component.
 
 ---
 
 ## 💪 Ongoing Development 💪
 
-- [ ] Expand the types of Loading components available.
+- Expand the types of Loading components available.
+- Complete the Figma design draft and implement connectivity with component API according to Figma's Variable rules.

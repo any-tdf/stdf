@@ -1,17 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{html,js,svelte}', './node_modules/stdf/src/**/*.svelte', '../components/**/*.svelte'],
+    content: ['./src/**/*.{html,js,svelte}','./src/App.svelte', './node_modules/stdf/src/**/*.svelte', '../components/**/*.svelte'],
     theme: {
         colors: {
-            blue: '#0B24FB',
-            yellow: '#FFC043',
+            // 主题色
+            // Theme Color
             primary: '#0B24FB',
             dark: '#FFC043',
+            blue: '#0B24FB', // primary 别名 alias
+            yellow: '#FFC043', // dark 别名 alias
+
+            // 扩展色
+            // Extended Color
             purple: '#7356BF',
             green: '#05944F',
             orange: '#FF6937',
-            primaryBlack: '#09101D',
+
+            // 功能色
+            // Functional Color
+            success: '#11BB8D',
+            warning: '#B95000',
+            error: '#DA1414',
+            info: '#2E5AAC',
+
+            // 中性色
+            // Neutral Color
             black: '#000000',
+            white: '#fff',
             gray1: '#23262B',
             gray2: '#2A2B2F',
             gray3: '#303239',
@@ -22,19 +37,9 @@ module.exports = {
             gray8: '#EBEEF2',
             gray9: '#F4F6F9',
             gray10: '#FAFAFB',
-            success: '#11BB8D',
-            warning: '#B95000',
-            error: '#DA1414',
-            info: '#2E5AAC',
             transparent: 'transparent',
         },
         extend: {
-            colors: {
-                white: '#fff',
-                primaryBlack: '#09101D',
-                black: '#000000',
-                yellow: '#FFC043',
-            },
             keyframes: {
                 wiggle: {
                     '0%, 100%': { transform: 'rotate(-3deg)' },
