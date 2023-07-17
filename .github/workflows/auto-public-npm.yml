@@ -1,5 +1,6 @@
 # 当分支 main 有 push 事件并且此次 push 包含了 components 目录下的文件时，执行以下任务
-# 使用 GitHub Actions secrets 存储的 NPM_TOKEN 自动将本仓库 components 目录下的所有文件发布到 npm 上
+# cd components 目录下
+# 发布 stdf 到 npm
 
 name: Auto publish npm
 
