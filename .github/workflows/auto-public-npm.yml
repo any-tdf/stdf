@@ -2,7 +2,7 @@
 # cd components 目录下
 # 发布 stdf 到 npm
 
-name: Auto publish npm
+name: AUTO PUBLISH NPM
 
 on:
     push:
