@@ -1,6 +1,6 @@
 # 当分支 main 有 push 事件，并且此次 push 包含了 demo 目录下的文件时触发，使用 GitHub Actions 执行
 
-name: Auto sync demo
+name: AUTO SYNC DEMO
 
 on:
     push:

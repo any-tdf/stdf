@@ -1,6 +1,6 @@
 # 当分支 main 有 push 事件并且此次 push 包含了 components 目录下的文件时，执行以下任务
 
-name: Auto publish npm
+name: AUTO PUBLISH NPM
 
 on:
     push:
