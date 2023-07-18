@@ -10,7 +10,7 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="140" height="auto" />
   </picture>
-  <div style='font-size:4rem;font-weight:600'>S T D F</div>
+  <div style="font-size:4rem;font-weight:600">S T D F</div>
   <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
   <span> • </span>
   <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
