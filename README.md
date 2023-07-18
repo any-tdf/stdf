@@ -5,17 +5,16 @@
 [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
 [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
 
-  <hr />
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
-    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="140" height="auto" />
+    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
- 
-  <p><font size=7>S T D F</font></p>
-  <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
-  <span> • </span>
-  <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
-  <h3>
+  <h1>S T D F</h1>
+  <h4>
+    <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
+    <span> • </span>
+    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
+  </h4>
   <hr />
   
 [![NPM Version](https://badgen.net/npm/v/stdf?color=b1322f)](https://www.npmjs.com/package/stdf)
