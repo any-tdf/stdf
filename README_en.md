@@ -11,9 +11,11 @@
   </picture>
   <h1>S T D F</h1>
 
-[![NPM Version](https://badgen.net/npm/v/stdf)](https://www.npmjs.com/package/stdf)
+[![NPM Version](https://badgen.net/npm/v/stdf?color=b1322f)](https://www.npmjs.com/package/stdf)
 [![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
-[![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github)](https://github.com/dufu1991/stdf)
+[![NPM Minzip](https://badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
+[![NPM Dependency](https://badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
+[![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
 [![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
 
   <h4>
