@@ -8,7 +8,12 @@ let urlParams = new URLSearchParams(urlLang);
 // 设置语言
 // Set language
 let lang = urlParams.get('lang') ? urlParams.get('lang') : sessionStorage.getItem('lang') ? sessionStorage.getItem('lang') : 'zh_CN';
-sessionStorage.setItem('lang', import.meta.env.MODE === 'english' ? 'en_US' : lang);
+
+const mode = import.meta.env.MODE;
+// 判断 mode 后三个字符是否是 _en
+// Determine whether the last three characters of mode are _en
+const englishMode = mode.slice(-3) === '_en' || mode === 'english';
+sessionStorage.setItem('lang', englishMode ? 'en_US' : lang);
 setTimeout(() => {
     window.history.replaceState({}, 0, window.location.href.split('?')[0]);
 }, 300);

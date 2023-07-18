@@ -1,5 +1,5 @@
 <script>
-    import { setContext } from 'svelte';
+    import { setContext, onMount } from 'svelte';
     import Router, { querystring, location, push } from 'svelte-spa-router';
     import { routes, routes_en } from './route';
     import { NavBar, Icon } from '../../components';
@@ -49,6 +49,19 @@
     const toHomeFun = () => {
         push(`/`);
     };
+    const mode = import.meta.env.MODE;
+    // 判断 mode 后三个字符是否是 _en
+    // Determine whether the last three characters of mode are _en
+    const englishMode = mode.slice(-3) === '_en';
+    const devMode = mode === 'development';
+    onMount(() => {
+        if (!devMode) {
+            // 英文模式去掉 mode 后面的 _en 作为 nav
+            // English mode removes _en after mode as nav
+            const nav = englishMode ? mode.slice(0, -3) : mode;
+            push(`/${nav}`);
+        }
+    });
 </script>
 
 <main class="bg-gray9 dark:bg-gray3 text-black dark:text-white/90 relative min-h-screen text-justify w-screen antialiased">
