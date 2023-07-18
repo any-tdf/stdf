@@ -4,7 +4,7 @@
   [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
   [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
   [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
-
+  
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="100" height="auto" />
