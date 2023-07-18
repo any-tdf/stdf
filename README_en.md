@@ -1,28 +1,28 @@
 <div align="center">
-  
-  [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
-  [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
-  [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
-  [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
-  
+
+[![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
+[![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
+[![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
+[![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
+
+  <hr />
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
-    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="100" height="auto" />
+    <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="140" height="auto" />
   </picture>
-  <h1>S T D F</h1>
-
+  <div style='font-size:4rem;font-weight:600'>S T D F</div>
+  <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
+  <span> • </span>
+  <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
+  <h3>
+  <hr />
+  
 [![NPM Version](https://badgen.net/npm/v/stdf?color=b1322f)](https://www.npmjs.com/package/stdf)
 [![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
 [![NPM Minzip](https://badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
 [![NPM Dependency](https://badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
 [![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
 [![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
-
-  <h4>
-    <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
-    <span> • </span>
-    <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
-  </h4>
 </div>
 
 # Introduction
