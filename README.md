@@ -10,12 +10,11 @@
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
   <h1>S T D F</h1>
-  <h4>
+  <h3>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
     <span> • </span>
     <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
-  </h4>
-  <hr />
+  </h3>
   
 [![NPM Version](https://badgen.net/npm/v/stdf?color=b1322f)](https://www.npmjs.com/package/stdf)
 [![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
