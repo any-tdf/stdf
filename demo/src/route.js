@@ -2,8 +2,6 @@ import { wrap } from 'svelte-spa-router/wrap';
 
 import Home from './pages/home/Home.svelte';
 
-// import Z from './pages/z/Z.svelte';
-
 export const routes = {
     '/': Home,
     '/button': wrap({ asyncComponent: () => import('./pages/button/ButtonDemo.svelte') }),
