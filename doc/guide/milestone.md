@@ -1,6 +1,6 @@
 ## 2023-06-16
 
-列入阮一峰老师的科技爱好者周刊。[科技爱好者周刊（第 259 期）](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html)
+入选阮一峰老师的[科技爱好者周刊 259 期](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html)。
 
 ## 2023-05-03
 

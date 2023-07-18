@@ -1,6 +1,6 @@
 ## 2023-06-16
 
-Featured in Ruan Yifeng's weekly-issue. [weekly-issue (No. 259)](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html)
+Featured in Ruan Yifeng's [weekly-issue No. 259](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html).
 
 ## 2023-05-03
 
