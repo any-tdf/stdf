@@ -1,12 +1,25 @@
 <script>
     import { onMount, createEventDispatcher } from 'svelte';
 
-    const dispatch = createEventDispatcher(); //事件派发器  event dispatcher
+    // 事件派发器
+    // event dispatcher
+    const dispatch = createEventDispatcher();
 
-    export let data = []; //数据 data
-    export let interval = 4; //间隔时间 interval time
-    export let duration = 1000; //过渡时间 duration time
-    export let autoplay = true; //是否自动播放 is autoplay
+    // 数据
+    // data
+    export let data = [];
+
+    // 间隔时间
+    // interval time
+    export let interval = 4;
+
+    // 过渡时间
+    // duration time
+    export let duration = 1000;
+
+    // 是否自动播放
+    // is autoplay
+    export let autoplay = true;
     export let lazyplay = true; //是否懒轮播 is lazyplay
     export let initActive = 0; //初始激活索引 init active index
     export let indicatePosition = 'inner'; //指示器位置，'inner'/'out'/'none' indicate position
@@ -44,7 +57,9 @@
     let endTime = 0; //滑动结束时间 when end touch time
     let isMove = false; //是否滑动 is touch move
     let transition = true;
+    let swiperDom = null; //Swiper容器
     $: movePercent = moveX / width; //滑动距离占总宽度的百分比 touch width percent
+    
     const dataNew =
         data.length > 1
             ? [data[data.length - 1], ...data, data[0], data[1]]
@@ -238,7 +253,6 @@
             dispatch('change', currentIndicate);
         }, interval * 1000);
     };
-    let swiperDom = null; //Swiper容器
     //判断Swiper容器是否在可视区域内，如果在，则开启定时器，否则不开启定时器
     // Determine whether the Swiper container is in the visible area. If it is, start the timer, otherwise do not start the timer
     const io = new IntersectionObserver(entries => {
@@ -290,16 +304,21 @@
     //滑动开始
     // slide start
     const touchstartFun = e => {
+        // 阻止默认事件
+        // prevent default event
+        e.preventDefault();
         isMove = true;
         startTime = new Date().getTime();
         translateXTransition = false;
-        startX = e.touches[0].clientX;
+        startX = e.clientX;
     };
     //滑动中
     // slideing
     const touchmoveFun = e => {
+        if (!isMove) return false;
+        swiperDom.setPointerCapture(e.pointerId);
         clearInterval(intervalTime); //清除定时器 clear timer
-        moveX = e.touches[0].clientX - startX;
+        moveX = e.clientX - startX;
     };
     //滑动结束
     // slide end
@@ -404,7 +423,13 @@
     };
 </script>
 
-<div bind:this={swiperDom} on:touchstart={touchstartFun} on:touchmove|passive={touchmoveFun} on:touchend={touchendFun}>
+<div
+    bind:this={swiperDom}
+    on:pointerdown={touchstartFun}
+    on:pointermove={touchmoveFun}
+    on:pointerup={touchendFun}
+    class="touch-none cursor-move"
+>
     <!-- 轮播容器 -->
     <!-- Carousel container -->
     <div

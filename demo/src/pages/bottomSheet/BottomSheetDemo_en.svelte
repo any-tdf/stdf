@@ -1,10 +1,8 @@
 <!-- BottomSheet Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { BottomSheet, Cell, Toast, Button, NoticeBar } from '../../../../components';
+    import { BottomSheet, Cell, Toast, Button } from '../../../../components';
     import Aphorism from '../../components/Aphorism.svelte';
 
-    const isIframe = getContext('iframe') === '1'; //Determine whether it is iframe
     let visible1 = false;
     let visible2 = false;
     let visible3 = false;
@@ -28,14 +26,6 @@
     const heightChangeFunc = e => (currentHeight = e.detail);
 </script>
 
-{#if isIframe}
-    <NoticeBar
-        textList={[
-            'The Touch event is bound to the BottomSheet head area, Please preview the mobile device directly on the mobile device or through the developer tool.',
-        ]}
-        right="none"
-    />
-{/if}
 <div class="py-4">
     <Cell title="Basic usage" on:click={() => (visible1 = true)} />
     <BottomSheet bind:visible={visible1} title="This area supports sliding">

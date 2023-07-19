@@ -1,10 +1,7 @@
 <!-- BottomSheet Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { BottomSheet, Cell, Toast, Button, NoticeBar } from '../../../../components';
+    import { BottomSheet, Cell, Toast, Button } from '../../../../components';
     import Aphorism from '../../components/Aphorism.svelte';
-
-    const isIframe = getContext('iframe') === '1'; //判断是否是iframe
 
     let visible1 = false;
     let visible2 = false;
@@ -29,9 +26,6 @@
     const heightChangeFunc = e => (currentHeight = e.detail);
 </script>
 
-{#if isIframe}
-    <NoticeBar textList={['BottomSheet 头部区域绑定了 Touch 事件，请直接在移动设备或通过开发者工具模拟移动设备预览。']} right="none" />
-{/if}
 <div class="py-4">
     <Cell title="基础用法" on:click={() => (visible1 = true)} />
     <BottomSheet bind:visible={visible1} title="此区域支持滑动">

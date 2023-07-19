@@ -1,3 +1,7 @@
+## 0.1.5
+
+-   修改组件内部的触摸事件为指针事件，使其同时支持鼠标、触控笔和触摸等各种输入方式，包含组件：BottomSheet、IndexBar、Slider、Swiper。关联 [Issues](https://github.com/dufu1991/stdf/issues/5)。[!issue|shenliqing|]
+
 ## 0.1.4
 
 -   更新 NPM README。

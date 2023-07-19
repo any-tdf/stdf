@@ -1,10 +1,6 @@
 <!-- TimePickerDemo Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { Cell, TimePicker, NoticeBar } from '../../../../components';
-
-    //Check whether it is an iframe
-    const isIframe = getContext('iframe') === '1';
+    import { Cell, TimePicker } from '../../../../components';
 
     let visible1 = false;
     let visible2 = false;
@@ -48,14 +44,6 @@
     };
 </script>
 
-{#if isIframe}
-    <NoticeBar
-        textList={[
-            'Dynamic update of day series data when finger is swiping (not scrolling) in the month/year area. Listening for Touch events. Please simulate mobile preview directly on mobile device or through developer tools.',
-        ]}
-        right="none"
-    />
-{/if}
 <div class="py-4">
     <div class="px-4">
         {#if defaultTimeStr !== ''}
@@ -65,13 +53,21 @@
             <div>Please select the time</div>
         {/if}
     </div>
-    <Cell title="Basic usage" subTitle="By default, the current time is selected. 10 years is optional" on:click={() => (visible1 = true)} />
+    <Cell
+        title="Basic usage"
+        subTitle="By default, the current time is selected. 10 years is optional"
+        on:click={() => (visible1 = true)}
+    />
     <TimePicker bind:visible={visible1} on:confirm={getDefaultFunc} />
 
     <Cell title="Just the year, the month and the day" on:click={() => (visible2 = true)} />
     <TimePicker bind:visible={visible2} type="YMD" />
 
-    <Cell title="Misrepresentation unsupported type" subTitle="Use the default year, month, day, hour and second" on:click={() => (visible7 = true)} />
+    <Cell
+        title="Misrepresentation unsupported type"
+        subTitle="Use the default year, month, day, hour and second"
+        on:click={() => (visible7 = true)}
+    />
     <TimePicker bind:visible={visible7} type="MD" />
 
     <Cell title="Just use the minutes and seconds" on:click={() => (visible3 = true)} />
@@ -121,7 +117,11 @@
             <div>Please select the time</div>
         {/if}
     </div>
-    <Cell title="User-defined return time format" subTitle="The output format is Y year M month D day h hour m minute s second" on:click={() => (visible15 = true)} />
+    <Cell
+        title="User-defined return time format"
+        subTitle="The output format is Y year M month D day h hour m minute s second"
+        on:click={() => (visible15 = true)}
+    />
     <TimePicker bind:visible={visible15} outFormat="Y year, M month, D day, h hour, m minutes, s seconds" on:confirm={customFormatFunc} />
 
     <div class="px-4">

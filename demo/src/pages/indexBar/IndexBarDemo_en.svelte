@@ -1,9 +1,6 @@
 <!-- IndexBar Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { IndexBar, Button, NoticeBar, Toast } from '../../../../components';
-
-    const isIframe = getContext('iframe') === '1'; //Determine whether it is iframe
+    import { IndexBar, Button, Toast } from '../../../../components';
 
     const addressList = [
         { index: 'A', title: 'A', child: [{ text: 'Macau' }, { text: 'Anning' }, { text: 'Anqing' }, { text: 'Anshan' }] },
@@ -174,11 +171,6 @@
     message={`Clicked ${toastObj.index + 1} group(${toastObj.group.title}) ${toastObj.childIndex + 1} item(${toastObj.child.text})`}
 />
 
-{#if isIframe}
-    <div class="fixed top-12 w-full bg-white dark:bg-gray1">
-        <NoticeBar textList={['The Touch event is bound to the BAR area on the right,Please preview the mobile device directly on the mobile device or through the developer tool.']} right="none" />
-    </div>
-{/if}
 <div class="sticky flex justify-between bottom-0 px-2 z-10 bg-white/90 dark:bg-black/90">
     <Button fill="lineTheme" size="auto" injClass="text-xs px-2" on:click={changeListFun}>Switch data</Button>
     <Button fill="lineTheme" size="auto" injClass="text-xs px-2" on:click={changeScrollAlignFun}>

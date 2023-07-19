@@ -59,6 +59,12 @@
     // Bar outside the distance from the top
     let barToTop = 0;
 
+    // bar元素
+    // bar element
+    let barDom = null;
+
+    let isDown = false; //是否按下 is down
+
     // 每一个的高度
     // Height of each
     $: itemHeight = barHeight / data.length;
@@ -90,8 +96,10 @@
     //bar区域滑动开始
     //Bar area sliding start
     const touchBoxStart = e => {
-        currentTouch = Math.floor((e.targetTouches[0].clientY - barToTop) / itemHeight);
-        current = Math.floor((e.targetTouches[0].clientY - barToTop) / itemHeight);
+        isDown = true;
+        const clientY = e.clientY;
+        currentTouch = Math.floor((clientY - barToTop) / itemHeight);
+        current = Math.floor((clientY - barToTop) / itemHeight);
         bodyDom.scrollTop = data.slice(0, current).reduce((sum, current) => {
             return sum + current.height;
         }, 0);
@@ -100,13 +108,18 @@
     // bar区域滑动中
     // bar area sliding in the middle
     const touchBoxMove = e => {
-        currentTouch = Math.floor((e.targetTouches[0].clientY - barToTop) / itemHeight);
-        current = Math.floor((e.targetTouches[0].clientY - barToTop) / itemHeight);
-        if (e.targetTouches[0].clientY < barToTop) {
+        if (!isDown) {
+            return;
+        }
+        barDom.setPointerCapture(e.pointerId);
+        const clientY = e.clientY;
+        currentTouch = Math.floor((clientY - barToTop) / itemHeight);
+        current = Math.floor((clientY - barToTop) / itemHeight);
+        if (clientY < barToTop) {
             currentTouch = 0;
             current = 0;
         }
-        if (e.targetTouches[0].clientY > barHeight + barToTop) {
+        if (clientY > barHeight + barToTop) {
             currentTouch = data.length - 1;
             current = data.length - 1;
         }
@@ -119,6 +132,7 @@
     // bar area sliding end
     const touchBoxEnd = () => {
         currentTouch = -1;
+        isDown = false;
     };
 
     //监听主体内容滚动
@@ -139,34 +153,6 @@
         // Dispatch click events to pass four parameters out. 1. index: the parent group index value of the clicked item; 2. group: the parent group content of the clicked item; 3. childIndex: the index value of the clicked item; 4. child: the content of the clicked item.
         dispatch('clickchild', { index, group, childIndex, child });
     };
-    //防抖
-    // function debounce(fn, delay) {
-    //     let timer = null;
-    //     return function () {
-    //         if (timer) {
-    //             clearTimeout(timer);
-    //         }
-    //         timer = setTimeout(() => {
-    //             //模拟触发change事件
-    //             fn.apply(this, arguments);
-    //             // 清空计时器
-    //             timer = null;
-    //         }, delay);
-    //     };
-    // }
-    // 节流
-    // const throttle = (fn, delay = 50) => {
-    //     let timer = null;
-    //     return function () {
-    //         if (timer) {
-    //             return;
-    //         }
-    //         timer = setTimeout(() => {
-    //             fn.apply(this, arguments);
-    //             timer = null;
-    //         }, delay);
-    //     };
-    // };
 </script>
 
 <div bind:this={bodyDom} class={`overflow-y-auto ${scrollAlign && 'snap-y'}`} on:scroll={scrollBody} style="height:{height}px;">
@@ -184,11 +170,14 @@
     {/each}
 </div>
 <div
-    on:touchstart={touchBoxStart}
-    on:touchmove|preventDefault={debounce(touchBoxMove)}
-    on:touchend={debounce(touchBoxEnd, 15)}
+    on:pointerdown={touchBoxStart}
+    on:pointermove={debounce(touchBoxMove, 5)}
+    on:pointerup={debounce(touchBoxEnd, 15)}
     bind:clientHeight={barHeight}
-    class={`fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around ${radiusObj[radius] || radiusObj.base}`}
+    bind:this={barDom}
+    class={`fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around touch-none cursor-move select-none ${
+        radiusObj[radius] || radiusObj.base
+    }`}
     style="top:{top + (height - barHeight) / 2}px;min-height:{height / 4}px;"
 >
     {#each data as group, i}

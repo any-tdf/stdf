@@ -1,10 +1,6 @@
 <!-- Slider Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { Slider, Icon, NoticeBar } from '../../../../components';
-
-    //Check whether it is an iframe
-    const isIframe = getContext('iframe') === '1';
+    import { Slider, Icon } from '../../../../components';
 
     let value = 20;
     const onChangeFun = e => {
@@ -34,10 +30,6 @@
         valueBar = e.detail;
     };
 </script>
-
-{#if isIframe}
-    <NoticeBar textList={['The Slider area is bound to the Touch event, please simulate the mobile preview directly on the mobile device or through the developer tools.']} right="none" />
-{/if}
 
 <div class="mx-4 mt-8 font-bold text-lg">Basic usage</div>
 <div class="px-6 py-4">

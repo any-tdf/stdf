@@ -1,9 +1,6 @@
 <!-- IndexBar Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { IndexBar, Button, NoticeBar, Toast } from '../../../../components';
-
-    const isIframe = getContext('iframe') === '1'; //判断是否是iframe
+    import { IndexBar, Button, Toast } from '../../../../components';
 
     const addressList = [
         { index: 'A', title: 'A', child: [{ text: '澳门' }, { text: '安宁' }, { text: '安庆' }, { text: '鞍山' }] },
@@ -173,11 +170,6 @@
     message={`点击了第 ${toastObj.index + 1} 组（${toastObj.group.title}）中的第 ${toastObj.childIndex + 1} 项（${toastObj.child.text}）`}
 />
 
-{#if isIframe}
-    <div class="fixed top-12 w-full bg-white dark:bg-gray1">
-        <NoticeBar textList={['右侧 Bar 区域绑定了 Touch 事件，请直接在移动设备或通过开发者工具模拟移动设备预览。']} right="none" />
-    </div>
-{/if}
 <div class="sticky flex justify-between bottom-0 px-2 z-10 bg-white/90 dark:bg-black/90">
     <Button fill="lineTheme" size="auto" injClass="text-xs px-2" on:click={changeListFun}>切换数据</Button>
     <Button fill="lineTheme" size="auto" injClass="text-xs px-2" on:click={changeScrollAlignFun}>

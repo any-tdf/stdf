@@ -110,9 +110,10 @@
         class={`overflow-auto snap-y picker-contents ${useAnimation ? 'scroll-smooth' : 'scroll-auto'}`}
         style="height:{itemHeight * showRowsInner}rem;"
         bind:this={scrollElement}
-        on:touchstart={() => {
+        on:scroll={() => {
             isTouch = true;
         }}
+        
     >
         {#each newData as item}
             <div

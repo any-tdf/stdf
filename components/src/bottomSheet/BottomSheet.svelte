@@ -1,6 +1,7 @@
 <script>
     import { onMount, createEventDispatcher, getContext } from 'svelte';
     import { fly } from 'svelte/transition';
+    import { debounce } from '../utils';
     import zh_CN from '../../lang/zh_CN';
 
     import Mask from '../mask/Mask.svelte';
@@ -174,14 +175,16 @@
     const touchstartFun = e => {
         moveDistance = 0;
         startTop = currentTop;
-        startY = e.touches[0].clientY;
+        startY = e.clientY;
         isTouch = true;
     };
 
     // 滑动中
     // sliding
     const touchmoveFun = e => {
-        currentY = e.touches[0].clientY;
+        if (!isTouch) return;
+        scrollTopDom.setPointerCapture(e.pointerId);
+        currentY = e.clientY;
         //移动百分比，moveDistance为正时，向下移动
         //Move percentage, moveDistance is positive when moving down
         moveDistance = ((currentY - startY) / window.innerHeight) * 100;
@@ -293,7 +296,13 @@
             in:fly={{ y: (stayHeightList[stayHeightList.length - 1] / 100) * window.innerHeight, opacity: 1, duration }}
             out:fly={{ y: (stayHeightList[stayHeightList.length - 1] / 100) * window.innerHeight, opacity: 1, duration: outDuration }}
         >
-            <div class="py-1" bind:this={scrollTopDom} on:touchstart={touchstartFun} on:touchmove={touchmoveFun} on:touchend={touchendFun}>
+            <div
+                on:pointerdown={touchstartFun}
+                on:pointermove={debounce(touchmoveFun, 5)}
+                on:pointerup={touchendFun}
+                bind:this={scrollTopDom}
+                class="py-1 touch-none cursor-move select-none"
+            >
                 <div class={`w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto${radius === 'none' ? ' rounded-none' : ' rounded-full'}`} />
                 <div class="px-3 py-1 flex justify-between items-center gap-2">
                     {#if showBackIcon}
@@ -334,7 +343,7 @@
                         </div>
                     {:else}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <div class="text-primary dark:text-dark font-bold" on:click={closeFunc}>{closeContent}</div>
+                        <div class="text-primary dark:text-dark font-bold cursor-pointer" on:click={closeFunc}>{closeContent}</div>
                     {/if}
                 </div>
             </div>

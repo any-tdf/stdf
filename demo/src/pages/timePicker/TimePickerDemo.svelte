@@ -1,10 +1,6 @@
 <!-- TimePickerDemo Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { Cell, TimePicker, NoticeBar } from '../../../../components';
-
-    //判断是否是iframe
-    const isIframe = getContext('iframe') === '1';
+    import { Cell, TimePicker } from '../../../../components';
 
     let visible1 = false;
     let visible2 = false;
@@ -48,14 +44,6 @@
     };
 </script>
 
-{#if isIframe}
-    <NoticeBar
-        textList={[
-            '当手指滑动（非滚动）年月区域时会动态更新天数列数据，监听了 Touch 事件，请直接在移动设备或通过开发者工具模拟移动设备预览。',
-        ]}
-        right="none"
-    />
-{/if}
 <div class="py-4">
     <div class="px-4">
         {#if defaultTimeStr !== ''}

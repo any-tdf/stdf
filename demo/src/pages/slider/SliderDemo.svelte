@@ -1,10 +1,6 @@
 <!-- Slider Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { Slider, Icon, NoticeBar } from '../../../../components';
-
-    //判断是否是iframe
-    const isIframe = getContext('iframe') === '1';
+    import { Slider, Icon } from '../../../../components';
 
     let value = 20;
     const onChangeFun = e => {
@@ -34,10 +30,6 @@
         valueBar = e.detail;
     };
 </script>
-
-{#if isIframe}
-    <NoticeBar textList={['Slider 区域绑定了 Touch 事件，请直接在移动设备或通过开发者工具模拟移动设备预览。']} right="none" />
-{/if}
 
 <div class="mx-4 mt-8 font-bold text-lg">基础用法</div>
 <div class="px-6 py-4">
