@@ -2,26 +2,27 @@
 
 [![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
 [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
-[![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
 [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
+[![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
   <h1>S T D F</h1>
+  
+[![NPM Version](https://flat.badgen.net/npm/v/stdf?color=cb3837)](https://www.npmjs.com/package/stdf)
+[![Github Stars](https://flat.badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
+[![License](https://flat.badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
+[![NPM Installs](https://flat.badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
+[![NPM Minzip](https://flat.badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
+[![NPM Dependency](https://flat.badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
+
   <h3>
     <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">中文</a>
     <span> • </span>
     <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
   </h3>
-  
-[![NPM Version](https://badgen.net/npm/v/stdf?color=b1322f)](https://www.npmjs.com/package/stdf)
-[![NPM Installs](https://badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
-[![NPM Minzip](https://badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
-[![NPM Dependency](https://badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
-[![Github Stars](https://badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
-[![License](https://badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
 </div>
 
 # Introduction
@@ -86,6 +87,11 @@ This project is licensed under the [MIT License](https://github.com/dufu1991/std
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
 </a>
 
-# Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/dufu1991/stdf.svg)](https://starchart.cc/dufu1991/stdf)
+<a href="https://github.com/dufu1991/stdf">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=dufu1991/stdf&type=Timeline&theme=dark" />
+    <img alt="Star History Chart" width="100%" src="https://api.star-history.com/svg?repos=dufu1991/stdf&type=Timeline" />
+  </picture>
+</a>
