@@ -26,60 +26,62 @@
     };
 </script>
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Basic usage</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Basic usage</div>
 <Swiper {data} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">The initial index is 2</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">The initial index is 2</div>
 <Swiper {data} initActive={2} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Interval of 8 seconds</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Interval of 8 seconds</div>
 <Swiper {data} interval={8} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Transition 1500 ms</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Transition 1500 ms</div>
 <Swiper {data} duration={1500} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Turn off autoplay</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Turn off autoplay</div>
 <Swiper {data} autoplay={false} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">External indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">External indicator</div>
 <Swiper {data} indicatePosition="out" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Off indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Off indicator</div>
 <Swiper {data} indicatePosition="none" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Right-align indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Right-align indicator</div>
 <Swiper {data} indicateAlign="right" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Dot indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Dot indicator</div>
 <Swiper {data} indicateStyle="point" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Linear indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Linear indicator</div>
 <Swiper {data} indicateStyle="line" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Long line indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Long line indicator</div>
 <Swiper {data} indicateStyle="longLine" interval={8} />
+<div class="mt-10" />
 <Swiper {data} indicateStyle="longLine" interval={8} indicatePosition="out" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Square indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Square indicator</div>
 <Swiper {data} indicateRadius={false} />
+<div class="mt-10" />
 <Swiper {data} indicateStyle="point" indicateRadius={false} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">
+<div class="font-bold text-lg mx-4 mt-10 mb-2">
     Specifies the color behind the indicator
     <p class="font-thin text-xs mb-2">injection Class</p>
 </div>
 <Swiper {data} indicateInjClass="from-black/0 to-purple/50" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">
+<div class="font-bold text-lg mx-4 mt-10 mb-2">
     Specify indicator color
     <p class="font-thin text-xs mb-2">Remove the background color at the same time</p>
 </div>
 <Swiper {data} indicateInjClass="bg-none" indicateColor="bg-orange" indicateActiveColor="bg-green" />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Specifies the container aspect ratio</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Specifies the container aspect ratio</div>
 <Swiper {data} aspectRatio={[4, 1]} />
 
-<div class="font-bold text-lg mx-4 mt-8">
+<div class="font-bold text-lg mx-4 mt-10">
     Configure the inside margins of the container
     <p class="font-thin text-xs mb-2">Also specify indicator color, remove indicator back color, and configure container interior fillet</p>
 </div>
@@ -94,6 +96,7 @@
     interval={8}
     indicateStyle="longLine"
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="6"
@@ -105,7 +108,7 @@
     aspectRatio={[3, 1]}
 />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">
+<div class="font-bold text-lg mx-4 mt-10 mb-2">
     Add a drop shadow inside the container
     <p class="font-normal text-xs mb-2">injection Class</p>
 </div>
@@ -121,7 +124,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Inactive container X and Z offsets</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X and Z offsets</div>
 <Swiper
     {data}
     px="16"
@@ -134,6 +137,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     translateX={100}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -146,6 +150,7 @@
     translateX={-200}
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="12"
@@ -158,7 +163,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Inactive container X, Y, Z axis rotation</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X, Y, Z axis rotation</div>
 <Swiper
     {data}
     px="4"
@@ -171,6 +176,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     duration={2000}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -183,6 +189,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     duration={2000}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -195,6 +202,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     duration={2000}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -208,6 +216,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     duration={2000}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -221,6 +230,7 @@
     innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
     duration={2000}
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="4"
@@ -235,7 +245,7 @@
     duration={2000}
 />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">The container injection Class was not activated</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">The container injection Class was not activated</div>
 <Swiper
     {data}
     px="24"
@@ -250,6 +260,7 @@
     duration={2000}
     notActiveInjClass="grayscale"
 />
+<div class="mt-10" />
 <Swiper
     {data}
     px="24"
@@ -265,21 +276,21 @@
     notActiveInjClass="blur"
 />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Specified container width</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Specified container width</div>
 <div class="flex justify-center">
     <Swiper {data} containerWidth={(document.body.clientWidth / 4) * 3} />
 </div>
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">Container content uses components</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Container content uses components</div>
 <Swiper data={componentData} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">
+<div class="font-bold text-lg mx-4 mt-10 mb-2">
     Listen for change events
     <p class=" font-normal text-xs mb-2">Currently active index values:{indexChange}</p>
 </div>
 <Swiper {data} on:change={changeContainerFun} />
 
-<div class="font-bold text-lg mx-4 mt-8 mb-2">
+<div class="font-bold text-lg mx-4 mt-10 mb-2">
     Listen for click events
     <p class="font-normal text-xs mb-2">Click on the index value: {indexClick === -1 ? 'Not clicked' : indexClick}</p>
 </div>
