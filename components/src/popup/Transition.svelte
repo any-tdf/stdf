@@ -54,25 +54,13 @@
         '48': ' py-48',
         '64': ' py-64',
     };
-
-    // let dom = null;
-    // $: {
-    //     if (size === 0 && visible && dom) {
-    //         // 获取dom的高度
-    //         setTimeout(() => {
-    //             transitionParams.y = dom.offsetHeight;
-    //             console.log('transitionParams', transitionParams);
-    //             // console.log('dom', dom, dom.offsetHeight);
-    //         }, 5);
-    //     }
-    // }
 </script>
 
 {#if visible}
     {#if position === 'center'}
         <div
-            out:scale={transitionOutParams}
-            in:scale={transitionParams}
+            out:scale|global={transitionOutParams}
+            in:scale|global={transitionParams}
             class={`${sizeClass[position] || sizeClass['bottom']}${pxClass[px] || pxClass['0']}${
                 pyClass[py] || pyClass['0']
             } pointer-events-auto`}
@@ -82,8 +70,8 @@
         </div>
     {:else}
         <div
-            in:fly={transitionParams}
-            out:fly={transitionOutParams}
+            in:fly|global={transitionParams}
+            out:fly|global={transitionOutParams}
             class={`${sizeClass[position] || sizeClass['bottom']}${pxClass[px] || pxClass['0']}${
                 pyClass[py] || pyClass['0']
             } pointer-events-auto`}

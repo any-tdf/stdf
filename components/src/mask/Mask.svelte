@@ -92,8 +92,8 @@
 {#if visible}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
-        in:fade={{ duration }}
-        out:fade={{ duration: outDuration }}
+        in:fade|global={{ duration }}
+        out:fade|global={{ duration: outDuration }}
         on:click={clickMaskFunc}
         class={`fixed w-screen h-screen inset-0${
             inverse ? bgClassInverse[opacity] || bgClassInverse['0.5'] : bgClass[opacity] || bgClass['0.5']

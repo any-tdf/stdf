@@ -191,8 +191,8 @@
             {#each items as item}
                 {#if !isLoading}
                     <div
-                        in:fly={{ x: document.documentElement.clientWidth, duration: 300 }}
-                        out:fly={{ x: document.documentElement.clientWidth, duration: 150 }}
+                        in:fly|global={{ x: document.documentElement.clientWidth, duration: 500 }}
+                        out:fly|global={{ x: document.documentElement.clientWidth, duration: 300 }}
                         class="flex-1 text-center h-8 leading-8 text-sm truncate px-1"
                     >
                         {item[labelKey]}
