@@ -47,7 +47,7 @@ jobs:
                       exit 78
                   fi
 
-            # 5. 读取 doc/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格，使用 cat，保存到 steps.changelog.outputs.changelog
+            # 5. 读取 doc/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格
             - name: Get changelog
               id: changelog
               run: |
