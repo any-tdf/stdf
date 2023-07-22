@@ -1,3 +1,8 @@
+## 0.2.0
+
+-   Adapted for Svelte 4 while remaining compatible with Svelte 3. Currently, only one item needs to be adapted, which is to upgrade the transition animation of some components. Refer to the Svelte 4 migration guide - [Transitions are local by default](https://svelte.dev/docs/v4-migration-guide#transitions-are-local-by-default).
+-   Enhanced the Swiper component. For details, see [Swiper](https://stdf.design/#/components?nav=swiper&tab=4).
+
 ## 0.1.5
 
 -   Modify the touch events in the components to pointer events, enabling support for various input methods such as mouse, stylus, and touch. The components include BottomSheet, IndexBar, Slider, and Swiper. Related to [Issues](https://github.com/dufu1991/stdf/issues/5). [!issue|shenliqing|]

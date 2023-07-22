@@ -43,6 +43,16 @@ aspectRatio 计算出来。
 
 点击事件仅仅在传入图片时生效，传入组件时事件由传入的组件内部决定。
 
+## 滑动事件
+
+当手指或其他触摸设备在 Swiper 容器内滑动结束时，Swiper 会结合滑动距离与滑动速度判断本次滑动是否触发切换，若触发则会根据滑动方向切换到上一个或下一个容器。
+
+-   当滑动距离小于某个阈值时，始终不触发切换。
+-   当滑动距离大于某个阈值时，始终触发切换。
+-   当滑动距离介于两个阈值之间时，会根据滑动速度判断是否触发切换，速度大于某个速度系数时会触发切换。
+
+上述三种情况的阈值和速度系数可以通过 triggerLong、notTriggerLong 和 triggerSpeed 参数进行自定义。其中 triggerLong 和 notTriggerLong 为百分比，表示滑动距离占容器宽度的百分比；triggerSpeed 为 0-1 之间的小数，表示滑动速度系数。
+
 ## lazyplay
 
 Swiper 自动轮播时有一系列过渡动画，当页面同时有大量过渡效果时，考虑到设备性能与动画帧率等问题，Swiper 默认会开启懒轮播，即
@@ -50,8 +60,8 @@ Swiper 组件**不在页面可视范围内时会暂停自动轮播**，当然你
 
 下面两张图展示了极端情况下，同一个页面存在 30+ Swiper 同时轮播时，桌面端浏览器处理大量过渡动画时的性能监视图对比。
 
-- 未开启懒轮播，同时会有 30+ 组过渡动画在进行时的性能监视图。
-  <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="未开启懒轮播性能监视图">
+-   未开启懒轮播，同时会有 30+ 组过渡动画在进行时的性能监视图。
+    <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="未开启懒轮播性能监视图">
 
-- 已开启懒轮播，同时只有 3-4 组过渡动画在进行时的性能监视图。
-  <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="已开启懒轮播性能监视图">
+-   已开启懒轮播，同时只有 3-4 组过渡动画在进行时的性能监视图。
+    <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="已开启懒轮播性能监视图">

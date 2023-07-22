@@ -27,6 +27,9 @@
 | activeInjClass      | String  | ’‘          | Class                                  | N    | 激活容器注入 Class。       |
 | notActiveInjClass   | String  | ’‘          | Class                                  | N    | 未激活容器注入 Class。     |
 | radius              | String  | 'none'      | 'none'/'base'/'xl'/'2xl'/'full'        | N    | 容器内部区域圆角。         |
+| triggerLong         | Number  | 30          | 0-100                                  | N    | 始终触发的滑动距离百分比。     |
+| notTriggerLong      | Number  | 10          | 0-100                                  | N    | 始终不触发的滑动距离百分比。   |
+| triggerSpeed        | Number  | 0.5         | 0-1                                    | N    | 触发的滑动速度系数。       |
 | innerInjClass       | String  | ’‘          | Class                                  | N    | 容器内部元素注入 Class。   |
 
 ## Swiper Events

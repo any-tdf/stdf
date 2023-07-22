@@ -40,6 +40,16 @@ This is the setting of the rounded corners and injection classes for the interna
 
 The click event only works when images are passed in. When components are passed in, the event is determined by the component passed in.
 
+## Slide Events
+
+When the finger or other touch device finishes sliding within the Swiper container, Swiper determines whether to trigger the slide switch based on the sliding distance and sliding speed. If it is triggered, Swiper will switch to the previous or next container according to the sliding direction.
+
+-   When the sliding distance is less than a certain threshold, the slide switch is never triggered.
+-   When the sliding distance is greater than a certain threshold, the slide switch is always triggered.
+-   When the sliding distance is between two thresholds, the slide switch is triggered based on the sliding speed. If the speed is greater than a certain speed coefficient, the slide switch is triggered.
+
+The thresholds and speed coefficients for the above three cases can be customized using the triggerLong, notTriggerLong, and triggerSpeed. Among them, triggerLong and notTriggerLong are percentages representing the percentage of the sliding distance to the container width, and triggerSpeed is a decimal between 0 and 1 representing the sliding speed coefficient.
+
 ## lazyplay
 
 Swiper has a series of transition animations when autoplaying. When there are a large number of transition effects on the page, considering device performance and animation frame rate issues, Swiper will enable lazy autoplay by default, which means that the Swiper component **will pause autoplay when it is not within the visible range**. Of course, you can also set this separately.

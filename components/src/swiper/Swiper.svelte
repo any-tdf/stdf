@@ -43,6 +43,18 @@
     export let radius = 'none'; //容器内部区域圆角,none/base/xl/2xl/full container inner radius
     export let innerInjClass = ''; //容器内部元素注入 Class container inner inject class
 
+    // 始终触发的滑动距离百分比
+    // touch move distance percent
+    export let triggerLong = 30;
+
+    // 始终不触发的滑动距离百分比
+    // not touch move distance percent
+    export let notTriggerLong = 10;
+
+    // 触发的滑动速度系数
+    // touch move speed coefficient
+    export let triggerSpeed = 0.5;
+
     let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
     let active = data.length > 1 ? initActive + 1 : 1; //当前激活的item current active item
     let currentIndicate = data.length > 1 ? initActive : 0; //当前激活的指示器  current active indicate
@@ -59,7 +71,7 @@
     let transition = true;
     let swiperDom = null; //Swiper容器
     $: movePercent = moveX / width; //滑动距离占总宽度的百分比 touch width percent
-    
+
     const dataNew =
         data.length > 1
             ? [data[data.length - 1], ...data, data[0], data[1]]
@@ -320,28 +332,32 @@
         clearInterval(intervalTime); //清除定时器 clear timer
         moveX = e.clientX - startX;
     };
+
     //滑动结束
     // slide end
-    const touchendFun = () => {
-        isMove = false;
+    const touchendFun = e => {
         endTime = new Date().getTime();
-        translateXTransition = true;
-        //滑动距离大于等于容器宽度三分之一不用考虑滑动速度，都触发切换。
-        //滑动距离小于等于容器宽度十分之一，无论速度快慢都不触发切换。
-        //滑动距离大于容器宽度十分之一且小于三分之一，需要判断滑动速度，用一个速度阈值来判断。阈值大于等于0.5切换，否则不切换。
-        // If the sliding distance is greater than or equal to one-third of the container width, there is no need to consider the sliding speed, and the switching is triggered.
-        // If the sliding distance is less than or equal to one-tenth of the container width, the switching is not triggered regardless of the speed.
-        // If the sliding distance is greater than one-tenth of the container width and less than one-third, you need to judge the sliding speed and use a speed threshold to judge. The threshold is greater than or equal to 0.5 to switch, otherwise it will not switch.
         const moveXABS = Math.abs(moveX); //滑动距离，moveX绝对值。  slide distance, moveX absolute value
         const timeLong = endTime - startTime; //滑动时间  slide time
         const speed = moveXABS / timeLong; //滑动速度阈值  slide speed threshold
+
+        //滑动距离大于等于容器宽度 triggerLong/100 不用考虑滑动速度，都触发切换。
+        //滑动距离小于等于容器宽度 notTriggerLong/100，无论速度快慢都不触发切换。
+        //滑动距离大于容器宽度 notTriggerLong/100 且小于 triggerLong/100，需要判断滑动速度，用一个速度阈值来判断。阈值大于等于 triggerSpeed 切换，否则不切换。
+        // The sliding distance is greater than or equal to the container width triggerLong/100, and the sliding speed does not need to be considered, and the switching is triggered.
+        // The sliding distance is less than or equal to the container width notTriggerLong/100, and the switching is not triggered regardless of the speed.
+        // The sliding distance is greater than the container width notTriggerLong/100 and less than triggerLong/100, the sliding speed needs to be judged, and a speed threshold is used to judge. The threshold is greater than or equal to triggerSpeed to switch, otherwise it will not switch.
+
+        isMove = false;
+        translateXTransition = true;
+
         long = false;
         longTransition = false;
         setTimeout(() => {
             long = autoplay;
             longTransition = true;
         }, duration);
-        if (moveX <= -(width / 3)) {
+        if (moveX <= -(width * (triggerLong / 100))) {
             //左滑
             // slide left
             moveX = 0;
@@ -358,7 +374,7 @@
                     translateXTransition = false;
                 }, duration);
             }
-        } else if (moveX >= width / 3) {
+        } else if (moveX >= width * (triggerLong / 100)) {
             moveX = 0;
             currentIndicate--;
             active--;
@@ -373,8 +389,8 @@
                     translateXTransition = false;
                 }, duration);
             }
-        } else if (moveXABS > width / 10 && moveXABS < width / 3) {
-            if (moveX < 0 && speed >= 0.5) {
+        } else if (moveXABS > (notTriggerLong / 100) * width && moveXABS < width * (triggerLong / 100)) {
+            if (moveX < 0 && speed >= triggerSpeed) {
                 //左滑
                 // slide left
                 moveX = 0;
@@ -391,7 +407,7 @@
                         translateXTransition = false;
                     }, duration);
                 }
-            } else if (moveX > 0 && speed >= 0.5) {
+            } else if (moveX > 0 && speed >= triggerSpeed) {
                 //右滑
                 // slide right
                 moveX = 0;

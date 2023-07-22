@@ -1,3 +1,7 @@
+## 2023-07-23
+
+Adapted for Svelte 4 while remaining compatible with Svelte 3 (v0.2.0).
+
 ## 2023-06-16
 
 Featured in Ruan Yifeng's [weekly-issue No. 259](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html).

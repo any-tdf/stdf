@@ -1,3 +1,7 @@
+## 2023-07-23
+
+适配 Svelte 4 也兼容 Svelte 3（v0.2.0）。
+
 ## 2023-06-16
 
 入选阮一峰老师的[科技爱好者周刊 259 期](https://www.ruanyifeng.com/blog/2023/06/weekly-issue-259.html)。

@@ -1,3 +1,8 @@
+## 0.2.0
+
+-   适配 Svelte 4 同时也兼容 Svelte 3。目前仅需适配一项，即升级部分组件过渡动画，参考 Svelte 4 migration guide - [Transitions are local by default](https://svelte.dev/docs/v4-migration-guide#transitions-are-local-by-default)。
+-   增强 Swiper 组件，详见 [Swiper](https://stdf.design/#/components?nav=swiper&tab=4)。
+
 ## 0.1.5
 
 -   修改组件内部的触摸事件为指针事件，使其同时支持鼠标、触控笔和触摸等各种输入方式，包含组件：BottomSheet、IndexBar、Slider、Swiper。关联 [Issues](https://github.com/dufu1991/stdf/issues/5)。[!issue|shenliqing|]
