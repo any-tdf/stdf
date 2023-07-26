@@ -25,7 +25,21 @@ import { Button } from 'stdf';
 
 ## 😓 No works
 
-### Construction project
+### Use create-stdf
+
+You can try using `create-stdf` to quickly create a project. (beta version, may have issues)
+
+```bash
+pnpm create stdf@latest
+# or
+npm create stdf@latest
+# or
+npm init stdf@latest
+# or
+npx create-stdf@latest
+```
+
+### Build your own project
 
 Use the Vite example to create the project here. See [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
@@ -35,9 +49,7 @@ npm create vite@latest
 
 Follow the prompts to create a project.
 
-### Configuration Tailwind CSS
-
-See [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite)。
+Configuration Tailwind CSS. See [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite)。
 
 1. Install Tailwind CSS and other dependencies, then generate tailwind.config.js and postcss.config.js files.
 

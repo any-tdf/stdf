@@ -25,7 +25,21 @@ import { Button } from 'stdf';
 
 ## 😓 无工程
 
-### 搭建工程
+### 使用 create-stdf
+
+可以尝试使用 `create-stdf` 快速创建工程。（beta 版本，可能存在问题）
+
+```bash
+pnpm create stdf@latest
+# or
+npm create stdf@latest
+# or
+npm init stdf@latest
+# or
+npx create-stdf@latest
+```
+
+### 自行搭建工程
 
 此处用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
@@ -35,9 +49,7 @@ npm create vite@latest
 
 按照提示操作创建工程。
 
-### 配置 Tailwind CSS
-
-参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite)。
+参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite) 配置 Tailwind CSS。
 
 1. 安装 Tailwind CSS 和其他依赖，然后生成 `tailwind.config.js` 和 `postcss.config.js` 文件。
 
