@@ -43,7 +43,7 @@ jobs:
                   git config --global user.email 'GitHub Actions'
                   sed -i 's|../../packages/stdf|stdf|g' src/App.svelte
                   sed -i 's|../../../../packages/stdf|stdf|g' src/pages/**/*.svelte
-                  sed -i '10a\        "stdf": "${{ steps.version.outputs.version }}",' package.json
+                  sed -i '10a\        "stdf": "^${{ steps.version.outputs.version }}",' package.json
                   git add .
                   git commit -am "Github Actions auto commit: update demo from stdf."
 
