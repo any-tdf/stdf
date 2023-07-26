@@ -66,7 +66,7 @@ Note: The 'content' in the Tailwind configuration file represents all files that
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     // ...
-    content: ['./src/**/*.{html,js,svelte}', './src/App.svelte', './node_modules/stdf/src/**/*.svelte'],
+    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/src/**/*.svelte'],
     theme: {
         colors: {
             // Theme Color
