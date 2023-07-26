@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { Pagination, Loading } from '../../../../components';
+    import { Pagination, Loading } from '../../../../packages/stdf';
     import aphorisms from '../../data/aphorisms';
 
     // 总数，一般是后端接口返回

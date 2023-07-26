@@ -1,7 +1,7 @@
 <!-- Popup Demo -->
 <script>
-    import { Cell, Popup, Button, Icon } from '../../../../components';
-    import Aphorism from '../../components/Aphorism.svelte';
+    import { Cell, Popup, Button, Icon } from '../../../../packages/stdf';
+    import Aphorism from '../../packages/stdf/Aphorism.svelte';
 
     let visible1 = false;
     let visible2 = false;

@@ -1,6 +1,6 @@
 <!-- TabBar Demo -->
 <script>
-    import {TabBar} from '../../../../components';
+    import {TabBar} from '../../../../packages/stdf';
 
     const labels = [
         {text: '首页', icon: {name: 'ri-home-3-line', size: 20}, activeIcon: {name: 'ri-home-3-fill', size: 20}},

@@ -1,6 +1,6 @@
 <!-- IndexBar Demo -->
 <script>
-    import { IndexBar, Button, Toast } from '../../../../components';
+    import { IndexBar, Button, Toast } from '../../../../packages/stdf';
 
     const addressList = [
         { index: 'A', title: 'A', child: [{ text: '澳门' }, { text: '安宁' }, { text: '安庆' }, { text: '鞍山' }] },

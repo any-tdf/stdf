@@ -1,5 +1,5 @@
 <script>
-    import { Swiper, Cell, Button, Progress, Divider } from '../../../../components';
+    import { Swiper, Cell, Button, Progress, Divider } from '../../../../packages/stdf';
 
     const imgs = [
         { type: 'img', url: './assets/images/wall_1.jpg' },

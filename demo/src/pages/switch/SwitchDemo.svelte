@@ -1,6 +1,6 @@
 <!-- Switch Demo -->
 <script>
-    import { Switch, Icon, Cell, Dialog } from '../../../../components';
+    import { Switch, Icon, Cell, Dialog } from '../../../../packages/stdf';
 
     let checkAsync = false;
     const switchClickFun = () => {

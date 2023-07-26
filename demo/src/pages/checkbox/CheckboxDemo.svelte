@@ -1,6 +1,6 @@
 <!-- Checkbox Demo -->
 <script>
-    import { CheckboxGroup, Checkbox, Divider, Button } from '../../../../components';
+    import { CheckboxGroup, Checkbox, Divider, Button } from '../../../../packages/stdf';
     import { onMount } from 'svelte';
     import { quintOut } from 'svelte/easing';
     import { crossfade } from 'svelte/transition';

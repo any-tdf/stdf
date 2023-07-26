@@ -1,6 +1,6 @@
 <!-- Rate Demo -->
 <script>
-    import {Rate, Icon} from '../../../../components';
+    import {Rate, Icon} from '../../../../packages/stdf';
 
     let value = 2.5;
     const getValueFun = e => {

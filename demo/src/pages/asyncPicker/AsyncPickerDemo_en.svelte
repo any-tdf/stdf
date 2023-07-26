@@ -1,6 +1,6 @@
 <!-- AsyncPicker Demo -->
 <script>
-    import { AsyncPicker, Cell } from '../../../../components';
+    import { AsyncPicker, Cell } from '../../../../packages/stdf';
     // In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
     import { linkageData, linkageDiffLabeData } from './data_en';
 

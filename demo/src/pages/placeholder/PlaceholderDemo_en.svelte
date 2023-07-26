@@ -1,6 +1,6 @@
 <!-- Placeholder Demo -->
 <script>
-    import { Placeholder, Grids, Grid } from '../../../../components';
+    import { Placeholder, Grids, Grid } from '../../../../packages/stdf';
 </script>
 
 <div class="m-4 font-bold text-lg">Basic usage</div>

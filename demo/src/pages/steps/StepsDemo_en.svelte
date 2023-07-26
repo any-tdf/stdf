@@ -1,6 +1,6 @@
 <!--Steps Demo -->
 <script>
-    import { Steps, Button, Divider } from '../../../../components';
+    import { Steps, Button, Divider } from '../../../../packages/stdf';
     import injCom1 from './injCom1_en.svelte';
     import injCom2 from './injCom2_en.svelte';
 
@@ -277,7 +277,7 @@
 <!-- injCom2.svelte -->
 <!-- 
 <script>
-    import { Button, Icon, Avatar } from '../../../../components';
+    import { Button, Icon, Avatar } from '../../../../packages/stdf';
 </script>
 
 <div class="text-primary dark:text-dark text-sm">Here you inject something in the form of a component</div>

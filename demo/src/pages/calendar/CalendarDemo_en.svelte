@@ -1,6 +1,6 @@
 <!-- Calendar Demo -->
 <script>
-    import { Cell, Calendar } from '../../../../components';
+    import { Cell, Calendar } from '../../../../packages/stdf';
 
     let visible1 = false;
     let visible2 = false;

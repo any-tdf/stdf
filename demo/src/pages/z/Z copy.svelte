@@ -1,5 +1,5 @@
 <script>
-    import { Swiper, Cell, Steps } from '../../../../components';
+    import { Swiper, Cell, Steps } from '../../../../packages/stdf';
 
     const imgs = [
         { type: 'img', url: './assets/images/wall_1.jpg' },

@@ -1,6 +1,6 @@
 <!--ProgressLoop Demo-->
 <script>
-    import { ProgressLoop, Button } from '../../../../components';
+    import { ProgressLoop, Button } from '../../../../packages/stdf';
 
     let percent = 20;
     const changePercentFun = type => {

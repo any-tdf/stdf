@@ -1,6 +1,6 @@
 <!-- Tabs Demo -->
 <script>
-    import { Tabs, Tab, TabContent, Divider } from '../../../../components';
+    import { Tabs, Tab, TabContent, Divider } from '../../../../packages/stdf';
     import { fly } from 'svelte/transition';
 
     const labels = [{ text: 'aircraft' }, { text: 'steamer' }, { text: 'train' }, { text: 'car' }];

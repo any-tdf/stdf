@@ -1,6 +1,6 @@
 <!-- Swiper Demo -->
 <script>
-    import { Swiper } from '../../../../components';
+    import { Swiper } from '../../../../packages/stdf';
     import Item from './Item.svelte';
 
     const data = [
@@ -298,7 +298,7 @@
 
 <!-- Item.svelte -->
 <!-- <script>
-    import { Button, Avatar } from '../../../../components';
+    import { Button, Avatar } from '../../../../packages/stdf';
 </script>
 
 <div class="flex flex-col space-y-4 items-center">
