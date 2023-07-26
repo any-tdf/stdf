@@ -9,7 +9,7 @@ import * as langAll from './lang/index.mjs';
 const { version } = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
 
 console.log(`
-${grey(`create-stdf version ${version}
+${grey(`create-stdf  @${version}
 `)}`);
 
 const spinner = p.spinner();
@@ -50,9 +50,9 @@ let template = await p.select({
     options: templateOptions,
 });
 
-// 直到选择的 template 是 vt 或者 vu 为止，否则一直重新选择
+// 直到选择的 template 是 vt 为止，否则一直重新选择
 // Until the selected template is vt or vu, otherwise keep reselecting
-while (template !== 'vt' && template !== 'vu') {
+while (template !== 'vt') {
     if (p.isCancel(template)) {
         p.cancel(red('⛔ ') + lang.oc);
         process.exit(0);
@@ -74,7 +74,7 @@ if (p.isCancel(template)) {
 // Enter the project name
 let projectName = await p.text({
     message: bold(lang.pn),
-    initialValue: 'my-stdf-app',
+    initialValue: 'stdf-project',
     validate: value => {
         if (!value) {
             // 判断是否为空，提示 “项目名称不能为空”
