@@ -2,7 +2,7 @@
 
 - [ ] 开发一款 Vite 插件，支持将指定目录下的所有 svg 合并为 SVG symbol。
 - [ ] 开发一款 VS Code 插件，支持光标悬浮显示 STDF 组件 API 等功能。
-- [ ] 开发一款模板脚手架，支持按照配置初始使用 STDF 的工程，初步考虑支持 Vite、SvelteKit。
+- [x] 开发一款模板脚手架，支持按照配置初始使用 STDF 的工程，初步考虑支持 Vite、SvelteKit。
 - [ ] 按照 Tailwind CSS 变量规则，实现自定义主题色。
 - [ ] 新增 NumKeyboard-数字键盘组件，一般用于输入数字。
 - [ ] 新增 SecurityCode-安全码组件，一般用于输入短信或邮件收到的数字校验码。
