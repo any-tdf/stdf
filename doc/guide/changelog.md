@@ -1,3 +1,7 @@
+## 0.2.1
+
+-  新增了 `create-stdf`，可以快速创建使用 STDF 的工程。（beta 版本，可能存在问题）
+
 ## 0.2.0
 
 -   适配 Svelte 4 同时也兼容 Svelte 3。目前仅需适配一项，即升级部分组件过渡动画，参考 Svelte 4 migration guide - [Transitions are local by default](https://svelte.dev/docs/v4-migration-guide#transitions-are-local-by-default)。

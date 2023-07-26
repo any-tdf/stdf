@@ -1,3 +1,7 @@
+## 0.2.1
+
+-   Added `create-stdf` to quickly create a project using STDF. (beta version, may have issues)
+
 ## 0.2.0
 
 -   Adapted for Svelte 4 while remaining compatible with Svelte 3. Currently, only one item needs to be adapted, which is to upgrade the transition animation of some components. Refer to the Svelte 4 migration guide - [Transitions are local by default](https://svelte.dev/docs/v4-migration-guide#transitions-are-local-by-default).
