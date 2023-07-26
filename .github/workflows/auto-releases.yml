@@ -1,4 +1,4 @@
-# 当分支 main 有 push 事件，并且此次 push 包含了 components/package.json 文件时，执行以下任务
+# 当分支 main 有 push 事件，并且此次 push 包含了 packages/stdf/package.json 文件时，执行以下任务
 
 name: AUTO RELEASES
 
@@ -7,7 +7,7 @@ on:
         branches:
             - main
         paths:
-            - 'components/package.json'
+            - 'packages/stdf/package.json'
 
 jobs:
     releases:
@@ -17,11 +17,11 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            # 1. 读取 components/package.json 中的 version 字段，作为 Releases tag 和 Releases title
+            # 1. 读取 packages/stdf/package.json 中的 version 字段，作为 Releases tag 和 Releases title
             - name: Get version
               id: version
               run: |
-                  echo version=$(cat components/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+                  echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
             # 2. 读取 doc/guide/changelog.md 的第一行内容，去除 ## 和空格
             - name: Get md_version
