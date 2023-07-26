@@ -1,7 +1,7 @@
 <!-- Dialog Demo -->
 <script>
     import { Dialog, Cell, Toast, Loading } from '../../../../packages/stdf';
-    import Aphorism from '../../packages/stdf/Aphorism.svelte';
+    import Aphorism from '../../components/Aphorism.svelte';
 
     let visible1 = false;
     let visible2 = false;
