@@ -3,7 +3,13 @@
 A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 
 ```bash
-npm create create-stdf@latest
+pnpm create stdf@latest
+# or
+npm create stdf@latest
+# or
+npm init stdf@latest
+# or
+npx create-stdf@latest
 ```
 
 ...and follow the prompts.
