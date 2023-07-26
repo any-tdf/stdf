@@ -1,9 +1,10 @@
 <div align="center">
 
-[![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-npm.yml)
+[![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-stdf.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-stdf.yml)
 [![Releases Status](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-releases.yml)
 [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-sync-demo.yml)
 [![Deploy Status](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-deploy-demo.yml)
+[![Public Status](https://github.com/dufu1991/stdf/actions/workflows/auto-public-create.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/auto-public-create.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">

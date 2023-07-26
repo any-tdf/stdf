@@ -1,6 +1,6 @@
 # 当分支 main 有 push 事件并且此次 push 包含了 packages/stdf/package.json 文件时，执行以下任务
 
-name: AUTO PUBLISH STDF
+name: PUBLISH STDF
 
 on:
     push:
