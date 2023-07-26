@@ -9,7 +9,7 @@ import * as langAll from './lang/index.mjs';
 const { version } = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
 
 console.log(`
-${grey(`create-stdf  @${version}
+${grey(`create-stdf@${version}
 `)}`);
 
 const spinner = p.spinner();
@@ -34,7 +34,7 @@ if (p.isCancel(languageType)) {
 
 const templateOptions = [
     { value: 'vt', label: 'Vite + Tailwind' },
-    { value: 'vu', label: 'Vite + UnoCSS' },
+    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})` },
     { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})` },
     { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})` },
     { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})` },
