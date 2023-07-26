@@ -7,7 +7,7 @@
 # 6. 使用 appleboy/scp-action@master 将 demo/dist 目录下所有文件上传到服务器上 demo 目录下
 # 7. 执行 demo/Refresh-auto.py 刷新 CDN 缓存
 
-name: DEPLOY DEMO
+name: BUILD DEMO
 
 on:
     push:
