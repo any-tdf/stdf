@@ -66,7 +66,21 @@ import { Button } from 'stdf';
 <Button>Default</Button>
 ```
 
-😓 No project? Create a project with Vite and reference the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) and the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite) for CSS configuration.
+## 😓 No project? Create one!
+
+You can try using `create-stdf` to quickly create a project. (beta version, may have issues)
+
+```bash
+pnpm create stdf@latest
+# or
+npm create stdf@latest
+# or
+npm init stdf@latest
+# or
+npx create-stdf@latest
+```
+
+Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide) for more information.
 
 # Preview
 

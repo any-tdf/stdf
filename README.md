@@ -68,7 +68,21 @@ import { Button } from 'stdf';
 <Button>默认</Button>
 ```
 
-😓 无工程？用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。并配置 Tailwind CSS，参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite)。
+## 😓 无工程？创建工程
+
+可以尝试使用 `create-stdf` 快速创建工程。（beta 版本，可能存在问题）
+
+```bash
+pnpm create stdf@latest
+# or
+npm create stdf@latest
+# or
+npm init stdf@latest
+# or
+npx create-stdf@latest
+```
+
+或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide)。
 
 # 预览
 
