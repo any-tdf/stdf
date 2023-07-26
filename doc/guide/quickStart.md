@@ -66,7 +66,7 @@ npx tailwindcss init -p
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     // ...
-    content: ['./src/**/*.{html,js,svelte}', './src/App.svelte', './node_modules/stdf/src/**/*.svelte'],
+    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/src/**/*.svelte'],
     theme: {
         colors: {
             // 主题色
