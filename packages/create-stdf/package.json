@@ -1,8 +1,10 @@
 {
     "name": "create-stdf",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "description": "A CLI for creating new STDF projects",
-    "main": "./dist/index.js",
+    "bin": {
+        "create-stdf": "./dist/index.js"
+    },
     "scripts": {
         "build": "rollup -c",
         "test": "echo \"Error: no test specified\" && exit 1"
