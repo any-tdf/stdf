@@ -34,10 +34,14 @@ jobs:
                   sed -i '10a\        "stdf": "^${{ steps.version.outputs.version }}",' packages/create-stdf/templates/vite-tailwind/package.json
 
             # cd packages/create-stdf 目录下
+            # 安装依赖 npm install
+            # 打包 npm run build
             # 发布 create-stdf 到 npm
             - name: Publish
               run: |
                   cd packages/create-stdf
+                  npm install
+                  npm run build 
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
                   npm publish
               env:
