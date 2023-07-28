@@ -3,7 +3,7 @@
     "version": "0.0.14",
     "description": "A CLI for creating new STDF projects",
     "bin": {
-        "create-stdf": "dist/index.js"
+        "create-stdf": "index.js"
     },
     "scripts": {
         "build": "rollup -c",
