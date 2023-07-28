@@ -132,6 +132,14 @@ templateOptions.forEach(async item => {
                     stdf: packageJson.devDependencies.stdf.replace('^', ''),
                 };
 
+                // 将项目内的 package.json 中的 name 属性修改为 projectName
+                // Modify the name attribute in package.json in the project to projectName
+                packageJson.name = projectName;
+
+                // 将修改后的 packageJson 写入到项目内的 package.json 文件中
+                // Write the modified packageJson to the package.json file in the project
+                fs.writeFileSync(`${projectDir}/package.json`, JSON.stringify(packageJson, null, 4), 'utf-8');
+
                 // 显示版本号
                 // Display version number
                 console.log(
