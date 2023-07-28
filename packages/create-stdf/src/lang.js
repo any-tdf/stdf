@@ -9,7 +9,8 @@ export const en_US = {
     cfsing: 'Creating file...',
     pcsucc: 'Project created successfully',
     tgs: 'To get started:',
-    pcyt: 'Please configure the theme color in the tailwind.config.js file',
+    pcyt: 'Tip: Please configure your color system in the tailwind.config.js file',
+    cferror: 'Failed to create file',
 };
 
 export const zh_CN = {
@@ -23,5 +24,6 @@ export const zh_CN = {
     cfsing: '正在创建文件...',
     pcsucc: '项目创建成功',
     tgs: '开始：',
-    pcyt: '请到 tailwind.config.js 文件内配置主题色',
+    pcyt: '提示：请到 tailwind.config.js 文件内配置你的颜色系统',
+    cferror: '创建文件失败',
 };

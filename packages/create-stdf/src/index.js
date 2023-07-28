@@ -4,10 +4,13 @@ import fs from 'fs-extra';
 import path from 'node:path';
 import * as p from '@clack/prompts';
 import { bold, cyan, grey, red, blue } from 'kleur/colors';
-import * as langAll from './lang/index.mjs';
 
-const { version } = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
+import * as langAll from './lang';
 
+const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
+
+// 显示版本号
+// Display version number
 console.log(`
 ${grey(`create-stdf@${version}
 `)}`);
@@ -33,14 +36,14 @@ if (p.isCancel(languageType)) {
 }
 
 const templateOptions = [
-    { value: 'vt', label: 'Vite + Tailwind', template: './templates/vite-tailwind' },
-    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: './templates/vite-uno' },
-    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: './templates/sveltekit-tailwind' },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: './templates/sveltekit-uno' },
-    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: './templates/vite-tailwind-typescript' },
-    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: './templates/vite-uno-typescript' },
-    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: './templates/sveltekit-tailwind-typescript' },
-    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: './templates/sveltekit-uno-typescript' },
+    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind' },
+    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: '../templates/vite-uno' },
+    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: '../templates/sveltekit-tailwind' },
+    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: '../templates/sveltekit-uno' },
+    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/vite-tailwind-typescript' },
+    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: '../templates/vite-uno-typescript' },
+    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-tailwind-typescript' },
+    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-uno-typescript' },
 ];
 
 //  选择一个模板
@@ -119,11 +122,14 @@ templateOptions.forEach(async item => {
                 // 读取 package.json 文件，获得 vite svelte tailwind stdf 的版本号
                 // Read the package.json file to get the version number of vite svelte tailwind stdf
                 const packageJson = JSON.parse(fs.readFileSync(`${projectDir}/package.json`, 'utf-8'));
+
+                // packageJson 中的 devDependencies 里面的版本号去除 ^ 符号
+                // The version number in devDependencies in packageJson removes the ^ symbol
                 const versions = {
-                    vite: packageJson.devDependencies.vite,
-                    svelte: packageJson.devDependencies.svelte,
-                    tailwindcss: packageJson.devDependencies.tailwindcss,
-                    stdf: packageJson.devDependencies.stdf,
+                    vite: packageJson.devDependencies.vite.replace('^', ''),
+                    svelte: packageJson.devDependencies.svelte.replace('^', ''),
+                    tailwindcss: packageJson.devDependencies.tailwindcss.replace('^', ''),
+                    stdf: packageJson.devDependencies.stdf.replace('^', ''),
                 };
 
                 // 显示版本号
@@ -149,13 +155,13 @@ templateOptions.forEach(async item => {
                 // 显示配置主题色
                 // Display configuration theme color
                 console.log(
-                    `🎨 ${bold(lang.pcyt)}
+                    `🎨 ${grey(lang.pcyt)}
     `
                 );
             })
             .catch(err => {
                 spinner.stop();
-                console.error(111, err);
+                console.error(red(lang.cferror + '--' + err));
             });
     }
 });
