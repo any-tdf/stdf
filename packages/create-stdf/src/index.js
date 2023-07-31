@@ -9,6 +9,16 @@ import * as langAll from './lang';
 
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
 
+// const templatePath = new URL('../templates/vite-tailwind/package.json', import.meta.url);
+// const templatePath2 = new URL('../templates/vite-tailwind', import.meta.url);
+// const templatePath3 = new URL('../templates/vite-tailwind/', import.meta.url);
+// // const sourceFilePath = path.join(__dirname, templatePath);
+
+// console.log(11, templatePath);
+// console.log(22, templatePath2);
+// console.log(33, templatePath3);
+// console.log(44, sourceFilePath);
+
 // 显示版本号
 // Display version number
 console.log(`
@@ -36,7 +46,7 @@ if (p.isCancel(languageType)) {
 }
 
 const templateOptions = [
-    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind' },
+    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind/' },
     { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: '../templates/vite-uno' },
     { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: '../templates/sveltekit-tailwind' },
     { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: '../templates/sveltekit-uno' },
@@ -108,9 +118,11 @@ spinner.start('🚀 ' + lang.cfsing);
 templateOptions.forEach(async item => {
     if (item.value === template) {
         fs.mkdirSync(projectDir);
+
         // 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
         // Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
-        const templatePath = path.join(path.resolve(), '/create-stdf', item.template);
+        const templatePath = new URL(item.template, import.meta.url).pathname
+        // const sourceFilePath = templatePath;
 
         // 将 templatePath 目录下的所有文件复制到 projectDir 目录下
         // Copy all files under the templatePath directory to the projectDir directory\
