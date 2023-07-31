@@ -36,14 +36,14 @@ if (p.isCancel(languageType)) {
 }
 
 const templateOptions = [
-    { value: 'vt', label: 'Vite + Tailwind', template: './templates/vite-tailwind' },
-    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: './templates/vite-uno' },
-    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: './templates/sveltekit-tailwind' },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: './templates/sveltekit-uno' },
-    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: './templates/vite-tailwind-typescript' },
-    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: './templates/vite-uno-typescript' },
-    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: './templates/sveltekit-tailwind-typescript' },
-    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: './templates/sveltekit-uno-typescript' },
+    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind' },
+    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: '../templates/vite-uno' },
+    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: '../templates/sveltekit-tailwind' },
+    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: '../templates/sveltekit-uno' },
+    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/vite-tailwind-typescript' },
+    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: '../templates/vite-uno-typescript' },
+    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-tailwind-typescript' },
+    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-uno-typescript' },
 ];
 
 //  选择一个模板
