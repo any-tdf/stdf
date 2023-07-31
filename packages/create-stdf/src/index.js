@@ -36,14 +36,14 @@ if (p.isCancel(languageType)) {
 }
 
 const templateOptions = [
-    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind' },
-    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: '../templates/vite-uno' },
-    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: '../templates/sveltekit-tailwind' },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: '../templates/sveltekit-uno' },
-    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/vite-tailwind-typescript' },
-    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: '../templates/vite-uno-typescript' },
-    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-tailwind-typescript' },
-    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-uno-typescript' },
+    { value: 'vt', label: 'Vite + Tailwind', template: './templates/vite-tailwind' },
+    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: './templates/vite-uno' },
+    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: './templates/sveltekit-tailwind' },
+    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: './templates/sveltekit-uno' },
+    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: './templates/vite-tailwind-typescript' },
+    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: './templates/vite-uno-typescript' },
+    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: './templates/sveltekit-tailwind-typescript' },
+    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: './templates/sveltekit-uno-typescript' },
 ];
 
 //  选择一个模板
@@ -108,9 +108,10 @@ spinner.start('🚀 ' + lang.cfsing);
 templateOptions.forEach(async item => {
     if (item.value === template) {
         fs.mkdirSync(projectDir);
-        // 获取模板目录的绝对路径
-        // Get the absolute path of the template directory
-        const filePath = new URL(item.template, import.meta.url).pathname;
+        // 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
+        // Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
+        const filePath = path.join(path.resolve(), item.template);
+
         // 将 filePath 目录下的所有文件复制到 projectDir 目录下
         // Copy all files under the filePath directory to the projectDir directory\
         fs.copy(filePath, projectDir)
