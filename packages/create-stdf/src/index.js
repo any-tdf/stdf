@@ -110,7 +110,7 @@ templateOptions.forEach(async item => {
         fs.mkdirSync(projectDir);
         // 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
         // Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
-        const templatePath = path.join(new URL(item.template, import.meta.url).pathname);
+        const templatePath = path.join(path.resolve(), '/create-stdf', item.template);
 
         // 将 templatePath 目录下的所有文件复制到 projectDir 目录下
         // Copy all files under the templatePath directory to the projectDir directory\
