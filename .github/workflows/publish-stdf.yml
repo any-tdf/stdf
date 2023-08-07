@@ -22,10 +22,10 @@ jobs:
               with:
                   node-version: 18.x
 
-            # 将 README_en.md 复制到 packages/stdf 目录下，并重命名为 README.md
+            # 将 README.md 复制到 packages/stdf 目录下
             - name: Copy README
               run: |
-                  cp README_en.md packages/stdf/README.md
+                  cp README.md packages/stdf/README.md
 
             # cd packages/stdf 目录下
             # 发布 stdf 到 npm
