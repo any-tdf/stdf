@@ -11,7 +11,7 @@
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
   <h1>S T D F</h1>
-
+  
 [![NPM Version](https://flat.badgen.net/npm/v/stdf?color=cb3837)](https://www.npmjs.com/package/stdf)
 [![Github Stars](https://flat.badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
 [![License](https://flat.badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
@@ -20,37 +20,35 @@
 [![NPM Dependency](https://flat.badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
 
   <h3>
-    <a href="https://github.com/dufu1991/stdf/blob/main/README_en.md" target="_blank">English</a>
+    <a href="https://github.com/dufu1991/stdf/blob/main/README_CN.md" target="_blank">简体中文</a>
     <span> • </span>
-    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
+    <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
   </h3>
 </div>
 
-# 介绍
+# Introduction
 
-基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
+Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
 
 > **S**imple • **T**hin • **D**esign • **F**ast
 
-> 简 单 • 轻 量 • 设 计 • 快 速
+# Features
 
-# 特性
+-   🚀 No runtime, no virtual DOM, runs faster online;
+-   🧰 Rich API, easily configure component styles that meet your needs;
+-   ✍ Based on Svelte and Tailwind, coding is quick and easy;
+-   🍭 Supports dark mode;
+-   📖 Provides extensive Chinese and English documentation and component examples;
+-   🌍 Supports internationalization, with 60+ built-in language packages;
+-   🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
+-   🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
+-   🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
 
--   🚀 无运行时，无虚拟 DOM，线上运行更快；
--   🧰 API 丰富，轻松配置出符合需求的组件样式；
--   ✍ 基于 Svelte 和 Tailwind，编码迅速轻松；
--   🍭 支持暗色模式；
--   📖 提供丰富的中英文文档和组件示例；
--   🌍 支持国际化，已内置 60+ 种语言包；
--   🫰 交互友好，动画参数可配，可自定义主题；
--   🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等；
--   🫡 无三方依赖，无需担心三方库版本与安全问题。
+# Getting Started
 
-# 快速上手
+## Installation
 
-## 安装
-
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
+If you have a project configured with Svelte and Tailwind, install directly.
 
 ```bash
 npm i stdf -D
@@ -58,7 +56,7 @@ npm i stdf -D
 pnpm i stdf -D
 ```
 
-## 使用
+## Usage
 
 ```xml
 <!-- Button Demo -->
@@ -66,12 +64,12 @@ pnpm i stdf -D
 import { Button } from 'stdf';
 </script>
 
-<Button>默认</Button>
+<Button>Default</Button>
 ```
 
-## 😓 无工程？创建工程
+## 😓 No project? Create one!
 
-可以尝试使用 `create-stdf` 快速创建工程。（beta 版本，可能存在问题）
+You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version, may have issues)
 
 ```bash
 pnpm create stdf@latest
@@ -83,28 +81,28 @@ npm init stdf@latest
 npx create-stdf@latest
 ```
 
-或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide)。
+Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide) for more information.
 
-# 预览
+# Preview
 
-扫描二维码访问移动端 Demo：
+Please scan the QR code to access the mobile demo:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_zh_dark.png">
-  <img src="https://stdf.design/assets/qr/demo_zh.png" width="220" height="220" >
+  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
+  <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# 开源协议
+# License
 
-本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
 
-# 贡献者
+# Contributors
 
 <a href="https://github.com/dufu1991/stdf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
 </a>
 
-## Star 历史
+## Star History
 
 <a href="https://github.com/dufu1991/stdf">
   <picture>
