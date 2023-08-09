@@ -1,6 +1,6 @@
 {
     "name": "create-stdf",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "A CLI for creating new STDF projects",
     "bin": {
         "create-stdf": "index.js"
@@ -22,8 +22,8 @@
         "kleur": "^4.1.5"
     },
     "devDependencies": {
-        "rollup": "^3.27.0",
-        "@rollup/plugin-terser": "^0.4.3"
+        "@rollup/plugin-terser": "^0.4.3",
+        "rollup": "^3.27.0"
     },
     "keywords": [
         "svelte",

@@ -9,7 +9,8 @@ export const en_US = {
     cfsing: 'Creating file...',
     pcsucc: 'Project created successfully',
     tgs: 'To get started:',
-    pcyt: 'Tip: Please configure your color system in the tailwind.config.js file',
+    pcyt_vt: 'Tip: Please configure your color system in the tailwind.config.js file',
+    pcyt_vu: 'Tip: Please configure your color system in the uno.config.js file',
     cferror: 'Failed to create file',
 };
 
@@ -24,6 +25,7 @@ export const zh_CN = {
     cfsing: '正在创建文件...',
     pcsucc: '项目创建成功',
     tgs: '开始：',
-    pcyt: '提示：请到 tailwind.config.js 文件内配置你的颜色系统',
+    pcyt_vt: '提示：请到 tailwind.config.js 文件内配置你的颜色系统',
+    pcyt_vu: '提示：请到 uno.config.js 文件内配置你的颜色系统',
     cferror: '创建文件失败',
 };

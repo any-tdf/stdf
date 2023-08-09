@@ -2,22 +2,13 @@
 
 import fs from 'fs-extra';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import * as p from '@clack/prompts';
 import { bold, cyan, grey, red, blue } from 'kleur/colors';
 
 import * as langAll from './lang';
 
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
-
-// const templatePath = new URL('../templates/vite-tailwind/package.json', import.meta.url);
-// const templatePath2 = new URL('../templates/vite-tailwind', import.meta.url);
-// const templatePath3 = new URL('../templates/vite-tailwind/', import.meta.url);
-// // const sourceFilePath = path.join(__dirname, templatePath);
-
-// console.log(11, templatePath);
-// console.log(22, templatePath2);
-// console.log(33, templatePath3);
-// console.log(44, sourceFilePath);
 
 // 显示版本号
 // Display version number
@@ -46,14 +37,14 @@ if (p.isCancel(languageType)) {
 }
 
 const templateOptions = [
-    { value: 'vt', label: 'Vite + Tailwind', template: '../templates/vite-tailwind/' },
-    { value: 'vu', label: `Vite + UnoCSS(${lang.hnay})`, template: '../templates/vite-uno' },
-    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: '../templates/sveltekit-tailwind' },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: '../templates/sveltekit-uno' },
-    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/vite-tailwind-typescript' },
-    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: '../templates/vite-uno-typescript' },
-    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-tailwind-typescript' },
-    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: '../templates/sveltekit-uno-typescript' },
+    { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
+    { value: 'vu', label: `Vite + UnoCSS`, template: 'vite-uno', pcyt: lang.pcyt_vu },
+    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: 'sveltekit-tailwind' },
+    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno' },
+    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript' },
+    { value: 'vut', label: `Vite + UnoCSS+TypeScript(${lang.hnay})`, template: 'vite-uno-typescript' },
+    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: 'sveltekit-tailwind-typescript' },
+    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript' },
 ];
 
 //  选择一个模板
@@ -63,9 +54,9 @@ let template = await p.select({
     options: templateOptions,
 });
 
-// 直到选择的 template 是 vt 为止，否则一直重新选择
+// 直到选择的 template 是 vt / vu 为止，否则一直重新选择
 // Until the selected template is vt or vu, otherwise keep reselecting
-while (template !== 'vt') {
+while (template !== 'vt' && template !== 'vu') {
     if (p.isCancel(template)) {
         p.cancel(red('⛔ ') + lang.oc);
         process.exit(0);
@@ -87,7 +78,7 @@ if (p.isCancel(template)) {
 // Enter the project name
 const projectName = await p.text({
     message: bold(lang.pn),
-    initialValue: 'stdf-project',
+    placeholder: 'stdf-project',
     validate: value => {
         if (!value) {
             // 判断是否为空，提示 “项目名称不能为空”
@@ -121,29 +112,18 @@ templateOptions.forEach(async item => {
 
         // 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
         // Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
-        const templatePath = new URL(item.template, import.meta.url).pathname
-        // const sourceFilePath = templatePath;
+        const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${item.template}`);
 
         // 将 templatePath 目录下的所有文件复制到 projectDir 目录下
         // Copy all files under the templatePath directory to the projectDir directory\
         fs.copy(templatePath, projectDir)
             .then(() => {
                 spinner.stop();
-                console.log(`🎉 ${lang.pcsucc}
-`);
+                p.outro(`${projectName}-${lang.pcsucc} 🎉`);
 
-                // 读取 package.json 文件，获得 vite svelte tailwind stdf 的版本号
-                // Read the package.json file to get the version number of vite svelte tailwind stdf
+                // 读取 package.json 文件
+                // Read the package.json file
                 const packageJson = JSON.parse(fs.readFileSync(`${projectDir}/package.json`, 'utf-8'));
-
-                // packageJson 中的 devDependencies 里面的版本号去除 ^ 符号
-                // The version number in devDependencies in packageJson removes the ^ symbol
-                const versions = {
-                    vite: packageJson.devDependencies.vite.replace('^', ''),
-                    svelte: packageJson.devDependencies.svelte.replace('^', ''),
-                    tailwindcss: packageJson.devDependencies.tailwindcss.replace('^', ''),
-                    stdf: packageJson.devDependencies.stdf.replace('^', ''),
-                };
 
                 // 将项目内的 package.json 中的 name 属性修改为 projectName
                 // Modify the name attribute in package.json in the project to projectName
@@ -153,14 +133,37 @@ templateOptions.forEach(async item => {
                 // Write the modified packageJson to the package.json file in the project
                 fs.writeFileSync(`${projectDir}/package.json`, JSON.stringify(packageJson, null, 4), 'utf-8');
 
+                // 获得依赖的版本号
+                // get the version number of the dependency
+                let versions = {};
+                if (template === 'vt') {
+                    versions = {
+                        vite: packageJson.devDependencies.vite.replace('^', ''),
+                        svelte: packageJson.devDependencies.svelte.replace('^', ''),
+                        tailwindcss: packageJson.devDependencies.tailwindcss.replace('^', ''),
+                        stdf: packageJson.devDependencies.stdf.replace('^', ''),
+                    };
+                }
+                if (template === 'vu') {
+                    versions = {
+                        vite: packageJson.devDependencies.vite.replace('^', ''),
+                        svelte: packageJson.devDependencies.svelte.replace('^', ''),
+                        unocss: packageJson.devDependencies.unocss.replace('^', ''),
+                        stdf: packageJson.devDependencies.stdf.replace('^', ''),
+                    };
+                }
+
+                // 将 versions 的键值拼接为 bold('Vite:') cyan(versions.vite) bold('Svelte:') cyan(versions.svelte) 的形式
+                // Splice the key value of versions into the form of bold('Vite:') cyan(versions.vite) bold('Svelte:') cyan(versions.svelte)
+                let versionsString = '';
+                for (const key in versions) {
+                    versionsString += bold(key) + ': ' + cyan(versions[key]) + ' ';
+                }
+
                 // 显示版本号
                 // Display version number
-                console.log(
-                    `📦 ${bold('Vite:')} ${cyan(versions.vite)} ${bold('Svelte:')} ${cyan(versions.svelte)} ${bold('Tailwind:')} ${cyan(
-                        versions.tailwindcss
-                    )} ${bold('STDF:')} ${cyan(versions.stdf)}
-    `
-                );
+                console.log(`📦 ${versionsString}
+                `);
 
                 // 显示提示信息
                 // Display prompt information
@@ -176,7 +179,7 @@ templateOptions.forEach(async item => {
                 // 显示配置主题色
                 // Display configuration theme color
                 console.log(
-                    `🎨 ${grey(lang.pcyt)}
+                    `🎨 ${grey(item.pcyt)}
     `
                 );
             })
