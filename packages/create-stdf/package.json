@@ -1,6 +1,6 @@
 {
     "name": "create-stdf",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "description": "A CLI for creating new STDF projects",
     "bin": {
         "create-stdf": "index.js"
@@ -28,6 +28,9 @@
     "keywords": [
         "svelte",
         "tailwind",
+        "unocss",
+        "typescript",
+        "sveltekit",
         "stdf",
         "cli",
         "mobile",
