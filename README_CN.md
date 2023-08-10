@@ -74,7 +74,7 @@ import { Button } from 'stdf';
 可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本，可能存在问题）
 
 ```bash
-pnpm create stdf@latest
+pnpm create stdf
 # or
 npm create stdf@latest
 # or
