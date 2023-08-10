@@ -1,10 +1,19 @@
+
+[简体中文](https://github.com/dufu1991/stdf/blob/main/packages/create-stdf/README_CN.md)
+
 # create-stdf
 
 A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 
+With PNPM:
+
 ```bash
-pnpm create stdf@latest
-# or
+pnpm create stdf
+```
+
+With NPM:
+
+```bash
 npm create stdf@latest
 # or
 npm init stdf@latest
@@ -14,11 +23,50 @@ npx create-stdf@latest
 
 ...and follow the prompts.
 
-# Introduction
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **Vite + Svelte + Tailwind + STDF** template, run:
 
-This is a template using Vite + Svelte + TailwindCSS + STDF. It is based on [create-vite](https://www.npmjs.com/package/create-vite) and add base TailwindCSS configuration, and STDF configuration.
+```bash
+# pnpm
+pnpm create stdf my-app
 
-Omit the separate configuration of TailwindCSS and STDF, and use the template to quickly create a project that can be used directly.
+# npm
+npm create stdf@latest my-app
+```
+
+If you want to use the **Vite + UnoCSS + Svelte + STDF** template, run:
+
+```bash
+# pnpm
+pnpm create stdf my-app --template vu
+# or
+pnpm create stdf my-app -t vu
+
+# npm
+npm create stdf@latest my-app --template vu
+# or
+npm create stdf@latest my-app -t vu
+```
+
+Template presets include:
+
+| abbreviation | template                                     | description         |
+| ------------ | -------------------------------------------- | ------------------- |
+| vt           | Vite + Tailwind + Svelte + STDF              | default             |
+| vu           | Vite + UnoCSS + Svelte + STDF                | -                   |
+| skt          | SvelteKit + Tailwind + STDF                  | Has not adapted yet |
+| sku          | SvelteKit + UnoCSS + STDF                    | Has not adapted yet |
+| vtt          | Vite + Tailwind + TypeScript + Svelte + STDF | Has not adapted yet |
+| vut          | Vite + UnoCSS + TypeScript + Svelte + STDF   | Has not adapted yet |
+| sktt         | SvelteKit + Tailwind + TypeScript + STDF     | Has not adapted yet |
+| skut         | SvelteKit + UnoCSS + TypeScript + STDF       | Has not adapted yet |
+
+# Options
+
+| Option          | Type   | Default | Description                                                                                           |
+| --------------- | ------ | ------- | ----------------------------------------------------------------------------------------------------- |
+| -               | string | -       | The name of the project, you can direct input.                                                        |
+| -t / --template | string | vt      | The template to use. Available templates are: `vt`, `vu`, `skt`, `sku`, `vtt`, `vut`, `sktt`, `skut`. |
+| -l / --language | string | en_US   | The language of the prompts. Available languages are: `en_US`, `zh_CN`.                               |
 
 # License
 

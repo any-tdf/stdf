@@ -12,6 +12,7 @@ export const en_US = {
     pcyt_vt: 'Tip: Please configure your color system in the tailwind.config.js file',
     pcyt_vu: 'Tip: Please configure your color system in the uno.config.js file',
     cferror: 'Failed to create file',
+    pectn: 'Please enter the correct template name!',
 };
 
 export const zh_CN = {
@@ -28,4 +29,5 @@ export const zh_CN = {
     pcyt_vt: '提示：请到 tailwind.config.js 文件内配置你的颜色系统',
     pcyt_vu: '提示：请到 uno.config.js 文件内配置你的颜色系统',
     cferror: '创建文件失败',
+    pectn: '请输入正确的模板名称！',
 };

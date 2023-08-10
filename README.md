@@ -34,15 +34,15 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 
 # Features
 
--   🚀 No runtime, no virtual DOM, runs faster online;
--   🧰 Rich API, easily configure component styles that meet your needs;
--   ✍ Based on Svelte and Tailwind, coding is quick and easy;
--   🍭 Supports dark mode;
--   📖 Provides extensive Chinese and English documentation and component examples;
--   🌍 Supports internationalization, with 60+ built-in language packages;
--   🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
--   🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
--   🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
+- 🚀 No runtime, no virtual DOM, runs faster online;
+- 🧰 Rich API, easily configure component styles that meet your needs;
+- ✍ Based on Svelte and Tailwind, coding is quick and easy;
+- 🍭 Supports dark mode;
+- 📖 Provides extensive Chinese and English documentation and component examples;
+- 🌍 Supports internationalization, with 60+ built-in language packages;
+- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
+- 🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
+- 🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
 
 # Getting Started
 
@@ -67,7 +67,7 @@ import { Button } from 'stdf';
 <Button>Default</Button>
 ```
 
-## 😓 No project? Create one!
+## 😓 No project? Create one
 
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version, may have issues)
 
