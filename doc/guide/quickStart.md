@@ -27,7 +27,7 @@ import { Button } from 'stdf';
 
 ### 使用 create-stdf
 
-可以尝试使用 `create-stdf` 快速创建工程。（beta 版本，可能存在问题）
+可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本）
 
 ```bash
 pnpm create stdf

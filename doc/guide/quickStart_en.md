@@ -27,7 +27,7 @@ import { Button } from 'stdf';
 
 ### Use create-stdf
 
-You can try using `create-stdf` to quickly create a project. (beta version, may have issues)
+You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
 
 ```bash
 pnpm create stdf
