@@ -51,13 +51,13 @@ jobs:
             - name: Get changelog
               id: changelog
               run: |
-                  echo changelog=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog.md | sed '/^$/d') >> $GITHUB_OUTPUT
+                  echo -e changelog=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog.md | sed '/^$/d') >> $GITHUB_OUTPUT
 
             # 6. 读取 doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包含换行和空格
             - name: Get changelog_en
               id: changelog_en
               run: |
-                  echo changelog_en=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog_en.md | sed '/^$/d') >> $GITHUB_OUTPUT
+                  echo -e changelog_en=$(sed -n '1,/##/{/##/!p;}' doc/guide/changelog_en.md | sed '/^$/d') >> $GITHUB_OUTPUT
 
             # 7. 作为 latest release 发布本次 Release，body 为 changelog 和 changelog_en 的合并内容，中间使用 --- 分隔
             - name: Release
