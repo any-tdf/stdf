@@ -1,6 +1,6 @@
 ## 0.2.4
 
-- 0.2.2 ~ 0.0.4 优化文件结构，精简 NPM 包体积。抵制 `node_modules` 体积膨胀和依赖黑洞，从我做起！
+- 0.2.2 ~ 0.2.4 优化文件结构，精简 NPM 包体积。抵制 `node_modules` 体积膨胀和依赖黑洞，从我做起！
 - 多语言引入路径由 `stdf/lang/xx_XX` 改为 `stdf/dist/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide?nav=internation)。
 
 ## 0.2.1
