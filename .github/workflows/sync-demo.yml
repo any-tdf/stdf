@@ -31,8 +31,8 @@ jobs:
                   echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
             # 3. cd 到 stdf/demo 文件内，初始化本地仓库
-            #    将 demo/src/App.svelte 文件内的 ../../packages/stdf 替换为 stdf
-            #    将 demo/src/pages 目录下的所有子孙 .svelte 文件内的 ../../../../packages/stdf 替换为 stdf
+            #    将 demo/src/App.svelte 文件内的 ../../packages/stdf/components 替换为 stdf
+            #    将 demo/src/pages 目录下的所有子孙 .svelte 文件内的 ../../../../packages/stdf/components 替换为 stdf
             #    将 demo/package.json 内的第 10 行增加内容为 stdf，版本号为 ${{ steps.version.outputs.version }}
             #    将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
             - name: Init stdf demo
@@ -41,8 +41,8 @@ jobs:
                   git init
                   git config --global user.name 'GitHub Actions'
                   git config --global user.email 'GitHub Actions'
-                  sed -i 's|../../packages/stdf|stdf|g' src/App.svelte
-                  sed -i 's|../../../../packages/stdf|stdf|g' src/pages/**/*.svelte
+                  sed -i 's|../../packages/stdf/components|stdf|g' src/App.svelte
+                  sed -i 's|../../../../packages/stdf/components|stdf|g' src/pages/**/*.svelte
                   sed -i '10a\        "stdf": "^${{ steps.version.outputs.version }}",' package.json
                   git add .
                   git commit -am "Github Actions auto commit: update demo from stdf."
