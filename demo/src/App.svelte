@@ -46,6 +46,8 @@
             document.documentElement.classList.add('dark');
         }
     };
+    // 返回首页
+    // return to home
     const toHomeFun = () => {
         push(`/`);
     };
