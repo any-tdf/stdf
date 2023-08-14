@@ -2,7 +2,7 @@
     import { setContext, onMount } from 'svelte';
     import Router, { querystring, location, push } from 'svelte-spa-router';
     import { routes, routes_en } from './route';
-    import { NavBar, Icon } from '../../packages/stdf';
+    import { NavBar, Icon } from '../../packages/stdf/components';
     import zh_CN from '../../packages/stdf/lang/zh_CN';
     import en_US from '../../packages/stdf/lang/en_US';
     import menuList from './data/menuList';

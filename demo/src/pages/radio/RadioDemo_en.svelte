@@ -1,6 +1,6 @@
 <!-- Radio Demo -->
 <script>
-    import { RadioGroup, Radio, Divider, Button } from '../../../../packages/stdf';
+    import { RadioGroup, Radio, Divider, Button } from '../../../../packages/stdf/components';
 
     const dota = [
         { label: 'Jugg', name: 'Juggernaut', desc: 'The master is a melee agile hero, and he can quickly cut into the battle.' },

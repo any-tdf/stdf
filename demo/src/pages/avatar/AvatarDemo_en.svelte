@@ -1,6 +1,6 @@
 <!-- Avatar Demo -->
 <script>
-    import { Avatar } from '../../../../packages/stdf';
+    import { Avatar } from '../../../../packages/stdf/components';
 
     const icons = [
         { icon: { name: 'ri-aliens-fill', theme: true, top: -1, size: 16 }, size: 'xs' },

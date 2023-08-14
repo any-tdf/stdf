@@ -1,6 +1,6 @@
 <!-- Badge Demo -->
 <script>
-    import { Badge, Avatar, Button, Icon, Input, Cell } from '../../../../packages/stdf';
+    import { Badge, Avatar, Button, Icon, Input, Cell } from '../../../../packages/stdf/components';
 
     let isShow = true;
     const changeShowFun = () => {

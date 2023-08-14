@@ -1,6 +1,6 @@
 <!-- Button Demo -->
 <script>
-    import { Button, Icon, Toast, Loading } from '../../../../packages/stdf';
+    import { Button, Icon, Toast, Loading } from '../../../../packages/stdf/components';
 
     let visible = false;
 </script>

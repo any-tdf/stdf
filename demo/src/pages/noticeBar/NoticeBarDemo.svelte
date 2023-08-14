@@ -1,6 +1,6 @@
 <!-- NoticeBar Demo -->
 <script>
-    import {NoticeBar, Toast} from '../../../../packages/stdf';
+    import {NoticeBar, Toast} from '../../../../packages/stdf/components';
 
     let textList = ['1. 这是第一条通告内容！', '2. 这是第二条通告内容！'];
     let textLongList = ['1. 这条通告超长长长长长长长长长长长长长长长长长长长长长！', '2. 这是第二条通告内容！'];

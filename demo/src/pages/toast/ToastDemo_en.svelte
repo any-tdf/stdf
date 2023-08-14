@@ -1,6 +1,6 @@
 <!-- Toast Demo -->
 <script>
-    import { Toast, Cell, Button, Loading } from '../../../../packages/stdf';
+    import { Toast, Cell, Button, Loading } from '../../../../packages/stdf/components';
 
     let visible1 = false;
     let visible2 = false;

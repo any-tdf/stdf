@@ -1,6 +1,6 @@
 <script>
     import { push } from 'svelte-spa-router';
-    import { Cell, CellGroup } from '../../../../packages/stdf';
+    import { Cell, CellGroup } from '../../../../packages/stdf/components';
     import menuList from '../../data/menuList';
 
     // 循环 menuList，将所有元素的 childs 组成一个数组

@@ -1,6 +1,6 @@
 <!-- AsyncPicker Demo -->
 <script>
-    import { AsyncPicker, Cell } from '../../../../packages/stdf';
+    import { AsyncPicker, Cell } from '../../../../packages/stdf/components';
     // 为避免 Demo 页面杂乱，具体参考数据放在 data.js 文件内，可查看此页面底部注释。
     import { linkageData, linkageDiffLabeData } from './data';
 
