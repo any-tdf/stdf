@@ -1,3 +1,8 @@
+## 0.2.4
+
+- 0.2.2 ~ 0.0.4 Optimized file structure and reduced NPM package size. Say no to bloated `node_modules` and dependency black holes!
+- Updated the language import path from `stdf/lang/xx_XX` to `stdf/dist/lang/xx_XX`. For more details, please refer to the [Internation](https://stdf.design/#/guide?nav=internation).
+
 ## 0.2.1
 
 -   Added `create-stdf` to quickly create a project using STDF. (beta version, may have issues)

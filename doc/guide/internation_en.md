@@ -6,7 +6,7 @@ The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svel
 <!-- App.svelte -->
 <script>
     import { setContext } from 'svelte'; // import setContext
-    import en_US from 'stdf/lang/en_US'; // import language file
+    import en_US from 'stdf/dist/lang/en_US'; // import language file
 
     setContext('STDF_lang', en_US); // set language
 </script>
@@ -91,7 +91,7 @@ The multilingual files are translated by machine. If there are any inaccuracies,
 
 ## Adding a Language Pack
 
-If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/dufu1991/stdf/blob/main/components/lang/zh_CN.js) or [English language pack](https://github.com/dufu1991/stdf/blob/main/components/lang/en_US.js) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
+If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/dufu1991/stdf/blob/main/packages/stdf/lang/zh_CN.js) or [English language pack](https://github.com/dufu1991/stdf/blob/main/packages/stdf/lang/en_US.js) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
 
 The basic steps are as follows:
 

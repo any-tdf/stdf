@@ -58,7 +58,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/src/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide?nav=color)。
+2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/dist/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide?nav=color)。
 
 注意：Tailwind 配置文件中的 content 即表示所有可能用到 Tailwind 的文件，请不要遗漏。darkMode 请设置为 'class'，这是为了配合 STDF 的暗黑模式。
 
@@ -66,7 +66,7 @@ npx tailwindcss init -p
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     // ...
-    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/src/**/*.svelte'],
+    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/dist/**/*.svelte'],
     theme: {
         colors: {
             // 主题色
