@@ -5,6 +5,7 @@
 [![Sync Status](https://github.com/dufu1991/stdf/actions/workflows/sync-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/sync-demo.yml)
 [![Build Status](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml)
 [![Public Create Status](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml)
+[![Public Icon Status](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
