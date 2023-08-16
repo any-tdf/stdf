@@ -1,20 +1,26 @@
 ## Background
 
-STDF uses SVG Sprite technology for icons, which can reduce HTTP requests and improve page performance.
+STDF uses SVG Sprites technology for icons, which helps reduce HTTP requests and improve page performance.
 
-STDF's SVG Sprites use the [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol) technique, which is similar in principle to the Sprite technique in CSS. The SVGs in the project are concatenated into one file, and the corresponding icons are displayed by using the `use` element in SVG.
+STDF's SVG Sprites use [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), which is similar to CSS Sprite technique. It combines SVG files in the project into a single file and uses the `<use>` element in SVG to display the corresponding icons.
 
-You can think of it as a font, but instead of being made up of characters, it is composed of SVGs. It can be styled using CSS to control properties such as color and size. Therefore, if you have large or complex icons with multiple colors, it is recommended to import the SVG files individually instead of using them within a symbol.
+You can think of it as a type of font, except that it is composed of SVG and can be styled using CSS properties such as color and size. Therefore, for larger or more complex icons with multiple colors, it is recommended to use individual SVG files instead of placing them in the symbol.
 
-Compatibility is not a problem either. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
+Compatibility is not an issue. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility) for more information.
 
-## Built-in Explanation
+## rollup-plugin-stdf-icon
 
-Icons used in some STDF components are sourced from the [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)), and thanks for their contributions 🙏🏻🙏🏻.
+STDF has developed a Rollup/Vite plugin called rollup-plugin-stdf-icon, which combines SVG files in the project into SVG Sprites. Please refer to [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) for specific usage. Due to the diversity of SVG formats, there may be cases where rollup-plugin-stdf-icon does not handle them accurately. In such cases, please raise an issue on [GitHub](https://github.com/dufu1991/stdf/issues) and provide details about the SVG file.
 
-**If you use these components, make sure that the corresponding icons are included in the `symbol.svg` file.**
+Alternatively, you can use other SVG Sprites synthesis tools or manually combine them. You can also ask the designer to provide the corresponding SVG Sprites along with the design materials.
 
-Usage is as follows:
+## Built-in Icons
+
+Some of the icons used in STDF components are sourced from [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). Many thanks to them! 🙏🏻🙏🏻
+
+**If you are using these components, please make sure that the `symbol.svg` file in your project includes the corresponding icons.**
+
+Here are the icons and their corresponding components:
 
 | Icon Name                     | Component        |
 | ----------------------------- | ---------------- |
@@ -41,11 +47,9 @@ Usage is as follows:
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
 
-You can go to the `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg` to view the SVG Sprites composed of these icons.
+You can find the SVG Sprites composed of these icons in `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg`.
 
-You can go to the `node_modules/stdf/dist/assets/svg_base/` to view svg source file of these icons.
-
-Currently, whether it is Webpack, Vite, or Rollup for front-end packaging tools, there are corresponding SVG Sprite synthesis plugins. You can choose one or combine it manually.
+You can find the SVG source files for these icons in `node_modules/stdf/dist/assets/svg_base/`.
 
 ## Icon Name
 

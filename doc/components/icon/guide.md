@@ -8,6 +8,12 @@ STDF 的 SVG Sprites 是使用 [SVG symbol](https://developer.mozilla.org/en-US/
 
 兼容性方面也完全没问题。参考 [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility)。
 
+## rollup-plugin-stdf-icon
+
+STDF 已经开发了一个 Rollup/Vite 插件，用于将项目中的 SVG 文件合并成 SVG Sprites，具体使用请参考 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，由于 svg 格式的多样性，可能存在 rollup-plugin-stdf-icon 处理不准确的情况，请到 [GitHub](https://github.com/dufu1991/stdf/issues) 提 issue，注明 svg 文件的具体情况。
+
+或使用其他 SVG Sprites 合成工具或手动合成，也可以请设计师提供设计物料时一并提供对应的 SVG Sprites。
+
 ## 内置说明
 
 STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixicon.com)（[GitHub](https://github.com/Remix-Design/remixicon)），在此表示感谢 🙏🏻🙏🏻。
@@ -44,8 +50,6 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 可到 `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg` 查看由这些图标组成的 SVG Sprites。
 
 可到 `node_modules/stdf/dist/assets/svg_base/` 查看这些图标的 SVG 源文件。
-
-目前前端打包工具无论是 Webpack 还是 Vite 或者 Rollup 都有对应的 SVG Sprites 合成插件，请自行选择或手动合成。
 
 ## 图标名称
 
