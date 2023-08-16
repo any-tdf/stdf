@@ -1,6 +1,6 @@
 {
     "name": "create-stdf",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "description": "A CLI for creating new STDF projects",
     "bin": {
         "create-stdf": "index.js"

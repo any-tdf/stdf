@@ -16,6 +16,6 @@
         "svelte": "^4.1.1",
         "unocss": "^0.53.6",
         "vite": "^4.4.6",
-        "rollup-plugin-stdf-icon": "^0.0.2"
+        "rollup-plugin-stdf-icon": "^0.0.3"
     }
 }
