@@ -17,7 +17,7 @@
 
     //项目存放 symbol.svg 文件的路径
     //The path where the symbol.svg file is stored in the project
-    export let path = '/assets/fonts/symbol.svg';
+    export let path = 'fonts/symbol.svg';
 
     //偏移量
     //Offset
@@ -32,8 +32,8 @@
     {#if name === 'slot'}
         <slot><span>无插槽内容！</span></slot>
     {:else}
-        <svg width={size} height={size} style="fill: currentColor;fill-opacity :{alpha};display: inline;" viewBox="0 0 512 512">
-            <use xlink:href="{path}#{name}" />
+        <svg width={size} height={size} style="fill: currentColor;fill-opacity: {alpha};display: inline;">
+            <use xlink:href="/{path}#{name}" />
         </svg>
     {/if}
 </i>
