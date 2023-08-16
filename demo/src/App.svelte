@@ -15,17 +15,21 @@
         }
         return acc;
     }, []);
-
-    const params = new URLSearchParams('?' + $querystring); //获取参数  get parameters
-    const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0'; //判断是否是iframe  judge whether it is iframe
-    setContext('iframe', isIframe); //设置iframe  setting iframe
+    //获取参数
+    // get parameters
+    const params = new URLSearchParams('?' + $querystring);
+    // 判断是否是iframe
+    // judge whether it is iframe
+    const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0';
+    // 设置iframe
+    // setting iframe
+    setContext('iframe', isIframe);
     let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
     // 设置语言
     // setting language
     const isZh = sessionStorage.getItem('lang') === 'zh_CN';
     setContext('STDF_lang', isZh ? zh_CN : en_US);
     $: showLeft = isIframe === '1' ? false : $location !== '/';
-
     //手动切换主题
     // manually switch theme
     const toggleFun = () => {
