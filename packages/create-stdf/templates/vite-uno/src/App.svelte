@@ -2,7 +2,7 @@
     import { setContext } from 'svelte';
     import en_US from 'stdf/dist/lang/en_US';
     import zh_CN from 'stdf/dist/lang/zh_CN';
-    import { Button, Cell, Calendar } from 'stdf';
+    import { Button, Cell, Calendar, Icon } from 'stdf';
     import Counter from './lib/Counter.svelte';
 
     import viteLogo from './assets/vite.svg';
@@ -105,6 +105,18 @@
         <Button fill="lineTheme" on:click={() => (visible = true)}>{isZh ? '日历' : 'Calendar'}</Button>
     </div>
     <Calendar bind:visible />
+    <div class="my-8 px-8 flex justify-between">
+        <Icon name="cake" theme path="fonts/Heroicons.svg" />
+        <Icon name="riding-line" path="fonts/Remix.svg" />
+        <Icon name="spy-line" theme path="fonts/Remix.svg" />
+        <Icon name="javascript-fill" injClass="text-[red] dark:text-green" path="fonts/Remix.svg" />
+        <Icon name="cup" theme path="fonts/IconPark.svg" />
+    </div>
+    <div class="px-4 text-xs">
+        {isZh ? '图标：第一个来自' : 'Icons: The first one comes from'} <a class="underline" href="https://heroicons.com">Heroicons</a>
+        ，{isZh ? '最后一个来自' : 'the last one comes from'} <a class="underline" href="https://iconpark.oceanengine.com">IconPark</a>
+        ，{isZh ? '其余来自' : 'the rest come from'} <a class="underline" href="https://remixicon.com">Remix Icon</a> 。
+    </div>
     <div class="my-8">
         <Button on:click={toggleLangFun}>{isZh ? '切换语言' : 'Toggle language'}</Button>
     </div>

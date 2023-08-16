@@ -12,9 +12,10 @@
         "@sveltejs/vite-plugin-svelte": "^2.4.2",
         "@unocss/extractor-svelte": "^0.54.2",
         "@unocss/reset": "^0.54.2",
-        "stdf": "^0.2.4",
+        "stdf": "^0.2.5",
         "svelte": "^4.1.1",
         "unocss": "^0.53.6",
-        "vite": "^4.4.6"
+        "vite": "^4.4.6",
+        "rollup-plugin-stdf-icon": "^0.0.2"
     }
 }
