@@ -4,5 +4,5 @@ export default {
     input: 'src/index.js',
     output: [{ file: 'dist/index.js', format: 'es' }],
     external: ['fs-extra', 'svgo', 'svgstore'],
-    plugins: [terser()],
+    plugins: [terser({ keep_fnames: true })],
 };
