@@ -20,12 +20,12 @@
     const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0'; //判断是否是iframe  judge whether it is iframe
     setContext('iframe', isIframe); //设置iframe  setting iframe
     let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-
     // 设置语言
     // setting language
     const isZh = sessionStorage.getItem('lang') === 'zh_CN';
     setContext('STDF_lang', isZh ? zh_CN : en_US);
     $: showLeft = isIframe === '1' ? false : $location !== '/';
+
     //手动切换主题
     // manually switch theme
     const toggleFun = () => {
