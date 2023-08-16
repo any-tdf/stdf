@@ -1,6 +1,6 @@
 <!--Steps Demo -->
 <script>
-    import { Steps, Button, Divider } from '../../../../packages/stdf/components';
+    import { Steps, Button, Divider } from 'stdf';
     import injCom1 from './injCom1.svelte';
     import injCom2 from './injCom2.svelte';
 
@@ -274,7 +274,7 @@
 
 <!-- injCom2.svelte -->
 <!-- <script>
-    import { Button, Icon, Avatar } from '../../../../packages/stdf/components';
+    import { Button, Icon, Avatar } from 'stdf';
 </script>
 
 <div class="text-primary dark:text-dark text-sm">此处以组件形式注入一些内容</div>

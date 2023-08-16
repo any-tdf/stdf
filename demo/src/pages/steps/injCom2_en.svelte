@@ -1,5 +1,5 @@
 <script>
-    import { Button, Icon, Avatar } from '../../../../packages/stdf/components';
+    import { Button, Icon, Avatar } from 'stdf';
 </script>
 
 <div class="text-primary dark:text-dark text-sm">Here you inject something in the form of a component</div>

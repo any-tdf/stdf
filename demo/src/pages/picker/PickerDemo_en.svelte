@@ -1,6 +1,6 @@
 <!-- Picker Demo -->
 <script>
-    import { Picker, Cell } from '../../../../packages/stdf/components';
+    import { Picker, Cell } from 'stdf';
     // In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
     import {
         someProvinceList,

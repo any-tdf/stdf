@@ -1,5 +1,5 @@
 <script>
-    import { Button, Icon, Avatar } from '../../../../packages/stdf/components';
+    import { Button, Icon, Avatar } from 'stdf';
 </script>
 
 <div class="text-primary dark:text-dark text-sm">此处以组件形式注入一些内容</div>

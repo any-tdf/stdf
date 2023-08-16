@@ -1,6 +1,6 @@
 <!-- BottomSheet Demo -->
 <script>
-    import { BottomSheet, Cell, Toast, Button } from '../../../../packages/stdf/components';
+    import { BottomSheet, Cell, Toast, Button } from 'stdf';
     import Aphorism from '../../components/Aphorism.svelte';
 
     let visible1 = false;

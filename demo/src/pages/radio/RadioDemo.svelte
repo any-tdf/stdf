@@ -1,6 +1,6 @@
 <!-- Radio Demo -->
 <script>
-    import { RadioGroup, Radio, Divider, Button } from '../../../../packages/stdf/components';
+    import { RadioGroup, Radio, Divider, Button } from 'stdf';
 
     const dota = [
         { label: '主宰', name: '奶棒人', desc: '主宰是一个近战敏捷英雄，他能够迅速切入战斗。' },

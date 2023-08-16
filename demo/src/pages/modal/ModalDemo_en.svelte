@@ -1,6 +1,6 @@
 <!-- Modal Demo -->
 <script>
-    import { Modal, Cell, Toast } from '../../../../packages/stdf/components';
+    import { Modal, Cell, Toast } from 'stdf';
     import Aphorism from '../../components/Aphorism.svelte';
 
     let visible1 = false;

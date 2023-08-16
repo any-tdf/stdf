@@ -1,6 +1,6 @@
 <!-- Divider Demo -->
 <script>
-    import { Divider } from '../../../../packages/stdf/components';
+    import { Divider } from 'stdf';
 </script>
 
 <div class="flex flex-col space-y-8 py-8">

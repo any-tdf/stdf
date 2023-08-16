@@ -1,6 +1,6 @@
 <!-- Placeholder Demo -->
 <script>
-    import { Placeholder, Grids, Grid } from '../../../../packages/stdf/components';
+    import { Placeholder, Grids, Grid } from 'stdf';
 </script>
 
 <div class="m-4 font-bold text-lg">基础用法</div>

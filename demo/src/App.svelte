@@ -2,9 +2,9 @@
     import { setContext, onMount } from 'svelte';
     import Router, { querystring, location, push } from 'svelte-spa-router';
     import { routes, routes_en } from './route';
-    import { NavBar, Icon } from '../../packages/stdf/components';
-    import zh_CN from '../../packages/stdf/lang/zh_CN';
-    import en_US from '../../packages/stdf/lang/en_US';
+    import { NavBar, Icon } from 'stdf';
+    import zh_CN from 'stdf/dist/lang/zh_CN';
+    import en_US from 'stdf/dist/lang/en_US';
     import menuList from './data/menuList';
 
     // 循环 menuList，将所有元素的 childs 组成一个数组

@@ -1,6 +1,6 @@
 <!-- Icon Demo, Please make sure you have been introduced symbol.svg file. -->
 <script>
-    import { Icon } from '../../../../packages/stdf/components';
+    import { Icon } from 'stdf';
 
     const icons = ['ri-spy-fill', 'ri-chrome-fill', 'ri-riding-line', 'ri-switch-fill'];
 </script>

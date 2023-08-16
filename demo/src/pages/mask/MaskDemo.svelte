@@ -1,6 +1,6 @@
 <!-- Mask Demo -->
 <script>
-    import { Mask, Toast, Cell, Button, Popup } from '../../../../packages/stdf/components';
+    import { Mask, Toast, Cell, Button, Popup } from 'stdf';
 
     let visible1 = false;
     let visible2 = false;

@@ -1,6 +1,6 @@
 <!--Loading Demo-->
 <script>
-    import { Loading, Tabs, TabContent, Button } from '../../../../packages/stdf/components';
+    import { Loading, Tabs, TabContent, Button } from 'stdf';
 
     //传入个数，返回随机生成的颜色数组
     const randomColorArr = num => {

@@ -1,6 +1,6 @@
 <!-- Slider Demo -->
 <script>
-    import { Slider, Icon } from '../../../../packages/stdf/components';
+    import { Slider, Icon } from 'stdf';
 
     let value = 20;
     const onChangeFun = e => {

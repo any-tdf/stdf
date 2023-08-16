@@ -1,6 +1,6 @@
 <!-- Grids Demo -->
 <script>
-    import { Grids, Grid, Placeholder, Switch, Icon, Button } from '../../../../packages/stdf/components';
+    import { Grids, Grid, Placeholder, Switch, Icon, Button } from 'stdf';
 
     let devices = ['iOS', 'Android', 'Windows', 'macOS', 'Ubuntu'];
     let curentIndex = 0;

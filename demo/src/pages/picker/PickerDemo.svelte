@@ -1,6 +1,6 @@
 <!-- Picker Demo -->
 <script>
-    import { Picker, Cell } from '../../../../packages/stdf/components';
+    import { Picker, Cell } from 'stdf';
     // 为避免 Demo 页面杂乱，具体参考数据放在 data.js 文件内，可查看此页面底部注释。
     import {
         someProvinceList,

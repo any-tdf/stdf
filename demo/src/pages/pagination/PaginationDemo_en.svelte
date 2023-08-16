@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { Pagination, Loading } from '../../../../packages/stdf/components';
+    import { Pagination, Loading } from 'stdf';
     import aphorisms from '../../data/aphorisms';
 
     // total data number, generally, the back-end interface returns

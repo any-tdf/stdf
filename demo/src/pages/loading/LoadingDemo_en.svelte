@@ -1,6 +1,6 @@
 <!--Loading Demo-->
 <script>
-    import { Loading, Tabs, TabContent, Button } from '../../../../packages/stdf/components';
+    import { Loading, Tabs, TabContent, Button } from 'stdf';
 
     //Input the number and return an array of randomly generated colors
     const randomColorArr = num => {

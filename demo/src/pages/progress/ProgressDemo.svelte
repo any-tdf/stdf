@@ -1,6 +1,6 @@
 <!--Progress Demo-->
 <script>
-    import { Progress, Button } from '../../../../packages/stdf/components';
+    import { Progress, Button } from 'stdf';
 
     let percent = 20;
     const changePercentFun = type => {

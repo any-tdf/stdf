@@ -1,6 +1,6 @@
 <!-- Skeleton Demo -->
 <script>
-    import { Skeleton } from '../../../../packages/stdf/components';
+    import { Skeleton } from 'stdf';
 </script>
 
 <div class="p-2">

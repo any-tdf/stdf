@@ -1,5 +1,5 @@
 <script>
-    import { Button, Avatar } from '../../../../packages/stdf/components';
+    import { Button, Avatar } from 'stdf';
 </script>
 
 <div class="flex flex-col space-y-4 items-center">
