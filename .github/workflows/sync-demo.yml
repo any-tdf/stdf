@@ -37,11 +37,8 @@ jobs:
                   echo rollup-plugin-stdf-icon-version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
             # cd 到 stdf/demo 文件内，初始化本地仓库
-            # 将 demo/src/App.svelte 文件内的 ../../packages/stdf/components 替换为 stdf
-            # 将 demo/src/App.svelte 文件内的 ../../packages/stdf/lang 替换为 stdf/dist/lang
-            # 将 demo/src/pages 目录下的所有子孙 .svelte 文件内的 ../../../../packages/stdf/components 替换为 stdf
-            # 将 demo/package.json 内的第 9 行增加内容为 rollup-plugin-stdf-icon，版本号为 ${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
-            # 将 demo/package.json 内的第 11 行增加内容为 stdf，版本号为 ${{ steps.version.outputs.version }}
+            # 将 demo/package.json 内的 file:../packages/stdf 替换为 ^${{ steps.version.outputs.version }}
+            # 将 demo/package.json 内的 file:../packages/rollup-plugin-stdf-icon 替换为 ^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
             # 将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
             - name: Init stdf demo
               run: |
@@ -49,11 +46,8 @@ jobs:
                   git init
                   git config --global user.name 'GitHub Actions'
                   git config --global user.email 'GitHub Actions'
-                  sed -i 's|../../packages/stdf/components|stdf|g' src/App.svelte
-                  sed -i 's|../../packages/stdf/lang|stdf/dist/lang|g' src/App.svelte
-                  sed -i 's|../../../../packages/stdf/components|stdf|g' src/pages/**/*.svelte
-                  sed -i '9a\        "rollup-plugin-stdf-icon": "^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}",' package.json
-                  sed -i '11a\        "stdf": "^${{ steps.version.outputs.version }}",' package.json
+                  sed -i 's#file:../packages/stdf#^${{ steps.version.outputs.version }}#' package.json
+                  sed -i 's#file:../packages/rollup-plugin-stdf-icon#^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}#' package.json
                   git commit -am "Github Actions auto commit: update demo from stdf."
 
             # 将修改内容推送到 git@github.com:dufu1991/demo-stdf.git 的 main 分支
