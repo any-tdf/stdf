@@ -48,7 +48,8 @@ jobs:
                   git config --global user.email 'GitHub Actions'
                   sed -i 's#file:../packages/stdf#^${{ steps.version.outputs.version }}#' package.json
                   sed -i 's#file:../packages/rollup-plugin-stdf-icon#^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}#' package.json
-                  git commit -am "Github Actions auto commit: update demo from stdf."
+                  git add .
+                  git commit -m "Github Actions auto commit: update demo from stdf."
 
             # 将修改内容推送到 git@github.com:dufu1991/demo-stdf.git 的 main 分支
             - name: Push to demo-stdf
