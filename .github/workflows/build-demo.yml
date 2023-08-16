@@ -39,6 +39,15 @@ jobs:
             - name: Install logging
               run: python3 -m pip install logging
 
+            # cd packages/rollup-plugin-stdf-icon 目录下
+            # 安装依赖 npm install
+            # 打包 npm run build
+            - name: Build rollup-plugin-stdf-icon
+              run: |
+                  cd packages/rollup-plugin-stdf-icon
+                  npm install
+                  npm run build
+
             - name: Install dependencies and build
               run: |
                   cd demo
