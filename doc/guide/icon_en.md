@@ -1,18 +1,26 @@
 ## Background
 
-STDF uses SVG Sprites technology to display icons, which reduces HTTP requests and improves page performance.
+STDF uses SVG Sprites technology for icons, which helps reduce HTTP requests and improve page performance.
 
-STDF's SVG Sprites uses [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), which is similar to CSS Sprite technology. STDF combines SVG files into one file and uses the `use` element in SVG to display the corresponding icon.
+STDF's SVG Sprites use [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), which is similar to CSS Sprite technique. It combines SVG files in the project into a single file and uses the `<use>` element in SVG to display the corresponding icons.
 
-Compatibility is not an issue either. Please refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
+You can think of it as a type of font, except that it is composed of SVG and can be styled using CSS properties such as color and size. Therefore, for larger or more complex icons with multiple colors, it is recommended to use individual SVG files instead of placing them in the symbol.
 
-## Built-in
+Compatibility is not an issue. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility) for more information.
 
-Some icons used within STDF components are sourced from [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). Thanks to them 🙏🏻🙏🏻.
+## rollup-plugin-stdf-icon
 
-**If you use these components, please ensure that your `symbol.svg` file contains the corresponding icon.**
+STDF has developed a Rollup/Vite plugin called rollup-plugin-stdf-icon, which combines SVG files in the project into SVG Sprites. Please refer to [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) for specific usage. Due to the diversity of SVG formats, there may be cases where rollup-plugin-stdf-icon does not handle them accurately. In such cases, please raise an issue on [GitHub](https://github.com/dufu1991/stdf/issues) and provide details about the SVG file.
 
-You can use them as follows:
+Alternatively, you can use other SVG Sprites synthesis tools or manually combine them. You can also ask the designer to provide the corresponding SVG Sprites along with the design materials.Or, for icon libraries like Remix Icon, you can directly download a selection of multiple icons as SVG Sprites.
+
+## Built-in Icons
+
+Some of the icons used in STDF components are sourced from [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). Many thanks to them! 🙏🏻🙏🏻
+
+**If you are using these components, please make sure that the `symbol.svg` file in your project includes the corresponding icons.**
+
+Here are the icons and their corresponding components:
 
 | Icon Name                     | Component        |
 | ----------------------------- | ---------------- |
@@ -39,4 +47,6 @@ You can use them as follows:
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
 
-Currently, most front-end build tools, such as Webpack, Vite, or Rollup, have corresponding SVG Sprite plugins. Please choose one or manually combine them.
+You can find the SVG Sprites composed of these icons in `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg`.
+
+You can find the SVG source files for these icons in `node_modules/stdf/dist/assets/svg_base/`.
