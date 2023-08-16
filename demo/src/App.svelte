@@ -20,10 +20,7 @@
     const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0'; //判断是否是iframe  judge whether it is iframe
     setContext('iframe', isIframe); //设置iframe  setting iframe
     let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-    //截取字符?后面的所有字符
-    // intercept all characters after the character?
-    let urlLang = window.location.href.split('?')[1];
-    let urlParams = new URLSearchParams(urlLang);
+
     // 设置语言
     // setting language
     const isZh = sessionStorage.getItem('lang') === 'zh_CN';
