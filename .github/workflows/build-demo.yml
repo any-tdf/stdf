@@ -48,6 +48,13 @@ jobs:
                   npm install
                   npm run build
 
+            # cd packages/stdf 目录下
+            # 执行 node/scripts/dist.js 脚本
+            - name: Build stdf
+              run: |
+                  cd packages/stdf
+                  node scripts/dist.js
+
             - name: Install dependencies and build
               run: |
                   cd demo
