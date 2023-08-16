@@ -1,3 +1,9 @@
+## 0.2.5
+
+- Icon 修改 path 默认值，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。
+- 新增了 `rollup-plugin-stdf-icon` 插件，将指定文件夹内的所有 SVG 组合为 SVG symbol，详见 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，方便 STDF 的 Icon 组件使用。
+- 配合 `rollup-plugin-stdf-icon` 更新 `create-stdf`。
+
 ## 0.2.4
 
 - 0.2.2 ~ 0.2.4 优化文件结构，精简 NPM 包体积。抵制 `node_modules` 体积膨胀和依赖黑洞，从我做起！

@@ -1,3 +1,9 @@
+## 0.2.5
+
+- The default value of `path` in the Icon component has been modified. Please refer to the [Icon](https://stdf.design/#/components?nav=icon&tab=4) section for more details.
+- A new plugin called `rollup-plugin-stdf-icon` has been added. It combines all SVG files in a specified folder into an SVG symbol for the convenience of using the Icon component in STDF. Please see [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) for more information.
+- The `create-stdf` project has been updated to work with `rollup-plugin-stdf-icon`.
+
 ## 0.2.4
 
 - 0.2.2 ~ 0.2.4 Optimized file structure and reduced NPM package size. Say no to bloated `node_modules` and dependency black holes!

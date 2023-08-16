@@ -4,6 +4,8 @@ STDF uses SVG Sprite technology for icons, which can reduce HTTP requests and im
 
 STDF's SVG Sprites use the [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol) technique, which is similar in principle to the Sprite technique in CSS. The SVGs in the project are concatenated into one file, and the corresponding icons are displayed by using the `use` element in SVG.
 
+You can think of it as a font, but instead of being made up of characters, it is composed of SVGs. It can be styled using CSS to control properties such as color and size. Therefore, if you have large or complex icons with multiple colors, it is recommended to import the SVG files individually instead of using them within a symbol.
+
 Compatibility is not a problem either. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
 
 ## Built-in Explanation
