@@ -59,16 +59,16 @@ This configuration will combine two symbols. **When using the STDF Icon componen
 
 Note: **The parameter should be an array** representing the configuration for multiple folders. **Each folder configuration should be an object** with `inFile` as the folder where the SVG files to be combined are located, `outFile` as the output path for the combined SVG symbol file, and `fileName` as the filename of the combined SVG symbol file. Please ensure the correctness and avoid conflicts in paths and filenames.
 
-In general, the use of symbols is to combine a series of small, single-color SVG files into one symbol. This allows for easy modification of attributes such as color, size, and opacity when using SVG in a project. Therefore, when configuring rollup-plugin-stdf-icon, the color attributes of the SVG files themselves are removed. If you need to use multi-color SVG files and want to preserve the colors in the generated symbol, you just need to set the `simple` parameter to `false`.
+In general, the use of symbols is to combine a series of small, single-color SVG files into one symbol. This allows for easy modification of attributes such as color, size, and opacity when using SVG in a project. Therefore, when default configuring rollup-plugin-stdf-icon, the color attributes of the SVG files themselves are removed. If you need to use multi-color SVG files and want to preserve the colors in the generated symbol, you just need to set the `simple` parameter to `false`.
 
 # Configuration
 
-| Parameter | Default         | Description                                                                                                   |
-| --------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
-| inFile    | src/assets/svgs | The folder where all the SVG files to be merged are located.                                                  |
-| outFile   | public/fonts    | The output path for the merged SVG symbol file.                                                               |
-| fileName  | symbol          | The filename of the merged SVG symbol file.                                                                   |
-| simple    | true            | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
+| Parameter | Default           | Description                                                                                                   |
+| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| inFile    | 'src/assets/svgs' | The folder where all the SVG files to be merged are located.                                                  |
+| outFile   | 'public/fonts'    | The output path for the merged SVG symbol file.                                                               |
+| fileName  | 'symbol'          | The filename of the merged SVG symbol file.                                                                   |
+| simple    | true              | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
 
 # License
 
