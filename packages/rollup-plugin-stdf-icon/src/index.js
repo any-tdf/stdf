@@ -7,13 +7,13 @@ import svgstore from 'svgstore';
 export default function svgSprite(datas) {
     // 可接收多组参数，处理多个文件夹内的文件
     // Multiple parameters can be accepted to process files in multiple folders
-    const data = datas ? datas : [{ inFile: 'src/assets/svgs', outFile: 'public/fonts', fileName: 'symbol' }];
+    const data = datas ? datas : [{ inFile: 'src/assets/svgs', outFile: 'public/fonts', fileName: 'symbol', simple: true }];
 
     // 循环处理每一组参数
     // Loop through each set of parameters
     data.forEach(item => {
-        const { inFile, outFile, fileName } = item;
-        handleFile(inFile, outFile, fileName);
+        const { inFile, outFile, fileName, simple = true } = item;
+        handleFile(inFile, outFile, fileName, simple);
     });
 
     return {
@@ -23,7 +23,7 @@ export default function svgSprite(datas) {
 
 // 处理一个文件夹内的文件
 // Process files in a folder
-function handleFile(inFile, outFile, fileName) {
+function handleFile(inFile, outFile, fileName, simple = true) {
     // 如果 outFile 不存在, 则创建
     // If outFile does not exist, create it
     if (!fs.existsSync(outFile)) {
@@ -47,25 +47,24 @@ function handleFile(inFile, outFile, fileName) {
         // Use SVGO for optimization
         const result = optimize(code);
 
-        // // 删除 result 中的 p-id class 等属性
-        // // Delete p-id class and other attributes in result
+        // 删除 result 中的 p-id class 等属性
+        // Delete p-id class and other attributes in result
         result.data = result.data.replace(/p-id="[^"]*"/g, '').replace(/class="[^"]*"/g, '');
 
         // 如果 result 中有 fill 属性，属性值不为 none, 则将 fill 属性值设置为 currentColor
         // If there is a fill attribute in result, the attribute value is not none, then set the fill attribute value to currentColor
-        if (result.data.indexOf('fill=') > -1 && result.data.indexOf('fill="none"') === -1) {
+        if (simple && result.data.indexOf('fill=') > -1 && result.data.indexOf('fill="none"') === -1) {
             result.data = result.data.replace(/fill="[^"]*"/g, 'fill="currentColor"');
         }
 
         // 如果 result 中有 stroke 属性，属性值不为 none, 则将 stroke 属性值设置为 currentColor
         // If there is a stroke attribute in result, the attribute value is not none, then set the stroke attribute value to currentColor
-        if (result.data.indexOf('stroke=') > -1 && result.data.indexOf('stroke="none"') === -1) {
+        if (simple && result.data.indexOf('stroke=') > -1 && result.data.indexOf('stroke="none"') === -1) {
             result.data = result.data.replace(/stroke="[^"]*"/g, 'stroke="currentColor"');
         }
 
         // 将优化后的 svg 添加到 sprites 中
         // Add the optimized svg to sprites
-        // sprites.toString();
         sprites.add(svg.replace('.svg', ''), result.data, { copyAttrs: ['fill', 'stroke'] });
     });
 

@@ -57,13 +57,16 @@ export default defineConfig({
 
 注意：**传入参数为数组**，表示多个文件夹的配置。**每个文件夹的配置为一个对象**，对象中的 inFile 为将要被合并的 SVG 文件所在的文件夹，outFile 为合并后的 SVG symbol 文件的输出路径，fileName 为合并后的 SVG symbol 文件的文件名。请注意路径与文件名的正确性与冲突。
 
+一般来说，使用 symbol 的场景是将一系列小的单色 svg 合并为一个 symbol，可以方便项目使用 svg 时修改颜色、大小、透明度等属性，所以配置下 rollup-plugin-stdf-icon 会去除掉 svg 本身的颜色属性。如果需要使用多色 svg，合成的 symbol 需要保留 svg 本身的颜色，只需要将 `simple` 参数设置为 `false`。
+
 # 配置
 
-| 参数     | 默认            | 描述                                    |
-| -------- | --------------- | --------------------------------------- |
-| inFile   | src/assets/svgs | 将要被合并的所有 SVG 文件所在的文件夹。 |
-| outFile  | public/fonts    | 合并后的 SVG symbol 文件的输出路径。    |
-| fileName | symbol          | 合并后的 SVG symbol 文件的文件名。      |
+| 参数     | 默认            | 描述                                                |
+| -------- | --------------- | --------------------------------------------------- |
+| inFile   | src/assets/svgs | 将要被合并的所有 SVG 文件所在的文件夹。             |
+| outFile  | public/fonts    | 合并后的 SVG symbol 文件的输出路径。                |
+| fileName | symbol          | 合并后的 SVG symbol 文件的文件名。                  |
+| simple   | true            | 是否使用简单模式，简单模式会将 svg 自带的颜色去除。 |
 
 # 许可证
 
