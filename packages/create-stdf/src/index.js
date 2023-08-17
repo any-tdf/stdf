@@ -33,8 +33,24 @@ const argvProjectName = argv._[0];
 const argvTemplate = argv.template || argv.t;
 const argvLanguage = argv.language || argv.l;
 
-lang = argvLanguage && argvLanguage === 'zh_CN' ? langAll.zh_CN : langAll.en_US;
+// 语言列表
+// Language list
+const languages = [
+    { value: 'en_US', label: 'English' },
+    { value: 'zh_CN', label: '简体中文' },
+    { value: 'zh_TW', label: '繁體中文' },
+    { value: 'ja_JP', label: '日本語' },
+    { value: 'ko_KR', label: '한국어' },
+    { value: 'es_ES', label: 'Español' },
+    { value: 'ru_RU', label: 'Русский' },
+];
 
+// 如果命令行参数中有语言，且语言列表中有该语言，使用该语言，否则使用英语
+// If there is a language in the command line parameters and the language list has the language, use the language, otherwise use English
+lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? langAll[argvLanguage] : langAll.en_US;
+
+// 模板列表
+// Template list
 const templateOptions = [
     { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
     { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
@@ -51,7 +67,6 @@ const templateOptions = [
 if (argvProjectName && !argvTemplate) {
     createFunc(argvProjectName, templateOptions[0]);
 }
-
 // 如果命令行参数中有项目名称和模板名称，直接使用命令行参数中的值
 // If there is a project name and template name in the command line parameters, use the value in the command line parameters directly
 else if (argvProjectName && argvTemplate) {
@@ -74,12 +89,13 @@ else if (argvProjectName && argvTemplate) {
     // 选择一种语言
     // Select a language
     const languageType = await p.select({
-        message: bold('Please select your preferred language(请选择你习惯的语言)'),
-        options: [
-            { value: 'en_US', label: 'English' },
-            { value: 'zh_CN', label: '简体中文' },
-        ],
+        message: bold('Please select your preferred language'),
+        options: languages,
     });
+    if (p.isCancel(languageType)) {
+        p.cancel(red('⛔ ') + lang.oc);
+        process.exit(0);
+    }
     lang = langAll[languageType];
     const templateOptions = [
         { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
@@ -91,11 +107,6 @@ else if (argvProjectName && argvTemplate) {
         { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: 'sveltekit-tailwind-typescript' },
         { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript' },
     ];
-
-    if (p.isCancel(languageType)) {
-        p.cancel(red('⛔ ') + lang.oc);
-        process.exit(0);
-    }
 
     //  选择一个模板
     // Select a template

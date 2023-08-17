@@ -31,3 +31,88 @@ export const zh_CN = {
     cferror: '创建文件失败',
     pectn: '请输入正确的模板名称！',
 };
+
+export const zh_TW = {
+    hnay: '暫未適配',
+    pn: '請輸入項目名稱',
+    pncbne: '項目名稱不能為空',
+    pane: '項目名稱已存在',
+    psat: '請選擇一個模板',
+    oc: '操作已取消',
+    pca: '請重新選擇',
+    cfsing: '正在創建文件...',
+    pcsucc: '項目創建成功',
+    tgs: '開始：',
+    pcyt_vt: '提示：請到 tailwind.config.js 文件內配置你的顏色系統',
+    pcyt_vu: '提示：請到 uno.config.js 文件內配置你的顏色系統',
+    cferror: '創建文件失敗',
+    pectn: '請輸入正確的模板名稱！',
+};
+
+export const ja_JP = {
+    hnay: 'まだ適応されていません',
+    pn: 'プロジェクト名を入力してください',
+    pncbne: 'プロジェクト名は空にできません',
+    pane: 'プロジェクト名が既に存在します',
+    psat: 'テンプレートを選択してください',
+    oc: '操作がキャンセルされました',
+    pca: 'もう一度選択してください',
+    cfsing: 'ファイルを作成しています...',
+    pcsucc: 'プロジェクトが正常に作成されました',
+    tgs: '開始：',
+    pcyt_vt: 'ヒント：tailwind.config.js ファイルでカラーシステムを構成してください',
+    pcyt_vu: 'ヒント：uno.config.js ファイルでカラーシステムを構成してください',
+    cferror: 'ファイルの作成に失敗しました',
+    pectn: '正しいテンプレート名を入力してください！',
+};
+
+export const ko_KR = {
+    hnay: '아직 적응하지 못했습니다',
+    pn: '프로젝트 이름을 입력하십시오',
+    pncbne: '프로젝트 이름은 비워 둘 수 없습니다',
+    pane: '프로젝트 이름이 이미 있습니다',
+    psat: '템플릿을 선택하십시오',
+    oc: '작업이 취소되었습니다',
+    pca: '다시 선택하십시오',
+    cfsing: '파일을 만드는 중입니다...',
+    pcsucc: '프로젝트가 성공적으로 생성되었습니다',
+    tgs: '시작：',
+    pcyt_vt: '팁：tailwind.config.js 파일에서 색상 시스템을 구성하십시오',
+    pcyt_vu: '팁：uno.config.js 파일에서 색상 시스템을 구성하십시오',
+    cferror: '파일 생성 실패',
+    pectn: '올바른 템플릿 이름을 입력하십시오!',
+};
+
+export const es_ES = {
+    hnay: 'Aún no se ha adaptado',
+    pn: 'Por favor ingrese el nombre del proyecto',
+    pncbne: 'El nombre del proyecto no puede estar vacío',
+    pane: 'El nombre del proyecto ya existe',
+    psat: 'Por favor seleccione una plantilla',
+    oc: 'Operación cancelada',
+    pca: 'Por favor, elija de nuevo',
+    cfsing: 'Creando archivo...',
+    pcsucc: 'Proyecto creado con éxito',
+    tgs: 'Para empezar:',
+    pcyt_vt: 'Consejo: configure su sistema de colores en el archivo tailwind.config.js',
+    pcyt_vu: 'Consejo: configure su sistema de colores en el archivo uno.config.js',
+    cferror: 'Error al crear archivo',
+    pectn: '¡Por favor ingrese el nombre de la plantilla correcto!',
+};
+
+export const ru_RU = {
+    hnay: 'Еще не адаптировано',
+    pn: 'Пожалуйста, введите название проекта',
+    pncbne: 'Название проекта не может быть пустым',
+    pane: 'Название проекта уже существует',
+    psat: 'Пожалуйста, выберите шаблон',
+    oc: 'Операция отменена',
+    pca: 'Пожалуйста, выберите снова',
+    cfsing: 'Создание файла...',
+    pcsucc: 'Проект успешно создан',
+    tgs: 'Чтобы начать:',
+    pcyt_vt: 'Совет: настройте свою цветовую систему в файле tailwind.config.js',
+    pcyt_vu: 'Совет: настройте свою цветовую систему в файле uno.config.js',
+    cferror: 'Не удалось создать файл',
+    pectn: 'Пожалуйста, введите правильное имя шаблона!',
+};
