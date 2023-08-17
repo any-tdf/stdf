@@ -1,12 +1,13 @@
 {
     "name": "create-stdf",
-    "version": "0.0.30",
+    "version": "0.0.31",
     "description": "A CLI for creating new STDF projects",
     "bin": {
         "create-stdf": "index.js"
     },
     "scripts": {
         "build": "rollup -c",
+        "update": "node scripts/update",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "files": [
