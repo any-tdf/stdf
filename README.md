@@ -44,6 +44,9 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
 - 🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
 - 🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
+- 📦 Supports on-demand import to reduce bundle size.
+- 🪜 Comes with a scaffolding tool for quick project creation.
+- 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
 
 # Getting Started
 
@@ -52,9 +55,9 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 If you have a project configured with Svelte and Tailwind, install directly.
 
 ```bash
-npm i stdf -D
-# or
 pnpm i stdf -D
+# or
+npm i stdf -D
 ```
 
 ## Usage
@@ -70,7 +73,7 @@ import { Button } from 'stdf';
 
 ## 😓 No project? Create one
 
-You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version, may have issues)
+You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
 
 ```bash
 pnpm create stdf
