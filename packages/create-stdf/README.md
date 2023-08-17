@@ -66,7 +66,7 @@ Template presets include:
 | --------------- | ------ | ------- | ----------------------------------------------------------------------------------------------------- |
 | -               | string | -       | The name of the project, you can direct input.                                                        |
 | -t / --template | string | vt      | The template to use. Available templates are: `vt`, `vu`, `skt`, `sku`, `vtt`, `vut`, `sktt`, `skut`. |
-| -l / --language | string | en_US   | The language of the prompts.                                                                           |
+| -l / --language | string | en_US   | The language of the prompts.                                                                          |
 
 # Supported Languages
 
@@ -79,6 +79,12 @@ Template presets include:
 | ko_KR | Korean                |
 | es_ES | Spanish               |
 | ru_RU | Russian               |
+
+For example:
+
+```bash
+pnpm create stdf my-app -l zh_CN
+```
 
 # License
 

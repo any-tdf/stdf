@@ -79,6 +79,12 @@ npm create stdf@latest my-app -t vu
 | es_ES | 西班牙语     |
 | ru_RU | 俄语         |
 
+例如：
+
+```bash
+pnpm create stdf my-app -l zh_CN
+```
+
 
 # 许可证
 
