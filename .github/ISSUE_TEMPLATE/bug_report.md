@@ -45,6 +45,10 @@ If applicable, add screenshots to help explain your problem.
 - Operating System and Version: [e.g., iOS 16, Android MIUI 14]
 - Browser and Version: [e.g., Built-in MIUI browser, Chrome 100, Firefox, Safari]
 
+## Reproduction
+
+You can use [StackBlitz](https://stackblitz.com) or [CodePen](https://codepen.io) to quickly create a project to demonstrate this bug.
+
 ## Optional: Proposed Solution
 
 If you have a proposed solution or idea for resolving the bug, please describe it here.
@@ -88,6 +92,10 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 
 - 操作系统与版本：[例如，iOS 16，Android MIUI 14]
 - 浏览器与版本：[例如，MIUI 自带，Chrome 100，Firefox，Safari]
+
+## 复现
+
+你可以使用 [StackBlitz](https://stackblitz.com) 或者 [CodePen](https://codepen.io) 快读创建一个工程展示此 bug。
 
 ## 可选：解决方案建议
 
