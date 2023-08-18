@@ -95,5 +95,9 @@ If you cannot find the language pack you need, you are welcome to create a new l
 
 The basic steps are as follows:
 
-1. Add the language pack in the `components/lang` folder.
-2. (Optional) Update the documentation. Update the [internation.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation.md) and [internation_en.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation_en.md) files in the `doc/guide` folder. Please update the language list in alphabetical order by `lang`.
+- Please fork the [STDF](https://github.com/dufu1991/stdf) code to your own repository. If you have already forked it, please sync the latest code from the main repository.
+- Clone your repository to your local machine.
+- Add language packs in the packages/stdf/lang folder.
+- (Optional) Update the documentation. Update the [internation.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation.md) and [internation_en.md](https://github.com/dufu1991/stdf/edit/main/doc/guide/internation_en.md) files in the doc/guide folder. Please update them in alphabetical order according to the lang list.
+- Commit the modifications to your repository and then submit a Pull Request to the main repository.
+- Once the Pull Request is approved during the review process, it will be merged into the main repository and a new version will be released on npm.

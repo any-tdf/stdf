@@ -37,7 +37,7 @@ npm run dev
 
 启动成功之后，可在浏览器中打开 `http://localhost:8888` 查看效果，请将浏览器的开发者工具切换为移动端模式。
 
-可对 `components/src` 目录下组件源码进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
+可对 `packages/stdf/components` 目录下组件源码进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
 
 如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) 即可开始在线调试。
 

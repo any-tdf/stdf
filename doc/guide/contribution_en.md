@@ -37,7 +37,7 @@ npm run dev
 
 After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.
 
-You can modify the component source code under the `components/src` directory and view the modification effect in real-time. Note that both VS Code and WebStorm support directly jumping to the component source code when calling the component.
+You can modify the component source code under the `packages/stdf/components` directory and view the modification effect in real-time. Note that both VS Code and WebStorm support directly jumping to the component source code when calling the component.
 
 If you don't want to develop locally, you can choose to use StackBlitz to debug online. Just open [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf?startScript=dev_en) to start online debugging.
 
