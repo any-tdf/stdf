@@ -95,7 +95,7 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 
 ## 复现
 
-你可以使用 [StackBlitz](https://stackblitz.com) 或者 [CodePen](https://codepen.io) 快读创建一个工程展示此 bug。
+你可以使用 [StackBlitz](https://stackblitz.com) 或者 [CodePen](https://codepen.io) 快速创建一个工程展示此 bug。
 
 ## 可选：解决方案建议
 
