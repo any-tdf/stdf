@@ -7,43 +7,45 @@ assignees: ''
 
 ---
 
----
-name: Bug Report
-about: Create a bug report to help us improve
+## 请在标题中标明 bug 属于哪个部分
 
----
+请在标题开头注明此 bug 属于哪个部分，如：[site] 首页的 3D 模型无法关闭！
+- [stdf] STDF 组件库代码 bug。
+- [create] create-stdf 脚手架 bug。
+- [icon] rollup-plugin-stdf-icon 处理 Icon 的插件 bug。
+- [site] STDF 站点 bug。
+- [other] 无法归类的问题。
 
-## Bug Description
+## 当前版本
 
-A clear and concise description of what the bug is.
+如果是 [stdf] [create] [icon] ，请注明此 bug 出现的版本。
 
-## Steps to Reproduce
+## Bug 描述
 
-Steps to reproduce the behavior:
+请清晰简明地描述清楚该 bug 的内容。
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## 复现步骤
 
-## Expected Behavior
+复现该问题的步骤：
 
-A clear and concise description of what you expected to happen.
+1. 当 ... 的时候 ...
+2. 点击 ...
+3. 出现错误 ...
 
-## Screenshots
+## 期望行为
 
-If applicable, add screenshots to help explain your problem.
+请清晰简明地描述清楚你期望的正确情况。
 
-## Additional Context
+## 截图
 
-Add any other context about the problem here.
+如果适用，请添加截图以帮助解释你的问题。
 
-## Your Environment
+## 你的环境
 
-- OS: [e.g. Windows, macOS, Linux]
-- Browser: [e.g. Chrome, Firefox, Safari]
-- Version: [e.g. 22]
+- 操作系统：[例如，Windows，macOS，Linux]
+- 浏览器：[例如，Chrome，Firefox，Safari]
+- 版本：[例如，22]
 
-## Optional: Proposed Solution
+## 可选：解决方案建议
 
-If you have a proposed solution or workaround for the bug, please describe it here.
+如果你对该 bug 有一个解决方案或思路，请在这里描述。
