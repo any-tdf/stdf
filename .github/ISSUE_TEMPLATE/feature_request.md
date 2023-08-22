@@ -14,6 +14,7 @@ Please indicate in the title which section the feature belongs to, for example: 
 - [create] Feature in the create-stdf scaffolding tool.
 - [icon] Feature in the rollup-plugin-stdf-icon plugin for handling icons.
 - [site] Feature on the STDF website.
+- [demo] Feature in the STDF demo.
 - [other] Unclassified feature.
 
 ## Feature Description
@@ -33,6 +34,7 @@ If there are similar libraries or any other places where this new feature can be
 - [create] create-stdf 脚手架 feature。
 - [icon] rollup-plugin-stdf-icon 处理 Icon 的插件 feature。
 - [site] STDF 站点 feature。
+- [demo] STDF demo feature。
 - [other] 无法归类的 feature。
 
 ## feature 描述

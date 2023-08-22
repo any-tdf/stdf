@@ -14,6 +14,7 @@ Please indicate in the title which section the bug belongs to, for example: [sit
 - [create] Bug in the create-stdf scaffolding tool.
 - [icon] Bug in the rollup-plugin-stdf-icon plugin for handling icons.
 - [site] Bug on the STDF website.
+- [demo] Bug in the STDF demo.
 - [other] Unclassified issue.
 
 ## Current Version
@@ -62,6 +63,7 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 - [create] create-stdf 脚手架 bug。
 - [icon] rollup-plugin-stdf-icon 处理 Icon 的插件 bug。
 - [site] STDF 站点 bug。
+- [demo] STDF demo bug。
 - [other] 无法归类的问题。
 
 ## 当前版本
