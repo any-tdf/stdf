@@ -2,7 +2,7 @@
     "name": "stdf-vscode-extension",
     "displayName": "stdf-vscode-extension",
     "description": "A VS Code extension to facilitate STDF development",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "STDF",
     "icon": "./src/assets/stdf-vscode-extension.png",
     "main": "./src/extension.js",
@@ -23,7 +23,8 @@
         "svelte",
         "stdf",
         "component",
-        "api"
+        "api",
+        "javascript"
     ],
     "contributes": {
         "commands": [],

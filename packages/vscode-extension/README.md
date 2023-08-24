@@ -1,13 +1,25 @@
-[English](https://github.com/dufu1991/stdf/blob/main/packages/vscode-extension/README.md)
+[简体中文](https://github.com/dufu1991/stdf/blob/main/packages/vscode-extension/README_CN.md)
 
-# 介绍
+# Introduction
 
-一个 VS Code 插件，用于在使用 [STDF](https://stdf.design) 时提供一些便利功能。
+A VS Code extension that provides convenience when developing with [STDF](https://stdf.design).
 
-# 安装
+# Installation
 
-在 VS Code 中搜索 `stdf`，然后点击安装。
+Search for `stdf-vscode-extension` in the VS Code extensions marketplace and click install, or install [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension&ssr=false#overview) from the marketplace.
 
-# 许可证
+# Features
 
-本项目基于 [MIT 许可证](https://github.com/dufu1991/stdf/blob/main/LICENSE)。请随意享受并贡献给这个开源项目。
+### When hovering over the STDF component name, display the API of that component.
+
+![TIP](./src/assets/tip.png)
+
+# Configuration
+
+The default API display is in Simplified Chinese. You can enable English API in the VS Code settings.
+
+![TIP](./src/assets/setting.png)
+
+# License
+
+This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.
