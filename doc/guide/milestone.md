@@ -1,3 +1,8 @@
+## 2023-08-24
+
+完成 STDF 配套的模板脚手架 [create-stdf](https://www.npmjs.com/package/create-stdf)，Vite/Rollup 插件 [rollup-plugin-stdf-icon
+](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，VS Code 插件 [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)。
+
 ## 2023-07-23
 
 适配 Svelte 4 也兼容 Svelte 3（v0.2.0）。
