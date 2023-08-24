@@ -100,7 +100,7 @@ Please scan the QR code to access the mobile demo:
 
 # Quick Try
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf).
+You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf?startScript=dev_en).
 
 # Feedback and Communication
 
