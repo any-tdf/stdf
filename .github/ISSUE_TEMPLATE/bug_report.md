@@ -12,6 +12,7 @@ assignees: ''
 Please indicate in the title which section the bug belongs to, for example: [site] Unable to close 3D model on the homepage!
 - [stdf] Bug in the STDF component library code.
 - [create] Bug in the create-stdf scaffolding tool.
+- [vscode] Bug in the STDF VS Code plugin.
 - [icon] Bug in the rollup-plugin-stdf-icon plugin for handling icons.
 - [site] Bug on the STDF website.
 - [demo] Bug in the STDF demo.
@@ -19,7 +20,7 @@ Please indicate in the title which section the bug belongs to, for example: [sit
 
 ## Current Version
 
-If it is related to [stdf], [create], [icon], please specify the version in which this bug occurred.
+If it is related to [stdf], [create], [icon], [vscode], please specify the version in which this bug occurred.
 
 ## Bug Description
 
@@ -61,6 +62,7 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 请在标题开头注明此 bug 属于哪个部分，如：[site] 首页的 3D 模型无法关闭！
 - [stdf] STDF 组件库代码 bug。
 - [create] create-stdf 脚手架 bug。
+- [vscode] STDF VS Code 插件 bug。
 - [icon] rollup-plugin-stdf-icon 处理 Icon 的插件 bug。
 - [site] STDF 站点 bug。
 - [demo] STDF demo bug。
@@ -68,7 +70,7 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 
 ## 当前版本
 
-如果是 [stdf] [create] [icon] ，请注明此 bug 出现的版本。
+如果是 [stdf] [create] [icon] [vscode] ，请注明此 bug 出现的版本。
 
 ## Bug 描述
 
