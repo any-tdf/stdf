@@ -4,6 +4,7 @@
     "description": "Mobile web component library based on Svelte and Tailwind",
     "main": "dist/components/index.js",
     "scripts": {
+        "dist": "node scripts/dist",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "dufu1991",
