@@ -12,13 +12,13 @@
 
 ### 光标悬浮于 STDF 组件名称上时，显示该组件的API。
 
-![TIP](./src/assets/tip.png)
+![TIP](https://stdf.design/assets/vscode/tip.png)
 
 # 配置
 
 默认显示的 API 为简体中文，可到 VS Code 的设置页开启英文 API。
 
-![TIP](./src/assets/setting.png)
+![SETTING](https://stdf.design/assets/vscode/setting.png)
 
 
 # 许可证

@@ -12,13 +12,13 @@ Search for `stdf-vscode-extension` in the VS Code extensions marketplace and cli
 
 ### When hovering over the STDF component name, display the API of that component.
 
-![TIP](./src/assets/tip.png)
+![TIP](https://stdf.design/assets/vscode/tip.png)
 
 # Configuration
 
 The default API display is in Simplified Chinese. You can enable English API in the VS Code settings.
 
-![TIP](./src/assets/setting.png)
+![SETTING](https://stdf.design/assets/vscode/setting.png)
 
 # License
 
