@@ -1,0 +1,31 @@
+# 当分支 main 有 push 事件并且此次 push 包含了 packages/vscode-extension/package.json 文件时，执行以下任务
+
+name: PUBLISH VSCODE
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'packages/vscode-extension/package.json'
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18.x
+
+            # cd 到 packages/vscode-extension 目录
+            # 安装依赖
+            - name: Publish
+              run: |
+                  npm install
+                  npm install -g vsce
+                  vsce publish -p ${{ secrets.VSCE_TOKEN }}
