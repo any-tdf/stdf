@@ -28,12 +28,12 @@ jobs:
                   cp README.md packages/stdf/README.md
 
             # cd packages/stdf 目录下
-            # 执行 node/scripts/dist.js 脚本
+            # 执行 npm run dist
             # 发布 stdf 到 npm
             - name: Publish
               run: |
                   cd packages/stdf
-                  node scripts/dist.js
+                  npm run dist
                   npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
                   npm publish
               env:
