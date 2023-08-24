@@ -14,6 +14,10 @@ Search for `stdf-vscode-extension` in the VS Code extensions marketplace and cli
 
 ![TIP](https://stdf.design/assets/vscode/tip.png)
 
+or
+
+![TIP](https://stdf.design/assets/vscode/tip2.png)
+
 # Configuration
 
 The default API display is in Simplified Chinese. You can enable English API in the VS Code settings.
