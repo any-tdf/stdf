@@ -36,7 +36,7 @@ function activate(context) {
                 if (componentList.includes(word)) {
                     // 获取对应组件的 api.md 文件的路径
                     // Get the path of the api.md file of the corresponding component
-                    const apiPath = path.join(__dirname, `../../../doc/components/${wordLower}/api${isZh ? '' : '_en'}.md`);
+                    const apiPath = path.join(__dirname, `./doc/components/${wordLower}/api${isZh ? '' : '_en'}.md`);
 
                     // 读取 api.md 文件的内容
                     // Read the contents of the api.md file
