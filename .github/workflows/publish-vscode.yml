@@ -26,7 +26,7 @@ jobs:
             # 安装依赖
             - name: Publish
               run: |
-                  cd cd packages/vscode-extension
+                  cd packages/vscode-extension
                   npm install
                   npm install -g @vscode/vsce
                   vsce publish -p ${{ secrets.VSCE_TOKEN }}
