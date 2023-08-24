@@ -6,6 +6,7 @@
 [![Build Status](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml)
 [![Public Create Status](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml)
 [![Public Icon Status](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml)
+[![Public VS Code Extension Status](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
@@ -35,18 +36,19 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 
 # Features
 
-- 🚀 No runtime, no virtual DOM, runs faster online;
-- 🧰 Rich API, easily configure component styles that meet your needs;
-- ✍ Based on Svelte and Tailwind, coding is quick and easy;
-- 🍭 Supports dark mode;
-- 📖 Provides extensive Chinese and English documentation and component examples;
-- 🌍 Supports internationalization, with 60+ built-in language packages;
-- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported;
-- 🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS;
+- 🚀 No runtime, no virtual DOM, runs faster online.
+- 🧰 Rich API, easily configure component styles that meet your needs.
+- ✍ Based on Svelte and Tailwind, coding is quick and easy.
+- 🍭 Supports dark mode.
+- 📖 Provides extensive Chinese and English documentation and component examples.
+- 🌍 Supports internationalization, with 60+ built-in language packages.
+- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
+- 🤝 Supports Tailwind libraries such as Windi CSS and UnoCSS.
 - 🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
 - 📦 Supports on-demand import to reduce bundle size.
 - 🪜 Comes with a scaffolding tool for quick project creation.
 - 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
+- 🍺 IDE plugin for quickly viewing component APIs.
 
 # Getting Started
 
@@ -96,9 +98,18 @@ Please scan the QR code to access the mobile demo:
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# License
+# Quick Try
 
-This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf).
+
+# Feedback and Communication
+
+We recommend using [GitHub Issues](https://github.com/dufu1991/stdf/issues) for direct and effective feedback and communication. Contributions of code are also highly appreciated. You can also choose from the following options:
+
+- [QQ Group](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ Discord](https://pd.qq.com/s/fdd8incyr)
+- [Discord](https://discord.gg/mzYCQfgcaM)
+- [Discussions](https://github.com/dufu1991/stdf/discussions)
 
 # Contributors
 
@@ -106,7 +117,11 @@ This project is licensed under the [MIT License](https://github.com/dufu1991/std
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
 </a>
 
-## Star History
+# License
+
+This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+
+# Star History
 
 <a href="https://github.com/dufu1991/stdf">
   <picture>

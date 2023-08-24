@@ -6,6 +6,7 @@
 [![Build Status](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/build-demo.yml)
 [![Public Create Status](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-create.yml)
 [![Public Icon Status](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml)
+[![Public VS Code Extension Status](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
@@ -37,18 +38,19 @@
 
 # 特性
 
-- 🚀 无运行时，无虚拟 DOM，线上运行更快；
-- 🧰 API 丰富，轻松配置出符合需求的组件样式；
-- ✍ 基于 Svelte 和 Tailwind，编码迅速轻松；
-- 🍭 支持暗色模式；
-- 📖 提供丰富的中英文文档和组件示例；
-- 🌍 支持国际化，已内置 60+ 种语言包；
-- 🫰 交互友好，动画参数可配，可自定义主题；
-- 🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等；
+- 🚀 无运行时，无虚拟 DOM，线上运行更快。
+- 🧰 API 丰富，轻松配置出符合需求的组件样式。
+- ✍ 基于 Svelte 与 Tailwind，编码迅速轻松。
+- 🍭 支持暗色模式。
+- 📖 提供丰富的中英文文档和组件示例。
+- 🌍 支持国际化，已内置 60+ 种语言包。
+- 🫰 交互友好，动画参数可配，可自定义主题。
+- 🤝 支持 Tailwind 类库，如 Windi CSS、UnoCSS 等。
 - 🫡 无三方依赖，无需担心三方库版本与安全问题。
 - 📦 支持按需引入，减少打包体积。
 - 🪜 配套脚手架，快速创建工程。
 - 🔗 配套 SVG 合并插件，快速合并 SVG。
+- 🍺 配套 IDE 插件，快速查看组件 API。
 
 # 快速上手
 
@@ -98,9 +100,18 @@ npx create-stdf@latest
   <img src="https://stdf.design/assets/qr/demo_zh.png" width="220" height="220" >
 </picture>
 
-# 开源协议
+# 快速尝试
 
-本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) 快速尝试 STDF。
+
+# 反馈与交流
+
+推荐使用 [GitHub Issues](https://github.com/dufu1991/stdf/issues) 进行直接有效地反馈与交流，贡献代码就更好了。也可以选择以下几种方式：
+
+- [QQ 群](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ 频道](https://pd.qq.com/s/fdd8incyr)
+- [Discord](https://discord.gg/mzYCQfgcaM)
+- [Discussions](https://github.com/dufu1991/stdf/discussions)
 
 # 贡献者
 
@@ -108,7 +119,11 @@ npx create-stdf@latest
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
 </a>
 
-## Star 历史
+# 开源协议
+
+本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+
+# Star 历史
 
 <a href="https://github.com/dufu1991/stdf">
   <picture>
