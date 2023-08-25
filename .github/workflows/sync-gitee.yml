@@ -1,0 +1,27 @@
+# 北京时间每天 9 点自动将 GitHub 仓库同步到 Gitee
+
+name: SYNC GITEE
+
+on:
+    schedule:
+        - cron: '0 1 * * *'
+
+jobs:
+    build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Mirror the Github repository to Gitee
+          uses: Yikun/gitee-mirror-action@master
+
+
+        - name: Black list
+          uses: Yikun/hub-mirror-action@master
+          with:
+            src: github/dufu1991
+            dst: gitee/dufu1991
+            dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+            dst_token: ${{ secrets.GITEE_TOKEN }}
+            static_list: "stdf"
+
+
+
