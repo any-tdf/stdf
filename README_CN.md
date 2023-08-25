@@ -111,7 +111,7 @@ npx create-stdf@latest
 
 - [QQ 群](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
 - [QQ 频道](https://pd.qq.com/s/fdd8incyr)
-- [Discord](https://discord.gg/mzYCQfgcaM)
+- [Discord](https://discord.gg/DS4KSgqn)
 - [Discussions](https://github.com/dufu1991/stdf/discussions)
 
 # 贡献者
