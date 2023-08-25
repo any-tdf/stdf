@@ -10,10 +10,6 @@ jobs:
     build:
     runs-on: ubuntu-latest
     steps:
-        - name: Mirror the Github repository to Gitee
-          uses: Yikun/gitee-mirror-action@master
-
-
         - name: Black list
           uses: Yikun/hub-mirror-action@master
           with:
