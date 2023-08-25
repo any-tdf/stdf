@@ -1,7 +1,7 @@
 name: 👏 功能新增
 description: 提交一个新功能的需求
 title: '[Feature]: '
-labels: ['feature']
+labels: ['enhancement']
 body:
     - type: markdown
       attributes:
@@ -32,7 +32,7 @@ body:
     - type: textarea
       id: description
       attributes:
-          label: 新功能缺陷
+          label: 新功能描述
           description: 请清晰简明地描述清楚该新功能内容。
           placeholder: 当...
       validations:
