@@ -10,7 +10,11 @@ STDF 提供了一个 VS Code 插件 [stdf-vscode-extension](https://marketplace.
 
 ### 功能
 
-#### 光标悬浮于 STDF 组件名称上时，显示该组件的API。
+光标悬浮于 STDF 组件名称上时悬浮显示。
+
+- 此组件 API。
+- 直接打开 STDF 官网此组件的示例/API/指南。
+- 直接打开 STDF 此组件源码（GitHub/Gitee）。
 
 ![TIP](https://stdf.design/assets/vscode/tip.png)
 
