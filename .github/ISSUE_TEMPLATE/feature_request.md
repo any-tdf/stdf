@@ -7,9 +7,10 @@ assignees: ''
 
 ---
 
-## Please indicate which section the feature belongs to in the title
+## Which part does feature belong to?
 
 Please indicate in the title which section the feature belongs to, for example: [site] 3D model on the homepage doesn't look good!
+
 - [stdf] Feature in the STDF component library code.
 - [create] Feature in the create-stdf scaffolding tool.
 - [vscode] Feature in the STDF VS Code plugin.
@@ -28,9 +29,10 @@ If there are similar libraries or any other places where this new feature can be
 
 ---
 
-## 请在标题中标明 feature  属于哪个部分
+## Feature 属于哪个部分
 
 请在标题开头注明此 feature 属于哪个部分，如：[site] 首页的 3D 模型不好看！
+
 - [stdf] STDF 组件库代码 feature。
 - [create] create-stdf 脚手架 feature。
 - [vscode] STDF VS Code 插件 feature。

@@ -7,9 +7,10 @@ assignees: ''
 
 ---
 
-## Please indicate which section the bug belongs to in the title
+## Which part does bug belong to?
 
 Please indicate in the title which section the bug belongs to, for example: [site] Unable to close 3D model on the homepage!
+
 - [stdf] Bug in the STDF component library code.
 - [create] Bug in the create-stdf scaffolding tool.
 - [vscode] Bug in the STDF VS Code plugin.
@@ -57,9 +58,10 @@ If you have a proposed solution or idea for resolving the bug, please describe i
 
 ---
 
-## 请在标题中标明 bug 属于哪个部分
+## Bug 属于哪个部分
 
 请在标题开头注明此 bug 属于哪个部分，如：[site] 首页的 3D 模型无法关闭！
+
 - [stdf] STDF 组件库代码 bug。
 - [create] create-stdf 脚手架 bug。
 - [vscode] STDF VS Code 插件 bug。
