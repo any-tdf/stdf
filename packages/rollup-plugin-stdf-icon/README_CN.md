@@ -39,7 +39,7 @@ export default defineConfig({
 })
 ```
 
-开发过程中只需要将用到的 svg 文件放到指定的入口文件夹（默认 `src/assets/svgs`），插件会自动将其合并为一个 SVG symbol 文件，输出到指定的输出文件夹（默认 `public/fonts`）。Vite 构建之后 public 文件夹下的文件会被复制到 dist 文件夹下，所以在构建之后，合并的 SVG symbol 文件会出现在 dist/fonts 文件夹下。请参考 [Vite 配置](https://cn.vitejs.dev/guide/assets.html#the-public-directory)。
+开发过程中只需要将用到的 svg 文件放到指定的入口文件夹（默认 `src/assets/icons`），插件会自动将其合并为一个 SVG symbol 文件，输出到指定的输出文件夹（默认 `public/fonts`）。Vite 构建之后 public 文件夹下的文件会被复制到 dist 文件夹下，所以在构建之后，合并的 SVG symbol 文件会出现在 dist/fonts 文件夹下。请参考 [Vite 配置](https://cn.vitejs.dev/guide/assets.html#the-public-directory)。
 
 一般来说，按照默认配置将 svg 文件放到入口文件夹即可，无需过多配置。
 
@@ -63,7 +63,7 @@ export default defineConfig({
 
 | 参数     | 默认              | 描述                                                |
 | -------- | ----------------- | --------------------------------------------------- |
-| inFile   | 'src/assets/svgs' | 将要被合并的所有 SVG 文件所在的文件夹。             |
+| inFile   | 'src/assets/icons' | 将要被合并的所有 SVG 文件所在的文件夹。             |
 | outFile  | 'public/fonts'    | 合并后的 SVG symbol 文件的输出路径。                |
 | fileName | 'symbol'          | 合并后的 SVG symbol 文件的文件名。                  |
 | simple   | true              | 是否使用简单模式，简单模式会将 svg 自带的颜色去除。 |
