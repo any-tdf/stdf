@@ -1,0 +1,57 @@
+name: 👏 功能新增
+description: 提交一个新功能的需求
+title: '[Feature]: '
+labels: ['feature']
+body:
+    - type: markdown
+      attributes:
+          value: |
+              感谢您抽出时间填写这份新功能请求报告！如果您有新的想法，或者不确定是否能实现，请确保：
+
+              - 你已经查看最新版代码无此功能。
+              - 你已经查看过开启与关闭状态的 issues ，其中并没有你想增加的功能描述。
+              - 如果 issues 中已有相同新功能，你需要补充，请尽量在对应的 issue 中补充讨论。
+              - 你对新功能的表述简洁清晰，不只在你的情景角度能理解。
+
+    - type: dropdown
+      id: module
+      attributes:
+          label: 模块
+          description: 此新功能属于哪个模块？
+          options:
+              - stdf (STDF 组件，默认)
+              - create (create-stdf 脚手架)
+              - vscode (STDF VS Code 插件)
+              - icon (rollup-plugin-stdf-icon 插件)
+              - site (STDF 站点)
+              - demo (STDF demo)
+              - other (其他)
+      validations:
+          required: true
+
+    - type: textarea
+      id: description
+      attributes:
+          label: 新功能缺陷
+          description: 请清晰简明地描述清楚该新功能内容。
+          placeholder: 当...
+      validations:
+          required: true
+
+    - type: textarea
+      id: example
+      attributes:
+          label: 示例
+          description: 你可以给出一些在其他项目中类似的实现，方便大家理解你的想法。
+          placeholder: 在...
+      validations:
+          required: false
+
+    - type: textarea
+      id: idea
+      attributes:
+          label: 你的想法
+          description: 如果你对新功能有实现思路或任何想法，可以在这里描述。
+          placeholder: 我认为...
+      validations:
+          required: false
