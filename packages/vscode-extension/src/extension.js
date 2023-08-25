@@ -41,14 +41,20 @@ function activate(context) {
                     // 读取 api.md 文件的内容
                     // Read the contents of the api.md file
                     const apiContent = require('fs').readFileSync(apiPath, 'utf-8');
-                    // 在 apiContent 后面添加示例、API、指南的链接
-                    // Add links to examples, API, and guides after apiContent
+                    // 在 apiContent 后面添加示例、API、指南、组件源码的链接
+                    // Add links to examples, API, guides, and component source code after apiContent
                     const baseUrl = 'https://stdf.design/#/components?nav=';
+                    const baseUrlCode = 'https://github.com/dufu1991/stdf/blob/main/packages/stdf/components/';
+                    const baseUrlCodeGitee = 'https://gitee.com/dufu1991/stdf/blob/main/packages/stdf/components/';
                     const addContent = `**[${isZh ? '示例' : 'Demo'}](${baseUrl}${wordLower}&tab=0&lang=${
                         isZh ? 'zh_CN' : 'en_US'
                     }) &nbsp; [API](${baseUrl}${wordLower}&tab=1&lang=${isZh ? 'zh_CN' : 'en_US'}) &nbsp; [${
                         isZh ? '指南' : 'Guide'
-                    }](${baseUrl}${wordLower}&tab=2&lang=${isZh ? 'zh_CN' : 'en_US'})**`;
+                    }](${baseUrl}${wordLower}&tab=2&lang=${isZh ? 'zh_CN' : 'en_US'}) &nbsp; [${
+                        isZh ? '源码(GitHub)' : 'Source code(GitHub)'
+                    }](${baseUrlCode}${wordLower}/${word}.svelte) &nbsp; [${
+                        isZh ? '源码(Gitee)' : 'Source code(Gitee)'
+                    }](${baseUrlCodeGitee}${wordLower}/${word}.svelte)**`;
                     const allContent = apiContent + '\n\n' + '---' + '\n\n' + addContent;
 
                     // 返回提示信息

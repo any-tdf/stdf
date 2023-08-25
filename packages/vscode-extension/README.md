@@ -10,7 +10,11 @@ Search for `stdf-vscode-extension` in the VS Code extensions marketplace and cli
 
 # Features
 
-### When hovering over the STDF component name, display the API of that component.
+When hovering over the name of an STDF component, the following information will be displayed:
+
+- The API of this component.
+- The example/API/guide of this component on the STDF official website.
+- The source code of this component on GitHub/Gitee.
 
 ![TIP](https://stdf.design/assets/vscode/tip.png)
 
