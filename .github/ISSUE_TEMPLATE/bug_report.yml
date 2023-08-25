@@ -1,64 +1,64 @@
-name: 🐞 缺陷报告
-description: 报告 STDF 问题
-labels: [未分类]
+name: 🐞 Bug Report
+description: Report an issue with STDF
+labels: [Uncategorized]
 body:
   - type: markdown
     attributes:
       value: |
-        感谢您抽出时间填写这份错误报告！如果您有使用问题，或者不确定是否真的是一个错误，请确保：
+        Thank you for taking the time to fill out this bug report! If you have a usage question or are unsure if it's really a bug, please make sure:
 
-        - 你使用的是最新版代码。
-        - 你已经查看过开启与关闭状态的 issues ，其中并没有你发现的此问题。
-        - 如果 issues 中已有相同问题，你需要补充，请尽量在对应的 issue 中补充讨论。
-        - 你对问题的表述简洁清晰，不只在你的情景角度能理解。
+        - You are using the latest version of the code.
+        - You have checked the open and closed issues to see if your issue has already been reported.
+        - If there is a similar issue in the issues list, please provide additional information in the corresponding issue.
+        - Your description of the problem is concise and clear, not just from your own perspective.
 
   - type: dropdown
     id: module
     attributes:
-      label: 模块
-      description: 此缺陷属于哪个模块？
+      label: Module
+      description: Which module does this bug belong to?
       options:
-        - stdf (STDF 组件，默认)
-        - create (create-stdf 脚手架)
-        - vscode (STDF VS Code 插件)
-        - icon (rollup-plugin-stdf-icon 插件)
-        - site (STDF 站点)
+        - stdf (STDF component, default)
+        - create (create-stdf scaffolding)
+        - vscode (STDF VS Code plugin)
+        - icon (rollup-plugin-stdf-icon plugin)
+        - site (STDF website)
         - demo (STDF demo)
-        - other (其他)
+        - other (other)
     validations:
       required: true
 
   - type: input
     id: version
     attributes:
-      label: 版本
-      description: 如果是 [stdf] [create] [icon] [vscode] ，请注明此缺陷出现的版本。
+      label: Version
+      description: If it is [stdf] [create] [icon] [vscode], please indicate the version in which this bug occurred.
     validations:
       required: false
 
   - type: textarea
     id: bug-description
     attributes:
-      label: 描述缺陷
-      description: 请清晰简明地描述清楚该缺陷内容。
-      placeholder: 当...
+      label: Bug Description
+      description: Please describe the bug clearly and concisely.
+      placeholder: When...
     validations:
       required: true
 
   - type: textarea
     id: reproduction
     attributes:
-      label: 复现
-      description: 你可以使用文字/图片/简短视频说清楚如何复现此问题，但请尽量说清设备型号与版本、操作系统与版本、浏览器等一系列出现问题的环境。也可以使用 [StackBlitz](https://stackblitz.com) 或者 [CodePen](https://codepen.io) 或其他在线 IDE 快速创建一个工程展示此缺陷。总之让别人能快速明白此缺陷的复现情况。
-      placeholder: 在 iPhone 13 Pro 的 iOS 16...
+      label: Reproduction
+      description: You can use text/images/short videos to explain how to reproduce the issue, but please provide a series of information about the environment where the problem occurs, such as device model and version, operating system and version, browser, etc. You can also use [StackBlitz](https://stackblitz.com) or [CodePen](https://codepen.io) or other online IDEs to quickly create a project to demonstrate the bug. In short, make it easy for others to understand how to reproduce the bug.
+      placeholder: On iPhone 13 Pro with iOS 16...
     validations:
       required: true
 
   - type: textarea
     id: idea
     attributes:
-      label: 你的想法
-      description: 如果你对该缺陷有解决方案或思路，可以在这里描述。
-      placeholder: 我认为...
+      label: Your Idea
+      description: If you have a solution or idea for this bug, you can describe it here.
+      placeholder: I think...
     validations:
       required: false
