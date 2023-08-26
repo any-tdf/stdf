@@ -1,6 +1,6 @@
-## 0.2.6
+## 0.2.7
 
-- Added `exports` to STDF package, allowing it to be directly imported and used in SvelteKit. Related [Issues](https://github.com/dufu1991/stdf/issues/9). [!issue|edhub|]
+- 0.2.6 ~ 0.2.7 Added `svelte` to STDF package, allowing it to be directly imported and used in SvelteKit. Related [Issues](https://github.com/dufu1991/stdf/issues/9). [!issue|edhub|]
 - 
 ## 0.2.5
 
