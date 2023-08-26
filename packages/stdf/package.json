@@ -1,8 +1,12 @@
 {
     "name": "stdf",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "description": "Mobile web component library based on Svelte and Tailwind",
-    "main": "dist/components/index.js",
+    "main": "./dist/components/index.js",
+    "exports": {
+        "svelte": "./dist/components/index.js",
+        "default": "./dist/components/index.js"
+    },
     "scripts": {
         "dist": "node scripts/dist",
         "test": "echo \"Error: no test specified\" && exit 1"

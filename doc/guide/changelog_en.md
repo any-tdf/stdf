@@ -1,3 +1,7 @@
+## 0.2.6
+
+- Added `exports` to STDF package, allowing it to be directly imported and used in SvelteKit. Related [Issues](https://github.com/dufu1991/stdf/issues/9). [!issue|edhub|]
+- 
 ## 0.2.5
 
 - The default value of `path` in the Icon component has been modified. Please refer to the [Icon](https://stdf.design/#/components?nav=icon&tab=4) section for more details.

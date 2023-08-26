@@ -1,3 +1,7 @@
+## 0.2.6
+
+- STDF package 增加 `exports`，使其可在 SvelteKit 中直接引入使用，关联 [Issues](https://github.com/dufu1991/stdf/issues/9) 。[!issue|edhub|]
+
 ## 0.2.5
 
 - Icon 修改 path 默认值，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。
