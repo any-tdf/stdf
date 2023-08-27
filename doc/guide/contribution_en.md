@@ -19,9 +19,22 @@ Debugging STDF requires an engineering environment. For this purpose, a simple D
 
 Follow the steps below to quickly start the STDF Demo locally.
 
+>Because the stdf and rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build these two packages first.
+
 ```bash
 ## Clone STDF repository
 git clone git@github.com:dufu1991/stdf.git
+
+## build STDF package
+cd packages/stdf
+npm run dist
+
+## build rollup-plugin-stdf-icon package
+cd packages/rollup-plugin-stdf-icon
+pnpm i
+## or
+npm i
+npm run build
 
 ## Enter the project demo directory
 cd stdf/demo

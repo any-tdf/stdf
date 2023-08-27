@@ -19,9 +19,22 @@
 
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
 
+>由于 Demo 依赖的 stdf 和 rollup-plugin-stdf-icon 包都是本地构建的，所以请先构建一下这两个包。
+
 ```bash
 ## 克隆 STDF 仓库
 git clone git@github.com:dufu1991/stdf.git
+
+## 构建一下 STDF package
+cd stdf/packages/stdf
+npm run dist
+
+## 构建一下 rollup-plugin-stdf-icon package
+cd stdf/packages/rollup-plugin-stdf-icon
+pnpm i
+## or
+npm i
+npm run build
 
 ## 进入项目 demo 目录
 cd stdf/demo
