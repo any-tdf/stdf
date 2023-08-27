@@ -25,6 +25,7 @@ body:
               - icon (rollup-plugin-stdf-icon 插件)
               - site (STDF 站点)
               - demo (STDF demo)
+              - doc (STDF 文档，包括 components && guide)
               - other (其他)
       validations:
           required: true
