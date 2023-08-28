@@ -23,8 +23,10 @@ const updatePackageJson = (version, key, path) => {
 // Update the stdf version number in the template package.json
 updatePackageJson(version, 'stdf', 'templates/vite-tailwind/package.json');
 updatePackageJson(version, 'stdf', 'templates/vite-uno/package.json');
+updatePackageJson(version, 'stdf', 'templates/sveltekit-tailwind/package.json');
 
 // 更新模板中的 package.json 的 rollup-plugin-stdf-icon 版本号
 // Update the rollup-plugin-stdf-icon version number in the template package.json
 updatePackageJson(iconVersion, 'rollup-plugin-stdf-icon', 'templates/vite-tailwind/package.json');
 updatePackageJson(iconVersion, 'rollup-plugin-stdf-icon', 'templates/vite-uno/package.json');
+updatePackageJson(iconVersion, 'rollup-plugin-stdf-icon', 'templates/sveltekit-tailwind/package.json');
