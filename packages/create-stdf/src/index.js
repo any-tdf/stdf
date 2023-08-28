@@ -54,12 +54,17 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 const templateOptions = [
     { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
     { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
-    { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: 'sveltekit-tailwind' },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno' },
-    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript' },
-    { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript' },
-    { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: 'sveltekit-tailwind-typescript' },
-    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript' },
+    { value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', pcyt: lang.pcyt_vt },
+    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
+    { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript', pcyt: lang.pcyt_vt },
+    { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript', pcyt: lang.pcyt_vu },
+    {
+        value: 'sktt',
+        label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`,
+        template: 'sveltekit-tailwind-typescript',
+        pcyt: lang.pcyt_vt,
+    },
+    { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript', pcyt: lang.pcyt_vu },
 ];
 
 // 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 vt
@@ -117,7 +122,7 @@ else if (argvProjectName && argvTemplate) {
 
     // 直到选择的 template 是 vt / vu 为止，否则一直重新选择
     // Until the selected template is vt or vu, otherwise keep reselecting
-    while (template !== 'vt' && template !== 'vu') {
+    while (template !== 'vt' && template !== 'vu' && template !== 'skt') {
         if (p.isCancel(template)) {
             p.cancel(red('⛔ ') + lang.oc);
             process.exit(0);
