@@ -40,7 +40,9 @@ export default defineConfig({
 })
 ```
 
-During development, simply place the SVG files you need in the specified input folder (default: `src/assets/icons`). The plugin will automatically combine them into a single SVG symbol file and output it to the specified output folder (default: `public/fonts`). After building with Vite, the files in the public folder will be copied to the dist folder. Therefore, after building, the combined SVG symbol file will be located in the dist/fonts folder. Please refer to the [Vite Asset Handling](https://vitejs.dev/guide/assets.html#the-public-directory) documentation.
+During development, simply place the SVG files you need in the specified input folder (default: `src/lib/icons`). The plugin will automatically combine them into a single SVG symbol file and output it to the specified output folder (default: `static/fonts`). After building with Vite, the files in the public folder will be copied to the dist folder. Therefore, after building, the combined SVG symbol file will be located in the dist/fonts folder. Please refer to the [Vite Asset Handling](https://vitejs.dev/guide/assets.html#the-public-directory) documentation.
+
+> Default parameters are optimized for SvelteKit projects. If you need to adapt it for non-SvelteKit projects created with Vite, please modify the configuration in vite.config.js or vite.config.ts.
 
 Generally, you can simply place the SVG files in the default input folder without the need for additional configuration.
 
@@ -49,8 +51,8 @@ If you need to modify the input/output folders and the filename of the combined 
 ```js
 // ...
     svgSprite([
-        { inFile: 'src/assets/svgs', outFile: 'public/fonts', fileName: 'symbol' },
-        { inFile: 'src/assets/icons', outFile: 'public/fonts', fileName: 'icon' },
+        { inFile: 'src/lib/svgs', outFile: 'static/fonts', fileName: 'symbol' },
+        { inFile: 'src/lib/icons', outFile: 'static/fonts', fileName: 'icon' },
     ]),
 // ...
 ```
@@ -65,8 +67,8 @@ In general, the use of symbols is to combine a series of small, single-color SVG
 
 | Parameter | Default           | Description                                                                                                   |
 | --------- | ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| inFile    | 'src/assets/icons' | The folder where all the SVG files to be merged are located.                                                  |
-| outFile   | 'public/fonts'    | The output path for the merged SVG symbol file.                                                               |
+| inFile    | 'src/lib/icons' | The folder where all the SVG files to be merged are located.                                                  |
+| outFile   | 'static/fonts'    | The output path for the merged SVG symbol file.                                                               |
 | fileName  | 'symbol'          | The filename of the merged SVG symbol file.                                                                   |
 | simple    | true              | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
 

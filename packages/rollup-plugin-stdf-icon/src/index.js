@@ -7,7 +7,7 @@ import svgstore from 'svgstore';
 export default function svgSprite(datas) {
     // 可接收多组参数，处理多个文件夹内的文件
     // Multiple parameters can be accepted to process files in multiple folders
-    const data = datas ? datas : [{ inFile: 'src/assets/icons', outFile: 'public/fonts', fileName: 'symbol', simple: true }];
+    const data = datas ? datas : [{ inFile: 'src/lib/icons', outFile: 'static/fonts', fileName: 'symbol', simple: true }];
 
     // 循环处理每一组参数
     // Loop through each set of parameters
