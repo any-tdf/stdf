@@ -127,7 +127,7 @@ else if (argvProjectName && argvTemplate) {
 
     // 直到选择的 template 是 vt / vu / skt / sku 为止，否则一直重新选择
     // Until the selected template is vt or vu, otherwise keep reselecting
-    while ((template !== 'vt' && template !== 'vu' && template !== 'skt') || template !== 'sku') {
+    while (template !== 'vt' && template !== 'vu' && template !== 'skt' && template !== 'sku') {
         if (p.isCancel(template)) {
             p.cancel(red('⛔ ') + lang.oc);
             process.exit(0);
