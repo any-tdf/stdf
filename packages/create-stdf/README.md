@@ -54,7 +54,7 @@ Template presets include:
 | vt           | Vite + Tailwind + Svelte + STDF              | default             |
 | vu           | Vite + UnoCSS + Svelte + STDF                | -                   |
 | skt          | SvelteKit + Tailwind + STDF                  | -                   |
-| sku          | SvelteKit + UnoCSS + STDF                    | Has not adapted yet |
+| sku          | SvelteKit + UnoCSS + STDF                    | -                   |
 | vtt          | Vite + Tailwind + TypeScript + Svelte + STDF | Has not adapted yet |
 | vut          | Vite + UnoCSS + TypeScript + Svelte + STDF   | Has not adapted yet |
 | sktt         | SvelteKit + Tailwind + TypeScript + STDF     | Has not adapted yet |

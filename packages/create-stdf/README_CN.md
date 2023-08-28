@@ -53,7 +53,7 @@ npm create stdf@latest my-app -t vu
 | vt   | Vite + Tailwind + Svelte + STDF              | 默认     |
 | vu   | Vite + UnoCSS + Svelte + STDF                | -        |
 | skt  | SvelteKit + Tailwind + STDF                  | -        |
-| sku  | SvelteKit + UnoCSS + STDF                    | 尚未适配 |
+| sku  | SvelteKit + UnoCSS + STDF                    | -        |
 | vtt  | Vite + Tailwind + TypeScript + Svelte + STDF | 尚未适配 |
 | vut  | Vite + UnoCSS + TypeScript + Svelte + STDF   | 尚未适配 |
 | sktt | SvelteKit + Tailwind + TypeScript + STDF     | 尚未适配 |

@@ -55,7 +55,7 @@ const templateOptionsStart = [
     { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
     { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
     { value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', pcyt: lang.pcyt_vt },
-    { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
+    { value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
     { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript', pcyt: lang.pcyt_vt },
     { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript', pcyt: lang.pcyt_vu },
     {
@@ -106,7 +106,7 @@ else if (argvProjectName && argvTemplate) {
         { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
         { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
         { value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', pcyt: lang.pcyt_vt },
-        { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
+        { value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
         { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript', pcyt: lang.pcyt_vt },
         { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript', pcyt: lang.pcyt_vu },
         {
@@ -125,9 +125,9 @@ else if (argvProjectName && argvTemplate) {
         options: templateOptions,
     });
 
-    // 直到选择的 template 是 vt / vu 为止，否则一直重新选择
+    // 直到选择的 template 是 vt / vu / skt / sku 为止，否则一直重新选择
     // Until the selected template is vt or vu, otherwise keep reselecting
-    while (template !== 'vt' && template !== 'vu' && template !== 'skt') {
+    while ((template !== 'vt' && template !== 'vu' && template !== 'skt') || template !== 'sku') {
         if (p.isCancel(template)) {
             p.cancel(red('⛔ ') + lang.oc);
             process.exit(0);

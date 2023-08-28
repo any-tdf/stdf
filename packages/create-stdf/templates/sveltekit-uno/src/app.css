@@ -1,0 +1,6 @@
+:root {
+    --un-default-border-color: currentColor;
+}
+html {
+    -webkit-tap-highlight-color: transparent;
+}

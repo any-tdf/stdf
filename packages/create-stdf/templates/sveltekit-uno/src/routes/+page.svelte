@@ -63,8 +63,8 @@
     <a class="flex flex-col items-center w-10" href="https://kit.svelte.dev" target="_blank" rel="noreferrer">
         <img src="/svelte.svg" alt="Svelte Logo" />
     </a>+
-    <a class="flex flex-col items-center w-10" href="https://tailwindcss.com" target="_blank" rel="noreferrer">
-        <img src="/tailwindcss.svg" alt="Tailwind Logo" />
+    <a class="flex flex-col items-center w-8" href="https://unocss.dev" target="_blank" rel="noreferrer">
+        <img src="/uno.svg" alt="UnoCSS Logo" />
     </a>+
     <a class="flex flex-col items-center w-8" href="https://stdf.design" target="_blank" rel="noreferrer">
         <svg viewBox="0 0 90 80" fill="currentColor">
@@ -78,7 +78,7 @@
 </div>
 <div class="text-center my-8 text-xs">
     {#if isZh}
-        <p>这是一个使用 SvelteKit + Tailwind + STDF 构建的模板。</p>
+        <p>这是一个使用 SvelteKit + UnoCSS + STDF 构建的模板。</p>
         <p class="mt-2">点击上方 LOGO 了解更多。</p>
     {:else}
         <p>This is a template using SvelteKit + TailwindCSS + STDF.</p>

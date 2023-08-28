@@ -1,0 +1,23 @@
+{
+    "name": "kit",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@fontsource/fira-mono": "^4.5.10",
+        "@neoconfetti/svelte": "^1.0.0",
+        "@sveltejs/adapter-auto": "^2.0.0",
+        "@sveltejs/kit": "^1.20.4",
+        "@unocss/extractor-svelte": "^0.54.2",
+        "@unocss/reset": "^0.54.2",
+        "rollup-plugin-stdf-icon": "file:../../../rollup-plugin-stdf-icon",
+        "stdf": "file:../../../stdf",
+        "svelte": "^4.1.1",
+        "unocss": "^0.53.6",
+        "vite": "^4.4.6"
+    },
+    "type": "module"
+}
