@@ -51,7 +51,7 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 
 // 模板列表
 // Template list
-const templateOptions = [
+const templateOptionsStart = [
     { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
     { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
     { value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', pcyt: lang.pcyt_vt },
@@ -70,12 +70,12 @@ const templateOptions = [
 // 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 vt
 // If there is a project name in the command line parameters, but no template name, use the default template vt directly
 if (argvProjectName && !argvTemplate) {
-    createFunc(argvProjectName, templateOptions[0]);
+    createFunc(argvProjectName, templateOptionsStart[0]);
 }
 // 如果命令行参数中有项目名称和模板名称，直接使用命令行参数中的值
 // If there is a project name and template name in the command line parameters, use the value in the command line parameters directly
 else if (argvProjectName && argvTemplate) {
-    const item = templateOptions.find(item => item.value === argvTemplate);
+    const item = templateOptionsStart.find(item => item.value === argvTemplate);
     if (!item) {
         p.intro(red(lang.pectn));
     } else if (
@@ -105,12 +105,17 @@ else if (argvProjectName && argvTemplate) {
     const templateOptions = [
         { value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', pcyt: lang.pcyt_vt },
         { value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', pcyt: lang.pcyt_vu },
-        { value: 'skt', label: `SvelteKit + Tailwind(${lang.hnay})`, template: 'sveltekit-tailwind' },
-        { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno' },
-        { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript' },
-        { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript' },
-        { value: 'sktt', label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`, template: 'sveltekit-tailwind-typescript' },
-        { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript' },
+        { value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', pcyt: lang.pcyt_vt },
+        { value: 'sku', label: `SvelteKit + UnoCSS(${lang.hnay})`, template: 'sveltekit-uno', pcyt: lang.pcyt_vu },
+        { value: 'vtt', label: `Vite + Tailwind + TypeScript(${lang.hnay})`, template: 'vite-tailwind-typescript', pcyt: lang.pcyt_vt },
+        { value: 'vut', label: `Vite + UnoCSS + TypeScript(${lang.hnay})`, template: 'vite-uno-typescript', pcyt: lang.pcyt_vu },
+        {
+            value: 'sktt',
+            label: `SvelteKit + Tailwind + TypeScript(${lang.hnay})`,
+            template: 'sveltekit-tailwind-typescript',
+            pcyt: lang.pcyt_vt,
+        },
+        { value: 'skut', label: `SvelteKit + UnoCSS + TypeScript(${lang.hnay})`, template: 'sveltekit-uno-typescript', pcyt: lang.pcyt_vu },
     ];
 
     //  选择一个模板
