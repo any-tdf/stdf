@@ -1,3 +1,7 @@
+# 0.0.8
+
+- Optimized GitHub Actions configuration.
+
 # 0.0.7
 
 - Added direct link to the corresponding component content on the STDF official website at the bottom of the tooltip.
