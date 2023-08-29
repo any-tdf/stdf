@@ -1,5 +1,7 @@
 // 英语 english
 export const en_US = {
+    sort: 0,
+    name: 'English',
     hnay: 'Has not adapted yet',
     pn: 'Please enter the project name',
     pncbne: 'Project name cannot be empty',
@@ -18,6 +20,8 @@ export const en_US = {
 
 // 简体中文 chinese
 export const zh_CN = {
+    sort: 1,
+    name: '简体中文',
     hnay: '暂未适配',
     pn: '请输入项目名称',
     pncbne: '项目名称不能为空',
@@ -36,6 +40,8 @@ export const zh_CN = {
 
 // 繁體中文 chinese traditional
 export const zh_TW = {
+    sort: 2,
+    name: '繁體中文',
     hnay: '暫未適配',
     pn: '請輸入項目名稱',
     pncbne: '項目名稱不能為空',
@@ -54,6 +60,8 @@ export const zh_TW = {
 
 // 日语 japanese
 export const ja_JP = {
+    sort: 3,
+    name: '日本語',
     hnay: 'まだ適応されていません',
     pn: 'プロジェクト名を入力してください',
     pncbne: 'プロジェクト名は空にできません',
@@ -72,6 +80,8 @@ export const ja_JP = {
 
 // 韩语 korean
 export const ko_KR = {
+    sort: 4,
+    name: '한국어',
     hnay: '아직 적응하지 못했습니다',
     pn: '프로젝트 이름을 입력하십시오',
     pncbne: '프로젝트 이름은 비워 둘 수 없습니다',
@@ -90,6 +100,8 @@ export const ko_KR = {
 
 // 西班牙语 spanish
 export const es_ES = {
+    sort: 5,
+    name: 'Español',
     hnay: 'Aún no se ha adaptado',
     pn: 'Por favor ingrese el nombre del proyecto',
     pncbne: 'El nombre del proyecto no puede estar vacío',
@@ -108,6 +120,8 @@ export const es_ES = {
 
 // 俄语 russian
 export const ru_RU = {
+    sort: 6,
+    name: 'Русский',
     hnay: 'Еще не адаптировано',
     pn: 'Пожалуйста, введите название проекта',
     pncbne: 'Название проекта не может быть пустым',
@@ -126,7 +140,9 @@ export const ru_RU = {
 
 // 法语 french
 export const fr_FR = {
-    hnay: 'N\'a pas encore adapté',
+    sort: 7,
+    name: 'Français',
+    hnay: "N'a pas encore adapté",
     pn: 'Veuillez saisir le nom du projet',
     pncbne: 'Le nom du projet ne peut pas être vide',
     pane: 'Le nom du projet existe déjà',
@@ -144,6 +160,8 @@ export const fr_FR = {
 
 // 德语 german
 export const de_DE = {
+    sort: 8,
+    name: 'Deutsch',
     hnay: 'Noch nicht angepasst',
     pn: 'Bitte geben Sie den Projektnamen ein',
     pncbne: 'Projektname darf nicht leer sein',
@@ -162,6 +180,8 @@ export const de_DE = {
 
 // 意大利语 italian
 export const it_IT = {
+    sort: 9,
+    name: 'Italiano',
     hnay: 'Non ancora adattato',
     pn: 'Inserisci il nome del progetto',
     pncbne: 'Il nome del progetto non può essere vuoto',
@@ -177,4 +197,3 @@ export const it_IT = {
     cferror: 'Impossibile creare il file',
     pectn: 'Inserisci il nome del modello corretto!',
 };
-
