@@ -21,27 +21,15 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: 18.x
-            # 将 doc/components 目录下 api.md 和 api_en.md 文件按照相同结构复制到 packages/vscode-extension/src/doc 目录下
-            - name: Copy doc
-              run: |
-                  mkdir -p packages/vscode-extension/src/doc
-                  cp -r doc/components packages/vscode-extension/src/doc
-
-            # 删除 packages/vscode-extension/src/doc/components 目录以及子目录的所有 FAQ.md FAQ_en.md guide.md guide_en.md version.md version_en.md 文件
-            - name: Remove doc
-              run: |
-                  rm -rf packages/vscode-extension/src/doc/components/*/FAQ.md
-                  rm -rf packages/vscode-extension/src/doc/components/*/FAQ_en.md
-                  rm -rf packages/vscode-extension/src/doc/components/*/guide.md
-                  rm -rf packages/vscode-extension/src/doc/components/*/guide_en.md
-                  rm -rf packages/vscode-extension/src/doc/components/*/version.md
-                  rm -rf packages/vscode-extension/src/doc/components/*/version_en.md
 
             # cd 到 packages/vscode-extension 目录
+            # 执行 doc && list
             # 安装依赖
             - name: Publish
               run: |
                   cd packages/vscode-extension
+                  npm run doc
+                  npm run list
                   npm install
                   npm install -g @vscode/vsce
                   vsce publish -p ${{ secrets.VSCE_TOKEN }}
