@@ -3,7 +3,8 @@ const path = require('path');
 
 // 组件列表
 // components list
-const componentList = require('./componentList');
+const componentListOrgin = require('./menuList');
+const componentList = ArrChildFun(componentListOrgin);
 
 function activate(context) {
     // 如果没有设置，返回undefined
@@ -64,6 +65,22 @@ function activate(context) {
             },
         });
     }
+}
+
+//数组处理
+//Array processing
+function ArrChildFun(arr) {
+    let newArr = [];
+    for (let e = 0; e < arr.length; e++) {
+        newArr.push(...arr[e].childs);
+    }
+    //再将 newArr 内的 title_en 组成一维数组
+    //Then the title_en in newArr is composed of one-dimensional array
+    let newArr2 = [];
+    for (let e = 0; e < newArr.length; e++) {
+        newArr2.push(newArr[e].title_en);
+    }
+    return newArr2;
 }
 
 function deactivate() {}
