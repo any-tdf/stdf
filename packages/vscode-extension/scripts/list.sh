@@ -5,3 +5,7 @@ cp ../../demo/src/data/menuList.js src
 # 将 src/menuList.js 文件中的 export default 替换为 module.exports =
 # Replace export default in src/menuList.js file with module.exports =
 sed -i 's/export default/module.exports =/g' src/menuList.js
+
+# 成功提示
+# Success prompt
+echo "🎉 list.sh success!"

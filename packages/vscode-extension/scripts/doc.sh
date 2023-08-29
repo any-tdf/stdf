@@ -15,4 +15,4 @@ rm -rf src/doc/components/*/version_en.md
 
 # 成功提示
 # Success prompt
-echo "doc.sh success!"
+echo "🎉 doc.sh success!"

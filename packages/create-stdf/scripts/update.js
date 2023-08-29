@@ -16,7 +16,7 @@ const updatePackageJson = (version, key, path) => {
     const packageJson = JSON.parse(fs.readFileSync(path, 'utf-8'));
     packageJson.devDependencies[key] = `^${version}`;
     fs.writeFileSync(path, JSON.stringify(packageJson, null, 4));
-    console.log(`${path} 更新成功`);
+    console.log(`🎉 ${path} 更新成功`);
 };
 
 // 更新模板中的 package.json 的 stdf 版本号

@@ -90,3 +90,6 @@ function processFiles(dir) {
 }
 
 processFiles('dist');
+
+// 成功提示
+console.log('🎉 dist.js success!');
