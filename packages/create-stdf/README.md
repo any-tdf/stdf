@@ -79,6 +79,9 @@ Template presets include:
 | ko_KR | Korean                |
 | es_ES | Spanish               |
 | ru_RU | Russian               |
+| fr_FR | French                |
+| de_DE | German                |
+| it_IT | Italian               |
 
 For example:
 

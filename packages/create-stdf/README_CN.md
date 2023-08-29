@@ -78,6 +78,9 @@ npm create stdf@latest my-app -t vu
 | ko_KR | 韩语         |
 | es_ES | 西班牙语     |
 | ru_RU | 俄语         |
+| fr_FR | 法语         |
+| de_DE | 德语         |
+| it_IT | 意大利语     |
 
 例如：
 

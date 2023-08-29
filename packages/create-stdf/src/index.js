@@ -79,8 +79,6 @@ else if (argvProjectName && argvTemplate) {
     if (!item) {
         p.intro(red(lang.pectn));
     } else if (
-        item.value === 'skt' ||
-        item.value === 'sku' ||
         item.value === 'vtt' ||
         item.value === 'vut' ||
         item.value === 'sktt' ||
@@ -168,12 +166,6 @@ else if (argvProjectName && argvTemplate) {
         p.cancel(red('⛔ ') + lang.oc);
         process.exit(0);
     }
-
-    // 项目目录
-    // Project directory
-    // const projectDir = path.join(path.resolve(), projectName);
-
-    // spinner.start('🚀 ' + lang.cfsing);
 
     // 根据 template 的值，复制对应目录下的所有文件到当前目录
     // According to the value of template, copy all files under the corresponding directory to the current directory
