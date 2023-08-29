@@ -13,6 +13,10 @@ rm -rf src/doc/components/*/guide_en.md
 rm -rf src/doc/components/*/version.md
 rm -rf src/doc/components/*/version_en.md
 
+# 复制 ../../LICENSE 文件到 ./ 目录下
+# Copy ../../LICENSE file to ./ directory    
+cp ../../LICENSE ./
+
 # 成功提示
 # Success prompt
 echo "🎉 doc.sh success!"
