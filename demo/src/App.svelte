@@ -74,7 +74,7 @@
 				? isZh
 					? 'STDF 示例'
 					: 'STDF Demo'
-				: menuListArr.filter(item => item.nav === $location.substring(1))[0][isZh ? 'title_zh' : 'title_en'] + (isZh ? '示例' : ' Demo')}
+				: menuListArr.filter((item) => item.nav === $location.substring(1))[0][isZh ? 'title_zh' : 'title_en'] + (isZh ? '示例' : ' Demo')}
 			rightSlot
 			on:clickleft={toHomeFun}
 			injClass="bg-white/60 dark:bg-gray1/60 backdrop-blur"
