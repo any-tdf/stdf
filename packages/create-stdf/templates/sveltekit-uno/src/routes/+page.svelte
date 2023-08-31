@@ -1,8 +1,8 @@
 <script>
     import { setContext } from 'svelte';
     import { Button, Cell, Icon, Calendar } from 'stdf';
-    import en_US from 'stdf/dist/lang/en_US';
-    import zh_CN from 'stdf/dist/lang/zh_CN';
+    import en_US from 'stdf/lang/en_US';
+    import zh_CN from 'stdf/lang/zh_CN';
     import Counter from './Counter.svelte';
 
     import { browser } from '$app/environment';

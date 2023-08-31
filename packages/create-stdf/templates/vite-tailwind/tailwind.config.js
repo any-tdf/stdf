@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/dist/**/*.svelte'],
+    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/**/*.svelte'],
     theme: {
         colors: {
             // 主题色

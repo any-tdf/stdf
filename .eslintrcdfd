@@ -1,0 +1,10 @@
+{
+	"root": true,
+	"env": {
+		"es2022": true
+	},
+	"extends": ["plugin:prettier/recommended", "plugin:svelte/recommended"],
+	"rules": {
+		"comma-dangle": ["error", "always-multiline"]
+	}
+}

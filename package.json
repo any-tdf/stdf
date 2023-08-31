@@ -1,0 +1,24 @@
+{
+	"name": "stdf",
+	"version": "1.0.0",
+	"description": "<div align=\"center\">",
+	"main": "index.js",
+	"directories": {
+		"doc": "doc"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint --ext .svelte,.js,.md ./packages/stdf --max-warnings 0",
+		"format": "prettier --write --plugin prettier-plugin-svelte ./packages/stdf/components "
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.48.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"eslint-plugin-svelte": "^2.33.0",
+		"prettier-plugin-svelte": "^3.0.3",
+		"svelte": "^4.2.0"
+	}
+}
