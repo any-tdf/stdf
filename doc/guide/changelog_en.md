@@ -1,3 +1,7 @@
+## 0.2.9
+
+- 修复 NPM 缺少文件。
+
 ## 0.2.8
 
 - Removed unnecessary code from some components.

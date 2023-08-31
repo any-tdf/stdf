@@ -1,6 +1,6 @@
 {
 	"name": "stdf",
-	"version": "0.2.8",
+	"version": "0.2.9",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"main": "./components/index.js",
 	"svelte": "./components/index.js",
@@ -24,8 +24,5 @@
 		"type": "git",
 		"url": "https://github.com/dufu1991/stdf"
 	},
-	"type": "module",
-	"files": [
-		"dist/**"
-	]
+	"type": "module"
 }
