@@ -3,39 +3,37 @@
 name: PUBLISH STDF
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'packages/stdf/package.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/stdf/package.json'
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
+  publish:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 18.x
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
 
-            # 将 README.md 复制到 packages/stdf 目录下
-            - name: Copy README
-              run: |
-                  cp README.md packages/stdf/README.md
+      # 将 README.md 复制到 packages/stdf 目录下
+      - name: Copy README
+        run: |
+          cp README.md packages/stdf/README.md
 
-            # cd packages/stdf 目录下
-            # 执行 npm run dist
-            # 发布 stdf 到 npm
-            - name: Publish
-              run: |
-                  cd packages/stdf
-                  npm run dist
-                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-                  npm publish
-              env:
-                  CI: true
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # cd packages/stdf 目录下
+      # 发布 stdf 到 npm
+      - name: Publish
+        run: |
+          cd packages/stdf
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm publish
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
