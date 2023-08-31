@@ -1,162 +1,162 @@
 <!-- Picker Demo -->
 <script>
-    import { Picker, Cell } from 'stdf';
-    // In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
-    import {
-        someProvinceList,
-        weekList,
-        amOrPmList,
-        timeList,
-        cityList,
-        linkageData,
-        linkagDiffLabelKeyData,
-        linkagCustomChildrenKeyData,
-    } from './data_en';
+	import { Picker, Cell } from 'stdf';
+	// In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
+	import {
+		someProvinceList,
+		weekList,
+		amOrPmList,
+		timeList,
+		cityList,
+		linkageData,
+		linkagDiffLabelKeyData,
+		linkagCustomChildrenKeyData,
+	} from './data_en';
 
-    const datas = [{ data: someProvinceList }];
-    const leftDatas = [{ data: someProvinceList, align: 'left' }];
-    const showRow7Datas = [{ data: someProvinceList, showRow: 7 }];
-    const init3Datas = [{ data: someProvinceList, initIndex: 3 }];
-    const noAnimationDatas = [{ data: someProvinceList, useAnimation: false }];
-    const customKeyDatas = [{ data: cityList, labelKey: 'cityName' }];
-    const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
-    const col3DiffAlignDatas = [
-        { data: weekList, align: 'left' },
-        { data: amOrPmList, align: 'center' },
-        { data: timeList, align: 'right' },
-    ];
-    const col3DiffShowRowDatas = [{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }];
-    const col3DiffFlexDatas = [
-        { data: weekList, flex: 3 },
-        { data: amOrPmList, flex: 1 },
-        { data: timeList, flex: 2 },
-    ];
+	const datas = [{ data: someProvinceList }];
+	const leftDatas = [{ data: someProvinceList, align: 'left' }];
+	const showRow7Datas = [{ data: someProvinceList, showRow: 7 }];
+	const init3Datas = [{ data: someProvinceList, initIndex: 3 }];
+	const noAnimationDatas = [{ data: someProvinceList, useAnimation: false }];
+	const customKeyDatas = [{ data: cityList, labelKey: 'cityName' }];
+	const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
+	const col3DiffAlignDatas = [
+		{ data: weekList, align: 'left' },
+		{ data: amOrPmList, align: 'center' },
+		{ data: timeList, align: 'right' },
+	];
+	const col3DiffShowRowDatas = [{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }];
+	const col3DiffFlexDatas = [
+		{ data: weekList, flex: 3 },
+		{ data: amOrPmList, flex: 1 },
+		{ data: timeList, flex: 2 },
+	];
 
-    let visible1 = false;
-    let visible2 = false;
-    let visible3 = false;
-    let visible4 = false;
-    let visible5 = false;
-    let visible6 = false;
-    let visible7 = false;
-    let visible8 = false;
-    let visible9 = false;
-    let visible10 = false;
-    let visible11 = false;
-    let visible12 = false;
-    let visible13 = false;
-    let visible14 = false;
-    let visible15 = false;
-    let visible16 = false;
-    let visible17 = false;
-    let visible18 = false;
-    let visible19 = false;
-    let visible20 = false;
-    let visible21 = false;
-    let visible22 = false;
+	let visible1 = false;
+	let visible2 = false;
+	let visible3 = false;
+	let visible4 = false;
+	let visible5 = false;
+	let visible6 = false;
+	let visible7 = false;
+	let visible8 = false;
+	let visible9 = false;
+	let visible10 = false;
+	let visible11 = false;
+	let visible12 = false;
+	let visible13 = false;
+	let visible14 = false;
+	let visible15 = false;
+	let visible16 = false;
+	let visible17 = false;
+	let visible18 = false;
+	let visible19 = false;
+	let visible20 = false;
+	let visible21 = false;
+	let visible22 = false;
 
-    let currentDetail = 'please choose';
-    const getCurrentDetailFunc = e => {
-        currentDetail = e.detail.items[0].label;
-    };
-    let allItems = [];
-    let allIndexs = [];
-    const getAllDataFunc = e => {
-        allItems = e.detail.items;
-        allIndexs = e.detail.indexs;
-    };
+	let currentDetail = 'please choose';
+	const getCurrentDetailFunc = e => {
+		currentDetail = e.detail.items[0].label;
+	};
+	let allItems = [];
+	let allIndexs = [];
+	const getAllDataFunc = e => {
+		allItems = e.detail.items;
+		allIndexs = e.detail.indexs;
+	};
 </script>
 
 <div class="py-4">
-    <Cell title="Basic usage" on:click={() => (visible1 = true)} />
-    <Picker bind:visible={visible1} {datas} />
+	<Cell title="Basic usage" on:click={() => (visible1 = true)} />
+	<Picker bind:visible={visible1} {datas} />
 
-    <Cell title="Custom title" on:click={() => (visible2 = true)} />
-    <Picker bind:visible={visible2} title="Please select province" {datas} />
+	<Cell title="Custom title" on:click={() => (visible2 = true)} />
+	<Picker bind:visible={visible2} title="Please select province" {datas} />
 
-    <Cell title="Visible line 7" on:click={() => (visible3 = true)} />
-    <Picker bind:visible={visible3} datas={showRow7Datas} />
+	<Cell title="Visible line 7" on:click={() => (visible3 = true)} />
+	<Picker bind:visible={visible3} datas={showRow7Datas} />
 
-    <Cell title="Do not roll until the last selection item" on:click={() => (visible4 = true)} />
-    <Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
+	<Cell title="Do not roll until the last selection item" on:click={() => (visible4 = true)} />
+	<Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
 
-    <Cell
-        title="The initial selection is always item 4"
-        on:click={() => (visible5 = true)}
-        subTitle="You need to disable automatic selection of the last selected item"
-    />
-    <Picker bind:visible={visible5} datas={init3Datas} autoScrollToLast={false} />
+	<Cell
+		title="The initial selection is always item 4"
+		on:click={() => (visible5 = true)}
+		subTitle="You need to disable automatic selection of the last selected item"
+	/>
+	<Picker bind:visible={visible5} datas={init3Datas} autoScrollToLast={false} />
 
-    <Cell title="Cancel animation when auto scrolling" on:click={() => (visible6 = true)} />
-    <Picker bind:visible={visible6} datas={noAnimationDatas} />
+	<Cell title="Cancel animation when auto scrolling" on:click={() => (visible6 = true)} />
+	<Picker bind:visible={visible6} datas={noAnimationDatas} />
 
-    <Cell title="Customize the key value of the label" on:click={() => (visible7 = true)} />
-    <Picker bind:visible={visible7} datas={customKeyDatas} title="Please select city" />
+	<Cell title="Customize the key value of the label" on:click={() => (visible7 = true)} />
+	<Picker bind:visible={visible7} datas={customKeyDatas} title="Please select city" />
 
-    <Cell title="The selected items are displayed on the right" detail={currentDetail} on:click={() => (visible8 = true)} />
-    <Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
+	<Cell title="The selected items are displayed on the right" detail={currentDetail} on:click={() => (visible8 = true)} />
+	<Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
 
-    <Cell title="Single column left justified" on:click={() => (visible20 = true)} />
-    <Picker bind:visible={visible20} datas={leftDatas} />
+	<Cell title="Single column left justified" on:click={() => (visible20 = true)} />
+	<Picker bind:visible={visible20} datas={leftDatas} />
 
-    <Cell title="Multi-column selector" on:click={() => (visible9 = true)} />
-    <Picker bind:visible={visible9} datas={col3Datas} />
+	<Cell title="Multi-column selector" on:click={() => (visible9 = true)} />
+	<Picker bind:visible={visible9} datas={col3Datas} />
 
-    <Cell title="Number of visible rows for different columns" on:click={() => (visible10 = true)} />
-    <Picker bind:visible={visible10} datas={col3DiffShowRowDatas} />
+	<Cell title="Number of visible rows for different columns" on:click={() => (visible10 = true)} />
+	<Picker bind:visible={visible10} datas={col3DiffShowRowDatas} />
 
-    <Cell title="flex ratio for different columns" on:click={() => (visible11 = true)} />
-    <Picker bind:visible={visible11} datas={col3DiffFlexDatas} />
+	<Cell title="flex ratio for different columns" on:click={() => (visible11 = true)} />
+	<Picker bind:visible={visible11} datas={col3DiffFlexDatas} />
 
-    <Cell title="Multiple columns with different alignments" on:click={() => (visible21 = true)} />
-    <Picker bind:visible={visible21} datas={col3DiffAlignDatas} />
+	<Cell title="Multiple columns with different alignments" on:click={() => (visible21 = true)} />
+	<Picker bind:visible={visible21} datas={col3DiffAlignDatas} />
 
-    <Cell title="Multilevel linkage" on:click={() => (visible12 = true)} />
-    <Picker bind:visible={visible12} datas={linkageData} isLinkage />
+	<Cell title="Multilevel linkage" on:click={() => (visible12 = true)} />
+	<Picker bind:visible={visible12} datas={linkageData} isLinkage />
 
-    <Cell title="Multilevel linkage has different visible lines" on:click={() => (visible13 = true)} />
-    <Picker bind:visible={visible13} datas={linkageData} linkageShowRows={[3, 5, 7]} isLinkage />
+	<Cell title="Multilevel linkage has different visible lines" on:click={() => (visible13 = true)} />
+	<Picker bind:visible={visible13} datas={linkageData} linkageShowRows={[3, 5, 7]} isLinkage />
 
-    <Cell title="Multistage linkage with different flex proportions" on:click={() => (visible14 = true)} />
-    <Picker bind:visible={visible14} datas={linkageData} linkageFlexs={[1, 2, 3]} isLinkage />
+	<Cell title="Multistage linkage with different flex proportions" on:click={() => (visible14 = true)} />
+	<Picker bind:visible={visible14} datas={linkageData} linkageFlexs={[1, 2, 3]} isLinkage />
 
-    <Cell title="Multilevel linkage defines the key values of labels at each level" on:click={() => (visible15 = true)} />
-    <Picker bind:visible={visible15} datas={linkagDiffLabelKeyData} linkageLabelKeys={['province', 'city', 'region']} isLinkage />
+	<Cell title="Multilevel linkage defines the key values of labels at each level" on:click={() => (visible15 = true)} />
+	<Picker bind:visible={visible15} datas={linkagDiffLabelKeyData} linkageLabelKeys={['province', 'city', 'region']} isLinkage />
 
-    <Cell title="Multilevel linkage You can customize key values for the upper and lower children" on:click={() => (visible16 = true)} />
-    <Picker bind:visible={visible16} datas={linkagCustomChildrenKeyData} linkageChildrenKey="child" isLinkage />
+	<Cell title="Multilevel linkage You can customize key values for the upper and lower children" on:click={() => (visible16 = true)} />
+	<Picker bind:visible={visible16} datas={linkagCustomChildrenKeyData} linkageChildrenKey="child" isLinkage />
 
-    <Cell title="Linkage different alignment modes" on:click={() => (visible22 = true)} />
-    <Picker bind:visible={visible22} datas={linkageData} linkageAligns={['right', 'center', 'left']} isLinkage />
+	<Cell title="Linkage different alignment modes" on:click={() => (visible22 = true)} />
+	<Picker bind:visible={visible22} datas={linkageData} linkageAligns={['right', 'center', 'left']} isLinkage />
 
-    <Cell title="Multilevel linkage sets the initial selection for each column" on:click={() => (visible17 = true)} />
-    <Picker bind:visible={visible17} datas={linkageData} linkageInitIndexs={[0, 1, 8]} isLinkage />
+	<Cell title="Multilevel linkage sets the initial selection for each column" on:click={() => (visible17 = true)} />
+	<Picker bind:visible={visible17} datas={linkageData} linkageInitIndexs={[0, 1, 8]} isLinkage />
 
-    <div class="px-4">
-        {#if allItems.length}
-            Currently selected:
-            {#each allItems as item}
-                <span class="mr-2 text-primary dark:text-dark">{item.label}</span>
-            {/each}
-        {:else}
-            <div>Please select data</div>
-        {/if}
-    </div>
-    <div class="px-4">
-        {#if allIndexs.length}
-            The index values of the current selected values in the column are:
-            {#each allIndexs as index}
-                <span class="mr-2 text-primary dark:text-dark">{index}</span>
-            {/each}
-        {:else}
-            <div>Please select data</div>
-        {/if}
-    </div>
-    <Cell title="Get selected data" on:click={() => (visible18 = true)} />
-    <Picker bind:visible={visible18} datas={col3Datas} on:confirm={getAllDataFunc} />
+	<div class="px-4">
+		{#if allItems.length}
+			Currently selected:
+			{#each allItems as item}
+				<span class="mr-2 text-primary dark:text-dark">{item.label}</span>
+			{/each}
+		{:else}
+			<div>Please select data</div>
+		{/if}
+	</div>
+	<div class="px-4">
+		{#if allIndexs.length}
+			The index values of the current selected values in the column are:
+			{#each allIndexs as index}
+				<span class="mr-2 text-primary dark:text-dark">{index}</span>
+			{/each}
+		{:else}
+			<div>Please select data</div>
+		{/if}
+	</div>
+	<Cell title="Get selected data" on:click={() => (visible18 = true)} />
+	<Picker bind:visible={visible18} datas={col3Datas} on:confirm={getAllDataFunc} />
 
-    <Cell title="I want some rounded corners on the top" on:click={() => (visible19 = true)} />
-    <Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
+	<Cell title="I want some rounded corners on the top" on:click={() => (visible19 = true)} />
+	<Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
 </div>
 
 <!-- data.js -->

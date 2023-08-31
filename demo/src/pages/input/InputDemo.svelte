@@ -1,27 +1,27 @@
 <!-- Input Demo -->
 <script>
-    import { getContext } from 'svelte';
-    import { Input, Button, Icon, Toast } from 'stdf';
+	import { getContext } from 'svelte';
+	import { Input, Button, Icon, Toast } from 'stdf';
 
-    let value = '初始文本';
-    let visible = false;
+	let value = '初始文本';
+	let visible = false;
 
-    let IdCard = '';
+	let IdCard = '';
 
-    const isIframe = getContext('iframe') === '1'; //判断是否是iframe
+	const isIframe = getContext('iframe') === '1'; //判断是否是iframe
 
-    $: placeholderIdCard = IdCard === '' ? '请输入身份证号' : '';
-    const clickLabel4Fun = () => {
-        placeholderIdCard = '两秒后识别完毕......';
-        setTimeout(() => {
-            IdCard = '1234567890XXX-XX';
-        }, 2000);
-    };
-    let mobileLength = 0;
-    const changeStateFun = e => {
-        mobileLength = e.detail.length;
-    };
-    $: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
+	$: placeholderIdCard = IdCard === '' ? '请输入身份证号' : '';
+	const clickLabel4Fun = () => {
+		placeholderIdCard = '两秒后识别完毕......';
+		setTimeout(() => {
+			IdCard = '1234567890XXX-XX';
+		}, 2000);
+	};
+	let mobileLength = 0;
+	const changeStateFun = e => {
+		mobileLength = e.detail.length;
+	};
+	$: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
 </script>
 
 <div class="px-4 pt-8 font-bold text-xl">基础用法</div>
@@ -34,10 +34,10 @@
 <Input title="文本" placeholder="我是自定义的 placeholder" />
 
 <div class="px-4 pt-8 font-bold text-xl">
-    不同输入类型
-    {#if isIframe}
-        <span class="text-xs opacity-50 ml-2">请在移动设备查看键盘类型。</span>
-    {/if}
+	不同输入类型
+	{#if isIframe}
+		<span class="text-xs opacity-50 ml-2">请在移动设备查看键盘类型。</span>
+	{/if}
 </div>
 <Input title="任意文本（常规键盘）" />
 <Input title="密码" type="password" />
@@ -104,9 +104,9 @@
 <div class="px-4 pt-8 font-bold text-xl">左侧带图标</div>
 <Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
 <Input
-    title="用户名"
-    label1={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-    label3={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	title="用户名"
+	label1={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
 />
 
 <div class="px-4 pt-8 font-bold text-xl">左侧带文字</div>
@@ -120,19 +120,19 @@
 
 <div class="px-4 pt-8 font-bold text-xl">左侧带图标、文字、图标</div>
 <Input
-    title="密码"
-    type="password"
-    label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label2="密码"
-    label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	title="密码"
+	type="password"
+	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label2="密码"
+	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
 />
 
 <div class="px-4 pt-8 font-bold text-xl">右侧带图标</div>
 <Input title="身份证号" label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }} />
 <Input
-    title="用户名"
-    label4={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-    label6={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	title="用户名"
+	label4={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
 />
 
 <div class="px-4 pt-8 font-bold text-xl">右侧带文字</div>
@@ -146,11 +146,11 @@
 
 <div class="px-4 pt-8 font-bold text-xl">右侧带图标、文字、图标</div>
 <Input
-    title="密码"
-    type="password"
-    label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label5="密码"
-    label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	title="密码"
+	type="password"
+	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label5="密码"
+	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
 />
 
 <div class="px-4 pt-8 font-bold text-xl">左侧带文字右侧带图标</div>
@@ -158,14 +158,14 @@
 
 <div class="px-4 pt-8 font-bold text-xl">左右六项全带</div>
 <Input
-    title="密码"
-    type="password"
-    label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label2="密码"
-    label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-    label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label5="密码"
-    label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	title="密码"
+	type="password"
+	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label2="密码"
+	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label5="密码"
+	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
 />
 
 <div class="px-4 pt-8 font-bold text-xl">提示信息与数据项组合</div>
@@ -178,61 +178,61 @@
 
 <div class="px-4 pt-8 font-bold text-xl">展示所有可配置项</div>
 <Input
-    title="标题"
-    placeholder="请输入文本"
-    label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label2="标签2"
-    label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-    label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-    label5="标签5"
-    label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
-    data1="数据项1"
-    data2="数据项2"
-    data3="数据项3"
-    tip="提示信息"
-    clear
+	title="标题"
+	placeholder="请输入文本"
+	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label2="标签2"
+	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label5="标签5"
+	label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	data1="数据项1"
+	data2="数据项2"
+	data3="数据项3"
+	tip="提示信息"
+	clear
 />
 
 <div class="px-4 pt-8 font-bold text-xl">label1 和 label4 使用插槽</div>
 <Input title="验证码" label1="slot" label4="slot">
-    <div slot="label1">
-        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-            <path
-                d="M511.198384 637.07798c-17.170101 0-31.08202 13.911919-31.08202 31.08202v124.302222c0 17.157172 13.924848 31.08202 31.08202 31.08202s31.069091-13.924848 31.069091-31.08202v-124.302222c0-17.170101-13.911919-31.08202-31.069091-31.08202z m0 0"
-                fill="#515151"
-            />
-            <path
-                d="M759.815758 513.331717V264.145455C759.815758 126.823434 648.520404 15.515152 511.198384 15.515152c-137.309091 0-248.630303 111.308283-248.630303 248.630303v249.186262C223.702626 565.20404 200.40404 629.423838 200.40404 699.229091c0 171.649293 139.145051 310.794343 310.794344 310.794343s310.794343-139.145051 310.794343-310.794343c0-69.805253-23.311515-134.025051-62.176969-185.897374zM324.719192 264.145455c0-102.994747 83.497374-186.479192 186.479192-186.479192 102.981818 0 186.466263 83.484444 186.466262 186.479192v186.88c-51.975758-39.111111-116.402424-62.577778-186.466262-62.577778s-134.490505 23.453737-186.479192 62.577778V264.145455z m186.479192 683.726868c-137.309091 0-248.630303-111.321212-248.630303-248.643232 0-137.309091 111.308283-248.617374 248.630303-248.617374 132.628687 0 248.617374 115.988687 248.617374 248.617374 0 137.32202-111.295354 248.643232-248.617374 248.643232z m0 0"
-                fill="#515151"
-            />
-        </svg>
-    </div>
-    <div slot="label4">
-        <Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
-            <div class="px-2">获取验证码</div>
-        </Button>
-    </div>
+	<div slot="label1">
+		<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+			<path
+				d="M511.198384 637.07798c-17.170101 0-31.08202 13.911919-31.08202 31.08202v124.302222c0 17.157172 13.924848 31.08202 31.08202 31.08202s31.069091-13.924848 31.069091-31.08202v-124.302222c0-17.170101-13.911919-31.08202-31.069091-31.08202z m0 0"
+				fill="#515151"
+			/>
+			<path
+				d="M759.815758 513.331717V264.145455C759.815758 126.823434 648.520404 15.515152 511.198384 15.515152c-137.309091 0-248.630303 111.308283-248.630303 248.630303v249.186262C223.702626 565.20404 200.40404 629.423838 200.40404 699.229091c0 171.649293 139.145051 310.794343 310.794344 310.794343s310.794343-139.145051 310.794343-310.794343c0-69.805253-23.311515-134.025051-62.176969-185.897374zM324.719192 264.145455c0-102.994747 83.497374-186.479192 186.479192-186.479192 102.981818 0 186.466263 83.484444 186.466262 186.479192v186.88c-51.975758-39.111111-116.402424-62.577778-186.466262-62.577778s-134.490505 23.453737-186.479192 62.577778V264.145455z m186.479192 683.726868c-137.309091 0-248.630303-111.321212-248.630303-248.643232 0-137.309091 111.308283-248.617374 248.630303-248.617374 132.628687 0 248.617374 115.988687 248.617374 248.617374 0 137.32202-111.295354 248.643232-248.617374 248.643232z m0 0"
+				fill="#515151"
+			/>
+		</svg>
+	</div>
+	<div slot="label4">
+		<Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
+			<div class="px-2">获取验证码</div>
+		</Button>
+	</div>
 </Input>
 
 <div class="px-4 pt-8 font-bold text-xl">动态显示</div>
 <Input
-    title="动态显示 label5"
-    type="tel"
-    placeholder="请输入11位手机号"
-    maxlength={11}
-    state={mobileState}
-    on:change={changeStateFun}
-    label5="slot"
+	title="动态显示 label5"
+	type="tel"
+	placeholder="请输入11位手机号"
+	maxlength={11}
+	state={mobileState}
+	on:change={changeStateFun}
+	label5="slot"
 >
-    <div slot="label5">
-        {#if mobileLength === 11}
-            <Icon name="ri-check-fill" injClass="text-[green]" size={14} />
-        {:else if mobileLength === 0}
-            <!-- none -->
-        {:else}
-            <Icon name="ri-close-fill" injClass="text-[red]" size={14} />
-        {/if}
-    </div>
+	<div slot="label5">
+		{#if mobileLength === 11}
+			<Icon name="ri-check-fill" injClass="text-[green]" size={14} />
+		{:else if mobileLength === 0}
+			<!-- none -->
+		{:else}
+			<Icon name="ri-close-fill" injClass="text-[red]" size={14} />
+		{/if}
+	</div>
 </Input>
 
 <div class="px-4 pt-8 font-bold text-xl">绑定 value</div>
@@ -242,12 +242,12 @@
 
 <div class="px-4 pt-8 font-bold text-xl">点击 label4 触发事件</div>
 <Input
-    title="身份证号"
-    placeholder={placeholderIdCard}
-    bind:value={IdCard}
-    label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
-    on:clicklabel4={clickLabel4Fun}
-    clear
+	title="身份证号"
+	placeholder={placeholderIdCard}
+	bind:value={IdCard}
+	label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	on:clicklabel4={clickLabel4Fun}
+	clear
 />
 
 <div class="px-4 pt-8 font-bold text-xl">textarea</div>

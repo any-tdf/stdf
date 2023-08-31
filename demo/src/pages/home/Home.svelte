@@ -1,66 +1,67 @@
 <script>
-    import { push } from 'svelte-spa-router';
-    import { Cell, CellGroup } from 'stdf';
-    import menuList from '../../data/menuList';
+	import { push } from 'svelte-spa-router';
+	import { Cell, CellGroup } from 'stdf';
+	import menuList from '../../data/menuList';
 
-    // 循环 menuList，将所有元素的 childs 组成一个数组
-    // Cycle menuList, and combine the childs of all elements into an array
-    const menuListArr = menuList.reduce((acc, cur) => {
-        if (cur.childs) {
-            acc.push(...cur.childs);
-        }
-        return acc;
-    }, []);
+	// 循环 menuList，将所有元素的 childs 组成一个数组
+	// Cycle menuList, and combine the childs of all elements into an array
+	const menuListArr = menuList.reduce((acc, cur) => {
+		if (cur.childs) {
+			acc.push(...cur.childs);
+		}
+		return acc;
+	}, []);
 
-    const pushFun = child => {
-        push(`/${child.nav}`);
-    };
+	const pushFun = child => {
+		push(`/${child.nav}`);
+	};
 
-    const isZh = sessionStorage.getItem('lang') === 'zh_CN';
+	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
 
-    const changeLangFunc = () => {
-        sessionStorage.setItem('lang', isZh ? 'en_US' : 'zh_CN');
-        window.location.reload();
-    };
+	const changeLangFunc = () => {
+		sessionStorage.setItem('lang', isZh ? 'en_US' : 'zh_CN');
+		window.location.reload();
+	};
 </script>
 
 <div class="h-14 mt-8 mb-2 flex flex-col justify-center items-center">
-    <svg viewBox="0 0 90 80">
-        <path
-            class="fill-primary dark:fill-dark"
-            d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
-        />
-        <path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
-    </svg>
+	<svg viewBox="0 0 90 80">
+		<path
+			class="fill-primary dark:fill-dark"
+			d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
+		/>
+		<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
+	</svg>
 </div>
 <a href="https://stdf.design" target="_blank" rel="noreferrer">
-    <div class="text-center text-lg underline">stdf.design</div>
+	<div class="text-center text-lg underline">stdf.design</div>
 </a>
 
 <div class="flex flex-col py-4">
-    <div>
-        {#each menuList as menu}
-            <div class="text-sm px-4 mt-8 mb-2 text-gray6">{isZh ? menu.class : menu.class_en}</div>
-            <CellGroup>
-                {#each menu.childs as child, i}
-                    <Cell
-                        title={isZh ? child.title : child.title_en}
-                        mx="0"
-                        my="0"
-                        shadow="none"
-                        radius="none"
-                        line={i !== menu.childs.length - 1}
-                        on:click={() => pushFun(child)}
-                    />
-                {/each}
-            </CellGroup>
-        {/each}
-    </div>
-    <div class="p-4">{isZh ? '当前组件总数：' : 'Current number of components: '}{menuListArr.length}</div>
-    <div class="flex text-xs justify-around p-4 text-primary dark:text-dark underline">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div on:click={changeLangFunc}>
-            {isZh ? 'English' : '简体中文'}
-        </div>
-    </div>
+	<div>
+		{#each menuList as menu}
+			<div class="text-sm px-4 mt-8 mb-2 text-gray6">{isZh ? menu.class : menu.class_en}</div>
+			<CellGroup>
+				{#each menu.childs as child, i}
+					<Cell
+						title={isZh ? child.title : child.title_en}
+						mx="0"
+						my="0"
+						shadow="none"
+						radius="none"
+						line={i !== menu.childs.length - 1}
+						on:click={() => pushFun(child)}
+					/>
+				{/each}
+			</CellGroup>
+		{/each}
+	</div>
+	<div class="p-4">{isZh ? '当前组件总数：' : 'Current number of components: '}{menuListArr.length}</div>
+	<div class="flex text-xs justify-around p-4 text-primary dark:text-dark underline">
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div on:click={changeLangFunc}>
+			{isZh ? 'English' : '简体中文'}
+		</div>
+	</div>
 </div>

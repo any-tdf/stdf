@@ -1,6 +1,6 @@
 <!-- Placeholder Demo -->
 <script>
-    import { Placeholder, Grids, Grid } from 'stdf';
+	import { Placeholder, Grids, Grid } from 'stdf';
 </script>
 
 <div class="m-4 font-bold text-lg">基础用法</div>
@@ -11,9 +11,9 @@
 
 <div class="m-4 font-bold text-lg">不同圆角</div>
 <div class="flex flex-col space-y-4">
-    <Placeholder radius="none">无圆角</Placeholder>
-    <Placeholder radius="xl">XL 圆角</Placeholder>
-    <Placeholder radius="full">全圆角</Placeholder>
+	<Placeholder radius="none">无圆角</Placeholder>
+	<Placeholder radius="xl">XL 圆角</Placeholder>
+	<Placeholder radius="full">全圆角</Placeholder>
 </div>
 
 <div class="m-4 font-bold text-lg">有阴影</div>
@@ -24,11 +24,11 @@
 
 <div class="m-4 font-bold text-lg">与 Grids 结合</div>
 <Grids>
-    <Grid row={3} col={2}><Placeholder>3﹡2</Placeholder></Grid>
-    <Grid col={3}><Placeholder>1﹡3</Placeholder></Grid>
-    <Grid row={3}><Placeholder>3﹡1</Placeholder></Grid>
-    <Grid row={2} col={2}><Placeholder>2﹡2</Placeholder></Grid>
-    <Grid><Placeholder>1﹡1</Placeholder></Grid>
-    <Grid><Placeholder>1﹡1</Placeholder></Grid>
+	<Grid row={3} col={2}><Placeholder>3﹡2</Placeholder></Grid>
+	<Grid col={3}><Placeholder>1﹡3</Placeholder></Grid>
+	<Grid row={3}><Placeholder>3﹡1</Placeholder></Grid>
+	<Grid row={2} col={2}><Placeholder>2﹡2</Placeholder></Grid>
+	<Grid><Placeholder>1﹡1</Placeholder></Grid>
+	<Grid><Placeholder>1﹡1</Placeholder></Grid>
 </Grids>
-<div class='pb-4'></div>
+<div class="pb-4"></div>

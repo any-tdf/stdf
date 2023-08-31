@@ -1,29 +1,29 @@
 <!-- Swiper Demo -->
 <script>
-    import { Swiper } from 'stdf';
-    import Item from './Item_en.svelte';
+	import { Swiper } from 'stdf';
+	import Item from './Item_en.svelte';
 
-    const data = [
-        { type: 'img', url: './assets/images/wall_1.jpg' },
-        { type: 'img', url: './assets/images/wall_2.jpg' },
-        { type: 'img', url: './assets/images/wall_3.jpg' },
-        { type: 'img', url: './assets/images/wall_4.jpg' },
-    ];
+	const data = [
+		{ type: 'img', url: './assets/images/wall_1.jpg' },
+		{ type: 'img', url: './assets/images/wall_2.jpg' },
+		{ type: 'img', url: './assets/images/wall_3.jpg' },
+		{ type: 'img', url: './assets/images/wall_4.jpg' },
+	];
 
-    const componentData = [
-        { type: 'component', component: Item },
-        { type: 'img', url: './assets/images/wall_1.jpg' },
-    ];
+	const componentData = [
+		{ type: 'component', component: Item },
+		{ type: 'img', url: './assets/images/wall_1.jpg' },
+	];
 
-    let indexClick = -1;
-    const clickImgFun = i => {
-        indexClick = i.detail;
-    };
+	let indexClick = -1;
+	const clickImgFun = i => {
+		indexClick = i.detail;
+	};
 
-    let indexChange = 0;
-    const changeContainerFun = i => {
-        indexChange = i.detail;
-    };
+	let indexChange = 0;
+	const changeContainerFun = i => {
+		indexChange = i.detail;
+	};
 </script>
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Basic usage</div>
@@ -67,14 +67,14 @@
 <Swiper {data} indicateStyle="point" indicateRadius={false} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-    Specifies the color behind the indicator
-    <p class="font-thin text-xs mb-2">injection Class</p>
+	Specifies the color behind the indicator
+	<p class="font-thin text-xs mb-2">injection Class</p>
 </div>
 <Swiper {data} indicateInjClass="from-black/0 to-purple/50" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-    Specify indicator color
-    <p class="font-thin text-xs mb-2">Remove the background color at the same time</p>
+	Specify indicator color
+	<p class="font-thin text-xs mb-2">Remove the background color at the same time</p>
 </div>
 <Swiper {data} indicateInjClass="bg-none" indicateColor="bg-orange" indicateActiveColor="bg-green" />
 
@@ -82,217 +82,217 @@
 <Swiper {data} aspectRatio={[4, 1]} />
 
 <div class="font-bold text-lg mx-4 mt-10">
-    Configure the inside margins of the container
-    <p class="font-thin text-xs mb-2">Also specify indicator color, remove indicator back color, and configure container interior fillet</p>
+	Configure the inside margins of the container
+	<p class="font-thin text-xs mb-2">Also specify indicator color, remove indicator back color, and configure container interior fillet</p>
 </div>
 <Swiper
-    {data}
-    px="6"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-black/5 dark:bg-white/10"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    interval={8}
-    indicateStyle="longLine"
+	{data}
+	px="6"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-black/5 dark:bg-white/10"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	interval={8}
+	indicateStyle="longLine"
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="6"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="full"
-    aspectRatio={[3, 1]}
+	{data}
+	px="6"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="full"
+	aspectRatio={[3, 1]}
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-    Add a drop shadow inside the container
-    <p class="font-normal text-xs mb-2">injection Class</p>
+	Add a drop shadow inside the container
+	<p class="font-normal text-xs mb-2">injection Class</p>
 </div>
 <Swiper
-    {data}
-    px="6"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="full"
-    aspectRatio={[3, 1]}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	{data}
+	px="6"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="full"
+	aspectRatio={[3, 1]}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X and Z offsets</div>
 <Swiper
-    {data}
-    px="16"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    aspectRatio={[3, 1]}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    translateX={100}
+	{data}
+	px="16"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	aspectRatio={[3, 1]}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	translateX={100}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    translateZ={400}
-    translateX={-200}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	translateZ={400}
+	translateX={-200}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="12"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    translateZ={600}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	{data}
+	px="12"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	translateZ={600}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X, Y, Z axis rotation</div>
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateX={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateX={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateY={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateY={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateZ={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateZ={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateX={90}
-    rotateY={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateX={90}
+	rotateY={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateX={90}
-    rotateZ={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateX={90}
+	rotateZ={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="4"
-    py="8"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    radius="xl"
-    rotateY={90}
-    rotateZ={90}
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    duration={2000}
+	{data}
+	px="4"
+	py="8"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	radius="xl"
+	rotateY={90}
+	rotateZ={90}
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	duration={2000}
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">The container injection Class was not activated</div>
 <Swiper
-    {data}
-    px="24"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    radius="xl"
-    aspectRatio={[3, 1]}
-    translateX={160}
-    duration={2000}
-    notActiveInjClass="grayscale"
+	{data}
+	px="24"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	radius="xl"
+	aspectRatio={[3, 1]}
+	translateX={160}
+	duration={2000}
+	notActiveInjClass="grayscale"
 />
 <div class="mt-10" />
 <Swiper
-    {data}
-    px="24"
-    py="6"
-    indicateInjClass="bg-none"
-    indicateColor="bg-primary dark:bg-dark"
-    indicateActiveColor="bg-primary dark:bg-dark"
-    innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
-    radius="xl"
-    aspectRatio={[3, 1]}
-    translateX={160}
-    duration={2000}
-    notActiveInjClass="blur"
+	{data}
+	px="24"
+	py="6"
+	indicateInjClass="bg-none"
+	indicateColor="bg-primary dark:bg-dark"
+	indicateActiveColor="bg-primary dark:bg-dark"
+	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
+	radius="xl"
+	aspectRatio={[3, 1]}
+	translateX={160}
+	duration={2000}
+	notActiveInjClass="blur"
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Specified container width</div>
 <div class="flex justify-center">
-    <Swiper {data} containerWidth={(document.body.clientWidth / 4) * 3} />
+	<Swiper {data} containerWidth={(document.body.clientWidth / 4) * 3} />
 </div>
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Container content uses components</div>
 <Swiper data={componentData} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-    Listen for change events
-    <p class=" font-normal text-xs mb-2">Currently active index values:{indexChange}</p>
+	Listen for change events
+	<p class=" font-normal text-xs mb-2">Currently active index values:{indexChange}</p>
 </div>
 <Swiper {data} on:change={changeContainerFun} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-    Listen for click events
-    <p class="font-normal text-xs mb-2">Click on the index value: {indexClick === -1 ? 'Not clicked' : indexClick}</p>
+	Listen for click events
+	<p class="font-normal text-xs mb-2">Click on the index value: {indexClick === -1 ? 'Not clicked' : indexClick}</p>
 </div>
 <Swiper {data} on:clickimg={clickImgFun} />
 

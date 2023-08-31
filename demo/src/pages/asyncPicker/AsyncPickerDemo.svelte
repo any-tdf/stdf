@@ -1,321 +1,321 @@
 <!-- AsyncPicker Demo -->
 <script>
-    import { AsyncPicker, Cell } from 'stdf';
-    // 为避免 Demo 页面杂乱，具体参考数据放在 data.js 文件内，可查看此页面底部注释。
-    import { linkageData, linkageDiffLabeData } from './data';
+	import { AsyncPicker, Cell } from 'stdf';
+	// 为避免 Demo 页面杂乱，具体参考数据放在 data.js 文件内，可查看此页面底部注释。
+	import { linkageData, linkageDiffLabeData } from './data';
 
-    let visible1 = false;
-    let visible2 = false;
-    let visible3 = false;
-    let visible4 = false;
-    let visible5 = false;
-    let visible6 = false;
-    let visible7 = false;
-    let visible8 = false;
-    let visible9 = false;
+	let visible1 = false;
+	let visible2 = false;
+	let visible3 = false;
+	let visible4 = false;
+	let visible5 = false;
+	let visible6 = false;
+	let visible7 = false;
+	let visible8 = false;
+	let visible9 = false;
 
-    let data = linkageData;
-    let currentLevel = 0;
-    let lastLevel = false;
-    let firstLevel = true;
-    let level1Data = linkageData[0].children;
-    let titleBind = '请选择省级';
+	let data = linkageData;
+	let currentLevel = 0;
+	let lastLevel = false;
+	let firstLevel = true;
+	let level1Data = linkageData[0].children;
+	let titleBind = '请选择省级';
 
-    // 模拟 3 秒后获取到数据
-    const nextFunc = e => {
-        const { index } = e.detail;
-        if (currentLevel === 0) {
-            const nextData = linkageData[index].children;
-            level1Data = nextData;
-            setTimeout(() => {
-                data = nextData;
-                currentLevel = 1;
-                titleBind = '请选择市级';
-                firstLevel = false;
-            }, 3000);
-        } else if (currentLevel === 1) {
-            const nextData = level1Data[index].children;
-            setTimeout(() => {
-                data = nextData;
-                currentLevel = 2;
-                titleBind = '请选择区级';
-                lastLevel = true;
-            }, 3000);
-        } else {
-            console.log('最后一级');
-        }
-    };
-    const prevFunc = () => {
-        if (currentLevel === 1) {
-            const prevData = linkageData;
-            setTimeout(() => {
-                data = prevData;
-                currentLevel = 0;
-                titleBind = '请选择省级';
-                firstLevel = true;
-            }, 3000);
-        } else if (currentLevel === 2) {
-            const prevData = level1Data;
-            setTimeout(() => {
-                data = prevData;
-                currentLevel = 1;
-                titleBind = '请选择市级';
-                lastLevel = false;
-            }, 3000);
-        } else {
-            console.log('第一级');
-        }
-    };
+	// 模拟 3 秒后获取到数据
+	const nextFunc = e => {
+		const { index } = e.detail;
+		if (currentLevel === 0) {
+			const nextData = linkageData[index].children;
+			level1Data = nextData;
+			setTimeout(() => {
+				data = nextData;
+				currentLevel = 1;
+				titleBind = '请选择市级';
+				firstLevel = false;
+			}, 3000);
+		} else if (currentLevel === 1) {
+			const nextData = level1Data[index].children;
+			setTimeout(() => {
+				data = nextData;
+				currentLevel = 2;
+				titleBind = '请选择区级';
+				lastLevel = true;
+			}, 3000);
+		} else {
+			console.log('最后一级');
+		}
+	};
+	const prevFunc = () => {
+		if (currentLevel === 1) {
+			const prevData = linkageData;
+			setTimeout(() => {
+				data = prevData;
+				currentLevel = 0;
+				titleBind = '请选择省级';
+				firstLevel = true;
+			}, 3000);
+		} else if (currentLevel === 2) {
+			const prevData = level1Data;
+			setTimeout(() => {
+				data = prevData;
+				currentLevel = 1;
+				titleBind = '请选择市级';
+				lastLevel = false;
+			}, 3000);
+		} else {
+			console.log('第一级');
+		}
+	};
 
-    let allIndexs = [];
-    let allItems = [];
-    const getAllDataFunc = e => {
-        const { items, indexs } = e.detail;
-        allItems = items;
-        allIndexs = indexs;
-    };
+	let allIndexs = [];
+	let allItems = [];
+	const getAllDataFunc = e => {
+		const { items, indexs } = e.detail;
+		allItems = items;
+		allIndexs = indexs;
+	};
 
-    // 每一级对应的 labelKey 不同时的处理逻辑
-    let diffLabelKeyData = linkageDiffLabeData;
-    let labelKey = 'province';
-    let diffLabelKeyCurrentLevel = 0;
-    let diffLabelKeyLastLevel = false;
-    let diffLabelKeyFirstLevel = true;
-    let diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
-    const diffLabelKeyNextFunc = e => {
-        const { index } = e.detail;
-        if (diffLabelKeyCurrentLevel === 0) {
-            const nextData = linkageDiffLabeData[index].children;
-            diffLabelKeyLevel1Data = nextData;
-            setTimeout(() => {
-                diffLabelKeyData = nextData;
-                labelKey = 'city';
-                diffLabelKeyCurrentLevel = 1;
-                diffLabelKeyFirstLevel = false;
-            }, 3000);
-        } else if (diffLabelKeyCurrentLevel === 1) {
-            const nextData = diffLabelKeyLevel1Data[index].children;
-            setTimeout(() => {
-                diffLabelKeyData = nextData;
-                diffLabelKeyCurrentLevel = 2;
-                labelKey = 'region';
-                diffLabelKeyLastLevel = true;
-            }, 3000);
-        } else {
-            console.log('最后一级');
-        }
-    };
-    const diffLabelKeyPrevFunc = () => {
-        if (diffLabelKeyCurrentLevel === 1) {
-            const prevData = linkageDiffLabeData;
-            setTimeout(() => {
-                diffLabelKeyData = prevData;
-                diffLabelKeyCurrentLevel = 0;
-                diffLabelKeyFirstLevel = true;
-                labelKey = 'province';
-            }, 3000);
-        } else if (diffLabelKeyCurrentLevel === 2) {
-            const prevData = diffLabelKeyLevel1Data;
-            setTimeout(() => {
-                diffLabelKeyData = prevData;
-                diffLabelKeyCurrentLevel = 1;
-                labelKey = 'city';
-                diffLabelKeyLastLevel = false;
-            }, 3000);
-        } else {
-            console.log('第一级');
-        }
-    };
+	// 每一级对应的 labelKey 不同时的处理逻辑
+	let diffLabelKeyData = linkageDiffLabeData;
+	let labelKey = 'province';
+	let diffLabelKeyCurrentLevel = 0;
+	let diffLabelKeyLastLevel = false;
+	let diffLabelKeyFirstLevel = true;
+	let diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
+	const diffLabelKeyNextFunc = e => {
+		const { index } = e.detail;
+		if (diffLabelKeyCurrentLevel === 0) {
+			const nextData = linkageDiffLabeData[index].children;
+			diffLabelKeyLevel1Data = nextData;
+			setTimeout(() => {
+				diffLabelKeyData = nextData;
+				labelKey = 'city';
+				diffLabelKeyCurrentLevel = 1;
+				diffLabelKeyFirstLevel = false;
+			}, 3000);
+		} else if (diffLabelKeyCurrentLevel === 1) {
+			const nextData = diffLabelKeyLevel1Data[index].children;
+			setTimeout(() => {
+				diffLabelKeyData = nextData;
+				diffLabelKeyCurrentLevel = 2;
+				labelKey = 'region';
+				diffLabelKeyLastLevel = true;
+			}, 3000);
+		} else {
+			console.log('最后一级');
+		}
+	};
+	const diffLabelKeyPrevFunc = () => {
+		if (diffLabelKeyCurrentLevel === 1) {
+			const prevData = linkageDiffLabeData;
+			setTimeout(() => {
+				diffLabelKeyData = prevData;
+				diffLabelKeyCurrentLevel = 0;
+				diffLabelKeyFirstLevel = true;
+				labelKey = 'province';
+			}, 3000);
+		} else if (diffLabelKeyCurrentLevel === 2) {
+			const prevData = diffLabelKeyLevel1Data;
+			setTimeout(() => {
+				diffLabelKeyData = prevData;
+				diffLabelKeyCurrentLevel = 1;
+				labelKey = 'city';
+				diffLabelKeyLastLevel = false;
+			}, 3000);
+		} else {
+			console.log('第一级');
+		}
+	};
 </script>
 
 <div class="py-4">
-    <div class="px-4">
-        {#if allItems.length}
-            当前选定了：
-            {#each allItems as item}
-                <span class="mr-2 text-primary dark:text-dark">{item.label}</span>
-            {/each}
-        {:else}
-            <div>请选定数据</div>
-        {/if}
-    </div>
-    <div class="px-4">
-        {#if allIndexs.length}
-            当前选定值位于所在列的索引值分别为：
-            {#each allIndexs as index}
-                <span class="mr-2 text-primary dark:text-dark">{index}</span>
-            {/each}
-        {:else}
-            <div>请选定数据</div>
-        {/if}
-    </div>
-    <Cell
-        title="基础用法"
-        on:click={() => {
-            visible1 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible1}
-        bind:data
-        bind:lastLevel
-        bind:firstLevel
-        on:next={nextFunc}
-        on:prev={prevFunc}
-        on:confirm={getAllDataFunc}
-    />
+	<div class="px-4">
+		{#if allItems.length}
+			当前选定了：
+			{#each allItems as item}
+				<span class="mr-2 text-primary dark:text-dark">{item.label}</span>
+			{/each}
+		{:else}
+			<div>请选定数据</div>
+		{/if}
+	</div>
+	<div class="px-4">
+		{#if allIndexs.length}
+			当前选定值位于所在列的索引值分别为：
+			{#each allIndexs as index}
+				<span class="mr-2 text-primary dark:text-dark">{index}</span>
+			{/each}
+		{:else}
+			<div>请选定数据</div>
+		{/if}
+	</div>
+	<Cell
+		title="基础用法"
+		on:click={() => {
+			visible1 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible1}
+		bind:data
+		bind:lastLevel
+		bind:firstLevel
+		on:next={nextFunc}
+		on:prev={prevFunc}
+		on:confirm={getAllDataFunc}
+	/>
 
-    <Cell
-        title="可见 7 行数为"
-        on:click={() => {
-            visible2 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showRow={7} />
+	<Cell
+		title="可见 7 行数为"
+		on:click={() => {
+			visible2 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showRow={7} />
 
-    <Cell
-        title="左对齐"
-        on:click={() => {
-            visible3 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" on:next={nextFunc} on:prev={prevFunc} />
+	<Cell
+		title="左对齐"
+		on:click={() => {
+			visible3 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" on:next={nextFunc} on:prev={prevFunc} />
 
-    <Cell
-        title="自定义上下一步文字"
-        on:click={() => {
-            visible5 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible5}
-        bind:data
-        bind:lastLevel
-        bind:firstLevel
-        on:next={nextFunc}
-        on:prev={prevFunc}
-        nextText="继续"
-        prevText="返回"
-    />
+	<Cell
+		title="自定义上下一步文字"
+		on:click={() => {
+			visible5 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible5}
+		bind:data
+		bind:lastLevel
+		bind:firstLevel
+		on:next={nextFunc}
+		on:prev={prevFunc}
+		nextText="继续"
+		prevText="返回"
+	/>
 
-    <Cell
-        title="不同级别使用不同的 labelKey"
-        on:click={() => {
-            visible4 = true;
-            diffLabelKeyData = linkageDiffLabeData;
-            labelKey = 'province';
-            diffLabelKeyCurrentLevel = 0;
-            diffLabelKeyLastLevel = false;
-            diffLabelKeyFirstLevel = true;
-            diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible4}
-        bind:data={diffLabelKeyData}
-        bind:lastLevel={diffLabelKeyLastLevel}
-        bind:firstLevel={diffLabelKeyFirstLevel}
-        bind:labelKey
-        on:next={diffLabelKeyNextFunc}
-        on:prev={diffLabelKeyPrevFunc}
-    />
+	<Cell
+		title="不同级别使用不同的 labelKey"
+		on:click={() => {
+			visible4 = true;
+			diffLabelKeyData = linkageDiffLabeData;
+			labelKey = 'province';
+			diffLabelKeyCurrentLevel = 0;
+			diffLabelKeyLastLevel = false;
+			diffLabelKeyFirstLevel = true;
+			diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible4}
+		bind:data={diffLabelKeyData}
+		bind:lastLevel={diffLabelKeyLastLevel}
+		bind:firstLevel={diffLabelKeyFirstLevel}
+		bind:labelKey
+		on:next={diffLabelKeyNextFunc}
+		on:prev={diffLabelKeyPrevFunc}
+	/>
 
-    <Cell
-        title="换一个 Loading 效果"
-        on:click={() => {
-            visible6 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible6}
-        bind:data
-        bind:lastLevel
-        bind:firstLevel
-        on:next={nextFunc}
-        on:prev={prevFunc}
-        loading={{ type: '1_15', width: 12, height: 12 }}
-    />
+	<Cell
+		title="换一个 Loading 效果"
+		on:click={() => {
+			visible6 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible6}
+		bind:data
+		bind:lastLevel
+		bind:firstLevel
+		on:next={nextFunc}
+		on:prev={prevFunc}
+		loading={{ type: '1_15', width: 12, height: 12 }}
+	/>
 
-    <Cell
-        title="顶部来点圆角"
-        on:click={() => {
-            visible8 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible8}
-        bind:data
-        bind:lastLevel
-        bind:firstLevel
-        on:next={nextFunc}
-        on:prev={prevFunc}
-        popup={{ radius: 'xl' }}
-    />
+	<Cell
+		title="顶部来点圆角"
+		on:click={() => {
+			visible8 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible8}
+		bind:data
+		bind:lastLevel
+		bind:firstLevel
+		on:next={nextFunc}
+		on:prev={prevFunc}
+		popup={{ radius: 'xl' }}
+	/>
 
-    <Cell
-        title="显示已选选项"
-        on:click={() => {
-            visible7 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showSelected />
+	<Cell
+		title="显示已选选项"
+		on:click={() => {
+			visible7 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showSelected />
 
-    <Cell
-        title="动态改变标题"
-        on:click={() => {
-            visible9 = true;
-            data = linkageData;
-            lastLevel = false;
-            firstLevel = true;
-            currentLevel = 0;
-            titleBind = '请选择省级';
-            level1Data = linkageData[0].children;
-        }}
-    />
-    <AsyncPicker
-        bind:visible={visible9}
-        bind:data
-        bind:lastLevel
-        bind:firstLevel
-        bind:title={titleBind}
-        on:next={nextFunc}
-        on:prev={prevFunc}
-    />
+	<Cell
+		title="动态改变标题"
+		on:click={() => {
+			visible9 = true;
+			data = linkageData;
+			lastLevel = false;
+			firstLevel = true;
+			currentLevel = 0;
+			titleBind = '请选择省级';
+			level1Data = linkageData[0].children;
+		}}
+	/>
+	<AsyncPicker
+		bind:visible={visible9}
+		bind:data
+		bind:lastLevel
+		bind:firstLevel
+		bind:title={titleBind}
+		on:next={nextFunc}
+		on:prev={prevFunc}
+	/>
 </div>
 <!-- 
 const linkageData = [

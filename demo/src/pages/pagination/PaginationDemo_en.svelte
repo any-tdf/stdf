@@ -1,47 +1,47 @@
 <script>
-    import { onMount } from 'svelte';
-    import { Pagination, Loading } from 'stdf';
-    import aphorisms from '../../data/aphorisms';
+	import { onMount } from 'svelte';
+	import { Pagination, Loading } from 'stdf';
+	import aphorisms from '../../data/aphorisms';
 
-    // total data number, generally, the back-end interface returns
-    const total = 200;
+	// total data number, generally, the back-end interface returns
+	const total = 200;
 
-    // Current page number, demo event monitoring
-    let current = 1;
-    const preFunc = e => {
-        current = e.detail;
-    };
-    const nextFunc = e => {
-        current = e.detail;
-    };
-    const changeFunc = e => {
-        current = e.detail;
-    };
+	// Current page number, demo event monitoring
+	let current = 1;
+	const preFunc = e => {
+		current = e.detail;
+	};
+	const nextFunc = e => {
+		current = e.detail;
+	};
+	const changeFunc = e => {
+		current = e.detail;
+	};
 
-    // Simulation request data
-    let data = [];
-    let currentPage = 1;
-    let pageSize = 4;
-    let totalData = 0;
-    let loading = false;
-    const getData = current => {
-        loading = true;
-        // Simulate a request using setTimeout
-        setTimeout(() => {
-            loading = false;
-            // Randomly extract pageSize pieces of data from aphorisms
-            data = aphorisms.sort(() => Math.random() - 0.5).slice(0, pageSize);
-            totalData = 64;
-        }, 2000);
-    };
-    const changePageFunc = e => {
-        currentPage = e.detail;
-        getData(currentPage);
-    };
-    // First page of the initial request
-    onMount(() => {
-        getData(currentPage);
-    });
+	// Simulation request data
+	let data = [];
+	let currentPage = 1;
+	let pageSize = 4;
+	let totalData = 0;
+	let loading = false;
+	const getData = () => {
+		loading = true;
+		// Simulate a request using setTimeout
+		setTimeout(() => {
+			loading = false;
+			// Randomly extract pageSize pieces of data from aphorisms
+			data = aphorisms.sort(() => Math.random() - 0.5).slice(0, pageSize);
+			totalData = 64;
+		}, 2000);
+	};
+	const changePageFunc = e => {
+		currentPage = e.detail;
+		getData(currentPage);
+	};
+	// First page of the initial request
+	onMount(() => {
+		getData(currentPage);
+	});
 </script>
 
 <div class="m-4 mt-24 font-bold text-lg">Basic usage</div>
@@ -65,10 +65,10 @@
 <div class="mx-4 mt-8 font-bold text-lg">Maximum display 5 pages</div>
 <div class="mx-4 mb-4 text-xs">Suitable for scenes with smaller paging area</div>
 <div class="flex items-center">
-    <div class="px-4">This is my site</div>
-    <div class="flex-1">
-        <Pagination maxShowPage={5} {total} />
-    </div>
+	<div class="px-4">This is my site</div>
+	<div class="flex-1">
+		<Pagination maxShowPage={5} {total} />
+	</div>
 </div>
 
 <div class="m-4 mt-8 font-bold text-lg">no data</div>
@@ -109,18 +109,18 @@
 
 <div class="m-4 mt-8 font-bold text-lg">Simulation request</div>
 <div class="px-4 py-8 divide-y divide-black/5 dark:divide-white/5 min-h-[20rem] relative">
-    {#each data as item}
-        <div class:py-6={pageSize > 1}>
-            <div class="text-sm text-justify">{item.text}</div>
-            <div class="text-right mt-1" class:italic={item.fromItalic}>{item.from}</div>
-        </div>
-    {/each}
-    {#if loading}
-        <div class="absolute inset-0 w-full h-full backdrop-blur flex flex-col justify-center gap-8 text-center">
-            <div>Query {currentPage} Page data...</div>
-            <Loading />
-        </div>
-    {/if}
+	{#each data as item}
+		<div class:py-6={pageSize > 1}>
+			<div class="text-sm text-justify">{item.text}</div>
+			<div class="text-right mt-1" class:italic={item.fromItalic}>{item.from}</div>
+		</div>
+	{/each}
+	{#if loading}
+		<div class="absolute inset-0 w-full h-full backdrop-blur flex flex-col justify-center gap-8 text-center">
+			<div>Query {currentPage} Page data...</div>
+			<Loading />
+		</div>
+	{/if}
 </div>
 <Pagination {pageSize} total={totalData} on:change={changePageFunc} />
 

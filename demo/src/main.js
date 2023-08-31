@@ -15,55 +15,55 @@ const mode = import.meta.env.MODE;
 const englishMode = mode.slice(-3) === '_en' || mode === 'english';
 sessionStorage.setItem('lang', englishMode ? 'en_US' : lang);
 setTimeout(() => {
-    window.history.replaceState({}, 0, window.location.href.split('?')[0]);
+	window.history.replaceState({}, 0, window.location.href.split('?')[0]);
 }, 300);
 
 // 设置主题
 // Set theme
 if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark');
+	document.documentElement.classList.add('dark');
 } else if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.classList.remove('dark');
+	document.documentElement.classList.remove('dark');
 } else {
-    // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //     document.documentElement.classList.add('dark');
-    // } else {
-    document.documentElement.classList.remove('dark');
-    // }
+	// if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	//     document.documentElement.classList.add('dark');
+	// } else {
+	document.documentElement.classList.remove('dark');
+	// }
 }
 //解决ios不支持按钮:active伪类
 // Solve the problem that ios does not support the button: active pseudo class
 document.body.addEventListener('touchstart', function () {
-    //...空函数即可
+	//...空函数即可
 });
 
 // 阻止双击放大
 // Prevent double click zoom
 document.addEventListener('touchstart', function (event) {
-    if (event.touches.length > 1) {
-        event.preventDefault();
-    }
+	if (event.touches.length > 1) {
+		event.preventDefault();
+	}
 });
 let lastTouchEnd = 0;
 document.addEventListener(
-    'touchend',
-    function (event) {
-        const now = new Date().getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    },
-    false
+	'touchend',
+	function (event) {
+		const now = new Date().getTime();
+		if (now - lastTouchEnd <= 300) {
+			event.preventDefault();
+		}
+		lastTouchEnd = now;
+	},
+	false,
 );
 // 阻止双指放大
 // Prevent two finger zoom
 document.addEventListener('gesturestart', function (event) {
-    event.preventDefault();
+	event.preventDefault();
 });
 
 const app = new App({
-    target: document.getElementById('app'),
+	target: document.getElementById('app'),
 });
 
 export default app;

@@ -1,6 +1,6 @@
 <!-- Placeholder Demo -->
 <script>
-    import { Placeholder, Grids, Grid } from 'stdf';
+	import { Placeholder, Grids, Grid } from 'stdf';
 </script>
 
 <div class="m-4 font-bold text-lg">Basic usage</div>
@@ -11,9 +11,9 @@
 
 <div class="m-4 font-bold text-lg">Different fillet</div>
 <div class="flex flex-col space-y-4">
-    <Placeholder radius="none">unfillet</Placeholder>
-    <Placeholder radius="xl">XL Rounded corner</Placeholder>
-    <Placeholder radius="full">Full fillet</Placeholder>
+	<Placeholder radius="none">unfillet</Placeholder>
+	<Placeholder radius="xl">XL Rounded corner</Placeholder>
+	<Placeholder radius="full">Full fillet</Placeholder>
 </div>
 
 <div class="m-4 font-bold text-lg">shaded</div>
@@ -24,11 +24,11 @@
 
 <div class="m-4 font-bold text-lg">Combined with Grids</div>
 <Grids>
-    <Grid row={3} col={2}><Placeholder>3﹡2</Placeholder></Grid>
-    <Grid col={3}><Placeholder>1﹡3</Placeholder></Grid>
-    <Grid row={3}><Placeholder>3﹡1</Placeholder></Grid>
-    <Grid row={2} col={2}><Placeholder>2﹡2</Placeholder></Grid>
-    <Grid><Placeholder>1﹡1</Placeholder></Grid>
-    <Grid><Placeholder>1﹡1</Placeholder></Grid>
+	<Grid row={3} col={2}><Placeholder>3﹡2</Placeholder></Grid>
+	<Grid col={3}><Placeholder>1﹡3</Placeholder></Grid>
+	<Grid row={3}><Placeholder>3﹡1</Placeholder></Grid>
+	<Grid row={2} col={2}><Placeholder>2﹡2</Placeholder></Grid>
+	<Grid><Placeholder>1﹡1</Placeholder></Grid>
+	<Grid><Placeholder>1﹡1</Placeholder></Grid>
 </Grids>
-<div class='pb-4'></div>
+<div class="pb-4"></div>
