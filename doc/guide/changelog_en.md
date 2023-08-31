@@ -1,6 +1,6 @@
 ## 0.2.9
 
-- 修复 NPM 缺少文件。
+- Fixed missing files in the NPM package.
 
 ## 0.2.8
 
