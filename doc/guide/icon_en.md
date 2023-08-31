@@ -47,6 +47,6 @@ Here are the icons and their corresponding components:
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
 
-You can find the SVG Sprites composed of these icons in `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg`.
+You can find the SVG Sprites composed of these icons in `node_modules/stdf/assets/fonts/stdf.remixicon.symbol.svg`.
 
-You can find the SVG source files for these icons in `node_modules/stdf/dist/assets/svg_base/`.
+You can find the SVG source files for these icons in `node_modules/stdf/assets/svg_base/`.

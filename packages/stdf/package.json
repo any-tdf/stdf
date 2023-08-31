@@ -1,31 +1,31 @@
 {
-    "name": "stdf",
-    "version": "0.2.7",
-    "description": "Mobile web component library based on Svelte and Tailwind",
-    "main": "./dist/components/index.js",
-    "svelte": "./dist/components/index.js",
-    "scripts": {
-        "dist": "node scripts/dist",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "dufu1991",
-    "license": "MIT",
-    "homepage": "https://stdf.design",
-    "keywords": [
-        "svelte",
-        "tailwind",
-        "ui framework",
-        "ui 组件库",
-        "移动组件库",
-        "moblie ui",
-        "web component"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/dufu1991/stdf"
-    },
-    "type": "module",
-    "files": [
-        "dist/**"
-    ]
+	"name": "stdf",
+	"version": "0.2.8",
+	"description": "Mobile web component library based on Svelte and Tailwind",
+	"main": "./components/index.js",
+	"svelte": "./components/index.js",
+	"scripts": {
+		"dist": "node scripts/dist",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "dufu1991",
+	"license": "MIT",
+	"homepage": "https://stdf.design",
+	"keywords": [
+		"svelte",
+		"tailwind",
+		"ui framework",
+		"ui 组件库",
+		"移动组件库",
+		"moblie ui",
+		"web component"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dufu1991/stdf"
+	},
+	"type": "module",
+	"files": [
+		"dist/**"
+	]
 }

@@ -47,6 +47,6 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
 
-可到 `node_modules/stdf/dist/assets/fonts/stdf.remixicon.symbol.svg` 查看由这些图标组成的 SVG Sprites。
+可到 `node_modules/stdf/assets/fonts/stdf.remixicon.symbol.svg` 查看由这些图标组成的 SVG Sprites。
 
-可到 `node_modules/stdf/dist/assets/svg_base/` 查看这些图标的 SVG 源文件。
+可到 `node_modules/stdf/assets/svg_base/` 查看这些图标的 SVG 源文件。

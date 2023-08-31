@@ -6,7 +6,7 @@ The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svel
 <!-- App.svelte -->
 <script>
     import { setContext } from 'svelte'; // import setContext
-    import en_US from 'stdf/dist/lang/en_US'; // import language file
+    import en_US from 'stdf/lang/en_US'; // import language file
 
     setContext('STDF_lang', en_US); // set language
 </script>
