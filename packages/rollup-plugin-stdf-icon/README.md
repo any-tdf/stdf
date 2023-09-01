@@ -1,4 +1,3 @@
-
 [简体中文](https://github.com/dufu1991/stdf/blob/main/packages/rollup-plugin-stdf-icon/README_CN.md)
 
 # Introduction
@@ -30,14 +29,14 @@ Configure the plugin in vite.config.js or vite.config.ts:
 import svgSprite from 'rollup-plugin-stdf-icon';
 
 export default defineConfig({
-    // ...
-    plugins:[
-        // ...
-        svgSprite(),
-        // ...
-    ]
-    // ...
-})
+	// ...
+	plugins: [
+		// ...
+		svgSprite(),
+		// ...
+	],
+	// ...
+});
 ```
 
 During development, simply place the SVG files you need in the specified input folder (default: `src/lib/icons`). The plugin will automatically combine them into a single SVG symbol file and output it to the specified output folder (default: `static/fonts`). After building with Vite, the files in the public folder will be copied to the dist folder. Therefore, after building, the combined SVG symbol file will be located in the dist/fonts folder. Please refer to the [Vite Asset Handling](https://vitejs.dev/guide/assets.html#the-public-directory) documentation.
@@ -65,12 +64,12 @@ In general, the use of symbols is to combine a series of small, single-color SVG
 
 # Configuration
 
-| Parameter | Default           | Description                                                                                                   |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| Parameter | Default         | Description                                                                                                   |
+| --------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
 | inFile    | 'src/lib/icons' | The folder where all the SVG files to be merged are located.                                                  |
-| outFile   | 'static/fonts'    | The output path for the merged SVG symbol file.                                                               |
-| fileName  | 'symbol'          | The filename of the merged SVG symbol file.                                                                   |
-| simple    | true              | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
+| outFile   | 'static/fonts'  | The output path for the merged SVG symbol file.                                                               |
+| fileName  | 'symbol'        | The filename of the merged SVG symbol file.                                                                   |
+| simple    | true            | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
 
 # License
 

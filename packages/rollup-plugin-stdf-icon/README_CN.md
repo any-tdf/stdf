@@ -29,14 +29,14 @@ npm i rollup-plugin-stdf-icon -D
 import svgSprite from 'rollup-plugin-stdf-icon';
 
 export default defineConfig({
-    // ...
-    plugins:[
-        // ...
-        svgSprite(),
-        // ...
-    ]
-    // ...
-})
+	// ...
+	plugins: [
+		// ...
+		svgSprite(),
+		// ...
+	],
+	// ...
+});
 ```
 
 开发过程中只需要将用到的 svg 文件放到指定的入口文件夹（默认 `src/lib/icons`），插件会自动将其合并为一个 SVG symbol 文件，输出到指定的输出文件夹（默认 `static/fonts`）。Vite 构建之后 public 文件夹下的文件会被复制到 dist 文件夹下，所以在构建之后，合并的 SVG symbol 文件会出现在 dist/fonts 文件夹下。请参考 [Vite 配置](https://cn.vitejs.dev/guide/assets.html#the-public-directory)。
@@ -55,6 +55,7 @@ export default defineConfig({
     ]),
 // ...
 ```
+
 此配置会合并两个 symbol。**此时使用 STDF 的 Icon 组件时，请配合修改 path 为对应的 `fonts/symbol.svg` 或 `fonts/icon.svg`**
 
 注意：**传入参数为数组**，表示多个文件夹的配置。**每个文件夹的配置为一个对象**，对象中的 inFile 为将要被合并的 SVG 文件所在的文件夹，outFile 为合并后的 SVG symbol 文件的输出路径，fileName 为合并后的 SVG symbol 文件的文件名。请注意路径与文件名的正确性与冲突。
