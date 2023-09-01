@@ -5,7 +5,7 @@
 	import { NavBar, Icon } from 'stdf';
 	import zh_CN from 'stdf/lang/zh_CN';
 	import en_US from 'stdf/lang/en_US';
-	import menuList from './data/menuList';
+	import menuList from './data/menuList'
 
 	// 循环 menuList，将所有元素的 childs 组成一个数组
 	// Cycle menuList, and combine the childs of all elements into an array
