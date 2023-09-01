@@ -44,9 +44,9 @@ The click event only works when images are passed in. When components are passed
 
 When the finger or other touch device finishes sliding within the Swiper container, Swiper determines whether to trigger the slide switch based on the sliding distance and sliding speed. If it is triggered, Swiper will switch to the previous or next container according to the sliding direction.
 
--   When the sliding distance is less than a certain threshold, the slide switch is never triggered.
--   When the sliding distance is greater than a certain threshold, the slide switch is always triggered.
--   When the sliding distance is between two thresholds, the slide switch is triggered based on the sliding speed. If the speed is greater than a certain speed coefficient, the slide switch is triggered.
+- When the sliding distance is less than a certain threshold, the slide switch is never triggered.
+- When the sliding distance is greater than a certain threshold, the slide switch is always triggered.
+- When the sliding distance is between two thresholds, the slide switch is triggered based on the sliding speed. If the speed is greater than a certain speed coefficient, the slide switch is triggered.
 
 The thresholds and speed coefficients for the above three cases can be customized using the triggerLong, notTriggerLong, and triggerSpeed. Among them, triggerLong and notTriggerLong are percentages representing the percentage of the sliding distance to the container width, and triggerSpeed is a decimal between 0 and 1 representing the sliding speed coefficient.
 
@@ -56,8 +56,8 @@ Swiper has a series of transition animations when autoplaying. When there are a 
 
 The following two images show the performance monitoring comparison of desktop browsers processing a large number of transition animations when there are 30+ Swipers autoplaying on the same page in extreme cases:
 
--   When lazy autoplay is not enabled and there are 30+ transition animations being performed at the same time:
-    <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="Performance monitoring image when lazy autoplay is not enabled">
+- When lazy autoplay is not enabled and there are 30+ transition animations being performed at the same time:
+  <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="Performance monitoring image when lazy autoplay is not enabled">
 
--   When lazy autoplay is enabled and only 3-4 transition animations are being performed at the same time:
-    <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="Performance monitoring image when lazy autoplay is enabled">
+- When lazy autoplay is enabled and only 3-4 transition animations are being performed at the same time:
+  <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="Performance monitoring image when lazy autoplay is enabled">

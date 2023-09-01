@@ -22,12 +22,12 @@ In actual development, the data used for the Picker is usually obtained dynamica
 
 When there is no multi-level linkage:
 
--   You can customize the `label` property name for the column data passed in through the `Picker data Props` with `labelKey`. If not passed in, it defaults to `'label'`. See the example for details.
+- You can customize the `label` property name for the column data passed in through the `Picker data Props` with `labelKey`. If not passed in, it defaults to `'label'`. See the example for details.
 
 When there is multi-level linkage:
 
--   You can customize each level's `label` property name with `linkageLabelKeys`. If not passed in, it defaults to `'label'`. See the example for details.
--   You can customize the `children` property name for the upper and lower level data with `linkageChildrenKey`. If not passed in, it defaults to `'children'`. See the example for details.
+- You can customize each level's `label` property name with `linkageLabelKeys`. If not passed in, it defaults to `'label'`. See the example for details.
+- You can customize the `children` property name for the upper and lower level data with `linkageChildrenKey`. If not passed in, it defaults to `'children'`. See the example for details.
 
 ## Special Instructions
 
@@ -41,9 +41,9 @@ The Picker selector is based on Popup and encapsulated by predefining some Popup
 
 Radio, Checkbox, ActionSheet, IndexBar, Picker, and AsyncPicker components are essentially used to provide a series of data for users to choose from or to perform certain operations. However, there are some differences in usage:
 
--   Radio is generally used for single-choice data. The amount of data is fixed and relatively small, and options need to be displayed directly in the UI interface to facilitate the user to have an overview of the options during UI interaction, for example, gender selection.
--   Checkbox has a similar usage scenario to radio, but allows multiple selections.
--   ActionSheet is generally used for immediate execution of certain operations after selection. The options are fixed and relatively small, but do not need to be displayed directly in the UI interface, for example, performing some delete or modification operations.
--   IndexBar is generally used to select a single piece of data from a large amount of dynamic data that has already been categorized and indexed, and a whole page is usually used for display.
--   Picker is generally used to select one or more pieces of data from dynamic data with a larger quantity or an undefined length, or for the selection of some linked data. The data is determined when it is passed in, regardless of whether there is linkage or not.
--   AsyncPicker is generally used to select multiple pieces of data. The next-level data is obtained dynamically based on the upper-level data. For example, the server interface only returns one level of data at a time, and it is necessary to request the interface again to obtain the next-level data based on the upper-level data selected by the user.
+- Radio is generally used for single-choice data. The amount of data is fixed and relatively small, and options need to be displayed directly in the UI interface to facilitate the user to have an overview of the options during UI interaction, for example, gender selection.
+- Checkbox has a similar usage scenario to radio, but allows multiple selections.
+- ActionSheet is generally used for immediate execution of certain operations after selection. The options are fixed and relatively small, but do not need to be displayed directly in the UI interface, for example, performing some delete or modification operations.
+- IndexBar is generally used to select a single piece of data from a large amount of dynamic data that has already been categorized and indexed, and a whole page is usually used for display.
+- Picker is generally used to select one or more pieces of data from dynamic data with a larger quantity or an undefined length, or for the selection of some linked data. The data is determined when it is passed in, regardless of whether there is linkage or not.
+- AsyncPicker is generally used to select multiple pieces of data. The next-level data is obtained dynamically based on the upper-level data. For example, the server interface only returns one level of data at a time, and it is necessary to request the interface again to obtain the next-level data based on the upper-level data selected by the user.

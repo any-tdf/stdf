@@ -2,9 +2,9 @@
 
 In my opinion, pagination should not be based on scrolling up to load the next page. This interaction can cause user uncomfortable as there is no psychological expectation. Therefore, the STDF pagination component meet the following conditions by default:
 
--   The page change event must be triggered by the user.
--   The previous page, next page, first page, last page, and current page must always be displayed, and the user can directly click to jump to these key page numbers.
--   On mobile devices, the horizontal display area is limited. Nevertheless, users can still click on the ellipsis to jump to any page number.
+- The page change event must be triggered by the user.
+- The previous page, next page, first page, last page, and current page must always be displayed, and the user can directly click to jump to these key page numbers.
+- On mobile devices, the horizontal display area is limited. Nevertheless, users can still click on the ellipsis to jump to any page number.
 
 Of course, you can also configure it to **continuous mode**, that is, you are only allowed to click on the previous page and the next page. For example, some backend APIs must query the next page of data based on the previous page. But this will undoubtedly reduce the user experience.
 

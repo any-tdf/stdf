@@ -6,8 +6,8 @@
 
 ## Issue 规范
 
--   遇到问题时，请先确认这个问题是否已经在 issue 中有记录或者已被修复。
--   提 issue 时，请用简短的语言描述遇到的问题，并添加出现问题时的环境和复现步骤。
+- 遇到问题时，请先确认这个问题是否已经在 issue 中有记录或者已被修复。
+- 提 issue 时，请用简短的语言描述遇到的问题，并添加出现问题时的环境和复现步骤。
 
 ## 本地开发
 
@@ -58,22 +58,22 @@ npm run dev
 
 如果你是第一次在 GitHub 上提 Pull Request ，可以阅读下面这两篇文章来学习：
 
--   [第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
--   [如何优雅地在 GitHub 上贡献代码](https://segmentfault.com/a/1190000000736629)
+- [第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
+- [如何优雅地在 GitHub 上贡献代码](https://segmentfault.com/a/1190000000736629)
 
 ### 流程
 
--   请先 fork 一份 [STDF](https://github.com/dufu1991/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
--   克隆你的仓库至本地。
--   修改组件源码并在 Demo 中验证通过。
--   「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
--   提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
--   Pull Request 会在 Review 通过后被合并到主仓库，并发布新版本至 npm。
+- 请先 fork 一份 [STDF](https://github.com/dufu1991/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
+- 克隆你的仓库至本地。
+- 修改组件源码并在 Demo 中验证通过。
+- 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
+- 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
+- Pull Request 会在 Review 通过后被合并到主仓库，并发布新版本至 npm。
 
 ### 注意事项
 
 在提交 Pull Request 时，请注意：
 
--   保持你的 PR 足够小，一般一个 PR 只解决单个组件文件，解决单个问题或添加单个功能，以便于 Review。
--   当新增组件或者修改原有组件时，记得在 Demo 中验证通过，保证代码的稳定。
--   在 PR 中请添加合适的描述，如果有关联 Issue，请注明一下。
+- 保持你的 PR 足够小，一般一个 PR 只解决单个组件文件，解决单个问题或添加单个功能，以便于 Review。
+- 当新增组件或者修改原有组件时，记得在 Demo 中验证通过，保证代码的稳定。
+- 在 PR 中请添加合适的描述，如果有关联 Issue，请注明一下。

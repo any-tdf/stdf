@@ -24,6 +24,6 @@ To optimize the user experience, the entire area of RadioGroup can be clicked, w
 
 ActionSheet, Picker, and Radio are all used to give users options for data selection or to perform some actions. But when and how to use which component?
 
--   Radio is generally used for single-choice data with a fixed and small number of options, when you need to display the options directly in the UI for users to preview multiple data items during interaction, such as selecting gender.
--   ActionSheet is generally used when you need to immediately perform some operations after selecting, with a fixed and small number of options, but when you do not need to directly display the options in the UI, such as deleting or modifying items.
--   Picker is generally used when you need to select single or multiple items, with a large or undetermined number of dynamic data or when you need to select some linked data, such as selecting cities and districts.
+- Radio is generally used for single-choice data with a fixed and small number of options, when you need to display the options directly in the UI for users to preview multiple data items during interaction, such as selecting gender.
+- ActionSheet is generally used when you need to immediately perform some operations after selecting, with a fixed and small number of options, but when you do not need to directly display the options in the UI, such as deleting or modifying items.
+- Picker is generally used when you need to select single or multiple items, with a large or undetermined number of dynamic data or when you need to select some linked data, such as selecting cities and districts.

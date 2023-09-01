@@ -6,19 +6,19 @@ The TimePicker component is used to select time and supports single and multiple
 
 The TimePicker component determines the selected time type based on the type parameter passed in, which is composed of Y, M, D, h, m, and s. Currently, a total of 13 types are supported, and types not listed here will use the default 'YMDhms' type.
 
--   Y: Year
--   M: Month
--   h: Hour
--   m: Minute
--   s: Second
--   YM: Year and month
--   hm: Hour and minute
--   ms: Minute and second
--   YMD: Year, month, and day
--   hms: Hour, minute, and second
--   YMDh: Year, month, day, and hour
--   YMDhm: Year, month, day, hour, and minute
--   YMDhms: Year, month, day, hour, minute, and second
+- Y: Year
+- M: Month
+- h: Hour
+- m: Minute
+- s: Second
+- YM: Year and month
+- hm: Hour and minute
+- ms: Minute and second
+- YMD: Year, month, and day
+- hms: Hour, minute, and second
+- YMDh: Year, month, day, and hour
+- YMDhm: Year, month, day, hour, and minute
+- YMDhms: Year, month, day, hour, minute, and second
 
 ## Single Column Style
 

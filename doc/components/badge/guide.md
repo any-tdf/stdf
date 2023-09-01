@@ -17,4 +17,3 @@ Badge 组件默认位置是相对于主体内容右上角，左右和上下偏�
 通过 injClass 参数可以向 Badge 组件内部注入 CSS 名称（不仅限于 Tailwind CSS），这将使组件样式有更多自定义可能性，示例中通过 injClass 实现了自定义背景色与边框。
 
 若注入的 class 没生效，请在注入的 class 名称前添加“!” ，可参考 [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier)。
-

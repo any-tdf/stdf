@@ -14,6 +14,6 @@ The actions property of ActionSheet is an array, and each item in the array is a
 
 ActionSheet, Picker, and Radio all give data for users to select or perform some operations, but when to use which component?
 
--   Radio is generally used for single selection data, with a fixed and relatively small amount of data. It needs to directly display options on the UI interface, and is convenient for users to have an overview of multiple data when interacting with the interface, such as gender selection.
--   ActionSheet is generally used to immediately perform some operations after selection. The options are fixed and relatively small, but there is no need to directly display the options on the UI interface, such as deleting and modifying operations.
--   Picker is generally used to select single or multiple data, dynamic data with a large amount of data or an undetermined length, or for the selection of some linked data, such as province, city, and district selection.
+- Radio is generally used for single selection data, with a fixed and relatively small amount of data. It needs to directly display options on the UI interface, and is convenient for users to have an overview of multiple data when interacting with the interface, such as gender selection.
+- ActionSheet is generally used to immediately perform some operations after selection. The options are fixed and relatively small, but there is no need to directly display the options on the UI interface, such as deleting and modifying operations.
+- Picker is generally used to select single or multiple data, dynamic data with a large amount of data or an undetermined length, or for the selection of some linked data, such as province, city, and district selection.

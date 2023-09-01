@@ -1,7 +1,7 @@
 ## Button Props
 
 | property     | type    | default value | optional value                               | required | description                                       |
-|--------------|---------|---------------|----------------------------------------------|----------|---------------------------------------------------|
+| ------------ | ------- | ------------- | -------------------------------------------- | -------- | ------------------------------------------------- |
 | fill         | String  | 'base'        | base/line/lineLight/lineTheme/text/textTheme | N        | fill mode.                                        |
 | state        | String  | 'theme'       | theme/success/warning/error/info             | N        | Status color, theme means follow the theme color. |
 | radius       | String  | 'base'        | none/base/xl/2xl/full                        | N        | Rounded corner style.                             |
@@ -20,11 +20,11 @@
 ## Button Events
 
 | Name  | Parameters | Description       |
-|-------|------------|-------------------|
+| ----- | ---------- | ----------------- |
 | click | -          | Click to trigger. |
 
 ## Button Slots
 
 | Name | Description     |
-|------|-----------------|
+| ---- | --------------- |
 | -    | Button content. |

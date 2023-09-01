@@ -17,7 +17,7 @@ npm i stdf -D
 ```svelte
 <!-- Button Demo -->
 <script>
-import { Button } from 'stdf';
+	import { Button } from 'stdf';
 </script>
 
 <Button>Default</Button>
@@ -65,45 +65,45 @@ Note: The 'content' in the Tailwind configuration file represents all files that
 ```javascript
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    // ...
-    content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/**/*.svelte'],
-    theme: {
-        colors: {
-            // Theme Color
-            primary: '#0B24FB',
-            dark: '#FFC043',
-            blue: '#0B24FB', // primary alias
-            yellow: '#FFC043', // dark alias
+	// ...
+	content: ['./index.html', './src/**/*.svelte', './node_modules/stdf/**/*.svelte'],
+	theme: {
+		colors: {
+			// Theme Color
+			primary: '#0B24FB',
+			dark: '#FFC043',
+			blue: '#0B24FB', // primary alias
+			yellow: '#FFC043', // dark alias
 
-            // Extended Color
-            purple: '#7356BF',
-            green: '#05944F',
-            orange: '#FF6937',
+			// Extended Color
+			purple: '#7356BF',
+			green: '#05944F',
+			orange: '#FF6937',
 
-            // Functional Color
-            success: '#11BB8D',
-            warning: '#B95000',
-            error: '#DA1414',
-            info: '#2E5AAC',
+			// Functional Color
+			success: '#11BB8D',
+			warning: '#B95000',
+			error: '#DA1414',
+			info: '#2E5AAC',
 
-            // Neutral Color
-            black: '#000000',
-            white: '#fff',
-            gray1: '#23262B',
-            gray2: '#2A2B2F',
-            gray3: '#303239',
-            gray4: '#373940',
-            gray5: '#414249',
-            gray6: '#747B84',
-            gray7: '#DADEE3',
-            gray8: '#EBEEF2',
-            gray9: '#F4F6F9',
-            gray10: '#FAFAFB',
-            transparent: 'transparent',
-        },
-    },
-    darkMode: 'class',
-    // ...
+			// Neutral Color
+			black: '#000000',
+			white: '#fff',
+			gray1: '#23262B',
+			gray2: '#2A2B2F',
+			gray3: '#303239',
+			gray4: '#373940',
+			gray5: '#414249',
+			gray6: '#747B84',
+			gray7: '#DADEE3',
+			gray8: '#EBEEF2',
+			gray9: '#F4F6F9',
+			gray10: '#FAFAFB',
+			transparent: 'transparent',
+		},
+	},
+	darkMode: 'class',
+	// ...
 };
 ```
 

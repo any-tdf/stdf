@@ -5,10 +5,10 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
 ```svelte
 <!-- App.svelte -->
 <script>
-    import { setContext } from 'svelte'; // 引入 setContext
-    import en_US from 'stdf/lang/en_US'; // 导入语言文件
+	import { setContext } from 'svelte'; // 引入 setContext
+	import en_US from 'stdf/lang/en_US'; // 导入语言文件
 
-    setContext('STDF_lang', en_US); // 设置语言
+	setContext('STDF_lang', en_US); // 设置语言
 </script>
 ```
 

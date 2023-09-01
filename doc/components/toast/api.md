@@ -13,7 +13,7 @@
 | transitionParams | Object  | {}       | 参考 [svelte/transition](https://svelte.dev/docs#run-time-svelte-transition) | N    | 动画参数，其中 duration 默认 300。                                    |     |
 | outDuration      | Number  | 0        | -                                                                            | N    | 退出动画时间，单位：ms。                                              |     |
 | mask             | Object  | {}       | 参考 Mask Props                                                              | N    | 遮罩层参数。                                                          |     |
-| type             | String  | ''       | ''/'success'/'error'/'warning'/'info'/'loading'/SVG Sprites name                   | N    | 提示类型。                                                            |     |
+| type             | String  | ''       | ''/'success'/'error'/'warning'/'info'/'loading'/SVG Sprites name             | N    | 提示类型。                                                            |     |
 | loading          | Object  | {}       | 参考 Loading Props                                                           | N    | 加载组件参数，仅 type 为 'loading' 时生效。                           |     |
 | icon             | Object  | {}       | 参考 Icon Props                                                              | N    | 图标组件参数，type 非 '' 且非 'loading' 时生效。                      |     |
 | zIndex           | Number  | 1000     | -                                                                            | N    | z-index。                                                             |

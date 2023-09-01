@@ -24,23 +24,24 @@ Calendar can disable certain dates by passing disabledDates attribute; if range 
 
 When in range selection mode Calendar can enable quick selections via passing an array property called quickSelects:
 
--   When quickSelects contains 'week', clicking on current week will quickly select all dates within that same week.
--   When quickSelects contains 'month', clicking on current month will quickly select all dates within that same month.
--   When quickSelects contains 'quarter', clicking on current quarter will quickly select all dates within that same quarter.
--   When positive integers are included inside quickSelects array component internally displays corresponding future days' shortcut buttons (e.g., [3，7] shows shortcuts for next three days & seven days).
--   Similarly when negative integers are included inside quickSelects array component internally displays corresponding past few days' shortcut buttons (e.g., [-3,-7] shows shortcuts for last three & seven days).
--   By default when specifying number of days through Quick Select feature today's date isn't included but includeToday value can be modified accordingly - see example below.
-
+- When quickSelects contains 'week', clicking on current week will quickly select all dates within that same week.
+- When quickSelects contains 'month', clicking on current month will quickly select all dates within that same month.
+- When quickSelects contains 'quarter', clicking on current quarter will quickly select all dates within that same quarter.
+- When positive integers are included inside quickSelects array component internally displays corresponding future days' shortcut buttons (e.g., [3，7] shows shortcuts for next three days & seven days).
+- Similarly when negative integers are included inside quickSelects array component internally displays corresponding past few days' shortcut buttons (e.g., [-3,-7] shows shortcuts for last three & seven days).
+- By default when specifying number of days through Quick Select feature today's date isn't included but includeToday value can be modified accordingly - see example below.
 
 ## Return Date Format
+
 When user clicks confirm button located at bottom part of Calendar component it triggers confirm event which returns an array containing character data representing currently selected date(s). The format for each individual date depends upon outFormat parameter: Year corresponds with Y from outFormat while Month corresponds with M from outFormat and Day corresponds with D from outFormat - see example below.
 
-
 ## Month Watermark
+
 By setting monthMark property Calendar component decides whether watermark text displaying name(s)of months appears inside every calendar month view; since different languages have varying lengths for their respective names one may adjust font size via monthMarkSize property.
 ]=[]
 
 ### Note
+
 Calendar was built atop Popup module utilizing predefined Props thus allowing various effects achieved through properties passed into Popup object itself e.g., radius style change demonstrated via sample code snippet provided hereunder.
 
 Calendar's Confirm Button uses Button Component enabling customization options available through button parameter - refer to examples provided below.
