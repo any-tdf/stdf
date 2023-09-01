@@ -28,7 +28,6 @@
 
 ![SETTING](https://stdf.design/assets/vscode/setting.png)
 
-
 # 许可证
 
 本项目基于 [MIT 许可证](https://github.com/dufu1991/stdf/blob/main/LICENSE)。请随意享受并贡献给这个开源项目。

@@ -1,3 +1,8 @@
+# 0.0.9
+
+- Format source code.
+- Display the current version and the latest version of STDF.
+
 # 0.0.8
 
 - Optimized GitHub Actions configuration.
