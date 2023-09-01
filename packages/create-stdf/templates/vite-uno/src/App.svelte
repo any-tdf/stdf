@@ -91,8 +91,14 @@
 	<div class="my-8">
 		<Button heightIn="0" group fill="lineTheme">
 			<div class="flex divide-x">
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class="flex-1 py-2 active:opacity-80" on:click={reduceFunc}>-10</div>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class="flex-1 py-2 active:opacity-80" on:click={increaseFunc}>+10</div>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class="flex-1 py-2 active:opacity-80" on:click={() => (percent = 20)}>{isZh ? '重置' : 'Reset'}</div>
 			</div>
 		</Button>

@@ -85,76 +85,78 @@ else if (argvProjectName && argvTemplate) {
 		createFunc(argvProjectName, item);
 	}
 } else {
-	// 选择一种语言
-	// Select a language
-	const languageType = await p.select({
-		message: bold('Please select your preferred language'),
-		options: languages,
-	});
-	if (p.isCancel(languageType)) {
-		p.cancel(red('⛔ ') + lang.oc);
-		process.exit(0);
-	}
-	lang = langAll[languageType];
+	(async () => {
+		// 选择一种语言
+		// Select a language
+		const languageType = await p.select({
+			message: bold('Please select your preferred language'),
+			options: languages,
+		});
+		if (p.isCancel(languageType)) {
+			p.cancel(red('⛔ ') + lang.oc);
+			process.exit(0);
+		}
+		lang = langAll[languageType];
 
-	//  选择一个模板
-	// Select a template
-	let template = await p.select({
-		message: bold(lang.psat),
-		options: templateOptions,
-	});
+		//  选择一个模板
+		// Select a template
+		let template = await p.select({
+			message: bold(lang.psat),
+			options: templateOptions,
+		});
 
-	if (p.isCancel(template)) {
-		p.cancel(red('⛔ ') + lang.oc);
-		process.exit(0);
-	}
-
-	// 直到选择的 template 所在项 的 finish 为 true 为止，否则一直重新选择
-	// Until the finish of the selected template is true, otherwise keep reselecting
-	while (!templateOptions.find(item => item.value === template)?.finish) {
 		if (p.isCancel(template)) {
 			p.cancel(red('⛔ ') + lang.oc);
 			process.exit(0);
 		}
 
-		p.intro(red(templateOptions.find(item => item.value === template).label + ' ' + lang.hnay + ' ' + lang.pca));
-		template = await p.select({
-			message: bold(lang.psat),
-			options: templateOptions,
-		});
-	}
-
-	// 输入项目名称
-	// Enter the project name
-	const projectName = await p.text({
-		message: bold(lang.pn),
-		placeholder: 'stdf-project',
-		validate: value => {
-			if (!value) {
-				// 判断是否为空，提示 “项目名称不能为空”
-				// Determine whether it is empty, prompt "Project name cannot be empty"
-				return lang.pncbne;
+		// 直到选择的 template 所在项 的 finish 为 true 为止，否则一直重新选择
+		// Until the finish of the selected template is true, otherwise keep reselecting
+		while (!templateOptions.find(item => item.value === template)?.finish) {
+			if (p.isCancel(template)) {
+				p.cancel(red('⛔ ') + lang.oc);
+				process.exit(0);
 			}
-			if (fs.existsSync(value)) {
-				// 判断是否已存在，提示 “项目名称已存在”
-				// Determine whether it already exists, prompt "Project name already exists"
-				return lang.pane;
-			}
-		},
-	});
 
-	if (p.isCancel(projectName)) {
-		p.cancel(red('⛔ ') + lang.oc);
-		process.exit(0);
-	}
-
-	// 根据 template 的值，复制对应目录下的所有文件到当前目录
-	// According to the value of template, copy all files under the corresponding directory to the current directory
-	templateOptions.forEach(async item => {
-		if (item.value === template) {
-			createFunc(projectName, item);
+			p.intro(red(templateOptions.find(item => item.value === template).label + ' ' + lang.hnay + ' ' + lang.pca));
+			template = await p.select({
+				message: bold(lang.psat),
+				options: templateOptions,
+			});
 		}
-	});
+
+		// 输入项目名称
+		// Enter the project name
+		const projectName = await p.text({
+			message: bold(lang.pn),
+			placeholder: 'stdf-project',
+			validate: value => {
+				if (!value) {
+					// 判断是否为空，提示 “项目名称不能为空”
+					// Determine whether it is empty, prompt "Project name cannot be empty"
+					return lang.pncbne;
+				}
+				if (fs.existsSync(value)) {
+					// 判断是否已存在，提示 “项目名称已存在”
+					// Determine whether it already exists, prompt "Project name already exists"
+					return lang.pane;
+				}
+			},
+		});
+
+		if (p.isCancel(projectName)) {
+			p.cancel(red('⛔ ') + lang.oc);
+			process.exit(0);
+		}
+
+		// 根据 template 的值，复制对应目录下的所有文件到当前目录
+		// According to the value of template, copy all files under the corresponding directory to the current directory
+		templateOptions.forEach(async item => {
+			if (item.value === template) {
+				createFunc(projectName, item);
+			}
+		});
+	})();
 }
 
 function createFunc(projectName, item) {

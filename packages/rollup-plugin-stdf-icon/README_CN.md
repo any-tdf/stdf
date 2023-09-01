@@ -47,7 +47,7 @@ export default defineConfig({
 
 如果需要修改输入输出文件夹以及合并的文件名，或者同时需要合并多个文件夹，可以在 vite.config.js 或 vite.config.ts 中修改配置：
 
-```js
+```javascript
 // ...
     svgSprite([
         { inFile: 'src/lib/svgs', outFile: 'static/fonts', fileName: 'symbol' },

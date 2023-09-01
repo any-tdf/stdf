@@ -47,7 +47,7 @@ Generally, you can simply place the SVG files in the default input folder withou
 
 If you need to modify the input/output folders and the filename of the combined file, or if you need to combine multiple folders, you can customize the configuration in vite.config.js or vite.config.ts:
 
-```js
+```javascript
 // ...
     svgSprite([
         { inFile: 'src/lib/svgs', outFile: 'static/fonts', fileName: 'symbol' },
