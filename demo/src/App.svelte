@@ -11,7 +11,7 @@
 	// Cycle menuList, and combine the childs of all elements into an array
 	const menuListArr = menuList.reduce((acc, cur) => {
 		if (cur.childs) {
-			acc.push(...cur.childs)
+			acc.push(...cur.childs);
 		}
 		return acc;
 	}, []);
