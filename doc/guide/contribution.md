@@ -19,7 +19,7 @@
 
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
 
->由于 Demo 依赖的 stdf 和 rollup-plugin-stdf-icon 包都是本地构建的，所以请先构建一下这两个包。
+> 由于 Demo 依赖的 stdf 和 rollup-plugin-stdf-icon 包都是本地构建的，所以请先构建一下这两个包。
 
 ```bash
 ## 克隆 STDF 仓库

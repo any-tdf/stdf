@@ -19,7 +19,7 @@ Debugging STDF requires an engineering environment. For this purpose, a simple D
 
 Follow the steps below to quickly start the STDF Demo locally.
 
->Because the stdf and rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build these two packages first.
+> Because the stdf and rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build these two packages first.
 
 ```bash
 ## Clone STDF repository

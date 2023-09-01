@@ -1,1 +1,74 @@
-node_modules
+/.idea
+/.vscode
+
+.DS_Store
+/node_modules
+pnpm-lock.yaml
+/scripts
+
+# 忽略 demo 相关文件 ignore demo related files
+/demo/node_modules
+/demo/dist
+/demo/dist-ssr
+/demo/*.local
+/demo/.vscode
+/demo/deploy.js
+/demo/Refresh.py
+/demo/RefreshAndPredload.log
+/demo/pnpm-lock.yaml
+/demo/public/fonts
+
+# 忽略全部 site 和 publish 文件
+/site
+publish.md
+publish_en.md
+
+# 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages
+/packages/stdf/pnpm-lock.yaml
+/packages/stdf/node_modules
+/packages/stdf/dist
+
+# 忽略 packages 中 create-stdf 本地构建的文件 ignore the files built by create-stdf in packages
+/packages/create-stdf/pnpm-lock.yaml
+/packages/create-stdf/node_modules
+/packages/create-stdf/dist
+
+# 忽略 packages 中 create-stdf 模板中的 node_modules ignore node_modules in create-stdf templates
+/packages/create-stdf/templates/vite-tailwind/node_modules
+/packages/create-stdf/templates/vite-tailwind/pnpm-lock.yaml
+/packages/create-stdf/templates/vite-tailwind/public/fonts
+/packages/create-stdf/templates/vite-tailwind/dist
+
+/packages/create-stdf/templates/vite-uno/node_modules
+/packages/create-stdf/templates/vite-uno/pnpm-lock.yaml
+/packages/create-stdf/templates/vite-uno/public/fonts
+/packages/create-stdf/templates/vite-uno/dist
+
+/packages/create-stdf/templates/sveltekit-tailwind/node_modules
+/packages/create-stdf/templates/sveltekit-tailwind/pnpm-lock.yaml
+/packages/create-stdf/templates/sveltekit-tailwind/static/fonts
+/packages/create-stdf/templates/sveltekit-tailwind/static/symbols
+/packages/create-stdf/templates/sveltekit-tailwind/.svelte-kit
+
+/packages/create-stdf/templates/sveltekit-uno/node_modules
+/packages/create-stdf/templates/sveltekit-uno/pnpm-lock.yaml
+/packages/create-stdf/templates/sveltekit-uno/static/fonts
+/packages/create-stdf/templates/sveltekit-uno/static/symbols
+/packages/create-stdf/templates/sveltekit-uno/.svelte-kit
+
+# 忽略 packages 中 rollup-plugin-stdf-icon 本地构建的文件 ignore the files built by rollup-plugin-stdf-icon in packages
+/packages/rollup-plugin-stdf-icon/pnpm-lock.yaml
+/packages/rollup-plugin-stdf-icon/node_modules
+/packages/rollup-plugin-stdf-icon/dist
+
+# 忽略 packages 中 vscode-extension 本地构建的文件 ignore the files built by vscode-extension in packages
+/packages/vscode-extension/pnpm-lock.yaml
+/packages/vscode-extension/node_modules
+/packages/vscode-extension/.vscode
+/packages/vscode-extension/.vscodeignore
+/packages/vscode-extension/src/doc
+/packages/vscode-extension/src/menuList.js
+
+
+
+
