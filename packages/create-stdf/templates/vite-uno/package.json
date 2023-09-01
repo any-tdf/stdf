@@ -1,21 +1,21 @@
 {
-    "name": "stdf-project",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview"
-    },
-    "devDependencies": {
-        "@sveltejs/vite-plugin-svelte": "^2.4.5",
-        "@unocss/extractor-svelte": "^0.54.2",
-        "@unocss/reset": "^0.54.2",
-        "stdf": "file:../../../stdf",
-        "svelte": "^4.1.1",
-        "unocss": "^0.53.6",
-        "vite": "^4.4.6",
-        "rollup-plugin-stdf-icon": "file:../../../rollup-plugin-stdf-icon"
-    }
+	"name": "stdf-project",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "^2.4.5",
+		"@unocss/extractor-svelte": "^0.54.2",
+		"@unocss/reset": "^0.54.2",
+		"stdf": "file:../../../stdf",
+		"svelte": "^4.1.1",
+		"unocss": "^0.53.6",
+		"vite": "^4.4.6",
+		"rollup-plugin-stdf-icon": "file:../../../rollup-plugin-stdf-icon"
+	}
 }

@@ -1,4 +1,3 @@
-
 [简体中文](https://github.com/dufu1991/stdf/blob/main/packages/create-stdf/README_CN.md)
 
 # create-stdf

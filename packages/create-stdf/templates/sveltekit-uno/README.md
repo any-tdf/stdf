@@ -4,9 +4,9 @@ This template should help get you started developing with Svelte + UnoCSS + STDF
 
 ## Recommended IDE Setup
 
--   [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) + [STDF](https://stdf.design) .
+- [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) + [STDF](https://stdf.design) .
 
--   [WebStorm](https://www.jetbrains.com/webstorm/) + [Svelte](https://www.jetbrains.com/help/webstorm/svelte.html) + [UnoCSS](https://plugins.jetbrains.com/plugin/22204-unocss) + [STDF](https://stdf.design) .
+- [WebStorm](https://www.jetbrains.com/webstorm/) + [Svelte](https://www.jetbrains.com/help/webstorm/svelte.html) + [UnoCSS](https://plugins.jetbrains.com/plugin/22204-unocss) + [STDF](https://stdf.design) .
 
 ## More Info
 

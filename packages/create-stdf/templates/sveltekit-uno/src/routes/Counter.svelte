@@ -1,9 +1,9 @@
 <script>
-    import { Progress } from 'stdf';
+	import { Progress } from 'stdf';
 
-    export let percent = 20;
+	export let percent = 20;
 </script>
 
 <div class="p-4">
-    <Progress {percent} />
+	<Progress {percent} />
 </div>
