@@ -3,18 +3,18 @@
 name: SYNC GITEE
 
 on:
-    schedule:
-        - cron: '0 1 * * *'
+  schedule:
+    - cron: '0 1 * * *'
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Black list
-              uses: Yikun/hub-mirror-action@master
-              with:
-                  src: github/dufu1991
-                  dst: gitee/dufu1991
-                  dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-                  dst_token: ${{ secrets.GITEE_TOKEN }}
-                  static_list: 'stdf'
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Black list
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/dufu1991
+          dst: gitee/dufu1991
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: 'stdf'

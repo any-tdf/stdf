@@ -3,38 +3,38 @@
 name: PUBLISH CREATE
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'packages/create-stdf/package.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/create-stdf/package.json'
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
+  publish:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 18.x
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
 
-            # cd packages/create-stdf 目录下
-            # 安装依赖 npm install
-            # 打包 npm run build
-            # 执行 npm run update
-            # 发布 create-stdf 到 npm
-            - name: Publish
-              run: |
-                  cd packages/create-stdf
-                  npm install
-                  npm run build
-                  npm run update
-                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-                  npm publish
-              env:
-                  CI: true
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_CREATE }}
+      # cd packages/create-stdf 目录下
+      # 安装依赖 npm install
+      # 打包 npm run build
+      # 执行 npm run update
+      # 发布 create-stdf 到 npm
+      - name: Publish
+        run: |
+          cd packages/create-stdf
+          npm install
+          npm run build
+          npm run update
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm publish
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_CREATE }}

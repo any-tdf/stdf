@@ -3,33 +3,33 @@
 name: PUBLISH VSCODE
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'packages/vscode-extension/package.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/vscode-extension/package.json'
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
+  publish:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Setup Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 18.x
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
 
-            # cd 到 packages/vscode-extension 目录
-            # 执行 doc && list
-            # 安装依赖
-            - name: Publish
-              run: |
-                  cd packages/vscode-extension
-                  npm run doc
-                  npm run list
-                  npm install
-                  npm install -g @vscode/vsce
-                  vsce publish -p ${{ secrets.VSCE_TOKEN }}
+      # cd 到 packages/vscode-extension 目录
+      # 执行 doc && list
+      # 安装依赖
+      - name: Publish
+        run: |
+          cd packages/vscode-extension
+          npm run doc
+          npm run list
+          npm install
+          npm install -g @vscode/vsce
+          vsce publish -p ${{ secrets.VSCE_TOKEN }}
