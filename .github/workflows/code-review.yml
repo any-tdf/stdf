@@ -3,7 +3,7 @@
 name: CODE REVIEW
 
 on:
-  pull_requset:
+  pull_request:
     branches:
       - main
 
