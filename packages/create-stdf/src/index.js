@@ -11,7 +11,7 @@ import * as langAll from './lang';
 
 // 获取版本号
 // Get version
-const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'))
+const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
 
 // 显示版本号
 // Display version number
