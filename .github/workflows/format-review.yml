@@ -1,6 +1,6 @@
 # 当有人提交 PR 请求时自动进行代码检查，检查通过后才能合并代码，不通过给出错误提示
 
-name: CODE REVIEW
+name: FORMAT REVIEW
 
 on:
   pull_request:

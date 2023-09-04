@@ -8,7 +8,7 @@
 [![Public Icon Status](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml)
 [![Public VS Code Extension Status](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/dufu1991/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/sync-gitee.yml)
-[![Code Review Status](https://github.com/dufu1991/stdf/actions/workflows/code-review.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/code-review.yml)
+[![Format Review Status](https://github.com/dufu1991/stdf/actions/workflows/format-review.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/format-review.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
