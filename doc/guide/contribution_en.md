@@ -25,15 +25,11 @@ Recommended installations:
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/eslint.html): Code formatting check plugin.
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/prettier.html): Code formatting plugin.
 
-> Because the stdf and rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build these two packages first.
+> Because the rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build this packages first.
 
 ```bash
 ## Clone STDF repository
 git clone git@github.com:dufu1991/stdf.git
-
-## build STDF package
-cd packages/stdf
-npm run dist
 
 ## build rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
