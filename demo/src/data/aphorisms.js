@@ -22,6 +22,7 @@ export default [
 	},
 	{ text: '御剑乘风来，除魔天地间，有酒乐逍遥，无酒我亦癫。一饮尽江河，再饮吞日月，千杯醉不倒，唯我酒剑仙。', from: '—— 酒剑仙' },
 	{ text: '最美的不是下雨天，是曾与你躲过雨的屋檐。', from: '—— 周杰伦《不能说的秘密》' },
+
 	// English
 	{ text: 'All the splendor in the world is not worth a good friend.', from: '— Voltaire' },
 	{ text: 'Continuous labor is the life of the iron law, also the art of iron.', from: '— Balzac' },

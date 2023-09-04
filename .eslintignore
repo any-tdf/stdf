@@ -4,7 +4,7 @@
 .DS_Store
 /node_modules
 pnpm-lock.yaml
-/scripts
+/backup
 
 # 忽略 demo 相关文件 ignore demo related files
 /demo/node_modules
@@ -20,8 +20,8 @@ pnpm-lock.yaml
 
 # 忽略全部 site 和 publish 文件
 /site
-publish.md
-publish_en.md
+/publish.md
+/publish_en.md
 
 # 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages
 /packages/stdf/pnpm-lock.yaml

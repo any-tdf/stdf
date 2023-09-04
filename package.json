@@ -1,26 +1,17 @@
 {
 	"name": "stdf",
-	"version": "1.0.0",
-	"description": "<div align=\"center\">",
-	"main": "index.js",
-	"directories": {
-		"doc": "doc"
-	},
+	"version": "0.0.0",
+	"description": "Format code and lint code",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"lint": "eslint --ext .svelte,.js,.json ./demo",
-		"format": "prettier --write ./demo/**/*.{js,json,svelte,ts,css,html,cjs,md}  ",
-		"check": "prettier ./demo --check",
-		"lint-md": "lint-md ./**/*"
+		"format": "prettier . --write --plugin prettier-plugin-svelte",
+		"lint": "eslint --ext .js,.svelte,.json,.ts,.cjs ."
 	},
-	"author": "",
-	"license": "ISC",
+	"author": "dufu1991",
+	"license": "MIT",
 	"devDependencies": {
-		"@lint-md/cli": "^2.0.0",
 		"eslint": "^8.48.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-json": "^3.1.0",
-		"eslint-plugin-markdown": "^3.0.1",
 		"eslint-plugin-prettier": "^5.0.0",
 		"eslint-plugin-svelte": "^2.33.0",
 		"prettier-plugin-svelte": "^3.0.3",
