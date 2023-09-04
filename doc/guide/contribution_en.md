@@ -19,7 +19,7 @@ Before submitting a PR after you have made code modifications, please ensure tha
 
 Recommended installations:
 
-- [pnpm](https://pnpm.io/zh): Package management tool.
+- [pnpm](https://pnpm.io): Package management tool.
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte): Svelte development plugin.
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/tailwind-css.html): Tailwind CSS development plugin.
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/eslint.html): Code formatting check plugin.
