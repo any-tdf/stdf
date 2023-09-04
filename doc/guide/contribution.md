@@ -15,7 +15,15 @@
 
 调试 STDF 必须要有个工程环境，为此提供了一个简单的 Demo 工程。STDF 本身不受 Node 版本限制，Demo 使用 Vite 开发，所以请确保你的 Node.js 版本 >= 14.18+，参考 [Vite 官网](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
-> 推荐：使用 [pnpm](https://pnpm.io/zh) 进行包管理；安装针对 Svelte 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) 或者 [WebStorm 插件](https://plugins.jetbrains.com/plugin/12375-svelte) 进行开发；安装针对 Tailwind 的 [VSCode 插件](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)，WebStorm 默认集成，[了解更多](https://www.jetbrains.com/help/webstorm/tailwind-css.html)。
+当你修改完成代码之后，提交 PR 之前请确保对代码进行了格式化并通过代码格式检查，可安装相关编辑器插件或通过命令行进行格式化。
+
+推荐安装：
+
+- [pnpm](https://pnpm.io/zh)：包管理工具。
+- [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) 或者 [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)：Svelte 开发插件。
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/tailwind-css.html)：Tailwind CSS 开发插件。
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/eslint.html)：代码格式检查插件。
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/prettier.html)：代码格式化插件。
 
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
 
@@ -67,8 +75,11 @@ npm run dev
 - 克隆你的仓库至本地。
 - 修改组件源码并在 Demo 中验证通过。
 - 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
+- 到仓库根目录，执行 `pnpm i` 或 `npm i` 安装依赖。
+- 利用编辑器格式化你修改过的代码，或者执行 `pnpm run format` 或 `npm run format` 命令行格式化代码。
+- 执行 `pnpm run lint` 或 `npm run lint` 检查代码格式。
 - 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
-- Pull Request 会在 Review 通过后被合并到主仓库，并发布新版本至 npm。
+- Pull Request 会在 Review 通过后被合并到主仓库，后续发布新版。
 
 ### 注意事项
 
