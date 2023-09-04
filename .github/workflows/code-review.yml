@@ -1,0 +1,28 @@
+# 当有人提交 PR 请求时自动进行代码检查，检查通过后才能合并代码，不通过给出错误提示
+
+name: CODE REVIEW
+
+on:
+  pull_requset:
+    branches:
+      - main
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: npm install
+
+      ## 执行 npm run lint 检查代码
+      - name: Run code review
+        run: |
+          npm run lint
