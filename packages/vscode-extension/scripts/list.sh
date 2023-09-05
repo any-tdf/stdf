@@ -2,9 +2,9 @@
 # Copy ../../demo/src/data/menuList.js file to src directory
 cp ../../demo/src/data/menuList.js src
 
-# 将 src/menuList.js 文件中的 export default 替换为 module.exports =
-# Replace export default in src/menuList.js file with module.exports =
-sed -i 's/export default/module.exports =/g' src/menuList.js
+# 将 src/menuList.js 文件中的第一行替换为 module.exports = [
+# Replace the first line of the src/menuList.js file with module.exports = [
+sed -i '1s/.*/module.exports = [/' src/menuList.js
 
 # 成功提示
 # Success prompt

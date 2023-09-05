@@ -1,3 +1,7 @@
+## 0.0.10
+
+- Fixed known issues.
+
 ## 0.0.9
 
 - Format source code.
