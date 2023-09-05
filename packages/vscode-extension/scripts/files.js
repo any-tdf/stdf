@@ -30,6 +30,24 @@ const copyDoc = () => {
 	});
 };
 
+// 复制 ../../demo/src/data/menuList.js 文件到 src 目录下
+// Copy ../../demo/src/data/menuList.js file to src directory
+const copyMenuList = () => {
+	fs.copyFileSync('../../demo/src/data/menuList.js', './src/menuList.js');
+	console.log('🎉 menuList copy success!');
+};
+
+// 将 src/menuList.js 文件中的第一行替换为 module.exports = [
+// Replace the first line of the src/menuList.js file with module.exports = [
+const replaceMenuList = () => {
+	const data = fs.readFileSync('./src/menuList.js', 'utf8');
+	const dataArray = data.split('\n');
+	dataArray.splice(0, 1, 'module.exports = [');
+	const result = dataArray.join('\n');
+	fs.writeFileSync('./src/menuList.js', result, 'utf8');
+	console.log('🎉 menuList replace success!');
+};
+
 // 复制 ../../LICENSE 文件到 ./ 目录下
 // Copy ../../LICENSE file to ./ directory
 const copyLicense = () => {
@@ -39,4 +57,6 @@ const copyLicense = () => {
 
 createDoc();
 copyDoc();
+copyMenuList();
+replaceMenuList();
 copyLicense();
