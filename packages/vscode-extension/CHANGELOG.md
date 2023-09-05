@@ -1,6 +1,6 @@
-## 0.0.13
+## 0.0.14
 
-- Fixed known issues.(0.0.10 - 0.0.13)
+- Fixed known issues.(0.0.10 - 0.0.14)
 
 ## 0.0.9
 

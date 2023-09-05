@@ -1,9 +1,10 @@
 const vscode = require('vscode');
 const path = require('path');
 
-// 读取 stdf 组件库的最新版本号，文件位置为 ./package.json
-// Read the latest version number of the stdf component library, the file location is ./package.json
-const latestVersion = require('./package.json').version;
+// 读取 ./doc/package.json 文件
+// Read the ./doc/package.json file
+const stdfPackage = require('./doc/package.json');
+const latestVersion = stdfPackage.version;
 
 // 组件列表
 // components list
