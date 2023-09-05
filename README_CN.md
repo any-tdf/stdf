@@ -22,6 +22,7 @@
 [![NPM Installs](https://flat.badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
 [![NPM Minzip](https://flat.badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
 [![NPM Dependency](https://flat.badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
+
 [![Create Version](https://flat.badgen.net/npm/v/create-stdf?label=create&icon=npm&color=45a1e2)](https://www.npmjs.com/package/create-stdf)
 [![Icon Version](https://flat.badgen.net/npm/v/rollup-plugin-stdf-icon?label=icon&icon=npm&color=d67d49)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
 [![VSCode-extension Version](https://flat.badgen.net/vs-marketplace/v/STDF.stdf-vscode-extension?icon=visualstudio&color=ec6e71)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
