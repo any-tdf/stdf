@@ -69,6 +69,7 @@ publish_en.md
 /packages/vscode-extension/LICENSE
 /packages/vscode-extension/src/doc
 /packages/vscode-extension/src/menuList.js
+/packages/vscode-extension/src/package.json
 
 
 

@@ -1,6 +1,10 @@
 const vscode = require('vscode');
 const path = require('path');
 
+// 读取 stdf 组件库的最新版本号，文件位置为 ./package.json
+// Read the latest version number of the stdf component library, the file location is ./package.json
+const latestVersion = require('./package.json').version;
+
 // 组件列表
 // components list
 const componentListOrgin = require('./menuList');
@@ -31,10 +35,6 @@ function activate() {
 		currentVersion = currentVersion.slice(1);
 	}
 
-	// 读取 stdf 组件库的最新版本号，文件位置为 ../../stdf/package.json
-	// Read the latest version number of the stdf component library, the file location is ../../stdf/package.json
-	const latestVersion = require('../../stdf/package.json').version;
-
 	// 当前文件是 .svelte 文件时且 isImportStdf 为 true 时，才注册悬浮提示
 	// When the current file is a .svelte file and isImportStdf is true, register the hover prompt
 	if (vscode.window.activeTextEditor.document.languageId === 'svelte' && isImportStdf) {
@@ -46,8 +46,8 @@ function activate() {
 				// 将单词首字母小写
 				// Lowercase the first letter of the word
 				const wordLower = word.charAt(0).toLowerCase() + word.slice(1);
-				// 如果单词为 components 数组中的一项，则显示提示信息，内容为 ../../doc/components/${componentspaths}/api.md 文件的内容
-				// If the word is an item in the components array, the prompt information is displayed, and the content is the content of the ../../doc/components/${componentspaths}/api.md file
+				// 如果单词为 components 数组中的一项，则显示提示信息，内容为 ./doc/components/${wordLower}/api.md 文件的内容
+				// If the word is an item in the components array, display the prompt information, and the content is the content of the ./doc/components/${wordLower}/api.md file
 				if (componentList.includes(word)) {
 					// 组合当前 STDF 版本和最新版本
 					// Combine the current STDF version and the latest version

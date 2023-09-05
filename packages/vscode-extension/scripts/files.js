@@ -24,10 +24,10 @@ const copyDoc = () => {
 		files.forEach(file => {
 			if (file === 'api.md' || file === 'api_en.md') {
 				fs.copyFileSync(`../../doc/components/${component}/${file}`, `src/doc/components/${component}/${file}`);
-				console.log(`🎉 ${component}/${file} copy success!`);
 			}
 		});
 	});
+	console.log(`🎉 Total copy ${components.length}*2 files!`);
 };
 
 // 复制 ../../demo/src/data/menuList.js 文件到 src 目录下
@@ -48,6 +48,13 @@ const replaceMenuList = () => {
 	console.log('🎉 menuList replace success!');
 };
 
+// 复制 ../../packages/stdf/package.json 文件到 src 目录下
+// Copy ../../packages/stdf/package.json file to src directory
+const copyPackageJson = () => {
+	fs.copyFileSync('../../packages/stdf/package.json', './src/package.json');
+	console.log('🎉 package.json copy success!');
+};
+
 // 复制 ../../LICENSE 文件到 ./ 目录下
 // Copy ../../LICENSE file to ./ directory
 const copyLicense = () => {
@@ -59,4 +66,5 @@ createDoc();
 copyDoc();
 copyMenuList();
 replaceMenuList();
+copyPackageJson();
 copyLicense();
