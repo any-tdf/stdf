@@ -22,13 +22,11 @@ jobs:
         with:
           node-version: 18.x
 
-      # 将 LICENSE 复制到 packages/vscode-extension 目录下
       # cd 到 packages/vscode-extension 目录
       # 执行 doc && list
       # 安装依赖
       - name: Publish
         run: |
-          cp LICENSE packages/vscode-extension/LICENSE
           cd packages/vscode-extension
           npm run doc
           npm run list
