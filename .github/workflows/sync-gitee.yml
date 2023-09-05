@@ -1,13 +1,13 @@
-# 北京时间每天 9 点自动将 GitHub 仓库同步到 Gitee
+# 每天 3 点自动将 GitHub 仓库同步到 Gitee
 
 name: SYNC GITEE
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 3 * * *'
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Black list

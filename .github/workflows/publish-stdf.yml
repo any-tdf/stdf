@@ -22,10 +22,11 @@ jobs:
         with:
           node-version: 18.x
 
-      # 将 README.md 复制到 packages/stdf 目录下
-      - name: Copy README
+      # 将 README.md 和 LICENSE 复制到 packages/stdf 目录下
+      - name: Copy Files
         run: |
           cp README.md packages/stdf/README.md
+          cp LICENSE packages/stdf/LICENSE
 
       # cd packages/stdf 目录下
       # 发布 stdf 到 npm

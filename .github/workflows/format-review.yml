@@ -1,4 +1,4 @@
-# 当有人提交 PR 请求时自动进行代码检查，检查通过后才能合并代码，不通过给出错误提示
+# 当有人提交 PR 时自动进行代码检查
 
 name: FORMAT REVIEW
 
@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  code-review:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      ## 执行 npm run lint 检查代码
       - name: Run code review
         run: |
           npm run lint

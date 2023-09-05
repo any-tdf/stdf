@@ -10,7 +10,7 @@ on:
       - 'demo/**'
 
 jobs:
-  build-and-deploy:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,12 +36,14 @@ jobs:
         run: |
           echo rollup-plugin-stdf-icon-version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
+      # 将 stdf/LICENSE 复制到 stdf/demo 目录下
       # cd 到 stdf/demo 文件内，初始化本地仓库
       # 将 demo/package.json 内的 file:../packages/stdf 替换为 ^${{ steps.version.outputs.version }}
       # 将 demo/package.json 内的 file:../packages/rollup-plugin-stdf-icon 替换为 ^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
       # 将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
       - name: Init stdf demo
         run: |
+          cp stdf/LICENSE stdf/demo/LICENSE
           cd stdf/demo
           git init
           git config --global user.name 'GitHub Actions'
