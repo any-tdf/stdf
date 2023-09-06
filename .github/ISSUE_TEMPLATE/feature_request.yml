@@ -19,7 +19,7 @@ body:
       label: Module
       description: Which module does this new feature belong to?
       options:
-        - stdf (STDF component, default)
+        - stdf (STDF component)
         - create (create-stdf scaffolding)
         - vscode (STDF VS Code plugin)
         - icon (rollup-plugin-stdf-icon plugin)

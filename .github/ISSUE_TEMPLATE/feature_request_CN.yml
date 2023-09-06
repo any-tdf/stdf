@@ -19,7 +19,7 @@ body:
       label: 模块
       description: 此新功能属于哪个模块？
       options:
-        - stdf (STDF 组件，默认)
+        - stdf (STDF 组件)
         - create (create-stdf 脚手架)
         - vscode (STDF VS Code 插件)
         - icon (rollup-plugin-stdf-icon 插件)

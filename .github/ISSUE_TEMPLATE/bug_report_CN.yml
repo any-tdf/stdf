@@ -19,7 +19,7 @@ body:
       label: 模块
       description: 此缺陷属于哪个模块？
       options:
-        - stdf (STDF 组件，默认)
+        - stdf (STDF 组件)
         - create (create-stdf 脚手架)
         - vscode (STDF VS Code 插件)
         - icon (rollup-plugin-stdf-icon 插件)
@@ -34,7 +34,7 @@ body:
     id: version
     attributes:
       label: 版本
-      description: 如果是 [stdf] [create] [icon] [vscode] ，请注明此缺陷出现的版本。
+      description: 如果是选择的是 stdf、create、icon、vscode，请注明此缺陷出现的版本。
     validations:
       required: false
 
