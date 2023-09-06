@@ -8,7 +8,6 @@
 [![Public Icon Status](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-icon.yml)
 [![Public VS Code Extension Status](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/dufu1991/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/sync-gitee.yml)
-[![Format Review Status](https://github.com/dufu1991/stdf/actions/workflows/format-review.yml/badge.svg)](https://github.com/dufu1991/stdf/actions/workflows/format-review.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
@@ -16,15 +15,15 @@
   </picture>
   <h1>S T D F</h1>
 
-[![NPM Version](https://flat.badgen.net/npm/v/stdf?color=cb3837)](https://www.npmjs.com/package/stdf)
+[![NPM Version](https://flat.badgen.net/npm/v/stdf?label=stdf&icon=npm&color=cb3837)](https://www.npmjs.com/package/stdf)
 [![Github Stars](https://flat.badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
 [![License](https://flat.badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
 [![NPM Installs](https://flat.badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
 [![NPM Minzip](https://flat.badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
 [![NPM Dependency](https://flat.badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
 
-[![Create Version](https://flat.badgen.net/npm/v/create-stdf?label=create&icon=npm&color=45a1e2)](https://www.npmjs.com/package/create-stdf)
-[![Icon Version](https://flat.badgen.net/npm/v/rollup-plugin-stdf-icon?label=icon&icon=npm&color=d67d49)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
+[![Create Version](https://flat.badgen.net/npm/v/create-stdf?label=create&icon=npm&color=2d2fe9)](https://www.npmjs.com/package/create-stdf)
+[![Icon Version](https://flat.badgen.net/npm/v/rollup-plugin-stdf-icon?label=icon&icon=npm&color=d62c9b)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
 [![VSCode-extension Version](https://flat.badgen.net/vs-marketplace/v/STDF.stdf-vscode-extension?icon=visualstudio&color=ec6e71)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
