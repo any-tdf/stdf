@@ -1,6 +1,6 @@
 {
 	"name": "rollup-plugin-stdf-icon",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "A Rollup plugin that combines a series of svg into one symbol for use in the STDF project",
 	"main": "dist/index.js",
 	"scripts": {
@@ -9,14 +9,15 @@
 	},
 	"type": "module",
 	"author": "dufu1991",
+	"funding": "https://paypal.me/dufu1991",
 	"license": "MIT",
 	"homepage": "https://github.com/dufu1991/stdf/blob/main/packages/rollup-plugin-stdf-icon/README.md",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dufu1991/stdf/tree/main/packages/rollup-plugin-stdf-icon"
+		"url": "https://github.com/dufu1991/stdf"
 	},
 	"bugs": {
-		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+rollup-plugin-stdf-icon"
+		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+icon"
 	},
 	"files": [
 		"dist/**"
