@@ -12,13 +12,16 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 18.x
 
@@ -34,7 +37,7 @@ jobs:
           npm install
           npm run build 
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm publish
+          npm publish --provenance
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_ICON }}

@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # 1. 读取 packages/stdf/package.json 中的 version 字段，作为 Releases tag 和 Releases title
       - name: Get version
