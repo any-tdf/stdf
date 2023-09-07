@@ -12,6 +12,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
 
     steps:
       - name: Checkout
@@ -36,7 +39,7 @@ jobs:
           npm run build
           npm run update
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm publish
+          npm publish --provenance
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_CREATE }}
