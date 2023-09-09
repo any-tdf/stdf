@@ -15,16 +15,15 @@
   </picture>
   <h1>S T D F</h1>
   
-[![NPM Version](https://flat.badgen.net/npm/v/stdf?label=stdf&icon=npm&color=cb3837)](https://www.npmjs.com/package/stdf)
-[![Github Stars](https://flat.badgen.net/github/stars/dufu1991/stdf?icon=github&color=202328)](https://github.com/dufu1991/stdf)
-[![License](https://flat.badgen.net/github/license/dufu1991/stdf)](https://github.com/dufu1991/stdf/blob/main/LICENSE)
-[![NPM Installs](https://flat.badgen.net/npm/dt/stdf?label=installs&icon=npm)](https://www.npmjs.com/package/stdf)
-[![NPM Minzip](https://flat.badgen.net/bundlephobia/minzip/stdf?label=minzip&icon=npm&color=d26027)](https://www.npmjs.com/package/stdf)
-[![NPM Dependency](https://flat.badgen.net/bundlephobia/dependency-count/stdf?label=dependency&icon=npm&color=7a4489)](https://www.npmjs.com/package/stdf)
+[![npm](https://img.shields.io/npm/v/stdf?logo=npm&label=stdf&color=CF1E1E)](https://www.npmjs.com/package/stdf)
+[![npm](https://img.shields.io/npm/dt/stdf?logo=npm&label=installs&color=5DD247)](https://www.npmjs.com/package/stdf)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/stdf?logo=npm&label=minzip&color=DF59DE)](https://www.npmjs.com/package/stdf)
+[![GitHub stars](https://img.shields.io/github/stars/dufu1991/stdf?logo=github&label=stars&color=000000)](https://github.com/dufu1991/stdf)
+[![GitHub license](https://img.shields.io/github/license/dufu1991/stdf?logo=github&color=F6E32B)](https://github.com/dufu1991/stdf)
 
-[![Create Version](https://flat.badgen.net/npm/v/create-stdf?label=create&icon=npm&color=2d2fe9)](https://www.npmjs.com/package/create-stdf)
-[![Icon Version](https://flat.badgen.net/npm/v/rollup-plugin-stdf-icon?label=icon&icon=npm&color=d62c9b)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
-[![VSCode-extension Version](https://flat.badgen.net/vs-marketplace/v/STDF.stdf-vscode-extension?icon=visualstudio&color=ec6e71)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
+[![npm](https://img.shields.io/npm/v/create-stdf?logo=npm&label=create&color=E0297A)](https://www.npmjs.com/package/create-stdf)
+[![npm](https://img.shields.io/npm/v/rollup-plugin-stdf-icon?logo=npm&label=icon&color=6D1DC6)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
+[![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension&color=225c9f)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
     <a href="https://github.com/dufu1991/stdf/blob/main/README_CN.md" target="_blank">简体中文</a>
