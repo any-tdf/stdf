@@ -15,15 +15,15 @@
   </picture>
   <h1>S T D F</h1>
 
-[![npm](https://img.shields.io/npm/v/stdf?logo=npm&label=stdf&color=CF1E1E)](https://www.npmjs.com/package/stdf)
-[![npm](https://img.shields.io/npm/dt/stdf?logo=npm&label=installs&color=5DD247)](https://www.npmjs.com/package/stdf)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/stdf?logo=npm&label=minzip&color=DF59DE)](https://www.npmjs.com/package/stdf)
-[![GitHub stars](https://img.shields.io/github/stars/dufu1991/stdf?logo=github&label=stars&color=000000)](https://github.com/dufu1991/stdf)
-[![GitHub license](https://img.shields.io/github/license/dufu1991/stdf?logo=github&color=F6E32B)](https://github.com/dufu1991/stdf)
+[![npm](https://img.shields.io/npm/v/stdf?logo=npm&label=stdf)](https://www.npmjs.com/package/stdf)
+[![npm](https://img.shields.io/npm/dt/stdf?logo=npm&label=installs)](https://www.npmjs.com/package/stdf)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/stdf?logo=npm&label=minzip)](https://www.npmjs.com/package/stdf)
+[![GitHub stars](https://img.shields.io/github/stars/dufu1991/stdf?logo=github&label=stars)](https://github.com/dufu1991/stdf)
+[![GitHub license](https://img.shields.io/github/license/dufu1991/stdf?logo=github)](https://github.com/dufu1991/stdf)
 
-[![npm](https://img.shields.io/npm/v/create-stdf?logo=npm&label=create&color=E0297A)](https://www.npmjs.com/package/create-stdf)
-[![npm](https://img.shields.io/npm/v/rollup-plugin-stdf-icon?logo=npm&label=icon&color=6D1DC6)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
-[![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension&color=225c9f)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
+[![npm](https://img.shields.io/npm/v/create-stdf?logo=npm&label=create)](https://www.npmjs.com/package/create-stdf)
+[![npm](https://img.shields.io/npm/v/rollup-plugin-stdf-icon?logo=npm&label=icon)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
+[![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
     <a href="https://github.com/dufu1991/stdf/blob/main/README.md" target="_blank">English</a>
