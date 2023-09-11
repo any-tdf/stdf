@@ -1,6 +1,6 @@
 {
 	"name": "create-stdf",
-	"version": "0.0.47",
+	"version": "0.0.48",
 	"description": "A CLI for creating new STDF projects",
 	"bin": {
 		"create-stdf": "index.js"
@@ -39,7 +39,7 @@
 		"vite"
 	],
 	"author": "dufu1991",
-	"funding": "https://paypal.me/dufu1991",
+	"funding": "https://stdf.design?fund",
 	"license": "MIT",
 	"type": "module",
 	"homepage": "https://github.com/dufu1991/stdf/blob/main/packages/create-stdf/README.md",
