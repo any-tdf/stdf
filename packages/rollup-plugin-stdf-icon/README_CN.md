@@ -8,6 +8,12 @@
 
 # 安装
 
+使用 BUN：
+
+```bash
+bun i rollup-plugin-stdf-icon -D
+```
+
 使用 PNPM：
 
 ```bash
