@@ -243,8 +243,8 @@ function createFunc(projectName, item) {
 				`👉 ${bold(lang.tgs)}
 
     ${blue(`cd ${projectName}`)}
-    ${blue('pnpm i / npm i / yarn')}
-    ${blue('npm run dev')}
+    ${blue('bun i / pnpm i / npm i / yarn')}
+    ${blue('bun dev / npm run dev')}
     `,
 			);
 			// 显示配置主题色

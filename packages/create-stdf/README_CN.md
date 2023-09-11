@@ -4,6 +4,12 @@
 
 一个用于创建新的 [STDF](https://stdf.design) 项目的命令行工具。只需运行以下命令...
 
+使用 BUN：
+
+```bash
+bun create stdf
+```
+
 使用 PNPM：
 
 ```bash
@@ -25,6 +31,9 @@ npx create-stdf@latest
 你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **Vite + Svelte + Tailwind + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
 
 ```bash
+# bun
+bun create stdf my-app
+
 # pnpm
 pnpm create stdf my-app
 
@@ -35,6 +44,11 @@ npm create stdf@latest my-app
 如果要使用 **Vite + UnoCSS + Svelte + STDF** 模板，请运行：
 
 ```bash
+# bun
+bun create stdf my-app -template vu
+# 或者
+bun create stdf my-app -t vu
+
 # pnpm
 pnpm create stdf my-app --template vu
 # 或者
@@ -85,7 +99,7 @@ npm create stdf@latest my-app -t vu
 例如：
 
 ```bash
-pnpm create stdf my-app -l zh_CN
+bun create stdf my-app -l zh_CN
 ```
 
 # 许可证
