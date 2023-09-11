@@ -11,7 +11,7 @@
 
 ## 本地开发
 
-在进行本地开发前，请先确保你的开发环境中安装了 Git 与 Node.js。
+在进行本地开发前，请先确保你的开发环境中安装了 [Git](https://git-scm.com) 与 [Node.js](https://nodejs.org/zh-cn) 或 [Bun](https://bun.sh) 。
 
 调试 STDF 必须要有个工程环境，为此提供了一个简单的 Demo 工程。STDF 本身不受 Node 版本限制，Demo 使用 Vite 开发，所以请确保你的 Node.js 版本 >= 14.18+，参考 [Vite 官网](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
@@ -19,7 +19,7 @@
 
 推荐安装：
 
-- [pnpm](https://pnpm.io/zh)：包管理工具。
+- [pnpm](https://pnpm.io/zh)：包管理工具，使用 Bun 无需安装。
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) 或者 [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)：Svelte 开发插件。
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/tailwind-css.html)：Tailwind CSS 开发插件。
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/eslint.html)：代码格式检查插件。
@@ -83,7 +83,7 @@ npm run dev
 - 克隆你的仓库至本地。
 - 修改组件源码并在 Demo 中验证通过。
 - 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
-- 到仓库根目录，执行 `pnpm i` 或 `npm i` 安装依赖。
+- 到仓库根目录，执行 `bun i` 或 `pnpm i` 或 `npm i` 安装依赖。
 - 利用编辑器格式化你修改过的代码，或者执行 `pnpm run format` 或 `npm run format` 命令行格式化代码。
 - 执行 `pnpm run lint` 或 `npm run lint` 检查代码格式。
 - 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。

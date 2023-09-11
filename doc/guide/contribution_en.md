@@ -11,7 +11,7 @@ Below are guidelines for submitting feedback or code to STDF. Before submitting 
 
 ## Local Development
 
-Before local development, please make sure that Git and Node.js are installed in your development environment.
+Before local development, please make sure that [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en) or [Bun](https://bun.sh) are installed in your development environment.
 
 Debugging STDF requires an engineering environment. For this purpose, a simple Demo project is provided. STDF itself is not limited by the Node version, and the Demo uses Vite for development, so please ensure that your Node.js version >= 14.18+, refer to the [Vite official website](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
@@ -19,7 +19,7 @@ Before submitting a PR after you have made code modifications, please ensure tha
 
 Recommended installations:
 
-- [pnpm](https://pnpm.io): Package management tool.
+- [pnpm](https://pnpm.io): Package management tool, no need to install when using Bun.
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte): Svelte development plugin.
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/tailwind-css.html): Tailwind CSS development plugin.
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/eslint.html): Code formatting check plugin.
@@ -81,7 +81,7 @@ If you are submitting a Pull Request on GitHub for the first time, you can read 
 - Clone your repository to your local machine.
 - Modify the component source code and verify it in the Demo.
 - 「Optional」Supplement the Chinese and English documentation for this modification, which is located in the `doc/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, and other documents. For modifications to version, please add tags. Please refer to the [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1) for specific details.
-- Go to the root directory of the repository and execute `pnpm i` or `npm i` to install dependencies.
+- Go to the root directory of the repository and execute `bun i` or `pnpm i` or `npm i` to install dependencies.
 - Use your editor to format the modified code or execute `pnpm run format` or `npm run format` in the command line to format the code.
 - Execute `pnpm run lint` or `npm run lint` to check the code formatting.
 - Commit the modified content to your repository and then submit a Pull Request to the main repository.
