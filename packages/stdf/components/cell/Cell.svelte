@@ -69,6 +69,10 @@
 	// Whether to open the care version
 	export let love = false;
 
+	// 是否点击整个 Cell 都触发事件
+	// Whether to click the entire Cell to trigger the event
+	export let clickAll = true;
+
 	// 圆角风格样式
 	// Rounded style style
 	const radiusObj = {
@@ -120,12 +124,14 @@
 	// 点击事件
 	// Click event
 	const setClickFun = () => {
-		if (right?.constructor === Object && right.type === 'switch' && !right.switch?.disabled) {
-			switcheck = right.switch?.async ? switcheck : !switcheck;
+		if (clickAll) {
+			if (right?.constructor === Object && right.type === 'switch' && !right.switch?.disabled) {
+				switcheck = right.switch?.async ? switcheck : !switcheck;
+			}
+			// 派发事件
+			// Dispatch event
+			dispatch('click');
 		}
-		// 派发事件
-		// Dispatch event
-		dispatch('click');
 	};
 </script>
 
@@ -133,9 +139,11 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	on:click={setClickFun}
-	class={`px-4 cursor-pointer bg-white dark:bg-gray1 active:bg-gray8 dark:active:bg-gray4 ${myClass[my] || myClass['4']}${
-		mxClass[mx] || mxClass['2']
-	}${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${love ? ' text-xl' : ''} ${injClass}`}
+	class={`px-4 cursor-pointer bg-white dark:bg-gray1${clickAll ? ' active:bg-gray8 dark:active:bg-gray4' : ''} ${
+		myClass[my] || myClass['4']
+	}${mxClass[mx] || mxClass['2']}${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${
+		love ? ' text-xl' : ''
+	} ${injClass}`}
 >
 	<div class={`flex justify-between gap-4 py-4${line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}`}>
 		<!-- left -->

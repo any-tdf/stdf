@@ -1,3 +1,7 @@
+## 0.2.10
+
+- 增强 Cell 组件，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。
+
 ## 0.2.9
 
 - 修复 NPM 缺少的文件。

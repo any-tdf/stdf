@@ -13,6 +13,7 @@
 			<span slot="detail" class="text-primary dark:text-dark text-xs">I am a slot content</span>
 		</Cell>
 		<Cell title="There is no arrow on the right" right="none" />
+		<Cell title="Pure display, no click effect" right="none" clickAll={false} />
 		<Cell title="Click event" detail="Please click me" on:click={() => (visible = true)} />
 		<Toast bind:visible message="You poke to me!" />
 		<Cell title="There are details on the right without arrows" detail="Zero" right="none" />
@@ -20,6 +21,7 @@
 		<Cell title="Switch with details" detail="explain" right={{ type: 'switch' }} />
 		<Cell title="Switch with text" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="Switch full round corner" right={{ type: 'switch', switch: { radius: 'full' } }} />
+		<Cell title="Just click on the switch to trigger" clickAll={false} right={{ type: 'switch' }} />
 		<Cell title="Use on the left Icon" left={{ name: 'ri-bank-line', size: 20, theme: true, top: -2 }} />
 		<Cell title="Use on the right side Icon" right={{ type: 'icon', name: 'ri-battery-charge-line', size: 20, theme: true }} />
 		<Cell title="Left custom picture" left="slot">

@@ -20,6 +20,10 @@ Optimization: When the right side is a switch, clicking on the entire Cell area 
 
 Please refer to the respective component API for specific Icon Props and Switch Props.
 
+## clickAll
+
+Considering the user-friendliness of mobile interaction, by default, clicking on any part of a cell on a mobile device will trigger an event. However, to accommodate different scenarios, you can disable this feature by setting the `clickAll` parameter to false. This means that events will only be triggered in specific areas, such as when using the Switch component in the example, where the event will only be triggered when clicking on the Switch.
+
 ## switcheck
 
 The switcheck value only takes effect when the type of right is switch, indicating the switch state value. Please note that the check inside the Cell Switch is determined by switcheck. **Please do not pass check inside the switch again**.

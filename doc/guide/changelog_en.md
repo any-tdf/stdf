@@ -1,3 +1,7 @@
+## 0.2.10
+
+- Enhanced the Cell component. For details, see [Cell](https://stdf.design/#/components?nav=cell&tab=4).
+
 ## 0.2.9
 
 - Fixed missing files in NPM package.

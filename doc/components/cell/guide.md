@@ -20,6 +20,10 @@ right 也支持传入 Icon Props，考虑右侧使用开关的场景较多，为
 
 具体 Icon Props 与 Switch Props 请查看对应组件 API。
 
+## clickAll
+
+移动端考虑交互的友好性，Cell 默认点击整行都会触发事件，但是考虑场景的多样性，你可以通过将 clickAll 参数设置为 false 来禁用这个功能。只是在特定区域触发事件，比如实例中配合 Switch 组件使用，仅在点击 Switch 时触发事件。
+
 ## switcheck
 
 switcheck 值仅在 right 的 type 为 switch 时生效，表示开关状态值。注意，此时 Cell 内部 Switch 的 check 由 switcheck 决定，**请不要在 switch 内部再传入 check**。

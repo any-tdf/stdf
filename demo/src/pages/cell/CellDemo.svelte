@@ -13,6 +13,7 @@
 			<span slot="detail" class="text-primary dark:text-dark text-xs">我是插槽内容</span>
 		</Cell>
 		<Cell title="右侧无箭头" right="none" />
+		<Cell title="纯展示，无点击效果" right="none" clickAll={false} />
 		<Cell title="点击事件" detail="请点击我" on:click={() => (visible = true)} />
 		<Toast bind:visible message="你戳到我了！" />
 		<Cell title="右侧有详情无箭头" detail="归零者" right="none" />
@@ -20,6 +21,7 @@
 		<Cell title="开关带详情" detail="解释一下" right={{ type: 'switch' }} />
 		<Cell title="开关带文字" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="开关全圆角" right={{ type: 'switch', switch: { radius: 'full' } }} />
+		<Cell title="仅点击开关触发" clickAll={false} right={{ type: 'switch' }} />
 		<Cell title="左侧使用 Icon 组件" left={{ name: 'ri-bank-line', size: 20, theme: true, top: -2 }} />
 		<Cell title="右侧使用 Icon 组件" right={{ type: 'icon', name: 'ri-battery-charge-line', size: 20, theme: true }} />
 		<Cell title="左侧自定义图片" left="slot">

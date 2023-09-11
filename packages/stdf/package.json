@@ -1,6 +1,6 @@
 {
 	"name": "stdf",
-	"version": "0.2.9",
+	"version": "0.2.10",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"main": "./components/index.js",
 	"svelte": "./components/index.js",
@@ -9,6 +9,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "dufu1991",
+	"funding": "https://paypal.me/dufu1991",
 	"license": "MIT",
 	"homepage": "https://stdf.design",
 	"keywords": [

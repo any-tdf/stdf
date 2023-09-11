@@ -1,3 +1,7 @@
+## 0.2.10
+
+- [!tag|A|0|]Add the `clickAll` parameter to control whether clicking on the entire row triggers an event. Related [Issues](https://github.com/dufu1991/stdf/issues/7). [!issue|yuedanlabs|]
+
 ## 0.0.10
 
 - [!tag|O|0|]Increase the distance between title and right detail. [!contribute|893358308|]
