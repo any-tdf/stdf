@@ -18,8 +18,12 @@ When hovering over the name of an STDF component, the following information will
 
 ![TIP](https://stdf.design/assets/vscode/tip.png)
 
+or
+
+![TIP](https://stdf.design/assets/vscode/tip2.png)
+
 ### Configuration
 
-By default, the API is displayed in Simplified Chinese. You can switch to English API by going to the settings page in VS Code.
+The default API display is in Simplified Chinese. You can enable English API in the VS Code settings.
 
 ![SETTING](https://stdf.design/assets/vscode/setting.png)

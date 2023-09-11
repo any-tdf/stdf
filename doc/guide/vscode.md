@@ -18,6 +18,10 @@ STDF 提供了一个 VS Code 插件 [stdf-vscode-extension](https://marketplace.
 
 ![TIP](https://stdf.design/assets/vscode/tip.png)
 
+或者
+
+![TIP](https://stdf.design/assets/vscode/tip2.png)
+
 ### 配置
 
 默认显示的 API 为简体中文，可到 VS Code 的设置页开启英文 API。
