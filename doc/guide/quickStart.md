@@ -7,6 +7,8 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```bash
+bun i stdf -D
+# or
 pnpm i stdf -D
 # or
 npm i stdf -D
@@ -30,6 +32,8 @@ npm i stdf -D
 可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本）
 
 ```bash
+bun create stdf
+# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -112,5 +116,7 @@ module.exports = {
 4. 启动项目。
 
 ```sh
+bun dev
+# or
 npm run dev
 ```

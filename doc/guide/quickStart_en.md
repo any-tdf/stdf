@@ -7,6 +7,8 @@
 Svelte and Tailwind have been configured for direct installation.
 
 ```bash
+bun i stdf -D
+# or
 pnpm i stdf -D
 # or
 npm i stdf -D
@@ -30,6 +32,8 @@ npm i stdf -D
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
 
 ```bash
+bun create stdf
+# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -112,5 +116,7 @@ module.exports = {
 4. Start the project.
 
 ```sh
+bun dev
+# or
 npm run dev
 ```

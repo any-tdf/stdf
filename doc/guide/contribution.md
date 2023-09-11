@@ -30,25 +30,37 @@
 > 由于 Demo 依赖的 rollup-plugin-stdf-icon 包是本地构建的，所以请先构建一下这个包。
 
 ```bash
-## 克隆 STDF 仓库
+## 1. 克隆 STDF 仓库
 git clone git@github.com:dufu1991/stdf.git
 
-## 构建一下 rollup-plugin-stdf-icon package
-cd stdf/packages/rollup-plugin-stdf-icon
+## 2. 构建 rollup-plugin-stdf-icon 包
+cd packages/rollup-plugin-stdf-icon
+
+## 安装依赖
+bun i
+## or
 pnpm i
 ## or
 npm i
+
+## 构建包
+bun build
+## or
 npm run build
 
-## 进入项目 demo 目录
+## 3. 进入项目 demo 目录
 cd stdf/demo
 
 ## 安装依赖
+bun i
+## or
 pnpm i
 ## or
 npm i
 
 ## 启动项目
+bun dev
+## or
 npm run dev
 ```
 
