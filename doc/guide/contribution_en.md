@@ -42,7 +42,7 @@ pnpm i
 npm i
 
 ## Build package
-bun build
+bun run build
 ## or
 npm run build
 

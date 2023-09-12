@@ -44,7 +44,7 @@ pnpm i
 npm i
 
 ## 构建包
-bun build
+bun run build
 ## or
 npm run build
 
