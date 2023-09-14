@@ -4,7 +4,7 @@
 # 3. cd demo 安装依赖 npm install
 # 4. 打包 npm run build
 # 5. 使用 appleboy/scp-action@master 将 demo/dist 目录下所有文件上传到服务器上 demo 目录下
-# 6. 执行 demo/Refresh-auto.py 刷新 CDN 缓存
+# 6. 执行 demo/scripts/Refresh-auto.py 刷新 CDN 缓存
 
 name: BUILD DEMO
 
@@ -71,4 +71,4 @@ jobs:
         env:
           ALIYUN_CDN_AK: ${{ secrets.ALIYUN_CDN_AK }}
           ALIYUN_CDN_SK: ${{ secrets.ALIYUN_CDN_SK }}
-        run: python3 demo/Refresh-auto.py -r demo/cdn-list.txt -t clear -o Directory
+        run: python3 demo/scripts/Refresh-auto.py -r demo/scripts/cdn-list.txt -t clear -o Directory
