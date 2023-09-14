@@ -1,6 +1,6 @@
 <script>
 	import { setContext, onMount } from 'svelte';
-	import Router, { querystring, location, push } from 'svelte-spa-router';
+	import Router, { querystring, location, push, pop } from 'svelte-spa-router';
 	import { routes, routes_en } from './route';
 	import { NavBar, Icon } from 'stdf';
 	import zh_CN from 'stdf/lang/zh_CN';
@@ -29,7 +29,6 @@
 	// setting language
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
 	setContext('STDF_lang', isZh ? zh_CN : en_US);
-	$: showLeft = isIframe === '1' ? false : $location !== '/';
 	//手动切换主题
 	// manually switch theme
 	const toggleFun = () => {
@@ -50,14 +49,22 @@
 	// 返回首页
 	// return to home
 	const toHomeFun = () => {
-		push(`/`);
+		pop();
 	};
+	// 环境变量
+	// environment variables
 	const mode = import.meta.env.MODE;
+	// mode 是否是指定组件模式
+	// whether mode is specified component mode
+	const isComponentMode = mode != 'production' && mode != 'development' && mode != 'english' ? true : false;
+	// 是否显示左侧返回，如果是 iframe 模式，或者是首页，或者是指定组件模式，不显示
+	// Whether to display the left return, if it is iframe mode, or the home page, or the specified component mode, do not display
+	$: showLeft = isIframe === '1' || $location === '/' || isComponentMode ? false : true;
 	// 判断 mode 后三个字符是否是 _en
 	// Determine whether the last three characters of mode are _en
 	const englishMode = mode.slice(-3) === '_en';
 	onMount(() => {
-		if (mode != 'production' && mode != 'development' && mode != 'english') {
+		if (isComponentMode) {
 			// 英文模式去掉 mode 后面的 _en 作为 nav
 			// English mode removes _en after mode as nav
 			const nav = englishMode ? mode.slice(0, -3) : mode;
