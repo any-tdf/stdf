@@ -220,8 +220,8 @@
 					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10"
 				>
 					<div class="w-1/2 overflow-hidden">
-						<img class="block dark:hidden" src="./assets/stdf_512px.png" alt="" />
-						<img class="hidden dark:block" src="./assets/stdf_dark_512px.png" alt="" />
+						<img class="block dark:hidden" src="/assets/stdf_512px.png" alt="" />
+						<img class="hidden dark:block" src="/assets/stdf_dark_512px.png" alt="" />
 					</div>
 					<div>STDF</div>
 				</div>

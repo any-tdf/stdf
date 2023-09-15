@@ -142,10 +142,10 @@
 		{ step: { title: 'sleep', desc: 'Too full to sleep.', bar: '😴' } },
 	];
 	const steps8 = [
-		{ step: { title: 'Get up', bar: { type: 'image', image: './assets/images/avatar_2.png' } } },
+		{ step: { title: 'Get up', bar: { type: 'image', image: '/assets/images/avatar_2.png' } } },
 		{ step: { title: 'Eat', bar: { type: 'icon', icon: { name: 'ri-restaurant-2-line' } } } },
 		{ step: { title: 'Drink', bar: { type: 'icon', icon: { name: 'ri-cup-line' } } } },
-		{ step: { title: 'Beat beans', bar: { type: 'image', image: './assets/images/avatar_1.jpg' } } },
+		{ step: { title: 'Beat beans', bar: { type: 'image', image: '/assets/images/avatar_1.jpg' } } },
 		{ step: { title: 'sleep', bar: { type: 'icon', icon: { name: 'ri-zzz-line' } } } },
 	];
 	const steps9 = [
@@ -269,7 +269,7 @@
 <div class="text-primary dark:text-dark text-sm">
     <div>Here you inject a picture as a component</div>
     <div class="rounded-full overflow-hidden h-20 w-20">
-        <img src="./assets/images/avatar_1.jpg" alt="" />
+        <img src="/assets/images/avatar_1.jpg" alt="" />
     </div>
 </div>
 -->
@@ -283,7 +283,7 @@
 <div class="text-primary dark:text-dark text-sm">Here you inject something in the form of a component</div>
 <div class="flex items-center justify-between">
     <Button size="full" heightIn="2" injClass="px-4">button</Button>
-    <Avatar image="./assets/images/avatar_1.jpg" size="sm" />
+    <Avatar image="/assets/images/avatar_1.jpg" size="sm" />
     <Icon name="ri-money-cny-circle-line" theme />
     <Icon name="ri-fingerprint-line" theme />
 </div> 

@@ -4,15 +4,15 @@
 	import Item from './Item_en.svelte';
 
 	const data = [
-		{ type: 'img', url: './assets/images/wall_1.jpg' },
-		{ type: 'img', url: './assets/images/wall_2.jpg' },
-		{ type: 'img', url: './assets/images/wall_3.jpg' },
-		{ type: 'img', url: './assets/images/wall_4.jpg' },
+		{ type: 'img', url: '/assets/images/wall_1.jpg' },
+		{ type: 'img', url: '/assets/images/wall_2.jpg' },
+		{ type: 'img', url: '/assets/images/wall_3.jpg' },
+		{ type: 'img', url: '/assets/images/wall_4.jpg' },
 	];
 
 	const componentData = [
 		{ type: 'component', component: Item },
-		{ type: 'img', url: './assets/images/wall_1.jpg' },
+		{ type: 'img', url: '/assets/images/wall_1.jpg' },
 	];
 
 	let indexClick = -1;

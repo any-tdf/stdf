@@ -163,7 +163,7 @@
 				checkeds={imgCheckeds}
 			>
 				<div class={`w-12 h-12 mb-1 rounded overflow-hidden ${imgCheckeds.includes(dota) ? 'ring-2 ring-primary dark:ring-dark' : ''}`}>
-					<img class="w-full h-full object-cover" src={`./assets/images/dota_${dotaForImgs[i]}.png`} alt="" />
+					<img class="w-full h-full object-cover" src={`/assets/images/dota_${dotaForImgs[i]}.png`} alt="" />
 				</div>
 			</Checkbox>
 		{/each}

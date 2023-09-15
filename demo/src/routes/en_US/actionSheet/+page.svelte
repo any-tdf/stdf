@@ -28,16 +28,16 @@
 		{ content: 'Option three', style: 'Here is description information' },
 	];
 	const action3 = [
-		{ content: 'Fire girl', showImg: true, imgSrc: './assets/images/dota_火女.png', imgRadius: 'base' },
-		{ content: 'calf', showImg: true, imgSrc: './assets/images/dota_小牛.png', imgRadius: 'base' },
-		{ content: 'water man', showImg: true, imgSrc: './assets/images/dota_水人.png', imgRadius: 'base' },
+		{ content: 'Fire girl', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
+		{ content: 'calf', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
+		{ content: 'water man', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
 	];
 	const action4 = [
-		{ content: 'Apple', showImg: true, imgSrc: './assets/logos/apple.png', imgRadius: 'none' },
-		{ content: 'Google', showImg: true, imgSrc: './assets/logos/google.png', imgRadius: 'none' },
-		{ content: 'Microsoft', showImg: true, imgSrc: './assets/logos/microsoft.png', imgRadius: 'none' },
-		{ content: 'Adobe', showImg: true, imgSrc: './assets/logos/adobe.png', imgRadius: 'none' },
-		{ content: 'Figma', showImg: true, imgSrc: './assets/logos/figma.png', imgRadius: 'none' },
+		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
+		{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },
+		{ content: 'Microsoft', showImg: true, imgSrc: '/assets/logos/microsoft.png', imgRadius: 'none' },
+		{ content: 'Adobe', showImg: true, imgSrc: '/assets/logos/adobe.png', imgRadius: 'none' },
+		{ content: 'Figma', showImg: true, imgSrc: '/assets/logos/figma.png', imgRadius: 'none' },
 	];
 
 	let toastVisible1 = false;

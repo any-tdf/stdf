@@ -117,10 +117,10 @@
 			<Avatar />
 		</Badge>
 		<Badge radius="base" injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]">
-			<Avatar image="./assets/images/avatar_1.jpg" />
+			<Avatar image="/assets/images/avatar_1.jpg" />
 		</Badge>
 		<Badge offsetX={9} offsetY={9} injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]">
-			<Avatar radius="full" image="./assets/images/avatar_1.jpg" />
+			<Avatar radius="full" image="/assets/images/avatar_1.jpg" />
 		</Badge>
 	</div>
 </div>

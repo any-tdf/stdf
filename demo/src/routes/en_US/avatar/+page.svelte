@@ -25,26 +25,26 @@
 
 	<div class="font-bold">Different picture types and size</div>
 	<div class="flex justify-between mt-4 mb-8">
-		<Avatar image="./assets/images/avatar_2.png" imgSize="s" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" />
-		<Avatar image="./assets/images/avatar_2.png" />
-		<Avatar image="./assets/images/avatar_1.jpg" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="s" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" />
+		<Avatar image="/assets/images/avatar_2.png" />
+		<Avatar image="/assets/images/avatar_1.jpg" />
 	</div>
 
 	<div class="font-bold">Custom background color</div>
 	<div class="flex justify-between mt-4 mb-8">
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" injClass="!bg-success" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" injClass="!bg-[#D65786]" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" injClass="!bg-[rgba(0,0,0,0)]" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-success" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-[#D65786]" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-[rgba(0,0,0,0)]" />
 	</div>
 
 	<div class="font-bold">Different border</div>
 	<div class="flex justify-between mt-4 mb-8">
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" line="solid" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" line="dashed" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" line="dotted" />
-		<Avatar image="./assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-[green]" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dashed" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dotted" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-[green]" />
 	</div>
 
 	<div class="font-bold">Replace text</div>
@@ -66,16 +66,16 @@
 	<div class="flex justify-between">
 		<div class="flex flex-col items-center space-y-4 mt-4 mb-8">
 			<Avatar size="xs" icon={{ name: 'ri-bear-smile-line', size: 16, theme: true }} />
-			<Avatar size="sm" image="./assets/images/avatar_1.jpg" />
+			<Avatar size="sm" image="/assets/images/avatar_1.jpg" />
 			<Avatar line="solid" />
-			<Avatar size="lg" image="./assets/images/avatar_2.png" imgSize="m" />
+			<Avatar size="lg" image="/assets/images/avatar_2.png" imgSize="m" />
 			<Avatar size="xl" alt="A" altSize="xl" />
 		</div>
 		<div class="flex flex-col items-center space-y-4 mt-4 mb-8">
 			<Avatar radius="full" size="xs" icon={{ name: 'ri-bear-smile-line', size: 16, theme: true }} />
-			<Avatar radius="full" size="sm" image="./assets/images/avatar_1.jpg" />
+			<Avatar radius="full" size="sm" image="/assets/images/avatar_1.jpg" />
 			<Avatar radius="full" line="solid" />
-			<Avatar radius="full" size="lg" image="./assets/images/avatar_2.png" imgSize="m" />
+			<Avatar radius="full" size="lg" image="/assets/images/avatar_2.png" imgSize="m" />
 			<Avatar radius="full" size="xl" alt="A" altSize="xl" />
 		</div>
 	</div>

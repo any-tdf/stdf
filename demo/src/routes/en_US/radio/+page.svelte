@@ -81,7 +81,7 @@
 		{#each dotaImgs as dota, i}
 			<Radio name={dota} textPosition="t" icon={{ name: 'ri-arrow-up-s-line' }} iconChecked={{ name: 'ri-arrow-up-s-fill', size: 30 }}>
 				<div class={`w-12 h-12 mb-1 rounded overflow-hidden ${imgValue === dota && 'ring-2 ring-primary dark:ring-dark'}`}>
-					<img class="w-full h-full object-cover" src={`./assets/images/dota_${dotaForImgs[i]}.png`} alt="" />
+					<img class="w-full h-full object-cover" src={`/assets/images/dota_${dotaForImgs[i]}.png`} alt="" />
 				</div>
 			</Radio>
 		{/each}
