@@ -28,7 +28,7 @@ npx create-stdf@latest
 
 ...然后按照提示进行操作。
 
-你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **Vite + Svelte + Tailwind + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
+你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit + Tailwind + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
 
 ```bash
 # bun
@@ -64,9 +64,9 @@ npm create stdf@latest my-app -t vu
 
 | 简写 | 模板                                         | 描述     |
 | ---- | -------------------------------------------- | -------- |
-| vt   | Vite + Tailwind + Svelte + STDF              | 默认     |
+| skt  | SvelteKit + Tailwind + STDF                  | 默认     |
+| vt   | Vite + Tailwind + Svelte + STDF              | -        |
 | vu   | Vite + UnoCSS + Svelte + STDF                | -        |
-| skt  | SvelteKit + Tailwind + STDF                  | -        |
 | sku  | SvelteKit + UnoCSS + STDF                    | -        |
 | vtt  | Vite + Tailwind + TypeScript + Svelte + STDF | 尚未适配 |
 | vut  | Vite + UnoCSS + TypeScript + Svelte + STDF   | 尚未适配 |

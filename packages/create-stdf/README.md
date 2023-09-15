@@ -28,7 +28,7 @@ npx create-stdf@latest
 
 ...and follow the prompts.
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **Vite + Svelte + Tailwind + STDF** template, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit + Tailwind + STDF** template, run:
 
 ```bash
 # bun
@@ -64,9 +64,9 @@ Template presets include:
 
 | abbreviation | template                                     | description         |
 | ------------ | -------------------------------------------- | ------------------- |
-| vt           | Vite + Tailwind + Svelte + STDF              | default             |
+| skt          | SvelteKit + Tailwind + STDF                  | default             |
+| vt           | Vite + Tailwind + Svelte + STDF              | -                   |
 | vu           | Vite + UnoCSS + Svelte + STDF                | -                   |
-| skt          | SvelteKit + Tailwind + STDF                  | -                   |
 | sku          | SvelteKit + UnoCSS + STDF                    | -                   |
 | vtt          | Vite + Tailwind + TypeScript + Svelte + STDF | Has not adapted yet |
 | vut          | Vite + UnoCSS + TypeScript + Svelte + STDF   | Has not adapted yet |

@@ -1,5 +1,5 @@
 {
-	"name": "kit",
+	"name": "stdf-project",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
@@ -9,7 +9,7 @@
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"autoprefixer": "^10.4.15",
 		"postcss": "^8.4.28",

@@ -60,9 +60,9 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 // 模板列表
 // Template list
 const templateOptions = [
+	{ value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', finish: true },
 	{ value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', finish: true },
 	{ value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', finish: true },
-	{ value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', finish: true },
 	{ value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sveltekit-uno', finish: true },
 	{ value: 'vtt', label: 'Vite + Tailwind + TypeScript', template: 'vite-tailwind-typescript', finish: false },
 	{ value: 'vut', label: 'Vite + UnoCSS + TypeScript', template: 'vite-uno-typescript', finish: false },
@@ -70,8 +70,8 @@ const templateOptions = [
 	{ value: 'skut', label: 'SvelteKit + UnoCSS + TypeScript', template: 'sveltekit-uno-typescript', finish: false },
 ];
 
-// 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 vt
-// If there is a project name in the command line parameters, but no template name, use the default template vt directly
+// 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 skt
+// If there is a project name in the command line parameters, but no template name, use the default template skt directly
 if (argvProjectName && !argvTemplate) {
 	createFunc(argvProjectName, templateOptions[0]);
 }
