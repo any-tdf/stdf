@@ -8,6 +8,9 @@ bun.lockb
 pnpm-lock.yaml
 /backup
 
+/demo-backup
+/demo.zip
+
 # 忽略 demo 相关文件 ignore demo related files
 /demo/node_modules
 /demo/dist
@@ -19,6 +22,11 @@ pnpm-lock.yaml
 /demo/RefreshAndPredload.log
 /demo/pnpm-lock.yaml
 /demo/public/fonts
+/demo/.svelte-kit
+/demo/build
+/demo/static/fonts
+/demo/npm-lock.yaml
+/demo/package-lock.json
 
 # 忽略全部 site 和 publish 文件
 /site

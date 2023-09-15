@@ -1,21 +1,8 @@
 {
 	"name": "demo-stdf",
-	"private": true,
 	"version": "0.0.0",
-	"type": "module",
-	"devDependencies": {
-		"@sveltejs/vite-plugin-svelte": "^2.4.5",
-		"autoprefixer": "^10.4.14",
-		"postcss": "^8.4.27",
-		"stdf": "file:../packages/stdf",
-		"svelte": "^4.1.1",
-		"svelte-spa-router": "^3.3.0",
-		"tailwindcss": "^3.3.3",
-		"vite": "^4.4.6",
-		"rollup-plugin-stdf-icon": "file:../packages/rollup-plugin-stdf-icon"
-	},
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"dev_en": "vite --mode english",
@@ -93,5 +80,19 @@
 		"timePicker_en": "vite --mode timePicker_en",
 		"calendar_en": "vite --mode calendar_en",
 		"pagination_en": "vite --mode pagination_en"
-	}
+	},
+	"devDependencies": {
+		"@fontsource/fira-mono": "^4.5.10",
+		"@neoconfetti/svelte": "^1.0.0",
+		"@sveltejs/adapter-static": "^2.0.3",
+		"@sveltejs/kit": "^1.20.4",
+		"autoprefixer": "^10.4.15",
+		"postcss": "^8.4.28",
+		"rollup-plugin-stdf-icon": "file:../packages/rollup-plugin-stdf-icon",
+		"stdf": "file:../packages/stdf",
+		"svelte": "^4.1.1",
+		"tailwindcss": "^3.3.3",
+		"vite": "^4.4.6"
+	},
+	"type": "module"
 }
