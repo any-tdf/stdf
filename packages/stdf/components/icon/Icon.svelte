@@ -28,7 +28,7 @@
 	export let injClass = '';
 </script>
 
-<i class={`cursor-pointer inline-block relative ${theme ? 'text-primary dark:text-dark' : ''} ${injClass}`} style="top:{top}px;">
+<i class={`cursor-pointer relative ${theme ? 'text-primary dark:text-dark' : ''} ${injClass}`} style="top:{top}px;">
 	{#if name === 'slot'}
 		<slot><span>无插槽内容！</span></slot>
 	{:else}

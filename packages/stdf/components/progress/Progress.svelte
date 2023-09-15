@@ -37,7 +37,7 @@
 
 	// 动画时间
 	// duration
-	export let duration = '300'; //动画时间
+	export let duration = '300';
 
 	// 高度样式
 	// height class

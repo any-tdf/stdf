@@ -1,3 +1,9 @@
+## 0.2.11
+
+- 修复 Cell，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。
+- 修复 Icon，详见 [Cell](https://stdf.design/#/components?nav=icon&tab=4)。
+- 修复 Skeleton，详见 [Cell](https://stdf.design/#/components?nav=skeleton&tab=4)。
+
 ## 0.2.10
 
 - 增强 Cell 组件，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。

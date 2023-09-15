@@ -1,3 +1,9 @@
+## 0.2.11
+
+- Fix Cell, please see [Cell](https://stdf.design/#/components?nav=cell&tab=4).
+- Fix Icon, please see [Cell](https://stdf.design/#/components?nav=icon&tab=4).
+- Fix Skeleton, please see [Cell](https://stdf.design/#/components?nav=skeleton&tab=4).
+
 ## 0.2.10
 
 - Enhanced the Cell component. For details, see [Cell](https://stdf.design/#/components?nav=cell&tab=4).

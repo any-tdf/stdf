@@ -90,10 +90,10 @@
 		<div
 			class={`bg-gray7 dark:bg-gray6${widthObj[width] || widthObj.full}${heightObj[height] || heightObj['6']}${
 				radiusObj[radius] || radiusObj.base
-			} flex justify-center`}
+			} flex flex-col justify-center`}
 		>
 			{#if type === 'img' || type === 'video' || type === 'code' || type === 'qrcode' || type === 'barcode'}
-				<div class={`m-auto`} style="width:{iconRatio * 100 + '%'}">
+				<div class="m-auto" style="width:{iconRatio * 100 + '%'}">
 					<Icon name={typeIconFun(type)} size="100%" alpha={0.2} />
 				</div>
 			{/if}

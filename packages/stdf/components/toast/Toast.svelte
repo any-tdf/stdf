@@ -1,30 +1,81 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import Loading from '../loading/Loading.svelte';
-
 	import Icon from '../icon/Icon.svelte';
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
 
-	export let message = ''; //提示内容  toast content
-	export let visible = false; //是否显示  is show
-	export let duration = 2000; //显示时间,ms  show time,ms
-	export let position = 'center'; //显示位置,center,top,bottom  show position,center,top,bottom
-	export let py = '0'; //top和bottom时距离顶部或底部的距离  top and bottom distance from top or bottom
-	export let radius = 'base'; //圆角  radius
-	export let useSlot = false; //是否使用slot  is use slot
-	export let transitionType = 'scale'; //出现动画类型，可选值：fade, fly，scale，slide,none  transition type
-	export let transitionParams = {}; //出现动画参数  show transition params
-	export let outDuration = 0; //过渡动画退出时间  transition out duration
-	export let zIndex = 1000; //z-index
-	export let type = ''; //提示类型，success、error、warning、info、loading，不传则不显示图标  toast type,success,error,warning,info,loading
-	export let mask = {}; //遮罩层参数  mask params
-	export let loading = {}; //loading参数  loading params
-	export let icon = {}; //图标参数  icon params
-	export let clickable = false; //是否可点击穿透  is clickable
-	export let dynamicFixed = true; //是否动态固定  is dynamic fixed
+	// 提示内容
+	// toast content
+	export let message = '';
 
-	const dispatch = createEventDispatcher(); //创建事件派发器  create event dispatcher
+	// 是否显示
+	// is show
+	export let visible = false;
+
+	// 显示时间,ms
+	// show time,ms
+	export let duration = 2000;
+
+	// 显示位置,center,top,bottom
+	// show position,center,top,bottom
+	export let position = 'center';
+
+	// top和bottom时距离顶部或底部的距离
+	// top and bottom distance from top or bottom
+	export let py = '0';
+
+	// 圆角
+	// radius
+	export let radius = 'base';
+
+	// 是否使用slot
+	// is use slot
+	export let useSlot = false;
+
+	// 过渡动画类型，可选值：fade, fly，scale，slide,none
+	// transition type,fade, fly，scale，slide,none
+	export let transitionType = 'scale';
+
+	// 过渡动画参数
+	// transition params
+	export let transitionParams = {};
+
+	// 过渡动画退出时间
+	// transition out duration
+	export let outDuration = 0;
+
+	// z-index
+	export let zIndex = 1000;
+
+	// 提示类型，success、error、warning、info、loading，不传则不显示图标
+	// toast type,success,error,warning,info,loading
+	export let type = '';
+
+	// 遮罩层参数
+	// mask params
+	export let mask = {};
+
+	// loading 参数
+	// loading params
+	export let loading = {};
+
+	// 图标参数
+	// icon params
+	export let icon = {};
+
+	// 是否可点击穿透
+	// is clickable
+	export let clickable = false;
+
+	// 是否动态固定
+	// is dynamic fixed
+	export let dynamicFixed = true;
+
+	// 创建事件派发器
+	// create event dispatcher
+	const dispatch = createEventDispatcher();
+
 	$: {
 		if (visible) {
 			if (duration === 0) {
@@ -39,6 +90,7 @@
 			dispatch('open');
 		}
 	}
+
 	const typeObj = {
 		success: 'checkbox-circle',
 		error: 'close-circle',
@@ -101,9 +153,6 @@
 		} w-full h-full${clickable ? ' pointer-events-none' : ''}`}
 		style={`z-index:${zIndex};height:${innerHeight}px`}
 	>
-		<!-- height: calc(var(--vh, 1vh) * 100 - ${
-        !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? 0 : 0
-    }px); -->
 		<Transition {visible} {transitionType} {transitionParams} {outDuration}>
 			<div class="flex justify-center px-10">
 				<div

@@ -147,7 +147,7 @@
 >
 	<div class={`flex justify-between gap-4 py-4${line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}`}>
 		<!-- left -->
-		<div class="flex justify-between">
+		<div class="flex justify-between items-center">
 			{#if left === ''}
 				<!-- none -->
 			{:else if left === 'slot'}
@@ -165,7 +165,7 @@
 			</div>
 		</div>
 		<!-- right -->
-		<div class="flex justify-between">
+		<div class="flex justify-between items-center">
 			<div class={`flex flex-col ${info === '' ? 'justify-center' : 'justify-between'} text-right `}>
 				{#if detail === 'slot'}
 					<slot name="detail">
