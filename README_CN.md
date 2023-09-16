@@ -127,6 +127,12 @@ npx create-stdf@latest
   <img src="https://contrib.rocks/image?repo=dufu1991/stdf" />
 </a>
 
+# 赞助者
+
+<a href="https://github.com/yuedanlabs" target="_blank">
+  <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
+</a>
+
 # 开源协议
 
 本项目基于 [MIT](https://github.com/dufu1991/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
