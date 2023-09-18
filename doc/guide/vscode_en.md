@@ -2,11 +2,11 @@
 
 ### Introduction
 
-STDF provides a VS Code plugin called [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension), which provides convenience when developing with [STDF](https://stdf.design).
+STDF provides a VS Code plugin called [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension), which provides convenience when developing with [STDF](https://stdf.design).
 
 ### Installation
 
-Search for `stdf-vscode-extension` in the VS Code plugin marketplace and click install, or install [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension) from the VS Code plugin marketplace.
+Search for `STDF for VS Code` in the VS Code plugin marketplace and click install, or install [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension) from the VS Code plugin marketplace.
 
 ### Features
 

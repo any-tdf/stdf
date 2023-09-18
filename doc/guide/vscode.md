@@ -2,11 +2,11 @@
 
 ### 介绍
 
-STDF 提供了一个 VS Code 插件 [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)，用于在使用 [STDF](https://stdf.design) 开发时提供一些便利。
+STDF 提供了一个 VS Code 插件 [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)，用于在使用 [STDF](https://stdf.design) 开发时提供一些便利。
 
 ### 安装
 
-在 VS Code 插件中搜索 `stdf-vscode-extension` 点击安装，或到 VS Code 插件市场安装 [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)。
+在 VS Code 插件中搜索 `STDF for VS Code` 点击安装，或到 VS Code 插件市场安装 [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)。
 
 ### 功能
 

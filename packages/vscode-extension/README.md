@@ -6,7 +6,7 @@ A VS Code extension that provides convenience when developing with [STDF](https:
 
 # Installation
 
-Search for `stdf-vscode-extension` in the VS Code extensions marketplace and click install, or install [stdf-vscode-extension](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension) from the marketplace.
+Search for `STDF for VS Code` in the VS Code extensions marketplace and click install, or install [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension) from the marketplace.
 
 # Features
 
