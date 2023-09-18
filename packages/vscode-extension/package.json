@@ -1,8 +1,8 @@
 {
 	"name": "stdf-vscode-extension",
-	"displayName": "stdf-vscode-extension",
+	"displayName": "STDF for VS Code",
 	"description": "A VS Code extension to facilitate STDF development",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"publisher": "STDF",
 	"icon": "./src/assets/stdf-vscode-extension.png",
 	"main": "./src/extension.js",
