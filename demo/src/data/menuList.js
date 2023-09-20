@@ -208,6 +208,16 @@ export default [
 					'input|输入框|输入|input输入框|input 输入框|Textarea|textarea|文本域|文本框|文本|textarea文本域|textarea 文本域|多行输入框|多行输入|多行|textarea多行输入框|textarea 多行输入框',
 			},
 			{
+				title: '数字键盘 NumKeyboard',
+				title_zh: '数字键盘',
+				title_en: 'NumKeyboard',
+				nav: 'numKeyboard',
+				tip: '按下 1，勇敢迈出第一步，成功不自来。',
+				tip_en: 'Press 1, take the first step bravely, success does not come naturally.',
+				alias:
+					'numKeyboard|数字键盘|数字|键盘|numKeyboard数字键盘|numKeyboard 数字键盘|金额键盘|numKeyboard金额键盘|numKeyboard 金额键盘|number|keyboard|amount|money|',
+			},
+			{
 				title: '选择器 Picker',
 				title_zh: '选择器',
 				title_en: 'Picker',

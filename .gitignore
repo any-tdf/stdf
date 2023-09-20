@@ -24,7 +24,7 @@ pnpm-lock.yaml
 /demo/public/fonts
 /demo/.svelte-kit
 /demo/build
-/demo/static/fonts
+/demo/static/fonts/symbol.svg
 /demo/npm-lock.yaml
 /demo/package-lock.json
 

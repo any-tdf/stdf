@@ -39,7 +39,11 @@ export default {
 			gray10: '#FAFAFB',
 			transparent: 'transparent',
 		},
-		extend: {},
+		extend: {
+			fontFamily: {
+				Trueno: 'Trueno',
+			},
+		},
 	},
 	darkMode: 'class',
 	plugins: [],

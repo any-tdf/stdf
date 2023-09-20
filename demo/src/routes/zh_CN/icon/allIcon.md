@@ -47,6 +47,7 @@ Demo 中用到的所有 svg 图标
 - discuss-fill
 - discuss-line
 - drag-move-line
+- delete-back-2-line
 - emotion-line
 - emotion-sad-fill
 - emotion-sad-line
@@ -104,6 +105,7 @@ Demo 中用到的所有 svg 图标
 - survey-fill
 - survey-line
 - switch-fill
+- skip-down-line
 - tablet-line
 - thumb-up-fill
 - train-line
