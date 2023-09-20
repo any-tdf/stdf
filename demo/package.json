@@ -43,6 +43,7 @@
 		"timePicker": "vite --mode timePicker",
 		"calendar": "vite --mode calendar",
 		"pagination": "vite --mode pagination",
+		"numKeyboard": "vite --mode numKeyboard",
 		"button_en": "vite --mode button_en",
 		"icon_en": "vite --mode icon_en",
 		"navBar_en": "vite --mode navBar_en",
@@ -79,7 +80,8 @@
 		"asyncPicker_en": "vite --mode asyncPicker_en",
 		"timePicker_en": "vite --mode timePicker_en",
 		"calendar_en": "vite --mode calendar_en",
-		"pagination_en": "vite --mode pagination_en"
+		"pagination_en": "vite --mode pagination_en",
+		"numKeyboard_en": "vite --mode numKeyboard_en"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
