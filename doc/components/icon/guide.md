@@ -32,6 +32,8 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 | ri-arrow-left-s-line          | NavBar           |
 | ri-volume-down-line           | NoticeBar        |
 | ri-close-line                 | NoticeBar        |
+| ri-delete-back-2-line         | NumKeyboard      |
+| ri-skip-down-line             | NumKeyboard      |
 | ri-more-line                  | Pagination       |
 | ri-more-fill                  | Pagination       |
 | ri-radio-button-line          | Radio            |

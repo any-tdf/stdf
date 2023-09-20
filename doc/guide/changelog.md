@@ -1,3 +1,7 @@
+## 0.3.0
+
+- 新增 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/#/components?nav=numKeyboard&tab=0)。
+
 ## 0.2.11
 
 - 修复 Cell，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。

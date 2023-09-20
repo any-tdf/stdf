@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Add NumKeyboard component, please see [NumKeyboard](https://stdf.design/#/components?nav=numKeyboard&tab=0).
+
 ## 0.2.11
 
 - Fix Cell, please see [Cell](https://stdf.design/#/components?nav=cell&tab=4).
