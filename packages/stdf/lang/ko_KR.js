@@ -4,6 +4,7 @@ export default {
 		loading: '로딩 중...',
 		noData: '데이터가 없습니다',
 		noMoreData: '데이터가 더 이상 없습니다',
+		done: '완료',
 	},
 	actionSheet: {
 		cancelText: '취소',

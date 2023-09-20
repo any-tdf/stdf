@@ -4,6 +4,7 @@ export default {
 		loading: 'Ladataan...',
 		noData: 'Ei dataa',
 		noMoreData: 'Ei enempää tietoja',
+		done: 'Valmis',
 	},
 	actionSheet: {
 		cancelText: 'Peruuta',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Načítání...',
 		noData: 'Žádná data',
 		noMoreData: 'Žádná další data',
+		done: 'Hotovo',
 	},
 	actionSheet: {
 		cancelText: 'Zrušit',

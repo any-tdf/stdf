@@ -4,6 +4,7 @@ export default {
 		loading: 'Жүктеу...',
 		noData: 'Деректер жоқ',
 		noMoreData: 'Көбірек деректер жоқ',
+		done: 'Аяқталды',
 	},
 	actionSheet: {
 		cancelText: 'Болдырмау',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Daxistin...',
 		noData: 'Agahî tune',
 		noMoreData: 'Agahî din tune',
+		done: 'Têkildar',
 	},
 	actionSheet: {
 		cancelText: 'Betalke',

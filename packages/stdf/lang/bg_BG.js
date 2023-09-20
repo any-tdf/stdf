@@ -4,6 +4,7 @@ export default {
 		loading: 'Зареждане...',
 		noData: 'Няма данни',
 		noMoreData: 'Няма повече данни',
+		done: 'Готово',
 	},
 	actionSheet: {
 		cancelText: 'Отказ',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Đang tải...',
 		noData: 'Không có dữ liệu',
 		noMoreData: 'Không còn dữ liệu',
+		done: 'Xong',
 	},
 	actionSheet: {
 		cancelText: 'Hủy',

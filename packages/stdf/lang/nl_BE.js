@@ -4,6 +4,7 @@ export default {
 		loading: 'Bezig met laden...',
 		noData: 'Geen gegevens',
 		noMoreData: 'Geen extra gegevens',
+		done: 'Gedaan',
 	},
 	actionSheet: {
 		cancelText: 'Annuleren',

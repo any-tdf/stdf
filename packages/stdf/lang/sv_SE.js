@@ -4,6 +4,7 @@ export default {
 		loading: 'Laddar...',
 		noData: 'Inga data',
 		noMoreData: 'Ingen mer data',
+		done: 'Klar',
 	},
 	actionSheet: {
 		cancelText: 'Avbryt',

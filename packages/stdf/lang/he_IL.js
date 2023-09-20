@@ -4,6 +4,7 @@ export default {
 		loading: 'טוען...',
 		noData: 'אין נתונים',
 		noMoreData: 'אין יותר נתונים',
+		done: 'סיום',
 	},
 	actionSheet: {
 		cancelText: 'בטל',

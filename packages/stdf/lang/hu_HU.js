@@ -4,6 +4,7 @@ export default {
 		loading: 'Betöltés...',
 		noData: 'Nincsenek adatok',
 		noMoreData: 'Nincs több adat',
+		done: 'Kész',
 	},
 	actionSheet: {
 		cancelText: 'Mégsem',

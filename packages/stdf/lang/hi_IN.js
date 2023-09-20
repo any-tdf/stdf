@@ -4,6 +4,7 @@ export default {
 		loading: 'लोड हो रहा है...',
 		noData: 'कोई डेटा नहीं',
 		noMoreData: 'और डेटा नहीं',
+		done: 'पूरा कर लिया',
 	},
 	actionSheet: {
 		cancelText: 'रद्द करें',

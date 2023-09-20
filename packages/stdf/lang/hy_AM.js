@@ -4,6 +4,7 @@ export default {
 		loading: 'Բեռնում...',
 		noData: 'Ոչ մի տվյալ',
 		noMoreData: 'Տվյալները ավելի չկան',
+		done: 'Ավարտված',
 	},
 	actionSheet: {
 		cancelText: 'Չեղարկել',

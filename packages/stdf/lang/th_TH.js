@@ -4,6 +4,7 @@ export default {
 		loading: 'กำลังโหลด...',
 		noData: 'ไม่มีข้อมูล',
 		noMoreData: 'ไม่มีข้อมูลเพิ่มเติม',
+		done: 'เสร็จสิ้น',
 	},
 	actionSheet: {
 		cancelText: 'ยกเลิก',

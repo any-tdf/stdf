@@ -4,6 +4,7 @@ export default {
 		loading: 'កំពុងផ្ទុកទិន្នន័យ ...',
 		noData: 'គ្មានទិន្នន័យទេ',
 		noMoreData: 'គ្មានទិន្នន័យផ្សេងទៀតទេ',
+		done: 'ធ្វើរួចរាល់',
 	},
 	actionSheet: {
 		cancelText: 'បោះបង់',

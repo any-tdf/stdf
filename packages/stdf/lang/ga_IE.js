@@ -4,6 +4,7 @@ export default {
 		loading: 'Lodáil i gceist...',
 		noData: 'Níl aon sonraí ann',
 		noMoreData: 'Níl tuilleadh sonraí',
+		done: 'Déanta',
 	},
 	actionSheet: {
 		cancelText: 'Cealaigh',

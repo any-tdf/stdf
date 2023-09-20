@@ -4,6 +4,7 @@ export default {
 		loading: 'Уншиж байна ...',
 		noData: 'Өгөгдөл байхгүй байна',
 		noMoreData: 'Дараагийн өгөгдөл байхгүй байна',
+		done: 'Дууссан',
 	},
 	actionSheet: {
 		cancelText: 'Цуцлах',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Ýüklenýär...',
 		noData: 'Maglumat ýok',
 		noMoreData: 'Köp maglumat ýok',
+		done: 'Tamam',
 	},
 	actionSheet: {
 		cancelText: 'Gurnama',

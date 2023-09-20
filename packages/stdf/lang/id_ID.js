@@ -4,6 +4,7 @@ export default {
 		loading: 'Sedang memuat...',
 		noData: 'Tidak ada data',
 		noMoreData: 'Tidak ada lagi data',
+		done: 'Selesai',
 	},
 	actionSheet: {
 		cancelText: 'Batal',

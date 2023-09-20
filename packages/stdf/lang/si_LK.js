@@ -4,6 +4,7 @@ export default {
 		loading: 'පූරණය වෙමින්...',
 		noData: 'දත්ත නැත',
 		noMoreData: 'තවත් දත්ත නැත',
+		done: 'ක්‍රියාත්මක කරන ලදි',
 	},
 	actionSheet: {
 		cancelText: 'එපා',

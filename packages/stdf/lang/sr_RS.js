@@ -4,6 +4,7 @@ export default {
 		loading: 'Učitavam...',
 		noData: 'Nema podataka',
 		noMoreData: 'Nema više podataka',
+		done: 'Gotovo',
 	},
 	actionSheet: {
 		cancelText: 'Otkaži',

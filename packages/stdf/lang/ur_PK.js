@@ -4,6 +4,7 @@ export default {
 		loading: 'لوڈ ہو رہا ہے ...',
 		noData: 'کوئی ڈیٹا نہیں',
 		noMoreData: 'کوئی زیادہ ڈیٹا نہیں',
+		done: 'تمام',
 	},
 	actionSheet: {
 		cancelText: 'منسوخ',

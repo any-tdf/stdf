@@ -4,6 +4,7 @@ export default {
 		loading: 'Laden...',
 		noData: 'Keine Daten',
 		noMoreData: 'Keine weiteren Daten',
+		done: 'Fertig',
 	},
 	actionSheet: {
 		cancelText: 'Abbrechen',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Ielādē...',
 		noData: 'Nav datu',
 		noMoreData: 'Nav vairāk datu',
+		done: 'Pabeigts',
 	},
 	actionSheet: {
 		cancelText: 'Atcelt',

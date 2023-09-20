@@ -4,6 +4,7 @@ export default {
 		loading: 'Se încarcă...',
 		noData: 'Fără date',
 		noMoreData: 'Nu mai există date',
+		done: 'Gata',
 	},
 	actionSheet: {
 		cancelText: 'Anulează',

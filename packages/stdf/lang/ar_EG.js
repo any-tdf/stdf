@@ -4,6 +4,7 @@ export default {
 		loading: 'جار التحميل ...',
 		noData: 'لا يوجد بيانات',
 		noMoreData: 'لا توجد بيانات إضافية',
+		done: 'تم',
 	},
 	actionSheet: {
 		cancelText: 'إلغاء',

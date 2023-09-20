@@ -4,6 +4,7 @@ export default {
 		loading: 'Wczytywanie...',
 		noData: 'Brak danych',
 		noMoreData: 'Brak dalszych danych',
+		done: 'Gotowe',
 	},
 	actionSheet: {
 		cancelText: 'Anuluj',

@@ -4,6 +4,7 @@ export default {
 		loading: 'Laadimine...',
 		noData: 'Andmeid pole',
 		noMoreData: 'Rohkem andmeid pole',
+		done: 'Valmis',
 	},
 	actionSheet: {
 		cancelText: 'Tühista',

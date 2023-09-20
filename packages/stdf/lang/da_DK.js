@@ -4,6 +4,7 @@ export default {
 		loading: 'Indlæser...',
 		noData: 'Ingen data',
 		noMoreData: 'Ingen flere data',
+		done: 'Færdig',
 	},
 	actionSheet: {
 		cancelText: 'Annuller',

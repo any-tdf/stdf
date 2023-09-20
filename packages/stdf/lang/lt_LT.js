@@ -4,6 +4,7 @@ export default {
 		loading: 'Įkeliama...',
 		noData: 'Nėra duomenų',
 		noMoreData: 'Daugiau duomenų nėra',
+		done: 'Atlikta',
 	},
 	actionSheet: {
 		cancelText: 'Atšaukti',

@@ -4,6 +4,7 @@ export default {
 		loading: '読み込み中...',
 		noData: 'データがありません',
 		noMoreData: 'これ以上のデータはありません',
+		done: '完了',
 	},
 	actionSheet: {
 		cancelText: 'キャンセル',

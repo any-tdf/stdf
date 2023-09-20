@@ -4,6 +4,7 @@ export default {
 		loading: 'Nalaganje ...',
 		noData: 'Ni podatkov',
 		noMoreData: 'Ni več podatkov',
+		done: 'Končano',
 	},
 	actionSheet: {
 		cancelText: 'Prekliči',

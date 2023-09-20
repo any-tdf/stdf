@@ -4,6 +4,7 @@ export default {
 		loading: 'লোড হচ্ছে ...',
 		noData: 'কোন তথ্য নেই',
 		noMoreData: 'আর কোন তথ্য নেই',
+		done: 'সম্পন্ন',
 	},
 	actionSheet: {
 		cancelText: 'বাতিল',

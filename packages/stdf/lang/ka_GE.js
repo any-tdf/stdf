@@ -4,6 +4,7 @@ export default {
 		loading: 'იტვირთება...',
 		noData: 'მონაცემები არ არის',
 		noMoreData: 'არ არის უფრო მეტი მონაცემი',
+		done: 'დასრულებულია',
 	},
 	actionSheet: {
 		cancelText: 'გაუქმება',

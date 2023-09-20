@@ -4,6 +4,7 @@ export default {
 		loading: 'Yükleniyor...',
 		noData: 'Veri yok',
 		noMoreData: 'Daha fazla veri yok',
+		done: 'Tamam',
 	},
 	actionSheet: {
 		cancelText: 'İptal',

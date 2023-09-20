@@ -4,6 +4,7 @@ export default {
 		loading: 'در حال بارگذاری...',
 		noData: 'هیچ داده‌ای موجود نیست',
 		noMoreData: 'دیگر داده‌ای موجود نیست',
+		done: 'انجام شد',
 	},
 	actionSheet: {
 		cancelText: 'لغو',

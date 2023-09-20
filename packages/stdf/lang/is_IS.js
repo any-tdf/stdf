@@ -4,6 +4,7 @@ export default {
 		loading: 'Hleður...',
 		noData: 'Engin gögn',
 		noMoreData: 'Engin fleiri gögn',
+		done: 'Lokið',
 	},
 	actionSheet: {
 		cancelText: 'Hætta við',

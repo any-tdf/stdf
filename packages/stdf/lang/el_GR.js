@@ -4,6 +4,7 @@ export default {
 		loading: 'Φόρτωση...',
 		noData: 'Δεν υπάρχουν δεδομένα',
 		noMoreData: 'Δεν υπάρχουν άλλα δεδομένα',
+		done: 'Έγινε',
 	},
 	actionSheet: {
 		cancelText: 'Ακύρωση',

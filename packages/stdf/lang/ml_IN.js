@@ -4,6 +4,7 @@ export default {
 		loading: 'ലോഡുചെയ്യുന്നു...',
 		noData: 'ഡാറ്റായില്ല',
 		noMoreData: 'കൂടുതൽ ഡാറ്റാ ഇല്ല',
+		done: 'ചെയ്തു',
 	},
 	actionSheet: {
 		cancelText: 'റദ്ദാക്കുക',

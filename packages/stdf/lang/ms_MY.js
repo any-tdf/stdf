@@ -4,6 +4,7 @@ export default {
 		loading: 'Membaca ...',
 		noData: 'Tiada data',
 		noMoreData: 'Tiada lagi data',
+		done: 'Selesai',
 	},
 	actionSheet: {
 		cancelText: 'Batal',

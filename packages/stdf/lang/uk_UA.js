@@ -4,6 +4,7 @@ export default {
 		loading: 'Завантаження...',
 		noData: 'Немає даних',
 		noMoreData: 'Немає більше даних',
+		done: 'Готово',
 	},
 	actionSheet: {
 		cancelText: 'Скасувати',

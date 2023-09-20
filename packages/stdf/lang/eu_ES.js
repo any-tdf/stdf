@@ -4,6 +4,7 @@ export default {
 		loading: 'Kargatzen...',
 		noData: 'Datu gabe',
 		noMoreData: 'Ez dago gehio datu',
+		done: 'Eginda',
 	},
 	actionSheet: {
 		cancelText: 'Utzi',

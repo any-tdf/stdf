@@ -4,6 +4,7 @@ export default {
 		loading: 'Yüklənir...',
 		noData: 'Məlumat yoxdur',
 		noMoreData: 'Artıq məlumat yoxdur',
+		done: 'Hazır',
 	},
 	actionSheet: {
 		cancelText: 'Ləğv et',
