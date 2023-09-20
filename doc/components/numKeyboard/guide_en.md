@@ -20,6 +20,10 @@ When doneDisabled is set to true, the completion button will be disabled. In thi
 
 The key text size will dynamically adjust according to the height of the key.
 
+## Keyboard Height
+
+When using the keyboard on a mobile device, it is important to consider the height of the keyboard. The keyboard may cover the area where input content needs to be displayed on the page. Therefore, the NumKeyboard component automatically calculates the height of the keyboard when it is opened and dispatches it through the open event. Developers can use this value to handle the issue of keyboard covering content.
+
 ## CSS Injection
 
 The injClass parameter can be used to inject CSS class names (not limited to Tailwind CSS) into three parts of the NumKeyboard. This allows for more customization possibilities for the component's style. In the example, custom background color and text color are achieved through injClass.
