@@ -1,6 +1,10 @@
-## 0.0.15
+## 0.0.17
 
-- Fixed known issues.(0.0.10 - 0.0.15)
+- Fixed the latest version detection problem.
+
+## 0.0.16
+
+- Fixed known issues.(0.0.10 - 0.0.16)
 
 ## 0.0.9
 

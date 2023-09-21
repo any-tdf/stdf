@@ -1,62 +1,59 @@
 {
-  "name": "stdf-vscode-extension",
-  "displayName": "STDF for VS Code",
-  "description": "A VS Code extension to facilitate STDF development",
-  "version": "0.0.16",
-  "publisher": "STDF",
-  "icon": "./src/assets/stdf-vscode-extension.png",
-  "main": "./src/extension.js",
-  "engines": {
-    "vscode": "^1.27.0"
-  },
-  "scripts": {
-    "files": "node scripts/files.js",
-    "package": "vsce package",
-    "publish": "vsce publish"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "activationEvents": [
-    "onLanguage:svelte"
-  ],
-  "sponsor": {
-    "url": "https://stdf.design?fund"
-  },
-  "keywords": [
-    "svelte",
-    "stdf",
-    "component",
-    "api",
-    "javascript"
-  ],
-  "contributes": {
-    "commands": [],
-    "configuration": {
-      "type": "object",
-      "title": "STDF",
-      "properties": {
-        "STDF.English": {
-          "type": "boolean",
-          "default": false,
-          "description": "Whether to enable English or not in stdf-vscode-extension"
-        }
-      }
-    }
-  },
-  "devDependencies": {
-    "vscode": "^1.1.37"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension"
-  },
-  "bugs": {
-    "url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+vscode"
-  },
-  "homepage": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension/README.md",
-  "LICENSE": "https://github.com/dufu1991/stdf/blob/main/LICENSE",
-  "dependencies": {
-    "latest-version": "^7.0.0"
-  }
+	"name": "stdf-vscode-extension",
+	"displayName": "STDF for VS Code",
+	"description": "A VS Code extension to facilitate STDF development",
+	"version": "0.0.17",
+	"publisher": "STDF",
+	"icon": "./src/assets/stdf-vscode-extension.png",
+	"main": "./src/extension.js",
+	"engines": {
+		"vscode": "^1.27.0"
+	},
+	"scripts": {
+		"files": "node scripts/files.js",
+		"package": "vsce package",
+		"publish": "vsce publish"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onLanguage:svelte"
+	],
+	"sponsor": {
+		"url": "https://stdf.design?fund"
+	},
+	"keywords": [
+		"svelte",
+		"stdf",
+		"component",
+		"api",
+		"javascript"
+	],
+	"contributes": {
+		"commands": [],
+		"configuration": {
+			"type": "object",
+			"title": "STDF",
+			"properties": {
+				"STDF.English": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to enable English or not in stdf-vscode-extension"
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"vscode": "^1.1.37"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension"
+	},
+	"bugs": {
+		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+vscode"
+	},
+	"homepage": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension/README.md",
+	"LICENSE": "https://github.com/dufu1991/stdf/blob/main/LICENSE"
 }

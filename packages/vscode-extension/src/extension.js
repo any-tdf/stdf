@@ -1,17 +1,13 @@
 const vscode = require('vscode');
 const path = require('path');
-
-// 读取 ./doc/package.json 文件
-// Read the ./doc/package.json file
-const stdfPackage = require('./doc/package.json');
-const latestVersion = stdfPackage.version;
+const { exec } = require('child_process');
 
 // 组件列表
 // components list
 const componentListOrgin = require('./menuList');
 const componentList = ArrChildFun(componentListOrgin);
 
-function activate() {
+async function activate() {
 	// 如果没有设置，返回undefined
 	// If not set, return undefined
 	const result = vscode.workspace.getConfiguration().get('STDF');
@@ -36,6 +32,10 @@ function activate() {
 		currentVersion = currentVersion.slice(1);
 	}
 
+	// stdf 组件库的最新版本号
+	// The latest version number of the stdf component library
+	const latestVersion = await getLatestVersion('stdf');
+
 	// 当前文件是 .svelte 文件时且 isImportStdf 为 true 时，才注册悬浮提示
 	// When the current file is a .svelte file and isImportStdf is true, register the hover prompt
 	if (vscode.window.activeTextEditor.document.languageId === 'svelte' && isImportStdf) {
@@ -52,9 +52,9 @@ function activate() {
 				if (componentList.includes(word)) {
 					// 组合当前 STDF 版本和最新版本
 					// Combine the current STDF version and the latest version
-					const versionContent = `${isZh ? '当前版本' : 'Current version'}：${currentVersion} &nbsp; ${
-						isZh ? '最新版本' : 'Latest version'
-					}：${latestVersion}`;
+					const versionContent = `STDF ${isZh ? '当前' : 'Current'}：${currentVersion} &nbsp; ${
+						isZh ? '最新' : 'Latest'
+					}：${latestVersion} &nbsp; [${isZh ? '查看更新日志' : 'See changelog'}](https://stdf.design/#/guide?nav=changelog)`;
 
 					// 获取对应组件的 api.md 文件的路径
 					// Get the path of the api.md file of the corresponding component
@@ -105,6 +105,20 @@ function ArrChildFun(arr) {
 		newArr2.push(newArr[e].title_en);
 	}
 	return newArr2;
+}
+
+// 获取指定 npm 包的最新版本号
+// Get the latest version number of the specified npm package
+async function getLatestVersion(packageName) {
+	return new Promise((resolve, reject) => {
+		exec(`npm show ${packageName} version`, (error, stdout, stderr) => {
+			if (error || stderr) {
+				reject(error || stderr);
+			} else {
+				resolve(stdout.trim());
+			}
+		});
+	});
 }
 
 function deactivate() {}

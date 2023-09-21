@@ -48,13 +48,6 @@ const replaceMenuList = () => {
 	console.log('🎉 menuList replace success!');
 };
 
-// 复制 ../../packages/stdf/package.json 文件到 src/doc 目录下
-// Copy ../../packages/stdf/package.json file to src/doc directory
-const copyPackageJson = () => {
-	fs.copyFileSync('../../packages/stdf/package.json', './src/doc/package.json');
-	console.log('🎉 package.json copy success!');
-};
-
 // 复制 ../../LICENSE 文件到 ./ 目录下
 // Copy ../../LICENSE file to ./ directory
 const copyLicense = () => {
@@ -66,5 +59,4 @@ createDoc();
 copyDoc();
 copyMenuList();
 replaceMenuList();
-copyPackageJson();
 copyLicense();
