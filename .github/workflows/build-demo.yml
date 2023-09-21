@@ -54,7 +54,7 @@ jobs:
         run: |
           cd demo
           npm install
-          npm run build
+          npm run build_stdf
 
       - name: Upload
         uses: appleboy/scp-action@master
