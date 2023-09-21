@@ -3,9 +3,12 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite dev",
+		"dev_stdf": "npm link ../packages/stdf && vite dev",
 		"build": "vite build",
+		"build_stdf": "npm link ../packages/stdf && vite build",
 		"preview": "vite preview",
 		"dev_en": "vite --mode english",
+		"dev_stdf_en": "npm link ../packages/stdf && vite --mode english",
 		"button": "vite --mode button",
 		"icon": "vite --mode icon",
 		"navBar": "vite --mode navBar",
@@ -91,7 +94,6 @@
 		"autoprefixer": "^10.4.15",
 		"postcss": "^8.4.28",
 		"rollup-plugin-stdf-icon": "file:../packages/rollup-plugin-stdf-icon",
-		"stdf": "file:../packages/stdf",
 		"svelte": "^4.1.1",
 		"tailwindcss": "^3.3.3",
 		"vite": "^4.4.6"

@@ -28,10 +28,11 @@ Recommended installations:
 > Because the rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build this packages first.
 
 ```bash
-## 1. Clone STDF repository
+## 1. Clone the STDF repository and enter
 git clone git@github.com:dufu1991/stdf.git
+cd stdf
 
-## 2. Build rollup-plugin-stdf-icon package
+## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
 
 ## Install dependencies
@@ -46,8 +47,8 @@ bun run build
 ## or
 npm run build
 
-## 3. Enter the project demo directory
-cd stdf/demo
+## 3. Use the Demo project to debug STDF
+cd demo
 
 ## Install dependencies
 bun i
@@ -56,10 +57,10 @@ pnpm i
 ## or
 npm i
 
-## Start the project
-bun dev
+## Start Demo, note that the run stdf command includes npm link, which will link the stdf component source package to Demo to achieve real-time debugging of the source code. Remember to execute npm unlink stdf to unlink after debugging.
+bun dev_stdf_en
 ## or
-npm run dev
+npm run dev_stdf_en
 ```
 
 After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.

@@ -30,8 +30,9 @@
 > 由于 Demo 依赖的 rollup-plugin-stdf-icon 包是本地构建的，所以请先构建一下这个包。
 
 ```bash
-## 1. 克隆 STDF 仓库
+## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:dufu1991/stdf.git
+cd stdf
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
@@ -48,8 +49,8 @@ bun run build
 ## or
 npm run build
 
-## 3. 进入项目 demo 目录
-cd stdf/demo
+## 3. 使用 Demo 工程调试 STDF
+cd demo
 
 ## 安装依赖
 bun i
@@ -58,10 +59,10 @@ pnpm i
 ## or
 npm i
 
-## 启动项目
-bun dev
+## 启动 Demo，注意 run stdf 命令包含了 npm link，会将 stdf 组件源码包链接到 Demo，实现源码实时调试。调试完毕记得执行 npm unlink stdf 解除链接。
+bun dev_stdf
 ## or
-npm run dev
+npm run dev_stdf
 ```
 
 启动成功之后，可在浏览器中打开 `http://localhost:8888` 查看效果，请将浏览器的开发者工具切换为移动端模式。
