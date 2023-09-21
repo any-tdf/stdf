@@ -8,8 +8,8 @@
 | gap          | String  | '2'                    | '0'/'1'/'2'/'3'/'4'                             | N    | 按键间距。           |
 | p            | String  | '2'                    | '0'/'1'/'2'/'3'/'4'                             | N    | 键盘内边距。         |
 | reverse      | Boolean | false                  | true/false                                      | N    | 数字是否上下反向。   |
-| done         | Boolean | false                  | true/false                                      | N    | 是否显示完成按钮。   |
-| dot          | Boolean | false                  | true/false                                      | N    | 是否显示小数点。     |
+| done         | Boolean | true                   | true/false                                      | N    | 是否显示完成按钮。   |
+| dot          | Boolean | true                   | true/false                                      | N    | 是否显示小数点。     |
 | close        | Boolean | false                  | true/false                                      | N    | 是否显示关闭按钮。   |
 | doneText     | String  | 当前语言的 common.done | -                                               | N    | 完成按钮文案。       |
 | doneDisabled | Boolean | false                  | true/false                                      | N    | 完成按钮是否禁用。   |

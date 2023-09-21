@@ -8,8 +8,8 @@
 | gap          | String  | '2'                                     | '0'/'1'/'2'/'3'/'4'                             | No       | The gap between keys.                          |
 | p            | String  | '2'                                     | '0'/'1'/'2'/'3'/'4'                             | No       | The padding inside the keyboard.               |
 | reverse      | Boolean | false                                   | true/false                                      | No       | Whether the numbers are reversed.              |
-| done         | Boolean | false                                   | true/false                                      | No       | Whether to show the done button.               |
-| dot          | Boolean | false                                   | true/false                                      | No       | Whether to show the decimal point.             |
+| done         | Boolean | true                                    | true/false                                      | No       | Whether to show the done button.               |
+| dot          | Boolean | true                                    | true/false                                      | No       | Whether to show the decimal point.             |
 | close        | Boolean | false                                   | true/false                                      | No       | Whether to show the close button.              |
 | doneText     | String  | The common.done of the current language | -                                               | No       | The text of the done button.                   |
 | doneDisabled | Boolean | false                                   | true/false                                      | No       | Whether the done button is disabled.           |
@@ -26,3 +26,5 @@
 | click | event: event object, with two parameters in the detail property: <br />1. numStr: the input number as a string; <br />2. key: the key that was clicked. | Triggered when any key is clicked.     |
 | open  | event: event object, with the keyboardHeight property in the detail property indicating the height of the keyboard.                                     | Triggered when the keyboard is opened. |
 | close | -                                                                                                                                                       | Triggered when the keyboard is closed. |
+
+–
