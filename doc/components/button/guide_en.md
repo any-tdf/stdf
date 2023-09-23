@@ -8,7 +8,7 @@ In fill mode, line is a linear button (ghost button), lineLight is a linear ligh
 
 ## Status color
 
-The status color corresponds to the four functional colors of success, warning, error, and information of the STDF color system. Please make sure that the corresponding color values ​​have been configured in the Tailwind configuration file tailwind.config.js. Of course, you can also configure it flexibly according to your project. .
+The status color corresponds to the four functional colors of success, warning, error, and information of the STDF color system. Please make sure that the corresponding color values ​​have been configured in the Tailwind configuration file tailwind.config.js. Of course, you can also configure it flexibly according to your project.
 
 ## Size
 
