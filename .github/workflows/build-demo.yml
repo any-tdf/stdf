@@ -39,13 +39,11 @@ jobs:
       - name: Install logging
         run: python3 -m pip install logging
 
-      # 将 LICENSE 复制到 packages/rollup-plugin-stdf-icon 目录下
       # cd packages/rollup-plugin-stdf-icon 目录下
       # 安装依赖 npm install
       # 打包 npm run build
       - name: Build rollup-plugin-stdf-icon
         run: |
-          cp LICENSE packages/rollup-plugin-stdf-icon/LICENSE
           cd packages/rollup-plugin-stdf-icon
           npm install
           npm run build
@@ -54,7 +52,7 @@ jobs:
         run: |
           cd demo
           npm install
-          npm run build_stdf
+          npm run build
 
       - name: Upload
         uses: appleboy/scp-action@master
