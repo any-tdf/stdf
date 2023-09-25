@@ -40,6 +40,12 @@ jobs:
       # cd 到 stdf/demo 文件内，初始化本地仓库
       # 将 demo/package.json 内的 "svelte" 前面增加一行 "stdf": "^${{ steps.version.outputs.version }}",
       # 将 demo/package.json 内的 file:../packages/rollup-plugin-stdf-icon 替换为 ^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
+      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf'"
+      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/zh_CN'"  替换为 "'stdf/lang/zh_CN'"
+      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/en_US'"  替换为 "'stdf/lang/en_US'"
+      # 将 demo/src/routes/+page.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf/lang/en_US'"
+      # 将 demo/src/routes/en_US/**/+page.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
+      # 将 demo/src/routes/zh_CN/**/+page.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
       # 将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
       - name: Init stdf demo
         run: |
@@ -51,6 +57,12 @@ jobs:
           sed -i 's/"svelte"/"stdf": "^${{ steps.version.outputs.version }}",\n"svelte"/' package.json
           sed -i 's/"svelte"/\t\t"svelte"/' package.json
           sed -i 's#file:../packages/rollup-plugin-stdf-icon#^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}#' package.json
+          sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+layout.svelte
+          sed -i 's#../../../packages/stdf/lang/zh_CN#stdf/lang/zh_CN#' src/routes/+layout.svelte
+          sed -i 's#../../../packages/stdf/lang/en_US#stdf/lang/en_US#' src/routes/+layout.svelte
+          sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+page.svelte
+          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/+page.svelte
+          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/+page.svelte
           git add .
           git commit -m "Github Actions auto commit: update demo from stdf."
 
