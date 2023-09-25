@@ -57,10 +57,10 @@ pnpm i
 ## or
 npm i
 
-## Start Demo, note that the run stdf command includes npm link, which will link the stdf component source package to Demo to achieve real-time debugging of the source code. Remember to execute npm unlink stdf to unlink after debugging.
-bun dev_stdf_en
+## Start Demo
+bun dev_en
 ## or
-npm run dev_stdf_en
+npm run dev_en
 ```
 
 After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.

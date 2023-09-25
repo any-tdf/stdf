@@ -59,10 +59,10 @@ pnpm i
 ## or
 npm i
 
-## 启动 Demo，注意 run stdf 命令包含了 npm link，会将 stdf 组件源码包链接到 Demo，实现源码实时调试。调试完毕记得执行 npm unlink stdf 解除链接。
-bun dev_stdf
+## 启动 Demo
+bun dev
 ## or
-npm run dev_stdf
+npm run dev
 ```
 
 启动成功之后，可在浏览器中打开 `http://localhost:8888` 查看效果，请将浏览器的开发者工具切换为移动端模式。
