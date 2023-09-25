@@ -4,11 +4,12 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+		// 使用纯静态适配器，并配置打包文件的输入目录
+		// Use pure static adapter and configure the input directory of the package file
 		adapter: adapter({
-			fallback: 'index.html', // may differ from host to host
+			// may differ from host to host
+			// 可能因主机而异
+			fallback: 'index.html',
 		}),
 	},
 	onwarn: (warning, handler) => {
