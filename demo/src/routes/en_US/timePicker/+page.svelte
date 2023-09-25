@@ -1,6 +1,6 @@
 <!-- TimePickerDemo Demo -->
 <script>
-	import { Cell, TimePicker } from 'stdf';
+	import { Cell, TimePicker } from '../../../../../packages/stdf/components';
 
 	let visible1 = false;
 	let visible2 = false;

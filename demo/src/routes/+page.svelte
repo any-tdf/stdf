@@ -1,10 +1,5 @@
 <script>
-	import { setContext, onMount } from 'svelte';
-	// import Router, { querystring, location, push, pop } from 'svelte-spa-router';
-	// import { routes, routes_en } from './route';
-	import { NavBar, Icon, CellGroup, Cell } from 'stdf';
-	import zh_CN from 'stdf/lang/zh_CN';
-	import en_US from 'stdf/lang/en_US';
+	import { CellGroup, Cell } from '../../../packages/stdf/components';
 	import menuList from '../data/menuList';
 
 	// 循环 menuList，将所有元素的 childs 组成一个数组
@@ -15,16 +10,6 @@
 		}
 		return acc;
 	}, []);
-	//获取参数
-	// get parameters
-	// const params = new URLSearchParams('?' + $querystring);
-	// 判断是否是iframe
-	// judge whether it is iframe
-	// const isIframe = params.get('channel') && params.get('channel') === 'iframe' ? '1' : '0';
-	// 设置iframe
-	// setting iframe
-	// setContext('iframe', isIframe);
-	let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 	// 设置语言
 	// setting language
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';

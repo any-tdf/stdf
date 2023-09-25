@@ -1,6 +1,6 @@
 <!-- Icon Demo，请确保已引入 symbol.svg 文件。 -->
 <script>
-	import { Icon } from 'stdf';
+	import { Icon } from '../../../../../packages/stdf/components';
 
 	const icons = ['ri-spy-fill', 'ri-chrome-fill', 'ri-riding-line', 'ri-switch-fill'];
 </script>

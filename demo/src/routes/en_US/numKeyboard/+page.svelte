@@ -1,6 +1,6 @@
 <!-- NumKeyboard Demo -->
 <script>
-	import { NumKeyboard, Cell, Toast } from 'stdf';
+	import { NumKeyboard, Cell, Toast } from '../../../../../packages/stdf/components';
 	import { Confetti } from 'svelte-confetti';
 
 	let visible1 = false;

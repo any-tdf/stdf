@@ -1,6 +1,6 @@
 <!-- NavBar Demo -->
 <script>
-	import { NavBar, Icon, Toast } from 'stdf';
+	import { NavBar, Icon, Toast } from '../../../../../packages/stdf/components';
 
 	const icons1 = [{ name: 'ri-paint-brush-line', theme: true }, { name: 'ri-share-line' }];
 	const icons2 = [{ name: 'ri-command-line' }, { name: 'ri-drag-move-line' }];

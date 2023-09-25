@@ -1,7 +1,7 @@
 <!-- Input Demo -->
 <script>
 	import { getContext } from 'svelte';
-	import { Input, Button, Icon, Toast } from 'stdf';
+	import { Input, Button, Icon, Toast } from '../../../../../packages/stdf/components';
 
 	let value = 'Init text';
 	let visible = false;

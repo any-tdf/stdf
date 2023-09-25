@@ -1,6 +1,6 @@
 <!-- Cell Demo -->
 <script>
-	import { Cell, CellGroup, Toast } from 'stdf';
+	import { Cell, CellGroup, Toast } from '../../../../../packages/stdf/components';
 
 	let visible = false;
 </script>

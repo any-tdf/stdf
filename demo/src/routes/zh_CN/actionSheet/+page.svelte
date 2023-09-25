@@ -1,6 +1,6 @@
 <!-- ActionSheet Demo -->
 <script>
-	import { Cell, ActionSheet, Toast } from 'stdf';
+	import { Cell, ActionSheet, Toast } from '../../../../../packages/stdf/components';
 
 	let visible1 = false;
 	let visible2 = false;

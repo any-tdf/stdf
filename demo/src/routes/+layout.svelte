@@ -2,9 +2,9 @@
 	import { setContext, onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import { NavBar, Icon } from 'stdf';
-	import zh_CN from 'stdf/lang/zh_CN';
-	import en_US from 'stdf/lang/en_US';
+	import { NavBar, Icon } from '../../../packages/stdf/components';
+	import zh_CN from '../../../packages/stdf/lang/zh_CN';
+	import en_US from '../../../packages/stdf/lang/en_US';
 	import '../app.css';
 	import menuList from '../data/menuList';
 

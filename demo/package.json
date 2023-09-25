@@ -3,12 +3,9 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite dev",
-		"dev_stdf": "npm link ../packages/stdf && vite dev",
 		"build": "vite build",
-		"build_stdf": "npm link ../packages/stdf && vite build",
 		"preview": "vite preview",
 		"dev_en": "vite --mode english",
-		"dev_stdf_en": "npm link ../packages/stdf && vite --mode english",
 		"button": "vite --mode button",
 		"icon": "vite --mode icon",
 		"navBar": "vite --mode navBar",
