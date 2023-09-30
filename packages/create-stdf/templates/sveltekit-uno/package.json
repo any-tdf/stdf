@@ -7,17 +7,15 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@fontsource/fira-mono": "^4.5.10",
-		"@neoconfetti/svelte": "^1.0.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.20.4",
-		"@unocss/extractor-svelte": "^0.54.2",
-		"@unocss/reset": "^0.54.2",
+		"@sveltejs/adapter-static": "^2.0.3",
+		"@sveltejs/kit": "^1.25.1",
+		"@unocss/extractor-svelte": "^0.56.4",
+		"@unocss/reset": "^0.56.4",
 		"rollup-plugin-stdf-icon": "file:../../../rollup-plugin-stdf-icon",
 		"stdf": "file:../../../stdf",
-		"svelte": "^4.1.1",
-		"unocss": "^0.53.6",
-		"vite": "^4.4.6"
+		"svelte": "^4.2.1",
+		"unocss": "^0.56.4",
+		"vite": "^4.4.9"
 	},
 	"type": "module"
 }
