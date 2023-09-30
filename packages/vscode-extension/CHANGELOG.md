@@ -1,3 +1,7 @@
+## 0.0.18
+
+- Fixed the problem that STDF cannot be queried for the latest version, such as offline use.
+
 ## 0.0.17
 
 - Fixed the latest version detection problem.

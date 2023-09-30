@@ -34,7 +34,7 @@ async function activate() {
 
 	// stdf 组件库的最新版本号
 	// The latest version number of the stdf component library
-	const latestVersion = await getLatestVersion('stdf');
+	const latestVersion = (await getLatestVersion('stdf')) || (isZh ? '获取失败' : 'Failed to get');
 
 	// 当前文件是 .svelte 文件时且 isImportStdf 为 true 时，才注册悬浮提示
 	// When the current file is a .svelte file and isImportStdf is true, register the hover prompt
@@ -110,10 +110,10 @@ function ArrChildFun(arr) {
 // 获取指定 npm 包的最新版本号
 // Get the latest version number of the specified npm package
 async function getLatestVersion(packageName) {
-	return new Promise((resolve, reject) => {
+	return new Promise(resolve => {
 		exec(`npm show ${packageName} version`, (error, stdout, stderr) => {
 			if (error || stderr) {
-				reject(error || stderr);
+				resolve(null);
 			} else {
 				resolve(stdout.trim());
 			}
