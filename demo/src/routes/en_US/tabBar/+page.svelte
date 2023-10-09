@@ -55,7 +55,7 @@
 	};
 </script>
 
-<div class="py-8">
+<div class="py-8 mb-20">
 	<div class="space-y-8 my-4">
 		<div>
 			<div class="font-bold px-4 mb-2">Basic usage</div>
@@ -105,11 +105,11 @@
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">monitor change event</div>
-			<TabBar {labels} on:change={tabBarChangeFun} />
 			<div class="m-4">At present TabBar activated active：{active}</div>
+			<TabBar {labels} on:change={tabBarChangeFun} />
 		</div>
 	</div>
 </div>
-<div class="sticky bottom-0">
+<div class="fixed w-full bottom-0">
 	<TabBar labels={labels4} injClass="bg-white/60 dark:bg-gray1/60 backdrop-blur" />
 </div>
