@@ -22,6 +22,12 @@
 		mobileLength = e.detail.length;
 	};
 	$: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
+
+	// 按键 key
+	let key = '';
+	const keydownFun = e => {
+		key = e.detail;
+	};
 </script>
 
 <div class="px-4 pt-8 font-bold text-xl">基础用法</div>
@@ -255,3 +261,7 @@
 
 <div class="px-4 pt-8 font-bold text-xl">textarea 自动高度</div>
 <Input placeholder="请输入内容" type="textarea" autosize />
+
+<div class="px-4 pt-4 font-bold text-xl">监听 keydown 事件</div>
+<div class="px-4 pt-4">你按下了 {key}</div>
+<Input placeholder="请输入内容" on:keydown={keydownFun} />

@@ -35,18 +35,19 @@
 
 ## Input Events
 
-| Event Name  | Parameters                                                      | Description                                             |
-| ----------- | --------------------------------------------------------------- | ------------------------------------------------------- |
-| focus       | event: event object, with 'detail' indicating the current value | Triggered when the input field receives focus.          |
-| blur        | event: event object, with 'detail' indicating the current value | Triggered when the input field loses focus.             |
-| change      | event: event object, with 'detail' indicating the current value | Triggered when the value of the input field is changed. |
-| clear       | -                                                               | Triggered when the clear button is clicked.             |
-| clicklabel1 | -                                                               | Triggered when label 1 is clicked.                      |
-| clicklabel2 | -                                                               | Triggered when label 2 is clicked.                      |
-| clicklabel3 | -                                                               | Triggered when label 3 is clicked.                      |
-| clicklabel4 | -                                                               | Triggered when label 4 is clicked.                      |
-| clicklabel5 | -                                                               | Triggered when label 5 is clicked.                      |
-| clicklabel6 | -                                                               | Triggered when label 6 is clicked.                      |
+| Event Name  | Parameters                                                            | Description                                             |
+| ----------- | --------------------------------------------------------------------- | ------------------------------------------------------- |
+| focus       | event: event object, with 'detail' indicating the current value       | Triggered when the input field receives focus.          |
+| blur        | event: event object, with 'detail' indicating the current value       | Triggered when the input field loses focus.             |
+| change      | event: event object, with 'detail' indicating the current value       | Triggered when the value of the input field is changed. |
+| clear       | -                                                                     | Triggered when the clear button is clicked.             |
+| clicklabel1 | -                                                                     | Triggered when label 1 is clicked.                      |
+| clicklabel2 | -                                                                     | Triggered when label 2 is clicked.                      |
+| clicklabel3 | -                                                                     | Triggered when label 3 is clicked.                      |
+| clicklabel4 | -                                                                     | Triggered when label 4 is clicked.                      |
+| clicklabel5 | -                                                                     | Triggered when label 5 is clicked.                      |
+| clicklabel6 | -                                                                     | Triggered when label 6 is clicked.                      |
+| keydown     | event: Event object, where detail represents the key that is pressed. | Triggered when the keyboard is pressed.                 |
 
 ## Input Slots
 

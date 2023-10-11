@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Enhanced the Input component. For details, see [Input](https://stdf.design/#/components?nav=input&tab=4).
+
 ## 0.3.0
 
 - Add NumKeyboard component, please see [NumKeyboard](https://stdf.design/#/components?nav=numKeyboard&tab=0).

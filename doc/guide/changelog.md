@@ -1,3 +1,7 @@
+## 0.3.1
+
+- 增强 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。
+
 ## 0.3.0
 
 - 新增 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/#/components?nav=numKeyboard&tab=0)。

@@ -35,18 +35,19 @@
 
 ## Input Events
 
-| 事件        | 参数                                          | 说明                     |
-| ----------- | --------------------------------------------- | ------------------------ |
-| focus       | event：事件对象，其中 detail 表示当前 value。 | 获得焦点时触发。         |
-| blur        | event：事件对象，其中 detail 表示当前 value。 | 失去焦点时触发。         |
-| change      | event：事件对象，其中 detail 表示当前 value。 | 输入框值发生变化时触发。 |
-| clear       | -                                             | 清空按钮点击时触发。     |
-| clicklabel1 | -                                             | 点击标签 1 时触发。      |
-| clicklabel2 | -                                             | 点击标签 2 时触发。      |
-| clicklabel3 | -                                             | 点击标签 3 时触发。      |
-| clicklabel4 | -                                             | 点击标签 4 时触发。      |
-| clicklabel5 | -                                             | 点击标签 5 时触发。      |
-| clicklabel6 | -                                             | 点击标签 6 时触发。      |
+| 事件        | 参数                                              | 说明                     |
+| ----------- | ------------------------------------------------- | ------------------------ |
+| focus       | event：事件对象，其中 detail 表示当前 value。     | 获得焦点时触发。         |
+| blur        | event：事件对象，其中 detail 表示当前 value。     | 失去焦点时触发。         |
+| change      | event：事件对象，其中 detail 表示当前 value。     | 输入框值发生变化时触发。 |
+| clear       | -                                                 | 清空按钮点击时触发。     |
+| clicklabel1 | -                                                 | 点击标签 1 时触发。      |
+| clicklabel2 | -                                                 | 点击标签 2 时触发。      |
+| clicklabel3 | -                                                 | 点击标签 3 时触发。      |
+| clicklabel4 | -                                                 | 点击标签 4 时触发。      |
+| clicklabel5 | -                                                 | 点击标签 5 时触发。      |
+| clicklabel6 | -                                                 | 点击标签 6 时触发。      |
+| keydown     | event：事件对象，其中 detail 表示按下的按键 key。 | 按下键盘时触发。         |
 
 ## Input Slots
 

@@ -10,6 +10,10 @@ Considering mobile interaction characteristics, the Input component is mainly us
 
 Because some processing is done on the input content inside the component, except for password, type will be converted to text when rendering the final input on the page. If needed, please convert the type yourself.
 
+## Listening for Key Events
+
+The Input component internally listens for keyboard key events. When any key is pressed, the keydown event is triggered. The detail property in the event object represents the key that was pressed (Note: keyCode is deprecated, refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)). You can use this value to perform special actions. Please refer to the example.
+
 ## Configurable Items
 
 The location of all configurable items of the Input component is shown in the following figure.

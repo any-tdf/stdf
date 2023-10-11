@@ -304,6 +304,19 @@
 	const clickLabel6Fun = () => {
 		dispatch('clicklabel6');
 	};
+
+	// 键盘事件
+	// Keyboard event
+	const keydownFunc = e => {
+		// 如果是回车阻止默认事件，防止滚动
+		// If it is an enter key, prevent the default event to prevent scrolling
+		if (e.key === 'Enter') {
+			e.preventDefault();
+		}
+		// 派发事件，并传出按键的 key
+		// Dispatch events and pass out the key of the key
+		dispatch('keydown', e.key);
+	};
 </script>
 
 <div class={`px-2 ${pyObj[py] || pyObj['2']}`}>
@@ -399,6 +412,7 @@
 								{autocomplete}
 								{disabled}
 								bind:this={textareaDom}
+								on:keydown={keydownFunc}
 							/>
 						{:else}
 							<input
@@ -416,6 +430,7 @@
 								on:compositionstart={compositionstartFun}
 								{autocomplete}
 								{disabled}
+								on:keydown={keydownFunc}
 							/>
 						{/if}
 					</form>

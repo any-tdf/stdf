@@ -10,6 +10,10 @@
 
 因为在组件内部对输入内容做了一些处理，渲染为页面的最终 input 时 type 除了 password 外都会被转成 text，如需要请自行转换类型。
 
+## 监听按键事件
+
+Input 组件内部监听了键盘按键事件，当按下任意按键时会触发 keydown 事件，事件对象中 detail 属性表示按下的按键 key（备注：keyCode 已弃用，参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent/keyCode) ），可根据此值做一些特殊处理。参考示例。
+
 ## 可配置项
 
 Input 组件的所有可配置项位置如下图所示。

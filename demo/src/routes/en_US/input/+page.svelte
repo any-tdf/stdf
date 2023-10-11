@@ -8,7 +8,7 @@
 
 	let IdCard = '';
 
-	const isIframe = getContext('iframe') === '1'; //判断是否是iframe
+	const isIframe = getContext('iframe') === '1'; // Determine whether it is iframe
 
 	$: placeholderIdCard = IdCard === '' ? 'Please enter identification number' : '';
 	const clickLabel4Fun = () => {
@@ -22,6 +22,12 @@
 		mobileLength = e.detail.length;
 	};
 	$: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
+
+	// Press key
+	let key = '';
+	const keydownFun = e => {
+		key = e.detail;
+	};
 </script>
 
 <div class="px-4 pt-8 font-bold text-xl">Basic usage</div>
@@ -262,3 +268,7 @@
 
 <div class="px-4 pt-8 font-bold text-xl">textarea automatic height</div>
 <Input placeholder="Please enter the content" type="textarea" autosize />
+
+<div class="px-4 pt-4 font-bold text-xl">Listen for keydown event</div>
+<div class="px-4 pt-4">You pressed {key}</div>
+<Input placeholder="Please enter content" on:keydown={keydownFun} />
