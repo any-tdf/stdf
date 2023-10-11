@@ -1,3 +1,7 @@
+## 0.3.2
+
+- 修复 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。
+
 ## 0.3.1
 
 - 增强 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。

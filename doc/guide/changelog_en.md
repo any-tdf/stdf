@@ -1,3 +1,7 @@
+## 0.3.2
+
+- Fix Input, please see [Input](https://stdf.design/#/components?nav=input&tab=4).
+
 ## 0.3.1
 
 - Enhanced the Input component. For details, see [Input](https://stdf.design/#/components?nav=input&tab=4).

@@ -87,8 +87,8 @@
 	// Status: theme/success/warning/error/info
 	export let state = 'theme';
 
-	// 输入框类型，文本/小数/邮箱/不显示/整数/搜索/电话/链接/密码/数字
-	// Input box type, text/decimal/email/none/numeric/search/tel/url/password/number
+	// 输入框类型，文本/小数/邮箱/不显示/整数/搜索/电话/链接/密码/数字/多行文本
+	// Input box type, text/decimal/email/none/numeric/search/tel/url/password/number/textarea
 	export let type = 'text';
 
 	// 输入模式
@@ -308,11 +308,6 @@
 	// 键盘事件
 	// Keyboard event
 	const keydownFunc = e => {
-		// 如果是回车阻止默认事件，防止滚动
-		// If it is an enter key, prevent the default event to prevent scrolling
-		if (e.key === 'Enter') {
-			e.preventDefault();
-		}
 		// 派发事件，并传出按键的 key
 		// Dispatch events and pass out the key of the key
 		dispatch('keydown', e.key);
@@ -393,7 +388,7 @@
 					<div class="text-gray6 text-xs">{title}</div>
 				{/if}
 				<div class="flex space-x-1">
-					<form action="" class="w-full">
+					<div class="w-full">
 						{#if type === 'textarea'}
 							<textarea
 								bind:value
@@ -433,7 +428,7 @@
 								on:keydown={keydownFunc}
 							/>
 						{/if}
-					</form>
+					</div>
 					{#if clear && value !== ''}
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
 						<!-- svelte-ignore a11y-no-static-element-interactions -->

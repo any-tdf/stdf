@@ -1,3 +1,7 @@
+## 0.3.2
+
+- [!tag|B|2|] Fixed the problem that textarea cannot wrap when pressing enter.
+
 ## 0.3.1
 
 - [!tag|A|0|] Added keydown event listener.
