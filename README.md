@@ -43,7 +43,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🚀 No runtime, no virtual DOM, runs faster online.
 - 🧰 Rich API, easily configure component styles that meet your needs.
 - ✍ Based on Svelte and Tailwind, coding is quick and easy.
-- 🍭 Supports dark mode.
+- 🍭 Supports dark mode and multiple theme configuration.
 - 📖 Provides extensive Chinese and English documentation and component examples.
 - 🌍 Supports internationalization, with 60+ built-in language packages.
 - 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
