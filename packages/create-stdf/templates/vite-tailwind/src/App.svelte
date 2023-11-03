@@ -3,6 +3,8 @@
 	import en_US from 'stdf/lang/en_US';
 	import zh_CN from 'stdf/lang/zh_CN';
 	import { Button, Cell, Calendar, Icon } from 'stdf';
+	import { stdfTheme, switchTheme, darkMode } from 'stdf/theme';
+	import NintendoTheme from './data/Nintendo';
 	import Counter from './lib/Counter.svelte';
 
 	import viteLogo from './assets/vite.svg';
@@ -10,21 +12,21 @@
 	import tailwindLogo from './assets/tailwindcss.svg';
 
 	//切换亮暗模式(toggle light or dark mode)
-	let theme = sessionStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-	if (theme === 'dark') {
-		document.documentElement.classList.add('dark');
+	let mode = sessionStorage.getItem('mode') === 'dark' ? 'dark' : 'light';
+	if (mode === 'dark') {
+		darkMode(true);
 	}
 	const toggleModeFun = () => {
-		if (theme === 'dark') {
+		if (mode === 'dark') {
 			// 切换到(light switch to light)
-			theme = 'light';
-			document.documentElement.classList.remove('dark');
-			sessionStorage.setItem('theme', 'light');
+			mode = 'light';
+			darkMode(false);
+			sessionStorage.setItem('mode', 'light');
 		} else {
 			// 切换到(dark switch to dark)
-			theme = 'dark';
-			document.documentElement.classList.add('dark');
-			sessionStorage.setItem('theme', 'dark');
+			mode = 'dark';
+			darkMode(true);
+			sessionStorage.setItem('mode', 'dark');
 		}
 	};
 
@@ -50,6 +52,18 @@
 
 	// 日历(calendar)
 	let visible = false;
+
+	// 主题(theme)
+	let theme = 'STDF';
+	const toggleThemeFun = () => {
+		if (theme === 'STDF') {
+			theme = 'Nintendo';
+			switchTheme(NintendoTheme);
+		} else {
+			theme = 'STDF';
+			switchTheme(stdfTheme);
+		}
+	};
 </script>
 
 <main>
@@ -73,7 +87,7 @@
 			</svg>
 		</a>
 	</div>
-	<div class="text-center my-8 text-xs">
+	<div class="text-center my-6 text-xs">
 		{#if isZh}
 			<p>这是一个使用 Vite + Svelte + Tailwind + STDF 构建的模板。</p>
 			<p class="mt-2">点击上方 LOGO 了解更多。</p>
@@ -82,32 +96,34 @@
 			<p class="mt-2">Click the logo above to learn more.</p>
 		{/if}
 	</div>
-	<div class="my-8">
-		<Cell title={isZh ? '暗模式' : 'Dark mode'} right={{ type: 'switch', switch: { check: theme === 'dark' } }} on:click={toggleModeFun} />
+	<div class="my-6">
+		<Cell title={isZh ? '暗模式' : 'Dark mode'} right={{ type: 'switch', switch: { check: mode === 'dark' } }} on:click={toggleModeFun} />
 	</div>
-	<div class="my-8">
+	<div class="my-6">
 		<Counter bind:percent />
 	</div>
-	<div class="my-8">
+	<div class="my-6">
 		<Button heightIn="0" group fill="lineTheme">
 			<div class="flex divide-x">
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="flex-1 py-2 active:opacity-80" on:click={reduceFunc}>-10</div>
+				<div class="flex-1 border-primary dark:border-dark py-2 active:opacity-80" on:click={reduceFunc}>-10</div>
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="flex-1 py-2 active:opacity-80" on:click={increaseFunc}>+10</div>
+				<div class="flex-1 border-primary dark:border-dark py-2 active:opacity-80" on:click={increaseFunc}>+10</div>
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="flex-1 py-2 active:opacity-80" on:click={() => (percent = 20)}>{isZh ? '重置' : 'Reset'}</div>
+				<div class="flex-1 border-primary dark:border-dark py-2 active:opacity-80" on:click={() => (percent = 20)}>
+					{isZh ? '重置' : 'Reset'}
+				</div>
 			</div>
 		</Button>
 	</div>
-	<div class="my-8">
+	<div class="my-6">
 		<Button fill="lineTheme" on:click={() => (visible = true)}>{isZh ? '日历' : 'Calendar'}</Button>
 	</div>
 	<Calendar bind:visible />
-	<div class="my-8 px-8 flex justify-between">
+	<div class="my-6 px-8 flex justify-between">
 		<Icon name="cake" theme path="fonts/Heroicons.svg" />
 		<Icon name="riding-line" path="fonts/Remix.svg" />
 		<Icon name="spy-line" theme path="fonts/Remix.svg" />
@@ -119,7 +135,8 @@
 		，{isZh ? '最后一个来自' : 'the last one comes from'} <a class="underline" href="https://iconpark.oceanengine.com">IconPark</a>
 		，{isZh ? '其余来自' : 'the rest come from'} <a class="underline" href="https://remixicon.com">Remix Icon</a> 。
 	</div>
-	<div class="my-8">
+	<div class="my-6">
 		<Button on:click={toggleLangFun}>{isZh ? '切换语言' : 'Toggle language'}</Button>
+		<Button fill="lineTheme" on:click={toggleThemeFun}>{isZh ? '切换主题' : 'Toggle theme'}</Button>
 	</div>
 </main>

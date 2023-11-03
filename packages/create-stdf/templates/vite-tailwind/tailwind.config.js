@@ -5,38 +5,67 @@ export default {
 		colors: {
 			// 主题色
 			// Theme Color
-			primary: '#0B24FB',
-			dark: '#FFC043',
-			blue: '#0B24FB', // primary 别名 alias
-			yellow: '#FFC043', // dark 别名 alias
-
-			// 扩展色
-			// Extended Color
-			purple: '#7356BF',
-			green: '#05944F',
-			orange: '#FF6937',
+			primary: {
+				50: 'rgba(var(--theme-color-primary-50), <alpha-value>)',
+				100: 'rgba(var(--theme-color-primary-100), <alpha-value>)',
+				200: 'rgba(var(--theme-color-primary-200), <alpha-value>)',
+				300: 'rgba(var(--theme-color-primary-300), <alpha-value>)',
+				400: 'rgba(var(--theme-color-primary-400), <alpha-value>)',
+				500: 'rgba(var(--theme-color-primary-500), <alpha-value>)',
+				DEFAULT: 'rgba(var(--theme-color-primary), <alpha-value>)',
+				700: 'rgba(var(--theme-color-primary-700), <alpha-value>)',
+				800: 'rgba(var(--theme-color-primary-800), <alpha-value>)',
+				900: 'rgba(var(--theme-color-primary-900), <alpha-value>)',
+				950: 'rgba(var(--theme-color-primary-950), <alpha-value>)',
+			},
+			dark: {
+				50: 'rgba(var(--theme-color-dark-50), <alpha-value>)',
+				100: 'rgba(var(--theme-color-dark-100), <alpha-value>)',
+				200: 'rgba(var(--theme-color-dark-200), <alpha-value>)',
+				300: 'rgba(var(--theme-color-dark-300), <alpha-value>)',
+				400: 'rgba(var(--theme-color-dark-400), <alpha-value>)',
+				500: 'rgba(var(--theme-color-dark-500), <alpha-value>)',
+				DEFAULT: 'rgba(var(--theme-color-dark), <alpha-value>)',
+				700: 'rgba(var(--theme-color-dark-700), <alpha-value>)',
+				800: 'rgba(var(--theme-color-dark-800), <alpha-value>)',
+				900: 'rgba(var(--theme-color-dark-900), <alpha-value>)',
+				950: 'rgba(var(--theme-color-dark-950), <alpha-value>)',
+			},
+			primaryBlack: 'rgba(var(--theme-color-primaryBlack), <alpha-value>)',
+			primaryWhite: 'rgba(var(--theme-color-primaryWhite), <alpha-value>)',
+			darkBlack: 'rgba(var(--theme-color-darkBlack), <alpha-value>)',
+			darkWhite: 'rgba(var(--theme-color-darkWhite), <alpha-value>)',
 
 			// 功能色
 			// Functional Color
-			success: '#11BB8D',
-			warning: '#B95000',
-			error: '#DA1414',
-			info: '#2E5AAC',
+			success: 'rgba(var(--theme-color-functional-success), <alpha-value>)',
+			warning: 'rgba(var(--theme-color-functional-warning), <alpha-value>)',
+			error: 'rgba(var(--theme-color-functional-error), <alpha-value>)',
+			info: 'rgba(var(--theme-color-functional-info), <alpha-value>)',
+
+			// 扩展色
+			// Extended Color
+			extend0: 'rgba(var(--theme-color-extend0), <alpha-value>)',
+			extend1: 'rgba(var(--theme-color-extend1), <alpha-value>)',
+			extend2: 'rgba(var(--theme-color-extend2), <alpha-value>)',
 
 			// 中性色
 			// Neutral Color
 			black: '#000000',
-			white: '#fff',
-			gray1: '#23262B',
-			gray2: '#2A2B2F',
-			gray3: '#303239',
-			gray4: '#373940',
-			gray5: '#414249',
-			gray6: '#747B84',
-			gray7: '#DADEE3',
-			gray8: '#EBEEF2',
-			gray9: '#F4F6F9',
-			gray10: '#FAFAFB',
+			white: '#ffffff',
+			gray: {
+				50: '#f2f2f2',
+				100: '#e6e6e6',
+				200: '#cccccc',
+				300: '#b3b3b3',
+				400: '#999999',
+				500: '#808080',
+				600: '#666666',
+				700: '#4D4D4D',
+				800: '#333333',
+				900: '#1A1A1A',
+				950: '#0D0D0D',
+			},
 			transparent: 'transparent',
 		},
 		extend: {},
