@@ -1,6 +1,6 @@
 ## 新增 💪
 
-- [ ] 按照 Tailwind CSS 变量规则，实现自定义主题色。
+- [x] 按照 Tailwind CSS 变量规则，实现自定义主题色。
 - [ ] 新增 SecurityCode-安全码组件，一般用于输入短信或邮件收到的数字校验码。
 - [x] 开发一款 Vite/Rollup 插件，支持将指定目录下的所有 svg 合并为 SVG symbol。
 - [x] 开发一款 VS Code 插件，支持光标悬浮显示 STDF 组件 API 等功能。

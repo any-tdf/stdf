@@ -1,3 +1,7 @@
+## 2023-11-03
+
+Support multi-theme configuration @0.4.0.
+
 ## 2023-08-24
 
 Completed the template scaffolding tool [create-stdf](https://www.npmjs.com/package/create-stdf), Vite/Rollup plugin [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon), and VS Code plugin [STDF for VS Code](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension) for STDF.

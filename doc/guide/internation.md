@@ -87,7 +87,7 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
 | 繁体中文（中国香港） | zh_HK  |
 | 繁体中文（中国台湾） | zh_TW  |
 
-多语言文件由机器翻译，如果有不准确的地方，请提交 PR 进行修正。
+> 多语言文件由机器翻译，如果有不准确的地方，请提交 PR 进行修正。
 
 ## 增加语言包
 

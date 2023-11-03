@@ -1,3 +1,9 @@
+## 0.4.0
+
+- 新增支持多主题配置，请参考 [主题配置](https://stdf.design/#/guide?nav=theme)、[色彩](https://stdf.design/#/guide?nav=color)、[主题生成器](https://stdf.design/#/guide?nav=generator)。
+- 按照 Tailwind 命名规则统一将灰色由 `gray5` 改为 `gray-500` 写法，请注意升级后更改写法。详见 [色彩](https://stdf.design/#/guide?nav=color)。
+- Avatar 组件新增头像组用法，详见 [Avatar](https://stdf.design/#/components?nav=avatar&tab=4)。
+
 ## 0.3.2
 
 - 修复 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。

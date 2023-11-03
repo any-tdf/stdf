@@ -1,3 +1,9 @@
+## 0.4.0
+
+- Added support for multi-theme configuration, please refer to [Theme Configuration](https://stdf.design/#/guide?nav=theme), [Color](https://stdf.design/#/guide?nav=color), [Theme Generator](https://stdf.design/#/guide?nav=generator).
+- In accordance with the Tailwind naming rules, the gray color has been uniformly changed from `gray5` to `gray-500` writing method. Please note that the writing method should be changed after the upgrade. See [Color](https://stdf.design/#/guide?nav=color) for details.
+- The Avatar component adds the usage of the avatar group, please see [Avatar](https://stdf.design/#/components?nav=avatar&tab=4).
+
 ## 0.3.2
 
 - Fix Input, please see [Input](https://stdf.design/#/components?nav=input&tab=4).

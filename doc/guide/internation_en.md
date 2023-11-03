@@ -87,7 +87,7 @@ Currently supported languages:
 | Traditional Chinese (China Hong Kong) | zh_HK  |
 | Traditional Chinese (China Taiwan)    | zh_TW  |
 
-The multilingual files are translated by machine. If there are any inaccuracies, please submit a PR for correction.
+> The multilingual files are translated by machine. If there are any inaccuracies, please submit a PR for correction.
 
 ## Adding a Language Pack
 

@@ -25,6 +25,7 @@ Here are the icons and their corresponding components:
 | Icon Name                     | Component        |
 | ----------------------------- | ---------------- |
 | ri-user-3-line                | Avatar           |
+| ri-user-add-line              | Avatars          |
 | ri-arrow-right-s-line         | Cell / NoticeBar |
 | ri-checkbox-fill              | Checkbox         |
 | ri-checkbox-line              | Checkbox         |
@@ -48,8 +49,6 @@ Here are the icons and their corresponding components:
 | ri-close-circle-line          | Toast            |
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
-
-You can find the SVG Sprites composed of these icons in `node_modules/stdf/assets/fonts/stdf.remixicon.symbol.svg`.
 
 You can find the SVG source files for these icons in `node_modules/stdf/assets/svg_base/`.
 

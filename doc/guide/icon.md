@@ -25,6 +25,7 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 | 图标名称                      | 所属组件         |
 | ----------------------------- | ---------------- |
 | ri-user-3-line                | Avatar           |
+| ri-user-add-line              | Avatars          |
 | ri-arrow-right-s-line         | Cell / NoticeBar |
 | ri-checkbox-fill              | Checkbox         |
 | ri-checkbox-line              | Checkbox         |
@@ -48,7 +49,5 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 | ri-close-circle-line          | Toast            |
 | ri-error-warning-line         | Toast            |
 | ri-information-line           | Toast            |
-
-可到 `node_modules/stdf/assets/fonts/stdf.remixicon.symbol.svg` 查看由这些图标组成的 SVG Sprites。
 
 可到 `node_modules/stdf/assets/svg_base/` 查看这些图标的 SVG 源文件。
