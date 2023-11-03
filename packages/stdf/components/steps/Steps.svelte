@@ -45,7 +45,7 @@
 								i < current - 1
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-gray1'
+									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
 									: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
 							} ${radiusObj[radius] || radiusObj.base} ${!barBorder ? '!border-transparent' : ''}`}
 							style="top:12px"
@@ -94,7 +94,7 @@
 					<div
 						class={`font-medium transition-all duration-300 ${
 							i < current - 1
-								? 'text-gray1 dark:text-white'
+								? 'text-black dark:text-white'
 								: i === current - 1
 								? 'text-primary dark:text-dark'
 								: 'text-black/30 dark:text-white/30'
@@ -103,7 +103,7 @@
 						{item.finishStep && i < current - 1 ? item.finishStep.title : item.step.title}
 					</div>
 					{#if item.step.desc || item.finishStep?.desc}
-						<div class={`text-xs transition-all duration-300 ${i <= current - 1 ? 'text-gray6' : 'text-black/30 dark:text-white/30'}`}>
+						<div class={`text-xs transition-all duration-300${i <= current - 1 ? '' : ' text-black/30 dark:text-white/30'}`}>
 							{item.finishStep && i < current - 1
 								? item.finishStep.desc
 									? item.finishStep.desc
@@ -135,7 +135,7 @@
 								i < current - 1
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-gray1'
+									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
 									: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
 							} ${radiusObj[radius] || radiusObj.base} ${!barBorder ? '!border-transparent' : ''}`}
 							style="left:calc(50% - 15px)"
@@ -183,7 +183,7 @@
 				<div
 					class={`text-center text-sm font-medium transition-all duration-300 ${
 						i < current - 1
-							? 'text-gray1 dark:text-white'
+							? 'text-black dark:text-white'
 							: i === current - 1
 							? 'text-primary dark:text-dark'
 							: 'text-black/30 dark:text-white/30'

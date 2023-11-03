@@ -330,7 +330,7 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<div
-				class={`w-full h-full${transparent ? ' bg-transparent' : ' bg-white dark:bg-gray1'} ${radiusFun()} overflow-y-auto`}
+				class={`w-full h-full${transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} ${radiusFun()} overflow-y-auto`}
 				class:popup-container={hideScrollbar}
 				on:click|stopPropagation
 			>

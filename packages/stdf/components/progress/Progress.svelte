@@ -69,12 +69,12 @@
 
 <div class={`flex justify-between space-x-2 items-center`}>
 	<div
-		class={`relative w-full bg-black/5 dark:bg-white/5${percentPosition === 'inner' ? '' : heightClass[height] || heightClass['2']}${
+		class={`relative w-full bg-black/10 dark:bg-white/20${percentPosition === 'inner' ? '' : heightClass[height] || heightClass['2']}${
 			radiusClass[radius] || radiusClass['full']
 		}${trackInjClass === '' ? '' : ` ${trackInjClass}`}`}
 	>
 		<div
-			class={`${inactive ? 'bg-gray7 dark:bg-gray6' : 'bg-primary dark:bg-dark'} transition-all${
+			class={`${inactive ? 'bg-primary-300 dark:bg-dark-800' : 'bg-primary dark:bg-dark'} transition-all${
 				durationClass[duration] || durationClass['300']
 			}${percentPosition === 'inner' ? '' : heightClass[height] || heightClass['2']}${radiusClass[radius] || radiusClass['full']}${
 				injClass === '' ? '' : ` ${injClass}`
@@ -98,7 +98,7 @@
 		{#if percentPosition === 'block'}
 			<div
 				class={`absolute top-1/2 ${
-					inactive ? ' bg-gray7 dark:bg-gray6' : ' bg-primary dark:bg-dark'
+					inactive ? ' bg-primary-300 dark:bg-dark-800' : ' bg-primary dark:bg-dark'
 				} py-0.5 px-1 text-xs text-white dark:text-black transition-all duration-300${
 					radiusClass[radius] || radiusClass['full']
 				} -translate-y-1/2 -translate-x-1/2${injClass === '' ? '' : ` ${injClass}`}`}

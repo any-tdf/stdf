@@ -25,7 +25,7 @@
 	$: activeLeft = active * (tabW / labels.length) + tabW / labels.length / 2 - activeW / 2;
 </script>
 
-<div bind:clientWidth={tabW} class={`bg-white dark:bg-gray1 relative ${injClass}`} style="padding-bottom: env(safe-area-inset-bottom);">
+<div bind:clientWidth={tabW} class={`bg-white dark:bg-gray-800 relative ${injClass}`} style="padding-bottom: env(safe-area-inset-bottom);">
 	{#if line}
 		<div
 			class={`mx-auto rounded-full h-[2px] absolute transition-all bottom-px bg-primary dark:bg-dark ${activeInjClass}`}
@@ -41,7 +41,7 @@
 			<div
 				on:click={() => clickFun(i)}
 				class={`flex-1 flex flex-col justify-center text-center py-1 active:opacity-80 cursor-pointer ${
-					i === active ? 'text-primary dark:text-dark' : 'text-gray6'
+					i === active ? 'text-primary dark:text-dark' : 'text-black/80 dark:text-white/90'
 				} ${love ? 'text-lg' : 'text-sm'} ${tabInjClass} ${i === active && activeTabInjClass}`}
 			>
 				{#if label.icon}

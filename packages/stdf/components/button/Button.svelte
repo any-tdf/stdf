@@ -79,10 +79,10 @@
 	// Fill mode style
 	const fillObj = {
 		base: '',
-		line: 'border border-gray1 dark:border-white !text-black dark:!text-white/90',
-		lineLight: 'border border-black/20 dark:border-white/20 !text-black dark:!text-white/90',
+		line: 'border border-black dark:border-white !text-black dark:!text-white',
+		lineLight: 'border border-black/20 dark:border-white/30 !text-black dark:!text-white',
 		lineTheme: 'border border-primary dark:border-dark !text-primary dark:!text-dark',
-		text: '!text-black dark:!text-white/90',
+		text: '!text-black dark:!text-white',
 		textTheme: '!text-primary dark:!text-dark',
 		colorLight: '!bg-black/5 dark:!bg-white/10 !text-black dark:!text-white',
 	};

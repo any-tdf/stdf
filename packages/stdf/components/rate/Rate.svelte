@@ -83,12 +83,12 @@
 	// 间距样式
 	// space style
 	const spaceObj = {
-		'0': ' space-x-0',
-		'1': ' space-x-1',
-		'2': ' space-x-2',
-		'3': ' space-x-3',
-		'4': ' space-x-4',
-		'8': ' space-x-8',
+		'0': ' gap-0',
+		'1': ' gap-1',
+		'2': ' gap-2',
+		'3': ' gap-3',
+		'4': ' gap-4',
+		'8': ' gap-8',
 	};
 
 	// 透明度样式
@@ -194,7 +194,7 @@
 	};
 </script>
 
-<div class={`inset-0 flex${spaceObj[space] || spaceObj['4']}${disabled ? ' opacity-50' : ''}`}>
+<div class={`inset-0 inline-flex flex-wrap${spaceObj[space] || spaceObj['4']}${disabled ? ' opacity-50' : ''}`}>
 	<!-- eslint-disable-next-line no-unused-vars -->
 	{#each new Array(Math.floor(total)) as item, index}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->

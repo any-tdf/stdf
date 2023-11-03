@@ -286,7 +286,7 @@
 <div class={`fixed w-screen h-screen inset-0 flex flex-col justify-end px-0 pointer-events-none`} style={`z-index:${zIndex};`}>
 	{#if visible}
 		<div
-			class={`fixed w-screen bg-white dark:bg-gray1${windowRadiusClass[radius] || windowRadiusClass['full']} pointer-events-auto${
+			class={`fixed w-screen bg-white dark:bg-gray-950${windowRadiusClass[radius] || windowRadiusClass['full']} pointer-events-auto${
 				isTouch ? '' : ' transition-all duration-300'
 			}`}
 			style={`height:${stayHeightList[stayHeightList.length - 1]}%;top:${currentTop}%;`}

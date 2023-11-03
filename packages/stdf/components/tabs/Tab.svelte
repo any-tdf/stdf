@@ -58,7 +58,7 @@
 <div
 	bind:clientWidth={tabW}
 	bind:clientHeight={tabH}
-	class={`${lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/5'} p-[2px] relative ${radiusObj[radius] || radiusObj.base}${
+	class={`${lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/10'} p-[2px] relative ${radiusObj[radius] || radiusObj.base}${
 		mxClass[mx] || mxClass['4']
 	} ${injClass}`}
 >
@@ -69,7 +69,7 @@
 		class={` ${lineType && layout !== 'v' ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all ${
 			durationObj[duration] || durationObj.base
 		} ${radiusObj[radius] || radiusObj.base} ${
-			lineType && layout !== 'v' ? 'bottom-0 bg-gray1 dark:bg-gray9' : 'bg-white dark:bg-gray1'
+			lineType && layout !== 'v' ? 'bottom-0 bg-black/50 dark:bg-white/50' : 'bg-white dark:bg-gray-950'
 		} ${activeInjClass}`}
 		style="width:{activeW}px;height:{lineType && layout !== 'v' ? 2 : activeH}px;left:{activeLeft}px;top:{activeTop}px"
 	/>

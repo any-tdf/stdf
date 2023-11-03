@@ -193,7 +193,7 @@
 		{#if useSlot}
 			<slot />
 		{:else}
-			<div class={`w-full h-1 bg-black/5 dark:bg-white/5${radiusObj[radius] || radiusObj['full']}`}>
+			<div class={`w-full h-1 bg-black/10 dark:bg-white/20${radiusObj[radius] || radiusObj['full']}`}>
 				{#if isRange}
 					<div
 						class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`}
@@ -210,7 +210,7 @@
 			<div
 				class={`${
 					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-gray2'
+						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
 						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
 				}${radiusObj[radius] || radiusObj['full']}`}
 				style={`transform: translateX(calc(${currentStartX}px - 50%));`}
@@ -237,7 +237,7 @@
 			<div
 				class={`${
 					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-gray2'
+						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
 						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
 				}${radiusObj[radius] || radiusObj['full']}`}
 				style={`transform: translateX(calc(${currentEndX}px - 50%));`}
@@ -266,7 +266,7 @@
 			<div
 				class={`${
 					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-gray2'
+						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
 						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
 				}${radiusObj[radius] || radiusObj['full']}`}
 				style={`transform: translateX(calc(${currentX}px - 50%));`}

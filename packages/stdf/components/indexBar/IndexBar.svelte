@@ -185,7 +185,7 @@
 		<div class={`flex-1 relative flex flex-col justify-center`}>
 			<div
 				class={`w-5 h-5 leading-5 text-center text-xs transition-all ${
-					current === i ? 'bg-primary dark:bg-dark text-white dark:text-gray1' : 'text-gray5 dark:text-gray7'
+					current === i ? 'bg-primary dark:bg-dark text-white dark:text-black' : 'text-gray-600 dark:text-gray-400'
 				} ${radiusObj[radius] || radiusObj.base}`}
 			>
 				{group.index}

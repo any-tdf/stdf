@@ -102,7 +102,7 @@
 			/>
 		{/if}
 		{#if text !== ''}
-			<div class={`flex-none mx-2 text-xs text-gray6 ${injClass}`}>{text}</div>
+			<div class={`flex-none mx-2 text-xs text-gray-400 ${injClass}`}>{text}</div>
 		{/if}
 		{#if (text !== '' && align !== 'right') || text === ''}
 			<div

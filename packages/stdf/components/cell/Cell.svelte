@@ -139,7 +139,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	on:click={setClickFun}
-	class={`px-4 cursor-pointer bg-white dark:bg-gray1${clickAll ? ' active:bg-gray8 dark:active:bg-gray4' : ''} ${
+	class={`px-4 cursor-pointer bg-white dark:bg-gray-800${clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} ${
 		myClass[my] || myClass['4']
 	}${mxClass[mx] || mxClass['2']}${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${
 		love ? ' text-xl' : ''
@@ -161,7 +161,7 @@
 			{/if}
 			<div class={`flex flex-col ${subTitle === '' ? 'justify-center' : 'justify-between'}`}>
 				<div class="font-medium">{title}</div>
-				<div class="text-xs text-gray5 dark:text-gray6">{subTitle}</div>
+				<div class="text-xs text-gray-500 dark:text-gray-400">{subTitle}</div>
 			</div>
 		</div>
 		<!-- right -->
@@ -172,14 +172,14 @@
 						{commonLang.slotEmpty}
 					</slot>
 				{:else}
-					<div class="text-gray6">{detail}</div>
+					<div class="text-gray-700 dark:text-gray-300">{detail}</div>
 				{/if}
-				<div class="text-xs text-gray5 dark:text-gray6 font-light">{info}</div>
+				<div class="text-xs text-gray-500 dark:text-gray-400 font-light">{info}</div>
 			</div>
 			{#if right === 'none'}
 				<!-- none -->
 			{:else if right === 'arrow'}
-				<div class="text-gray6 flex flex-col justify-center">
+				<div class="text-gray-700 dark:text-gray-300 flex flex-col justify-center">
 					<Icon name="ri-arrow-right-s-line" size={love ? 26 : 20} alpha={0.6} top={-2} />
 				</div>
 			{:else if right?.constructor === Object && right.type === 'switch'}

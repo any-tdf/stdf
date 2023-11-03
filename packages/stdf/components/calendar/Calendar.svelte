@@ -372,7 +372,7 @@
 	{...popup}
 >
 	<div>
-		<div class="sticky z-10 top-0 left-0 w-full bg-gray9 dark:bg-gray1">
+		<div class="sticky z-10 top-0 left-0 w-full bg-gray-50 dark:bg-gray-800">
 			{#if quickSelects.length > 0 && mode === 'range'}
 				<div class="flex flex-nowrap gap-4 px-4 pt-2 pb-1 overflow-x-auto calendar-container">
 					{#each quickSelects as item}
@@ -412,7 +412,7 @@
 			</div>
 		</div>
 		<div
-			class={`bg-gray9 dark:bg-gray1 py-2 px-4 flex flex-col gap-4 overflow-y-auto calendar-container ${
+			class={`bg-gray-50 dark:bg-gray-800 py-2 px-4 flex flex-col gap-4 overflow-y-auto calendar-container ${
 				useAnimation ? 'scroll-smooth' : 'scroll-auto'
 			}`}
 			style="height:{(window.innerHeight * height) / 100}px"
@@ -539,7 +539,7 @@
 				</div>
 			{/each}
 		</div>
-		<div class="sticky z-10 bottom-0 left-0 w-full bg-gray9 dark:bg-gray1">
+		<div class="sticky z-10 bottom-0 left-0 w-full bg-gray-50 dark:bg-gray-800">
 			<Button {...button} on:click={confirmFunc}>
 				{confirmText}
 				{showSelectedDay && mode !== 'single' && selectedDateStr.split(',').length > 0

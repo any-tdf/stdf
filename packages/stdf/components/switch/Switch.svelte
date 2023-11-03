@@ -39,21 +39,19 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	on:click={setChangeFun}
-	class={`flex justify-around w-12 h-6 relative transition-all duration-500 active:opacity-80 ${
-		check ? `bg-primary dark:bg-dark ${injClass}` : 'bg-black/10 dark:bg-white/10'
-	} ${radiusObj[radius] || radiusObj.base} ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
+	class="flex justify-around w-12 h-6 relative transition-all duration-500 active:opacity-80 {radiusObj[radius] || radiusObj.base} {check
+		? `bg-primary dark:bg-dark ${injClass}`
+		: 'bg-black/10 dark:bg-white/20'} {disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}"
 >
 	<div
-		class={`bg-white dark:bg-gray2 absolute top-[2px] left-[2px] transition-all duration-300 text-xs text-center text-gray6 ${
-			radiusObj[radius] || radiusObj.base
-		}`}
-		style="height:calc(1.5rem - 4px);width:calc(1.5rem - 4px);line-height:calc(1.5rem - 4px);left: {check
-			? 'calc(1.5rem + 2px)'
-			: '2px'};transform:scaleX({isLong ? '1.3' : '1'});})"
+		class="bg-white dark:bg-black absolute w-5 h-5 leading-5 top-0.5 transition-all duration-300 text-xs text-center text-black/80 dark:text-white/90 {radiusObj[
+			radius
+		] || radiusObj.base}"
+		style="left:{check ? '1.625rem' : '0.125rem'};transform:{isLong ? 'scaleX(1.3)' : 'scaleX(1)'}"
 	>
 		{#if inside === 'state'}
-			<span class:hidden={!check}><div class="bg-gray6 w-1 h-3 mt-1 ml-2 rounded-full" /></span>
-			<span class:hidden={check}><div class="w-3 h-3 mt-1 ml-1 border-2 border-gray6 rounded-full" /></span>
+			<span class:hidden={!check}><div class="bg-black/80 dark:bg-white/90 w-1 h-3 mt-1 ml-2 rounded-full" /></span>
+			<span class:hidden={check}><div class="w-3 h-3 mt-1 ml-1 border-2 border-black/80 dark:border-white/90 rounded-full" /></span>
 		{:else if inside === 'loading'}
 			<div class="m-0.5">
 				<Loading {...loading} width="full" height="full" />

@@ -78,17 +78,17 @@
 		<div class="flex flex-col space-y-2">
 			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each new Array(lines - 1) as item}
-				<div class={`bg-gray7 dark:bg-gray6 w-full${heightObj[height] || heightObj['6']}${radiusObj[radius] || radiusObj.base}`} />
+				<div class={`bg-black/20 dark:bg-white/20 w-full${heightObj[height] || heightObj['6']}${radiusObj[radius] || radiusObj.base}`} />
 			{/each}
 			<div
-				class={`bg-gray7 dark:bg-gray6 ${randomArr[Math.floor(Math.random() * randomArr.length)]}${heightObj[height] || heightObj['6']}${
-					radiusObj[radius] || radiusObj.base
-				}`}
+				class={`bg-black/20 dark:bg-white/20 ${randomArr[Math.floor(Math.random() * randomArr.length)]}${
+					heightObj[height] || heightObj['6']
+				}${radiusObj[radius] || radiusObj.base}`}
 			/>
 		</div>
 	{:else}
 		<div
-			class={`bg-gray7 dark:bg-gray6${widthObj[width] || widthObj.full}${heightObj[height] || heightObj['6']}${
+			class={`bg-black/20 dark:bg-white/20${widthObj[width] || widthObj.full}${heightObj[height] || heightObj['6']}${
 				radiusObj[radius] || radiusObj.base
 			} flex flex-col justify-center`}
 		>

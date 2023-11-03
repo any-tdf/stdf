@@ -43,7 +43,7 @@
 </script>
 
 <div
-	class={`bg-white dark:bg-gray1 overflow-hidden${shadowClass[shadow] || shadowClass['sm']}${radiusClass[radius] || radiusClass['lg']}${
+	class={`bg-white dark:bg-black overflow-hidden${shadowClass[shadow] || shadowClass['sm']}${radiusClass[radius] || radiusClass['lg']}${
 		myClass[my] || myClass['4']
 	}${mxClass[mx] || mxClass['2']}`}
 >

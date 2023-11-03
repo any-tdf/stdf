@@ -163,7 +163,7 @@
 	// Input box style style
 	const inputStyleObj = {
 		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.base,
-		line: 'px-1 border-b bg-transparent border-gray7 dark:border-gray5',
+		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500',
 	};
 
 	// 状态样式
@@ -180,7 +180,7 @@
 	// Determine the input box style according to whether to get focus
 	$: inputStyleFocusObj = {
 		block: 'px-2 ring-2 bg-transparent ' + stateObj[state] || stateObj.theme + radiusObj[radius] || radiusObj.base,
-		line: 'px-1 border-b bg-transparent border-gray7 dark:border-gray5',
+		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500',
 	};
 
 	// 线性动画样式
@@ -385,7 +385,7 @@
 			{/if}
 			<div class="flex flex-col grow">
 				{#if titlePosition === 'in'}
-					<div class="text-gray6 text-xs">{title}</div>
+					<div class="text-gray-400 text-xs">{title}</div>
 				{/if}
 				<div class="flex space-x-1">
 					<div class="w-full">
@@ -492,7 +492,7 @@
 			{:else if tip === 'slot'}
 				<slot name="tip">tip {commonLang.slotEmpty}</slot>
 			{:else}
-				<div class="text-sm text-gray6">
+				<div class="text-sm text-gray-400">
 					{tip}
 				</div>
 			{/if}

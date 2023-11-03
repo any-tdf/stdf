@@ -157,9 +157,9 @@
 	// Generate different basic styles based on type type
 	const baseClassFunc = key => {
 		if (type === 'button') {
-			return key === 'done' ? buttonClass : 'bg-white dark:bg-gray4 ' + buttonClass;
+			return key === 'done' ? buttonClass : 'bg-white dark:bg-gray-700 ' + buttonClass;
 		} else {
-			return key === 'done' ? blockClass : 'bg-white dark:bg-gray4 ' + blockClass;
+			return key === 'done' ? blockClass : 'bg-white dark:bg-gray-700 ' + blockClass;
 		}
 	};
 
@@ -217,7 +217,7 @@
 
 <Popup bind:visible size={0} mask={{ opacity: 0 }} transitionDistance={keyboardHeight()} {...popup}>
 	<div
-		class="bg-gray8 dark:bg-gray1 text-center {type === 'block' ? 'border-t border-gray8 dark:border-gray1' : ''} {pClass[p] ||
+		class="bg-gray-100 dark:bg-gray-950 text-center {type === 'block' ? 'border-t border-gray-100 dark:border-gray-950' : ''} {pClass[p] ||
 			'p-2'}{panelClass ? ' ' + panelClass : ''}"
 	>
 		<div class="grid {type === 'button' ? gapClass[gap] || 'gap-2' : 'gap-px'} {done ? 'grid-cols-4' : 'grid-cols-3'}">
