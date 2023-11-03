@@ -9,7 +9,7 @@
 		curentIndex === devices.length - 1 ? (curentIndex = 0) : curentIndex++;
 	};
 	let color = false;
-	$: colorCss = `${color ? ' bg-gradient-to-tr from-purple/70 to-orange/70' : ' bg-gray8 dark:bg-gray4'}`;
+	$: colorCss = `${color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700'}`;
 	const changeColorFun = e => {
 		color = e.detail;
 	};
@@ -112,23 +112,23 @@
 		<Grids cols={5} mx="0" my="0">
 			<Grid row={3}>
 				<div
-					class="flex flex-col justify-between bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xs text-center shadow dark:shadow-white/10"
+					class="flex flex-col justify-between bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center shadow dark:shadow-white/10"
 				>
 					<div>{weekDay}</div>
 					<div class="text-4xl">{day}</div>
-					<div class="text-gray6">{month}</div>
+					<div class="text-gray-600">{month}</div>
 				</div>
 			</Grid>
 			<Grid row={2}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xl font-bold text-center flex flex-col justify-center shadow dark:shadow-white/10"
+					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xl font-bold text-center flex flex-col justify-center shadow dark:shadow-white/10"
 				>
 					{time}
 				</div>
 			</Grid>
 			<Grid row={2}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
+					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch inside="slot" radius="full" on:change={changeColorFun}>
@@ -145,16 +145,12 @@
 			</Grid>
 
 			<Grid row={2} col={2}>
-				<div
-					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10"
-				>
+				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
 					<Button fill="lineTheme" radius="full" on:click={changeDeviceFun}>切换设备</Button>
 				</div>
 			</Grid>
 			<Grid row={2} col={2}>
-				<div
-					class="bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xs text-center flex justify-around shadow dark:shadow-white/10 py-1"
-				>
+				<div class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex justify-around shadow dark:shadow-white/10 py-1">
 					<div class="flex flex-col justify-center">
 						{#if currentDevice === 'iOS'}
 							<Icon name="ri-apple-fill" size={30} />
@@ -200,7 +196,7 @@
 			</Grid>
 			<Grid row={2}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
+					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch inside="slot" radius="full">
@@ -217,7 +213,7 @@
 			</Grid>
 			<Grid row={4}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10"
+					class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10"
 				>
 					<div class="w-1/2 overflow-hidden">
 						<img class="block dark:hidden" src="/assets/stdf_512px.png" alt="" />
@@ -227,20 +223,16 @@
 				</div>
 			</Grid>
 			<Grid row={3}>
-				<div
-					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
-				>
+				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10">
 					<div>92%</div>
 					<div class="animate-pulse">
-						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-[green]" />
+						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-extend1" />
 					</div>
 					<div>充电中</div>
 				</div>
 			</Grid>
 			<Grid row={2}>
-				<div
-					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10"
-				>
+				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
 					{#if currentDevice === 'iOS'}
 						<Icon name="ri-smartphone-line" size={30} />
 					{:else if currentDevice === 'Android'}
@@ -256,7 +248,7 @@
 			</Grid>
 			<Grid row={2}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10 py-1"
+					class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10 py-1"
 				>
 					<div>
 						<Icon name="ri-sun-line" size={20} />
@@ -268,7 +260,7 @@
 			</Grid>
 			<Grid row={2}>
 				<div
-					class="bg-white/50 dark:bg-gray2/50 p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
+					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch inside="slot" radius="full">

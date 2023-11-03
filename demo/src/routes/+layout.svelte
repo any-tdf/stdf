@@ -7,6 +7,7 @@
 	import en_US from '../../../packages/stdf/lang/en_US';
 	import '../app.css';
 	import menuList from '../data/menuList';
+	import ThemeSwitch from './components/ThemeSwitch.svelte';
 
 	// 循环 menuList，将所有元素的 childs 组成一个数组
 	// Cycle menuList, and combine the childs of all elements into an array
@@ -49,8 +50,8 @@
 		document.documentElement.classList.remove('dark');
 	}
 
-	//手动切换主题
-	// manually switch theme
+	//手动切换亮暗模式
+	// manually switch light and dark mode
 	const toggleFun = () => {
 		if (theme === 'dark') {
 			// 切换到light
@@ -120,10 +121,17 @@
 			goto(`/${englishMode ? 'en_US' : 'zh_CN'}/${nav}`);
 		}
 	});
+
+	let showTheme = false;
+	// 切换主题
+	// switch theme
+	const switchThemeFunc = () => {
+		showTheme = !showTheme;
+	};
 </script>
 
-<main class="bg-gray9 dark:bg-gray3 text-black dark:text-white/90 relative min-h-screen text-justify w-screen antialiased">
-	<div class="sticky z-10 top-0">
+<main class="bg-primaryWhite dark:bg-darkBlack text-black dark:text-white relative min-h-screen text-justify w-screen antialiased">
+	<div class="sticky z-[100] top-0">
 		<NavBar
 			title={$page.url.pathname === '/'
 				? isZh
@@ -133,7 +141,7 @@
 				  (isZh ? '示例' : ' Demo')}
 			left={showLeft ? 'back' : ''}
 			rightSlot
-			injClass="bg-white/60 dark:bg-gray1/60 backdrop-blur"
+			injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
 			on:clickleft={() => window.history.back()}
 		>
 			<div slot="right" class="flex text-center">
@@ -158,8 +166,20 @@
 				<div class="h-12 w-10 leading-10" on:click={toggleFun}>
 					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme={true} />
 				</div>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<div class="h-12 w-10 leading-10" on:click={switchThemeFunc}>
+					<Icon name="ri-palette-line" theme={true} />
+				</div>
 			</div>
 		</NavBar>
 	</div>
 	<slot />
+	<div
+		class="fixed z-[1000] {showTheme
+			? 'right-0'
+			: '-right-80'} transition-all duration-500 top-12 bg-white dark:bg-black px-4 shadow rounded-xl"
+	>
+		<ThemeSwitch />
+	</div>
 </main>

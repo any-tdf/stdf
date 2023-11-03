@@ -22,7 +22,7 @@
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">自定义总分</div>
 <div class="p-4">
-	<Rate total={8} />
+	<Rate total={12} />
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">设置未选中透明度</div>
 <div class="p-4">

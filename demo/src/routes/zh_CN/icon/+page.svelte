@@ -13,7 +13,7 @@
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} />
-					<div class="text-xs mt-2 text-gray6">{icon}</div>
+					<div class="text-xs mt-2">{icon}</div>
 				</div>
 			{/each}
 		</div>
@@ -36,7 +36,7 @@
 			{#each icons as icon, i}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} size={18 + i * 6} />
-					<div class="text-xs mt-2 text-gray6">{18 + i * 6}</div>
+					<div class="text-xs mt-2">{18 + i * 6}</div>
 				</div>
 			{/each}
 		</div>
@@ -48,7 +48,7 @@
 			{#each icons as icon, i}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} alpha={Number((0.2 + i * 0.2).toFixed(1))} />
-					<div class="text-xs mt-2 text-gray6">{(0.2 + i * 0.2).toFixed(1)}</div>
+					<div class="text-xs mt-2">{(0.2 + i * 0.2).toFixed(1)}</div>
 				</div>
 			{/each}
 		</div>
@@ -56,12 +56,12 @@
 	<!-- 自定义颜色（通过 injClass） -->
 	<div>
 		<div class="mb-2 font-bold text-xl">
-			自定义颜色<span class="ml-2 text-xs text-gray6 font-normal">通过 injClass</span>
+			自定义颜色<span class="ml-2 text-xs font-normal">通过 injClass</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
-					<Icon name={icon} injClass="text-[red] dark:text-green" />
+					<Icon name={icon} injClass="text-[red] dark:text-extend1" />
 				</div>
 			{/each}
 		</div>
@@ -69,7 +69,7 @@
 	<!-- 自定义颜色（通过 slot） -->
 	<div>
 		<div class="mb-2 font-bold text-xl">
-			自定义颜色<span class="ml-2 text-xs text-gray6 font-normal">通过 slot</span>
+			自定义颜色<span class="ml-2 text-xs font-normal">通过 slot</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}

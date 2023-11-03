@@ -255,7 +255,7 @@
 <div class="mt-8 px-4 mb-4 font-bold text-lg">内容区域注入元素</div>
 <Steps steps={steps9} {current} vertical />
 
-<div class="flex sticky bottom-0 z-10 bg-white/60 dark:bg-gray1/60 backdrop-blur">
+<div class="flex sticky bottom-0 z-10 bg-white/50 dark:bg-black/50 backdrop-blur">
 	<div class="flex-1">
 		<Button fill="lineTheme" on:click={preFun}>上一步</Button>
 	</div>

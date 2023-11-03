@@ -22,7 +22,7 @@
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">Custom score</div>
 <div class="p-4">
-	<Rate total={8} />
+	<Rate total={12} />
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">Set unselected transparency</div>
 <div class="p-4">

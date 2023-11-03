@@ -122,11 +122,11 @@
 		<div class="p-4 font-bold">按钮组</div>
 		<Button fill="lineTheme" heightIn="0" group>
 			<div class="flex">
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					应用
 				</div>
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					收藏
 				</div>
@@ -140,11 +140,11 @@
 		</Button>
 		<Button radius="full" heightIn="0" group>
 			<div class="flex">
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					应用
 				</div>
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					收藏
 				</div>

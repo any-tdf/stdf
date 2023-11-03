@@ -1,6 +1,6 @@
 <!-- Avatar Demo -->
 <script>
-	import { Avatar } from '../../../../../packages/stdf/components';
+	import { Avatar, Avatars, Divider } from '../../../../../packages/stdf/components';
 
 	const icons = [
 		{ icon: { name: 'ri-aliens-fill', theme: true, top: -1, size: 16 }, size: 'xs' },
@@ -8,19 +8,32 @@
 		{ icon: { name: 'ri-shield-user-line', theme: true, top: 0, size: 32 }, size: 'md' },
 		{ icon: { name: 'ri-emotion-line', theme: true, top: -1, size: 46 }, size: 'lg' },
 	];
+
+	const data = [
+		{ image: '/assets/images/dota_火女.png' },
+		{ image: '/assets/images/dota_火枪.png' },
+		{ image: '/assets/images/dota_小牛.png' },
+		{ image: '/assets/images/wall_1.jpg' },
+		{ image: '/assets/images/dota_斯温.png' },
+		{ image: '/assets/images/dota_水人.png' },
+		{ image: '/assets/images/wall_2.jpg' },
+		{ image: '/assets/images/wall_3.jpg' },
+		{ image: '/assets/images/wall_4.jpg' },
+		{ image: '/assets/images/avatar_1.jpg' },
+		{ image: '/assets/images/dota_火枪.png' },
+		{ image: '/assets/images/dota_小牛.png' },
+		{ image: '/assets/images/dota_斯温.png' },
+	];
 </script>
 
 <div class="py-8 px-4">
 	<div class="font-bold">Different rounded corners</div>
 	<div class="flex justify-between mt-4 mb-8">
-		<Avatar />
 		<Avatar radius="none" />
-		<Avatar radius="full" />
-	</div>
-	<div class="flex justify-between mt-4 mb-8">
+		<Avatar />
 		<Avatar radius="xl" />
 		<Avatar radius="2xl" />
-		<Avatar radius="3xl" />
+		<Avatar radius="full" />
 	</div>
 
 	<div class="font-bold">Different picture types and size</div>
@@ -44,7 +57,7 @@
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dashed" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dotted" />
-		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-[green]" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-extend1" />
 	</div>
 
 	<div class="font-bold">Replace text</div>
@@ -79,4 +92,34 @@
 			<Avatar radius="full" size="xl" alt="A" altSize="xl" />
 		</div>
 	</div>
+
+	<Divider />
+
+	<div class="font-bold text-2xl my-4">Avatar group</div>
+	<div class="font-bold mt-6 mb-2">Default</div>
+	<Avatars {data}></Avatars>
+
+	<div class="font-bold mt-6 mb-2">smaller</div>
+	<Avatars {data} size="sm" lineWidth="1"></Avatars>
+
+	<div class="font-bold mt-6 mb-2">loose</div>
+	<Avatars {data} compact={4}></Avatars>
+
+	<div class="font-bold mt-6 mb-2">Border thick point</div>
+	<Avatars {data} lineWidth="8"></Avatars>
+
+	<div class="font-bold mt-6 mb-2">Make the corners smaller</div>
+	<Avatars {data} radius="2xl"></Avatars>
+
+	<div class="font-bold mt-6 mb-2">Reverse</div>
+	<Avatars {data} reverse></Avatars>
+
+	<div class="font-bold mt-6 mb-2">A maximum of 6 are displayed</div>
+	<Avatars {data} max={6}></Avatars>
+
+	<div class="font-bold mt-6 mb-2">Top layer display increase</div>
+	<Avatars {data} top="add"></Avatars>
+
+	<div class="font-bold mt-6 mb-2">Do not show top layer</div>
+	<Avatars {data} top="none"></Avatars>
 </div>

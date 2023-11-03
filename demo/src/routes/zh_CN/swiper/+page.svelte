@@ -70,13 +70,13 @@
 	指定指示器背景色
 	<p class="font-thin text-xs mb-2">注入 Class</p>
 </div>
-<Swiper {data} indicateInjClass="from-black/0 to-purple/50" />
+<Swiper {data} indicateInjClass="from-black/0 to-extend0/50" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
 	指定指示器颜色
 	<p class="font-thin text-xs mb-2">同时去除背景色</p>
 </div>
-<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-orange" indicateActiveColor="bg-green" />
+<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-extend2" indicateActiveColor="bg-extend1" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">指定容器宽高比</div>
 <Swiper {data} aspectRatio={[4, 1]} />

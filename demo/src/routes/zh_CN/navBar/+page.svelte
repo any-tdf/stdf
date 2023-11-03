@@ -34,10 +34,10 @@
 	<!-- 无底部分割线，文字过长 -->
 	<NavBar title="无左侧与底分割线，文字过长长长长长长长" left="" line={false} rights={icons3} />
 	<!-- 自定义背景颜色 -->
-	<NavBar title="自定义背景颜色 by injClass" injClass="bg-[wheat] dark:bg-[purple]" />
+	<NavBar title="自定义背景颜色 by injClass" injClass="bg-[wheat] dark:bg-extend0" />
 	<!-- 自定义文字颜色 -->
 	<NavBar titleSlot>
-		<div slot="title" class="text-[red] dark:text-[green]">自定义文字颜色 by slot</div>
+		<div slot="title" class="text-[red] dark:text-extend1">自定义文字颜色 by slot</div>
 	</NavBar>
 	<!-- 插槽渲染标题区域 -->
 	<NavBar titleSlot rightSlot>

@@ -239,7 +239,7 @@
 >
 	<div slot="label5">
 		{#if mobileLength === 11}
-			<Icon name="ri-check-fill" injClass="text-[green]" size={14} />
+			<Icon name="ri-check-fill" injClass="text-extend1" size={14} />
 		{:else if mobileLength === 0}
 			<!-- none -->
 		{:else}

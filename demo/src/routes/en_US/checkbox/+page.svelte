@@ -190,7 +190,7 @@
 					class={`border py-0.5 px-5 text-sm rounded ${
 						checkeds.includes(item.name)
 							? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
-							: 'bg-gray9 dark:bg-gray4 border-gray8 dark:border-gray5 text-gray6'
+							: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'
 					}`}
 				>
 					{item.label}
@@ -211,7 +211,7 @@
 					class={`border py-0.5 px-1 m-1 text-sm rounded ${
 						checkInlines.includes(item)
 							? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
-							: 'bg-gray9 dark:bg-gray4 border-gray8 dark:border-gray5 text-gray6'
+							: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'
 					}`}
 				>
 					{item}
@@ -245,7 +245,7 @@
 			<Checkbox {checkeds} name={item.name} textPosition="l">
 				{item.label}
 				{#if i !== dota.length - 1}
-					<div class="h-px mt-1 bg-gray9 dark:bg-gray5" />
+					<div class="h-px mt-1 bg-gray-200 dark:bg-gray-800" />
 				{/if}
 			</Checkbox>
 		{/each}
@@ -261,7 +261,7 @@
 						<div class="text-xs">{voice}</div>
 					{/each}
 					{#if i !== dotaVoices.length - 1}
-						<div class="h-px mt-1 bg-gray9 dark:bg-gray5" />
+						<div class="h-px mt-1 bg-gray-200 dark:bg-gray-800" />
 					{/if}
 				</div>
 			</Checkbox>

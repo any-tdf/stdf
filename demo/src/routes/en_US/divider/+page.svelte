@@ -43,7 +43,7 @@
 	<div>
 		<div class="p-4 font-bold">Custom color</div>
 		<Divider injClass="border-blue dark:border-yellow" />
-		<Divider text="Custom line" injClass="border-[red] dark:border-[green]" />
+		<Divider text="Custom line" injClass="border-[red] dark:border-extend1" />
 		<Divider text="Custom text" injClass="text-[red]" />
 		<Divider text="Custom lines and text" injClass="border-[red] text-[blue] dark:text-[yellow]" />
 		<Divider line="dashed" text="Custom dotted line" injClass="border-[#FF5722]" />
@@ -70,9 +70,9 @@
 			Increase
 			<Divider layout="v" mx="4" />
 			customize
-			<Divider layout="v" mx="4" injClass="border-[red] dark:border-[green]" />
+			<Divider layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
 			color
-			<Divider line="dashed" layout="v" mx="4" injClass="border-[red] dark:border-[green]" />
+			<Divider line="dashed" layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
 			Line style
 		</div>
 	</div>

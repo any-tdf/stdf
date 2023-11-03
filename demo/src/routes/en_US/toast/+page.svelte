@@ -168,7 +168,7 @@
 	<Toast bind:visible={visible26} radius="xl" message="Rounded corners were added" />
 </div>
 
-<div class="flex sticky bottom-0 z-10 bg-white/60 dark:bg-gray1/60 backdrop-blur">
+<div class="flex sticky bottom-0 z-10 bg-white/50 dark:bg-black/50 backdrop-blur">
 	<div class="flex-1">
 		<Button fill="lineTheme" on:click={() => (visible5 = false)}>Manual shutdown</Button>
 	</div>

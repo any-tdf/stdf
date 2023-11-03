@@ -38,10 +38,10 @@
 		rights={icons3}
 	/>
 
-	<NavBar title="Customize the background color by injClass" injClass="bg-[wheat] dark:bg-[purple]" />
+	<NavBar title="Customize the background color by injClass" injClass="bg-[wheat] dark:bg-extend0" />
 
 	<NavBar titleSlot>
-		<div slot="title" class="text-[red] dark:text-[green]">Customize text colors by slot</div>
+		<div slot="title" class="text-[red] dark:text-extend1">Customize text colors by slot</div>
 	</NavBar>
 
 	<NavBar titleSlot rightSlot>

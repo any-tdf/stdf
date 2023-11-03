@@ -117,7 +117,7 @@
 	</div>
 	<div>
 		<Cell title="Custom text color" injClass="text-primary dark:text-dark" />
-		<Cell title="Custom background color" injClass="!bg-purple/20 active:!bg-purple/10" line={false} />
+		<Cell title="Custom background color" injClass="!bg-extend0/20 active:!bg-extend0/10" line={false} />
 	</div>
 	<div>
 		<Cell love title="Love version" />

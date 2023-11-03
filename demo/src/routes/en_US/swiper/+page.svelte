@@ -70,13 +70,13 @@
 	Specifies the color behind the indicator
 	<p class="font-thin text-xs mb-2">injection Class</p>
 </div>
-<Swiper {data} indicateInjClass="from-black/0 to-purple/50" />
+<Swiper {data} indicateInjClass="from-black/0 to-extend0/50" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
 	Specify indicator color
 	<p class="font-thin text-xs mb-2">Remove the background color at the same time</p>
 </div>
-<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-orange" indicateActiveColor="bg-green" />
+<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-extend2" indicateActiveColor="bg-extend1" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Specifies the container aspect ratio</div>
 <Swiper {data} aspectRatio={[4, 1]} />

@@ -36,7 +36,7 @@
 <div class="flex flex-col py-4">
 	<div>
 		{#each menuList as menu}
-			<div class="text-sm px-4 mt-8 mb-2 text-gray6">{isZh ? menu.class : menu.class_en}</div>
+			<div class="text-sm px-4 mt-8 mb-2 text-gray-500">{isZh ? menu.class : menu.class_en}</div>
 			<CellGroup>
 				{#each menu.childs as child, i}
 					<a href={(isZh ? 'zh_CN/' : 'en_US/') + child.nav}>

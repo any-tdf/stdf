@@ -107,7 +107,7 @@
 			<div class="flex justify-between items-end overflow-hidden" style="transform: translateY(-30px);">
 				{#each barList as item, i}
 					<div
-						class={`w-1 rounded-full${i / 40 < valueBar / 100 ? ' bg-primary dark:bg-dark' : ' bg-gray8 dark:bg-gray6'}`}
+						class={`w-1 rounded-full${i / 40 < valueBar / 100 ? ' bg-primary dark:bg-dark' : ' bg-gray-200 dark:bg-gray-500'}`}
 						style="height: {item}px"
 					/>
 				{/each}

@@ -89,15 +89,15 @@
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">customize Tab</div>
-			<TabBar {labels} tabInjClass="text-purple dark:text-orange" activeTabInjClass="!text-primary dark:!text-dark" />
+			<TabBar {labels} tabInjClass="text-extend0 dark:text-extend2" activeTabInjClass="!text-primary dark:!text-dark" />
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">Custom selection Tab</div>
-			<TabBar {labels} activeTabInjClass="text-green dark:text-orange" />
+			<TabBar {labels} activeTabInjClass="text-extend0 dark:text-extend1" />
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">Custom line</div>
-			<TabBar {labels} line activeInjClass="bg-[red] dark:bg-[green]" />
+			<TabBar {labels} line activeInjClass="bg-extend0 dark:bg-extend1" />
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">Care edition</div>
@@ -111,5 +111,5 @@
 	</div>
 </div>
 <div class="fixed w-full bottom-0">
-	<TabBar labels={labels4} injClass="bg-white/60 dark:bg-gray1/60 backdrop-blur" />
+	<TabBar labels={labels4} injClass="bg-white/50 dark:bg-black/50 backdrop-blur" />
 </div>

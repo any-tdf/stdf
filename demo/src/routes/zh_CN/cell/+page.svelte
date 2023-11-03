@@ -101,7 +101,7 @@
 	</div>
 	<div>
 		<Cell title="自定义文字颜色" injClass="text-primary dark:text-dark" />
-		<Cell title="自定义背景颜色" injClass="!bg-purple/20 active:!bg-purple/10" line={false} />
+		<Cell title="自定义背景颜色" injClass="!bg-extend0/20 active:!bg-extend0/10" line={false} />
 	</div>
 	<div>
 		<Cell love title="关爱版" />

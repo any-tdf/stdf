@@ -79,7 +79,7 @@
 	<div class="flex flex-col space-y-4">
 		<Progress injClass="bg-success dark:bg-error" />
 		<Progress injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
-		<Progress percentPosition="block" injClass="bg-orange" />
+		<Progress percentPosition="block" injClass="bg-extend2" />
 		<Progress trackInjClass="!bg-primary/20 dark:!bg-dark/20" />
 	</div>
 

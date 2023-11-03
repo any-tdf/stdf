@@ -12,7 +12,7 @@
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} />
-					<div class="text-xs mt-2 text-gray6">{icon}</div>
+					<div class="text-xs mt-2">{icon}</div>
 				</div>
 			{/each}
 		</div>
@@ -33,7 +33,7 @@
 			{#each icons as icon, i}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} size={18 + i * 6} />
-					<div class="text-xs mt-2 text-gray6">{18 + i * 6}</div>
+					<div class="text-xs mt-2">{18 + i * 6}</div>
 				</div>
 			{/each}
 		</div>
@@ -44,26 +44,26 @@
 			{#each icons as icon, i}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icon} alpha={Number((0.2 + i * 0.2).toFixed(1))} />
-					<div class="text-xs mt-2 text-gray6">{(0.2 + i * 0.2).toFixed(1)}</div>
+					<div class="text-xs mt-2">{(0.2 + i * 0.2).toFixed(1)}</div>
 				</div>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<div class="mb-2 font-bold text-xl">
-			Custom color<span class="ml-2 text-xs text-gray6 font-normal">By injClass</span>
+			Custom color<span class="ml-2 text-xs font-normal">By injClass</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
-					<Icon name={icon} injClass="text-[red] dark:text-green" />
+					<Icon name={icon} injClass="text-[red] dark:text-extend1" />
 				</div>
 			{/each}
 		</div>
 	</div>
 	<div>
 		<div class="mb-2 font-bold text-xl">
-			Custom color<span class="ml-2 text-xs text-gray6 font-normal">by slot</span>
+			Custom color<span class="ml-2 text-xs font-normal">by slot</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}

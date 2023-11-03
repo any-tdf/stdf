@@ -53,7 +53,7 @@
 							<div class="text-xs text-center mt-4">{'1_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray5 dark:bg-gray9 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
 						>
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'1_' + i} inverse bind:speed />
@@ -61,7 +61,7 @@
 							<div class="text-xs text-center mt-4">{'1_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray5 dark:bg-gray9 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
 						>
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'1_' + i} theme inverse bind:speed />
@@ -96,7 +96,7 @@
 							<div class="text-xs text-center mt-4">{'2_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray5 dark:bg-gray9 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
 						>
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'2_' + i} inverse bind:speed />

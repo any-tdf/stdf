@@ -105,7 +105,7 @@
 					class={`border py-0.5 px-5 text-sm rounded ${
 						value === item.name
 							? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
-							: 'bg-gray9 dark:bg-gray4 border-gray8 dark:border-gray5 text-gray6'
+							: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'
 					}`}
 				>
 					{item.label}
@@ -137,7 +137,7 @@
 			<Radio name={item.name} textPosition="l">
 				{item.label}
 				{#if i !== dota.length - 1}
-					<div class="h-px mt-1 bg-gray8 dark:bg-gray5" />
+					<div class="h-px mt-1 bg-gray-100 dark:bg-gray-800" />
 				{/if}
 			</Radio>
 		{/each}
@@ -153,7 +153,7 @@
 						<div class="text-xs">{voice}</div>
 					{/each}
 					{#if i !== dotaVoices.length - 1}
-						<div class="h-px mt-1 bg-gray8 dark:bg-gray5" />
+						<div class="h-px mt-1 bg-gray-100 dark:bg-gray-800" />
 					{/if}
 				</div>
 			</Radio>

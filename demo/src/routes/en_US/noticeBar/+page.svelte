@@ -59,5 +59,5 @@
 <div class="m-4 mt-8 font-bold text-lg">Custom style</div>
 <NoticeBar injClass="!text-error !bg-error/10" {textList}></NoticeBar>
 <NoticeBar leftIcon={{ name: 'ri-check-line', size: 16, top: -1 }} injClass="!text-success !bg-success/10" {textList}></NoticeBar>
-<NoticeBar injClass="!text-purple !bg-purple/10" {textList}></NoticeBar>
+<NoticeBar injClass="!text-extend0 !bg-extend0/10" {textList}></NoticeBar>
 <div class="pb-8"></div>

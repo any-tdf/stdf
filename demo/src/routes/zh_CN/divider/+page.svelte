@@ -43,7 +43,7 @@
 	<div>
 		<div class="p-4 font-bold">自定义颜色</div>
 		<Divider injClass="border-blue dark:border-yellow" />
-		<Divider text="自定义线条" injClass="border-[red] dark:border-[green]" />
+		<Divider text="自定义线条" injClass="border-[red] dark:border-extend1" />
 		<Divider text="自定义文字" injClass="text-[red]" />
 		<Divider text="自定义线条与文字" injClass="border-[red] text-[blue] dark:text-[yellow]" />
 		<Divider line="dashed" text="自定义虚线" injClass="border-[#FF5722]" />
@@ -69,9 +69,9 @@
 			加大间距
 			<Divider layout="v" mx="4" />
 			自定义
-			<Divider layout="v" mx="4" injClass="border-[red] dark:border-[green]" />
+			<Divider layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
 			颜色
-			<Divider line="dashed" layout="v" mx="4" injClass="border-[red] dark:border-[green]" />
+			<Divider line="dashed" layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
 			与线条风格
 		</div>
 	</div>
