@@ -39,7 +39,7 @@ export default {
 		},
 		extend: [
 			{ color: '59, 89, 152', alias: 'Facebook' }, // #3b5998
-			{ color: '237, 28, 22', alias: 'CocaCola' },
+			{ color: '237, 28, 22', alias: 'CocaCola' }, // #ed1c16
 			{ color: '0, 104, 181', alias: 'Intel' }, // #0068b5
 		],
 	},
