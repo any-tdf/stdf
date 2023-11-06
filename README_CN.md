@@ -16,10 +16,10 @@
   <h1>S T D F</h1>
 
 [![npm](https://img.shields.io/npm/v/stdf?logo=npm&label=stdf&style=for-the-badge&color=aeb5f4&logoColor=DCE4FD&labelColor=010319)](https://www.npmjs.com/package/stdf)
-[![npm](https://img.shields.io/npm/dt/stdf?logo=npm&label=installs&style=for-the-badge&color=FFCC33&logoColor=FFFDE8&labelColor=191301)](https://www.npmjs.com/package/stdf)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/stdf?logo=npm&label=minzip&style=for-the-badge&color=E29CD2&logoColor=F9D8ED&labelColor=190113)](https://www.npmjs.com/package/stdf)
-[![GitHub stars](https://img.shields.io/github/stars/dufu1991/stdf?logo=github&label=stars&style=for-the-badge&color=A1DAD7&logoColor=D9F8F2&labelColor=011918)](https://github.com/dufu1991/stdf)
+[![GitHub stars](https://img.shields.io/github/stars/dufu1991/stdf?logo=github&label=star&style=for-the-badge&color=A1DAD7&logoColor=D9F8F2&labelColor=011918)](https://github.com/dufu1991/stdf)
 [![GitHub license](https://img.shields.io/github/license/dufu1991/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/dufu1991/stdf)
+[![npm](https://img.shields.io/npm/dt/stdf?logo=npm&label=install&style=for-the-badge&color=FFCC33&logoColor=FFFDE8&labelColor=191301)](https://www.npmjs.com/package/stdf)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/stdf?logo=npm&label=minzip&style=for-the-badge&color=E29CD2&logoColor=F9D8ED&labelColor=190113)](https://www.npmjs.com/package/stdf)
 [![npm](https://img.shields.io/npm/v/create-stdf?logo=npm&label=create&style=for-the-badge&color=ebb2ba&logoColor=FBDDDD&labelColor=190104)](https://www.npmjs.com/package/create-stdf)
 [![npm](https://img.shields.io/npm/v/rollup-plugin-stdf-icon?logo=npm&label=icon&style=for-the-badge&color=8cf2be&logoColor=D5FCE3&labelColor=01190C)](https://www.npmjs.com/package/rollup-plugin-stdf-icon)
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
