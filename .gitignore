@@ -70,6 +70,7 @@ pnpm-lock.yaml
 /packages/rollup-plugin-stdf-icon/pnpm-lock.yaml
 /packages/rollup-plugin-stdf-icon/node_modules
 /packages/rollup-plugin-stdf-icon/dist
+/packages/rollup-plugin-stdf-icon/test/symbol.svg
 
 # 忽略 packages 中 vscode-extension 本地构建的文件 ignore the files built by vscode-extension in packages
 /packages/vscode-extension/pnpm-lock.yaml
