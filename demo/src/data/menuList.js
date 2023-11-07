@@ -212,8 +212,8 @@ export default [
 				title_zh: '数字键盘',
 				title_en: 'NumKeyboard',
 				nav: 'numKeyboard',
-				tip: '3 0624700|3 0624770|5 34202 13942|4314 0624',
-				tip_en: '3 0624700|3 0624770|5 34202 13942|4314 0624',
+				tip: '3 0624700 | 3 0624770 | 5 34202 13942 | 4314 0624',
+				tip_en: '3 0624700 | 3 0624770 | 5 34202 13942 | 4314 0624',
 				alias:
 					'numKeyboard|数字键盘|数字|键盘|numKeyboard数字键盘|numKeyboard 数字键盘|金额键盘|numKeyboard金额键盘|numKeyboard 金额键盘|number|keyboard|amount|money|',
 			},
