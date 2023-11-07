@@ -39,8 +39,10 @@ function handleFile(inFile, outFile, fileName, simple = true) {
 	const svgs = fs.readdirSync(inFile);
 
 	svgs.forEach(svg => {
-		// 读取 svg 文件内容, 作为字符串
-		// Read the svg file content as a string
+		// 读取 svg 文件内容, 作为字符串，如果是 .DS_Store 文件，则跳过
+		// Read the svg file content as a string, if it is a .DS_Store file, skip it
+		const isDSStore = svg === '.DS_Store';
+		if (isDSStore) return;
 		const code = fs.readFileSync(`${inFile}/${svg}`, 'utf8');
 
 		// 使用 SVGO 进行优化
