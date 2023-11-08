@@ -4,7 +4,7 @@
 
 ## 填充模式
 
-填充模式中，line 为线性按钮（幽灵按钮）；lineLight 线性浅色按钮；text 为纯文本按钮；而 lineTheme 与 textTheme 表示对应边框和文字颜色会跟随主题色，包括亮色与暗色；colorLight 为带透明度浅色背景按钮，也自动适配亮色与暗色。
+填充模式中，line 为线性按钮（幽灵按钮）；lineLight 线性浅色按钮；text 为纯文本按钮；而 lineTheme 与 textTheme 表示对应边框和文字颜色会跟随主题色，包括亮暗模式；colorLight 为带透明度浅色背景按钮，也自动适配亮暗模式。
 
 ## 状态色
 

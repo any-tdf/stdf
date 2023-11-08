@@ -4,20 +4,20 @@
 
 ### 配置
 
-使用 Tailwind CSS 的暗色模式配置，请在 `tailwind.config.js` 配置 `darkMode: 'class'`，参考 [Dark Mode](https://tailwindcss.com/docs/dark-mode)。
+使用 Tailwind CSS 的暗模式配置，请在 `tailwind.config.js` 配置 `darkMode: 'class'`，参考 [Dark Mode](https://tailwindcss.com/docs/dark-mode)。
 
 ### 切换
 
 从 0.4.0 版本开始，STDF 将切换亮暗模式的方法置于 STDF 的 NPM 包中，本质上是直接给 `html` 标签添加或删除 `dark` 类名。
 
 ```javascript
-// 引入 darkMode，传入 false 切换为亮色模式，不传参或传入 true 切换为暗色模式。
+// 引入 darkMode，传入 false 切换为亮模式，不传参或传入 true 切换为暗模式。
 import { darkMode } from 'stdf/theme';
 
-// 切换为亮色模式
+// 切换为亮模式
 darkMode(false);
 
-// 切换为暗色模式
+// 切换为暗模式
 darkMode();
 ```
 
