@@ -97,29 +97,29 @@
 
 	<div class="font-bold text-2xl my-4">Avatar group</div>
 	<div class="font-bold mt-6 mb-2">Default</div>
-	<Avatars {data}></Avatars>
+	<Avatars {data} />
 
 	<div class="font-bold mt-6 mb-2">smaller</div>
-	<Avatars {data} size="sm" lineWidth="1"></Avatars>
+	<Avatars {data} size="sm" lineWidth="1" />
 
 	<div class="font-bold mt-6 mb-2">loose</div>
-	<Avatars {data} compact={4}></Avatars>
+	<Avatars {data} compact={4} />
 
 	<div class="font-bold mt-6 mb-2">Border thick point</div>
-	<Avatars {data} lineWidth="8"></Avatars>
+	<Avatars {data} lineWidth="8" />
 
 	<div class="font-bold mt-6 mb-2">Make the corners smaller</div>
-	<Avatars {data} radius="2xl"></Avatars>
+	<Avatars {data} radius="2xl" />
 
 	<div class="font-bold mt-6 mb-2">Reverse</div>
-	<Avatars {data} reverse></Avatars>
+	<Avatars {data} reverse />
 
 	<div class="font-bold mt-6 mb-2">A maximum of 6 are displayed</div>
-	<Avatars {data} max={6}></Avatars>
+	<Avatars {data} max={6} />
 
 	<div class="font-bold mt-6 mb-2">Top layer display increase</div>
-	<Avatars {data} top="add"></Avatars>
+	<Avatars {data} top="add" />
 
 	<div class="font-bold mt-6 mb-2">Do not show top layer</div>
-	<Avatars {data} top="none"></Avatars>
+	<Avatars {data} top="none" />
 </div>

@@ -12,9 +12,5 @@ module.exports = {
 		extraFileExtensions: ['.svelte'],
 	},
 	rules: {},
-	overrides: [
-		{
-			files: '*.svelte',
-		},
-	],
+	overrides: [{ files: '*.svelte' }],
 };

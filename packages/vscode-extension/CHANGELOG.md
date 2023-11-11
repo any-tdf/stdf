@@ -1,3 +1,5 @@
+> No change log version, it means that it is just updated with the STDF version and the plug-in itself is not updated.
+
 ## 0.0.18
 
 - Fixed the problem that STDF cannot be queried for the latest version, such as offline use.
@@ -5,10 +7,6 @@
 ## 0.0.17
 
 - Fixed the latest version detection problem.
-
-## 0.0.16
-
-- Fixed known issues.(0.0.10 - 0.0.16)
 
 ## 0.0.9
 
@@ -26,7 +24,7 @@
 
 ## 0.0.6
 
-- Add README.(0.0.2 - 0.0.6)
+- Add README.
 
 ## 0.0.1
 

@@ -97,29 +97,29 @@
 
 	<div class="font-bold text-2xl my-4">头像组</div>
 	<div class="font-bold mt-6 mb-2">默认</div>
-	<Avatars {data}></Avatars>
+	<Avatars {data} />
 
 	<div class="font-bold mt-6 mb-2">小点</div>
-	<Avatars {data} size="sm" lineWidth="1"></Avatars>
+	<Avatars {data} size="sm" lineWidth="1" />
 
 	<div class="font-bold mt-6 mb-2">宽松一点</div>
-	<Avatars {data} compact={4}></Avatars>
+	<Avatars {data} compact={4} />
 
 	<div class="font-bold mt-6 mb-2">边框粗点</div>
-	<Avatars {data} lineWidth="8"></Avatars>
+	<Avatars {data} lineWidth="8" />
 
 	<div class="font-bold mt-6 mb-2">圆角小点</div>
-	<Avatars {data} radius="2xl"></Avatars>
+	<Avatars {data} radius="2xl" />
 
 	<div class="font-bold mt-6 mb-2">反向</div>
-	<Avatars {data} reverse></Avatars>
+	<Avatars {data} reverse />
 
 	<div class="font-bold mt-6 mb-2">最多显示 6 个</div>
-	<Avatars {data} max={6}></Avatars>
+	<Avatars {data} max={6} />
 
 	<div class="font-bold mt-6 mb-2">顶层显示增加</div>
-	<Avatars {data} top="add"></Avatars>
+	<Avatars {data} top="add" />
 
 	<div class="font-bold mt-6 mb-2">不显示顶层</div>
-	<Avatars {data} top="none"></Avatars>
+	<Avatars {data} top="none" />
 </div>
