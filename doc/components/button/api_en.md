@@ -8,7 +8,7 @@
 | size         | String  | 'big'         | full/big/md/sm/auto                          | N        | size.                                             |
 | line         | String  | 'solid'       | solid/dashed/dotted                          | N        | border style.                                     |
 | heightOut    | String  | '2'           | '0'/'1'/'2'/'4'                              | N        | Button outer height.                              |
-| heightIn     | String  | '2'           | '0'/'1'/'2'/'4'                              | N        | Button height.                                    |
+| heightIn     | String  | '3'           | '0'/'1'/'2'/'4'                              | N        | Button height.                                    |
 | injClass     | String  | ''            | Class                                        | N        | Inject CSS name.                                  |
 | love         | Boolean | false         | true/false                                   | N        | Whether to open the love version.                 |
 | group        | Boolean | false         | true/false                                   | N        | Whether to use a button group.                    |

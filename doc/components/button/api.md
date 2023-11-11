@@ -7,8 +7,8 @@
 | radius       | String  | 'base'  | 'none'/'base'/'xl'/'2xl'/'full'                                       | N    | 圆角风格。                     |
 | size         | String  | 'big'   | 'full'/'big'/'md'/'sm'/'auto'                                         | N    | 尺寸。                         |
 | line         | String  | 'solid' | 'solid'/'dashed'/'dotted'                                             | N    | 边框风格。                     |
-| heightOut    | String  | '3'     | '0'/'1'/'2'/'3'/'4'                                                   | N    | 按钮外部高度。                 |
-| heightIn     | String  | '2'     | '0'/'1'/'2'/'3'/'4'                                                   | N    | 按钮高度。                     |
+| heightOut    | String  | '2'     | '0'/'1'/'2'/'3'/'4'                                                   | N    | 按钮外部高度。                 |
+| heightIn     | String  | '3'     | '0'/'1'/'2'/'3'/'4'                                                   | N    | 按钮高度。                     |
 | injClass     | String  | ''      | Class                                                                 | N    | 注入 CSS 名称。                |
 | love         | Boolean | false   | true/false                                                            | N    | 是否开启关爱版。               |
 | group        | Boolean | false   | true/false                                                            | N    | 是否使用按钮组。               |
