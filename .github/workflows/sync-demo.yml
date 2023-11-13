@@ -72,7 +72,7 @@ jobs:
           git add .
           git commit -m "Github Actions auto commit: update demo from stdf."
 
-      # 将修改内容推送到 git@github.com:dufu1991/demo-stdf.git 的 main 分支
+      # 将修改内容推送到 git@github.com:any-tdf/demo-stdf.git 的 main 分支
       - name: Push to demo-stdf
         uses: ad-m/github-push-action@master
         with:
@@ -80,4 +80,4 @@ jobs:
           branch: main
           force: true
           directory: stdf/demo
-          repository: dufu1991/demo-stdf
+          repository: any-tdf/demo-stdf
