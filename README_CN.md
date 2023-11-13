@@ -109,7 +109,7 @@ npx create-stdf@latest
 
 # 快速尝试
 
-可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/dufu1991/demo-stdf) 快速尝试 STDF。
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 快速尝试 STDF。
 
 # 反馈与交流
 

@@ -236,7 +236,7 @@ switchTheme(stdfTheme);
 switchTheme(customTheme);
 ```
 
-For detailed usage, please refer to [STDF Demo](https://github.com/dufu1991/demo-stdf).
+For detailed usage, please refer to [STDF Demo](https://github.com/any-tdf/demo-stdf).
 
 ## Summary
 
