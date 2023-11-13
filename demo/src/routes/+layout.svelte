@@ -130,56 +130,54 @@
 	};
 </script>
 
-<main class="bg-primaryWhite dark:bg-darkBlack text-black dark:text-white relative min-h-screen text-justify w-screen antialiased">
-	<div class="sticky z-[100] top-0">
-		<NavBar
-			title={$page.url.pathname === '/'
-				? isZh
-					? 'STDF 示例'
-					: 'STDF Demo'
-				: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
-				  (isZh ? '示例' : ' Demo')}
-			left={showLeft ? 'back' : ''}
-			rightSlot
-			injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
-			on:clickleft={() => window.history.back()}
-		>
-			<div slot="right" class="flex text-center">
-				{#if isIframe === '0'}
-					<div class="h-12 w-10 leading-10">
-						<a href="https://github.com/dufu1991/stdf" target="_blank" rel="noreferrer">
-							<Icon name="ri-github-fill" />
-						</a>
-					</div>
-					<div class="h-12 w-10 leading-10">
-						<a
-							href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/#/components?nav=${$page.url.pathname.substring(7)}&tab=0`}`}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<Icon name="ri-compass-line" />
-						</a>
-					</div>
-				{/if}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="h-12 w-10 leading-10" on:click={toggleFun}>
-					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme={true} />
-				</div>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="h-12 w-10 leading-10" on:click={switchThemeFunc}>
-					<Icon name="ri-palette-line" theme={true} />
-				</div>
-			</div>
-		</NavBar>
-	</div>
-	<slot />
-	<div
-		class="fixed z-[1000] {showTheme
-			? 'right-0'
-			: '-right-80'} transition-all duration-500 top-12 bg-white dark:bg-black px-4 shadow rounded-xl"
+<div class="sticky z-[100] top-0">
+	<NavBar
+		title={$page.url.pathname === '/'
+			? isZh
+				? 'STDF 示例'
+				: 'STDF Demo'
+			: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
+			  (isZh ? '示例' : ' Demo')}
+		left={showLeft ? 'back' : ''}
+		rightSlot
+		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
+		on:clickleft={() => window.history.back()}
 	>
-		<ThemeSwitch />
-	</div>
-</main>
+		<div slot="right" class="flex text-center">
+			{#if isIframe === '0'}
+				<div class="h-12 w-10 leading-10">
+					<a href="https://github.com/dufu1991/stdf" target="_blank" rel="noreferrer">
+						<Icon name="ri-github-fill" />
+					</a>
+				</div>
+				<div class="h-12 w-10 leading-10">
+					<a
+						href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/#/components?nav=${$page.url.pathname.substring(7)}&tab=0`}`}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<Icon name="ri-compass-line" />
+					</a>
+				</div>
+			{/if}
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<div class="h-12 w-10 leading-10" on:click={toggleFun}>
+				<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme={true} />
+			</div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<div class="h-12 w-10 leading-10" on:click={switchThemeFunc}>
+				<Icon name="ri-palette-line" theme={true} />
+			</div>
+		</div>
+	</NavBar>
+</div>
+<slot />
+<div
+	class="fixed z-[1000] {showTheme
+		? 'right-0'
+		: '-right-80'} transition-all duration-500 top-12 bg-white dark:bg-black px-4 shadow rounded-xl"
+>
+	<ThemeSwitch />
+</div>
