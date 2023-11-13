@@ -5,6 +5,7 @@ import extractorSvelte from '@unocss/extractor-svelte';
 import svgSprite from 'rollup-plugin-stdf-icon';
 
 // https://vitejs.dev/config/
+// @ts-ignore
 export default defineConfig({
 	// @ts-ignore
 	plugins: [
