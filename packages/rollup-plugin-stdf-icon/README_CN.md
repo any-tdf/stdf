@@ -45,7 +45,7 @@ export default defineConfig({
 });
 ```
 
-开发过程中只需要将用到的 svg 文件放到指定的入口文件夹（默认 `src/lib/icons`），插件会自动将其合并为一个 SVG symbol 文件，输出到指定的输出文件夹（默认 `static/fonts`）。Vite 构建之后 public 文件夹下的文件会被复制到 dist 文件夹下，所以在构建之后，合并的 SVG symbol 文件会出现在 dist/fonts 文件夹下。请参考 [Vite 配置](https://cn.vitejs.dev/guide/assets.html#the-public-directory)。
+开发过程中只需要将用到的 svg 文件放到指定的入口文件夹（默认 `src/lib/symbol`），插件会自动将其合并为一个 SVG symbol 文件，输出到指定的输出文件夹（默认 `static/fonts`）。Vite 构建之后 public 文件夹下的文件会被复制到 dist 文件夹下，所以在构建之后，合并的 SVG symbol 文件会出现在 dist/fonts 文件夹下。请参考 [Vite 配置](https://cn.vitejs.dev/guide/assets.html#the-public-directory)。
 
 > 默认参数优先适配 SvelteKit 项目，如果需要适配 Vite 创建的非 SvelteKit 项目，请修改 vite.config.js 或 vite.config.ts 中的配置。
 
@@ -64,18 +64,18 @@ export default defineConfig({
 
 此配置会合并两个 symbol。**此时使用 STDF 的 Icon 组件时，请配合修改 path 为对应的 `fonts/symbol.svg` 或 `fonts/icon.svg`**
 
-注意：**传入参数为数组**，表示多个文件夹的配置。**每个文件夹的配置为一个对象**，对象中的 inFile 为将要被合并的 SVG 文件所在的文件夹，outFile 为合并后的 SVG symbol 文件的输出路径，fileName 为合并后的 SVG symbol 文件的文件名。请注意路径与文件名的正确性与冲突。
+注意：**传入参数为数组**，表示多个文件夹的配置。**每个文件夹的配置为一个对象**，对象中的 inFile 为将要被合并的 SVG 文件所在的文件夹，outFile 为合并后的 SVG symbol 文件的输出路径，fileName 为合并后的 SVG symbol 文件的文件名（如果不传则取 inFile 的最后一个文件夹名称）。请注意路径与文件名的正确性与冲突。
 
 一般来说，使用 symbol 的场景是将一系列小的单色 svg 合并为一个 symbol，可以方便项目使用 svg 时修改颜色、大小、透明度等属性，所以默认配置下 rollup-plugin-stdf-icon 会去除掉 svg 本身的颜色属性。如果需要使用多色 svg，合成的 symbol 需要保留 svg 本身的颜色，只需要将 `simple` 参数设置为 `false`。
 
 # 配置
 
-| 参数     | 默认            | 描述                                                |
-| -------- | --------------- | --------------------------------------------------- |
-| inFile   | 'src/lib/icons' | 将要被合并的所有 SVG 文件所在的文件夹。             |
-| outFile  | 'static/fonts'  | 合并后的 SVG symbol 文件的输出路径。                |
-| fileName | 'symbol'        | 合并后的 SVG symbol 文件的文件名。                  |
-| simple   | true            | 是否使用简单模式，简单模式会将 svg 自带的颜色去除。 |
+| 参数     | 默认             | 描述                                                                           |
+| -------- | ---------------- | ------------------------------------------------------------------------------ |
+| inFile   | 'src/lib/symbol' | 将要被合并的所有 SVG 文件所在的文件夹。                                        |
+| outFile  | 'static/fonts'   | 合并后的 SVG symbol 文件的输出路径。                                           |
+| fileName | ''               | 合并后的 SVG symbol 文件的文件名（如果不传则取 inFile 的最后一个文件夹名称）。 |
+| simple   | true             | 是否使用简单模式，简单模式会将 svg 自带的颜色去除。                            |
 
 # 许可证
 
