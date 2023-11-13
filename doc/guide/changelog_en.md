@@ -39,7 +39,7 @@
 
 ## 0.2.7
 
-- 0.2.6 ~ 0.2.7 Added `svelte` to STDF package, allowing it to be directly imported and used in SvelteKit. Related [Issues](https://github.com/dufu1991/stdf/issues/9). [!issue|edhub|]
+- 0.2.6 ~ 0.2.7 Added `svelte` to STDF package, allowing it to be directly imported and used in SvelteKit. Related [Issues](https://github.com/any-tdf/stdf/issues/9). [!issue|edhub|]
 
 ## 0.2.5
 
@@ -63,7 +63,7 @@
 
 ## 0.1.5
 
-- Modify the touch events in the components to pointer events, enabling support for various input methods such as mouse, stylus, and touch. The components include BottomSheet, IndexBar, Slider, and Swiper. Related to [Issues](https://github.com/dufu1991/stdf/issues/5). [!issue|shenliqing|]
+- Modify the touch events in the components to pointer events, enabling support for various input methods such as mouse, stylus, and touch. The components include BottomSheet, IndexBar, Slider, and Swiper. Related to [Issues](https://github.com/any-tdf/stdf/issues/5). [!issue|shenliqing|]
 
 ## 0.1.4
 
@@ -108,7 +108,7 @@
 ## 0.0.7
 
 - The value of the Context for the multilingual package has been changed from "lang" to "STDF_lang" to avoid conflicts with the names of other language packages within the project.
-- Improve the instructions for quickly configuring Tailwind CSS in the site, link to [Issues](https://github.com/dufu1991/stdf/issues/1).[!issue|gavinning|][!contribute|yuedanlabs|]
+- Improve the instructions for quickly configuring Tailwind CSS in the site, link to [Issues](https://github.com/any-tdf/stdf/issues/1).[!issue|gavinning|][!contribute|yuedanlabs|]
 
 ## 0.0.6
 

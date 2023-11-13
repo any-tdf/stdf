@@ -31,7 +31,7 @@
 
 ```bash
 ## 1. 克隆 STDF 仓库并进入
-git clone git@github.com:dufu1991/stdf.git
+git clone git@github.com:any-tdf/stdf.git
 cd stdf
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
@@ -80,10 +80,10 @@ npm run dev
 
 ### 流程
 
-- 请先 fork 一份 [STDF](https://github.com/dufu1991/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
+- 请先 fork 一份 [STDF](https://github.com/any-tdf/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
 - 克隆你的仓库至本地。
 - 修改组件源码并在 Demo 中验证通过。
-- 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/dufu1991/stdf/blob/main/doc/components/button/version.md?plain=1)。
+- 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/doc/components/button/version.md?plain=1)。
 - 到仓库根目录，执行 `bun i` 或 `pnpm i` 或 `npm i` 安装依赖。
 - 利用编辑器格式化你修改过的代码，或者执行 `pnpm run format` 或 `npm run format` 命令行格式化代码。
 - 执行 `pnpm run lint` 或 `npm run lint` 检查代码格式。

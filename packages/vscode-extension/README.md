@@ -1,4 +1,4 @@
-[简体中文](https://github.com/dufu1991/stdf/blob/main/packages/vscode-extension/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/vscode-extension/README_CN.md)
 
 # Introduction
 
@@ -30,4 +30,4 @@ The default API display is in Simplified Chinese. You can enable English API in 
 
 # License
 
-This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.

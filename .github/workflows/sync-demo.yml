@@ -16,11 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # clone 仓库 github.com/dufu1991/stdf
+      # clone 仓库 github.com/any-tdf/stdf
       - name: Clone stdf
         uses: actions/checkout@v4
         with:
-          repository: dufu1991/stdf
+          repository: any-tdf/stdf
           token: ${{ secrets.STDF_GITHUB_TOKEN }}
           path: stdf
 

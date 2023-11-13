@@ -39,7 +39,7 @@
 
 ## 0.2.7
 
-- 0.2.6 ~ 0.2.7 STDF package 增加 `svelte`，使其可在 SvelteKit 中直接引入使用，关联 [Issues](https://github.com/dufu1991/stdf/issues/9) 。[!issue|edhub|]
+- 0.2.6 ~ 0.2.7 STDF package 增加 `svelte`，使其可在 SvelteKit 中直接引入使用，关联 [Issues](https://github.com/any-tdf/stdf/issues/9) 。[!issue|edhub|]
 
 ## 0.2.5
 
@@ -63,7 +63,7 @@
 
 ## 0.1.5
 
-- 修改组件内部的触摸事件为指针事件，使其同时支持鼠标、触控笔和触摸等各种输入方式，包含组件：BottomSheet、IndexBar、Slider、Swiper。关联 [Issues](https://github.com/dufu1991/stdf/issues/5)。[!issue|shenliqing|]
+- 修改组件内部的触摸事件为指针事件，使其同时支持鼠标、触控笔和触摸等各种输入方式，包含组件：BottomSheet、IndexBar、Slider、Swiper。关联 [Issues](https://github.com/any-tdf/stdf/issues/5)。[!issue|shenliqing|]
 
 ## 0.1.4
 
@@ -108,7 +108,7 @@
 ## 0.0.7
 
 - 多语言包 Context 的值由 `lang` 改为 `STDF_lang`，避免与工程内其他语言包名称冲突。
-- 完善站点快速上手中配置 Tailwind CSS 的说明，关联 [Issues](https://github.com/dufu1991/stdf/issues/1)。[!issue|gavinning|][!contribute|yuedanlabs|]
+- 完善站点快速上手中配置 Tailwind CSS 的说明，关联 [Issues](https://github.com/any-tdf/stdf/issues/1)。[!issue|gavinning|][!contribute|yuedanlabs|]
 
 ## 0.0.6
 

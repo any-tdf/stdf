@@ -1,4 +1,4 @@
-[简体中文](https://github.com/dufu1991/stdf/blob/main/packages/create-stdf/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README_CN.md)
 
 # create-stdf
 
@@ -104,4 +104,4 @@ bun create stdf my-app -l zh_CN
 
 # License
 
-This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.

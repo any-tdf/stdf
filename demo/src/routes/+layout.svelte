@@ -146,7 +146,7 @@
 		<div slot="right" class="flex text-center">
 			{#if isIframe === '0'}
 				<div class="h-12 w-10 leading-10">
-					<a href="https://github.com/dufu1991/stdf" target="_blank" rel="noreferrer">
+					<a href="https://github.com/any-tdf/stdf" target="_blank" rel="noreferrer">
 						<Icon name="ri-github-fill" />
 					</a>
 				</div>

@@ -49,11 +49,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension"
+		"url": "https://github.com/any-tdf/stdf/tree/main/packages/vscode-extension"
 	},
 	"bugs": {
-		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+vscode"
+		"url": "https://github.com/any-tdf/stdf/issues?q=is:issue+is:open+vscode"
 	},
-	"homepage": "https://github.com/dufu1991/stdf/tree/main/packages/vscode-extension/README.md",
-	"LICENSE": "https://github.com/dufu1991/stdf/blob/main/LICENSE"
+	"homepage": "https://github.com/any-tdf/stdf/tree/main/packages/vscode-extension/README.md",
+	"LICENSE": "https://github.com/any-tdf/stdf/blob/main/LICENSE"
 }

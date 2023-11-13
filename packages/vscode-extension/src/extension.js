@@ -66,7 +66,7 @@ async function activate() {
 					// 在 apiContent 后面添加示例、API、指南、组件源码的链接
 					// Add links to examples, API, guides, and component source code after apiContent
 					const baseUrl = 'https://stdf.design/#/components?nav=';
-					const baseUrlCode = 'https://github.com/dufu1991/stdf/blob/main/packages/stdf/components/';
+					const baseUrlCode = 'https://github.com/any-tdf/stdf/blob/main/packages/stdf/components/';
 					const baseUrlCodeGitee = 'https://gitee.com/dufu1991/stdf/blob/main/packages/stdf/components/';
 					const addContent = `**[${isZh ? '示例' : 'Demo'}](${baseUrl}${wordLower}&tab=0&lang=${
 						isZh ? 'zh_CN' : 'en_US'

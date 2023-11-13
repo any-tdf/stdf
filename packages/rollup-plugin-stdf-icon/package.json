@@ -11,13 +11,13 @@
 	"author": "dufu1991",
 	"funding": "https://stdf.design?fund",
 	"license": "MIT",
-	"homepage": "https://github.com/dufu1991/stdf/blob/main/packages/rollup-plugin-stdf-icon/README.md",
+	"homepage": "https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-stdf-icon/README.md",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dufu1991/stdf"
+		"url": "https://github.com/any-tdf/stdf"
 	},
 	"bugs": {
-		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+icon"
+		"url": "https://github.com/any-tdf/stdf/issues?q=is:issue+is:open+icon"
 	},
 	"files": [
 		"dist/**"

@@ -1,4 +1,4 @@
-[简体中文](https://github.com/dufu1991/stdf/blob/main/packages/rollup-plugin-stdf-icon/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-stdf-icon/README_CN.md)
 
 # Introduction
 
@@ -79,4 +79,4 @@ In general, the use of symbols is to combine a series of small, single-color SVG
 
 # License
 
-This project is licensed under the [MIT License](https://github.com/dufu1991/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.

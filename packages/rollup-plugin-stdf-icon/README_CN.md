@@ -1,4 +1,4 @@
-[English](https://github.com/dufu1991/stdf/blob/main/packages/rollup-plugin-stdf-icon/README.md)
+[English](https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-stdf-icon/README.md)
 
 # 介绍
 
@@ -79,4 +79,4 @@ export default defineConfig({
 
 # 许可证
 
-本项目基于 [MIT 许可证](https://github.com/dufu1991/stdf/blob/main/LICENSE)。请随意享受并贡献给这个开源项目。
+本项目基于 [MIT 许可证](https://github.com/any-tdf/stdf/blob/main/LICENSE)。请随意享受并贡献给这个开源项目。

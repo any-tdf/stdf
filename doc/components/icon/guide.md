@@ -10,7 +10,7 @@ STDF 的 SVG Sprites 是使用 [SVG symbol](https://developer.mozilla.org/en-US/
 
 ## rollup-plugin-stdf-icon
 
-STDF 已经开发了一个 Rollup/Vite 插件，用于将项目中的 SVG 文件合并成 SVG Sprites，具体使用请参考 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，由于 svg 格式的多样性，可能存在 rollup-plugin-stdf-icon 处理不准确的情况，请到 [GitHub](https://github.com/dufu1991/stdf/issues) 提 issue，注明 svg 文件的具体情况。
+STDF 已经开发了一个 Rollup/Vite 插件，用于将项目中的 SVG 文件合并成 SVG Sprites，具体使用请参考 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，由于 svg 格式的多样性，可能存在 rollup-plugin-stdf-icon 处理不准确的情况，请到 [GitHub](https://github.com/any-tdf/stdf/issues) 提 issue，注明 svg 文件的具体情况。
 
 或使用其他 SVG Sprites 合成工具或手动合成，也可以请设计师提供设计物料时一并提供对应的 SVG Sprites。或类似 Remix Icon 这样的图标库，可以直接将选定的多个图标下载为 SVG Sprites。
 

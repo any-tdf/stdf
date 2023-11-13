@@ -42,12 +42,12 @@
 	"funding": "https://stdf.design?fund",
 	"license": "MIT",
 	"type": "module",
-	"homepage": "https://github.com/dufu1991/stdf/blob/main/packages/create-stdf/README.md",
+	"homepage": "https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README.md",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dufu1991/stdf"
+		"url": "https://github.com/any-tdf/stdf"
 	},
 	"bugs": {
-		"url": "https://github.com/dufu1991/stdf/issues?q=is:issue+is:open+create"
+		"url": "https://github.com/any-tdf/stdf/issues?q=is:issue+is:open+create"
 	}
 }
