@@ -13,7 +13,7 @@ jobs:
       - name: Black list
         uses: Yikun/hub-mirror-action@master
         with:
-          src: github/dufu1991
+          src: github/any-tdf
           dst: gitee/dufu1991
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
