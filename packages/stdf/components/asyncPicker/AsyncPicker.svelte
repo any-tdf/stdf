@@ -15,68 +15,130 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const asyncPickerLang = currentLang.asyncPicker;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 列数据
-	// Column data
+	/**
+	 * 列数据
+	 * Column data
+	 * @type {Array<Object>}
+	 * @default []
+	 */
 	export let data = [];
 
-	// 是否是最后一级
-	// Whether it is the last level
+	/**
+	 * 是否是最后一级
+	 * Whether it is the last level
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let lastLevel = false;
 
-	// 是否是第一级
-	// Whether it is the first level
+	/**
+	 * 是否是第一级
+	 * Whether it is the first level
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let firstLevel = true;
 
-	// 可见行数
-	// Visible rows
+	/**
+	 * 可见行数
+	 * Visible rows
+	 * @type {3|5|7}
+	 * @default 5
+	 */
 	export let showRow = 5;
 
-	// data 中 label 对应的 key
-	// The key corresponding to label in data
+	/**
+	 * data 中 label 对应的 key
+	 * The key corresponding to label in data
+	 * @type {String}
+	 * @default 'label'
+	 */
 	export let labelKey = 'label';
 
-	// 对齐方式
-	// Alignment
+	/**
+	 * 对齐方式
+	 * Alignment
+	 * @type {'left'|'center'|'right'}
+	 * @default 'center'
+	 */
 	export let align = 'center';
 
-	// 取消选项文本
-	// Cancel option text
+	/**
+	 * 取消选项文本
+	 * Cancel option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultCancel
+	 */
 	export let cancelText = asyncPickerLang.defaultCancel;
 
-	// 确定选项文本
-	// Confirm option text
+	/**
+	 * 确定选项文本
+	 * Confirm option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultConfirm
+	 */
 	export let confirmText = asyncPickerLang.defaultConfirm;
 
-	// 中间选项文本
-	// Middle option text
+	/**
+	 * 中间选项文本
+	 * Middle option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultTitle
+	 */
 	export let title = asyncPickerLang.defaultTitle;
 
-	// 下一步选项文本
-	// Next option text
+	/**
+	 * 下一步选项文本
+	 * Next option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultNext
+	 */
 	export let nextText = asyncPickerLang.defaultNext;
 
-	// 上一步选项文本
-	// Previous option text
+	/**
+	 * 上一步选项文本
+	 * Previous option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultPrev
+	 */
 	export let prevText = asyncPickerLang.defaultPrev;
 
-	// 是否显示已选选项
-	// Whether to show selected options
+	/**
+	 * 是否显示已选选项
+	 * Whether to show selected options
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let showSelected = false;
 
-	// 已选选项文本
-	// Selected option text
+	/**
+	 * 已选选项文本
+	 * Selected option text
+	 * @type {String}
+	 * @default Current language asyncPickerLang.defaultSelected
+	 */
 	export let selectedText = asyncPickerLang.defaultSelected;
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {Object}
+	 */
 	export let popup = {};
 
-	// 加载数据时的loading参数
-	// Loading parameters when loading data
+	/**
+	 * 加载数据时的loading参数
+	 * Loading parameters when loading data
+	 * @type {Object}
+	 */
 	export let loading = {};
 
 	// 用于存储当前选定的所有项和索引

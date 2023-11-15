@@ -28,6 +28,7 @@
 			const nextData = linkageData[index].children;
 			level1Data = nextData;
 			setTimeout(() => {
+				// @ts-ignore
 				data = nextData;
 				currentLevel = 1;
 				titleBind = 'Please select the city level';
@@ -36,6 +37,7 @@
 		} else if (currentLevel === 1) {
 			const nextData = level1Data[index].children;
 			setTimeout(() => {
+				// @ts-ignore
 				data = nextData;
 				currentLevel = 2;
 				titleBind = 'Please select the district level';
@@ -57,6 +59,7 @@
 		} else if (currentLevel === 2) {
 			const prevData = level1Data;
 			setTimeout(() => {
+				// @ts-ignore
 				data = prevData;
 				currentLevel = 1;
 				titleBind = 'Please select the city level';
@@ -88,6 +91,7 @@
 			const nextData = linkageDiffLabeData[index].children;
 			diffLabelKeyLevel1Data = nextData;
 			setTimeout(() => {
+				// @ts-ignore
 				diffLabelKeyData = nextData;
 				labelKey = 'city';
 				diffLabelKeyCurrentLevel = 1;
@@ -96,6 +100,7 @@
 		} else if (diffLabelKeyCurrentLevel === 1) {
 			const nextData = diffLabelKeyLevel1Data[index].children;
 			setTimeout(() => {
+				// @ts-ignore
 				diffLabelKeyData = nextData;
 				diffLabelKeyCurrentLevel = 2;
 				labelKey = 'region';
@@ -117,6 +122,7 @@
 		} else if (diffLabelKeyCurrentLevel === 2) {
 			const prevData = diffLabelKeyLevel1Data;
 			setTimeout(() => {
+				// @ts-ignore
 				diffLabelKeyData = prevData;
 				diffLabelKeyCurrentLevel = 1;
 				labelKey = 'city';
