@@ -4,4 +4,4 @@ A: Using CSS Flexbox directly can easily and quickly achieve rasterization layou
 
 ## Q: Some components require props to be of type string, but passing number types is completely normal?
 
-A: Because these props are used as keys in the object within the component, strictly speaking, they should be of type string. If you pass a number, it will be converted to string, so passing a number or string type is possible. Choose according to personal preference.
+A: Because these props are used as keys in the object within the component, strictly speaking, they should be of type string. If you pass a number, it will be converted to string, so passing a number or string type is possible. Choose according to personal preference. It should be noted that in the future, JSDoc will be used to add type declarations to the props of the component. Although it can be used normally, it is still recommended to pass the specified type.

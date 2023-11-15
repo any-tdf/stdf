@@ -4,4 +4,4 @@
 
 ## 问：部分组件的 Props 需要传入 String 类型，但传入 Number 类型也完全正常使用？
 
-答：由于组件内部这些 Props 作为 Object 的 key，严格来说应该传入 String 类型，若传入数字也会被转为 String，所以传入 Number 或者 String 类型都是可以的，根据个人习惯选择即可。
+答：由于组件内部这些 Props 作为 Object 的 key，严格来说应该传入 String 类型，若传入数字也会被转为 String，所以传入 Number 或者 String 类型都是可以的，根据个人习惯选择即可。需要注意的是，未来会使用 JSDoc 对组件的 Props 增加类型声明，虽然可以正常使用，但还是建议传入规定的类型。
