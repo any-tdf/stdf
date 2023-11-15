@@ -12,63 +12,123 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const bottomSheetLang = currentLang.bottomSheet;
 
-	// 是否显示
-	// show or not
+	/**
+	 * 是否显示
+	 * show or not
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 标题
-	// title
+	/**
+	 * 标题
+	 * title
+	 * @type {string}
+	 * @default Current language bottomSheet.title
+	 */
 	export let title = bottomSheetLang.title;
 
-	// 标题对齐方式
-	// title align
+	/**
+	 * 标题对齐方式
+	 * title align
+	 * @type {'left'|'center'|'right'}
+	 * @default 'left'
+	 */
 	export let titleAlign = 'left';
 
-	// 是否显示返回图标
-	// show back icon or not
+	/**
+	 * 是否显示返回图标
+	 * show back icon or not
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let showBackIcon = false;
 
-	// 关闭区域内容，‘’表示不显示，‘closeIcon’表示显示关闭图标，’downIcon‘表示显示下拉图标，其余文字表示显示文字
-	// close content, '' means not show, 'closeIcon' means show close icon, 'downIcon' means show down icon,other text means show text
+	/**
+	 * 关闭区域内容
+	 * close content
+	 * @type {'downIcon'|'closeIcon'|''|string}
+	 * @default 'downIcon'
+	 */
 	export let closeContent = 'downIcon';
 
-	// 是否在顶部显示分割线
-	// show divider or not at the top
+	/**
+	 * 是否在顶部显示分割线
+	 * show divider or not at the top
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let showDivider = true;
 
-	// 过渡动画出现时间
-	// transition animation appear time
+	/**
+	 * 过渡动画出现时间
+	 * transition animation appear time
+	 * @type {number}
+	 * @default 450
+	 */
 	export let duration = 450;
 
-	// 过渡动画退出时间
-	// transition animation exit time
+	/**
+	 * 过渡动画退出时间
+	 * transition animation exit time
+	 * @type {number}
+	 * @default 240
+	 */
 	export let outDuration = 240;
 
-	// 遮罩层参数
-	// mask params
+	/**
+	 * 遮罩层参数
+	 * mask params
+	 * @type {object}
+	 * @default {}
+	 */
 	export let mask = {};
 
-	// 点击遮罩层是否关闭
-	// click mask to close or not
+	/**
+	 * 点击遮罩层是否关闭
+	 * click mask to close or not
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let maskClosable = false;
 
-	// z-index
+	/**
+	 * z-index
+	 * @type {number}
+	 * @default 600
+	 */
 	export let zIndex = 600;
 
-	// 固定高度列表
-	// stay height list
+	/**
+	 * 固定高度列表
+	 * stay height list
+	 * @type {Array<number>}
+	 * @default [10, 50, 90]
+	 */
 	export let stayHeightList = [10, 50, 90];
 
-	// 初始固定高度索引
-	// initial stay height index
+	/**
+	 * 初始固定高度索引
+	 * initial stay height index
+	 * @type {number}
+	 * @default 1
+	 */
 	export let stayHeightIndex = 1;
 
-	// 滑动结束时位置低于此高度自动关闭
-	// close when position lower than this height
+	/**
+	 * 滑动结束时位置低于此高度自动关闭
+	 * close when position lower than this height
+	 * @type {number}
+	 * @range {1 - 100}
+	 */
 	export let closeHeight = 0;
 
-	// 圆角风格
-	// radius style
+	/**
+	 * 圆角风格
+	 * radius style
+	 * @type {'none'|'base'|'full'}
+	 * @default 'full'
+	 */
 	export let radius = 'full';
 
 	// 创建事件派发器
@@ -192,6 +252,11 @@
 		}
 	};
 
+	const debounceFunc = e => {
+		// @ts-ignore
+		debounce(touchmoveFun(e), 5);
+	};
+
 	// 滑动结束
 	// end sliding
 	const touchendFun = () => {
@@ -295,7 +360,7 @@
 		>
 			<div
 				on:pointerdown={touchstartFun}
-				on:pointermove={debounce(touchmoveFun, 5)}
+				on:pointermove={e => debounceFunc(e)}
 				on:pointerup={touchendFun}
 				bind:this={scrollTopDom}
 				class="py-1 touch-none cursor-move select-none"
