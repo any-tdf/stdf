@@ -1,34 +1,66 @@
 <script>
-	// 徽标文案
-	// badge text
+	/**
+	 * 徽标文案
+	 * badge text
+	 * @type {string}
+	 * @default ''
+	 */
 	export let text = '';
 
-	// 圆角风格
-	// radius style
+	/**
+	 * 圆角风格
+	 * radius style
+	 * @type {'full'|'base'|'none'|'leaf'}
+	 * @default 'full'
+	 */
 	export let radius = 'full';
 
-	// 是否位于左侧
-	// is on the left
+	/**
+	 * 是否位于左侧
+	 * is on the left
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let isLeft = false;
 
-	// 是否显示
-	// is show
+	/**
+	 * 是否显示
+	 * is show
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let isShow = true;
 
-	// 上下偏移量
-	// offset top
+	/**
+	 * 上下偏移量
+	 * offset top
+	 * @type {number}
+	 * @default 0
+	 */
 	export let offsetY = 0;
 
-	// 左右偏移量
-	// offset left
+	/**
+	 * 左右偏移量
+	 * offset left
+	 * @type {number}
+	 * @default 0
+	 */
 	export let offsetX = 0;
 
-	// 是否位于内部
-	// is inner
+	/**
+	 * 是否位于内部
+	 * is inner
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let isInner = false;
 
-	// 注入CSS
-	// inject CSS
+	/**
+	 * 注入CSS
+	 * inject CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
 	// 圆角风格样式
@@ -43,7 +75,7 @@
 
 	// 通过radius配置圆角风格或叶形
 	// set radius style or leaf style by radius
-	$: radiusClass = radius === 'leaf' ? (isLeft ? radiusObj.leftLeaf : radiusObj.rightLeaf) : radiusObj[radius] || radiusObj.full;
+	const radiusClass = radius === 'leaf' ? (isLeft ? radiusObj.leftLeaf : radiusObj.rightLeaf) : radiusObj[radius] || radiusObj.full;
 </script>
 
 {#if isInner}
