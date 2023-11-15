@@ -75,7 +75,7 @@
 	 * 取消选项文本
 	 * Cancel option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultCancel
+	 * @default Current language asyncPicker.defaultCancel
 	 */
 	export let cancelText = asyncPickerLang.defaultCancel;
 
@@ -83,7 +83,7 @@
 	 * 确定选项文本
 	 * Confirm option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultConfirm
+	 * @default Current language asyncPicker.defaultConfirm
 	 */
 	export let confirmText = asyncPickerLang.defaultConfirm;
 
@@ -91,7 +91,7 @@
 	 * 中间选项文本
 	 * Middle option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultTitle
+	 * @default Current language asyncPicker.defaultTitle
 	 */
 	export let title = asyncPickerLang.defaultTitle;
 
@@ -99,7 +99,7 @@
 	 * 下一步选项文本
 	 * Next option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultNext
+	 * @default Current language asyncPicker.defaultNext
 	 */
 	export let nextText = asyncPickerLang.defaultNext;
 
@@ -107,7 +107,7 @@
 	 * 上一步选项文本
 	 * Previous option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultPrev
+	 * @default Current language asyncPicker.defaultPrev
 	 */
 	export let prevText = asyncPickerLang.defaultPrev;
 
@@ -123,7 +123,7 @@
 	 * 已选选项文本
 	 * Selected option text
 	 * @type {String}
-	 * @default Current language asyncPickerLang.defaultSelected
+	 * @default Current language asyncPicker.defaultSelected
 	 */
 	export let selectedText = asyncPickerLang.defaultSelected;
 
