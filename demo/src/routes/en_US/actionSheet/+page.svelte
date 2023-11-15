@@ -15,30 +15,7 @@
 	let visible11 = false;
 	let visible12 = false;
 
-	const actions = [{ content: 'Option one' }, { content: 'Option twoion two' }, { content: 'Option three' }];
-	const actions1 = [
-		{ content: 'Conventional option' },
-		{ content: 'Theme option', style: 'theme' },
-		{ content: 'Disable option', style: 'disabled' },
-		{ content: 'Warning option', style: 'danger' },
-	];
-	const actions2 = [
-		{ content: 'Option one' },
-		{ content: 'Option two', desc: 'Here is description information description information' },
-		{ content: 'Option three', style: 'Here is description information' },
-	];
-	const action3 = [
-		{ content: 'Fire girl', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
-		{ content: 'calf', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
-		{ content: 'water man', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
-	];
-	const action4 = [
-		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
-		{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },
-		{ content: 'Microsoft', showImg: true, imgSrc: '/assets/logos/microsoft.png', imgRadius: 'none' },
-		{ content: 'Adobe', showImg: true, imgSrc: '/assets/logos/adobe.png', imgRadius: 'none' },
-		{ content: 'Figma', showImg: true, imgSrc: '/assets/logos/figma.png', imgRadius: 'none' },
-	];
+	const actions = [{ content: 'Option one' }, { content: 'Option two' }, { content: 'Option three' }];
 
 	let toastVisible1 = false;
 	let toastVisible2 = false;
@@ -60,10 +37,26 @@
 	<ActionSheet bind:visible={visible2} {actions} showCancel popup={{ maskClosable: false }} />
 
 	<Cell title="Different styles" on:click={() => (visible3 = true)} />
-	<ActionSheet bind:visible={visible3} actions={actions1} />
+	<ActionSheet
+		bind:visible={visible3}
+		actions={[
+			{ content: 'Conventional option' },
+			{ content: 'Theme option', style: 'theme' },
+			{ content: 'Disable option', style: 'disabled' },
+			{ content: 'Warning option', style: 'danger' },
+		]}
+	/>
 
 	<Cell title="Title and description information" on:click={() => (visible4 = true)} />
-	<ActionSheet bind:visible={visible4} actions={actions2} title="This is the title, which can be briefly explained." />
+	<ActionSheet
+		bind:visible={visible4}
+		actions={[
+			{ content: 'Option one' },
+			{ content: 'Option two', desc: 'Here is description information description information' },
+			{ content: 'Option three', desc: 'Here is description information' },
+		]}
+		title="This is the title, which can be briefly explained."
+	/>
 
 	<Cell title="Come on the top" on:click={() => (visible5 = true)} />
 	<ActionSheet bind:visible={visible5} {actions} popup={{ radius: 'xl' }} />
@@ -87,8 +80,25 @@
 	<ActionSheet bind:visible={visible10} {actions} actionClosable={false} />
 
 	<Cell title="Options with pictures" on:click={() => (visible11 = true)} />
-	<ActionSheet bind:visible={visible11} actions={action3} />
+	<ActionSheet
+		bind:visible={visible11}
+		actions={[
+			{ content: 'Fire girl', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
+			{ content: 'calf', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
+			{ content: 'water man', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
+		]}
+	/>
 
 	<Cell title="Option left" on:click={() => (visible12 = true)} />
-	<ActionSheet bind:visible={visible12} actions={action4} align="left" />
+	<ActionSheet
+		bind:visible={visible12}
+		actions={[
+			{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
+			{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },
+			{ content: 'Microsoft', showImg: true, imgSrc: '/assets/logos/microsoft.png', imgRadius: 'none' },
+			{ content: 'Adobe', showImg: true, imgSrc: '/assets/logos/adobe.png', imgRadius: 'none' },
+			{ content: 'Figma', showImg: true, imgSrc: '/assets/logos/figma.png', imgRadius: 'none' },
+		]}
+		align="left"
+	/>
 </div>

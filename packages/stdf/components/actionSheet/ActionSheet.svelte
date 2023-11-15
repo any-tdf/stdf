@@ -12,40 +12,86 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const actionSheetLang = currentLang.actionSheet;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {String}
+	 * @default ''
+	 */
 	export let title = '';
 
-	//标题对齐方式
-	//Title alignment
+	/**
+	 * 标题对齐方式
+	 * Title alignment
+	 * @type {'left'|'center'|'right'}
+	 * @default 'center'
+	 */
 	export let titleAlign = 'center';
 
-	// 菜单项，style有 normal、theme、danger、disabled
-	// Menu items, style has normal, theme, danger, disabled
+	/**
+	 * @typedef {Object} action
+	 * @property {string} content 选项文本
+	 * @property {Boolean} [showImg] 是否显示图片
+	 * @property {'normal'|'theme'|'danger'|'disabled'} [style] 选项样式
+	 * @property {string} [desc] 选项描述
+	 * @property {'none'|'base'|'full'|'lg'} [imgRadius] 图片圆角
+	 * @property {string} [imgSrc] 图片地址
+	 */
+
+	/**
+	 * 选项
+	 * Options
+	 * @type {Array<action>}
+	 * @default []
+	 */
 	export let actions = [];
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {Object}
+	 * @default {}
+	 */
 	export let popup = {};
 
-	// 是否显示取消选项。
-	// Whether to show the cancel option.
+	/**
+	 * 是否显示取消选项
+	 * Whether to show the cancel option
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let showCancel = false;
 
-	// 取消选项文本
-	// Cancel option text
+	/**
+	 * 取消选项文本
+	 * Cancel option text
+	 * @type {String}
+	 * @default Current language actionSheet.cancelText
+	 */
 	export let cancelText = actionSheetLang.cancelText;
 
-	// 点击选项是否关闭
-	// Click option to close
+	/**
+	 * 点击选项是否关闭
+	 * Click option to close
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let actionClosable = true;
 
-	// 对齐方式
-	// Alignment
+	/**
+	 * 对齐方式
+	 * Alignment
+	 * @type {'left'|'center'|'right'}
+	 * @default 'center'
+	 */
 	export let align = 'center';
 
 	// 标题对齐方式
