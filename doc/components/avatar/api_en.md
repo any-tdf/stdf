@@ -7,7 +7,7 @@
 | icon       | Object | { name: 'ri-user-3-line', theme: true, size: 32 } | Icon Props                            | N        | Replace the icon and pass in Icon Props.     |
 | altSize    | String | 'md'                                              | 'xs'/'sm'/'md'/'lg'/'xl'              | N        | Replace the text size.                       |
 | radius     | String | 'base'                                            | 'none'/'base'/'xl'/'2xl'/'3xl'/'full' | N        | Round -corner style.                         |
-| size       | String | 'md'                                              | 'xs'/'sm'/'md'/'lg'/'xl'              | N        | The size of the avatar box.                  |
+| size       | String | 'md'                                              | 'xs'/'sm'/'base'/'md'/'lg'/'xl'/'2xl' | N        | The size of the avatar box.                  |
 | imgSize    | String | 'l'                                               | 's'/'m'/'l'                           | N        | Avatar picture size.                         |
 | line       | String | 'none'                                            | 'none'/'solid'/'dashed'/'dotted'      | N        | Border style.                                |
 | injClass   | String | ''                                                | Class                                 | N        | Inject the CSS name.                         |

@@ -1,9 +1,9 @@
 ## 配置语言包
 
-STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-setcontext) 实现国际化文案配置，默认配置是中文简体。一般在应用的入口 App.svelte 中配置 Context，例如：
+STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-setcontext) 实现国际化文案配置，默认配置是中文简体。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
 
 ```svelte
-<!-- App.svelte -->
+<!-- App.svelte/+layout.svelte -->
 <script>
 	import { setContext } from 'svelte'; // 引入 setContext
 	import en_US from 'stdf/lang/en_US'; // 导入语言文件

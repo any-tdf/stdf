@@ -1,9 +1,9 @@
 ## Configuring Language Pack
 
-The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svelte-setcontext) to implement internationalization configuration of text, with the default configuration being in Simplified Chinese. Usually, the Context is configured in the entry file `App.svelte`. For example:
+The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svelte-setcontext) to implement internationalization configuration of text, with the default configuration being in Simplified Chinese. Usually, the Context is configured in the entry file `App.svelte` or `+layout.svelte`. For example:
 
 ```svelte
-<!-- App.svelte -->
+<!-- App.svelte/+layout.svelte -->
 <script>
 	import { setContext } from 'svelte'; // import setContext
 	import en_US from 'stdf/lang/en_US'; // import language file
