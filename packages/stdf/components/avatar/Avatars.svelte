@@ -11,6 +11,7 @@
 	 * 头像数据
 	 * avatar data
 	 * @type {Array}
+	 * @default []
 	 */
 	export let data = [];
 

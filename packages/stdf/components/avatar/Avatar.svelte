@@ -6,40 +6,76 @@
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
 
-	// 图片地址
-	// image url
+	/**
+	 * 图片地址
+	 * image url
+	 * @type {string}
+	 * @default ''
+	 */
 	export let image = '';
 
-	// 替换文本
-	// replace text
+	/**
+	 * 替换文本
+	 * replace text
+	 * @type {string}
+	 * @default ''
+	 */
 	export let alt = '';
 
-	// 替换Icon
-	// replace Icon
+	/**
+	 * 替换Icon
+	 * replace Icon
+	 * @type {Object}
+	 * @default { name: 'ri-user-3-line', theme: true }
+	 */
 	export let icon = { name: 'ri-user-3-line', theme: true };
 
-	// 替换文本大小
-	// replace text size
+	/**
+	 * 替换文本大小
+	 * replace text size
+	 * @type {'xs'|'sm'|'md'|'lg'|'xl'}
+	 * @default 'md'
+	 */
 	export let altSize = 'md';
 
-	// 圆角风格：none/base/xl/full
-	// radius style:none/base/xl/full
+	/**
+	 * 圆角风格
+	 * radius style
+	 * @type {'none'|'base'|'xl'|'2xl'|'3xl'|'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	// 头像框大小，xs/sm/base/md/lg/xl
-	// avatar size:xs/sm/base/md/lg/xl
+	/**
+	 * 头像框大小
+	 * avatar size
+	 * @type {'xs'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
+	 * @default 'base'
+	 */
 	export let size = 'base';
 
-	// 头像图片大小，s/m/l
-	// avatar image size:s/m/l
+	/**
+	 * 头像图片大小
+	 * avatar image size
+	 * @type {'s'|'m'|'l'}
+	 * @default 'l'
+	 */
 	export let imgSize = 'l';
 
-	// 边框风格：none/solid/dashed/dotted
-	// border style:none/solid/dashed/dotted
+	/**
+	 * 边框风格
+	 * border style
+	 * @type {'none'|'solid'|'dashed'|'dotted'}
+	 * @default 'none'
+	 */
 	export let line = 'none';
 
-	// 注入CSS
-	// inject CSS
+	/**
+	 * 注入CSS
+	 * inject CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
 	// 圆角风格样式
@@ -67,11 +103,7 @@
 
 	// 头像图片大小样式
 	// avatar image size style
-	const imgSizeObj = {
-		s: 'h-1/3 w-1/3',
-		m: 'h-2/3 w-2/3',
-		l: 'h-full w-full',
-	};
+	const imgSizeObj = { s: 'h-1/3 w-1/3', m: 'h-2/3 w-2/3', l: 'h-full w-full' };
 
 	// 边框风格样式
 	// border style
@@ -84,25 +116,11 @@
 
 	// 替换文本大小样式
 	// replace text size style
-	const altSizeObj = {
-		xs: 'text-base',
-		sm: 'text-2xl',
-		md: 'text-4xl',
-		lg: 'text-6xl',
-		xl: 'text-8xl',
-	};
+	const altSizeObj = { xs: 'text-base', sm: 'text-2xl', md: 'text-4xl', lg: 'text-6xl', xl: 'text-8xl' };
 
 	// 当默认情况时根据 size 计算 Icon 大小
 	// when default, calculate Icon size by size
-	const iconSizeObj = {
-		xs: 12,
-		sm: 20,
-		base: 24,
-		md: 32,
-		lg: 40,
-		xl: 56,
-		'2xl': 64,
-	};
+	const iconSizeObj = { xs: 12, sm: 20, base: 24, md: 32, lg: 40, xl: 56, '2xl': 64 };
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

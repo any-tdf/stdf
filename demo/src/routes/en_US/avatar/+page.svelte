@@ -3,10 +3,10 @@
 	import { Avatar, Avatars, Divider } from '../../../../../packages/stdf/components';
 
 	const icons = [
-		{ icon: { name: 'ri-aliens-fill', theme: true, top: -1, size: 16 }, size: 'xs' },
-		{ icon: { name: 'ri-user-smile-line', top: -1 }, size: 'sm' },
-		{ icon: { name: 'ri-shield-user-line', theme: true, top: 0, size: 32 }, size: 'md' },
-		{ icon: { name: 'ri-emotion-line', theme: true, top: -1, size: 46 }, size: 'lg' },
+		{ name: 'ri-aliens-fill', theme: true, top: -1, size: 16 },
+		{ name: 'ri-user-smile-line', top: -1 },
+		{ name: 'ri-shield-user-line', theme: true, top: 0, size: 32 },
+		{ name: 'ri-emotion-line', theme: true, top: -1, size: 46 },
 	];
 
 	const data = [
@@ -71,7 +71,7 @@
 	<div class="font-bold">Replace Icon</div>
 	<div class="flex justify-between mt-4 mb-8">
 		{#each icons as icon}
-			<Avatar icon={icon.icon} size={icon.size} />
+			<Avatar {icon} />
 		{/each}
 	</div>
 
