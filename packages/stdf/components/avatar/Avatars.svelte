@@ -123,7 +123,7 @@
 		xl: 'text-6xl',
 	};
 
-	$: dataInner = data.slice(0, max);
+	const dataInner = data.slice(0, max);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
