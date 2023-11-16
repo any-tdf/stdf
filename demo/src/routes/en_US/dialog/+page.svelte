@@ -120,7 +120,7 @@
 	<Dialog bind:visible={visible18} on:primary={somethingFnc} primarySlot title="Ghost" content="Do you have to enter the lock demon tower?">
 		<span slot="primary">
 			{#if loading}
-				<Loading slot="primary" inverse width="12" height="6" type="1_17" />
+				<Loading inverse width="12" height="6" type="1_17" />
 			{:else}
 				Enter
 			{/if}

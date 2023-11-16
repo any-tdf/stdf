@@ -120,7 +120,7 @@
 	<Dialog bind:visible={visible18} on:primary={somethingFnc} primarySlot title="小鬼" content="你一定要进入锁妖塔吗？">
 		<span slot="primary">
 			{#if loading}
-				<Loading slot="primary" inverse width="12" height="6" type="1_17" />
+				<Loading inverse width="12" height="6" type="1_17" />
 			{:else}
 				进入
 			{/if}

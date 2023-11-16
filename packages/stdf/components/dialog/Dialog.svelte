@@ -14,97 +14,157 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const dialogLang = currentLang.dialog;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {string}
+	 * @default Current language dialog.title
+	 */
 	export let title = dialogLang.title;
 
-	//标题对齐方式
-	//Title alignment
+	/**
+	 * 标题对齐方式
+	 * Title alignment
+	 * @type {'left' | 'center' | 'right'}
+	 * @default 'center'
+	 */
 	export let titleAlign = 'center';
 
-	// 内容
-	// Content
+	/**
+	 * 内容
+	 * Content
+	 * @type {string}
+	 * @default Current language dialog.content
+	 */
 	export let content = dialogLang.content;
 
-	// 内容是否使用slot
-	// Whether to use slot for content
+	/**
+	 * 内容是否使用slot
+	 * Whether to use slot for content
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let contentSlot = false;
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let popup = {};
 
-	// 是否显示图标
-	// Whether to show icon
+	/**
+	 * 是否显示图标
+	 * Whether to show icon
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let showIcon = false;
 
-	// 图标参数
-	// Icon parameters
+	/**
+	 * 图标参数
+	 * Icon parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let icon = {};
 
-	// 按钮样式，button/text/textLine
-	// Button style, button/text/textLine
+	/**
+	 * 按钮样式
+	 * Button style
+	 * @type {'button' | 'text' | 'textLine'}
+	 * @default 'button'
+	 */
 	export let btnStyle = 'button';
 
-	// 主按钮文字
-	// Primary button text
+	/**
+	 * 主按钮文字
+	 * Primary button text
+	 * @type {string}
+	 * @default Current language dialog.primaryText
+	 */
 	export let primaryText = dialogLang.primaryText;
 
-	// 主按钮内部是否使用slot
-	// Whether to use slot for primary button
+	/**
+	 * 主按钮内部是否使用slot
+	 * Whether to use slot for primary button
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let primarySlot = false;
 
-	// 主按钮参数
-	// Primary button parameters
+	/**
+	 * 主按钮参数
+	 * Primary button parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let primaryButton = {};
 
-	// 次按钮文字
-	// Secondary button text
+	/**
+	 * 次按钮文字
+	 * Secondary button text
+	 * @type {string}
+	 * @default Current language dialog.secondaryText
+	 */
 	export let secondaryText = dialogLang.secondaryText;
 
-	//次按钮参数
-	// Secondary button parameters
+	/**
+	 * 次按钮参数
+	 * Secondary button parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let secondaryButton = {};
 
-	// 主次按钮大小比例
-	// Primary and secondary button size ratio
+	/**
+	 * 主次按钮大小比例
+	 * Primary and secondary button size ratio
+	 * @type {[number, number]}
+	 * @default [1, 1]
+	 */
 	export let btnRatio = [1, 1];
 
-	// 主次按钮位置是否反转
-	// Whether to reverse the position of primary and secondary buttons
+	/**
+	 * 主次按钮位置是否反转
+	 * Whether to reverse the position of primary and secondary buttons
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let btnReverse = false;
 
-	// 主按钮是否关闭弹窗
-	// Whether to close the popup when the primary button is clicked
+	/**
+	 * 主按钮是否关闭弹窗
+	 * Whether to close the popup when the primary button is clicked
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let secondaryClose = true;
 
-	// 按钮间距
-	// Button spacing
+	/**
+	 * 按钮间距
+	 * Button spacing
+	 * @type {'0' | '1' | '2' | '4' | '8' | '12' | '16'}
+	 * @default '2'
+	 */
 	export let btnGap = '2';
 
 	// 标题对齐方式
 	// Title alignment
-	const titleAlignClass = {
-		left: ' text-left',
-		center: ' text-center',
-		right: ' text-right',
-	};
+	const titleAlignClass = { left: ' text-left', center: ' text-center', right: ' text-right' };
 
 	// 按钮间距
 	// Button spacing
-	const btnGapClass = {
-		'0': '',
-		'1': ' gap-1',
-		'2': ' gap-2',
-		'4': ' gap-4',
-		'8': ' gap-8',
-		'12': ' gap-12',
-		'16': ' gap-16',
-	};
+	const btnGapClass = { '0': '', '1': ' gap-1', '2': ' gap-2', '4': ' gap-4', '8': ' gap-8', '12': ' gap-12', '16': ' gap-16' };
 
 	// 次按钮点击事件
 	// Secondary button click event
