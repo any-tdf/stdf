@@ -1,89 +1,99 @@
 <script>
-	//分隔线类型：h/v
-	// Divider type: h/v
+	/**
+	 * 分隔线类型
+	 * Divider type
+	 * @type {'h' | 'v'}
+	 * @default 'h'
+	 */
 	export let layout = 'h';
 
-	//水平左右间距
-	// Horizontal left and right margin
+	/**
+	 * 水平间距
+	 * Horizontal spacing
+	 * @type {'0' | '4' | '8' | '16' | '36'}
+	 * @default '0'
+	 */
 	export let px = '0';
 
-	//水平高度
-	// Horizontal height
+	/**
+	 * 水平高度
+	 * Horizontal height
+	 * @type {'0' | '4' | '8'}
+	 * @default '4'
+	 */
 	export let py = '4';
 
-	//文本内容
-	// Text content
+	/**
+	 * 文本内容
+	 * Text content
+	 * @type {string}
+	 * @default ''
+	 */
 	export let text = '';
 
-	//文本位置（仅在水平分割线有效）
-	// Text position (only valid for horizontal divider)
+	/**
+	 * 文本位置（仅在水平分割线有效）
+	 * Text position (only valid for horizontal divider)
+	 * @type {'left' | 'center' | 'right'}
+	 * @default 'center'
+	 */
 	export let align = 'center';
 
-	//线条风格：solid/dashed/dotted
-	// Line style: solid/dashed/dotted
+	/**
+	 * 线条风格
+	 * Line style
+	 * @type {'solid' | 'dashed' | 'dotted'}
+	 * @default 'solid'
+	 */
 	export let line = 'solid';
 
-	//垂直间距
-	// Vertical spacing
+	/**
+	 * 垂直间距
+	 * Vertical spacing
+	 * @type {'1' | '2' | '4'}
+	 * @default '1'
+	 */
 	export let mx = '1';
 
-	//线条粗细
-	// Line thickness
+	/**
+	 * 线条粗细
+	 * Line thickness
+	 * @type {'1' | '2' | '4'}
+	 * @default '1'
+	 */
 	export let weight = '1';
 
-	//注入CSS
-	// Inject CSS
+	/**
+	 * 注入CSS
+	 * Inject CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
 	// 水平间距样式
 	// Horizontal spacing style
-	const pxObj = {
-		'0': 'px-0',
-		'4': 'px-4',
-		'8': 'px-8',
-		'16': 'px-16',
-		'36': 'px-36',
-	};
+	const pxObj = { '0': 'px-0', '4': 'px-4', '8': 'px-8', '16': 'px-16', '36': 'px-36' };
 
 	// 水平高度样式
 	// Horizontal height style
-	const pyObj = {
-		'0': 'py-0',
-		'4': 'py-4',
-		'8': 'py-8',
-	};
+	const pyObj = { '0': 'py-0', '4': 'py-4', '8': 'py-8' };
 
 	// 垂直间距样式
 	// Vertical spacing style
-	const mxObj = {
-		'1': 'm-1',
-		'2': 'm-2',
-		'4': 'm-4',
-	};
+	const mxObj = { '1': 'm-1', '2': 'm-2', '4': 'm-4' };
 
 	// 线条风格样式
 	// Line style style
-	const lineObj = {
-		solid: 'border-solid',
-		dashed: 'border-dashed',
-		dotted: 'border-dotted',
-	};
+	const lineObj = { solid: 'border-solid', dashed: 'border-dashed', dotted: 'border-dotted' };
 
 	// 线条粗细样式
 	// Line thickness style
-	const weightHObj = {
-		'1': 'border-t',
-		'2': 'border-t-2 rounded-full',
-		'4': 'border-t-4 rounded-full',
-	};
+	const weightHObj = { '1': 'border-t', '2': 'border-t-2 rounded-full', '4': 'border-t-4 rounded-full' };
 
 	// 线条粗细样式
 	// Line thickness style
-	const weightWObj = {
-		'1': 'border-r',
-		'2': 'border-r-2 rounded-full',
-		'4': 'border-r-4 rounded-full',
-	};
+	const weightWObj = { '1': 'border-r', '2': 'border-r-2 rounded-full', '4': 'border-r-4 rounded-full' };
 </script>
 
 {#if layout === 'v'}
