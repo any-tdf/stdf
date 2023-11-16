@@ -1,7 +1,7 @@
 <script>
 	import { onMount, createEventDispatcher, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { debounce } from '../utils';
+	import { throttle } from '../utils';
 	import zh_CN from '../../lang/zh_CN';
 
 	import Mask from '../mask/Mask.svelte';
@@ -252,11 +252,6 @@
 		}
 	};
 
-	const debounceFunc = e => {
-		// @ts-ignore
-		debounce(touchmoveFun(e), 5);
-	};
-
 	// 滑动结束
 	// end sliding
 	const touchendFun = () => {
@@ -360,7 +355,7 @@
 		>
 			<div
 				on:pointerdown={touchstartFun}
-				on:pointermove={e => debounceFunc(e)}
+				on:pointermove={throttle(touchmoveFun)}
 				on:pointerup={touchendFun}
 				bind:this={scrollTopDom}
 				class="py-1 touch-none cursor-move select-none"

@@ -1,42 +1,87 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { debounce } from '../utils';
+	import { throttle } from '../utils';
 
 	// 定义事件派发器
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
 
-	//数据
-	//Data
+	/**
+	 * @typedef {Object} child
+	 * @property {string} text 索引项文本
+	 */
+
+	/**
+	 * @typedef {Object} item
+	 * @property {string} index 索引
+	 * @property {string} title 索引组标题
+	 * @property {Array<child>} child 索引项
+	 * @property {number} [height] 索引组高度
+	 */
+
+	/**
+	 * 数据
+	 * Data
+	 * @type {Array<item>}
+	 * @default []
+	 */
 	export let data = [];
 
-	//当前页码
-	//Current page
+	/**
+	 * 当前页码
+	 * Current page
+	 * @type {number}
+	 * @default 0
+	 */
 	export let current = 0;
 
-	//索引内容区域距离文档顶部的距离
-	//The distance from the top of the document to the index content area
+	/**
+	 * 索引内容区域距离文档顶部的距离
+	 * The distance from the top of the document to the index content area
+	 * @type {number}
+	 * @default 0
+	 */
 	export let top = 0;
 
-	//索引内容区域高度
-	//Index content area height
+	/**
+	 * 索引内容区域高度
+	 * Index content area height
+	 * @type {number}
+	 * @default 100
+	 */
 	export let height = 100;
 
-	//圆角风格
-	//Rounded style
+	/**
+	 * 圆角风格
+	 * Rounded style
+	 * @type {'none' | 'base' | 'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	//是否滚动对齐
-	//Whether to scroll align
+	/**
+	 * 是否滚动对齐
+	 * Whether to scroll align
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let scrollAlign = true;
 
-	// 索引组标题注入 CSS
-	// Index group title injection CSS
+	/**
+	 * 索引组标题注入 CSS
+	 * Index group title injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let titleInjClass = '';
 
-	// 索引项文本注入 CSS
-	// Index item text injection CSS
+	/**
+	 * 索引项文本注入 CSS
+	 * Index item text injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let textInjClass = '';
 
 	// 用于绑定bar的高度
@@ -71,16 +116,13 @@
 
 	// 圆角风格样式
 	// Rounded style style
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		full: 'rounded-full',
-	};
+	const radiusObj = { none: 'rounded-none', base: 'rounded', full: 'rounded-full' };
 
 	onMount(() => {
 		bodyDom.scrollTop = 0;
 		for (let t = 0; t < data.length + 1; t++) {
 			const long = data.slice(0, t).reduce((sum, current) => {
+				// @ts-ignore
 				return sum + current.height;
 			}, 0);
 			longSumList.push(long);
@@ -101,6 +143,7 @@
 		currentTouch = Math.floor((clientY - barToTop) / itemHeight);
 		current = Math.floor((clientY - barToTop) / itemHeight);
 		bodyDom.scrollTop = data.slice(0, current).reduce((sum, current) => {
+			// @ts-ignore
 			return sum + current.height;
 		}, 0);
 	};
@@ -124,6 +167,7 @@
 			current = data.length - 1;
 		}
 		bodyDom.scrollTop = data.slice(0, current).reduce((sum, current) => {
+			// @ts-ignore
 			return sum + current.height;
 		}, 0);
 	};
@@ -172,8 +216,8 @@
 </div>
 <div
 	on:pointerdown={touchBoxStart}
-	on:pointermove={debounce(touchBoxMove, 5)}
-	on:pointerup={debounce(touchBoxEnd, 15)}
+	on:pointermove={throttle(touchBoxMove)}
+	on:pointerup={touchBoxEnd}
 	bind:clientHeight={barHeight}
 	bind:this={barDom}
 	class={`fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around touch-none cursor-move select-none ${
