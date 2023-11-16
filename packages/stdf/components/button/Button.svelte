@@ -1,79 +1,123 @@
 <script>
-	// 填充模式：base/line/lineTheme/text/textTheme/colorLight
-	// Fill mode: base/line/lineTheme/text/textTheme/colorLight
+	/**
+	 * 填充模式
+	 * Fill mode
+	 * @type {'base' | 'line' | 'lineLight' | 'lineTheme' | 'text' | 'textTheme' | 'colorLight'}
+	 * @default 'base'
+	 */
 	export let fill = 'base';
 
-	// 状态：theme/success/warning/error/info
-	// State: theme/success/warning/error/info
+	/**
+	 * 状态
+	 * State
+	 * @type {'theme' | 'success' | 'warning' | 'error' | 'info'}
+	 * @default 'theme'
+	 */
 	export let state = 'theme';
 
-	// 圆角风格：none/base/xl/full
-	// Corner style: none/base/xl/full
+	/**
+	 * 圆角风格
+	 * Corner style
+	 * @type {'none' | 'base' | 'xl' | '2xl' | 'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	// 尺寸：full/big/md/sm/auto
-	// Size: full/big/md/sm/auto
+	/**
+	 * 尺寸
+	 * Size
+	 * @type {'full' | 'big' | 'md' | 'sm' | 'auto'}
+	 * @default 'big'
+	 */
 	export let size = 'big';
 
-	// 边框风格：solid/dashed/dotted
-	// Border style: solid/dashed/dotted
+	/**
+	 * 边框风格
+	 * Border style
+	 * @type {'solid' | 'dashed' | 'dotted'}
+	 * @default 'solid'
+	 */
 	export let line = 'solid';
 
-	// 注入CSS
-	// Inject CSS
+	/**
+	 * 注入类
+	 * Inject class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	// 是否开启关爱版
-	// Whether to open the care version
+	/**
+	 * 是否开启关爱版
+	 * Whether to open the care version
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let love = false;
 
-	// 按钮外部高度
-	// Button outer height
+	/**
+	 * 按钮外部高度
+	 * Button outer height
+	 * @type {'0' | '1' | '2' | '3' | '4'}
+	 * @default '2'
+	 */
 	export let heightOut = '2';
 
-	// 按钮高度
-	// Button height
+	/**
+	 * 按钮内部高度
+	 * Button inner height
+	 * @type {'0' | '1' | '2' | '3' | '4'}
+	 * @default '3'
+	 */
 	export let heightIn = '3';
 
-	// 是否使用按钮组
-	// Whether to use button group
+	/**
+	 * 是否使用按钮组
+	 * Whether to use button group
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let group = false;
 
-	// 是否禁用
-	// Whether to disable
+	/**
+	 * 是否禁用
+	 * Whether to disable
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let disabled = false;
 
-	// 是否自定义大小
-	// Whether to customize size
+	/**
+	 * 是否自定义大小
+	 * Whether to customize size
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let customSize = false;
 
-	// 自定义宽度
-	// Custom width
+	/**
+	 * 自定义宽度
+	 * Custom width
+	 * @type {number}
+	 * @default 0
+	 */
 	export let customWidth = 0;
 
-	// 自定义高度
-	// Custom height
+	/**
+	 * 自定义高度
+	 * Custom height
+	 * @type {number}
+	 * @default 0
+	 */
 	export let customHeight = 0;
 
 	// 状态样式
 	// State style
-	const stateObj = {
-		theme: 'bg-primary dark:bg-dark',
-		success: 'bg-success',
-		warning: 'bg-warning',
-		error: 'bg-error',
-		info: 'bg-info',
-	};
+	const stateObj = { theme: 'bg-primary dark:bg-dark', success: 'bg-success', warning: 'bg-warning', error: 'bg-error', info: 'bg-info' };
 
 	// 圆角风格样式
 	// Corner style style
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		full: 'rounded-full',
-	};
+	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 
 	// 填充模式样式
 	// Fill mode style
@@ -89,47 +133,27 @@
 
 	// 尺寸样式
 	// Size style
-	const sizeObj = {
-		full: 'w-full',
-		big: 'w-full',
-		md: 'w-1/2',
-		sm: 'w-1/4',
-		auto: 'w-auto',
-	};
+	const sizeObj = { full: 'w-full', big: 'w-full', md: 'w-1/2', sm: 'w-1/4', auto: 'w-auto' };
 
 	// 边框风格样式
 	// Border style style
-	const lineObj = {
-		solid: 'border-solid',
-		dashed: 'border-dashed',
-		dotted: 'border-dotted',
-	};
+	const lineObj = { solid: 'border-solid', dashed: 'border-dashed', dotted: 'border-dotted' };
 
 	// 按钮外部高度样式
 	// Button outer height style
-	const heightOutObj = {
-		'0': 'py-0',
-		'1': 'py-1',
-		'2': 'py-2',
-		'3': 'py-3',
-		'4': 'py-4',
-	};
+	const heightOutObj = { '0': 'py-0', '1': 'py-1', '2': 'py-2', '3': 'py-3', '4': 'py-4' };
 
 	// 按钮高度样式
 	// Button height style
-	const heightInObj = {
-		'0': 'py-0',
-		'1': 'py-1',
-		'2': 'py-2',
-		'3': 'py-3',
-		'4': 'py-4',
-	};
+	const heightInObj = { '0': 'py-0', '1': 'py-1', '2': 'py-2', '3': 'py-3', '4': 'py-4' };
 
 	// 是否块级元素
-	$: block = (size === 'full' || size === 'big') && !customSize;
+	// Whether it is a block element
+	const block = (size === 'full' || size === 'big') && !customSize;
 
 	// 文字颜色
-	$: textColor = state === 'theme' ? 'text-white dark:text-black' : 'text-white';
+	// Text color
+	const textColor = state === 'theme' ? 'text-white dark:text-black' : 'text-white';
 </script>
 
 <div
