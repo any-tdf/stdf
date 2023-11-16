@@ -2,6 +2,7 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import zh_CN from '../../lang/zh_CN';
+
 	// 定义事件派发器
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
@@ -12,103 +13,241 @@
 	const commonLang = currentLang.common;
 	const inputLang = currentLang.input;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {string}
+	 * @default ''
+	 */
 	export let title = '';
 
-	// 标题位置，out/in/none
-	// Title position, out/in/none
+	/**
+	 * 标题位置
+	 * Title position
+	 * @type {'in'|'out'|'none'}
+	 * @default 'out'
+	 */
 	export let titlePosition = 'out';
 
-	// 输入框文字位置，left/right
-	// Input box text position, left/right
+	/**
+	 * 输入框文字位置
+	 * Input box text position
+	 * @type {'left'|'right'}
+	 * @default 'left'
+	 */
 	export let inputPosition = 'left';
 
-	// 输入框占位符
-	// Input box placeholder
+	/**
+	 * 输入框占位符
+	 * Input box placeholder
+	 * @type {string}
+	 * @default ''
+	 */
 	export let placeholder = '';
 
-	// 圆角风格：none/base/xl/full
-	// Corner style: none/base/xl/full
+	/**
+	 * 圆角风格
+	 * Corner style
+	 * @type {'none'|'base'|'xl'|'2xl'|'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	//标签 1 - 6 内容
-	//Label 1 - 6 content
+	/**
+	 * 标签 1 内容
+	 * Label 1 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label1 = '';
+
+	/**
+	 * 标签 2 内容
+	 * Label 2 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label2 = '';
+
+	/**
+	 * 标签 3 内容
+	 * Label 3 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label3 = '';
+
+	/**
+	 * 标签 4 内容
+	 * Label 4 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label4 = '';
+
+	/**
+	 * 标签 5 内容
+	 * Label 5 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label5 = '';
+
+	/**
+	 * 标签 6 内容
+	 * Label 6 content
+	 * @type {''|'slot'|Object}
+	 * @default ''
+	 */
 	export let label6 = '';
 
-	// 提示文字
-	// Tip text
+	/**
+	 * 提示文字
+	 * Tip text
+	 * @type {string}
+	 * @default ''
+	 */
 	export let tip = '';
 
-	// 数据 1 - 3 内容
-	// Data 1 - 3 content
+	/**
+	 * 数据 1 内容
+	 * Data 1 content
+	 * @type {''|'slot'|String}
+	 */
 	export let data1 = '';
+
+	/**
+	 * 数据 2 内容
+	 * Data 2 content
+	 * @type {''|'slot'|String}
+	 */
 	export let data2 = '';
+
+	/**
+	 * 数据 3 内容
+	 * Data 3 content
+	 * @type {''|'slot'|String}
+	 */
 	export let data3 = '';
 
-	// 输入框值
-	// Input box value
+	/**
+	 * 输入框值
+	 * Input box value
+	 * @type {string}
+	 * @default ''
+	 */
 	export let value = '';
 
-	// 是否显示清除按钮
-	// Whether to show the clear button
+	/**
+	 * 是否显示清除按钮
+	 * Whether to show the clear button
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let clear = false;
 
-	// 输入框风格，块/线
-	// Input box style, block/line
+	/**
+	 * 输入框风格
+	 * Input box style
+	 * @type {'block'|'line'}
+	 * @default 'block'
+	 */
 	export let inputStyle = 'block';
 
-	//线性动画 none/center/left
-	//Linear animation none/center/left
+	/**
+	 * 线性动画
+	 * Linear animation
+	 * @type {'none'|'center'|'left'}
+	 * @default 'none'
+	 */
 	export let lineTransition = 'none';
 
-	// 过渡时间fast/base/slow/slower
-	// Transition time fast/base/slow/slower
+	/**
+	 * 过渡时间
+	 * Transition time
+	 * @type {'fast'|'base'|'slow'|'slower'}
+	 * @default 'base'
+	 */
 	export let duration = 'base';
 
-	// 是否开启自动填充功能
-	// Whether to enable automatic filling function
+	/**
+	 * 是否开启自动填充功能
+	 * Whether to enable automatic filling function
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let autocomplete = true;
 
-	//垂直间距
-	//Vertical spacing
+	/**
+	 * 垂直间距
+	 * Vertical spacing
+	 * @type {'0'|'0.5'|'1'|'2'|'3'|'4'|'6'}
+	 * @default '2'
+	 */
 	export let py = '2';
 
-	// 是否禁用
-	// Whether to disable
+	/**
+	 * 是否禁用
+	 * Whether to disable
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let disabled = false;
 
-	// 状态：theme/success/warning/error/info
-	// Status: theme/success/warning/error/info
+	/**
+	 * 状态
+	 * Status
+	 * @type {'theme'|'success'|'warning'|'error'|'info'}
+	 * @default 'theme'
+	 */
 	export let state = 'theme';
 
-	// 输入框类型，文本/小数/邮箱/不显示/整数/搜索/电话/链接/密码/数字/多行文本
-	// Input box type, text/decimal/email/none/numeric/search/tel/url/password/number/textarea
+	/**
+	 * 输入框类型
+	 * Input box type
+	 * @type {'text'|'decimal'|'email'|'none'|'numeric'|'search'|'tel'|'url'|'password'|'number'|'textarea'}
+	 * @default 'text'
+	 */
 	export let type = 'text';
 
-	// 输入模式
-	// Input mode
+	/**
+	 * 输入模式
+	 * Input mode
+	 * @type {'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url'|''}
+	 * @default ''
+	 */
 	export let inputmode = '';
 
-	// 最大长度
-	// Maximum length
+	/**
+	 * 最大长度
+	 * Maximum length
+	 * @type {number}
+	 * @default 24
+	 */
 	export let maxlength = 24;
 
-	//针对 textarea 最大长度
-	//For textarea maximum length
+	/**
+	 * textarea 最大长度
+	 * Textarea maximum length
+	 * @type {number}
+	 * @default 200
+	 */
 	export let textareaMaxlength = 200;
 
-	//行数
-	//Number of rows
+	/**
+	 * 行数
+	 * Number of rows
+	 * @type {number}
+	 * @default 2
+	 */
 	export let rows = 2;
 
-	// 自动调整大小
-	// Automatically adjust size
+	/**
+	 * 自动调整大小
+	 * Automatically adjust size
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let autosize = false;
 
 	// 是否获取焦点
@@ -151,13 +290,7 @@
 
 	// 圆角风格样式
 	// Corner style style
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		full: 'rounded-full',
-	};
+	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 
 	// 输入框风格样式
 	// Input box style style
@@ -195,24 +328,11 @@
 
 	// 动画时长样式
 	// Animation duration style
-	const durationObj = {
-		fast: 'duration-150',
-		base: 'duration-300',
-		slow: 'duration-500',
-		slower: 'duration-1000',
-	};
+	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };
 
 	// 垂直间距样式
 	// Vertical spacing style
-	const pyObj = {
-		'0': 'py-0',
-		'0.5': 'py-0.5',
-		'1': 'py-1',
-		'2': 'py-2',
-		'3': 'py-3',
-		'4': 'py-4',
-		'6': 'py-6',
-	};
+	const pyObj = { '0': 'py-0', '0.5': 'py-0.5', '1': 'py-1', '2': 'py-2', '3': 'py-3', '4': 'py-4', '6': 'py-6' };
 
 	// 获取焦点是派发事件
 	// Get focus to dispatch events
