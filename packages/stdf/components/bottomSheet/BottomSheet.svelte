@@ -119,7 +119,7 @@
 	 * 滑动结束时位置低于此高度自动关闭
 	 * close when position lower than this height
 	 * @type {number}
-	 * @range {1 - 100}
+	 * @range 1 - 100
 	 */
 	export let closeHeight = 0;
 
