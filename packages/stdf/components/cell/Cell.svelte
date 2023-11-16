@@ -13,64 +13,124 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const commonLang = currentLang.common;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {string}
+	 * @default ''
+	 */
 	export let title = '';
 
-	// 右侧详情
-	// Right side details
+	/**
+	 * 右侧详情
+	 * Right side details
+	 * @type {string}
+	 * @default ''
+	 */
 	export let detail = '';
 
-	// 右侧 arrow，none，switch props,icon props,slot
-	// Right arrow, none, switch props, icon props, slot
+	/**
+	 * 右侧内容
+	 * Right side content
+	 * @type {'none'|'arrow'|'slot'|Object}
+	 * @default 'arrow'
+	 */
 	export let right = 'arrow';
 
-	// 左侧 '',icon props,slot
-	// Left '', icon props, slot
+	/**
+	 * 左侧内容
+	 * Left side content
+	 * @type {'slot'|''|Object}
+	 * @default ''
+	 */
 	export let left = '';
 
-	// 左侧下方描述
-	// Left side description
+	/**
+	 * 左侧下方描述
+	 * Left side description
+	 * @type {string}
+	 * @default ''
+	 */
 	export let subTitle = '';
 
-	// 右侧下方描述
-	// Right side description
+	/**
+	 * 右侧下方描述
+	 * Right side description
+	 * @type {string}
+	 * @default ''
+	 */
 	export let info = '';
 
-	// 是否显示底部分割线
-	// Whether to show the bottom line
+	/**
+	 * 是否显示底部分割线
+	 * Whether to show the bottom line
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let line = false;
 
-	// 上下边距
-	// Top and bottom margin
+	/**
+	 * 上下边距
+	 * Top and bottom margin
+	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
+	 * @default '4'
+	 */
 	export let my = '4';
 
-	// 左右间距
-	// Left and right margin
+	/**
+	 * 左右间距
+	 * Left and right margin
+	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
+	 * @default '2'
+	 */
 	export let mx = '2';
 
-	// 圆角风格
-	// Rounded style
+	/**
+	 * 圆角风格
+	 * Rounded style
+	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'full'}
+	 * @default 'lg'
+	 */
 	export let radius = 'lg';
 
-	// 开关状态
-	// Switch status
+	/**
+	 * 开关状态
+	 * Switch status
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let switcheck = false;
 
-	// 阴影，none/sm/md/lg/xl/2xl
-	// Shadow, none/sm/md/lg/xl/2xl
+	/**
+	 * 阴影
+	 * Shadow
+	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
+	 * @default 'sm'
+	 */
 	export let shadow = 'sm';
 
-	// 注入 CSS
-	// Inject CSS
+	/**
+	 * 注入 Class
+	 * Inject Class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	// 是否开启关爱版
-	// Whether to open the care version
+	/**
+	 * 是否开启关爱版
+	 * Whether to open the care version
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let love = false;
 
-	// 是否点击整个 Cell 都触发事件
-	// Whether to click the entire Cell to trigger the event
+	/**
+	 * 是否点击整个 Cell 都触发事件
+	 * Whether to click the entire Cell to trigger the event
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let clickAll = true;
 
 	// 圆角风格样式
@@ -99,27 +159,11 @@
 
 	// 左右间距样式
 	// Left and right margin style
-	const mxClass = {
-		'0': ' mx-0',
-		'1': ' mx-1',
-		'2': ' mx-2',
-		'3': ' mx-3',
-		'4': ' mx-4',
-		'6': ' mx-6',
-		'8': ' mx-8',
-	};
+	const mxClass = { '0': ' mx-0', '1': ' mx-1', '2': ' mx-2', '3': ' mx-3', '4': ' mx-4', '6': ' mx-6', '8': ' mx-8' };
 
 	// 上下边距样式
 	// Top and bottom margin style
-	const myClass = {
-		'0': ' my-0',
-		'1': ' my-1',
-		'2': ' my-2',
-		'3': ' my-3',
-		'4': ' my-4',
-		'6': ' my-6',
-		'8': ' my-8',
-	};
+	const myClass = { '0': ' my-0', '1': ' my-1', '2': ' my-2', '3': ' my-3', '4': ' my-4', '6': ' my-6', '8': ' my-8' };
 
 	// 点击事件
 	// Click event

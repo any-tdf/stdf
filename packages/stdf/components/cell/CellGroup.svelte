@@ -1,8 +1,35 @@
 <script>
-	export let radius = 'lg'; // 圆角，none/base/xl/full
-	export let shadow = 'sm'; //阴影，none/sm/md/lg/xl/2xl
-	export let my = '4'; // 上下边距
-	export let mx = '2'; // 左右间距
+	/**
+	 * 圆角风格
+	 * Radius style
+	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'full'}
+	 * @default 'lg'
+	 */
+	export let radius = 'lg';
+
+	/**
+	 * 阴影
+	 * Shadow
+	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
+	 * @default 'sm'
+	 */
+	export let shadow = 'sm';
+
+	/**
+	 * 上下边距
+	 * Top and bottom margin
+	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
+	 * @default '4'
+	 */
+	export let my = '4';
+
+	/**
+	 * 左右间距
+	 * Left and right margin
+	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
+	 * @default '2'
+	 */
+	export let mx = '2';
 
 	const shadowClass = {
 		none: ' shadow-none',
@@ -22,24 +49,8 @@
 		'2xl': ' rounded-2xl',
 		full: ' rounded-full',
 	};
-	const mxClass = {
-		'0': ' mx-0',
-		'1': ' mx-1',
-		'2': ' mx-2',
-		'3': ' mx-3',
-		'4': ' mx-4',
-		'6': ' mx-6',
-		'8': ' mx-8',
-	};
-	const myClass = {
-		'0': ' my-0',
-		'1': ' my-1',
-		'2': ' my-2',
-		'3': ' my-3',
-		'4': ' my-4',
-		'6': ' my-6',
-		'8': ' my-8',
-	};
+	const mxClass = { '0': ' mx-0', '1': ' mx-1', '2': ' mx-2', '3': ' mx-3', '4': ' mx-4', '6': ' mx-6', '8': ' mx-8' };
+	const myClass = { '0': ' my-0', '1': ' my-1', '2': ' my-2', '3': ' my-3', '4': ' my-4', '6': ' my-6', '8': ' my-8' };
 </script>
 
 <div
