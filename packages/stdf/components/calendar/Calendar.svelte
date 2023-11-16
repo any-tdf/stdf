@@ -23,114 +23,210 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const calendarLang = currentLang.calendar;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 传入的开始月，默认为当前月前6个月
-	// The start month passed in, default is 6 months before the current month
+	/**
+	 * 开始月，格式如：'202101'
+	 * The start month, the format is: '202101'
+	 * @type {string}
+	 * @default 6 months before the current month
+	 */
 	export let startMonth = getNowBeforeOrAfterMonth(-6);
 
-	// 传入的结束月，默认为当前月后6个月
-	// The end month passed in, default is 6 months after the current month
+	/**
+	 * 结束月，格式如：'202101'
+	 * End month, format: '202101'
+	 * @type {string}
+	 * @default 6 months after the current month
+	 */
 	export let endMonth = getNowBeforeOrAfterMonth(6);
 
-	// 初始化时显示月份，默认当前月
-	// The month displayed when initializing, default current month
+	/**
+	 * 初始化时显示月份，格式如：'202101'
+	 * The month displayed when initializing, format: '202101'
+	 * @type {string}
+	 * @default current month
+	 */
 	export let initMonth = getNowBeforeOrAfterMonth(0);
 
-	// 选择模式，single 单选，multiple 多选，range 范围选择
-	// Selection mode, single single selection, multiple multiple selection, range range selection
+	/**
+	 * 选择模式
+	 * Selection mode
+	 * @type {'single' | 'multiple' | 'range'}
+	 * @default 'single'
+	 */
 	export let mode = 'single';
 
-	// 是否从周日开始
-	// Whether to start from Sunday
+	/**
+	 * 是否从周日开始
+	 * Whether to start from Sunday
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let startSunday = false;
 
-	// 周末文字是否标红
-	// Whether the weekend text is marked red
+	/**
+	 * 周末文字是否标红
+	 * Whether the weekend text is marked red
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let weekendRed = false;
 
-	// 月数据是否使用卡片样式
-	// Whether to use the card style for the month data
+	/**
+	 * 月数据是否使用卡片样式
+	 * Whether to use the card style for the month data
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let monthCard = true;
 
-	// 是否显示月份水印
-	// Whether to show the month watermark
+	/**
+	 * 是否显示月份水印
+	 * Whether to show the month watermark
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let monthMark = false;
 
-	// 月份水印文字大小
-	// Month watermark text size
-	export let monthMarkSize = 'xl';
+	/**
+	 * 月份水印文字大小
+	 * Month watermark text size
+	 * @type {'3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+	 * @default '7xl'
+	 */
+	export let monthMarkSize = '7xl';
 
-	// 高度百分比
-	// Height percentage
+	/**
+	 * 高度百分比
+	 * Height percentage
+	 * @type {number}
+	 * @range 0-100
+	 * @default 50
+	 */
 	export let height = 50;
 
-	// 显示信息的日期
-	// Date to display information
+	/**
+	 * 显示信息的日期
+	 * Date to display information
+	 * @type {Array<{date: string, info: string}>}
+	 * @default []
+	 */
 	export let infoDates = [];
 
-	// 不允许选择日期集合
-	// Collection of dates not allowed to be selected
+	/**
+	 * 不允许选择日期集合
+	 * Collection of dates not allowed to be selected
+	 * @type {Array<string>}
+	 * @default []
+	 */
 	export let disabledDates = [];
 
-	// 圆角风格
-	// Rounded style
+	/**
+	 * 圆角风格
+	 * Rounded style
+	 * @type {'base' | 'xl' | '2xl' | 'none'}
+	 * @default 'xl'
+	 */
 	export let radius = 'xl';
 
-	// 多选和范围选择时显示已选天数
-	// Show the number of days selected when multiple and range selection
+	/**
+	 * 多选和范围选择时显示已选天数
+	 * Show the number of days selected when multiple and range selection
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let showSelectedDay = true;
 
-	// 确认文本
-	// Confirm text
+	/**
+	 * 确认文本
+	 * Confirm text
+	 * @type {string}
+	 * @default Current language calendar.confirmText
+	 */
 	export let confirmText = calendarLang.confirmText;
 
-	// 已选文本
-	// Selected text
+	/**
+	 * 已选文本
+	 * Selected text
+	 * @type {string}
+	 * @default Current language calendar.selectedText
+	 */
 	export let selectedText = calendarLang.selectedText;
 
-	// 天数文本
-	// Number of days text
+	/**
+	 * 天数文本
+	 * Number of days text
+	 * @type {string}
+	 * @default Current language calendar.dayText
+	 */
 	export let dayText = calendarLang.dayText;
 
-	// 快速选择配置，可选值为：本周 currentWeek，本月 currentMonth，本季度 currentQuarter，前三天 beforeThreeDay，前7天 beforeSevenDay，前30天 beforeThirtyDay，后三天 afterThreeDay，后7天 afterSevenDay，后30天 afterThirtyDay
-	// Quick selection configuration, optional values are: currentWeek, currentMonth, currentQuarter, beforeThreeDay, beforeSevenDay, beforeThirtyDay, afterThreeDay, afterSevenDay, afterThirtyDay
+	/**
+	 * 快速选择配置
+	 * Quick selection configuration
+	 * @type {Array<'week' | 'month' | 'quarter' | number>}
+	 * @default []
+	 */
 	export let quickSelects = [];
 
-	// 快速选择天数时是否包含今天
-	// Whether to include today when selecting the number of days quickly
+	/**
+	 * 快速选择天数时是否包含今天
+	 * Whether to include today when selecting the number of days quickly
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let includeToday = false;
 
-	// 自动滚动到某个月时，是否使用动画
-	// Whether to use animation when automatically scrolling to a month
+	/**
+	 * 自动滚动到某个月时，是否使用动画
+	 * Whether to use animation when automatically scrolling to a month
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let useAnimation = true;
 
-	// 高亮显示今天
-	// Highlight today
+	/**
+	 * 高亮显示今天
+	 * Highlight today
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let highlightToday = true;
 
-	// 返回日期数据格式
-	// Return data format
+	/**
+	 * 返回日期数据格式，包含 Y、M、D 的字符串，如：'YMD'、'Y-M-D'、'Y年M月D日' 等
+	 * Return data format, including Y, M, D string, such as: 'YMD', 'M/D/Y', etc.
+	 * @type {string}
+	 * @default 'YMD'
+	 */
 	export let outFormat = 'YMD';
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let popup = {};
 
-	// 按钮参数
-	// Button parameters
+	/**
+	 * 按钮参数
+	 * Button parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let button = {};
 
 	// 圆角风格样式
 	// Rounded style style
-	const radiusClass = {
-		base: 'rounded',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		none: 'rounded-none',
-	};
+	const radiusClass = { base: 'rounded', xl: 'rounded-xl', '2xl': 'rounded-2xl', none: 'rounded-none' };
 
 	// 月份水印文字大小样式
 	// Month watermark text size style
@@ -320,9 +416,9 @@
 	// 传入日期格式与日期字符对象，将其中的前四位对应 format 的Y，中间两位对应 format 的M，后两位对应 format 的D，返回格式化后的字符串
 	// Pass in the date format and date character object, and return the formatted string
 	const getDateStrFunc = (format, date) => {
-		let year = date.slice(0, 4);
-		let month = date.slice(4, 6);
-		let day = date.slice(6, 8);
+		const year = date.slice(0, 4);
+		const month = date.slice(4, 6);
+		const day = date.slice(6, 8);
 		format = format.replace('Y', year);
 		format = format.replace('M', month);
 		format = format.replace('D', day);
@@ -513,10 +609,9 @@
 										<div
 											class="absolute top-1/2 left-1/2 w-4/5 h-4/5 -translate-x-1/2 -translate-y-1/2 opacity-40 text-black/60 dark:text-white"
 										>
-											<svg viewBox="0 0 1024 1024" version="1.1" p-id="1470" width="100%" height="100%" style="fill: currentColor;">
+											<svg viewBox="0 0 1024 1024" version="1.1" width="100%" height="100%" style="fill: currentColor;">
 												<path
 													d="M512 85.333333c235.648 0 426.666667 191.018667 426.666667 426.666667s-191.018667 426.666667-426.666667 426.666667S85.333333 747.648 85.333333 512 276.352 85.333333 512 85.333333zM170.666667 512a341.333333 341.333333 0 0 0 550.016 270.08L241.92 303.36A339.84 339.84 0 0 0 170.666667 512z m341.333333-341.333333a339.882667 339.882667 0 0 0-209.877333 72.106666L781.226667 721.92A341.333333 341.333333 0 0 0 512 170.666667z"
-													p-id="1471"
 												/>
 											</svg>
 										</div>

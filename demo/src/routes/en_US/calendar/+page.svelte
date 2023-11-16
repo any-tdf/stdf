@@ -66,7 +66,6 @@
 	};
 	const initMonth = getInitMonth(3);
 
-	const quickSelects = ['week', 'month', 'quarter', -3, -7, -30, 3, 7, 30];
 	const quickSelectsDay = [-5, -2, 3, 7];
 
 	let selectedDates = [];
@@ -133,7 +132,7 @@
 	<Calendar bind:visible={visible15} {initMonth} />
 
 	<Cell title="Show some fast selection items" on:click={() => (visible16 = true)} />
-	<Calendar bind:visible={visible16} mode="range" {quickSelects} />
+	<Calendar bind:visible={visible16} mode="range" quickSelects={['week', 'month', 'quarter', -3, -7, -30, 3, 7, 30]} />
 
 	<Cell title="Quickly choose to include that day" on:click={() => (visible23 = true)} />
 	<Calendar bind:visible={visible23} mode="range" quickSelects={quickSelectsDay} includeToday />
