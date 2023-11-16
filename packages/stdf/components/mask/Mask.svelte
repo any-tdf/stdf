@@ -6,35 +6,68 @@
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 遮罩透明度
-	// Mask opacity
+	/**
+	 * 遮罩透明度
+	 * Mask opacity
+	 * @type {number}
+	 * @range 0 - 1
+	 * @default 0.5
+	 */
 	export let opacity = 0.5;
 
-	// 遮罩是否可点击穿透
-	// Whether the mask can be clicked through
+	/**
+	 * 遮罩是否可点击穿透
+	 * Whether the mask can be clicked through
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let clickable = false;
 
-	// 是否反色
-	// Whether to reverse color
+	/**
+	 * 是否反色
+	 * Whether to reverse color
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let inverse = false;
 
-	// 模糊度，默认不模糊
-	// Blur degree, default no blur
+	/**
+	 * 模糊度
+	 * Blur degree
+	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'|'3xl'}
+	 * @default 'none'
+	 */
 	export let backdropBlur = 'none';
 
-	// 出现动画过渡时长
-	// Transition duration of appearance animation
+	/**
+	 * 出现动画过渡时长，单位毫秒
+	 * Transition duration of appearance animation, in milliseconds
+	 * @type {number}
+	 * @default 150
+	 */
 	export let duration = 150;
 
-	// 消失动画过渡时长
-	// Transition duration of disappearance animation
-	export let outDuration = 0; //消失动画过渡时长
+	/**
+	 * 消失动画过渡时长，单位毫秒
+	 * Transition duration of disappearance animation, in milliseconds
+	 * @type {number}
+	 * @default 0
+	 */
+	export let outDuration = 0;
 
-	// z-index
+	/**
+	 * z-index
+	 * @type {number}
+	 * @default 500
+	 */
 	export let zIndex = 500;
 
 	//遮罩模糊度样式

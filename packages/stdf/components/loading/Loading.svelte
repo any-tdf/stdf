@@ -27,36 +27,68 @@
 	import { Loading2_0, Loading2_1, Loading2_2, Loading2_3, Loading2_4, Loading2_5 } from './loadings/twoColor';
 	import { Loading4_0, Loading4_1, Loading4_2, Loading4_3 } from './loadings/fourColor';
 
-	// 编号
-	// type
+	/**
+	 * 编号
+	 * Number
+	 * @type {string}
+	 * @default '1_0'
+	 */
 	export let type = '1_0';
 
-	// 容器高度
-	// container height
+	/**
+	 * 容器高度
+	 * container height
+	 * @type {'2'|'4'|'6'|'8'|'12'|'16'|'20'|'28'|'36'|'48'|'56'|'64'|'72'|'80'|'96'|'full'}
+	 * @default '8'
+	 */
 	export let height = '8';
 
-	// 容器宽度
-	// container width
+	/**
+	 * 容器宽度
+	 * container width
+	 * @type {'2'|'4'|'6'|'8'|'12'|'16'|'20'|'28'|'36'|'48'|'56'|'64'|'72'|'80'|'96'|'full'}
+	 * @default '8'
+	 */
 	export let width = '8';
 
-	// 是否使用主题色
-	// use theme color
+	/**
+	 * 是否使用主题色
+	 * use theme color
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let theme = false;
 
-	// 是否反色
-	// inverse color
+	/**
+	 * 是否反色
+	 * inverse color
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let inverse = false;
 
-	// 自定义颜色
-	// custom color
+	/**
+	 * 自定义颜色
+	 * custom color
+	 * @type {string[]}
+	 * @default []
+	 */
 	export let customColor = [];
 
-	// 是否开启懒动画
-	// lazy animation
+	/**
+	 * 是否开启懒动画
+	 * lazy animation
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let lazyAnimation = true;
 
-	// 速度系数，基础为1，数值越大，速度越快
-	// speed coefficient, the basic is 1, the larger the number, the faster the speed
+	/**
+	 * 速度系数，基础为1，数值越大，速度越快
+	 * speed coefficient, the basic is 1, the larger the number, the faster the speed
+	 * @type {number}
+	 * @default 1
+	 */
 	export let speed = 1;
 
 	// loading 元素
@@ -156,7 +188,7 @@
 </script>
 
 <div bind:this={loadingDom}>
-	<!--oneÏ-->
+	<!--one-->
 	{#if type === '1_0'}
 		<Loading1_0 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
 	{:else if type === '1_1'}
