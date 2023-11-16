@@ -6,7 +6,6 @@
 </script>
 
 <div class="felx felx-col space-y-12 px-4 py-8">
-	<!-- 基础用法 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">基础用法</div>
 		<div class="flex flex-wrap justify-between">
@@ -18,7 +17,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 跟随主题色 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">跟随主题色</div>
 		<div class="flex flex-wrap justify-between">
@@ -29,7 +27,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 不同大小 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">不同大小</div>
 		<div class="flex flex-wrap justify-between">
@@ -41,7 +38,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 不同透明度 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">不同透明度</div>
 		<div class="flex flex-wrap justify-between">
@@ -53,7 +49,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 自定义颜色（通过 injClass） -->
 	<div>
 		<div class="mb-2 font-bold text-xl">
 			自定义颜色<span class="ml-2 text-xs font-normal">通过 injClass</span>
@@ -66,7 +61,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 自定义颜色（通过 slot） -->
 	<div>
 		<div class="mb-2 font-bold text-xl">
 			自定义颜色<span class="ml-2 text-xs font-normal">通过 slot</span>
@@ -83,7 +77,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 插槽 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">插槽</div>
 		<div class="flex flex-wrap justify-between">
@@ -102,7 +95,6 @@
 			{/each}
 		</div>
 	</div>
-	<!-- 偏移 -->
 	<div>
 		<div class="mb-2 font-bold text-xl">偏移</div>
 		<div class="flex flex-wrap justify-between">
