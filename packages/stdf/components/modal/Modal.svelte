@@ -14,57 +14,97 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const modalLang = currentLang.modal;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {string}
+	 * @default Current language modal.title
+	 */
 	export let title = modalLang.title;
 
-	//标题对齐方式
-	//Title alignment
+	/**
+	 * 标题对齐方式
+	 * Title alignment
+	 * @type {'left'|'center'|'right'}
+	 * @default 'center'
+	 */
 	export let titleAlign = 'center';
 
-	// 内容
-	// Content
+	/**
+	 * 内容
+	 * Content
+	 * @type {string}
+	 * @default Current language modal.content
+	 */
 	export let content = modalLang.content;
 
-	//内容是否使用slot
-	//Whether to use slot for content
+	/**
+	 * 内容是否使用slot
+	 * Whether to use slot for content
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let contentSlot = false;
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let popup = {};
 
-	// 是否显示图标
-	// Whether to show icon
+	/**
+	 * 是否显示图标
+	 * Whether to show icon
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let showIcon = false;
 
-	// 图标参数
-	// Icon parameters
+	/**
+	 * 图标参数
+	 * Icon parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let icon = {};
 
-	// 是否显示按钮
-	// Whether to show button
+	/**
+	 * 是否显示按钮
+	 * Whether to show button
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let showBtn = true;
 
-	// 按钮文字
-	// Button text
+	/**
+	 * 按钮文字
+	 * Button text
+	 * @type {string}
+	 * @default Current language modal.btnText
+	 */
 	export let btnText = modalLang.btnText;
 
-	// 按钮参数
-	// Button parameters
-	export let button = {}; //按钮参数
+	/**
+	 * 按钮参数
+	 * Button parameters
+	 * @type {object}
+	 * @default {}
+	 */
+	export let button = {};
 
 	// 标题对齐方式样式
 	// Title alignment style
-	const titleAlignClass = {
-		left: ' text-left',
-		center: ' text-center',
-		right: ' text-right',
-	};
+	const titleAlignClass = { left: ' text-left', center: ' text-center', right: ' text-right' };
 
 	// 关闭并派发事件
 	// Close and dispatch events
