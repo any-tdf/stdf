@@ -29,7 +29,7 @@
 </script>
 
 <div class="font-bold px-4 mt-8">使用占位符示例 3﹡4</div>
-<Grids cols={4}>
+<Grids cols="4">
 	<Grid row="3">
 		<Placeholder>3﹡1</Placeholder>
 	</Grid>
@@ -52,16 +52,16 @@
 
 <div class="font-bold px-4 mt-8">使用占位符示例 4﹡6</div>
 <Grids>
-	<Grid row={3} col={2}>
+	<Grid row="3" col="2">
 		<Placeholder>3﹡2</Placeholder>
 	</Grid>
-	<Grid col={3}>
+	<Grid col="3">
 		<Placeholder>1﹡3</Placeholder>
 	</Grid>
-	<Grid row={4}>
+	<Grid row="4">
 		<Placeholder>4﹡1</Placeholder>
 	</Grid>
-	<Grid row={2}>
+	<Grid row="2">
 		<Placeholder>2﹡1</Placeholder>
 	</Grid>
 	<Grid>
@@ -79,23 +79,23 @@
 	<Grid>
 		<Placeholder>1﹡1</Placeholder>
 	</Grid>
-	<Grid col={4}>
+	<Grid col="4">
 		<Placeholder>1﹡4</Placeholder>
 	</Grid>
 </Grids>
 
 <div class="font-bold px-4 mt-8">增加外边距与单元格间距</div>
-<Grids cols={4} gap="4" mx="8" my="8">
-	<Grid row={3}>
+<Grids cols="4" gap="4" mx="8" my="8">
+	<Grid row="3">
 		<Placeholder>3﹡1</Placeholder>
 	</Grid>
-	<Grid col={3}>
+	<Grid col="3">
 		<Placeholder>1﹡3</Placeholder>
 	</Grid>
-	<Grid row={2}>
+	<Grid row="2">
 		<Placeholder>2﹡1</Placeholder>
 	</Grid>
-	<Grid col={2}>
+	<Grid col="2">
 		<Placeholder>1﹡2</Placeholder>
 	</Grid>
 	<Grid>
@@ -109,8 +109,8 @@
 <div class="font-bold px-4 mt-8">场景示例 6﹡5</div>
 <div class="pb-8 pt-2">
 	<div class={`mx-2 rounded-xl p-2 shadow transition duration-300${colorCss}`}>
-		<Grids cols={5} mx="0" my="0">
-			<Grid row={3}>
+		<Grids cols="5" mx="0" my="0">
+			<Grid row="3">
 				<div
 					class="flex flex-col justify-between bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center shadow dark:shadow-white/10"
 				>
@@ -119,14 +119,14 @@
 					<div class="text-gray-600">{month}</div>
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xl font-bold text-center flex flex-col justify-center shadow dark:shadow-white/10"
 				>
 					{time}
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
@@ -144,12 +144,12 @@
 				</div>
 			</Grid>
 
-			<Grid row={2} col={2}>
+			<Grid row="2" col="2">
 				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
 					<Button fill="lineTheme" radius="full" on:click={changeDeviceFun}>切换设备</Button>
 				</div>
 			</Grid>
-			<Grid row={2} col={2}>
+			<Grid row="2" col="2">
 				<div class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex justify-around shadow dark:shadow-white/10 py-1">
 					<div class="flex flex-col justify-center">
 						{#if currentDevice === 'iOS'}
@@ -194,7 +194,7 @@
 					</div>
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
@@ -211,7 +211,7 @@
 					<div>蓝 牙</div>
 				</div>
 			</Grid>
-			<Grid row={4}>
+			<Grid row="4">
 				<div
 					class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10"
 				>
@@ -222,7 +222,7 @@
 					<div>STDF</div>
 				</div>
 			</Grid>
-			<Grid row={3}>
+			<Grid row="3">
 				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10">
 					<div>92%</div>
 					<div class="animate-pulse">
@@ -231,7 +231,7 @@
 					<div>充电中</div>
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
 					{#if currentDevice === 'iOS'}
 						<Icon name="ri-smartphone-line" size={30} />
@@ -246,7 +246,7 @@
 					{/if}
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div
 					class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-around items-center shadow dark:shadow-white/10 py-1"
 				>
@@ -258,7 +258,7 @@
 					</div>
 				</div>
 			</Grid>
-			<Grid row={2}>
+			<Grid row="2">
 				<div
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>

@@ -1,22 +1,23 @@
 <script>
-	// 单元格所占列数
-	// Number of columns occupied by the cell
+	/**
+	 * 单元格所占列数
+	 * Number of columns occupied by the cell
+	 * @type {'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'}
+	 * @default '1'
+	 */
 	export let col = '1';
 
-	// 单元格所占行数
-	// Number of rows occupied by the cell
+	/**
+	 * 单元格所占行数
+	 * Number of rows occupied by the cell
+	 * @type {'1' | '2' | '3' | '4' | '5' | '6'}
+	 * @default '1'
+	 */
 	export let row = '1';
 
 	// 根据行数生成样式
 	// Generate styles based on the number of rows
-	const rowObj = {
-		'1': 'row-span-1',
-		'2': 'row-span-2',
-		'3': 'row-span-3',
-		'4': 'row-span-4',
-		'5': 'row-span-5',
-		'6': 'row-span-6',
-	};
+	const rowObj = { '1': 'row-span-1', '2': 'row-span-2', '3': 'row-span-3', '4': 'row-span-4', '5': 'row-span-5', '6': 'row-span-6' };
 
 	// 根据列数生成样式
 	// Generate styles based on the number of columns

@@ -1,18 +1,34 @@
 <script>
-	//列数
-	// Number of columns
+	/**
+	 * 列数
+	 * Number of columns
+	 * @type {'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'}
+	 * @default '6'
+	 */
 	export let cols = '6';
 
-	//间距
-	// Spacing
+	/**
+	 * 间距
+	 * Spacing
+	 * @type {'0' | '1' | '2' | '4' | '8'}
+	 * @default '2'
+	 */
 	export let gap = '2';
 
-	//水平间距
-	// Horizontal spacing
+	/**
+	 * 水平间距
+	 * Horizontal spacing
+	 * @type {'0' | '1' | '2' | '4' | '8'}
+	 * @default '2'
+	 */
 	export let mx = '2';
 
-	//垂直间距
-	// Vertical spacing
+	/**
+	 * 垂直间距
+	 * Vertical spacing
+	 * @type {'0' | '1' | '2' | '4' | '8'}
+	 * @default '2'
+	 */
 	export let my = '2';
 
 	//根据列数生成样式
@@ -34,33 +50,15 @@
 
 	//水平外边距样式
 	// Horizontal margin style
-	const mxObj = {
-		'0': ' mx-0',
-		'1': ' mx-1',
-		'2': ' mx-2',
-		'4': ' mx-4',
-		'8': ' mx-8',
-	};
+	const mxObj = { '0': ' mx-0', '1': ' mx-1', '2': ' mx-2', '4': ' mx-4', '8': ' mx-8' };
 
 	//垂直外边距样式
 	// Vertical margin style
-	const myObj = {
-		'0': ' my-0',
-		'1': ' my-1',
-		'2': ' my-2',
-		'4': ' my-4',
-		'8': ' my-8',
-	};
+	const myObj = { '0': ' my-0', '1': ' my-1', '2': ' my-2', '4': ' my-4', '8': ' my-8' };
 
 	//内部间距样式
 	// Internal spacing style
-	const gapObj = {
-		'0': ' gap-0',
-		'1': ' gap-1',
-		'2': ' gap-2',
-		'4': ' gap-4',
-		'8': ' gap-8',
-	};
+	const gapObj = { '0': ' gap-0', '1': ' gap-1', '2': ' gap-2', '4': ' gap-4', '8': ' gap-8' };
 </script>
 
 <div class={`grid${colsObj[cols] || colsObj['6']}${mxObj[mx] || mxObj['2']}${myObj[my] || myObj['2']}${gapObj[gap] || gapObj['2']}`}>
