@@ -25,13 +25,13 @@ darkMode();
 
 ### Introduction
 
-Starting from version 0.4.0, STDF supports switching between multiple themes. The theme currently supports switching [color systems](/#/guide?nav=color), and it is considered that font, spacing, text size and other configurations can also follow the theme switching. The essential principle is to set some attributes as CSS variables, and modify these variables to achieve theme switching.
+Starting from version 0.4.0, STDF supports switching between multiple themes. The theme currently supports switching [color systems](/#/guide/color), and it is considered that font, spacing, text size and other configurations can also follow the theme switching. The essential principle is to set some attributes as CSS variables, and modify these variables to achieve theme switching.
 
 ### Configuration
 
 Please refer to the theme generator to generate the theme configuration format and configure the theme. The theme configuration must include the `name` and `color` attributes. The `name` is the theme name, and the `color` is the color matching of this theme. The default theme configuration is as follows:
 
-> You can go to the <a href="#/guide?nav=generator" target="_blank">Theme Generator</a> to quickly configure the color system and generate the configuration file.
+> You can go to the <a href="#/guide/generator" target="_blank">Theme Generator</a> to quickly configure the color system and generate the configuration file.
 
 ```javascript
 {

@@ -62,7 +62,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-1. Add a template file within the `tailwind.config.js` file. Note that `./node_modules/stdf/**/*.svelte` is added in content, which is the component location of STDF.The colors of theme can be modified according to its own needs. Reference [STDF Guide - Color](/#/Guide?nav=color).
+1. Add a template file within the `tailwind.config.js` file. Note that `./node_modules/stdf/**/*.svelte` is added in content, which is the component location of STDF.The colors of theme can be modified according to its own needs. Reference [STDF Guide - Color](/#/guide/color).
 
 Note: The 'content' in the Tailwind configuration file represents all files that may use Tailwind, please do not omit any files. Please set darkMode to 'class' to match STDF's dark mode.
 

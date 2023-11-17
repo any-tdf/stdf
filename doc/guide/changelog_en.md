@@ -4,9 +4,9 @@
 
 ## 0.4.0
 
-- Added support for multi-theme configuration, please refer to [Theme Configuration](https://stdf.design/#/guide?nav=theme), [Color](https://stdf.design/#/guide?nav=color), [Theme Generator](https://stdf.design/#/guide?nav=generator).
-- In accordance with the Tailwind naming rules, the gray color has been uniformly changed from `gray5` to `gray-500` writing method. Please note that the writing method should be changed after the upgrade. See [Color](https://stdf.design/#/guide?nav=color) for details.
-- The Avatar component adds the usage of the avatar group, please see [Avatar](https://stdf.design/#/components?nav=avatar&tab=4).
+- Added support for multi-theme configuration, please refer to [Theme Configuration](https://stdf.design/#/guide/theme), [Color](https://stdf.design/#/guide/color), [Theme Generator](https://stdf.design/#/guide/generator).
+- In accordance with the Tailwind naming rules, the gray color has been uniformly changed from `gray5` to `gray-500` writing method. Please note that the writing method should be changed after the upgrade. See [Color](https://stdf.design/#/guide/color) for details.
+- The Avatar component adds the usage of the avatar group, please see [Avatar](https://stdf.design/#/components/avatar&tab=4).
 
 ## 0.3.2
 
@@ -39,7 +39,7 @@
 - Removed unnecessary code from some components.
 - Formatted component code to facilitate consistent code style among other contributors in the future.
 - Considering that the size of the component code itself is not large, we decided to directly include the component source code in the NPM package. This makes it easier for users to view the source code directly and avoids the hassle of having to view the source code on GitHub.
-- Reverted the language import path back to `stdf/lang/xx_XX`, as described in the [Internationalization](https://stdf.design/#/guide?nav=internation) section.
+- Reverted the language import path back to `stdf/lang/xx_XX`, as described in the [Internationalization](https://stdf.design/#/guide/internation) section.
 
 ## 0.2.7
 
@@ -54,7 +54,7 @@
 ## 0.2.4
 
 - 0.2.2 ~ 0.2.4 Optimized file structure and reduced NPM package size. Say no to bloated `node_modules` and dependency black holes!
-- Updated the language import path from `stdf/lang/xx_XX` to `stdf/dist/lang/xx_XX`. For more details, please refer to the [Internation](https://stdf.design/#/guide?nav=internation).
+- Updated the language import path from `stdf/lang/xx_XX` to `stdf/dist/lang/xx_XX`. For more details, please refer to the [Internation](https://stdf.design/#/guide/internation).
 
 ## 0.2.1
 

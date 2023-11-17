@@ -4,8 +4,8 @@
 
 ## 0.4.0
 
-- 新增支持多主题配置，请参考 [主题配置](https://stdf.design/#/guide?nav=theme)、[色彩](https://stdf.design/#/guide?nav=color)、[主题生成器](https://stdf.design/#/guide?nav=generator)。
-- 按照 Tailwind 命名规则统一将灰色由 `gray5` 改为 `gray-500` 写法，请注意升级后更改写法。详见 [色彩](https://stdf.design/#/guide?nav=color)。
+- 新增支持多主题配置，请参考 [主题配置](https://stdf.design/#/guide/theme)、[色彩](https://stdf.design/#/guide/color)、[主题生成器](https://stdf.design/#/guide/generator)。
+- 按照 Tailwind 命名规则统一将灰色由 `gray5` 改为 `gray-500` 写法，请注意升级后更改写法。详见 [色彩](https://stdf.design/#/guide/color)。
 - Avatar 组件新增头像组用法，详见 [Avatar](https://stdf.design/#/components?nav=avatar&tab=4)。
 
 ## 0.3.2
@@ -39,7 +39,7 @@
 - 删除部分组件无用代码。
 - 格式化组件代码，方便后续其他参与成员统一代码风格。
 - 考虑到组件代码本身体积也不大，还是决定直接将组件源码放入 NPM 包中，方便用户直接查看源码，避免了需要去 GitHub 上查看源码的麻烦。
-- 多语言引入路径改回 `stdf/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide?nav=internation)。
+- 多语言引入路径改回 `stdf/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide/internation)。
 
 ## 0.2.7
 
@@ -54,7 +54,7 @@
 ## 0.2.4
 
 - 0.2.2 ~ 0.2.4 优化文件结构，精简 NPM 包体积。抵制 `node_modules` 体积膨胀和依赖黑洞，从我做起！
-- 多语言引入路径由 `stdf/lang/xx_XX` 改为 `stdf/dist/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide?nav=internation)。
+- 多语言引入路径由 `stdf/lang/xx_XX` 改为 `stdf/dist/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide/internation)。
 
 ## 0.2.1
 
