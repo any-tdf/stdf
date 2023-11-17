@@ -12,8 +12,8 @@ export default defineConfig({
 			{ inFile: 'src/lib/svgs/Heroicons', outFile: 'static/symbols' },
 			{ inFile: 'src/lib/svgs/IconPark', outFile: 'static/symbols' },
 			{ inFile: 'src/lib/svgs/Remix', outFile: 'static/symbols' },
-			// 单独为 Cell 与 NavBar 用到的图标创建一个 symbol。详见：https://stdf.design/#/guide?nav=icon
-			// Create a symbol for the icons used by Cell and NavBar. See: https://stdf.design/#/guide?nav=icon
+			// 单独为 Cell 与 NavBar 用到的图标创建一个 symbol。详见：https://stdf.design/#/guide/icon
+			// Create a symbol for the icons used by Cell and NavBar. See: https://stdf.design/#/guide/icon
 			{ inFile: 'src/lib/symbol', outFile: 'static/fonts' },
 		]),
 	],
