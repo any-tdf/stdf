@@ -31,6 +31,7 @@
 
 	// 环境变量
 	// environment variables
+	// @ts-ignore
 	const mode = import.meta.env.MODE;
 
 	// mode 是否是指定组件模式
@@ -138,7 +139,7 @@
 				: 'STDF Demo'
 			: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
 			  (isZh ? '示例' : ' Demo')}
-		left={showLeft ? 'back' : ''}
+		left={showLeft ? 'back' : 'none'}
 		rightSlot
 		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
 		on:clickleft={() => window.history.back()}

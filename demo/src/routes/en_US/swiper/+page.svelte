@@ -3,16 +3,28 @@
 	import { Swiper } from '../../../../../packages/stdf/components';
 	import Item from './Item_en.svelte';
 
+	/**
+	 * @typedef {Object} img
+	 * @property {'img'} type
+	 * @property {String} url image url
+	 */
+
+	/**
+	 * @typedef {Object} component
+	 * @property {'component'} type
+	 * @property {Object} component
+	 */
+
+	/**
+	 * Data
+	 * @type {Array<img|component>}
+	 * @default []
+	 */
 	const data = [
 		{ type: 'img', url: '/assets/images/wall_1.jpg' },
 		{ type: 'img', url: '/assets/images/wall_2.jpg' },
 		{ type: 'img', url: '/assets/images/wall_3.jpg' },
 		{ type: 'img', url: '/assets/images/wall_4.jpg' },
-	];
-
-	const componentData = [
-		{ type: 'component', component: Item },
-		{ type: 'img', url: '/assets/images/wall_1.jpg' },
 	];
 
 	let indexClick = -1;
@@ -282,7 +294,12 @@
 </div>
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">Container content uses components</div>
-<Swiper data={componentData} />
+<Swiper
+	data={[
+		{ type: 'component', component: Item },
+		{ type: 'img', url: '/assets/images/wall_1.jpg' },
+	]}
+/>
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
 	Listen for change events

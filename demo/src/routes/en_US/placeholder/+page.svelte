@@ -24,10 +24,10 @@
 
 <div class="m-4 font-bold text-lg">Combined with Grids</div>
 <Grids>
-	<Grid row={3} col={2}><Placeholder>3﹡2</Placeholder></Grid>
-	<Grid col={3}><Placeholder>1﹡3</Placeholder></Grid>
-	<Grid row={3}><Placeholder>3﹡1</Placeholder></Grid>
-	<Grid row={2} col={2}><Placeholder>2﹡2</Placeholder></Grid>
+	<Grid row="3" col="2"><Placeholder>3﹡2</Placeholder></Grid>
+	<Grid col="3"><Placeholder>1﹡3</Placeholder></Grid>
+	<Grid row="3"><Placeholder>3﹡1</Placeholder></Grid>
+	<Grid row="2" col="2"><Placeholder>2﹡2</Placeholder></Grid>
 	<Grid><Placeholder>1﹡1</Placeholder></Grid>
 	<Grid><Placeholder>1﹡1</Placeholder></Grid>
 </Grids>

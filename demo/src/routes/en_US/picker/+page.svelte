@@ -14,23 +14,7 @@
 	} from './data_en';
 
 	const datas = [{ data: someProvinceList }];
-	const leftDatas = [{ data: someProvinceList, align: 'left' }];
-	const showRow7Datas = [{ data: someProvinceList, showRow: 7 }];
-	const init3Datas = [{ data: someProvinceList, initIndex: 3 }];
-	const noAnimationDatas = [{ data: someProvinceList, useAnimation: false }];
-	const customKeyDatas = [{ data: cityList, labelKey: 'cityName' }];
 	const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
-	const col3DiffAlignDatas = [
-		{ data: weekList, align: 'left' },
-		{ data: amOrPmList, align: 'center' },
-		{ data: timeList, align: 'right' },
-	];
-	const col3DiffShowRowDatas = [{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }];
-	const col3DiffFlexDatas = [
-		{ data: weekList, flex: 3 },
-		{ data: amOrPmList, flex: 1 },
-		{ data: timeList, flex: 2 },
-	];
 
 	let visible1 = false;
 	let visible2 = false;
@@ -75,7 +59,7 @@
 	<Picker bind:visible={visible2} title="Please select province" {datas} />
 
 	<Cell title="Visible line 7" on:click={() => (visible3 = true)} />
-	<Picker bind:visible={visible3} datas={showRow7Datas} />
+	<Picker bind:visible={visible3} datas={[{ data: someProvinceList, showRow: 7 }]} />
 
 	<Cell title="Do not roll until the last selection item" on:click={() => (visible4 = true)} />
 	<Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
@@ -85,31 +69,45 @@
 		on:click={() => (visible5 = true)}
 		subTitle="You need to disable automatic selection of the last selected item"
 	/>
-	<Picker bind:visible={visible5} datas={init3Datas} autoScrollToLast={false} />
+	<Picker bind:visible={visible5} datas={[{ data: someProvinceList, initIndex: 3 }]} autoScrollToLast={false} />
 
 	<Cell title="Cancel animation when auto scrolling" on:click={() => (visible6 = true)} />
-	<Picker bind:visible={visible6} datas={noAnimationDatas} />
+	<Picker bind:visible={visible6} datas={[{ data: someProvinceList, useAnimation: false }]} />
 
 	<Cell title="Customize the key value of the label" on:click={() => (visible7 = true)} />
-	<Picker bind:visible={visible7} datas={customKeyDatas} title="Please select city" />
+	<Picker bind:visible={visible7} datas={[{ data: cityList, labelKey: 'cityName' }]} title="Please select city" />
 
 	<Cell title="The selected items are displayed on the right" detail={currentDetail} on:click={() => (visible8 = true)} />
 	<Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
 
 	<Cell title="Single column left justified" on:click={() => (visible20 = true)} />
-	<Picker bind:visible={visible20} datas={leftDatas} />
+	<Picker bind:visible={visible20} datas={[{ data: someProvinceList, align: 'left' }]} />
 
 	<Cell title="Multi-column selector" on:click={() => (visible9 = true)} />
 	<Picker bind:visible={visible9} datas={col3Datas} />
 
 	<Cell title="Number of visible rows for different columns" on:click={() => (visible10 = true)} />
-	<Picker bind:visible={visible10} datas={col3DiffShowRowDatas} />
+	<Picker bind:visible={visible10} datas={[{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }]} />
 
 	<Cell title="flex ratio for different columns" on:click={() => (visible11 = true)} />
-	<Picker bind:visible={visible11} datas={col3DiffFlexDatas} />
+	<Picker
+		bind:visible={visible11}
+		datas={[
+			{ data: weekList, flex: 3 },
+			{ data: amOrPmList, flex: 1 },
+			{ data: timeList, flex: 2 },
+		]}
+	/>
 
 	<Cell title="Multiple columns with different alignments" on:click={() => (visible21 = true)} />
-	<Picker bind:visible={visible21} datas={col3DiffAlignDatas} />
+	<Picker
+		bind:visible={visible21}
+		datas={[
+			{ data: weekList, align: 'left' },
+			{ data: amOrPmList, align: 'center' },
+			{ data: timeList, align: 'right' },
+		]}
+	/>
 
 	<Cell title="Multilevel linkage" on:click={() => (visible12 = true)} />
 	<Picker bind:visible={visible12} datas={linkageData} isLinkage />

@@ -14,23 +14,7 @@
 	} from './data';
 
 	const datas = [{ data: someProvinceList }];
-	const leftDatas = [{ data: someProvinceList, align: 'left' }];
-	const showRow7Datas = [{ data: someProvinceList, showRow: 7 }];
-	const init3Datas = [{ data: someProvinceList, initIndex: 3 }];
-	const noAnimationDatas = [{ data: someProvinceList, useAnimation: false }];
-	const customKeyDatas = [{ data: cityList, labelKey: 'cityName' }];
 	const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
-	const col3DiffAlignDatas = [
-		{ data: weekList, align: 'left' },
-		{ data: amOrPmList, align: 'center' },
-		{ data: timeList, align: 'right' },
-	];
-	const col3DiffShowRowDatas = [{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }];
-	const col3DiffFlexDatas = [
-		{ data: weekList, flex: 3 },
-		{ data: amOrPmList, flex: 1 },
-		{ data: timeList, flex: 2 },
-	];
 
 	let visible1 = false;
 	let visible2 = false;
@@ -75,37 +59,51 @@
 	<Picker bind:visible={visible2} title="请选择省份" {datas} />
 
 	<Cell title="可见 7 行" on:click={() => (visible3 = true)} />
-	<Picker bind:visible={visible3} datas={showRow7Datas} />
+	<Picker bind:visible={visible3} datas={[{ data: someProvinceList, showRow: 7 }]} />
 
 	<Cell title="关闭自动滚动至上次选定项" on:click={() => (visible4 = true)} />
 	<Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
 
 	<Cell title="初始选定始终为第 4 项" on:click={() => (visible5 = true)} subTitle="需要关闭自动选定上次选中项" />
-	<Picker bind:visible={visible5} datas={init3Datas} autoScrollToLast={false} />
+	<Picker bind:visible={visible5} datas={[{ data: someProvinceList, initIndex: 3 }]} autoScrollToLast={false} />
 
 	<Cell title="自动滚动时取消动画" on:click={() => (visible6 = true)} />
-	<Picker bind:visible={visible6} datas={noAnimationDatas} />
+	<Picker bind:visible={visible6} datas={[{ data: someProvinceList, useAnimation: false }]} />
 
 	<Cell title="自定义 label 的 key 值" on:click={() => (visible7 = true)} />
-	<Picker bind:visible={visible7} datas={customKeyDatas} title="请选择城市" />
+	<Picker bind:visible={visible7} datas={[{ data: cityList, labelKey: 'cityName' }]} title="请选择城市" />
 
 	<Cell title="右侧展示选定项" detail={currentDetail} on:click={() => (visible8 = true)} />
 	<Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
 
 	<Cell title="单列左对齐" on:click={() => (visible20 = true)} />
-	<Picker bind:visible={visible20} datas={leftDatas} />
+	<Picker bind:visible={visible20} datas={[{ data: someProvinceList, align: 'left' }]} />
 
 	<Cell title="多列选择器" on:click={() => (visible9 = true)} />
 	<Picker bind:visible={visible9} datas={col3Datas} />
 
 	<Cell title="不同列可见行数" on:click={() => (visible10 = true)} />
-	<Picker bind:visible={visible10} datas={col3DiffShowRowDatas} />
+	<Picker bind:visible={visible10} datas={[{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }]} />
 
 	<Cell title="不同列 flex 比例" on:click={() => (visible11 = true)} />
-	<Picker bind:visible={visible11} datas={col3DiffFlexDatas} />
+	<Picker
+		bind:visible={visible11}
+		datas={[
+			{ data: weekList, flex: 3 },
+			{ data: amOrPmList, flex: 1 },
+			{ data: timeList, flex: 2 },
+		]}
+	/>
 
 	<Cell title="多列不同对齐方式" on:click={() => (visible21 = true)} />
-	<Picker bind:visible={visible21} datas={col3DiffAlignDatas} />
+	<Picker
+		bind:visible={visible21}
+		datas={[
+			{ data: weekList, align: 'left' },
+			{ data: amOrPmList, align: 'center' },
+			{ data: timeList, align: 'right' },
+		]}
+	/>
 
 	<Cell title="多级联动" on:click={() => (visible12 = true)} />
 	<Picker bind:visible={visible12} datas={linkageData} isLinkage />

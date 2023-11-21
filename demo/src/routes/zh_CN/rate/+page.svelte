@@ -26,7 +26,7 @@
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">设置未选中透明度</div>
 <div class="p-4">
-	<Rate opacity={0.8} />
+	<Rate opacity="0.8" />
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">允许半选</div>
 <div class="p-4">
@@ -64,7 +64,7 @@
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">自定义</div>
 <div class="p-4">
-	<Rate custom opacity={0.6}>
+	<Rate custom opacity="0.6">
 		<Icon name="ri-star-fill" injClass="text-[#f5b53f]" />
 	</Rate>
 </div>
@@ -79,17 +79,17 @@
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity={0.5} width={30} height={36} custom>
+	<Rate half opacity="0.5" width={30} height={36} custom>
 		<div class="text-3xl">👍</div>
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity={0.5} width={30} height={36} vertical custom>
+	<Rate half opacity="0.5" width={30} height={36} vertical custom>
 		<div class="text-3xl">🍺</div>
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity={0.5} width={30} height={36} custom>
+	<Rate half opacity="0.5" width={30} height={36} custom>
 		<div class="text-3xl text-primary dark:text-dark">富</div>
 	</Rate>
 </div>

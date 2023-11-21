@@ -36,11 +36,11 @@
 	};
 	const changePageFunc = e => {
 		currentPage = e.detail;
-		getData(currentPage);
+		getData();
 	};
 	// First page of the initial request
 	onMount(() => {
-		getData(currentPage);
+		getData();
 	});
 </script>
 

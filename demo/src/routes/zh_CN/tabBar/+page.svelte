@@ -4,31 +4,16 @@
 
 	const labels = [
 		{ text: '首页', icon: { name: 'ri-home-3-line', size: 20 }, activeIcon: { name: 'ri-home-3-fill', size: 20 } },
-		{
-			text: '发现',
-			icon: { name: 'ri-compass-3-line', size: 20 },
-			activeIcon: { name: 'ri-compass-3-fill', size: 20 },
-		},
-		{
-			text: '消息',
-			icon: { name: 'ri-discuss-line', size: 20 },
-			activeIcon: { name: 'ri-discuss-fill', size: 20 },
-		},
-		{
-			text: '我的',
-			icon: { name: 'ri-account-circle-line', size: 20 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 20 },
-		},
+		{ text: '发现', icon: { name: 'ri-compass-3-line', size: 20 }, activeIcon: { name: 'ri-compass-3-fill', size: 20 } },
+		{ text: '消息', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
+		{ text: '我的', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
 	];
 	const labels1 = [{ text: '首页' }, { text: '发现' }, { text: '消息' }, { text: '我的' }];
 	const labels2 = [
 		{ icon: { name: 'ri-home-3-line', size: 26 }, activeIcon: { name: 'ri-home-3-fill', size: 26 } },
 		{ icon: { name: 'ri-compass-3-line', size: 26 }, activeIcon: { name: 'ri-compass-3-fill', size: 26 } },
 		{ icon: { name: 'ri-discuss-line', size: 26 }, activeIcon: { name: 'ri-discuss-fill', size: 26 } },
-		{
-			icon: { name: 'ri-account-circle-line', size: 26 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 26 },
-		},
+		{ icon: { name: 'ri-account-circle-line', size: 26 }, activeIcon: { name: 'ri-account-circle-fill', size: 26 } },
 	];
 	const labels3 = [
 		{ text: '首页', icon: { name: 'ri-home-3-line', size: 20 } },
@@ -38,16 +23,8 @@
 	];
 	const labels4 = [
 		{ text: '首页', icon: { name: 'ri-home-3-line', size: 20 }, activeIcon: { name: 'ri-home-3-fill', size: 20 } },
-		{
-			text: '消息',
-			icon: { name: 'ri-discuss-line', size: 20 },
-			activeIcon: { name: 'ri-discuss-fill', size: 20 },
-		},
-		{
-			text: '我的',
-			icon: { name: 'ri-account-circle-line', size: 20 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 20 },
-		},
+		{ text: '消息', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
+		{ text: '我的', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
 	];
 	let active = 0;
 	const tabBarChangeFun = e => {

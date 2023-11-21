@@ -99,7 +99,7 @@
 >
 	{value}
 	{#if !doneDisabled}
-		<span class="absolute left-1/2"><Confetti rounded amount="100" /></span>
+		<span class="absolute left-1/2"><Confetti rounded amount={100} /></span>
 	{/if}
 </div>
 <Cell title="Please enter 5201314" on:click={() => (visible12 = true)} />

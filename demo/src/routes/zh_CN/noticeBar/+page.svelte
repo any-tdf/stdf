@@ -42,10 +42,10 @@
 <NoticeBar vertical {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">滚动过渡为 1 秒</div>
-<NoticeBar vertical duration="1000" {textList}></NoticeBar>
+<NoticeBar vertical duration={1000} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">滚动间隔为 8 秒</div>
-<NoticeBar vertical interval="8" {textList}></NoticeBar>
+<NoticeBar vertical interval={8} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">文字过长</div>
 <NoticeBar vertical textList={textLongList}></NoticeBar>

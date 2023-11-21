@@ -204,7 +204,7 @@
 <div class="px-4">
 	<div class="mb-4 font-bold">Elemental element arrangementtal element arrangement</div>
 	<div class="mt-8 mb-4 font-bold">No icon && Elemental element arrangement</div>
-	<CheckboxGroup layout="inline" wrap on:change={dotaInlineFun}>
+	<CheckboxGroup layout="inline" on:change={dotaInlineFun}>
 		{#each dotaInlines as item}
 			<Checkbox name={item} checkeds={checkInlines} icon="none" iconChecked="none">
 				<div

@@ -36,11 +36,11 @@
 	};
 	const changePageFunc = e => {
 		currentPage = e.detail;
-		getData(currentPage);
+		getData();
 	};
 	// 初始请求第一页
 	onMount(() => {
-		getData(currentPage);
+		getData();
 	});
 </script>
 

@@ -4,31 +4,16 @@
 
 	const labels = [
 		{ text: 'Home', icon: { name: 'ri-home-3-line', size: 20 }, activeIcon: { name: 'ri-home-3-fill', size: 20 } },
-		{
-			text: 'Discover',
-			icon: { name: 'ri-compass-3-line', size: 20 },
-			activeIcon: { name: 'ri-compass-3-fill', size: 20 },
-		},
-		{
-			text: 'Message',
-			icon: { name: 'ri-discuss-line', size: 20 },
-			activeIcon: { name: 'ri-discuss-fill', size: 20 },
-		},
-		{
-			text: 'Mine',
-			icon: { name: 'ri-account-circle-line', size: 20 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 20 },
-		},
+		{ text: 'Discover', icon: { name: 'ri-compass-3-line', size: 20 }, activeIcon: { name: 'ri-compass-3-fill', size: 20 } },
+		{ text: 'Message', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
+		{ text: 'Mine', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
 	];
 	const labels1 = [{ text: 'Home' }, { text: 'Discover' }, { text: 'Message' }, { text: 'Mine' }];
 	const labels2 = [
 		{ icon: { name: 'ri-home-3-line', size: 26 }, activeIcon: { name: 'ri-home-3-fill', size: 26 } },
 		{ icon: { name: 'ri-compass-3-line', size: 26 }, activeIcon: { name: 'ri-compass-3-fill', size: 26 } },
 		{ icon: { name: 'ri-discuss-line', size: 26 }, activeIcon: { name: 'ri-discuss-fill', size: 26 } },
-		{
-			icon: { name: 'ri-account-circle-line', size: 26 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 26 },
-		},
+		{ icon: { name: 'ri-account-circle-line', size: 26 }, activeIcon: { name: 'ri-account-circle-fill', size: 26 } },
 	];
 	const labels3 = [
 		{ text: 'Home', icon: { name: 'ri-home-3-line', size: 20 } },
@@ -38,16 +23,8 @@
 	];
 	const labels4 = [
 		{ text: 'Home', icon: { name: 'ri-home-3-line', size: 20 }, activeIcon: { name: 'ri-home-3-fill', size: 20 } },
-		{
-			text: 'Message',
-			icon: { name: 'ri-discuss-line', size: 20 },
-			activeIcon: { name: 'ri-discuss-fill', size: 20 },
-		},
-		{
-			text: 'Mine',
-			icon: { name: 'ri-account-circle-line', size: 20 },
-			activeIcon: { name: 'ri-account-circle-fill', size: 20 },
-		},
+		{ text: 'Message', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
+		{ text: 'Mine', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
 	];
 	let active = 0;
 	const tabBarChangeFun = e => {

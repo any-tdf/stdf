@@ -45,10 +45,10 @@
 <NoticeBar vertical {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">Scroll transition to 1 second</div>
-<NoticeBar vertical duration="1000" {textList}></NoticeBar>
+<NoticeBar vertical duration={1000} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">The scrolling interval is 8 seconds</div>
-<NoticeBar vertical interval="8" {textList}></NoticeBar>
+<NoticeBar vertical interval={8} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">Excessively long text</div>
 <NoticeBar vertical textList={textLongList}></NoticeBar>

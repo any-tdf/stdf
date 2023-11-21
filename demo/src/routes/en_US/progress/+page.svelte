@@ -62,13 +62,13 @@
 		<Progress {percent} duration="1000" />
 	</div>
 	<Button heightIn="0" group size="full">
-		<div class="flex">
+		<div class="flex divide-x divide-white dark:divide-black">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="flex-1 border-r py-2 active:opacity-80" on:click={() => changePercentFun('-10')}>progress -10</div>
+			<div class="flex-1 py-2 active:opacity-80" on:click={() => changePercentFun('-10')}>progress -10</div>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="flex-1 border-r py-2 active:opacity-80" on:click={() => changePercentFun('+10')}>progress +10</div>
+			<div class="flex-1 py-2 active:opacity-80" on:click={() => changePercentFun('+10')}>progress +10</div>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<div class="flex-1 py-2 active:opacity-80" on:click={() => (percent = 20)}>reset</div>

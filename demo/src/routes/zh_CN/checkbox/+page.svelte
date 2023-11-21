@@ -195,8 +195,8 @@
 
 <div class="px-4">
 	<div class="mb-4 font-bold text-2xl">行内元素排列</div>
-	<div class="mt-8 mb-4 font-bold text-lg">不用图标 && 行内元素排列</div>
-	<CheckboxGroup layout="inline" wrap on:change={dotaInlineFun}>
+	<div class="mt-8 mb-4 font-bold text-lg">不用图标 && 行内元素排列111</div>
+	<CheckboxGroup layout="inline" on:change={dotaInlineFun}>
 		{#each dotaInlines as item}
 			<Checkbox name={item} checkeds={checkInlines} icon="none" iconChecked="none">
 				<div
