@@ -7,8 +7,11 @@
 	import NintendoTheme from './data/Nintendo';
 	import Counter from './lib/Counter.svelte';
 
+	// @ts-ignore
 	import viteLogo from './assets/vite.svg';
+	// @ts-ignore
 	import svelteLogo from './assets/svelte.svg';
+	// @ts-ignore
 	import tailwindLogo from './assets/tailwindcss.svg';
 
 	//切换亮暗模式(toggle light or dark mode)

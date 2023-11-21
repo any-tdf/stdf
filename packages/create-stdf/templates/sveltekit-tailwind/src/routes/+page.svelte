@@ -7,6 +7,7 @@
 	import zh_CN from 'stdf/lang/zh_CN';
 	import Counter from './Counter.svelte';
 
+	// @ts-ignore
 	import { browser } from '$app/environment';
 
 	if (browser) {

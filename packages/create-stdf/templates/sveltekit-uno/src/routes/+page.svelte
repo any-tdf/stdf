@@ -7,6 +7,7 @@
 	import NintendoTheme from '../data/Nintendo';
 	import Counter from './Counter.svelte';
 
+	// @ts-ignore
 	import { browser } from '$app/environment';
 
 	if (browser) {
