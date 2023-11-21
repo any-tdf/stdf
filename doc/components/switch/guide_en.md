@@ -10,7 +10,7 @@ The `injClass` parameter can be used to inject CSS class names (not limited to T
 
 ## inside & slot
 
-The `inside` parameter determines the content displayed inside the switch, with an empty array as the default value, displaying no content. If 'state' is passed in, the switch status will be represented by a vertical line and a circle. If an array of two characters is passed in, the first and second items will display the internal text when the switch is turned off and on, respectively. It is recommended to pass in a single character. If 'loading' is passed in, a Loading icon will be rendered. If 'slot' is passed in, the slot content when turned on and off will be rendered.
+The `inside` parameter determines the content displayed inside the switch, with an empty string as the default value, displaying no content. If 'state' is passed in, the switch status will be represented by a vertical line and a circle. If an array of two characters is passed in, the first and second items will display the internal text when the switch is turned off and on, respectively. It is recommended to pass in a single character. If 'loading' is passed in, a Loading icon will be rendered. If 'slot' is passed in, the slot content when turned on and off will be rendered.
 
 Please refer to the example.
 

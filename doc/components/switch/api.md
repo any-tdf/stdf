@@ -1,14 +1,14 @@
 ## Switch Props
 
-| 属性     | 类型              | 默认值 | 可选值                       | 必传 | 说明                                          |
-| -------- | ----------------- | ------ | ---------------------------- | ---- | --------------------------------------------- |
-| check    | Boolean           | false  | true/false                   | N    | 开关状态。                                    |
-| radius   | String            | 'base' | 'full'/'base'/'none'         | N    | 圆角风格。                                    |
-| inside   | Array/String/slot | []     | Array/'state'/'loading'/slot | N    | 开关内部内容。                                |
-| injClass | String            | ''     | Class                        | N    | 注入 CSS 名称。                               |
-| disabled | Boolean           | false  | true/false                   | N    | 是否禁用。                                    |
-| async    | Boolean           | false  | true/false                   | N    | 是否异步。                                    |
-| loading  | Object            | {}     | 参考 Loading Props           | N    | 加载组件参数，仅 inside 为 'loading' 时生效。 |
+| 属性     | 类型         | 默认值 | 可选值                            | 必传 | 说明                                          |
+| -------- | ------------ | ------ | --------------------------------- | ---- | --------------------------------------------- |
+| check    | Boolean      | false  | true/false                        | N    | 开关状态。                                    |
+| radius   | String       | 'base' | 'full'/'base'/'none'              | N    | 圆角风格。                                    |
+| inside   | Array/String | ''     | Array/'state'/'loading'/'slot'/'' | N    | 开关内部内容。                                |
+| injClass | String       | ''     | Class                             | N    | 注入 CSS 名称。                               |
+| disabled | Boolean      | false  | true/false                        | N    | 是否禁用。                                    |
+| async    | Boolean      | false  | true/false                        | N    | 是否异步。                                    |
+| loading  | Object       | {}     | 参考 Loading Props                | N    | 加载组件参数，仅 inside 为 'loading' 时生效。 |
 
 ## Switch Events
 

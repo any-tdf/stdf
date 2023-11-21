@@ -9,7 +9,7 @@
 | py               | String  | '20      | '0'/'10'/'20'/'40'/'60'/'80'                                                 | N    | 顶部和底部显示时距离顶部或底部的距离，position 为 'center' 时不生效。 |     |
 | radius           | String  | 'base    | 'base'/'full'/'none'/'sm'/'md'/'lg'/'xl'/'2xl'                               | N    | 圆角风格。                                                            |     |
 | useSlot          | Boolean | false    | true/false                                                                   | N    | 是否使用 slot。                                                       |     |
-| transitionType   | String  | 'scale'  | 'fade'/'fly'/'scale'/'slide'/'none'                                          | N    | 动画类型。                                                            |     |
+| transitionType   | String  | 'scale'  | 'fade'/'fly'/'scale'/'slide'/'blur'/'none'                                   | N    | 动画类型。                                                            |     |
 | transitionParams | Object  | {}       | 参考 [svelte/transition](https://svelte.dev/docs#run-time-svelte-transition) | N    | 动画参数，其中 duration 默认 300。                                    |     |
 | outDuration      | Number  | 0        | -                                                                            | N    | 退出动画时间，单位：ms。                                              |     |
 | mask             | Object  | {}       | 参考 Mask Props                                                              | N    | 遮罩层参数。                                                          |     |
