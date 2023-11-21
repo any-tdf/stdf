@@ -94,7 +94,7 @@ export default theme => {
 	setPropertyFunc('--theme-color-darkWhite', color.darkWhite);
 	if (color.extend.length > 0) {
 		color.extend.forEach((item, i) => {
-			setPropertyFunc(`--theme-color-extend${i}`, item.color);
+			setPropertyFunc(`--theme-color-extend${i}`, item?.color);
 		});
 	}
 };
