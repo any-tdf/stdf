@@ -1,6 +1,6 @@
 {
 	"name": "create-stdf",
-	"version": "0.0.59",
+	"version": "0.0.60",
 	"description": "A CLI for creating new STDF projects",
 	"bin": {
 		"create-stdf": "index.js"
@@ -12,7 +12,8 @@
 	},
 	"files": [
 		"dist/**",
-		"templates/**"
+		"templates/**",
+		"common/**"
 	],
 	"engines": {
 		"node": ">=14.14"
