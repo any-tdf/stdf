@@ -60,11 +60,11 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 If you have a project configured with Svelte and Tailwind, install directly.
 
 ```bash
-bun i stdf -D
-# or
 pnpm i stdf -D
 # or
 npm i stdf -D
+# or
+bun i stdf -D
 ```
 
 ## Usage
@@ -83,8 +83,6 @@ import { Button } from 'stdf';
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
 
 ```bash
-bun create stdf
-# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -92,6 +90,8 @@ npm create stdf@latest
 npm init stdf@latest
 # or
 npx create-stdf@latest
+# or
+bun create stdf
 ```
 
 Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide) for more information.

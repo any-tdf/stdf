@@ -7,11 +7,11 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```bash
-bun i stdf -D
-# or
 pnpm i stdf -D
 # or
 npm i stdf -D
+# or
+bun i stdf -D
 ```
 
 ### 在 Svelte 中使用
@@ -32,8 +32,6 @@ npm i stdf -D
 可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本）
 
 ```bash
-bun create stdf
-# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -41,6 +39,8 @@ npm create stdf@latest
 npm init stdf@latest
 # or
 npx create-stdf@latest
+# or
+bun create stdf
 ```
 
 ### 自行搭建工程
@@ -62,7 +62,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-1. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide/color)。
+2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide/color)。
 
 注意：Tailwind 配置文件中的 content 即表示所有可能用到 Tailwind 的文件，请不要遗漏。darkMode 请设置为 'class'，这是为了配合 STDF 的暗黑模式。
 
@@ -146,7 +146,7 @@ export default {
 4. 启动项目。
 
 ```sh
-bun dev
-# or
 npm run dev
+# or
+bun dev
 ```

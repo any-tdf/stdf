@@ -4,12 +4,6 @@
 
 A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 
-With BUN:
-
-```bash
-bun create stdf
-```
-
 With PNPM:
 
 ```bash
@@ -26,29 +20,30 @@ npm init stdf@latest
 npx create-stdf@latest
 ```
 
+With BUN:
+
+```bash
+bun create stdf
+```
+
 ...and follow the prompts.
 
 You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit + Tailwind + STDF** template, run:
 
 ```bash
-# bun
-bun create stdf my-app
-
 # pnpm
 pnpm create stdf my-app
 
 # npm
 npm create stdf@latest my-app
+
+# bun
+bun create stdf my-app
 ```
 
 If you want to use the **Vite + UnoCSS + Svelte + STDF** template, run:
 
 ```bash
-# bun
-bun create stdf my-app -template vu
-# or
-bun create stdf my-app -t vu
-
 # pnpm
 pnpm create stdf my-app --template vu
 # or
@@ -58,6 +53,11 @@ pnpm create stdf my-app -t vu
 npm create stdf@latest my-app --template vu
 # or
 npm create stdf@latest my-app -t vu
+
+# bun
+bun create stdf my-app -template vu
+# or
+bun create stdf my-app -t vu
 ```
 
 Template presets include:
@@ -99,7 +99,7 @@ Template presets include:
 For example:
 
 ```bash
-bun create stdf my-app -l zh_CN
+pnpm create stdf my-app -l zh_CN
 ```
 
 # License

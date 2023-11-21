@@ -36,31 +36,31 @@ cd stdf
 cd packages/rollup-plugin-stdf-icon
 
 ## Install dependencies
-bun i
-## or
 pnpm i
 ## or
 npm i
+## or
+bun i
 
 ## Build package
-bun run build
-## or
 npm run build
+## or
+bun run build
 
 ## 3. Use the Demo project to debug STDF
 cd demo
 
 ## Install dependencies
-bun i
-## or
 pnpm i
 ## or
 npm i
+## or
+bun i
 
 ## Start Demo
-bun dev_en
-## or
 npm run dev_en
+## or
+bun dev_en
 ```
 
 After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.

@@ -62,11 +62,11 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```bash
-bun i stdf -D
-# or
 pnpm i stdf -D
 # or
 npm i stdf -D
+# or
+bun i stdf -D
 ```
 
 ## 使用
@@ -85,8 +85,6 @@ import { Button } from 'stdf';
 可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本）
 
 ```bash
-bun create stdf
-# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -94,6 +92,8 @@ npm create stdf@latest
 npm init stdf@latest
 # or
 npx create-stdf@latest
+# or
+bun create stdf
 ```
 
 或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide)。

@@ -7,11 +7,11 @@
 Svelte and Tailwind have been configured for direct installation.
 
 ```bash
-bun i stdf -D
-# or
 pnpm i stdf -D
 # or
 npm i stdf -D
+# or
+bun i stdf -D
 ```
 
 ### Used in Svelte
@@ -32,8 +32,6 @@ npm i stdf -D
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
 
 ```bash
-bun create stdf
-# or
 pnpm create stdf
 # or
 npm create stdf@latest
@@ -41,6 +39,8 @@ npm create stdf@latest
 npm init stdf@latest
 # or
 npx create-stdf@latest
+# or
+bun create stdf
 ```
 
 ### Build your own project
@@ -62,7 +62,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-1. Add a template file within the `tailwind.config.js` file. Note that `./node_modules/stdf/**/*.svelte` is added in content, which is the component location of STDF.The colors of theme can be modified according to its own needs. Reference [STDF Guide - Color](/#/guide/color).
+2. Add a template file within the `tailwind.config.js` file. Note that `./node_modules/stdf/**/*.svelte` is added in content, which is the component location of STDF.The colors of theme can be modified according to its own needs. Reference [STDF Guide - Color](/#/guide/color).
 
 Note: The 'content' in the Tailwind configuration file represents all files that may use Tailwind, please do not omit any files. Please set darkMode to 'class' to match STDF's dark mode.
 
@@ -146,7 +146,7 @@ export default {
 4. Start the project.
 
 ```sh
-bun dev
-# or
 npm run dev
+# or
+bun dev
 ```
