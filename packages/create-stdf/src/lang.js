@@ -16,6 +16,7 @@ export const en_US = {
 	pcyt_vu: 'Tip: please configure Initial Color System in src/app.css, and Color System in uno.config.js',
 	cferror: 'Failed to create file',
 	pectn: 'Please enter the correct template name!',
+	wtetcfjsf: 'Whether to enable type checking for all .js and .svelte files in src?',
 };
 
 // 简体中文 chinese
@@ -36,6 +37,7 @@ export const zh_CN = {
 	pcyt_vu: '提示：请到 src/app.css 配置初始主题色，uno.config.js 配置颜色系统',
 	cferror: '创建文件失败',
 	pectn: '请输入正确的模板名称！',
+	wtetcfjsf: '是否对 src 内的所有 .js 与 .svelte 文件启用类型检查？',
 };
 
 // 繁體中文 chinese traditional
@@ -56,6 +58,7 @@ export const zh_TW = {
 	pcyt_vu: '提示：請到 src/app.css 配置初始主題色，uno.config.js 配置顏色系統',
 	cferror: '創建文件失敗',
 	pectn: '請輸入正確的模板名稱！',
+	wtetcfjsf: '是否對 src 內的所有 .js 與 .svelte 文件啟用類型檢查？',
 };
 
 // 日语 japanese
@@ -76,6 +79,7 @@ export const ja_JP = {
 	pcyt_vu: 'ヒント：src/app.css ファイルで初期カラーシステムを設定し、uno.config.js ファイルでカラーシステムを設定します',
 	cferror: 'ファイルの作成に失敗しました',
 	pectn: '正しいテンプレート名を入力してください！',
+	wtetcfjsf: 'src 内のすべての .js と .svelte ファイルに型チェックを有効にしますか？',
 };
 
 // 韩语 korean
@@ -96,6 +100,7 @@ export const ko_KR = {
 	pcyt_vu: '팁: src/app.css 파일에서 초기 색상 시스템을 구성하고 uno.config.js 파일에서 색상 시스템을 구성하십시오',
 	cferror: '파일 생성 실패',
 	pectn: '올바른 템플릿 이름을 입력하십시오!',
+	wtetcfjsf: 'src 내의 모든 .js 및 .svelte 파일에 대한 유형 검사를 활성화 하시겠습니까?',
 };
 
 // 西班牙语 spanish
@@ -116,6 +121,7 @@ export const es_ES = {
 	pcyt_vu: 'Consejo: configure su sistema de colores iniciales en el archivo uno.config.js',
 	cferror: 'Error al crear archivo',
 	pectn: '¡Por favor ingrese el nombre de la plantilla correcto!',
+	wtetcfjsf: '¿Desea habilitar la comprobación de tipos para todos los archivos .js y .svelte en src?',
 };
 
 // 俄语 russian
@@ -136,6 +142,7 @@ export const ru_RU = {
 	pcyt_vu: 'Совет: пожалуйста, настройте свою систему цветов в файле uno.config.js',
 	cferror: 'Не удалось создать файл',
 	pectn: 'Пожалуйста, введите правильное имя шаблона!',
+	wtetcfjsf: 'Включить проверку типов для всех файлов .js и .svelte в src?',
 };
 
 // 法语 french
@@ -156,6 +163,7 @@ export const fr_FR = {
 	pcyt_vu: 'Conseil: veuillez configurer votre système de couleurs initiales dans le fichier uno.config.js',
 	cferror: 'Échec de la création du fichier',
 	pectn: 'Veuillez saisir le nom du modèle correct!',
+	wtetcfjsf: 'Activer la vérification des types pour tous les fichiers .js et .svelte dans src?',
 };
 
 // 德语 german
@@ -176,6 +184,7 @@ export const de_DE = {
 	pcyt_vu: 'Tipp: Konfigurieren Sie Ihr Initial Color System in der Datei uno.config.js',
 	cferror: 'Fehler beim Erstellen der Datei',
 	pectn: 'Bitte geben Sie den richtigen Vorlagennamen ein!',
+	wtetcfjsf: 'Möchten Sie die Typüberprüfung für alle .js- und .svelte-Dateien in src aktivieren?',
 };
 
 // 意大利语 italian
@@ -196,4 +205,5 @@ export const it_IT = {
 	pcyt_vu: 'Suggerimento: configura il tuo sistema di colori iniziale nel file uno.config.js',
 	cferror: 'Impossibile creare il file',
 	pectn: 'Inserisci il nome del modello corretto!',
+	wtetcfjsf: 'Abilitare il controllo dei tipi per tutti i file .js e .svelte in src?',
 };

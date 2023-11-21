@@ -11,6 +11,7 @@ import * as langAll from './lang';
 
 // 获取版本号
 // Get version
+// @ts-ignore
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
 
 // 显示版本号
@@ -127,6 +128,17 @@ else if (argvProjectName && argvTemplate) {
 			});
 		}
 
+		// 是否启用类型检查
+		// Whether to enable type checking
+		const isTypeCheck = await p.confirm({
+			message: bold(lang.wtetcfjsf),
+		});
+
+		if (p.isCancel(isTypeCheck)) {
+			p.cancel(red('⛔ ') + lang.oc);
+			process.exit(0);
+		}
+
 		// 输入项目名称
 		// Enter the project name
 		const projectName = await p.text({
@@ -155,13 +167,13 @@ else if (argvProjectName && argvTemplate) {
 		// According to the value of template, copy all files under the corresponding directory to the current directory
 		templateOptions.forEach(async item => {
 			if (item.value === template) {
-				createFunc(projectName, item);
+				createFunc(projectName, item, isTypeCheck);
 			}
 		});
 	})();
 }
 
-function createFunc(projectName, item) {
+function createFunc(projectName, item, isTypeCheck = true) {
 	// 如果 projectName 是数字，转为字符串
 	// If projectName is a number, convert it to a string
 	if (typeof projectName === 'number') {
@@ -178,6 +190,7 @@ function createFunc(projectName, item) {
 
 	// 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
 	// Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
+	// @ts-ignore
 	const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${item.template}`);
 
 	// 将 templatePath 目录下的所有文件复制到 projectDir 目录下
@@ -186,6 +199,14 @@ function createFunc(projectName, item) {
 		.then(() => {
 			spinner.stop();
 			p.outro(`${projectName} - ${lang.pcsucc} 🎉`);
+
+			// 如果 isTypeCheck 为 true，将 common 目录下的 jsconfig.json 文件复制到项目目录下
+			// If isTypeCheck is true, copy the jsconfig.json file under the common directory to the project directory
+			if (isTypeCheck) {
+				// @ts-ignore
+				const commonPath = path.resolve(fileURLToPath(import.meta.url), '../..', 'common');
+				fs.copySync(path.join(commonPath, '/jsconfig.json'), path.join(projectDir, 'jsconfig.json'));
+			}
 
 			// 读取 package.json 文件
 			// Read the package.json file
@@ -243,8 +264,8 @@ function createFunc(projectName, item) {
 				`👉 ${bold(lang.tgs)}
 
     ${blue(`cd ${projectName}`)}
-    ${blue('bun i / pnpm i / npm i / yarn')}
-    ${blue('bun dev / npm run dev')}
+    ${blue('pnpm i / npm i / yarn / bun i')}
+    ${blue('npm dev / bun dev')}
     `,
 			);
 			// 显示配置主题色
