@@ -8,12 +8,6 @@ For more information about the STDF Icon component, please refer to the [Icon Gu
 
 # Installation
 
-With BUN:
-
-```bash
-bun i rollup-plugin-stdf-icon -D
-```
-
 Using PNPM:
 
 ```bash
@@ -24,6 +18,12 @@ Using NPM:
 
 ```bash
 npm i rollup-plugin-stdf-icon -D
+```
+
+With BUN:
+
+```bash
+bun i rollup-plugin-stdf-icon -D
 ```
 
 # Usage
