@@ -32,7 +32,7 @@
 	/>
 	<Toast bind:visible={visible2} message={`点击的右侧图标索引值是 ${rightIndex}。`} />
 	<!-- 无底部分割线，文字过长 -->
-	<NavBar title="无左侧与底分割线，文字过长长长长长长长" left="" line={false} rights={icons3} />
+	<NavBar title="无左侧与底分割线，文字过长长长长长长长" left="none" line={false} rights={icons3} />
 	<!-- 自定义背景颜色 -->
 	<NavBar title="自定义背景颜色 by injClass" injClass="bg-[wheat] dark:bg-extend0" />
 	<!-- 自定义文字颜色 -->

@@ -13,49 +13,89 @@
 	const navBarLang = currentLang.navBar;
 	const commonLang = currentLang.common;
 
-	// 标题
-	// Title
+	/**
+	 * 标题
+	 * Title
+	 * @type {string}
+	 * @default Current language navBar.title
+	 */
 	export let title = navBarLang.title;
 
-	//标题是否使用slot
-	//Whether to use slot for title
+	/**
+	 * 标题是否使用slot
+	 * Whether to use slot for title
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let titleSlot = false;
 
-	//左侧图标
-	//Left icon
+	/**
+	 * 左侧图标
+	 * Left icon
+	 * @type {'back'|'customIcon'|'none'}
+	 * @default 'back'
+	 */
 	export let left = 'back';
 
-	//左侧图标参数
-	//Left icon parameters
+	/**
+	 * 左侧图标参数
+	 * Left icon parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let leftIcon = {};
 
-	//左侧是否使用slot
-	//Whether to use slot for left
+	/**
+	 * 左侧是否使用slot
+	 * Whether to use slot for left
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let leftSlot = false;
 
-	//右侧 Icon 数组
-	//Right Icon array
+	/**
+	 * 右侧 Icon 数组
+	 * Right Icon array
+	 * @type {object[]}
+	 * @default []
+	 */
 	export let rights = [];
 
-	//右侧是否使用slot
-	//Whether to use slot for right
+	/**
+	 * 右侧是否使用slot
+	 * Whether to use slot for right
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let rightSlot = false;
 
-	//是否显示底部分割线
-	//Whether to show bottom line
+	/**
+	 * 是否显示底部分割线
+	 * Whether to show bottom line
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let line = true;
 
-	//注入CSS
-	//Inject CSS
+	/**
+	 * 注入CSS
+	 * Inject CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	//是否开启关爱版
-	//Whether to open love version
+	/**
+	 * 是否开启关爱版
+	 * Whether to open love version
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let love = false;
 
 	//图标大小
 	//Icon size
-	$: iconSize = love ? 30 : 24;
+	const iconSize = love ? 30 : 24;
 
 	//左侧图标点击事件
 	//Left icon click event

@@ -33,7 +33,7 @@
 
 	<NavBar
 		title="There is no dividing line between the left side and the bottom, and the text is too long"
-		left=""
+		left="none"
 		line={false}
 		rights={icons3}
 	/>
