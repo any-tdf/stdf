@@ -13,111 +13,149 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const commonLang = currentLang.common;
 
-	// 键盘样式类型，按钮式或块式
-	// Keyboard style type, button or block
+	/**
+	 * 键盘样式类型，按钮式或块式
+	 * Keyboard style type, button or block
+	 * @type {'button'|'block'}
+	 * @default 'button'
+	 */
 	export let type = 'button';
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let visible = true;
 
-	// 每一个按键的高度
-	// Height of each key
+	/**
+	 * 每一个按键的高度
+	 * Height of each key
+	 * @type {'8'|'10'|'12'|'14'|'16'|'20'}
+	 * @default '12'
+	 */
 	export let height = '12';
 
-	// 间距
-	// the spacing
+	/**
+	 * 间距
+	 * the spacing
+	 * @type {'0'|'1'|'2'|'3'|'4'}
+	 * @default '2'
+	 */
 	export let gap = '2';
 
-	// 键盘内边距
-	// Keyboard padding
+	/**
+	 * 键盘内边距
+	 * Keyboard padding
+	 * @type {'0'|'1'|'2'|'3'|'4'}
+	 * @default '2'
+	 */
 	export let p = '2';
 
-	// 数字键盘上下反向
-	// Number keyboard up and down reverse
+	/**
+	 * 数字键盘上下反向
+	 * Number keyboard up and down reverse
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let reverse = false;
 
-	// 是否显示完成按钮
-	// Whether to show the done button
+	/**
+	 * 是否显示完成按钮
+	 * Whether to show the done button
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let done = true;
 
-	// 显示小数点
-	// Show decimal point
+	/**
+	 * 显示小数点
+	 * Show decimal point
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let dot = true;
 
-	// 显示关闭按钮
-	// Show close button
+	/**
+	 * 显示关闭按钮
+	 * Show close button
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let close = false;
 
-	// 完成按钮文本
-	// Done button text
+	/**
+	 * 完成按钮文本
+	 * Done button text
+	 * @type {string}
+	 * @default Current language numKeyboard.done
+	 */
 	export let doneText = commonLang.done;
 
-	// 完成按钮是否禁用
-	// Whether the done button is disabled
+	/**
+	 * 完成按钮是否禁用
+	 * Whether the done button is disabled
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let doneDisabled = false;
 
-	// 按钮圆角
-	// Button rounded corners
+	/**
+	 * 按钮圆角
+	 * Button rounded corners
+	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'3xl'|'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	// 键盘面板注入 class
-	// Keyboard panel injection class
+	/**
+	 * 键盘面板注入 class
+	 * Keyboard panel injection class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let panelClass = '';
 
-	// 按键注入 class
-	// Key injection class
+	/**
+	 * 按键注入 class
+	 * Key injection class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let keyClass = '';
 
-	// 完成按键注入 class
-	// Done key injection class
+	/**
+	 * 完成按键注入 class
+	 * Done key injection class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let doneClass = '';
 
-	// popup 参数
-	// popup parameter
+	/**
+	 * popup 参数
+	 * popup parameter
+	 * @type {object}
+	 * @default {}
+	 */
 	export let popup = {};
 
 	// 高度 class
 	// Height class
-	const heightClass = {
-		'8': 'h-8',
-		'10': 'h-10',
-		'12': 'h-12',
-		'14': 'h-14',
-		'16': 'h-16',
-		'20': 'h-20',
-	};
+	const heightClass = { '8': 'h-8', '10': 'h-10', '12': 'h-12', '14': 'h-14', '16': 'h-16', '20': 'h-20' };
 
 	// 根据高度动态数字大小
 	// Dynamic number size based on height
-	const fontSizeClass = {
-		'8': 'text-sm',
-		'10': 'text-base',
-		'12': 'text-xl',
-		'14': 'text-2xl',
-		'16': 'text-2xl',
-		'20': 'text-2xl',
-	};
+	const fontSizeClass = { '8': 'text-sm', '10': 'text-base', '12': 'text-xl', '14': 'text-2xl', '16': 'text-2xl', '20': 'text-2xl' };
 
 	// 间距 class
 	// spacing class
-	const gapClass = {
-		'0': 'gap-0',
-		'1': 'gap-1',
-		'2': 'gap-2',
-		'3': 'gap-3',
-		'4': 'gap-4',
-	};
+	const gapClass = { '0': 'gap-0', '1': 'gap-1', '2': 'gap-2', '3': 'gap-3', '4': 'gap-4' };
 
 	// 内边距 class
 	// padding class
-	const pClass = {
-		'0': 'p-0',
-		'1': 'p-1',
-		'2': 'p-2',
-		'3': 'p-3',
-		'4': 'p-4',
-	};
+	const pClass = { '0': 'p-0', '1': 'p-1', '2': 'p-2', '3': 'p-3', '4': 'p-4' };
 
 	// 圆角 class
 	// radius class
@@ -232,7 +270,7 @@
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class={baseClassFunc('delete')} on:click={() => clickFunc('delete')}>
-					<Icon name="ri-delete-back-2-line" size={height * 2} />
+					<Icon name="ri-delete-back-2-line" size={Number(height) * 2} />
 				</div>
 			{/if}
 			{#each [4, 5, 6] as item}
@@ -270,7 +308,7 @@
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class={baseClassFunc('close')} on:click={() => clickFunc('close')}>
-					<Icon name="ri-skip-down-line" size={height * 2} />
+					<Icon name="ri-skip-down-line" size={Number(height) * 2} />
 				</div>
 			{/if}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -280,7 +318,7 @@
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div class={baseClassFunc('delete')} on:click={() => clickFunc('delete')}>
-					<Icon name="ri-delete-back-2-line" size={height * 2} />
+					<Icon name="ri-delete-back-2-line" size={Number(height) * 2} />
 				</div>
 			{/if}
 		</div>

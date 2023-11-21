@@ -1,14 +1,61 @@
 <script>
 	import Icon from '../icon/Icon.svelte';
 
-	// Skeleton类型，支持div、p、img、video、code、qrcode、barcode。
-	// Skeleton type, support div, p, img, video, code, qrcode, barcode.
+	/**
+	 * Skeleton 类型
+	 * Skeleton type
+	 * @type {'div'|'p'|'img'|'video'|'code'|'qrcode'|'barcode'}
+	 * @default 'div'
+	 */
 	export let type = 'div';
+
+	/**
+	 * 宽度
+	 * Width
+	 * @type {'full'|'2'|'4'|'6'|'8'|'12'|'16'|'24'|'32'|'48'|'64'|'96'}
+	 * @default '6'
+	 */
 	export let width = '6';
+
+	/**
+	 * 高度
+	 * Height
+	 * @type {'1'|'2'|'4'|'6'|'8'|'12'|'16'|'24'|'32'|'48'|'64'|'96'}
+	 * @default '6'
+	 */
 	export let height = '6';
+
+	/**
+	 * 圆角
+	 * Radius
+	 * @type {'none'|'base'|'md'|'xl'|'2xl'|'3xl'|'full'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
+
+	/**
+	 * 间距
+	 * Space
+	 * @type {'0.5'|'1'|'2'|'4'|'8'}
+	 * @default '1'
+	 */
 	export let padding = '1';
+
+	/**
+	 * 行数
+	 * Lines
+	 * @type {number}
+	 * @default 3
+	 */
 	export let lines = 3;
+
+	/**
+	 * 图标占比
+	 * Icon ratio
+	 * @type {number}
+	 * @range 0- 1
+	 * @default 0.6
+	 */
 	export let iconRatio = 0.6;
 
 	const radiusObj = {
@@ -48,12 +95,7 @@
 		'64': ' h-64',
 		'96': ' h-96',
 	};
-	const paddingObj = {
-		'0.5': ' p-0.5',
-		'1': ' p-1',
-		'2': ' p-2',
-		'4': ' p-4',
-	};
+	const paddingObj = { '0.5': ' p-0.5', '1': ' p-1', '2': ' p-2', '4': ' p-4' };
 	const randomArr = ['w-1/2', 'w-1/3', 'w-2/3', 'w-1/4', 'w-3/4', 'w-2/5', 'w-3/5', 'w-4/5', 'w-5/6'];
 	const typeIconFun = type => {
 		switch (type) {

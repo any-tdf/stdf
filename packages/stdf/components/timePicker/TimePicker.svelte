@@ -14,121 +14,279 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const timePickerLang = currentLang.timePicker;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 时间类型，由 Y M D h m s 组合而成
-	// Time type, composed of Y M D h m s
+	/**
+	 * 时间类型
+	 * Time type
+	 * @type {'Y'|'M'|'h'|'m'|'s'|'YM'|'hm'|'ms'|'YMD'|'hms'|'YMDh'|'YMDhm'|'YMDhms'}
+	 * @default 'YMDhms'
+	 */
 	export let type = 'YMDhms';
 
-	// 年月日时分秒参数，包含所占比例 flex，每行显示数量 showRow
-	// Year month day hour minute second parameter, including the proportion of flex, the number of rows displayed per line
+	/**
+	 * 单项选项属性
+	 * Single option attribute
+	 * @typedef {Object} ItemProps
+	 * @property {number} [flex] - flex 值 flex value
+	 * @property {3|5|7} [showRow] - 每行显示数量 number of rows displayed per line
+	 * @property {'left'|'center'|'right'} [align] - 对齐方式 alignment
+	 */
+
+	/**
+	 * 年参数
+	 * Year parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let yearProps = {};
+
+	/**
+	 * 月参数
+	 * Month parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let monthProps = {};
+
+	/**
+	 * 日参数
+	 * Day parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let dayProps = {};
+
+	/**
+	 * 时参数
+	 * Hour parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let hourProps = {};
+
+	/**
+	 * 分参数
+	 * Minute parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let minuteProps = {};
+
+	/**
+	 * 秒参数
+	 * Second parameter
+	 * @type {ItemProps}
+	 * @default {}
+	 */
 	export let secondProps = {};
 
-	// 初始选定的年份
-	// The initial selected year
+	/**
+	 * 初始选定的年份
+	 * The initial selected year
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initYear = '';
 
-	// 初始选定的月份
-	// The initial selected month
+	/**
+	 * 初始选定的月份
+	 * The initial selected month
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initMonth = '';
 
-	// 初始选定的天数
-	// The initial selected day
+	/**
+	 * 初始选定的天数
+	 * The initial selected day
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initDay = '';
 
-	// 初始选定的小时
-	// The initial selected hour
+	/**
+	 * 初始选定的小时
+	 * The initial selected hour
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initHour = '';
 
-	// 初始选定的分钟
-	// The initial selected minute
+	/**
+	 * 初始选定的分钟
+	 * The initial selected minute
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initMinute = '';
 
-	// 初始选定的秒数
-	// The initial selected second
+	/**
+	 * 初始选定的秒数
+	 * The initial selected second
+	 * @type {string}
+	 * @default ''
+	 */
 	export let initSecond = '';
 
-	// 分钟步长
-	// Minute step
+	/**
+	 * 分钟步长
+	 * Minute step
+	 * @type {number}
+	 * @range 1 - 59
+	 * @default 1
+	 */
 	export let minuteStep = 1;
 
-	// 秒钟步长
-	// Second step
+	/**
+	 * 秒钟步长
+	 * Second step
+	 * @type {number}
+	 * @range 1 - 59
+	 * @default 1
+	 */
 	export let secondStep = 1;
 
-	// 年份区间，数组，第一个值为开始年份，第二个值为结束年份
-	// Year range, array, the first value is the start year, and the second value is the end year
+	/**
+	 * 年份区间
+	 * Year range
+	 * @type {[number, number]|[]}
+	 * @default []
+	 */
 	export let yearRange = [];
 
-	// 月份区间，数组，第一个值为开始月份，第二个值为结束月份
-	// Month range, array, the first value is the start month, and the second value is the end month
+	/**
+	 * 月份区间
+	 * Month range
+	 * @type {[number, number]}
+	 * @default [1, 12]
+	 */
 	export let monthRange = [1, 12];
 
-	// 小时区间，数组，第一个值为开始小时，第二个值为结束小时
-	// Hour range, array, the first value is the start hour, and the second value is the end hour
+	/**
+	 * 小时区间
+	 * Hour range
+	 * @type {[number, number]}
+	 * @default [0, 23]
+	 */
 	export let hourRange = [0, 23];
 
-	// 分钟区间，数组，第一个值为开始分钟，第二个值为结束分钟
-	// Minute range, array, the first value is the start minute, and the second value is the end minute
+	/**
+	 * 分钟区间
+	 * Minute range
+	 * @type {[number, number]}
+	 * @default [0, 59]
+	 */
 	export let minuteRange = [0, 59];
 
-	// 秒数区间，数组，第一个值为开始秒数，第二个值为结束秒数
-	// Second range, array, the first value is the start second, and the second value is the end second
+	/**
+	 * 秒数区间
+	 * Second range
+	 * @type {[number, number]}
+	 * @default [0, 59]
+	 */
 	export let secondRange = [0, 59];
 
-	// 顶部是否显示提示文字
-	// Whether to display a prompt at the top
+	/**
+	 * 顶部是否显示提示文字
+	 * Whether to display a prompt at the top
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let showTips = true;
 
-	// 取消选项文本
-	// Cancel option text
+	/**
+	 * 取消选项文本
+	 * Cancel option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultCancel
+	 */
 	export let cancelText = timePickerLang.defaultCancel;
 
-	// 确定选项文本
-	// Confirm option text
+	/**
+	 * 确定选项文本
+	 * Confirm option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultConfirm
+	 */
 	export let confirmText = timePickerLang.defaultConfirm;
 
-	// 中间选项文本
-	// Middle option text
+	/**
+	 * 中间选项文本
+	 * Middle option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultTitle
+	 */
 	export let title = timePickerLang.defaultTitle;
 
-	// 年选项文本
-	// Year option text
+	/**
+	 * 年选项文本
+	 * Year option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultYear
+	 */
 	export let yearText = timePickerLang.defaultYear;
 
-	// 月选项文本
-	// Month option text
+	/**
+	 * 月选项文本
+	 * Month option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultMonth
+	 */
 	export let monthText = timePickerLang.defaultMonth;
 
-	// 日选项文本
-	// Day option text
+	/**
+	 * 日选项文本
+	 * Day option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultDay
+	 */
 	export let dayText = timePickerLang.defaultDay;
 
-	// 时选项文本
-	// Hour option text
+	/**
+	 * 时选项文本
+	 * Hour option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultHour
+	 */
 	export let hourText = timePickerLang.defaultHour;
 
-	// 分选项文本
-	// Minute option text
+	/**
+	 * 分选项文本
+	 * Minute option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultMinute
+	 */
 	export let minuteText = timePickerLang.defaultMinute;
 
-	// 秒选项文本
-	// Second option text
+	/**
+	 * 秒选项文本
+	 * Second option text
+	 * @type {string}
+	 * @default Current language timePicker.defaultSecond
+	 */
 	export let secondText = timePickerLang.defaultSecond;
 
-	// 返回数据格式
-	// Return data format
+	/**
+	 * 返回数据格式
+	 * Return data format
+	 * @type {string}
+	 * @default ''
+	 */
 	export let outFormat = '';
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {Object}
+	 * @default {}
+	 */
 	export let popup = {};
 
 	// 获取当前时间，取出对应的年月日时分秒，转成字符，月、日、时、分、秒小于 10 的前面补 0

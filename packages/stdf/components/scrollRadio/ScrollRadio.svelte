@@ -43,11 +43,7 @@
 
 	// 对齐方式样式
 	// Alignment style
-	const alignClass = {
-		center: 'text-center',
-		left: 'text-left',
-		right: 'text-right',
-	};
+	const alignClass = { center: 'text-center', left: 'text-left', right: 'text-right' };
 
 	// 单条高度对象
 	// Single height object

@@ -10,7 +10,7 @@
 	/**
 	 * 图标大小
 	 * Icon size
-	 * @type {number}
+	 * @type {number|string}
 	 * @default 24
 	 */
 	export let size = 24;

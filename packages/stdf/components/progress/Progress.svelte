@@ -1,60 +1,93 @@
 <script>
-	// 百分比
-	// percent
+	/**
+	 * 百分比
+	 * percent
+	 * @type {number}
+	 * @range 0 - 100
+	 * @default 66
+	 */
 	export let percent = 66;
 
-	// 百分比位置，inner内部，right右侧，block块状，none不显示
-	// percentPosition, inner, right, block, none
+	/**
+	 * 百分比位置
+	 * percent position
+	 * @type {'inner'|'right'|'block'|'none'}
+	 * @default 'right'
+	 */
 	export let percentPosition = 'right';
 
-	// 高度
-	// height
+	/**
+	 * 高度
+	 * height
+	 * @type {'1'|'2'|'3'|'4'}
+	 * @default '2'
+	 */
 	export let height = '2';
 
-	// 圆角，full圆满，base圆角，none无
-	// radius, full, base, none
+	/**
+	 * 圆角
+	 * radius
+	 * @type {'full'|'base'|'none'}
+	 * @default 'full'
+	 */
 	export let radius = 'full';
 
-	// 是否禁用
-	// inactive
+	/**
+	 * 是否禁用
+	 * inactive
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let inactive = false;
 
-	// percentPosition 为 inner 时，内部文字溢出时百分比阀值
-	// percentPosition is inner, overflowPercent is percent value when inner text overflow
+	/**
+	 * percentPosition 为 inner 时，内部文字溢出时百分比阀值
+	 * percentPosition is inner, overflowPercent is percent value when inner text overflow
+	 * @type {number}
+	 * @range 0 - 100
+	 * @default 10
+	 */
 	export let overflowPercent = 10;
 
-	// 是否使用slot
-	// useSlot
+	/**
+	 * 是否使用slot
+	 * useSlot
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let useSlot = false;
 
-	// 注入class
-	// injClass
+	/**
+	 * 注入class
+	 * inject class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	// 轨道注入class
-	// tranck injClass
+	/**
+	 * 轨道注入class
+	 * tranck inject class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let trackInjClass = '';
 
-	// 动画时间
-	// duration
+	/**
+	 * 动画时间
+	 * duration
+	 * @type {'150'|'300'|'500'|'700'|'1000'}
+	 * @default '300'
+	 */
 	export let duration = '300';
 
 	// 高度样式
 	// height class
-	const heightClass = {
-		'1': ' h-1',
-		'2': ' h-2',
-		'3': ' h-3',
-		'4': ' h-4',
-	};
+	const heightClass = { '1': ' h-1', '2': ' h-2', '3': ' h-3', '4': ' h-4' };
 
 	// 圆角样式
 	// radius class
-	const radiusClass = {
-		full: ' rounded-full',
-		base: ' rounded',
-		none: ' rounded-none',
-	};
+	const radiusClass = { full: ' rounded-full', base: ' rounded', none: ' rounded-none' };
 
 	// 动画时间样式
 	// duration class

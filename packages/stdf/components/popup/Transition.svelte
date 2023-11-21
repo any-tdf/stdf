@@ -9,13 +9,7 @@
 	export let px = '0'; //左右间距
 	export let py = '0'; //上下间距
 
-	const sizeClass = {
-		bottom: 'w-full',
-		top: 'w-full',
-		left: 'h-full',
-		right: 'h-full',
-		center: 'w-full',
-	};
+	const sizeClass = { bottom: 'w-full', top: 'w-full', left: 'h-full', right: 'h-full', center: 'w-full' };
 	const sizeStyle = {
 		bottom: `height:${size === 0 ? 'auto' : size + '%'}`,
 		top: `height:${size === 0 ? 'auto' : size + '%'}`,

@@ -12,44 +12,83 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const commonLang = currentLang.common;
 
-	// 通告内容组成的数组
-	// Array of notice content
+	/**
+	 * 通告内容组成的数组
+	 * Array of notice content
+	 * @type {string[]}
+	 */
 	export let textList = [];
 
-	//左侧内容
-	//Left content
+	/**
+	 * 左侧内容
+	 * Left content
+	 * @type {'slot'|'none'|object}
+	 * @default { name: 'ri-volume-down-line', size: 20, top: -1 }
+	 */
 	export let leftIcon = { name: 'ri-volume-down-line', size: 20, top: -1 };
 
-	//右侧内容，'close'/'arrow'/'none'
-	//Right content, 'close'/'arrow'/'none'
+	/**
+	 * 右侧内容
+	 * Right content
+	 * @type {'close'|'arrow'|'none'}
+	 * @default 'close'
+	 */
 	export let rightIcon = 'close';
 
-	// 通告字体大小
-	// Notice font size
+	/**
+	 * 通告字体大小
+	 * Notice font size
+	 * @type {'xs'|'sm'|'base'|'lg'}
+	 * @default 'sm'
+	 */
 	export let fontSize = 'sm';
 
-	// 通告间距
-	// Notice spacing
+	/**
+	 * 通告间距，单位是 px
+	 * Notice spacing, unit is px
+	 * @type {number}
+	 * @default 100
+	 */
 	export let space = 100;
 
-	// 横向滚动速度，单位是 px/s
-	// Horizontal scroll speed, unit is px/s
+	/**
+	 * 横向滚动速度，单位是 px/s
+	 * Horizontal scroll speed, unit is px/s
+	 * @type {number}
+	 * @default 30
+	 */
 	export let speed = 30;
 
-	// 是否垂直滚动
-	// Whether to scroll vertically
+	/**
+	 * 是否垂直滚动
+	 * Whether to scroll vertically
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let vertical = false;
 
-	// 垂直滚动过渡时间
-	// Vertical scroll transition time
+	/**
+	 * 垂直滚动过渡时间，单位是 ms
+	 * Vertical scroll transition time, unit is ms
+	 * @type {100|300|500|700|1000}
+	 * @default 500
+	 */
 	export let duration = 500;
 
-	// 垂直滚动间隔时间
-	// Vertical scroll interval time
+	/**
+	 * 垂直滚动间隔时间，单位是 s
+	 * Vertical scroll interval time，unit is s
+	 * @type {number}
+	 * @default 4
+	 */
 	export let interval = 4;
 
-	// 注入 CSS 名称
-	// Inject CSS name
+	/**
+	 * 注入 CSS 名称
+	 * Inject CSS name
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
 	//如果 textList 不是数组给出中英文报错
@@ -64,12 +103,7 @@
 
 	// 字体大小样式
 	// Font size style
-	const fontSizeClass = {
-		xs: ' text-xs',
-		sm: ' text-sm',
-		base: ' text-base',
-		lg: ' text-lg',
-	};
+	const fontSizeClass = { xs: ' text-xs', sm: ' text-sm', base: ' text-base', lg: ' text-lg' };
 
 	// 动画时长样式
 	// Animation duration style
@@ -200,9 +234,9 @@
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div class={`${rightIcon === 'none' ? '' : 'pl-2 pr-4'}`} on:click={clickFun}>
 			{#if rightIcon === 'close'}
-				<Icon name="ri-close-line" size={20} top="-1" />
+				<Icon name="ri-close-line" size={20} top={-1} />
 			{:else if rightIcon === 'arrow'}
-				<Icon name="ri-arrow-right-s-line" size="20" top="-1" />
+				<Icon name="ri-arrow-right-s-line" size={20} top={-1} />
 			{/if}
 		</div>
 	</div>

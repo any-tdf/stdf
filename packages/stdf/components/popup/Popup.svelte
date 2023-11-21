@@ -8,79 +8,156 @@
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 弹出层大小，值为 0 时由内部元素决定
-	// Popup size, value of 0 is determined by internal elements
+	/**
+	 * 弹出层大小，值为 0 时由内部元素决定
+	 * Popup size, value of 0 is determined by internal elements
+	 * @type {number}
+	 * @range 0 - 100
+	 * @default 40
+	 */
 	export let size = 40;
 
-	// 弹出层位置，center,top,bottom,left,right
-	// Popup position, center, top, bottom, left, right
+	/**
+	 * 弹出层位置
+	 * Popup position
+	 * @type {'center'|'top'|'bottom'|'left'|'right'}
+	 * @default 'bottom'
+	 */
 	export let position = 'bottom';
 
-	// 过渡动画出现时间
-	// Transition animation appearance time
+	/**
+	 * 过渡动画出现时间，单位毫秒
+	 * Transition animation appearance time (ms)
+	 * @type {number}
+	 * @default 450
+	 */
 	export let duration = 450;
 
-	// 过渡动画退出时间
-	// Transition animation exit time
+	/**
+	 * 过渡动画退出时间，单位毫秒
+	 * Transition animation exit time (ms)
+	 * @type {number}
+	 * @default 240
+	 */
 	export let outDuration = 240;
 
-	// 过渡动画进入类型
-	// Transition animation entry type
+	/**
+	 * 过渡动画进入类型
+	 * Transition animation entry type
+	 * @type {'linear'|'quadIn'|'quadOut'|'quadInOut'|'cubicIn'|'cubicOut'|'cubicInOut'|'quartIn'|'quartOut'|'quartInOut'|'quintIn'|'quintOut'|'quintInOut'|'sineIn'|'sineOut'|'sineInOut'|'expoIn'|'expoOut'|'expoInOut'|'circIn'|'circOut'|'circInOut'|'backIn'|'backOut'|'backInOut'|'elasticIn'|'elasticOut'|'elasticInOut'|'bounceIn'|'bounceOut'|'bounceInOut'}
+	 * @default 'cubicOut'
+	 */
 	export let easeType = 'cubicOut';
 
-	// 过渡动画退出类型
-	// Transition animation exit type
+	/**
+	 * 过渡动画退出类型
+	 * Transition animation exit type
+	 * @type {'linear'|'quadIn'|'quadOut'|'quadInOut'|'cubicIn'|'cubicOut'|'cubicInOut'|'quartIn'|'quartOut'|'quartInOut'|'quintIn'|'quintOut'|'quintInOut'|'sineIn'|'sineOut'|'sineInOut'|'expoIn'|'expoOut'|'expoInOut'|'circIn'|'circOut'|'circInOut'|'backIn'|'backOut'|'backInOut'|'elasticIn'|'elasticOut'|'elasticInOut'|'bounceIn'|'bounceOut'|'bounceInOut'}
+	 * @default 'cubicOut'
+	 */
 	export let easeOutType = 'cubicOut';
 
-	// 左右间距
-	// Left and right spacing
+	/**
+	 * 左右间距
+	 * Left and right spacing
+	 * @type {'0'|'1'|'2'|'3'|'4'|'5'|'6'|'8'|'10'|'12'|'16'|'20'}
+	 * @default '0'
+	 */
 	export let px = '0';
 
-	// 上下间距
-	// Top and bottom spacing
+	/**
+	 * 上下间距
+	 * Top and bottom spacing
+	 * @type {'0'|'1'|'2'|'3'|'4'|'5'|'6'|'8'|'10'|'12'|'16'|'24'|'32'|'48'|'64'}
+	 * @default '0'
+	 */
 	export let py = '0';
 
-	// 遮罩层参数
-	// Mask layer parameters
+	/**
+	 * 遮罩层参数
+	 * Mask layer parameters
+	 * @type {object}
+	 * @default {}
+	 */
 	export let mask = {};
 
-	// 点击遮罩层是否关闭
-	// Click mask layer to close
+	/**
+	 * 点击遮罩层是否关闭
+	 * Click mask layer to close
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let maskClosable = true;
 
-	// 圆角位置
-	// Corner position
+	/**
+	 * 圆角位置
+	 * Corner position
+	 * @type {'all'|'top'|'bottom'|'left'|'right'}
+	 * @default 'top'
+	 */
 	export let radiusPosition = 'top';
 
-	// 圆角大小
-	// Corner size
+	/**
+	 * 圆角大小
+	 * Corner size
+	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'3xl'|'full'}
+	 * @default 'md'
+	 */
 	export let radius = 'none';
 
-	// 动画距离，当弹出层大小由内部元素决定时生效
-	// Animation distance, effective when popup size is determined by internal elements
+	/**
+	 * 动画距离，当弹出层大小由内部元素决定时生效，单位 px
+	 * Animation distance, effective when popup size is determined by internal elements (px)
+	 * @type {number}
+	 * @default 0
+	 */
 	export let transitionDistance = 0;
 
-	// 背景是否透明
-	// Whether the background is transparent
+	/**
+	 * 背景是否透明
+	 * Whether the background is transparent
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let transparent = false;
 
-	// 是否允许 body 滚动
-	// Whether to allow body scrolling
+	/**
+	 * 是否允许 body 滚动
+	 * Whether to allow body scrolling
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let allowBodyScroll = false;
 
-	// z-index
+	/**
+	 * z-index
+	 * @type {number}
+	 * @default 600
+	 */
 	export let zIndex = 600;
 
-	// 是否动态固定
-	// Whether to dynamically fix
+	/**
+	 * 是否动态固定
+	 * Whether to dynamically fix
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let dynamicFixed = true;
 
-	// 是否隐藏滚动区域滚动条
-	// Whether to hide the scroll bar of the scroll area
+	/**
+	 * 是否隐藏滚动区域滚动条
+	 * Whether to hide the scroll bar of the scroll area
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let hideScrollbar = false;
 
 	// 通过不同位置结合圆角参数，生成不同的 class

@@ -6,8 +6,12 @@
 	// Define event dispatcher
 	const dispatch = createEventDispatcher();
 
-	// 排列方式，h水平 v垂直,inline行内
-	// layout type, h horizontal, v vertical, inline inline
+	/**
+	 * 排列方式
+	 * layout type
+	 * @type {'h' | 'v' | 'inline'}
+	 * @default 'v'
+	 */
 	export let layout = 'v';
 
 	// 选中的值

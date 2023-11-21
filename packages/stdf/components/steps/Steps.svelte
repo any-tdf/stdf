@@ -1,31 +1,67 @@
 <script>
 	import Icon from '../icon/Icon.svelte';
 
-	// 步骤
-	// Steps
+	/**
+	 * @typedef {Object} step
+	 * @property {String} title 标题
+	 * @property {String} [desc] 描述
+	 * @property {Object|String} [bar] 进度条
+	 * @property {Object} [injComponent] 注入组件
+	 */
+
+	/**
+	 * @typedef {Object} finishStep
+	 * @property {String} title 标题
+	 * @property {String} [desc] 描述
+	 * @property {Object|String} [bar] 进度条
+	 * @property {Object} [injComponent] 注入组件
+	 */
+
+	/**
+	 * @typedef {Number} height
+	 */
+
+	/**
+	 * 步骤
+	 * Steps
+	 * @type {Array<{step: step, finishStep?: finishStep, height?: height}>}
+	 */
 	export let steps = [];
 
-	// 当前步骤
-	// Current step
+	/**
+	 * 当前步骤
+	 * Current step
+	 * @type {Number}
+	 * @range 1 - steps.length
+	 * @default 1
+	 */
 	export let current = 1;
 
-	// 圆角风格：none/base/xl/full
-	// Radius style: none/base/xl/full
+	/**
+	 * 圆角风格
+	 * Radius style
+	 * @type {String}
+	 * @default base
+	 */
 	export let radius = 'base';
 
-	// 图标是否带边框
-	// Whether the icon has a border
+	/**
+	 * 图标是否带边框
+	 * Whether the icon has a border
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let barBorder = true;
 
-	// 是否纵向
-	// Whether vertical
+	/**
+	 * 是否纵向
+	 * Whether vertical
+	 * @type {Boolean}
+	 * @default false
+	 */
 	export let vertical = false;
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-	};
+
+	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
 	let width = 0;
 </script>
 

@@ -5,54 +5,253 @@
 	// event dispatcher
 	const dispatch = createEventDispatcher();
 
-	// 数据
-	// data
+	/**
+	 * @typedef {Object} img
+	 * @property {'img'} type 类型
+	 * @property {String} url 图片地址
+	 */
+
+	/**
+	 * @typedef {Object} component
+	 * @property {'component'} type 类型
+	 * @property {Object} component 组件
+	 */
+
+	/**
+	 * 数据
+	 * Data
+	 * @type {Array<img|component>}
+	 * @default []
+	 */
 	export let data = [];
 
-	// 间隔时间
-	// interval time
+	/**
+	 * 间隔时间，单位秒
+	 * Interval time (seconds)
+	 * @type {Number}
+	 * @default 4
+	 */
 	export let interval = 4;
 
-	// 过渡时间
-	// duration time
+	/**
+	 * 过渡时间，单位毫秒
+	 * Duration time (milliseconds)
+	 * @type {Number}
+	 * @range 0 - interval*1000
+	 * @default 1000
+	 */
 	export let duration = 1000;
 
-	// 是否自动播放
-	// is autoplay
+	/**
+	 * 是否自动播放
+	 * Is autoplay
+	 * @type {Boolean}
+	 * @default true
+	 */
 	export let autoplay = true;
-	export let lazyplay = true; //是否懒轮播 is lazyplay
-	export let initActive = 0; //初始激活索引 init active index
-	export let indicatePosition = 'inner'; //指示器位置，'inner'/'out'/'none' indicate position
-	export let indicateAlign = 'center'; //指示器对齐方式，'center'/'right'/'left' indicate align
-	export let indicateStyle = 'pointLine'; //指示器样式，'point'/'line'/'pointLine'/'longLine' indicate style
-	export let indicateRadius = true; //指示器是否圆角 indicate radius
-	export let indicateInjClass = ''; //指示器注入 Class indicate inject class
-	export let indicateColor = ''; //指示器颜色 indicate color
-	export let indicateActiveColor = ''; //指示器激活颜色 indicate active color
-	export let aspectRatio = [16, 9]; //容器宽高比 container aspect ratio
-	export let containerWidth = 0; //容器宽度 container width
-	export let px = '0'; //容器横向内边距,0/1/2/4/6/8/12/16/24 container padding x
-	export let py = '0'; //容器纵向内边距,0/1/2/4/6/8/12 container padding y
-	export let translateX = 0; //未激活容器X方向偏移值 no active container translate x
-	export let translateZ = 0; //未激活容器Z方向偏移值 no active container translate z
-	export let rotateX = 0; //未激活容器X轴旋转值 no active container rotate x
-	export let rotateY = 0; //未激活容器Y轴旋转值 no active container rotate y
-	export let rotateZ = 0; //未激活容器Z轴旋转值 no active container rotate z
-	export let activeInjClass = ''; //激活容器注入 Class active container inject class
-	export let notActiveInjClass = ''; //未激活容器注入 Class no active container inject class
-	export let radius = 'none'; //容器内部区域圆角,none/base/xl/2xl/full container inner radius
+
+	/**
+	 * 是否懒轮播
+	 * Is lazyplay
+	 * @type {Boolean}
+	 * @default true
+	 */
+	export let lazyplay = true;
+
+	/**
+	 * 初始激活索引
+	 * init active index
+	 * @type {Number}
+	 * @range 0 - data.length-1
+	 * @default 0
+	 */
+	export let initActive = 0;
+
+	/**
+	 * 指示器位置
+	 * indicate position
+	 * @type {'inner'|'out'|'none'}
+	 * @default 'inner'
+	 */
+	export let indicatePosition = 'inner';
+
+	/**
+	 * 指示器对齐方式
+	 * indicate align
+	 * @type {'center'|'right'|'left'}
+	 * @default 'center'
+	 */
+	export let indicateAlign = 'center';
+
+	/**
+	 * 指示器样式
+	 * indicate style
+	 * @type {'point'|'line'|'pointLine'|'longLine'}
+	 * @default 'pointLine'
+	 */
+	export let indicateStyle = 'pointLine';
+
+	/**
+	 * 指示器是否圆角
+	 * indicate radius
+	 * @type {Boolean}
+	 * @default true
+	 */
+	export let indicateRadius = true;
+
+	/**
+	 * 指示器注入 Class
+	 * indicate inject class
+	 * @type {String}
+	 * @default ''
+	 */
+	export let indicateInjClass = '';
+
+	/**
+	 * 指示器颜色，注入 Class
+	 * indicate color, inject class
+	 * @type {String}
+	 * @default ''
+	 */
+	export let indicateColor = '';
+
+	/**
+	 * 指示器激活颜色，注入 Class
+	 * indicate active color, inject class
+	 * @type {String}
+	 * @default ''
+	 */
+	export let indicateActiveColor = '';
+
+	/**
+	 * 容器宽高比
+	 * container aspect ratio
+	 * @type {[Number, Number]}
+	 * @default [16, 9]
+	 */
+	export let aspectRatio = [16, 9];
+
+	/**
+	 * 容器宽度
+	 * container width
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let containerWidth = 0;
+
+	/**
+	 * 容器横向内边距
+	 * container padding x
+	 * @type {'0'|'1'|'2'|'4'|'6'|'8'|'12'|'16'|'24'}
+	 * @default '0'
+	 */
+	export let px = '0';
+
+	/**
+	 * 容器纵向内边距
+	 * container padding y
+	 * @type {'0'|'1'|'2'|'4'|'6'|'8'|'12'}
+	 * @default '0'
+	 */
+	export let py = '0';
+
+	/**
+	 * 未激活容器X方向偏移值，单位 px
+	 * no active container translate x (px)
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let translateX = 0;
+
+	/**
+	 * 未激活容器Z方向偏移值，单位 px
+	 * no active container translate z (px)
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let translateZ = 0;
+
+	/**
+	 * 未激活容器X轴旋转值，单位 px
+	 * no active container rotate x (px)
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let rotateX = 0;
+
+	/**
+	 * 未激活容器Y轴旋转值，单位 px
+	 * no active container rotate y (px)
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let rotateY = 0;
+
+	/**
+	 * 未激活容器Z轴旋转值，单位 px
+	 * no active container rotate z (px)
+	 * @type {Number}
+	 * @default 0
+	 */
+	export let rotateZ = 0;
+
+	/**
+	 * 激活容器注入 Class
+	 * active container inject class
+	 * @type {String}
+	 * @default ''
+	 */
+	export let activeInjClass = '';
+
+	/**
+	 * 未激活容器注入 Class
+	 * no active container inject class
+	 * @type {String}
+	 * @default ''
+	 */
+	export let notActiveInjClass = '';
+
+	/**
+	 * 容器内部区域圆角
+	 * container inner radius
+	 * @type {'none'|'base'|'xl'|'2xl'|'full'}
+	 * @default 'none'
+	 */
+	export let radius = 'none';
+
+	/**
+	 * 容器内部元素注入 Class
+	 * container inner inject class
+	 * @type {String}
+	 * @default ''
+	 */
 	export let innerInjClass = ''; //容器内部元素注入 Class container inner inject class
 
-	// 始终触发的滑动距离百分比
-	// touch move distance percent
+	/**
+	 * 始终触发的滑动距离百分比
+	 * Always trigger the percentage of the sliding distance
+	 * @type {Number}
+	 * @range 0 - 100
+	 * @default 30
+	 */
 	export let triggerLong = 30;
 
-	// 始终不触发的滑动距离百分比
-	// not touch move distance percent
+	/**
+	 * 始终不触发的滑动距离百分比
+	 * The percentage of the sliding distance that is never triggered
+	 * @type {Number}
+	 * @range 0 - 100
+	 * @default 10
+	 */
 	export let notTriggerLong = 10;
 
-	// 触发的滑动速度系数
-	// touch move speed coefficient
+	/**
+	 * 触发的滑动速度系数
+	 * Touch move speed coefficient
+	 * @type {Number}
+	 * @range 0 - 1
+	 * @default 0.5
+	 */
 	export let triggerSpeed = 0.5;
 
 	let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
@@ -78,38 +277,10 @@
 			: data.length === 1
 			? [data[data.length - 1], ...data, data[0]]
 			: data; //实现无限轮播，复制一个新数组，防止改变原数组 implement infinite loop, copy a new array to prevent change original array
-	const indicateAlignObj = {
-		left: 'justify-start',
-		center: 'justify-center',
-		right: 'justify-end',
-	};
-	const pxObj = {
-		'0': '',
-		'1': 'px-1',
-		'2': 'px-2',
-		'4': 'px-4',
-		'6': 'px-6',
-		'8': 'px-8',
-		'12': 'px-12',
-		'16': 'px-16',
-		'24': 'px-24',
-	};
-	const pyObj = {
-		'0': '',
-		'1': 'py-1',
-		'2': 'py-2',
-		'4': 'py-4',
-		'6': 'py-6',
-		'8': 'py-8',
-		'12': 'py-12',
-	};
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded-base',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		full: 'rounded-full',
-	};
+	const indicateAlignObj = { left: 'justify-start', center: 'justify-center', right: 'justify-end' };
+	const pxObj = { '0': '', '1': 'px-1', '2': 'px-2', '4': 'px-4', '6': 'px-6', '8': 'px-8', '12': 'px-12', '16': 'px-16', '24': 'px-24' };
+	const pyObj = { '0': '', '1': 'py-1', '2': 'py-2', '4': 'py-4', '6': 'py-6', '8': 'py-8', '12': 'py-12' };
+	const radiusObj = { none: 'rounded-none', base: 'rounded-base', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 	//根据 indicateStyle 和是否激活生成不同样式的 indicate
 	//generate different style indicate according to indicateStyle and isActive
 	const indicateStyleInnerFun = (indicateStyle, isActive, indicateColor, indicateActiveColor) => {
@@ -457,22 +628,16 @@
 					i === active ? activeInjClass : notActiveInjClass
 				}`}
 				style="width:{width}px;height:{(width * aspectRatio[1]) / aspectRatio[0]}px;left:{width * (i - active) +
-					moveX}px;transition-duration: {duration}ms;z-index:{zIndexFun(
+					moveX}px;transition-duration: {duration}ms;z-index:{zIndexFun(i, active, dataNew)};transform:translateX({translateXFun(
 					i,
 					active,
-					dataNew,
-					movePercent,
-				)};transform:translateX({translateXFun(i, active, translateX, movePercent)}) translateZ({translateZFun(
+					translateX,
+				)}) translateZ({translateZFun(i, active, translateZ, movePercent)}) rotateX({rotateXFun(
 					i,
 					active,
-					translateZ,
+					rotateX,
 					movePercent,
-				)}) rotateX({rotateXFun(i, active, rotateX, movePercent)}) rotateY({rotateYFun(
-					i,
-					active,
-					rotateY,
-					movePercent,
-				)}) rotateZ({rotateZFun(i, active, rotateZ, movePercent)});"
+				)}) rotateY({rotateYFun(i, active, rotateY, movePercent)}) rotateZ({rotateZFun(i, active, rotateZ, movePercent)});"
 			>
 				{#if item.type === 'img'}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->

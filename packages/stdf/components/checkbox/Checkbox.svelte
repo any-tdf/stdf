@@ -2,28 +2,52 @@
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	// 标识符
-	// Identifier
+	/**
+	 * 标识符
+	 * Identifier
+	 * @type {string}
+	 * @default ''
+	 */
 	export let name = '';
 
-	// Checkbox 所在的 CheckboxGroup 内所有选定项标识符组成的数组
-	// Array of all selected identifiers in the CheckboxGroup
+	/**
+	 * Checkbox 所在的 CheckboxGroup 内所有选定项标识符组成的数组
+	 * Array of all selected identifiers in the CheckboxGroup
+	 * @type {string[]}
+	 * @default []
+	 */
 	export let checkeds = [];
 
-	// 选中状态是否由外部控制
-	// Whether the selected state is controlled by the outside
+	/**
+	 * 选中状态是否由外部控制
+	 * Whether the selected state is controlled by the outside
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let outControl = false;
 
-	// 选项内容区域位置
-	// Option content area position
+	/**
+	 * 选项内容区域位置
+	 * Option content area position
+	 * @type {'l' | 'r' | 't' | 'b'}
+	 * @default 'r'
+	 */
 	export let textPosition = 'r';
 
-	// 未选中选项图标区域内容
-	// Unselected option icon area content
+	/**
+	 * 未选中选项图标区域内容
+	 * Unselected option icon area content
+	 * @type {'none' | 'default' | Object}
+	 * @default 'default'
+	 */
 	export let icon = 'default';
 
-	// 选中选项图标区域内容
-	// Selected option icon area content
+	/**
+	 * 选中选项图标区域内容
+	 * Selected option icon area content
+	 * @type {'none' | 'default' | Object}
+	 * @default 'default'
+	 */
 	export let iconChecked = 'default';
 
 	// 父组件传过来的选定值
@@ -38,8 +62,10 @@
 	// Current selected value
 	$: currentChecked = outControl ? checkeds.includes(name) : $STDF_checkboxCheckedsStore.includes(name);
 
-	// 父组件传过来的排列方式
-	// Layout type passed from parent component
+	/**
+	 * 父组件传过来的排列方式
+	 * Layout type passed from parent component
+	 */
 	const STDF_checkboxLayoutStore = getContext('STDF_checkboxLayoutContext');
 
 	// 点击选项事件
@@ -63,7 +89,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class={`${$STDF_checkboxLayoutStore === 'inline' ? 'inline-block' : 'flex'} grow active:opacity-80 ${
-		textPosition === 'l' && !$STDF_checkboxLayoutStore === 'v' ? 'justify-between' : ''
+		textPosition === 'l' && $STDF_checkboxLayoutStore != 'v' ? 'justify-between' : ''
 	} ${
 		textPosition === 'b' || textPosition === 't'
 			? 'flex-col items-center'

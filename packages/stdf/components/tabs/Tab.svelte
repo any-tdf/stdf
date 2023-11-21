@@ -2,31 +2,113 @@
 	import { createEventDispatcher } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	export let labels = []; //选项卡内容组  content group of tabs
-	export let active = 0; //当前选中的选项卡索引  index of active tab
-	export let lineType = false; //是否使用线性风格,layout为v时失效  whether to use linear style, invalid when layout is v
-	export let radius = 'base'; //圆角风格：none/base/xl/full  radius style:none/base/xl/full
-	export let duration = 'base'; //过渡时间fast/base/slow/slower  transition time:fast/base/slow/slower
-	export let layout = 'h'; //布局，h/v，对应tabs的placement  layout,h/v,corresponding to placement of tabs
-	export let love = false; //是否开启关爱版  whether to open love version
-	export let injClass = ''; //Tab最外层注入CSS  Tab outermost layer injection CSS
-	export let tabInjClass = ''; //tab注入CSS  tab injection CSS
-	export let activeTabInjClass = ''; //选中tab注入CSS  selected tab injection CSS
-	export let activeInjClass = ''; //指示器注入CSS  indicator injection CSS
-	export let mx = '4'; //左右间距  left and right spacing
+	/**
+	 * 选项卡
+	 * label
+	 * @typedef {Object} Label
+	 * @property {string} [text] - 选项卡文字
+	 * @property {Object} [icon] - 选项卡图标
+	 */
 
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-	};
-	const durationObj = {
-		fast: 'duration-150',
-		base: 'duration-300',
-		slow: 'duration-500',
-		slower: 'duration-1000',
-	};
+	/**
+	 * 选项卡组
+	 * label group
+	 * @type {Label[]}
+	 * @default []
+	 */
+	export let labels = [];
+
+	/**
+	 * 当前选中的选项卡索引
+	 * index of active tab
+	 * @type {number}
+	 * @range 0 - labels.length - 1
+	 * @default 0
+	 */
+	export let active = 0;
+
+	/**
+	 * 是否使用线性风格，layout 为 v 时失效
+	 * whether to use linear style, invalid when layout is v
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let lineType = false;
+
+	/**
+	 * 圆角风格
+	 * radius style
+	 * @type {'none'|'base'|'xl'|'full'}
+	 * @default 'base'
+	 */
+	export let radius = 'base';
+
+	/**
+	 * 过渡时间
+	 * transition time
+	 * @type {'fast'|'base'|'slow'|'slower'}
+	 * @default 'base'
+	 */
+	export let duration = 'base';
+
+	/**
+	 * 布局，h/v，对应tabs的placement
+	 * layout,h/v,corresponding to placement of tabs
+	 * @type {'h'|'v'}
+	 * @default 'h'
+	 */
+	export let layout = 'h';
+
+	/**
+	 * 是否开启关爱版
+	 * whether to open love version
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let love = false;
+
+	/**
+	 * Tab 最外层注入 CSS
+	 * Tab outermost layer injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let injClass = '';
+
+	/**
+	 * Tab 注入 CSS
+	 * Tab injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let tabInjClass = '';
+
+	/**
+	 * 选中 tab 注入 CSS
+	 * selected tab injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let activeTabInjClass = '';
+
+	/**
+	 * 指示器注入 CSS
+	 * indicator injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let activeInjClass = '';
+
+	/**
+	 * 左右间距
+	 * left and right spacing
+	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'|'12'|'16'|'20'}
+	 * @default '4'
+	 */
+	export let mx = '4';
+
+	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
+	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };
 	const mxClass = {
 		'0': ' mx-0',
 		'1': ' mx-1',

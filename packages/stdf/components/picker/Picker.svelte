@@ -13,64 +13,148 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const pickerLang = currentLang.picker;
 
-	// 是否显示
-	// Whether to show
+	/**
+	 * 是否显示
+	 * Whether to show
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let visible = false;
 
-	// 所有列数据
-	// All column data
+	/**
+	 * @typedef {Object} datasObj - 每一列的数据
+	 * @property {Array} data - 每一列的数据
+	 * @property {'left'|'center'|'right'} [align] - 对齐方式
+	 * @property {3|5|7} [showRow] - 每列显示行数
+	 * @property {Number} [initIndex] - 初始选中项
+	 * @property {Boolean} [useAnimation] - 是否使用动画
+	 * @property {String} [labelKey] - 显示文本的 key
+	 * @property {Number} [flex] - 每列的宽度
+	 * @property {Number} [lastSelectedIndex] - 上次选中项
+	 */
+
+	/**
+	 * @typedef {Object} isLinkageObject - 对象类型的定义，必须包含两个属性，第一个属性的值为字符，第二个属性的值为数组
+	 * @property {String} [label] - 显示文本
+	 * @property {Array} [children] - 下级数据
+	 * @property {Number} [initIndex] - 初始选中项
+	 * @property {Array} [data] - 每一列的数据
+	 * @property {3|5|7} [showRow] - 每列显示行数
+	 * @property {String} [labelKey] - 显示文本的 key
+	 * @property {Boolean} [useAnimation] - 是否使用动画
+	 * @property {'left'|'center'|'right'} [align] - 对齐方式
+	 * @property {Number} [flex] - 每列的宽度
+	 */
+
+	/**
+	 * 所有列数据
+	 * All column data
+	 * @type {Array<datasObj>|Array<isLinkageObject>}
+	 * @default []
+	 */
 	export let datas = [];
 
-	// 是否自动滚动到上次的选中项
-	// Whether to automatically scroll to the last selected item
+	/**
+	 * 是否自动滚动到上次的选中项
+	 * Whether to automatically scroll to the last selected item
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let autoScrollToLast = true;
 
-	// 取消选项文本
-	// Cancel option text
+	/**
+	 * 取消选项文本
+	 * Cancel option text
+	 * @type {string}
+	 * @default Current language picker.cancelText
+	 */
 	export let cancelText = pickerLang.defaultCancel;
 
-	// 确定选项文本
-	// Confirm option text
+	/**
+	 * 确定选项文本
+	 * Confirm option text
+	 * @type {string}
+	 * @default Current language picker.confirmText
+	 */
 	export let confirmText = pickerLang.defaultConfirm;
 
-	// 中间选项文本
-	// Middle option text
+	/**
+	 * 中间选项文本
+	 * Middle option text
+	 * @type {string}
+	 * @default Current language picker.defaultTitle
+	 */
 	export let title = pickerLang.defaultTitle;
 
-	// 是否多级联动
-	// Whether multi-level linkage
+	/**
+	 * 是否多级联动
+	 * Whether multi-level linkage
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let isLinkage = false;
 
-	// 如果是多级联动，可以通过传入的 linkageInitIndexs 来设置初始选中项
-	// If it is multi-level linkage, you can set the initial selected item by passing in linkageInitIndexs
+	/**
+	 * 如果是多级联动，可以通过传入的 linkageInitIndexs 来设置初始选中项
+	 * If it is multi-level linkage, you can set the initial selected item by passing in linkageInitIndexs
+	 * @type {Array<Number>}
+	 * @default []
+	 */
 	export let linkageInitIndexs = [];
 
-	// 如果是多级联动，可以通过传入的 linkageShowRows 来设置每列显示行数
-	// If it is multi-level linkage, you can set the number of rows displayed in each column by passing in linkageShowRows
+	/**
+	 * 如果是多级联动，可以通过传入的 linkageShowRows 来设置每列显示行数
+	 * If it is multi-level linkage, you can set the number of rows displayed in each column by passing in linkageShowRows
+	 * @type {Array<3|5|7>}
+	 * @default []
+	 */
 	export let linkageShowRows = [];
 
-	// 如果是多级联动，可以通过传入的 linkageFlexs 来设置每列的宽度
-	// If it is multi-level linkage, you can set the width of each column by passing in linkageFlexs
+	/**
+	 * 如果是多级联动，可以通过传入的 linkageFlexs 来设置每列的宽度
+	 * If it is multi-level linkage, you can set the width of each column by passing in linkageFlexs
+	 * @type {Array<Number>}
+	 * @default []
+	 */
 	export let linkageFlexs = [];
 
-	// 如果是多级联动，可以通过传入的 linkageLabelKeys 来设置每列的 labelKey
-	// If it is multi-level linkage, you can set the labelKey of each column by passing in linkageLabelKeys
+	/**
+	 * 如果是多级联动，可以通过传入的 linkageLabelKeys 来设置每列的 labelKey
+	 * If it is multi-level linkage, you can set the labelKey of each column by passing in linkageLabelKeys
+	 * @type {Array<String>}
+	 * @default []
+	 */
 	export let linkageLabelKeys = [];
 
-	// 如果是多级联动，可以通过传入的 linkageAligns 来设置每列的对齐方式
-	// If it is multi-level linkage, you can set the alignment of each column by passing in linkageAligns
+	/**
+	 * 如果是多级联动，可以通过传入的 linkageAligns 来设置每列的对齐方式
+	 * If it is multi-level linkage, you can set the alignment of each column by passing in linkageAligns
+	 * @type {Array<'left'|'center'|'right'>}
+	 * @default []
+	 */
 	export let linkageAligns = [];
 
-	// 如果是多级联动，可以通过传入上下级 children 的 key 来设置
-	// If it is multi-level linkage, you can set the key of the children of the upper and lower levels by passing it in
+	/**
+	 * 如果是多级联动，可以通过传入上下级 children 的 key 来设置
+	 * If it is multi-level linkage, you can set the key of the children of the upper and lower levels by passing it in
+	 * @type {string}
+	 * @default 'children'
+	 */
 	export let linkageChildrenKey = 'children';
 
-	// 弹出层参数
-	// Popup parameters
+	/**
+	 * 弹出层参数
+	 * Popup parameters
+	 * @type {Object}
+	 * @default {}
+	 */
 	export let popup = {};
 
-	// 定义内部使用的datas
-	// Define datas used internally
+	/**
+	 * 内部使用的 datas
+	 * Datas used internally
+	 * @type {Array<datasObj>|Array<isLinkageObject>}
+	 */
 	let newDatas = datas;
 
 	// 如果是多级联动，对 newDatas 进行处理，使其结构符合 ScrollRadio 组件的结构

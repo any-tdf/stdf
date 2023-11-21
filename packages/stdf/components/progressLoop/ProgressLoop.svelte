@@ -1,47 +1,85 @@
 <script>
-	// 百分比
-	//  percent
+	/**
+	 * 百分比
+	 * percent
+	 * @type {number}
+	 * @range 0 - 100
+	 * @default 66
+	 */
 	export let percent = 66;
 
-	// 圆环宽度
-	// circle width
+	/**
+	 * 圆环宽度
+	 * circle width
+	 * @type {number}
+	 * @range 0 - 12
+	 * @default 2
+	 */
 	export let strokeWidth = 2;
 
-	// 是否直角
-	// is butt
+	/**
+	 * 是否直角
+	 * is butt
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let butt = false;
 
-	// 是否反向
-	// is reverse
+	/**
+	 * 是否反向
+	 * is reverse
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let reverse = false;
 
-	// 动画时间
-	// animation duration
+	/**
+	 * 动画时间
+	 * animation duration
+	 * @type {'150'|'300'|'500'|'700'|'1000'}
+	 * @default '300'
+	 */
 	export let duration = '300';
 
-	// 渐变色
-	// gradient color
+	/**
+	 * 渐变色
+	 * gradient color
+	 * @type {string[]}
+	 * @default []
+	 */
 	export let gradient = [];
 
-	// 是否使用slot
-	// is use slot
+	/**
+	 * 是否使用slot
+	 * is use slot
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let useSlot = false;
 
-	// 注入class
-	// inject class
+	/**
+	 * 注入class
+	 * inject class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	// 轨道注入class
-	// track inject class
+	/**
+	 * 轨道注入class
+	 * tranck inject class
+	 * @type {string}
+	 * @default ''
+	 */
 	export let trackInjClass = '';
 
 	// 通过百分比计算半径
 	// calculate radius by percent
-	let r = 12 - strokeWidth / 2;
+	const r = 12 - strokeWidth / 2;
 
 	// 计算圆周长
 	// calculate circle length
-	let circleLen = 2 * Math.PI * r;
+	const circleLen = 2 * Math.PI * r;
 
 	// 动画时间class
 	// animation duration class

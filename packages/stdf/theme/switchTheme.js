@@ -31,11 +31,50 @@ const setPropertyFunc = (name, value) => {
 };
 
 /**
+ * Primary and dark color object
+ * 主色系和暗黑色系对象
+ * @typedef {Object<string, string>} PrimaryAndDarkColor
+ * @property {string} 50
+ * @property {string} 100
+ * @property {string} 200
+ * @property {string} 300
+ * @property {string} 400
+ * @property {string} 500
+ * @property {string} default
+ * @property {string} 700
+ * @property {string} 800
+ * @property {string} 900
+ * @property {string} 950
+ */
+
+/**
+ * 主题对象
+ * Theme object
+ * @typedef {object} Theme
+ * @property {string} name 主题名称 Theme name
+ * @property {object} color 主题颜色 Theme color
+ * @property {PrimaryAndDarkColor} color.primary 主色系 Primary color
+ * @property {PrimaryAndDarkColor} color.dark 暗黑色系 Dark color
+ * @property {string} color.primaryBlack 主色系黑色 Primary color black
+ * @property {string} color.primaryWhite 主色系白色 Primary color white
+ * @property {string} color.darkBlack 暗黑色系黑色 Dark color black
+ * @property {string} color.darkWhite 暗黑色系白色 Dark color white
+ * @property {object} color.functional 功能色系 Functional color
+ * @property {string} color.functional.success 功能色系成功色 Functional color success
+ * @property {string} color.functional.warning 功能色系警告色 Functional color warning
+ * @property {string} color.functional.error 功能色系错误色 Functional color error
+ * @property {string} color.functional.info 功能色系信息色 Functional color info
+ * @property {Array<{color: string, alias: string}>|[]} color.extend 扩展色系 Extend color
+ */
+
+/**
  * 切换主题
  * Switch theme
- * @param {object} theme 主题对象，格式请参考 https://stdf.design/#/guide?nav=theme
- * @returns {void}
+ * @param {Theme} theme 主题对象 Theme object
+ * @returns {void} void
  * @example
+ * import { stdfTheme } from 'stdf/theme';
+ * switchTheme(stdfTheme);
  */
 export default theme => {
 	const { color } = theme;
@@ -53,7 +92,9 @@ export default theme => {
 	setPropertyFunc('--theme-color-primaryWhite', color.primaryWhite);
 	setPropertyFunc('--theme-color-darkBlack', color.darkBlack);
 	setPropertyFunc('--theme-color-darkWhite', color.darkWhite);
-	color.extend.forEach((item, i) => {
-		setPropertyFunc(`--theme-color-extend${i}`, item.color);
-	});
+	if (color.extend.length > 0) {
+		color.extend.forEach((item, i) => {
+			setPropertyFunc(`--theme-color-extend${i}`, item.color);
+		});
+	}
 };

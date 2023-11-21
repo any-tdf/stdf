@@ -2,15 +2,87 @@
 	import { createEventDispatcher } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	export let labels = []; //选项卡内容组  label group of TabBar
-	export let active = 0; //当前选中的选项卡索引  index of active label
-	export let line = false; //底部是否显示线条  whether to show line at the bottom
-	export let lineW = 4; //线条占当前Tab宽度的比例  line width ratio of current Tab
-	export let love = false; //是否开启关爱版  whether to open love version
-	export let injClass = ''; //TabBar最外层注入CSS  TabBar outermost layer injection CSS
-	export let tabInjClass = ''; //tab注入CSS  tab injection CSS
-	export let activeTabInjClass = ''; //选中tab注入CSS   selected tab injection CSS
-	export let activeInjClass = ''; //线条注入CSS  line injection CSS
+	/**
+	 * 选项卡内容
+	 * label of TabBar
+	 * @typedef {Object} Label
+	 * @property {string} [text] - 选项卡文字  TabBar text
+	 * @property {Object} [icon] - 选项卡图标  TabBar icon
+	 * @property {Object} [activeIcon] - 选项卡选中时的图标  TabBar icon when selected
+	 */
+
+	/**
+	 * 选项卡组
+	 * label group of TabBar
+	 * @type {Label[]}
+	 * @default []
+	 */
+	export let labels = [];
+
+	/**
+	 * 当前选中的选项卡索引
+	 * index of active label
+	 * @type {number}
+	 * @range 0 - labels.length - 1
+	 * @default 0
+	 */
+	export let active = 0;
+
+	/**
+	 * 底部是否显示线条
+	 * whether to show line at the bottom
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let line = false;
+
+	/**
+	 * 线条占当前Tab宽度的比例
+	 * line width ratio of current Tab
+	 * @type {number}
+	 * @default 4
+	 */
+	export let lineW = 4;
+
+	/**
+	 * 是否开启关爱版
+	 * whether to open love version
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let love = false;
+
+	/**
+	 * TabBar最外层注入CSS
+	 * TabBar outermost layer injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let injClass = '';
+
+	/**
+	 * Tab注入CSS
+	 * Tab injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let tabInjClass = '';
+
+	/**
+	 * 选中tab注入CSS
+	 * selected tab injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let activeTabInjClass = '';
+
+	/**
+	 * 线条注入CSS
+	 * line injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let activeInjClass = '';
 
 	const dispatch = createEventDispatcher(); //事件派发器  event dispatcher
 

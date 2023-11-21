@@ -2,56 +2,109 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	// 默认值
-	// default value
+	/**
+	 * 默认值
+	 * default value
+	 * @type {number}
+	 * @range 0 - total
+	 * @default 4
+	 */
 	export let value = 4;
 
-	// 总数
-	// total number of stars
-	export let total = 5; //total number of stars
+	/**
+	 * 总数
+	 * total number of stars
+	 * @type {number}
+	 * @default 5
+	 */
+	export let total = 5;
 
-	// 高度
-	// height of the star
+	/**
+	 * 高度
+	 * height of the star
+	 * @type {number}
+	 * @default 24
+	 */
 	export let height = 24;
 
-	// 宽度
-	// width of the star
+	/**
+	 * 宽度
+	 * width of the star
+	 * @type {number}
+	 * @default 24
+	 */
 	export let width = 24;
 
-	// 未选中透明度
-	// opacity of the unselected star
-	export let opacity = 0.2;
+	/**
+	 * 未选中透明度
+	 * opacity of the unselected star
+	 * @type {'0.1'|'0.2'|'0.3'|'0.4'|'0.5'|'0.6'|'0.7'|'0.8'|'0.9'|'1'}
+	 * @default '0.2'
+	 */
+	export let opacity = '0.2';
 
-	// 间距
-	// space between stars
+	/**
+	 * 间距
+	 * space between stars
+	 * @type {'0'|'1'|'2'|'3'|'4'|'8'}
+	 * @default '3'
+	 */
 	export let space = '3';
 
-	// 是否允许半选
-	// whether to allow half selection
+	/**
+	 * 是否允许半选
+	 * whether to allow half selection
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let half = false;
 
-	// 是否允许0分
-	// whether to allow 0 points
+	/**
+	 * 是否允许0分
+	 * whether to allow 0 points
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let zero = false;
 
-	// 是否垂直半选
-	// whether to allow vertical half selection
+	/**
+	 * 是否垂直半选
+	 * whether to allow vertical half selection
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let vertical = false;
 
-	// 是否禁用
-	// whether to disable
+	/**
+	 * 是否禁用
+	 * whether to disable
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let disabled = false;
 
-	// 是否只读
-	// whether to read only
+	/**
+	 * 是否只读
+	 * whether to read only
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let readonly = false;
 
-	// 是否自定义
-	// whether to customize
+	/**
+	 * 是否自定义
+	 * whether to customize
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let custom = false;
 
-	// 点击动画类型，current 表示仅点击的图标有动画，active 表示激活的图标有动画，none 表示无动画
-	// click animation type, current means that only the clicked icon has animation, active means that the activated icon has animation, and none means no animation
+	/**
+	 * 点击动画类型，current 表示仅点击的图标有动画，active 表示激活的图标有动画，none 表示无动画
+	 * click animation type, current means that only the clicked icon has animation, active means that the activated icon has animation, and none means no animation
+	 * @type {'current'|'active'|'none'}
+	 * @default 'current'
+	 */
 	export let animation = 'current';
 
 	// 当前语言
@@ -82,14 +135,7 @@
 
 	// 间距样式
 	// space style
-	const spaceObj = {
-		'0': ' gap-0',
-		'1': ' gap-1',
-		'2': ' gap-2',
-		'3': ' gap-3',
-		'4': ' gap-4',
-		'8': ' gap-8',
-	};
+	const spaceObj = { '0': ' gap-0', '1': ' gap-1', '2': ' gap-2', '3': ' gap-3', '4': ' gap-4', '8': ' gap-8' };
 
 	// 透明度样式
 	// opacity style

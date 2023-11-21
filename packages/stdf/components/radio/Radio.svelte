@@ -2,21 +2,38 @@
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	// 名称
-	// name
+	/**
+	 * 名称
+	 * name
+	 * @type {string}
+	 * @default ''
+	 */
 	export let name = '';
 
-	// 文本位置
-	// text position
+	/**
+	 * 文本位置
+	 * text position
+	 * @type {'l'|'r'|'t'|'b'}
+	 * @default 'r'
+	 */
 	export let textPosition = 'r';
 
-	// 图标
-	// icon
+	/**
+	 * 图标
+	 * icon
+	 * @type {'defaulr'|'none'|Object}
+	 * @default 'default'
+	 */
 	export let icon = 'default';
 
-	// 选中图标
-	// icon checked
+	/**
+	 * 选中图标
+	 * icon checked
+	 * @type {'defaulr'|'none'|Object}
+	 * @default 'default'
+	 */
 	export let iconChecked = 'default';
+
 	const STDF_radioValueStore = getContext('STDF_radioValueContext');
 	const STDF_radioHorizontalStore = getContext('STDF_radioHorizontalContext');
 	const clickRadioFun = () => {

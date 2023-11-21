@@ -2,20 +2,64 @@
 	import { createEventDispatcher } from 'svelte';
 	import Loading from '../loading/Loading.svelte';
 
-	export let check = false; // 是否选中 is checked
-	export let radius = 'base'; // 圆角风格：none/base/full rounded style: none/base/full
-	export let inside = []; // 内部内容 inside content
-	export let injClass = ''; // 注入 CSS injection CSS
-	export let disabled = false; // 是否禁用 is disabled
-	export let async = false; // 是否异步  is async
+	/**
+	 * 是否选中
+	 * Whether to select
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let check = false;
+
+	/**
+	 * 圆角风格
+	 * Rounded style
+	 * @type {'none' | 'base' | 'full'}
+	 * @default 'base'
+	 */
+	export let radius = 'base';
+
+	/**
+	 * 内部内容
+	 * Inside content
+	 * @type {'state' | 'loading' | 'slot' | [string, string]|''}
+	 * @default ''
+	 */
+	export let inside = '';
+
+	/**
+	 * 注入 CSS
+	 * Injection CSS
+	 * @type {string}
+	 * @default ''
+	 */
+	export let injClass = '';
+
+	/**
+	 * 是否禁用
+	 * is disabled
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let disabled = false;
+
+	/**
+	 * 是否异步
+	 * is async
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let async = false;
+
+	/**
+	 * 加载状态
+	 * loading status
+	 * @type {object}
+	 * @default {}
+	 */
 	export let loading = {}; // 加载状态  loading status
 
 	let isLong = false; // 是否处于纵向拉长状态  is in the vertical elongation state
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		full: 'rounded-full',
-	};
+	const radiusObj = { none: 'rounded-none', base: 'rounded', full: 'rounded-full' };
 	const dispatch = createEventDispatcher();
 	const setChangeFun = () => {
 		if (!disabled) {
@@ -59,7 +103,7 @@
 		{:else if inside === 'slot'}
 			<span class={check ? '' : 'hidden'}><slot name="true" /></span>
 			<span class={!check ? '' : 'hidden'}> <slot name="false" /></span>
-		{:else if Array.isArray(inside) && inside.length !== 0}
+		{:else if Array.isArray(inside) && inside.length === 2}
 			<span class={check ? '' : 'hidden'}>{inside[1]} </span>
 			<span class={!check ? '' : 'hidden'}>{inside[0]} </span>
 		{:else}

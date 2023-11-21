@@ -16,69 +16,121 @@
 	const commonLang = currentLang.common;
 	const paginationLang = currentLang.pagination;
 
-	// 总条数
-	// total
+	/**
+	 * 总条数
+	 * total
+	 * @type {number}
+	 * @default 0
+	 */
 	export let total = 0;
 
-	// 每页条数
-	// pageSize
+	/**
+	 * 每页条数
+	 * pageSize
+	 * @type {number}
+	 * @default 10
+	 */
 	export let pageSize = 10;
 
-	// 当前页
-	// current
+	/**
+	 * 当前页
+	 * current
+	 * @type {number}
+	 * @default 1
+	 */
 	export let current = 1;
 
-	// 最大显示页码数，允许 5/7/9/11
-	// maxShowPage, can be 5/7/9/11
+	/**
+	 * 最大显示页码数
+	 * max show page
+	 * @type {5|7|9|11}
+	 * @default 7
+	 */
 	export let maxShowPage = 7;
 
-	// 圆角
-	// radius
-	export let radius = 'md'; // 'base'/'md'/'lg'/'xl'/'full'/'none'
+	/**
+	 * 圆角
+	 * radius
+	 * @type {'base'|'md'|'lg'|'xl'|'full'|'none'}
+	 * @default 'md'
+	 */
+	export let radius = 'md';
 
-	// 高亮页码类型
-	// highlight page type
-	export let type = 'bold'; // 'border'/'block'/'bold'
+	/**
+	 * 高亮页码类型
+	 * highlight page type
+	 * @type {'border'|'block'|'bold'}
+	 * @default 'bold'
+	 */
+	export let type = 'bold';
 
-	// 省略页码列数
-	// second level page column
+	/**
+	 * 省略页码列数
+	 * second level page column
+	 * @type {number}
+	 * @default 3
+	 */
 	export let pageCol = 3;
 
-	// 是否显示后省略号的省略页码
-	// show second level page in next ellipsis
+	/**
+	 * 是否显示后省略号的省略页码
+	 * show second level page in next ellipsis
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let showNextOmitPage = false;
 
-	// 是否显示前省略号的省略页码
-	// show second level page in pre ellipsis
+	/**
+	 * 是否显示前省略号的省略页码
+	 * show second level page in pre ellipsis
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let showPreOmitPage = false;
 
-	// 注入CSS
-	// Inject CSS
+	/**
+	 * 注入CSS
+	 * Inject CSS
+	 * @type {string}
+	 * @default ''
+	 */
 	export let injClass = '';
 
-	// 无数据文本
-	// No data text
+	/**
+	 * 无数据文本
+	 * No data text
+	 * @type {string}
+	 * @default Current language common.noData
+	 */
 	export let noDataText = commonLang.noData;
 
-	// 仅一页文本
-	// only one page text
+	/**
+	 * 仅一页文本
+	 * only one page text
+	 * @type {string}
+	 * @default Current language pagination.defaultOnlyOnePage
+	 */
 	export let onePageText = paginationLang.defaultOnlyOnePage;
 
-	// 连续模式
-	// continuous mode
+	/**
+	 * 连续模式
+	 * continuous mode
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let continuous = false;
 
 	// 总页数
 	// totalPage
-	$: totalPage = Math.ceil(total / pageSize);
+	const totalPage = Math.ceil(total / pageSize);
 
 	// 当前页码大于等于 maxShowPage-3 时，不显示前面的省略号
 	// current >= maxShowPage-3, not show pre ellipsis
-	$: showPreEllipsis = current > maxShowPage - 2;
+	const showPreEllipsis = current > maxShowPage - 2;
 
 	// 当前页码小于等于 totalPage - (maxShowPage-3) 时，不显示后面的省略号
 	// current <= totalPage - (maxShowPage-3), not show next ellipsis
-	$: showNextEllipsis = current <= maxShowPage - 2 || current <= totalPage - (maxShowPage - 3);
+	const showNextEllipsis = current <= maxShowPage - 2 || current <= totalPage - (maxShowPage - 3);
 
 	// 当显示前面的省略号时，中间显示的页码数 middleShowPage 个数为 maxShowPage - 4，内容为当前页码（maxShowPage为5）或者当前页码和前后一项（maxShowPage为7）或者当前页码和前后两项（maxShowPage为9）
 	// when show pre ellipsis, middleShowPage length is maxShowPage - 4, content is current page (maxShowPage is 5) or current page and pre/next one (maxShowPage is 7) or current page and pre/next two (maxShowPage is 9)
@@ -213,14 +265,7 @@
 
 	// 圆角样式
 	// radius class
-	const radiusClass = {
-		base: 'rounded',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-		none: 'rounded-none',
-	};
+	const radiusClass = { base: 'rounded', md: 'rounded-md', lg: 'rounded-lg', xl: 'rounded-xl', full: 'rounded-full', none: 'rounded-none' };
 </script>
 
 <div class="py-1 bg-white dark:bg-black flex justify-between text-center text-sm relative {injClass}">

@@ -1,58 +1,111 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { debounce, stepNumberFun } from '../utils';
+	import { throttle, stepNumberFun } from '../utils';
 
-	// 当前值
-	// Current value
+	/**
+	 * 当前值
+	 * Current value
+	 * @type {number}
+	 * @range minRange - maxRange
+	 * @default 40
+	 */
 	export let value = 40;
 
-	// 步长
-	// Step length
+	/**
+	 * 步长
+	 * Step length
+	 * @type {number}
+	 * @default 1
+	 */
 	export let step = 1;
 
-	// 可选最小值
-	// Optional minimum value
+	/**
+	 * 可选最小值
+	 * Optional minimum value
+	 * @type {number}
+	 * @default 0
+	 */
 	export let minRange = 0;
 
-	// 可选最大值
-	// Optional maximum value
+	/**
+	 * 可选最大值
+	 * Optional maximum value
+	 * @type {number}
+	 * @default 100
+	 */
 	export let maxRange = 100;
 
-	// 是否为区间选择
-	// is range
+	/**
+	 * 是否为区间选择
+	 * is range
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let isRange = false;
 
-	// 区间选择开始值
-	// Range selection start value
+	/**
+	 * 区间选择开始值
+	 * Range selection start value
+	 * @type {number}
+	 * @default 20
+	 */
 	export let startValue = 20;
 
-	// 区间选择结束值
-	// Range selection end value
+	/**
+	 * 区间选择结束值
+	 * Range selection end value
+	 * @type {number}
+	 * @default 60
+	 */
 	export let endValue = 60;
 
-	// 提示显示方式
-	// Tip display method
+	/**
+	 * 提示显示方式
+	 * Tip display method
+	 * @type {'always'|'touch'|'never'}
+	 * @default 'touch'
+	 */
 	export let showTip = 'touch';
 
-	// 圆角
-	// radius
+	/**
+	 * 圆角
+	 * Radius
+	 * @type {'none'|'base'|'xl'|'full'}
+	 * @default 'full'
+	 */
 	export let radius = 'full';
 
-	// 滑块是否为线框
-	// is line block
+	/**
+	 * 滑块是否为线框
+	 * is line block
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let lineBlock = false;
 
-	// 是否使用slot
-	// is use slot
+	/**
+	 * 是否使用slot
+	 * is use slot
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let useSlot = false;
 
-	// 是否禁用
-	// is disabled
+	/**
+	 * 是否禁用
+	 * is disabled
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let disabled = false;
 
-	// 是否只读
-	// is readonly
+	/**
+	 * 是否只读
+	 * is readonly
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let readonly = false;
 
 	let lineDom = null; //滑动条dom slider dom
@@ -163,12 +216,7 @@
 		currentMove = 'none';
 		isDown = false;
 	};
-	const radiusObj = {
-		none: ' rounded-none',
-		base: ' rounded',
-		xl: ' rounded-xl',
-		full: ' rounded-full',
-	};
+	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
 	onMount(() => {
 		lineDomStartX = lineDom.getBoundingClientRect().left;
 		lineDomEndX = lineDom.getBoundingClientRect().right;
@@ -185,7 +233,7 @@
 <div class={`relative h-7${disabled ? ' opacity-50' : ''}`}>
 	<div
 		on:pointerdown={touchLineStart}
-		on:pointermove={debounce(touchLineMove, 5)}
+		on:pointermove={throttle(touchLineMove)}
 		on:pointerup={touchLineEnd}
 		class="absolute flex flex-col justify-center h-7 w-full touch-none cursor-move"
 		bind:this={lineDom}

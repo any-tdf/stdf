@@ -5,71 +5,139 @@
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
 
-	// 提示内容
-	// toast content
+	/**
+	 * 提示内容
+	 * toast content
+	 * @type {string}
+	 * @default ''
+	 */
 	export let message = '';
 
-	// 是否显示
-	// is show
+	/**
+	 * 是否显示
+	 * is show
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let visible = false;
 
-	// 显示时间,ms
-	// show time,ms
+	/**
+	 * 显示时间，ms
+	 * show time, ms
+	 * @type {number}
+	 * @default 2000
+	 */
 	export let duration = 2000;
 
-	// 显示位置,center,top,bottom
-	// show position,center,top,bottom
+	/**
+	 * 显示位置
+	 * show position
+	 * @type {'center'|'top'|'bottom'}
+	 * @default 'center'
+	 */
 	export let position = 'center';
 
-	// top和bottom时距离顶部或底部的距离
-	// top and bottom distance from top or bottom
+	/**
+	 * top 和 bottom 时距离顶部或底部的距离
+	 * top and bottom distance from top or bottom
+	 * @type {'0'|'10'|'20'|'40'|'60'|'80'}
+	 * @default '20'
+	 */
 	export let py = '0';
 
-	// 圆角
-	// radius
+	/**
+	 * 圆角
+	 * radius
+	 * @type {'base'|'full'|'none'|'sm'|'md'|'lg'|'xl'|'2xl'}
+	 * @default 'base'
+	 */
 	export let radius = 'base';
 
-	// 是否使用slot
-	// is use slot
+	/**
+	 * 是否使用 slot
+	 * is use slot
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let useSlot = false;
 
-	// 过渡动画类型，可选值：fade, fly，scale，slide,none
-	// transition type,fade, fly，scale，slide,none
+	/**
+	 * 过渡动画类型
+	 * transition type
+	 * @type {'fade'|'fly'|'scale'|'slide'|'none'|'blur'}
+	 * @default 'scale'
+	 */
 	export let transitionType = 'scale';
 
-	// 过渡动画参数
-	// transition params
+	/**
+	 * 过渡动画参数，参考 https://svelte.dev/docs/svelte-transition
+	 * transition params, see https://svelte.dev/docs/svelte-transition
+	 * @type {object}
+	 * @default {}
+	 */
 	export let transitionParams = {};
 
-	// 过渡动画退出时间
-	// transition out duration
+	/**
+	 * 过渡动画退出时间
+	 * transition out duration
+	 * @type {number}
+	 * @default 0
+	 */
 	export let outDuration = 0;
 
-	// z-index
+	/**
+	 * z-index
+	 * @type {number}
+	 * @default 1000
+	 */
 	export let zIndex = 1000;
 
-	// 提示类型，success、error、warning、info、loading，不传则不显示图标
-	// toast type,success,error,warning,info,loading
+	/**
+	 * 提示类型
+	 * toast type
+	 * @type {'success'|'error'|'warning'|'info'|'loading'|''|string}
+	 * @default ''
+	 */
 	export let type = '';
 
-	// 遮罩层参数
-	// mask params
+	/**
+	 * 遮罩层参数
+	 * mask params
+	 * @type {object}
+	 * @default {}
+	 */
 	export let mask = {};
 
-	// loading 参数
-	// loading params
+	/**
+	 * loading 参数
+	 * loading params
+	 * @type {object}
+	 * @default {}
+	 */
 	export let loading = {};
 
-	// 图标参数
-	// icon params
+	/**
+	 * 图标参数
+	 * icon params
+	 * @type {object}
+	 * @default {}
+	 */
 	export let icon = {};
 
-	// 是否可点击穿透
-	// is clickable
+	/**
+	 * 是否可点击穿透
+	 * is clickable
+	 * @type {boolean}
+	 * @default false
+	 */
 	export let clickable = false;
 
-	// 是否动态固定
-	// is dynamic fixed
+	/**
+	 * 是否动态固定
+	 * is dynamic fixed
+	 * @type {boolean}
+	 * @default true
+	 */
 	export let dynamicFixed = true;
 
 	// 创建事件派发器
@@ -91,25 +159,9 @@
 		}
 	}
 
-	const typeObj = {
-		success: 'checkbox-circle',
-		error: 'close-circle',
-		warning: 'error-warning',
-		info: 'information',
-	};
-	const positionClass = {
-		center: ' justify-center',
-		top: ' justify-start',
-		bottom: ' justify-end',
-	};
-	const pyClass = {
-		'0': ' py-0',
-		'10': ' py-10',
-		'20': ' py-20',
-		'40': ' py-40',
-		'60': ' py-60',
-		'80': ' py-80',
-	};
+	const typeObj = { success: 'checkbox-circle', error: 'close-circle', warning: 'error-warning', info: 'information' };
+	const positionClass = { center: ' justify-center', top: ' justify-start', bottom: ' justify-end' };
+	const pyClass = { '0': ' py-0', '10': ' py-10', '20': ' py-20', '40': ' py-40', '60': ' py-60', '80': ' py-80' };
 	const radiusClass = {
 		base: ' rounded',
 		full: ' rounded-full',

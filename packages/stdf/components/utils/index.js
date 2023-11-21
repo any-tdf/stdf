@@ -4,6 +4,9 @@
  * @param {Function} fn
  * @param {Number} delay
  * @returns {Function}
+ * @example
+ * const fn = () => console.log('hello world');
+ * const debounceFn = debounce(fn, 1000);
  */
 export const debounce = (fn, delay = 10) => {
 	let timer = null;
@@ -11,7 +14,7 @@ export const debounce = (fn, delay = 10) => {
 		if (timer) {
 			clearTimeout(timer);
 		}
-		timer = setTimeout(() => {
+		timer = setTimeout(function () {
 			//模拟触发change事件
 			// Simulate triggering change event
 			fn.apply(this, arguments);
@@ -21,22 +24,29 @@ export const debounce = (fn, delay = 10) => {
 		}, delay);
 	};
 };
-/*
- 节流
- throttle
-*/
+
+/**
+ * 节流
+ * throttle
+ * @param {Function} fn
+ * @param {Number} delay
+ * @returns {Function}
+ */
 export const throttle = (fn, delay = 50) => {
 	let timer = null;
 	return function () {
 		if (timer) {
 			return;
 		}
-		timer = setTimeout(() => {
-			fn.apply(this, arguments);
+		let context = this;
+		let args = arguments;
+		timer = setTimeout(function () {
+			fn.apply(context, args);
 			timer = null;
 		}, delay);
 	};
 };
+
 /**
  * 将数字按照步长进行四舍五入
  *  Round the number according to the step length
@@ -46,7 +56,6 @@ export const throttle = (fn, delay = 50) => {
  * @example
  * stepNumberFun(18, 5) // 20
  */
-
 export const stepNumberFun = (num, step = 1) => {
 	//将step乘10，转换为整数，避免小数计算精度问题
 	// Multiply step by 10, convert to integer, avoid decimal calculation precision problem
@@ -165,8 +174,8 @@ export const getStartDay = yearMonth => {
 /**
  * 传入正数或者负数 n，返回当前月往前或者往后的 n 个月的年月数据，格式为 YYYYMM，不足两位的月份前面补 0
  * Pass in a positive or negative number n, return the year and month data of the current month forward or backward n months, the format is YYYYMM, and the month less than two digits is filled with 0
- * @param {Number} n
- * @returns {String}
+ * @param {Number} n 正整数或者负整数
+ * @returns {String} 指定月份的年月数据 YYYYMM
  * @example
  * getYearMonth(1) // '202006'
  */
@@ -203,6 +212,7 @@ export const getCalendarData = (yearMonth, startSunday) => {
 		data.push({ day: '' });
 	}
 	for (let i = 1; i <= dayNum; i++) {
+		// @ts-ignore
 		data.push({ day: i.toString().padStart(2, '0') });
 	}
 	for (let i = 0; i < 42 - startDay - (startSunday ? 0 : 1) - dayNum; i++) {
@@ -224,6 +234,7 @@ export const getCalendarData = (yearMonth, startSunday) => {
 	// Loop data, if day is not '', then calculate that day is what day of the week, put it in week
 	data.forEach(item => {
 		if (item.day !== '') {
+			// @ts-ignore
 			item.week = new Date(`${year}-${month}-${item.day}`).getDay();
 		}
 	});
@@ -231,7 +242,9 @@ export const getCalendarData = (yearMonth, startSunday) => {
 	// Loop data, if today is the end of the month, endDay is true, otherwise it is false
 	data.forEach((item, index) => {
 		if (item.day !== '') {
+			// @ts-ignore
 			item.endDay = index === data.length - 1;
+			// @ts-ignore
 			item.startDay = item.day === '01';
 		}
 	});
@@ -240,14 +253,18 @@ export const getCalendarData = (yearMonth, startSunday) => {
 	if (!startSunday) {
 		data.forEach(item => {
 			if (item.day !== '') {
+				// @ts-ignore
 				item.weekStartDay = item.week === 1;
+				// @ts-ignore
 				item.weekEndDay = item.week === 0;
 			}
 		});
 	} else {
 		data.forEach(item => {
 			if (item.day !== '') {
+				// @ts-ignore
 				item.weekStartDay = item.week === 0;
+				// @ts-ignore
 				item.weekEndDay = item.week === 6;
 			}
 		});
@@ -256,7 +273,9 @@ export const getCalendarData = (yearMonth, startSunday) => {
 	// According to the startDay and weekStartDay of each day, endDay and weekEndDay, as long as one item is true, it is the first day of the month or the first day of the week, put it in start and end
 	data.forEach(item => {
 		if (item.day !== '') {
+			// @ts-ignore
 			item.start = item.startDay || item.weekStartDay;
+			// @ts-ignore
 			item.end = item.endDay || item.weekEndDay;
 		}
 	});
@@ -266,8 +285,8 @@ export const getCalendarData = (yearMonth, startSunday) => {
 /**
  * 传入格式为 YYYYMM 的开始与结束月份字符串，返回这两个月份之间的所有月份数据数组，格式为 YYYYMM，不足两位的月份前面补 0
  * Pass in the start and end month strings in the format of YYYYMM, return the data array of all months between these two months, the format is YYYYMM, and the month less than two digits is filled with 0
- * @param {String} startMonth
- * @param {String} endMonth
+ * @param {String} startMonthStr
+ * @param {String} endMonthStr
  * @returns {Array}
  * @example
  * getMonthRange('202005', '202007') // ['202005', '202006', '202007']
@@ -359,6 +378,7 @@ export const getCurrentWeek = (startSunday = false) => {
 			const newYear = newDate.getFullYear();
 			const newMonth = newDate.getMonth() + 1;
 			const newDateNum = newDate.getDate();
+			// @ts-ignore
 			weekDates.push(`${newYear}${newMonth.toString().padStart(2, '0')}${newDateNum.toString().padStart(2, '0')}`);
 		}
 	} else {
@@ -367,6 +387,7 @@ export const getCurrentWeek = (startSunday = false) => {
 			const newYear = newDate.getFullYear();
 			const newMonth = newDate.getMonth() + 1;
 			const newDateNum = newDate.getDate();
+			// @ts-ignore
 			weekDates.push(`${newYear}${newMonth.toString().padStart(2, '0')}${newDateNum.toString().padStart(2, '0')}`);
 		}
 	}
@@ -385,6 +406,7 @@ export const getCurrentMonth = () => {
 	const days = new Date(year, month, 0).getDate();
 	const dates = [];
 	for (let i = 1; i <= days; i++) {
+		// @ts-ignore
 		dates.push(`${year}${month.toString().padStart(2, '0')}${i.toString().padStart(2, '0')}`);
 	}
 	return dates;
@@ -406,6 +428,7 @@ export const getCurrentQuarter = () => {
 	for (let i = startMonth; i <= endMonth; i++) {
 		const daysInMonth = new Date(year, i, 0).getDate();
 		for (let j = 1; j <= daysInMonth; j++) {
+			// @ts-ignore
 			days.push(`${year}${i.toString().padStart(2, '0')}${j.toString().padStart(2, '0')}`);
 		}
 	}
@@ -415,7 +438,7 @@ export const getCurrentQuarter = () => {
 /**
  * 传入正数或负数天数 n 和是否从今天开始计算 today，返回对应的前后日期组成的数组，日期格式为 YYYYMMDD，月与日不足两位的前面补 0
  * Pass in a positive or negative number of days n, whether to include today hasToday, return the array of dates before and after the current day, the date format is YYYYMMDD, and the month and day less than two digits are filled with 0
- * @param {Number} days
+ * @param {Number} n
  * @param {Boolean} today
  * @returns {Array}
  */
@@ -436,6 +459,7 @@ export const getDaysRangeWithToday = (n = 0, today = true) => {
 	const dates = [];
 	for (let i = 0; i < Math.abs(n); i++) {
 		const date = new Date(fakeToday.getTime() + (n > 0 ? i : -i) * 24 * 60 * 60 * 1000);
+		// @ts-ignore
 		dates.push(`${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`);
 	}
 	// 对日期排序
