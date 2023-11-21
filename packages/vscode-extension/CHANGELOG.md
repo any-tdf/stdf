@@ -1,5 +1,9 @@
 > No change log version, it means that it is just updated with the STDF version and the plug-in itself is not updated.
 
+## 0.0.24
+
+- Update icon.
+
 ## 0.0.18
 
 - Fixed the problem that STDF cannot be queried for the latest version, such as offline use.
