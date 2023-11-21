@@ -1,6 +1,8 @@
 <script>
 	import { setContext, onMount } from 'svelte';
+	// @ts-ignore
 	import { page } from '$app/stores';
+	// @ts-ignore
 	import { goto } from '$app/navigation';
 	import { NavBar, Icon } from '../../../packages/stdf/components';
 	import zh_CN from '../../../packages/stdf/lang/zh_CN';

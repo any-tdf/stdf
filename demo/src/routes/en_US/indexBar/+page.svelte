@@ -103,6 +103,9 @@
 	const navHeight = 48;
 	const bottomHeight = 50;
 	const height = window.innerHeight - navHeight - bottomHeight;
+	/**
+	 * @type {'base' | 'full' | 'none'}
+	 */
 	let radius = 'base';
 	let dataFlag = 0;
 	let scrollAlign = true;

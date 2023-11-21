@@ -21,6 +21,9 @@
 	const changeStateFun = e => {
 		mobileLength = e.detail.length;
 	};
+	/**
+	 * @type {'success' | 'warning' | 'error' | 'info'| 'theme'}
+	 */
 	$: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
 
 	// Press key
