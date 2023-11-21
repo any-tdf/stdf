@@ -1,3 +1,7 @@
+## 0.4.2
+
+- Component source code Props adds type annotation according to JSDoc specification, and you will get better IDE prompts when using the component. You can turn on checkJs detection or use TypeScript for type detection.
+
 ## 0.4.1
 
 - The repository has been migrated from dufu1991/stdf to any-tdf/stdf.

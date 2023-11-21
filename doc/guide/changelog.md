@@ -1,3 +1,7 @@
+## 0.4.2
+
+- 组件源码的 Props 按照 JSDoc 规范增加类型注释，使用组件时将获得更好的 IDE 提示。可开启 checkJs 检测或使用 TypeScript 做类型检测。
+
 ## 0.4.1
 
 - 将仓库由 dufu1991/stdf 迁移至 any-tdf/stdf。
