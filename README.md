@@ -52,6 +52,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🪜 Comes with a scaffolding tool for quick project creation.
 - 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
 - 🍺 IDE plugin for quickly viewing component APIs.
+- 🔧 Props supports type prompts and detection.
 
 # Getting Started
 
@@ -80,7 +81,7 @@ import { Button } from 'stdf';
 
 ## 😓 No project? Create one
 
-You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
+You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
 
 ```bash
 pnpm create stdf

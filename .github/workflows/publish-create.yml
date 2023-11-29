@@ -42,4 +42,4 @@ jobs:
           npm publish --provenance
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_CREATE }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
