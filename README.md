@@ -95,7 +95,7 @@ npx create-stdf@latest
 bun create stdf
 ```
 
-Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide) for more information.
+Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite#svelte) & [STDF](https://stdf.design/#/guide) for more information.
 
 # Preview
 

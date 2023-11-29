@@ -97,7 +97,7 @@ npx create-stdf@latest
 bun create stdf
 ```
 
-或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite) & [STDF](https://stdf.design/#/guide)。
+或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite#svelte) & [STDF](https://stdf.design/#/guide)。
 
 # 预览
 
