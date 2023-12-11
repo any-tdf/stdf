@@ -3,5 +3,5 @@
 		"checkJs": true
 	},
 	"include": ["./**/*.js", "./**/*.svelte"],
-	"exclude": ["node_modules", "dist", "dist-old"]
+	"exclude": ["node_modules", "dist", "dist-old", "build", ".svelte-kit"]
 }
