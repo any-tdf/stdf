@@ -67,7 +67,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">The TAB is located at the bottom</div>
-		<Tabs tab={{ labels }} placement="b">
+		<Tabs tab={{ labels }} position="b">
 			<TabContent>I am a plane</TabContent>
 			<TabContent>I am a ship</TabContent>
 			<TabContent>I am a train</TabContent>
@@ -76,7 +76,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">The TAB is located on the left</div>
-		<Tabs tab={{ labels }} placement="l" let:active>
+		<Tabs tab={{ labels }} position="l" let:active>
 			<TabContent show={active === 0}>I am a plane</TabContent>
 			<TabContent show={active === 1}>I am a ship</TabContent>
 			<TabContent show={active === 2}>I am a train</TabContent>
@@ -85,7 +85,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">The TAB is located on the right</div>
-		<Tabs tab={{ labels }} placement="r" let:active>
+		<Tabs tab={{ labels }} position="r" let:active>
 			<TabContent show={active === 0}>I am a plane</TabContent>
 			<TabContent show={active === 1}>I am a ship</TabContent>
 			<TabContent show={active === 2}>I am a train</TabContent>

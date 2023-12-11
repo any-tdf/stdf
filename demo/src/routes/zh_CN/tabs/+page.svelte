@@ -67,7 +67,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">选项卡位于底部</div>
-		<Tabs tab={{ labels }} placement="b">
+		<Tabs tab={{ labels }} position="b">
 			<TabContent>我是飞机</TabContent>
 			<TabContent>我是轮船</TabContent>
 			<TabContent>我是火车</TabContent>
@@ -76,7 +76,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">选项卡位于左侧</div>
-		<Tabs tab={{ labels }} placement="l" let:active>
+		<Tabs tab={{ labels }} position="l" let:active>
 			<TabContent show={active === 0}>我是飞机</TabContent>
 			<TabContent show={active === 1}>我是轮船</TabContent>
 			<TabContent show={active === 2}>我是火车</TabContent>
@@ -85,7 +85,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">选项卡位于右侧</div>
-		<Tabs tab={{ labels }} placement="r" let:active>
+		<Tabs tab={{ labels }} position="r" let:active>
 			<TabContent show={active === 0}>我是飞机</TabContent>
 			<TabContent show={active === 1}>我是轮船</TabContent>
 			<TabContent show={active === 2}>我是火车</TabContent>
