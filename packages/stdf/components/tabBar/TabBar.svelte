@@ -97,16 +97,16 @@
 	$: activeLeft = active * (tabW / labels.length) + tabW / labels.length / 2 - activeW / 2;
 </script>
 
-<div bind:clientWidth={tabW} class={`bg-white dark:bg-gray-800 relative ${injClass}`} style="padding-bottom: env(safe-area-inset-bottom);">
+<div bind:clientWidth={tabW} class="bg-white dark:bg-gray-800 relative {injClass}" style="padding-bottom: env(safe-area-inset-bottom);">
 	{#if line}
 		<div
-			class={`mx-auto rounded-full h-[2px] absolute transition-all bottom-px bg-primary dark:bg-dark ${activeInjClass}`}
-			style="width:{lineW < 1 ? tabW / labels.length : activeW < 2 ? 2 : activeW}px;left:{lineW < 1
+			class="mx-auto rounded-full h-[2px] absolute transition-all bottom-px bg-primary dark:bg-dark {activeInjClass}"
+			style="width: {lineW < 1 ? tabW / labels.length : activeW < 2 ? 2 : activeW}px;left: {lineW < 1
 				? active * (tabW / labels.length)
 				: activeLeft}px;"
 		/>
 	{/if}
-	<div class={`flex justify-between`}>
+	<div class="flex justify-between">
 		{#each labels as label, i}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -117,7 +117,7 @@
 				} ${love ? 'text-lg' : 'text-sm'} ${tabInjClass} ${i === active && activeTabInjClass}`}
 			>
 				{#if label.icon}
-					<div class={`${!label.text && 'py-2'}`}>
+					<div class:py-2={!label.text}>
 						<i class:hidden={i !== active}>
 							<Icon
 								{...label.icon}

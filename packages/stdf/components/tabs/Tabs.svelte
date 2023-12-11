@@ -20,7 +20,7 @@
 	 * @property {'none'|'base'|'xl'|'full'} [radius] - 圆角风格 radius style
 	 * @property {'fast'|'base'|'slow'|'slower'} [duration] - 过渡时间 transition time
 	 * @property {'0'|'1'|'2'|'3'|'4'|'6'|'8'|'12'|'16'|'20'} [mx] - 左右间距 left and right margin
-	 * @property {'h'|'v'} [layout] - 布局，h/v，对应tabs的placement layout,h/v,corresponding to placement of tabs
+	 * @property {'h'|'v'} [layout] - 布局，h/v，对应tabs的position layout,h/v,corresponding to position of tabs
 	 * @property {Boolean} [love] - 是否使用爱心样式 whether to use heart style
 	 * @property {String} [injClass] - Tab 最外层注入 CSS 类 Tab outermost injection CSS class
 	 * @property {String} [tabInjClass] - Tab 注入 CSS 类 Tab injection CSS class
@@ -46,11 +46,11 @@
 
 	/**
 	 * 选项卡 Tab 位置
-	 * placement of tabs
+	 * Position of tabs
 	 * @type {'t'|'b'|'l'|'r'}
 	 * @default 't'
 	 */
-	export let placement = 't';
+	export let position = 't';
 
 	/**
 	 * 是否使用过渡动画
@@ -75,82 +75,77 @@
 		active = e.detail;
 		dispatch('change', active); //Tab点击时派发Tabs的change事件，active表示激活的Tab索引值，即labels索引值
 	};
-	let width = 0; //宽度
+	let width = window.innerWidth; //宽度
 
-	const durationObj = {
-		fast: 'duration-150',
-		base: 'duration-300',
-		slow: 'duration-500',
-		slower: 'duration-1000',
-	};
+	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };
 </script>
 
 {#if transition}
-	{#if placement === 't'}
+	{#if position === 't'}
 		<Tab {active} {duration} {...tab} on:clicktab={clickTabFun} />
 		<div class="overflow-hidden" bind:clientWidth={width}>
 			<div
-				class={`transition-all relative flex ${durationObj[duration] || durationObj.base}`}
-				style="width:{tab.labels.length * width}px;left:-{active * width}px"
+				class="transition-all relative flex {durationObj[duration] || durationObj.base}"
+				style="width: {tab.labels.length * width}px;left: -{active * width}px"
 			>
-				<slot {active}>暂无 Tabs content！</slot>
+				<slot {active}>Tabs content is empty!</slot>
 			</div>
 		</div>
-	{:else if placement === 'b'}
+	{:else if position === 'b'}
 		<div class="overflow-hidden" bind:clientWidth={width}>
 			<div
-				class={`transition-all relative flex ${durationObj[duration] || durationObj.base}`}
+				class="transition-all relative flex {durationObj[duration] || durationObj.base}"
 				style="width:{tab.labels.length * width}px;left:-{active * width}px"
 			>
-				<slot {active}>暂无 Tabs content！</slot>
+				<slot {active}>Tabs content is empty!</slot>
 			</div>
 		</div>
 		<Tab {active} {...tab} on:clicktab={clickTabFun} />
-	{:else if placement === 'l'}
+	{:else if position === 'l'}
 		<div class="flex">
 			<div>
 				<Tab {active} {...tab} on:clicktab={clickTabFun} layout="v" />
 			</div>
 			<div class="grow">
-				<slot {active}>暂无 Tabs content！</slot>
+				<slot {active}>Tabs content is empty!</slot>
 			</div>
 		</div>
-	{:else if placement === 'r'}
+	{:else if position === 'r'}
 		<div class="flex">
 			<div class="grow">
-				<slot {active}>暂无 Tabs content！</slot>
+				<slot {active}>Tabs content is empty!</slot>
 			</div>
 			<div>
 				<Tab {active} {...tab} on:clicktab={clickTabFun} layout="v" />
 			</div>
 		</div>
 	{:else}
-		<div>placement 参数错误！</div>
+		<div>position params error!</div>
 	{/if}
-{:else if placement === 't'}
+{:else if position === 't'}
 	<Tab {active} {duration} {...tab} on:clicktab={clickTabFun} />
-	<slot {active}>暂无 Tabs content！</slot>
-{:else if placement === 'b'}
-	<slot {active}>暂无 Tabs content！</slot>
+	<slot {active}>Tabs content is empty!</slot>
+{:else if position === 'b'}
+	<slot {active}>Tabs content is empty!</slot>
 	<Tab {active} {...tab} on:clicktab={clickTabFun} />
-{:else if placement === 'l'}
+{:else if position === 'l'}
 	<div class="flex">
 		<div>
 			<Tab {active} {...tab} on:clicktab={clickTabFun} layout="v" />
 		</div>
 		<div class="grow">
-			<slot {active}>暂无 Tabs content！</slot>
+			<slot {active}>Tabs content is empty!</slot>
 		</div>
 	</div>
-{:else if placement === 'r'}
+{:else if position === 'r'}
 	<div class="flex">
 		<div class="grow">
-			<slot {active}>暂无 Tabs content！</slot>
+			<slot {active}>Tabs content is empty!</slot>
 		</div>
 		<div>
 			<Tab {active} {...tab} on:clicktab={clickTabFun} layout="v" />
 		</div>
 	</div>
 {:else}
-	<div>placement 参数错误！</div>
+	<div>position params error!</div>
 {/if}

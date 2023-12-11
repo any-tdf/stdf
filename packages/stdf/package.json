@@ -1,14 +1,11 @@
 {
 	"name": "stdf",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"main": "./components/index.js",
 	"svelte": "./components/index.js",
-	"scripts": {
-		"dist": "node scripts/dist",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "dufu1991",
+	"scripts": {},
+	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
 	"license": "MIT",
 	"homepage": "https://stdf.design",
