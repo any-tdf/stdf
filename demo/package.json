@@ -85,13 +85,13 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.27.6",
+		"@sveltejs/kit": "^1.28.0",
 		"autoprefixer": "^10.4.16",
-		"postcss": "^8.4.31",
+		"postcss": "^8.4.32",
 		"rollup-plugin-stdf-icon": "file:../packages/rollup-plugin-stdf-icon",
-		"svelte": "^4.2.7",
-		"tailwindcss": "^3.3.5",
-		"vite": "^5.0.2"
+		"svelte": "^4.2.8",
+		"tailwindcss": "^3.3.6",
+		"vite": "^5.0.7"
 	},
 	"type": "module",
 	"dependencies": {
