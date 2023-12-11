@@ -29,7 +29,7 @@ bun i stdf -D
 
 ### 使用 create-stdf
 
-可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。（beta 版本）
+可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。
 
 ```bash
 pnpm create stdf
@@ -53,7 +53,7 @@ npm create vite@latest
 
 按照提示操作创建工程。
 
-参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite) 配置 Tailwind CSS。
+参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite#svelte) 配置 Tailwind CSS。
 
 1. 安装 Tailwind CSS 和其他依赖，然后生成 `tailwind.config.js` 和 `postcss.config.js` 文件。
 

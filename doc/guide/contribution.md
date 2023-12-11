@@ -84,7 +84,7 @@ bun dev
 - 克隆你的仓库至本地。
 - 修改组件源码并在 Demo 中验证通过。
 - 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/doc/components/button/version.md?plain=1)。
-- 到仓库根目录，执行 `bun i` 或 `pnpm i` 或 `npm i` 安装依赖。
+- 到仓库根目录，执行 `pnpm i` 或 `npm i` 或 `bun i` 安装依赖。
 - 利用编辑器格式化你修改过的代码，或者执行 `pnpm run format` 或 `npm run format` 命令行格式化代码。
 - 执行 `pnpm run lint` 或 `npm run lint` 检查代码格式。
 - 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。

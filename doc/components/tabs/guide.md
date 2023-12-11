@@ -6,15 +6,15 @@ Tabs 组件内部使用了 Tab 组件，而 Tabs Props 中的 tab 全部透传�
 
 ### 插槽
 
-Tabs Props 的 transition 默认为 true，此时 Tabs 主体内容切换带有过渡效果。而当 transition 为 false，或者 placement 为 'l' 或 'r' 时，Tabs 主体内容将不会有过渡效果，可以通过 Svelte 提供的插槽传值，`let:`指令将当前激活的 Tab 索引值 active 暴露给插槽内部，再结合 TabContent 的 show 控制主体内容的显示与隐藏。通过暴露出的 active，你还可以自由使用其他方式控制主体区域内容的过渡效果。示例中展示了一种方式，请结合具体业务尝试其他切换效果。
+Tabs Props 的 transition 默认为 true，此时 Tabs 主体内容切换带有过渡效果。而当 transition 为 false，或者 position 为 'l' 或 'r' 时，Tabs 主体内容将不会有过渡效果，可以通过 Svelte 提供的插槽传值，`let:`指令将当前激活的 Tab 索引值 active 暴露给插槽内部，再结合 TabContent 的 show 控制主体内容的显示与隐藏。通过暴露出的 active，你还可以自由使用其他方式控制主体区域内容的过渡效果。示例中展示了一种方式，请结合具体业务尝试其他切换效果。
 
 Svelte 插槽传值可参考 [Svelte Slot](https://svelte.dev/docs#template-syntax-slot-slot-key-value)。
 
 ### 选项卡位置
 
-Tabs 通过 placement（t：上、b：下、l：左、r：右）决定选项卡位置，而此参数又决定了其中 Tab 的布局方式 layout（h：水平、v：垂直）。
+Tabs 通过 position（t：上、b：下、l：左、r：右）决定选项卡位置，而此参数又决定了其中 Tab 的布局方式 layout（h：水平、v：垂直）。
 
-<hr>
+---
 
 ## Tab
 

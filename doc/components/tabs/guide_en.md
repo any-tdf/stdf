@@ -6,16 +6,16 @@ The Tabs component internally uses the Tab component, and all tab props in the T
 
 ### Slots
 
-When the `transition` property in the Tabs props is set to `true` (which is the default value), a transition effect is added when switching between Tabs. However, when `transition` is set to false, or when `placement` is set to 'l' or 'r', there will be no transition effect on the Tab contents. In this case, the Svelte slot feature can be used to expose the active Tab index value to the internal contents of the slot using the `let:` directive. You can use TabContent's `show` property to control whether the main content area is displayed or hidden.
+When the `transition` property in the Tabs props is set to `true` (which is the default value), a transition effect is added when switching between Tabs. However, when `transition` is set to false, or when `position` is set to 'l' or 'r', there will be no transition effect on the Tab contents. In this case, the Svelte slot feature can be used to expose the active Tab index value to the internal contents of the slot using the `let:` directive. You can use TabContent's `show` property to control whether the main content area is displayed or hidden.
 By using the active index value exposed through the slot, you can also freely control the transition effects of the main content area in other ways. The example below shows one way to do this, but you can try other transition effects based on your specific business requirements.
 
 For more information on how to use Svelte slots, see [Svelte Slot](https://svelte.dev/docs#template-syntax-slot-slot-key-value).
 
-### Tab placement
+### Tab position
 
-The `placement` property of Tabs determines the position of the Tabs (t: top, b: bottom, l: left, r: right), which affects the layout style of the `Tab` component. Horizontal and vertical layout styles are available, depending on the value of the `layout` property.
+The `position` property of Tabs determines the position of the Tabs (t: top, b: bottom, l: left, r: right), which affects the layout style of the `Tab` component. Horizontal and vertical layout styles are available, depending on the value of the `layout` property.
 
-<hr>
+---
 
 ## Tab
 

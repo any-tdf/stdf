@@ -29,7 +29,7 @@ bun i stdf -D
 
 ### Use create-stdf
 
-You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project. (beta version)
+You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
 
 ```bash
 pnpm create stdf
@@ -53,7 +53,7 @@ npm create vite@latest
 
 Follow the prompts to create a project.
 
-Configuration Tailwind CSS. See [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite)。
+Configuration Tailwind CSS. See [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite#svelte)。
 
 1. Install Tailwind CSS and other dependencies, then generate tailwind.config.js and postcss.config.js files.
 

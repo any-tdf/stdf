@@ -1,3 +1,7 @@
+## 0.4.3
+
+- Modify the Tabs component, please see [Tabs](https://stdf.design/#/components?nav=tabs&tab=4).
+
 ## 0.4.2
 
 - Component source code Props adds type annotation according to JSDoc specification, and you will get better IDE prompts when using the component. You can turn on checkJs detection or use TypeScript for type detection.

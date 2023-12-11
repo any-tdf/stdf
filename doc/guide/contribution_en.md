@@ -82,7 +82,7 @@ If you are submitting a Pull Request on GitHub for the first time, you can read 
 - Clone your repository to your local machine.
 - Modify the component source code and verify it in the Demo.
 - 「Optional」Supplement the Chinese and English documentation for this modification, which is located in the `doc/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, and other documents. For modifications to version, please add tags. Please refer to the [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/doc/components/button/version.md?plain=1) for specific details.
-- Go to the root directory of the repository and execute `bun i` or `pnpm i` or `npm i` to install dependencies.
+- Go to the root directory of the repository and execute `pnpm i` or `npm i` or `bun i` to install dependencies.
 - Use your editor to format the modified code or execute `pnpm run format` or `npm run format` in the command line to format the code.
 - Execute `pnpm run lint` or `npm run lint` to check the code formatting.
 - Commit the modified content to your repository and then submit a Pull Request to the main repository.

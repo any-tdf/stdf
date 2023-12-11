@@ -1,3 +1,7 @@
+## 0.4.3
+
+- 修改 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。
+
 ## 0.4.2
 
 - 组件源码的 Props 按照 JSDoc 规范增加类型注释，使用组件时将获得更好的 IDE 提示。可开启 checkJs 检测或使用 TypeScript 做类型检测。

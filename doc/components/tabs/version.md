@@ -1,0 +1,7 @@
+## 0.4.3
+
+- [!tag|O|0|]Tabs Props 的 `placement` 改为 `position`。
+- [!tag|O|0|]Tab 的 `mx` 默认值由 '4' 改为 '2'。
+- [!tag|B|3|]修复 [Issues](https://github.com/any-tdf/stdf/issues/17)。[!issue|Zz-ZzzZ|]
+
+<font size=1>2023-12-11</font>
