@@ -91,7 +91,7 @@
 		"rollup-plugin-stdf-icon": "file:../packages/rollup-plugin-stdf-icon",
 		"svelte": "^4.2.8",
 		"tailwindcss": "^3.3.6",
-		"vite": "^5.0.7"
+		"vite": "^4.4.9"
 	},
 	"type": "module",
 	"dependencies": {
