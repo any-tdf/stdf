@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
@@ -108,6 +107,30 @@
 	 */
 	export let mx = '2';
 
+	/**
+	 * 溢出模式
+	 * overflow mode
+	 * @type {Boolean}
+	 * @default false
+	 */
+	export let overflow = false;
+
+	/**
+	 * 完整显示 Tab 数
+	 * number of completely visible tabs
+	 * @type {number}
+	 * @default 3
+	 */
+	export let showNum = 3;
+
+	/**
+	 * 溢出模式是否开启自动滚动
+	 * whether to open automatic scrolling in overflow mode
+	 * @type {Boolean}
+	 * @default true
+	 */
+	export let autoScroll = true;
+
 	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
 	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };
 	const mxClass = {
@@ -136,48 +159,116 @@
 	$: activeH = layout === 'h' ? tabH - 4 : (tabH - 4) / labels.length;
 	$: activeLeft = layout === 'h' ? 2 + active * ((tabW - 4) / labels.length) : 2;
 	$: activeTop = layout === 'h' ? (lineType ? tabH - 2 : 2) : 2 + active * ((tabH - 4) / labels.length);
-	onMount(() => {
-		console.log(333, activeW);
-	});
+
+	// 溢出模式下的变量
+	// variables in overflow mode
+	let ofTabW = 0;
+	let ofTabH = 0;
+	$: itemW = (ofTabW - 4) / (showNum + 0.5);
+	$: ofActiveW = (ofTabW - 4) / (showNum + 0.5);
+	$: ofActiveH = ofTabH - 4;
+	$: ofActiveLeft = 2 + active * ((ofTabW - 4) / (showNum + 0.5));
+
+	let ofDom = null;
+	let showIndexs = new Array(showNum + 1).fill(0).map((item, index) => index);
+	// 监听 active 变化，当 active 变化时，如果 active 不在可视区域内，则滚动 ofDom，使 active 显示在中间
+	// listen to the change of active, when active changes, if active is not in the visible area, scroll ofDom to make active display in the middle
+	$: if (ofDom && active !== undefined && autoScroll) {
+		// 如果 active >= showIndexs 的最后一个元素或 <= showIndexs 的第一个元素 ，则滚动 ofDom，滚动至 active*itemW
+		// If active >= the last element of showIndexs or <= the first element of showIndexs, scroll ofDom to active*itemW
+		if (active >= showIndexs[showIndexs.length - 1] || active <= showIndexs[0]) {
+			ofDom.scrollLeft = (active - 1) * itemW;
+			showIndexs = new Array(showNum + 1).fill(0).map((item, index) => index + active - 1);
+		}
+	}
 </script>
 
-<div
-	bind:clientWidth={tabW}
-	bind:clientHeight={tabH}
-	class="{lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/10'} p-0.5 relative {radiusObj[radius] || radiusObj.base} {mxClass[
-		mx
-	] || mxClass['2']} {injClass}"
->
-	{#if lineType && layout !== 'v'}
-		<div class="absolute h-[2px] bg-black/5 dark:bg-white/5 w-full bottom-0" />
-	{/if}
+{#if overflow && layout === 'h'}
 	<div
-		class="{lineType && layout !== 'v' ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[
-			duration
-		] || durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType && layout !== 'v'
-			? 'bottom-0 bg-black/50 dark:bg-white/50'
-			: 'bg-white dark:bg-gray-950'} {activeInjClass}"
-		style="width: {activeW}px;height: {lineType && layout !== 'v' ? 2 : activeH}px;left: {activeLeft}px;top: {activeTop}px"
-	/>
-	<div class="relative {layout === 'h' ? 'flex justify-between' : 'px-4 whitespace-nowrap'}">
-		{#each labels as label, i}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div
-				class="cursor-pointer flex-1 flex justify-center {layout === 'h' ? 'py-1' : 'py-2'} font-medium {love
-					? 'text-lg'
-					: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
-				on:click={() => clickTabFun(i)}
-			>
-				{#if label.icon}
-					<div class="mr-[2px] {durationObj[duration] || durationObj.base}">
-						<Icon {...label.icon} />
-					</div>
-				{/if}
-				{#if label.text}
-					<div class="transition-all {durationObj[duration] || durationObj.base}">{label.text}</div>
-				{/if}
-			</div>
-		{/each}
+		bind:clientWidth={ofTabW}
+		bind:clientHeight={ofTabH}
+		bind:this={ofDom}
+		class="{lineType ? '' : 'bg-black/5 dark:bg-white/10'} p-0.5 relative overflow-auto scroll-smooth no-scrollbar {radiusObj[radius] ||
+			radiusObj.base} {mxClass[mx] || mxClass['2']} {injClass}"
+	>
+		{#if lineType}
+			<div class="absolute h-0.5 bg-black/5 dark:bg-white/5 w-full bottom-0" style="width: {itemW * labels.length}px" />
+		{/if}
+		<div
+			class="{lineType ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[duration] ||
+				durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType
+				? 'bottom-0 bg-primary dark:bg-dark'
+				: 'bg-white dark:bg-gray-950'} {activeInjClass}"
+			style="width: {ofActiveW}px;height: {lineType ? 2 : ofActiveH}px;left: {ofActiveLeft}px;"
+		/>
+		<div class="relative flex whitespace-nowrap" style="width: {itemW * labels.length + 2}px;">
+			{#each labels as label, i}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<div
+					class="shrink-0 cursor-pointer flex justify-center py-1 font-medium overflow-hidden {love
+						? 'text-lg'
+						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
+					style="width: {itemW}px"
+					on:click={() => clickTabFun(i)}
+				>
+					{#if label.icon}
+						<div class="mr-0.5 {durationObj[duration] || durationObj.base}">
+							<Icon {...label.icon} />
+						</div>
+					{/if}
+					{#if label.text}
+						<div class="transition-all {durationObj[duration] || durationObj.base}">{label.text}</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
 	</div>
-</div>
+{:else}
+	<div
+		bind:clientWidth={tabW}
+		bind:clientHeight={tabH}
+		class="{lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/10'} p-0.5 relative {radiusObj[radius] || radiusObj.base} {mxClass[
+			mx
+		] || mxClass['2']} {injClass}"
+	>
+		{#if lineType && layout !== 'v'}
+			<div class="absolute h-0.5 bg-black/5 dark:bg-white/5 w-full bottom-0" style="width: {tabW - 4}px" />
+		{/if}
+		<div
+			class="{lineType && layout !== 'v' ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[
+				duration
+			] || durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType && layout !== 'v'
+				? 'bottom-0 bg-primary dark:bg-dark'
+				: 'bg-white dark:bg-gray-950'} {activeInjClass}"
+			style="width: {activeW}px;height: {lineType && layout !== 'v' ? 2 : activeH}px;left: {activeLeft}px;top: {activeTop}px"
+		/>
+		<div class="relative {layout === 'h' ? 'flex justify-between' : 'px-4 whitespace-nowrap'}">
+			{#each labels as label, i}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<div
+					class="cursor-pointer flex-1 flex justify-center {layout === 'h' ? 'py-1' : 'py-2'} font-medium overflow-hidden {love
+						? 'text-lg'
+						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
+					on:click={() => clickTabFun(i)}
+				>
+					{#if label.icon}
+						<div class="mr-0.5 {durationObj[duration] || durationObj.base}">
+							<Icon {...label.icon} />
+						</div>
+					{/if}
+					{#if label.text}
+						<div class="transition-all {durationObj[duration] || durationObj.base}">{label.text}</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	</div>
+{/if}
+
+<style>
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+</style>

@@ -26,6 +26,9 @@
 	 * @property {String} [tabInjClass] - Tab 注入 CSS 类 Tab injection CSS class
 	 * @property {String} [activeTabInjClass] -  选中 Tab 注入 CSS 类 Selected Tab injection CSS class
 	 * @property {String} [activeInjClass] - 指示器注入 CSS 类 Indicator injection CSS class
+	 * @property {Boolean} [overflow] - 是否使用溢出模式 whether to use overflow mode
+	 * @property {Boolean} [autoScroll] - 溢出模式是否自动滚动 whether overflow mode scrolls automatically
+	 * @property {number} [showNum] - 溢出模式下完整显示 Tab 数 overflow mode shows the number of tabs in full
 	 */
 
 	/**
