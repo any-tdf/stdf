@@ -30,6 +30,14 @@ Tab 组件可以单独使用，通过绑定的 clicktab 事件，传递出当前
 
 当 Tab props 的 lineType 为 true 时， Tab 会使用线性风格，但若布局方式为 v（垂直）则线性风格不会生效。
 
+### 溢出模式
+
+由于移动设备横向空间有限，当横向布局且 Tab 数量较多或者动态无法确定时，可以开启溢出模式，此时 Tabs 会自动隐藏溢出的 Tab，通过滑动来查看隐藏的 Tab。开启溢出模式后，可以通过 `showNum` 控制显示的 Tab 数量，通过 `autoScroll` 控制是否开启自动滚动。
+
+溢出模式时，可见区域内实际显示的 Tab 是 `showNum+0.5`，如此设计会在初始时将最后一个 Tab 隐藏一半，以便在不刻意提示的情况下，用户可以自然地意识到隐藏了 Tab，从而产生滑动的操作。
+
+> Tip：如果 Tab 内容宽度过大时请适当减小 `showNum`，以免 Tab 内容溢出被隐藏。
+
 ### CSS 注入
 
 Tab 结构相对复杂，为了支持更灵活的自定义样式，内部支持四个地方注入 CSS，injClass 作用于 Tab 最外层元素；tabInjClass 作用于内部的单项 tab；activeTabInjClass 作用于当前激活的 tab；activeInjClass 作用于 Tab 的指示器。

@@ -1,3 +1,7 @@
+## 0.4.4
+
+- [!tag|A|0|]Overflow mode is supported.
+
 ## 0.4.3
 
 - [!tag|O|0|]Tabs Props `placement` changed to `position`.

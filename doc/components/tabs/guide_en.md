@@ -31,6 +31,14 @@ This property determines the content of the Tabs, and supports a combination of 
 
 When the `lineType` property of the `Tab` component is set to `true`, a linear style is used. However, it will not work when the layout is set to 'v' (vertical).
 
+### Overflow mode
+
+Due to the limited horizontal space on mobile devices, when the layout is horizontal and the number of Tabs is large or dynamic, you can enable the overflow mode. In this case, the Tabs will automatically hide the overflowed Tabs and allow you to scroll to view them. When overflow mode is enabled, you can use `showNum` to control the number of Tabs displayed, and use `autoScroll` to control whether to enable automatic scrolling.
+
+When overflow mode is enabled, the actual number of Tabs displayed in the visible area is `showNum+0.5`. This design hides the last Tab by half at the beginning, so that users can naturally realize that a Tab is hidden without being deliberately prompted, thus generating a sliding operation.
+
+> Tip: If the Tab content width is too large, please reduce `showNum` appropriately to avoid hiding the Tab content overflow.
+
 ### CSS injection
 
 The Tab structure is relatively complex. In order to support more flexible customization, four places for injecting CSS are provided internally. The `injClass` property is applied to the outermost element of the Tab. The `tabInjClass` property is applied to the internal single tab. The `activeTabInjClass` property is applied to the currently active tab. And, the `activeInjClass` property is used to apply a specific style to the Tab indicator.

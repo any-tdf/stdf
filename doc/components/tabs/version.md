@@ -1,3 +1,7 @@
+## 0.4.4
+
+- [!tag|A|0|]支持溢出模式。
+
 ## 0.4.3
 
 - [!tag|O|0|]Tabs Props 的 `placement` 改为 `position`。

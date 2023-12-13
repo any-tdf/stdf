@@ -1,3 +1,7 @@
+## 0.4.4
+
+- 增强 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。
+
 ## 0.4.3
 
 - 修改 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。

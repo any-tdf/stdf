@@ -36,6 +36,9 @@
 | tabInjClass       | String  | ''     | -                                          | N    | 单项 Tab 注入 CSS。                           |
 | activeTabInjClass | String  | ''     | -                                          | N    | 激活的 Tab 注入 CSS。                         |
 | activeInjClass    | String  | ''     | -                                          | N    | 指示器注入 CSS。                              |
+| overflow          | Boolean | false  | true/false                                 | N    | 是否开启溢出隐藏。                            |
+| showNum           | Number  | 3      | -                                          | N    | 开启溢出隐藏时，完整显示 Tab 数。             |
+| autoScroll        | Boolean | false  | true/false                                 | N    | 开启溢出隐藏时，是否开启自动滚动。            |
 
 ## Tab Events
 

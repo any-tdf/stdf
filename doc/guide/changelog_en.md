@@ -1,3 +1,7 @@
+## 0.4.4
+
+- Enhanced Tabs components, please see [Tabs](https://stdf.design/#/components?nav=tabs&tab=4).
+
 ## 0.4.3
 
 - Modify the Tabs component, please see [Tabs](https://stdf.design/#/components?nav=tabs&tab=4).

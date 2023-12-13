@@ -36,6 +36,9 @@
 | tabInjClass       | String  | ''      | -                                          | No       | Inject CSS for individual Tabs.                                         |
 | activeTabInjClass | String  | ''      | -                                          | No       | Inject CSS for active Tab.                                              |
 | activeInjClass    | String  | ''      | -                                          | No       | Inject CSS for indicator.                                               |
+| overflow          | Boolean | false   | true/false                                 | No       | Whether to enable overflow hiding.                                      |
+| showNum           | Number  | 3       | -                                          | No       | When overflow hiding is enabled, the number of Tabs to be displayed.    |
+| autoScroll        | Boolean | false   | true/false                                 | No       | Whether to enable automatic scrolling when overflow hiding is enabled.  |
 
 ## Tab Events
 
