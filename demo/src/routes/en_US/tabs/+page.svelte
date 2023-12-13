@@ -16,6 +16,21 @@
 		{ text: 'train', icon: { name: 'ri-train-line', theme: true, size: 16, top: -1 } },
 		{ text: 'car', icon: { name: 'ri-car-line', theme: true, size: 16, top: -1 } },
 	];
+	const overflowLabels = [
+		{ text: 'aircraft' },
+		{ text: 'steamer' },
+		{ text: 'train' },
+		{ text: 'car' },
+		{ text: 'motorcycle' },
+		{ text: 'bicycle' },
+		{ text: 'hot air balloon' },
+		{ text: 'rocket' },
+		{ text: 'tractor' },
+		{ text: 'subway' },
+		{ text: 'bus' },
+		{ text: 'skateboard' },
+		{ text: 'flying saucer' },
+	];
 	let width = 0;
 	let changeActive = 0;
 	let active = 2;
@@ -117,10 +132,39 @@
 			<TabContent>I am a car</TabContent>
 		</Tabs>
 		<div class="mt-4">At present Tabs activated active：{changeActive}</div>
+		<Divider />
+
+		<div class="font-bold px-4">Overflow mode</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true }}>
+			{#each overflowLabels as item}
+				<TabContent>I am {item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, lineType: true }}>
+			{#each overflowLabels as item}
+				<TabContent>I am {item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Divider />
+
+		<div class="font-bold px-4">Overflow mode closes automatic scrolling</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, autoScroll: false }}>
+			{#each overflowLabels as item}
+				<TabContent>I am {item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Divider />
+
+		<div class="font-bold px-4">Overflow mode shows 2 items</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 5 }}>
+			{#each overflowLabels as item}
+				<TabContent>I am {item.text}</TabContent>
+			{/each}
+		</Tabs>
 	</div>
 	<Divider />
 
-	<div class="font-bold mt-8 text-xl">different Tab style</div>
+	<div class="font-bold mt-8 text-xl px-4">different Tab style</div>
 	<div class="flex flex-col space-y-2 mt-4">
 		<div class="font-bold px-4">Different fillet</div>
 		<Tab {labels} radius="none" />
@@ -152,10 +196,18 @@
 		<div class="font-bold px-4">Customize the indicator style</div>
 		<Tab {labels} activeInjClass="bg-gradient-to-b from-[#CE9FFC] to-[#7367F0]" activeTabInjClass="text-white" />
 		<Tab {labels} lineType activeInjClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
+
+		<div class="font-bold px-4">Different mx</div>
+		<div class="flex flex-col space-y-2 mt-4">
+			<Tab {labels} mx="12" />
+			<Tab {labels} lineType mx="12" />
+			<Tab {labels} mx="0" />
+			<Tab {labels} lineType mx="0" />
+		</div>
 	</div>
 	<Divider />
 
-	<div class="font-bold my-8 text-xl">Use alone Tab</div>
+	<div class="font-bold my-8 text-xl px-4">Use alone Tab</div>
 	<div class="my-4">
 		<Tab {labels} {active} on:clicktab={clicktabFun} />
 		<div class="mt-4">At present Tab clickable active：{active}</div>

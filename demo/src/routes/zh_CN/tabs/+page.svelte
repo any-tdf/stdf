@@ -16,6 +16,21 @@
 		{ text: '火车', icon: { name: 'ri-train-line', theme: true, size: 16, top: -1 } },
 		{ text: '汽车', icon: { name: 'ri-car-line', theme: true, size: 16, top: -1 } },
 	];
+	const overflowLabels = [
+		{ text: '飞机' },
+		{ text: '轮船' },
+		{ text: '火车' },
+		{ text: '汽车' },
+		{ text: '摩托车' },
+		{ text: '自行车' },
+		{ text: '热气球' },
+		{ text: '火箭' },
+		{ text: '拖拉机' },
+		{ text: '地铁' },
+		{ text: '公交车' },
+		{ text: '滑板' },
+		{ text: '飞碟' },
+	];
 	let width = 0;
 	let changeActive = 0;
 	let active = 2;
@@ -117,10 +132,39 @@
 			<TabContent>我是汽车</TabContent>
 		</Tabs>
 		<div class="mt-4">当前 Tabs 激活的 active：{changeActive}</div>
+		<Divider />
+
+		<div class="font-bold px-4">溢出模式</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true }}>
+			{#each overflowLabels as item}
+				<TabContent>我是{item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, lineType: true }}>
+			{#each overflowLabels as item}
+				<TabContent>我是{item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Divider />
+
+		<div class="font-bold px-4">溢出模式关闭自动滚动</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, autoScroll: false }}>
+			{#each overflowLabels as item}
+				<TabContent>我是{item.text}</TabContent>
+			{/each}
+		</Tabs>
+		<Divider />
+
+		<div class="font-bold px-4">溢出模式完整显示 2 项</div>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 2 }}>
+			{#each overflowLabels as item}
+				<TabContent>我是{item.text}</TabContent>
+			{/each}
+		</Tabs>
 	</div>
 	<Divider />
 
-	<div class="font-bold mt-8 text-xl">不同的 Tab 风格</div>
+	<div class="font-bold mt-8 text-xl px-4">不同的 Tab 风格</div>
 	<div class="flex flex-col space-y-2 mt-4">
 		<div class="font-bold px-4">不同圆角</div>
 		<Tab {labels} radius="none" />
@@ -152,10 +196,18 @@
 		<div class="font-bold px-4">自定义指示器风格</div>
 		<Tab {labels} activeInjClass="bg-gradient-to-b from-[#CE9FFC] to-[#7367F0]" activeTabInjClass="text-white" />
 		<Tab {labels} lineType activeInjClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
+
+		<div class="font-bold px-4">不同的左右间距</div>
+		<div class="flex flex-col space-y-2 mt-4">
+			<Tab {labels} mx="12" />
+			<Tab {labels} lineType mx="12" />
+			<Tab {labels} mx="0" />
+			<Tab {labels} lineType mx="0" />
+		</div>
 	</div>
 	<Divider />
 
-	<div class="font-bold my-8 text-xl">单独使用 Tab</div>
+	<div class="font-bold my-8 text-xl px-4">单独使用 Tab</div>
 	<div class="my-4">
 		<Tab {labels} {active} on:clicktab={clicktabFun} />
 		<div class="mt-4">当前 Tab 点击的 active：{active}</div>
