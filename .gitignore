@@ -11,6 +11,7 @@ pnpm-lock.yaml
 
 /demo-backup
 /demo.zip
+/demo-backup.zip
 
 # 忽略 demo 相关文件 ignore demo related files
 /demo/node_modules

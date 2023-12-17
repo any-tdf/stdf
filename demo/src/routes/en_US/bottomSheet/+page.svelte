@@ -92,7 +92,7 @@
 			<div>No display</div>
 			<div>The location still retains as a sliding touch area</div>
 			<div class="mb-8">
-				<Button on:click={() => (visible9 = false)}>closure</Button>
+				<Button on:click={() => (visible9 = false)}>Close</Button>
 			</div>
 		</div>
 	</BottomSheet>
