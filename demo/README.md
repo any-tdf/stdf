@@ -13,8 +13,6 @@ Install the dependencies...
 ```bash
 pnpm i
 # or
-yarn
-# or
 npm i
 # or
 bun i
@@ -25,11 +23,9 @@ Start the development server...
 ```bash
 pnpm dev
 # or
-yarn dev
-# or
 npm run dev
 # or
 bun dev
 ```
 
-If you want to start the development server with different components or english language, Please see scripts in `package.json`.
+If you wish to start the development server with different components or in English language, please refer to the scripts section in `package.json`.
