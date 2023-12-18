@@ -64,8 +64,8 @@ jobs:
           sed -i 's#../../../packages/stdf/lang/zh_CN#stdf/lang/zh_CN#' src/routes/+layout.svelte
           sed -i 's#../../../packages/stdf/lang/en_US#stdf/lang/en_US#' src/routes/+layout.svelte
           sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+page.svelte
-          # sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/*.svelte
-          # sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/*.svelte
+          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/*.svelte
+          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/*.svelte
           sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/routes/components/ThemeSwitch.svelte
           sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/data/themes/index.js
           sed -i 's|'\''../packages/stdf/\*\*/\*.svelte'\''|'\''.\/node_modules\/stdf\/\*\*\/\*.svelte'\''|g' tailwind.config.js
