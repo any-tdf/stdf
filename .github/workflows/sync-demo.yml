@@ -44,8 +44,8 @@ jobs:
       # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/zh_CN'"  替换为 "'stdf/lang/zh_CN'"
       # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/en_US'"  替换为 "'stdf/lang/en_US'"
       # 将 demo/src/routes/+page.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf/lang/en_US'"
-      # 将 demo/src/routes/en_US/**/+page.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
-      # 将 demo/src/routes/zh_CN/**/+page.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
+      # 将 demo/src/routes/en_US/**/**.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
+      # 将 demo/src/routes/zh_CN/**/**.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
       # 将 demo/src/routes/components/ThemeSwitch.svelte 内的 "'../../../../packages/stdf/theme'" 替换为 "'stdf/theme'"
       # 讲 demo/src/data/themes/index.js 内的 "'../../../../packages/stdf/theme'" 替换为 "'stdf/theme'"
       # 将 demo/tailwind.config.js 内的 "'../packages/stdf/**/*.svelte'"  替换为 "./node_modules/stdf/**/*.svelte'"，注意其中特殊符号的转义
@@ -64,8 +64,8 @@ jobs:
           sed -i 's#../../../packages/stdf/lang/zh_CN#stdf/lang/zh_CN#' src/routes/+layout.svelte
           sed -i 's#../../../packages/stdf/lang/en_US#stdf/lang/en_US#' src/routes/+layout.svelte
           sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+page.svelte
-          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/+page.svelte
-          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/+page.svelte
+          # sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/**.svelte
+          # sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/**.svelte
           sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/routes/components/ThemeSwitch.svelte
           sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/data/themes/index.js
           sed -i 's|'\''../packages/stdf/\*\*/\*.svelte'\''|'\''.\/node_modules\/stdf\/\*\*\/\*.svelte'\''|g' tailwind.config.js
