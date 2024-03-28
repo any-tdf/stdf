@@ -1,3 +1,7 @@
+## 0.4.5
+
+- 修复 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
+
 ## 0.4.4
 
 - 增强 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。

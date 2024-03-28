@@ -129,7 +129,7 @@
 	size={0}
 	duration={300}
 	outDuration={150}
-	maskClosable={showBtn ? false : true}
+	maskClosable={!showBtn}
 	position="center"
 	radiusPosition="all"
 	radius="lg"

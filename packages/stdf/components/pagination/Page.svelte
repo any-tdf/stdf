@@ -11,14 +11,7 @@
 		bold: 'font-bold text-primary dark:text-dark border-transparent',
 	};
 
-	const radiusClass = {
-		base: 'rounded',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-		none: 'rounded-none',
-	};
+	const radiusClass = { base: 'rounded', md: 'rounded-md', lg: 'rounded-lg', xl: 'rounded-xl', full: 'rounded-full', none: 'rounded-none' };
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

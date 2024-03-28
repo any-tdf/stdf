@@ -1,3 +1,7 @@
+## 0.4.5
+
+- Fixed the Pagination component, please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=4).
+
 ## 0.4.4
 
 - Enhanced Tabs components, please see [Tabs](https://stdf.design/#/components?nav=tabs&tab=4).

@@ -38,9 +38,9 @@
 
 	// mode 是否是指定组件模式
 	// whether mode is specified component mode
-	const isComponentMode = mode != 'production' && mode != 'development' && mode != 'english' ? true : false;
+	const isComponentMode = mode != 'production' && mode != 'development' && mode != 'english';
 
-	$: showLeft = isIframe === '1' || $page.url.pathname === '/' || isComponentMode ? false : true;
+	$: showLeft = !(isIframe === '1' || $page.url.pathname === '/' || isComponentMode);
 
 	let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 	// 设置主题
@@ -113,7 +113,7 @@
 		}
 	}
 	sessionStorage.setItem('lang', lang);
-	const isZh = lang === 'zh_CN' ? true : false;
+	const isZh = lang === 'zh_CN';
 	setContext('STDF_lang', isZh ? zh_CN : en_US);
 
 	onMount(() => {
