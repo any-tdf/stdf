@@ -126,11 +126,11 @@
 
 	// 当前页码大于等于 maxShowPage-3 时，不显示前面的省略号
 	// current >= maxShowPage-3, not show pre ellipsis
-	const showPreEllipsis = current > maxShowPage - 2;
+	$: showPreEllipsis = current > maxShowPage - 2;
 
 	// 当前页码小于等于 totalPage - (maxShowPage-3) 时，不显示后面的省略号
 	// current <= totalPage - (maxShowPage-3), not show next ellipsis
-	const showNextEllipsis = current <= maxShowPage - 2 || current <= totalPage - (maxShowPage - 3);
+	$: showNextEllipsis = current <= maxShowPage - 2 || current <= totalPage - (maxShowPage - 3);
 
 	// 当显示前面的省略号时，中间显示的页码数 middleShowPage 个数为 maxShowPage - 4，内容为当前页码（maxShowPage为5）或者当前页码和前后一项（maxShowPage为7）或者当前页码和前后两项（maxShowPage为9）
 	// when show pre ellipsis, middleShowPage length is maxShowPage - 4, content is current page (maxShowPage is 5) or current page and pre/next one (maxShowPage is 7) or current page and pre/next two (maxShowPage is 9)
