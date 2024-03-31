@@ -1,3 +1,7 @@
+## 0.4.6
+
+- Add Loading type, For more information, please see [Loading](https://stdf.design/#/components?nav=loading&tab=4).
+
 ## 0.4.5
 
 - Fixed the Pagination component, please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=4).

@@ -23,6 +23,38 @@
 		Loading1_19,
 		Loading1_20,
 		Loading1_21,
+		Loading1_22,
+		Loading1_23,
+		Loading1_24,
+		Loading1_25,
+		Loading1_26,
+		Loading1_27,
+		Loading1_28,
+		Loading1_29,
+		Loading1_30,
+		Loading1_31,
+		Loading1_32,
+		Loading1_33,
+		Loading1_34,
+		Loading1_35,
+		Loading1_36,
+		Loading1_37,
+		Loading1_38,
+		Loading1_39,
+		Loading1_40,
+		Loading1_41,
+		Loading1_42,
+		Loading1_43,
+		Loading1_44,
+		Loading1_45,
+		Loading1_46,
+		Loading1_47,
+		Loading1_48,
+		Loading1_49,
+		Loading1_50,
+		Loading1_51,
+		Loading1_52,
+		Loading1_53,
 	} from './loadings/oneColor';
 	import { Loading2_0, Loading2_1, Loading2_2, Loading2_3, Loading2_4, Loading2_5 } from './loadings/twoColor';
 	import { Loading4_0, Loading4_1, Loading4_2, Loading4_3 } from './loadings/fourColor';
@@ -187,7 +219,7 @@
 	});
 </script>
 
-<div bind:this={loadingDom}>
+<div bind:this={loadingDom} class="w-full h-full">
 	<!--one-->
 	{#if type === '1_0'}
 		<Loading1_0 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
@@ -233,6 +265,70 @@
 		<Loading1_20 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
 	{:else if type === '1_21'}
 		<Loading1_21 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_22'}
+		<Loading1_22 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_23'}
+		<Loading1_23 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_24'}
+		<Loading1_24 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_25'}
+		<Loading1_25 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_26'}
+		<Loading1_26 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_27'}
+		<Loading1_27 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_28'}
+		<Loading1_28 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_29'}
+		<Loading1_29 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_30'}
+		<Loading1_30 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_31'}
+		<Loading1_31 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_32'}
+		<Loading1_32 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_33'}
+		<Loading1_33 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_34'}
+		<Loading1_34 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_35'}
+		<Loading1_35 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_36'}
+		<Loading1_36 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_37'}
+		<Loading1_37 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_38'}
+		<Loading1_38 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_39'}
+		<Loading1_39 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_40'}
+		<Loading1_40 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_41'}
+		<Loading1_41 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_42'}
+		<Loading1_42 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_43'}
+		<Loading1_43 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_44'}
+		<Loading1_44 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_45'}
+		<Loading1_45 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_46'}
+		<Loading1_46 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_47'}
+		<Loading1_47 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_48'}
+		<Loading1_48 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_49'}
+		<Loading1_49 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_50'}
+		<Loading1_50 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_51'}
+		<Loading1_51 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_52'}
+		<Loading1_52 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
+	{:else if type === '1_53'}
+		<Loading1_53 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />
 
 		<!--twoColor-->
 	{:else if type === '2_0'}

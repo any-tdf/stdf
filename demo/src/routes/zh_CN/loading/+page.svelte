@@ -13,7 +13,7 @@
 		return arr;
 	};
 
-	const arr1 = new Array(22);
+	const arr1 = new Array(54);
 	const arr2 = new Array(6);
 	const arr4 = new Array(4);
 	const labels = [{ text: '单色' }, { text: '双色' }, { text: '四色' }, { text: '其他' }];
@@ -35,38 +35,38 @@
 					<!-- eslint-disable-next-line no-unused-vars -->
 					{#each arr1 as item, i}
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'1_' + i} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'1_' + i}</div>
+							<div class="text-xs text-center mt-8">{'1_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'1_' + i} theme bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'1_' + i}</div>
+							<div class="text-xs text-center mt-8">{'1_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'1_' + i} theme customColor={randomColorArr(1)} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'1_' + i}</div>
+							<div class="text-xs text-center mt-8">{'1_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-darkBlack dark:bg-darkWhite text-white dark:text-black"
 						>
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'1_' + i} inverse bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'1_' + i}</div>
+							<div class="text-xs text-center mt-8">{'1_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-darkBlack dark:bg-darkWhite text-white dark:text-black"
 						>
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'1_' + i} theme inverse bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'1_' + i}</div>
+							<div class="text-xs text-center mt-8">{'1_' + i}</div>
 						</div>
 					{/each}
 				</div>
@@ -87,21 +87,21 @@
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'2_' + i} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'2_' + i}</div>
+							<div class="text-xs text-center mt-8">{'2_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'2_' + i} customColor={randomColorArr(2)} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'2_' + i}</div>
+							<div class="text-xs text-center mt-8">{'2_' + i}</div>
 						</div>
 						<div
-							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-gray-800 dark:bg-gray-100 text-white dark:text-black"
+							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-darkBlack dark:bg-darkWhite text-white dark:text-black"
 						>
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'2_' + i} inverse bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'2_' + i}</div>
+							<div class="text-xs text-center mt-8">{'2_' + i}</div>
 						</div>
 					{/each}
 				</div>
@@ -122,13 +122,13 @@
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'4_' + i} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'4_' + i}</div>
+							<div class="text-xs text-center mt-8">{'4_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
 							<div class="w-[30px] h-[30px]">
 								<Loading type={'4_' + i} customColor={randomColorArr(4)} bind:speed />
 							</div>
-							<div class="text-xs text-center mt-4">{'4_' + i}</div>
+							<div class="text-xs text-center mt-8">{'4_' + i}</div>
 						</div>
 					{/each}
 				</div>

@@ -1,3 +1,7 @@
+## 0.4.6
+
+- 新增 Loading 类型，详见 [Loading](https://stdf.design/#/components?nav=loading&tab=4)。
+
 ## 0.4.5
 
 - 修复 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。

@@ -38,4 +38,4 @@ Loading comes with a series of transition animations. In extreme cases, when the
 
 ## Acknowledgments
 
-Some of the animation inspirations are from [德育处主任](http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading). Special thanks go to him.
+Some of the animation inspirations are from [德育处主任](http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading) and [LDRS](https://uiball.com/ldrs). Special thanks go to them.

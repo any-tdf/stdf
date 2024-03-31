@@ -38,4 +38,4 @@ Loading 自带了一系列过渡动画，极端情况下，当页面同时有大
 
 ## 感谢
 
-部分动效灵感来自 [德育处主任](http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading)，特此感谢。
+部分动效灵感来自 [德育处主任](http://k21vin.gitee.io/front-end-data-visualization/#/native/pureCSS/loading) 与 [LDRS](https://uiball.com/ldrs), 感谢他们的分享。

@@ -1,8 +1,8 @@
 <script>
 	export let inverse = false;
 	export let size = 'w-8 h-8';
-	export let customColor = []; //自定义颜色
-	export let speed = 1; //速度系数，基础为1，数值越大，速度越快
+	export let customColor = [];
+	export let speed = 1;
 
 	const outerBorderClass = () => {
 		return inverse ? ' border-white/10 dark:border-black/10' : ' border-black/10 dark:border-white/10';
