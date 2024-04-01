@@ -84,13 +84,13 @@
 					<!-- eslint-disable-next-line no-unused-vars -->
 					{#each arr2 as item, i}
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'2_' + i} bind:speed />
 							</div>
 							<div class="text-xs text-center mt-8">{'2_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'2_' + i} customColor={randomColorArr(2)} bind:speed />
 							</div>
 							<div class="text-xs text-center mt-8">{'2_' + i}</div>
@@ -98,7 +98,7 @@
 						<div
 							class="py-6 w-full flex flex-col items-center border border-white/5 dark:border-black/5 bg-darkBlack dark:bg-darkWhite text-white dark:text-black"
 						>
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'2_' + i} inverse bind:speed />
 							</div>
 							<div class="text-xs text-center mt-8">{'2_' + i}</div>
@@ -119,13 +119,13 @@
 					<!-- eslint-disable-next-line no-unused-vars -->
 					{#each arr4 as item, i}
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'4_' + i} bind:speed />
 							</div>
 							<div class="text-xs text-center mt-8">{'4_' + i}</div>
 						</div>
 						<div class="py-6 w-full flex flex-col items-center border border-black/5 dark:border-white/5">
-							<div class="w-[30px] h-[30px]">
+							<div class="w-[32px] h-[32px]">
 								<Loading type={'4_' + i} customColor={randomColorArr(4)} bind:speed />
 							</div>
 							<div class="text-xs text-center mt-8">{'4_' + i}</div>
