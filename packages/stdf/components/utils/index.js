@@ -48,6 +48,62 @@ export const throttle = (fn, delay = 50) => {
 };
 
 /**
+ * 节流
+ * throttle With requestAnimationFrame
+ * @param {Function} fn
+ * @param {Number} delay
+ * @returns {Function}
+ */
+export const throttleWithRAF = (fn, delay = 16) => {
+	let timeoutId = null;
+	let rafId = null;
+	let lastExec = 0;
+	const throttledFn = function (...args) {
+		const now = performance.now();
+		const remainingTime = delay - (now - lastExec);
+		if (rafId === null && timeoutId === null) {
+			// 如果没有rafId和timeoutId，说明没有正在进行的动画帧或定时器
+			rafId = requestAnimationFrame(() => {
+				// 在动画帧开始时执行函数
+				fn.apply(this, args);
+				lastExec = performance.now();
+				rafId = null;
+			});
+		} else if (remainingTime <= 0) {
+			// 如果超过了延迟时间，取消当前的定时器，然后在下一个动画帧执行
+			clearTimeout(timeoutId);
+			timeoutId = null;
+			rafId = requestAnimationFrame(() => {
+				fn.apply(this, args);
+				lastExec = performance.now();
+				rafId = null;
+			});
+		} else {
+			// 如果还有剩余时间，设置定时器
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => {
+				rafId = requestAnimationFrame(() => {
+					fn.apply(this, args);
+					lastExec = performance.now();
+					rafId = null;
+				});
+			}, remainingTime);
+		}
+	};
+	throttledFn.clear = () => {
+		if (timeoutId !== null) {
+			clearTimeout(timeoutId);
+			timeoutId = null;
+		}
+		if (rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+	};
+	return throttledFn;
+};
+
+/**
  * 将数字按照步长进行四舍五入
  *  Round the number according to the step length
  * @param {Number} num
