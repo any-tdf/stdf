@@ -1,4 +1,5 @@
 <script>
+	import { getContext } from 'svelte';
 	/**
 	 * 图标名称
 	 * Icon name
@@ -38,7 +39,7 @@
 	 * @type {string}
 	 * @default 'fonts/symbol.svg'
 	 */
-	export let path = 'fonts/symbol.svg';
+	export let path = getContext('STDF_icon_svg_path') || 'fonts/symbol.svg';
 
 	/**
 	 * 偏移量
