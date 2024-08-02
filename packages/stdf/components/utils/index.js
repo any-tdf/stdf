@@ -63,14 +63,17 @@ export const throttleWithRAF = (fn, delay = 16) => {
 		const remainingTime = delay - (now - lastExec);
 		if (rafId === null && timeoutId === null) {
 			// 如果没有rafId和timeoutId，说明没有正在进行的动画帧或定时器
+			// If there is no rafId and timeoutId, it means there is no animation frame or timer in progress.
 			rafId = requestAnimationFrame(() => {
 				// 在动画帧开始时执行函数
+				// Executes a function at the beginning of an animation frame
 				fn.apply(this, args);
 				lastExec = performance.now();
 				rafId = null;
 			});
 		} else if (remainingTime <= 0) {
 			// 如果超过了延迟时间，取消当前的定时器，然后在下一个动画帧执行
+			// If the delay time is exceeded, cancel the current timer and execute it in the next animation frame.
 			clearTimeout(timeoutId);
 			timeoutId = null;
 			rafId = requestAnimationFrame(() => {
@@ -80,6 +83,7 @@ export const throttleWithRAF = (fn, delay = 16) => {
 			});
 		} else {
 			// 如果还有剩余时间，设置定时器
+			// If there is time left, set the timer
 			clearTimeout(timeoutId);
 			timeoutId = setTimeout(() => {
 				rafId = requestAnimationFrame(() => {
