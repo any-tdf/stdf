@@ -1,7 +1,7 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { throttle, stepNumberFun } from '../utils';
+	import { throttleWithRAF, debounce, stepNumberFun } from '../utils';
 
 	/**
 	 * 当前值
@@ -167,8 +167,11 @@
 		}
 	};
 	const touchLineMove = e => {
-		lineDom.setPointerCapture(e.pointerId);
-
+		if (!lineDom.hasPointerCapture(e.pointerId)) {
+			lineDom.setPointerCapture(1);
+		} else {
+			lineDom.setPointerCapture(e.pointerId);
+		}
 		if (disabled || readonly) {
 			return;
 		}
@@ -212,12 +215,14 @@
 			dispatch('change', value); //触发事件 trigger event
 		}
 	};
-	const touchLineEnd = () => {
+	const touchLineEnd = e => {
+		if (lineDom.hasPointerCapture(e.pointerId)) {
+			lineDom.releasePointerCapture(e.pointerId);
+		}
 		currentMove = 'none';
 		isDown = false;
 	};
-	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
-	onMount(() => {
+	const handleResize = () => {
 		lineDomStartX = lineDom.getBoundingClientRect().left;
 		lineDomEndX = lineDom.getBoundingClientRect().right;
 		lineDomWidth = lineDom.getBoundingClientRect().width;
@@ -227,13 +232,18 @@
 		if (isRange) {
 			blockWidth = blockDom.getBoundingClientRect().width;
 		}
+	};
+	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
+	onMount(() => {
+		handleResize();
+		window.addEventListener('resize', debounce(handleResize, 200));
 	});
 </script>
 
 <div class={`relative h-7${disabled ? ' opacity-50' : ''}`}>
 	<div
 		on:pointerdown={touchLineStart}
-		on:pointermove={throttle(touchLineMove)}
+		on:pointermove={throttleWithRAF(touchLineMove)}
 		on:pointerup={touchLineEnd}
 		class="absolute flex flex-col justify-center h-7 w-full touch-none cursor-move"
 		bind:this={lineDom}
