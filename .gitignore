@@ -48,7 +48,6 @@ pnpm-lock.yaml
 /site/cdn-list.txt
 /site/Refresh.py
 /site/RefreshAndPredload.log
-/site/package-lock.json
 /site/pnpm-lock.yaml
 /site/package-backup.json
 /site/public-backup
