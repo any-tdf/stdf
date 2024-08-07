@@ -73,7 +73,6 @@ export default defineConfig({
 						return `guide/${item}/index`;
 					}
 				}
-
 				// 将 src/pages/components/Components.svelte 单独拆分到 build/components/index.js 文件中
 				if (id.includes('src/pages/components/Components.svelte')) {
 					return 'components/index';
@@ -85,7 +84,6 @@ export default defineConfig({
 						return `components/${item}/index`;
 					}
 				}
-
 				// 如果 id 包含 doc/guide/xxx.md 则单独拆分到 build/doc/guide/xxx/index.js 文件中
 				if (id.includes('doc/guide/')) {
 					return 'doc/guide/' + id.match(/doc\/guide\/(.*)\.md/)[1] + '/index';
