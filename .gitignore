@@ -30,8 +30,28 @@ pnpm-lock.yaml
 /demo/npm-lock.yaml
 /demo/package-lock.json
 
-# 忽略全部 site 和 publish 文件
-/site
+# 忽略全部 site 相关文件
+/site/scripts/add.txt
+/site/scripts/cdn-all.txt
+/site/scripts/cdn-modify.txt
+/site/scripts/compare.js
+/site/scripts/delete.txt
+/site/scripts/deploy.js
+/site/scripts/Refresh.py
+/site/node_modules
+/site/dist
+/site/dist-old
+/site/dist-ssr
+/site/*.local
+/site/bun.lockb
+/site/deploy.js
+/site/cdn-list.txt
+/site/Refresh.py
+/site/RefreshAndPredload.log
+/site/package-lock.json
+/site/pnpm-lock.yaml
+/site/package-backup.json
+/site/public-backup
 
 
 # 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages
