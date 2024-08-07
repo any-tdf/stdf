@@ -77,30 +77,6 @@ if (localStorage.getItem('theme') === 'dark') {
 // }
 // darkModeMediaQuery.addEventListener('change', handleDarkmode);
 
-// const string = function () {
-// 	/*
-// Welcome to use
-
-//  (           (      (
-//  )\ )  *   ) )\ )   )\ )
-// (()/(` )  /((()/(  (()/(
-//  /(_))( )(_))/(_))  /(_))
-// (_)) (_(_())(_))_  (_))_|
-// / __||_   _| |   \ | |_
-// \__ \  | |   | |) || __|
-// |___/  |_|   |___/ |_|
-
-// */
-// };
-// // @ts-ignore
-// Function.prototype.makeMulti = function () {
-// 	let l = new String(this);
-// 	l = l.substring(l.indexOf('/*') + 3, l.lastIndexOf('*/'));
-// 	return l;
-// };
-// // @ts-ignore
-// console.log(string.makeMulti());
-
 const app = new App({
 	target: document.body,
 });
