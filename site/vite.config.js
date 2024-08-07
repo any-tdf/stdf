@@ -6,7 +6,7 @@ import svgSprite from 'rollup-plugin-stdf-icon';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/stdf/',
+	base: '/',
 	plugins: [
 		// @ts-ignore
 		svelte(),
