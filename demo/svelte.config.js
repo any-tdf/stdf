@@ -11,10 +11,10 @@ const config = {
 			// 可能因主机而异
 			fallback: 'index.html',
 		}),
-		paths: {
-			// @ts-ignore
-			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
-		},
+		// paths: {
+		// 	// @ts-ignore
+		// 	base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
+		// },
 	},
 	onwarn: (warning, handler) => {
 		if (warning.code.startsWith('a11y-')) {
