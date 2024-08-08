@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
       - name: Install dependencies and build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: '/'
         run: |
           npm ci
           npm run build
