@@ -37,6 +37,8 @@ jobs:
           node-version: 20.x
           cache: 'npm'
       - name: Install dependencies and build
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm ci
           npm run build
@@ -46,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: 'build/demo-stdf'
+          path: 'build/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
