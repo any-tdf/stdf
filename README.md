@@ -8,6 +8,7 @@
 [![Public Icon Status](https://github.com/any-tdf/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-icon.yml)
 [![Public VS Code Extension Status](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml)
+[![Releases Site](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
