@@ -28,7 +28,6 @@ pnpm-lock.yaml
 /demo/build
 /demo/static/fonts/symbol.svg
 /demo/npm-lock.yaml
-/demo/package-lock.json
 
 # 忽略全部 site 相关文件
 /site/scripts/add.txt
