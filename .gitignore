@@ -51,6 +51,7 @@ pnpm-lock.yaml
 /site/pnpm-lock.yaml
 /site/package-backup.json
 /site/public-backup
+/site/.env
 
 
 # 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages

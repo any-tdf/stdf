@@ -15,7 +15,9 @@
 
 <div class="flex flex-col px-2 py-4">
 	<span class="text-gray-500 text-xs pb-3">
-		{isZh ? '最新：' + import.meta.env.VITE_BUILD_TIME_ZH : 'Latest: ' + import.meta.env.VITE_BUILD_TIME_EN}
+		{isZh ? '最近更新：' : 'Last update:'}
+		<br />
+		{isZh ? import.meta.env.VITE_BUILD_TIME_ZH : import.meta.env.VITE_BUILD_TIME_EN}
 	</span>
 	{#each menuList as menu}
 		<div class="text-xs">{isZh ? menu.class : menu.class_en}{showNum ? `（${menu.childs.length}）` : ''}</div>
