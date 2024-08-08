@@ -9,7 +9,7 @@ const config = {
 		adapter: adapter({
 			// may differ from host to host
 			// 可能因主机而异
-			fallback: 'index.html',
+			fallback: '404.html',
 		}),
 		// paths: {
 		// 	// @ts-ignore
