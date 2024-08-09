@@ -3,12 +3,12 @@
 [![Public STDF Status](https://github.com/any-tdf/stdf/actions/workflows/publish-stdf.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-stdf.yml)
 [![Releases Status](https://github.com/any-tdf/stdf/actions/workflows/releases.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/releases.yml)
 [![Sync Status](https://github.com/any-tdf/stdf/actions/workflows/sync-demo.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/sync-demo.yml)
-[![Build Status](https://github.com/any-tdf/stdf/actions/workflows/build-demo.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/build-demo.yml)
 [![Public Create Status](https://github.com/any-tdf/stdf/actions/workflows/publish-create.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-create.yml)
 [![Public Icon Status](https://github.com/any-tdf/stdf/actions/workflows/publish-icon.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-icon.yml)
 [![Public VS Code Extension Status](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml)
 [![Releases Site](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml)
+[![Releases Demo](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml/badge.svg)](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
