@@ -40,7 +40,7 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-          npm ci
+          npm i
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -28,6 +28,7 @@ pnpm-lock.yaml
 /demo/build
 /demo/static/fonts/symbol.svg
 /demo/npm-lock.yaml
+/demo/package-lock.json
 
 # 忽略全部 site 相关文件
 /site/scripts/add.txt
@@ -51,6 +52,7 @@ pnpm-lock.yaml
 /site/package-backup.json
 /site/public-backup
 /site/.env
+/site/package-lock.json
 
 
 # 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages

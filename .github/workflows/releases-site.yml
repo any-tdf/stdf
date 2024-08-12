@@ -37,12 +37,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+          cache: 'npm'
       - name: Install clean-css-cli
         run: npm install clean-css-cli -g
       - name: Install dependencies and build
         run: |
           cd site
-          npm ci
+          npm i
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
