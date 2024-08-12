@@ -23,17 +23,17 @@ jobs:
         run: |
           echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-      # 2. 读取 doc/guide/changelog.md 的第一行内容，去除 ## 和空格
+      # 2. 读取 doc/guide/changelog.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
       - name: Get md_version
         id: md_version
         run: |
-          echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+          echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-      # 3. 读取 doc/guide/changelog_en.md 的第一行内容，去除 ## 和空格
+      # 3. 读取 doc/guide/changelog_en.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
       - name: Get md_version_en
         id: md_version_en
         run: |
-          echo md_version_en=$(cat doc/guide/changelog_en.md | head -1 | sed 's/## //g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+          echo md_version_en=$(cat doc/guide/changelog_en.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
       # 4. 比较 Get version 与 Get md_version 和 Get md_version_en 三者的输出内容，如果不相同则此次不需要发布 Release，退出
       - name: Check version
