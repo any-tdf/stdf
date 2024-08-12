@@ -219,7 +219,7 @@
 	});
 </script>
 
-<div bind:this={loadingDom} class="w-full h-full">
+<div bind:this={loadingDom}>
 	<!--one-->
 	{#if type === '1_0'}
 		<Loading1_0 {theme} {inverse} size={sizeFunc(height, width)} {customColor} bind:speed />

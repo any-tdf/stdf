@@ -122,7 +122,7 @@
 
 	// 总页数
 	// totalPage
-	const totalPage = Math.ceil(total / pageSize);
+	$: totalPage = Math.ceil(total / pageSize);
 
 	// 当前页码大于等于 maxShowPage-3 时，不显示前面的省略号
 	// current >= maxShowPage-3, not show pre ellipsis
