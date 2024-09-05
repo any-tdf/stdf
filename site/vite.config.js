@@ -16,7 +16,7 @@ export default defineConfig({
 			marked: {
 				//marked options
 			},
-			include: ['../doc/**/*.md', './src/pages/guide/**/*.md'],
+			include: ['../doc/**/*.md', './src/pages/guide/**/*.md', '../packages/**/*.md'],
 		}),
 		svgSprite([{ inFile: 'src/assets/svgs', outFile: 'public/fonts', fileName: 'symbol' }]),
 	],

@@ -4,61 +4,89 @@
 
 一个用于创建新的 [STDF](https://stdf.design) 项目的命令行工具。只需运行以下命令...
 
-使用 PNPM：
-
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf
 ```
-
-使用 NPM：
-
-```bash
+<!-- :: -->
+<!-- npm -->
+```sh
 npm create stdf@latest
-# 或者
+# 或
 npm init stdf@latest
-# 或者
+# 或
 npx create-stdf@latest
 ```
-
-使用 BUN：
-
-```bash
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf
+```
+<!-- ::: -->
 
 ...然后按照提示进行操作。
 
 你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit + Tailwind + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
 
-```bash
-# pnpm
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf my-app
-
-# npm
+```
+<!-- :: -->
+<!-- npm -->
+```sh
 npm create stdf@latest my-app
-
-# bun
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf my-app
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf my-app
+```
+<!-- ::: -->
 
 如果要使用 **Vite + UnoCSS + Svelte + STDF** 模板，请运行：
 
-```bash
-# pnpm
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf my-app --template vu
-# 或者
+# 或
 pnpm create stdf my-app -t vu
-
-# npm
+```
+<!-- :: -->
+<!-- npm -->
+```sh
 npm create stdf@latest my-app --template vu
-# 或者
+# 或
 npm create stdf@latest my-app -t vu
-
-# bun
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf my-app -template vu
-# 或者
+# 或
 bun create stdf my-app -t vu
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf my-app --template vu
+# 或
+yarn create stdf my-app -t vu
+```
+<!-- ::: -->
 
 模板预设包括：
 
@@ -98,9 +126,27 @@ bun create stdf my-app -t vu
 
 例如：
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf my-app -l zh_CN
 ```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm create stdf@latest my-app -l zh_CN
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun create stdf my-app -l zh_CN
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf my-app -l zh_CN
+```
+<!-- ::: -->
 
 # 许可证
 

@@ -10,7 +10,7 @@ It is built with [SvelteKit](https://kit.svelte.dev) + [Tailwind CSS](https://ta
 
 Install the dependencies...
 
-```bash
+```sh
 pnpm i
 # or
 npm i
@@ -20,7 +20,7 @@ bun i
 
 Start the development server...
 
-```bash
+```sh
 pnpm dev
 # or
 npm run dev

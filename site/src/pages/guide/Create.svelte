@@ -3,12 +3,14 @@
 	import { isWideScreenStore } from '../../store';
 
 	// @ts-ignore
-	import text from '../../../../doc/guide/contribution.md';
+	import createText from '../../../../packages/create-stdf/README_CN.md';
 	// @ts-ignore
-	import text_en from '../../../../doc/guide/contribution_en.md';
+	import createText_en from '../../../../packages/create-stdf/README.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
-	const hljsText = groupIconMdPlugin(mdTextToHljs(isZh ? text : text_en).replace(/<a href="/g, '<a target="_blank" href="'));
+	const text = groupIconMdPlugin(
+		(isZh ? mdTextToHljs(createText) : mdTextToHljs(createText_en)).replace(/<a href="/g, '<a target="_blank" href="'),
+	);
 </script>
 
 <article
@@ -16,5 +18,5 @@
 		? 'max-w-full'
 		: 'max-w-5xl'}"
 >
-	{@html hljsText}
+	{@html text}
 </article>

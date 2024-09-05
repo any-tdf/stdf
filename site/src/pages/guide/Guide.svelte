@@ -22,6 +22,8 @@
 	import Milestone from './Milestone.svelte';
 	import Vscode from './Vscode.svelte';
 	import Generator from './Generator.svelte';
+	import Create from './Create.svelte';
+	import IconPlugin from './IconPlugin.svelte';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
@@ -42,6 +44,8 @@
 		'/milestone': Milestone,
 		'/vscode': Vscode,
 		'/generator': Generator,
+		'/create': Create,
+		'/icon-plugin': IconPlugin,
 		'/': QuickStart,
 	};
 
@@ -75,6 +79,8 @@
 			childs: [
 				{ title: '主题生成器', title_en: 'Theme generator', nav: 'generator' },
 				{ title: 'IDE 插件', title_en: 'IDE plugin', nav: 'vscode', doc: 'vscode' },
+				{ title: '脚手架', title_en: 'Create cli', nav: 'create' },
+				{ title: '图标插件', title_en: 'Icon plugin', nav: 'icon-plugin' },
 				{ title: '快捷键', title_en: 'Shortcut key', nav: 'shortkey' },
 			],
 		},
@@ -147,6 +153,18 @@
 			localStorage.setItem('isFull', 'full');
 		}
 	};
+	// 编辑地址处理
+	const editUrlFn = nav => {
+		if (nav === 'create') {
+			return 'https://github.com/any-tdf/stdf/edit/main/packages/create-stdf/README' + (isZh ? '_CN' : '') + '.md';
+		}
+		if (nav === 'icon-plugin') {
+			return 'https://github.com/any-tdf/stdf/edit/main/packages/rollup-plugin-stdf-icon/README' + (isZh ? '_CN' : '') + '.md';
+		}
+		return `https://github.com/any-tdf/stdf/edit/main/doc/guide/${flatMenuList.filter(item => item.nav === nav)[0]?.doc}${
+			isZh ? '' : '_en'
+		}.md`;
+	};
 </script>
 
 <div class="flex">
@@ -172,14 +190,7 @@
 		</div>
 		{#if currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey' && currentNav.nav != 'generator'}
 			<div class="px-4 md:px-8 pb-8 text-xs flex gap-2">
-				<a
-					href={'https://github.com/any-tdf/stdf/edit/main/doc/guide/' +
-						flatMenuList.filter(item => item.nav === currentNav.nav)[0]?.doc +
-						(isZh ? '' : '_en') +
-						'.md'}
-					class="flex text-primary dark:text-dark w-full"
-					target="_blank"
-				>
+				<a href={editUrlFn(currentNav.nav)} class="flex text-primary dark:text-dark w-full" target="_blank">
 					<span class="h-4 w-4 mr-1">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" style="fill: currentColor;">
 							<path
@@ -216,3 +227,30 @@
 		{/if}
 	</button>
 {/if}
+<!-- 为 code-groups 预先编译 tailwind -->
+<div
+	class="hidden dark:bg-[#202020] border-b-2 peer-checked/tab-0-0:border-primary dark:peer-checked/tab-0-0:border-dark peer-checked/tab-0-0:block
+peer-checked/tab-0-1:border-primary dark:peer-checked/tab-0-1:border-dark peer-checked/tab-0-1:block
+peer-checked/tab-0-2:border-primary dark:peer-checked/tab-0-2:border-dark peer-checked/tab-0-2:block
+peer-checked/tab-0-3:border-primary dark:peer-checked/tab-0-3:border-dark peer-checked/tab-0-3:block
+peer-checked/tab-0-4:border-primary dark:peer-checked/tab-0-4:border-dark peer-checked/tab-0-4:block
+peer-checked/tab-0-5:border-primary dark:peer-checked/tab-0-5:border-dark peer-checked/tab-0-5:block
+peer-checked/tab-1-0:border-primary dark:peer-checked/tab-1-0:border-dark peer-checked/tab-1-0:block
+peer-checked/tab-1-1:border-primary dark:peer-checked/tab-1-1:border-dark peer-checked/tab-1-1:block
+peer-checked/tab-1-2:border-primary dark:peer-checked/tab-1-2:border-dark peer-checked/tab-1-2:block
+peer-checked/tab-1-3:border-primary dark:peer-checked/tab-1-3:border-dark peer-checked/tab-1-3:block
+peer-checked/tab-1-4:border-primary dark:peer-checked/tab-1-4:border-dark peer-checked/tab-1-4:block
+peer-checked/tab-1-5:border-primary dark:peer-checked/tab-1-5:border-dark peer-checked/tab-1-5:block
+peer-checked/tab-2-0:border-primary dark:peer-checked/tab-2-0:border-dark peer-checked/tab-2-0:block
+peer-checked/tab-2-1:border-primary dark:peer-checked/tab-2-1:border-dark peer-checked/tab-2-1:block
+peer-checked/tab-2-2:border-primary dark:peer-checked/tab-2-2:border-dark peer-checked/tab-2-2:block
+peer-checked/tab-2-3:border-primary dark:peer-checked/tab-2-3:border-dark peer-checked/tab-2-3:block
+peer-checked/tab-2-4:border-primary dark:peer-checked/tab-2-4:border-dark peer-checked/tab-2-4:block
+peer-checked/tab-2-5:border-primary dark:peer-checked/tab-2-5:border-dark peer-checked/tab-2-5:block
+peer-checked/tab-3-0:border-primary dark:peer-checked/tab-3-0:border-dark peer-checked/tab-3-0:block
+peer-checked/tab-3-1:border-primary dark:peer-checked/tab-3-1:border-dark peer-checked/tab-3-1:block
+peer-checked/tab-3-2:border-primary dark:peer-checked/tab-3-2:border-dark peer-checked/tab-3-2:block
+peer-checked/tab-3-3:border-primary dark:peer-checked/tab-3-3:border-dark peer-checked/tab-3-3:block
+peer-checked/tab-3-4:border-primary dark:peer-checked/tab-3-4:border-dark peer-checked/tab-3-4:block
+peer-checked/tab-3-5:border-primary dark:peer-checked/tab-3-5:border-dark peer-checked/tab-3-5:block"
+></div>

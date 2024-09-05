@@ -6,13 +6,27 @@
 
 Svelte and Tailwind have been configured for direct installation.
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm i stdf -D
-# or
-npm i stdf -D
-# or
-bun i stdf -D
 ```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i stdf -D
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add stdf -D
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add stdf -D
+```
+<!-- ::: -->
 
 ### Used in Svelte
 
@@ -31,25 +45,57 @@ bun i stdf -D
 
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf
-# or
+```
+<!-- :: -->
+<!-- npm -->
+```sh
 npm create stdf@latest
 # or
 npm init stdf@latest
 # or
 npx create-stdf@latest
-# or
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf
+```
+<!-- ::: -->
 
 ### Build your own project
 
 Use the Vite example to create the project here. See [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm create vite
+```
+<!-- :: -->
+<!-- npm -->
 ```sh
 npm create vite@latest
 ```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun create vite
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create vite
+```
+<!-- ::: -->
 
 Follow the prompts to create a project.
 

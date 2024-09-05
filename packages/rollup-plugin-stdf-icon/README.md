@@ -8,23 +8,27 @@ For more information about the STDF Icon component, please refer to the [Icon Gu
 
 # Installation
 
-Using PNPM:
-
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm i rollup-plugin-stdf-icon -D
 ```
-
-Using NPM:
-
-```bash
+<!-- :: -->
+<!-- npm -->
+```sh
 npm i rollup-plugin-stdf-icon -D
 ```
-
-With BUN:
-
-```bash
-bun i rollup-plugin-stdf-icon -D
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add rollup-plugin-stdf-icon -D
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add rollup-plugin-stdf-icon -D
+```
+<!-- ::: -->
 
 # Usage
 

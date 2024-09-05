@@ -27,41 +27,91 @@ Recommended installations:
 
 > Because the rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build this packages first.
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 ## 1. Clone the STDF repository and enter
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
-
 ## Install dependencies
 pnpm i
-## or
-npm i
-## or
-bun i
-
 ## Build package
-npm run build
-## or
-bun run build
+pnpm build
 
 ## 3. Use the Demo project to debug STDF
 cd demo
-
 ## Install dependencies
 pnpm i
-## or
-npm i
-## or
-bun i
-
 ## Start Demo
-npm run dev_en
-## or
-bun dev_en
+pnpm dev
 ```
+<!-- :: -->
+<!-- npm -->
+```sh
+## 1. Clone the STDF repository and enter
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
+
+## 2. Build the rollup-plugin-stdf-icon package
+cd packages/rollup-plugin-stdf-icon
+## Install dependencies
+npm i
+## Build package
+npm run build
+
+## 3. Use the Demo project to debug STDF
+cd demo
+## Install dependencies
+npm i
+## Start Demo
+npm run dev
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+## 1. Clone the STDF repository and enter
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
+
+## 2. Build the rollup-plugin-stdf-icon package
+cd packages/rollup-plugin-stdf-icon
+## Install dependencies
+bun i
+## Build package
+bun build
+
+## 3. Use the Demo project to debug STDF
+cd demo
+## Install dependencies
+bun i
+## Start Demo
+bun dev
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+## 1. Clone the STDF repository and enter
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
+
+## 2. Build the rollup-plugin-stdf-icon package
+cd packages/rollup-plugin-stdf-icon
+## Install dependencies
+yarn
+## Build package
+yarn build
+
+## 3. Use the Demo project to debug STDF
+cd demo
+## Install dependencies
+yarn
+## Start Demo
+yarn dev
+```
+<!-- ::: -->
 
 After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.
 

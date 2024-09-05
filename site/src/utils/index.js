@@ -1,4 +1,5 @@
 import Color from 'color';
+import codeGroupSvgData from './code-group-svg-data';
 
 /**
  * 节流，每 n 毫秒执行一次
@@ -87,6 +88,76 @@ export const mdTextToHljs = mdText => {
 	} else {
 		return mdText;
 	}
+};
+
+/**
+ * 传入解析出来的 md 文档字符，找到其中  ::: code-group 与  ::: 之间的代码块，并将其分组，实现代码块的 tab 分组显示，
+ * 其中 label 标签中的内容为 tab 标签的标题，并在文字前面增加一个 icon 标签，icon 标签的 class 内容为 iconfont 的类名
+ * @param {string} md - 解析出来的 md 文档字符
+ * @returns {string} - 返回处理后的 md 文档字符
+ */
+export const groupIconMdPlugin = md => {
+	// 找出自字符中所有的 ::: code-group 与  ::: 之间的字符组成数组
+	const codeGroupStrListAll = md.match(/<!-- :::code-groups -->[\s\S]*?<!-- ::: -->/g);
+	if (!codeGroupStrListAll) {
+		return md;
+	}
+	const codeGroupStrList = codeGroupStrListAll.map(item =>
+		item
+			.replace(/<!-- :::code-groups -->/g, '')
+			.replace(/<!-- ::: -->/g, '')
+			.split('<!-- :: -->'),
+	);
+	const codeGroupList = codeGroupStrList.map(item =>
+		item.map(subItem => {
+			return { tab: subItem.match(/<!-- (.*?) -->/)[1], code: subItem.replace(/<!-- (.*?) -->/, '') };
+		}),
+	);
+
+	const codeGroupHtmlList = codeGroupList.map((item, index) => {
+		const arr = [];
+		item.forEach((subItem, subIndex) => {
+			const label = `
+			<input id="tab-${index + '-' + subIndex}" type="radio" name="tab-${index}" class="peer/tab-${index + '-' + subIndex} opacity-0" ${
+				subIndex === 0 ? 'checked' : ''
+			} />
+				<label
+					for="tab-${index + '-' + subIndex}"
+					class="border-b-2 border-transparent peer-checked/tab-${index + '-' + subIndex}:border-primary dark:peer-checked/tab-${
+						index + '-' + subIndex
+					}:border-dark transition duration-300 cursor-pointer py-2 px-4 inline-flex items-center gap-2 text-xs"
+				>
+					${codeGroupSvgData.find(icon => icon.name === subItem.tab).svg}${subItem.tab}
+				</label>
+			`;
+			const code = `<div class="hidden peer-checked/tab-${index + '-' + subIndex}:block w-full">${subItem.code}</div>`;
+			arr.push({ label, code });
+		});
+		return `
+			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-[#202020] rounded mb-4">
+				${arr.map(item => item.label).join('')}
+				${arr.map(item => item.code).join('')}
+			</section>
+			`;
+	});
+	const replaceCodeGroups = (inputString, replacements) => {
+		// 定义正则表达式匹配 <!-- :::code-groups --> 与 <!-- ::: --> 之间的内容
+		const regex = /<!--\s*:::code-groups\s*-->(.*?)<!--\s*:::\s*-->/gs;
+
+		let match;
+		let index = 0;
+
+		// 替换匹配到的部分
+		inputString = inputString.replace(regex, (match, p1) => {
+			if (index < replacements.length) {
+				return replacements[index++];
+			}
+			return '';
+		});
+
+		return inputString;
+	};
+	return replaceCodeGroups(md, codeGroupHtmlList).replace(/w-full">\n\n<pre>/g, 'w-full">\n\n<pre style="margin: 0;">');
 };
 
 /**
@@ -209,7 +280,6 @@ const colorPalette = (originColor, i, format) => {
 
 	const isLight = i < 6;
 	const index = isLight ? 6 - i : i - 6;
-	// console.log(isLight, index, getNewSaturation(isLight, 0.5), getNewSaturation(isLight, index === 0 ? 0.5 : index));
 	const retColor =
 		i === 6
 			? color

@@ -29,41 +29,91 @@
 
 > 由于 Demo 依赖的 rollup-plugin-stdf-icon 包是本地构建的，所以请先构建一下这个包。
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 ## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
-
 ## 安装依赖
 pnpm i
-## or
-npm i
-## or
-bun i
-
 ## 构建包
-npm run build
-## or
-bun run build
+pnpm build
 
 ## 3. 使用 Demo 工程调试 STDF
 cd demo
-
 ## 安装依赖
 pnpm i
-## or
-npm i
-## or
-bun i
+## 启动 Demo
+pnpm dev
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+## 1. 克隆 STDF 仓库并进入
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
 
+## 2. 构建 rollup-plugin-stdf-icon 包
+cd packages/rollup-plugin-stdf-icon
+## 安装依赖
+npm i
+## 构建包
+npm run build
+
+## 3. 使用 Demo 工程调试 STDF
+cd demo
+## 安装依赖
+npm i
 ## 启动 Demo
 npm run dev
-## or
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+## 1. 克隆 STDF 仓库并进入
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
+
+## 2. 构建 rollup-plugin-stdf-icon 包
+cd packages/rollup-plugin-stdf-icon
+## 安装依赖
+bun i
+## 构建包
+bun build
+
+## 3. 使用 Demo 工程调试 STDF
+cd demo
+## 安装依赖
+bun i
+## 启动 Demo
 bun dev
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+## 1. 克隆 STDF 仓库并进入
+git clone git@github.com:any-tdf/stdf.git
+cd stdf
+
+## 2. 构建 rollup-plugin-stdf-icon 包
+cd packages/rollup-plugin-stdf-icon
+## 安装依赖
+yarn
+## 构建包
+yarn build
+
+## 3. 使用 Demo 工程调试 STDF
+cd demo
+## 安装依赖
+yarn
+## 启动 Demo
+yarn dev
+```
+<!-- ::: -->
 
 启动成功之后，可在浏览器中打开 `http://localhost:8888` 查看效果，请将浏览器的开发者工具切换为移动端模式。
 

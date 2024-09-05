@@ -6,13 +6,27 @@
 
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm i stdf -D
-# or
-npm i stdf -D
-# or
-bun i stdf -D
 ```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i stdf -D
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add stdf -D
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add stdf -D
+```
+<!-- ::: -->
 
 ### 在 Svelte 中使用
 
@@ -31,25 +45,57 @@ bun i stdf -D
 
 可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。
 
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm create stdf
-# or
+```
+<!-- :: -->
+<!-- npm -->
+```sh
 npm create stdf@latest
-# or
+# 或
 npm init stdf@latest
-# or
+# 或
 npx create-stdf@latest
-# or
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf
+```
+<!-- ::: -->
 
 ### 自行搭建工程
 
 此处用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
 
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm create vite
+```
+<!-- :: -->
+<!-- npm -->
 ```sh
 npm create vite@latest
 ```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun create vite
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create vite
+```
+<!-- ::: -->
 
 按照提示操作创建工程。
 

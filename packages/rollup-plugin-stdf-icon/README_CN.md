@@ -8,23 +8,27 @@
 
 # 安装
 
-使用 PNPM：
-
-```bash
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
 pnpm i rollup-plugin-stdf-icon -D
 ```
-
-使用 NPM：
-
-```bash
+<!-- :: -->
+<!-- npm -->
+```sh
 npm i rollup-plugin-stdf-icon -D
 ```
-
-使用 BUN：
-
-```bash
-bun i rollup-plugin-stdf-icon -D
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add rollup-plugin-stdf-icon -D
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add rollup-plugin-stdf-icon -D
+```
+<!-- ::: -->
 
 # 使用
 

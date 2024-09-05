@@ -61,7 +61,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 
 If you have a project configured with Svelte and Tailwind, install directly.
 
-```bash
+```sh
 pnpm i stdf -D
 # or
 npm i stdf -D
@@ -84,7 +84,7 @@ import { Button } from 'stdf';
 
 You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
 
-```bash
+```sh
 pnpm create stdf
 # or
 npm create stdf@latest
