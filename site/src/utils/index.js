@@ -118,14 +118,14 @@ export const groupIconMdPlugin = md => {
 		const arr = [];
 		item.forEach((subItem, subIndex) => {
 			const label = `
-			<input id="tab-${index + '-' + subIndex}" type="radio" name="tab-${index}" class="peer/tab-${index + '-' + subIndex} opacity-0" ${
+			<input id="tab-${index + '-' + subIndex}" type="radio" name="tab-${index}" class="peer/tab-${index + '-' + subIndex} w-0" ${
 				subIndex === 0 ? 'checked' : ''
 			} />
 				<label
 					for="tab-${index + '-' + subIndex}"
 					class="border-b-2 border-transparent peer-checked/tab-${index + '-' + subIndex}:border-primary dark:peer-checked/tab-${
 						index + '-' + subIndex
-					}:border-dark transition duration-300 cursor-pointer py-2 px-4 inline-flex items-center gap-2 text-xs"
+					}:border-dark transition duration-300 cursor-pointer py-2 px-3 inline-flex items-center gap-1 text-xs"
 				>
 					${codeGroupSvgData.find(icon => icon.name === subItem.tab).svg}${subItem.tab}
 				</label>
