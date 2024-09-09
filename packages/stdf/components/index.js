@@ -34,6 +34,7 @@ import RadioGroup from './radio/RadioGroup.svelte';
 import Rate from './rate/Rate.svelte';
 import Skeleton from './skeleton/Skeleton.svelte';
 import Slider from './slider/Slider.svelte';
+import Stepper from './stepper/Stepper.svelte';
 import Steps from './steps/Steps.svelte';
 import Switch from './switch/Switch.svelte';
 import Swiper from './swiper/Swiper.svelte';
@@ -81,6 +82,7 @@ export {
 	Rate,
 	Skeleton,
 	Slider,
+	Stepper,
 	Steps,
 	Switch,
 	Swiper,
