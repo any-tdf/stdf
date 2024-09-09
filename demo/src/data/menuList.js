@@ -263,6 +263,16 @@ export default [
 				alias: 'switch|开关|开|关|switch开关|switch 开关',
 			},
 			{
+				title: '步进器 Stepper',
+				title_zh: '步进器',
+				title_en: 'Stepper',
+				nav: 'stepper',
+				tip: '人生如同诗行，或进或退皆成章。保持心灵节奏，生命之诗韵味悠长。',
+				tip_en:
+					'Life is like a poem, advancing or retreating all form chapters. Maintain the rhythm of the soul, and the poetic flavor of life will last long.',
+				alias: 'stepper|步进器|步|进|器|stepper步进器|stepper 步进器',
+			},
+			{
 				title: '时间选择器 TimePicker',
 				title_zh: '时间选择器',
 				title_en: 'TimePicker',
