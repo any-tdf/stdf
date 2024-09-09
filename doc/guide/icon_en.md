@@ -45,6 +45,8 @@ Here are the icons and their corresponding components:
 | ri-code-box-fill              | Skeleton         |
 | ri-qr-code-fill               | Skeleton         |
 | ri-barcode-fill               | Skeleton         |
+| ri-add-line                   | Stepper          |
+| ri-subtract-line              | Stepper          |
 | ri-checkbox-circle-line       | Toast            |
 | ri-close-circle-line          | Toast            |
 | ri-error-warning-line         | Toast            |

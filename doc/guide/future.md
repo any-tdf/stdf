@@ -7,6 +7,7 @@
 - [x] 开发一款模板脚手架，支持按照配置初始使用 STDF 的工程，初步考虑支持 Vite、SvelteKit。
 - [x] 新增 NumKeyboard-数字键盘组件，一般用于输入数字。
 - [x] 新增 Pagination-分页组件。
+- [x] 新增 Stepper-步进器组件。
 
 ---
 

@@ -1,3 +1,5 @@
+> NoticeBar 使用了图标 ri-volume-down-line 和 ri-close-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+
 ## 说明
 
 当横向放置时，不论内容有几条，只要所有内容加上内容之间的间隔长度之和超过容器宽度，NoticeBar 将会自动横向滚动，否则不滚动。

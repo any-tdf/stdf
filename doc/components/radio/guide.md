@@ -1,3 +1,5 @@
+> Radio 使用了图标 ri-radio-button-line 和 ri-checkbox-blank-circle-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+
 ## 说明
 
 由于移动端横向显示内容有限，RadioGroup 默认为纵向布局，横向布局建议只用作简单使用。当选项较多、内容较长或显示内容较多时建议使用纵向布局，

@@ -1,3 +1,5 @@
+> Checkbox uses the icons ri-checkbox-fill and ri-checkbox-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## Description
 
 Due to limited space for horizontal display on mobile devices, CheckboxGroup is set to vertical layout by default. Horizontal layout should only be used for simple usage. When there are many options, long content, or much display content, vertical layout is recommended. When a checkbox is clicked, CheckboxGroup can obtain an array of names of all currently selected checkboxes through the change event.

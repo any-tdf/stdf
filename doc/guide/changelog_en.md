@@ -1,3 +1,7 @@
+## 0.5.0 <font size=1>2024-09-09</font>
+
+- Added Stepper component, please see [Stepper](https://stdf.design/#/components?nav=stepper&tab=0).
+
 ## 0.4.7 <font size=1>2024-08-12</font>
 
 - Fixed Pagination component, please see [Pagination](https://stdf.design/#/components?nav=pagination&tab=4).

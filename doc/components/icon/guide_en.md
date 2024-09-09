@@ -20,35 +20,7 @@ Some of the icons used in STDF components are sourced from [Remix Icon Library](
 
 **If you are using these components, please make sure that the `symbol.svg` file in your project includes the corresponding icons.**
 
-Here are the icons and their corresponding components:
-
-| Icon Name                     | Component        |
-| ----------------------------- | ---------------- |
-| ri-user-3-line                | Avatar           |
-| ri-user-add-line              | Avatars          |
-| ri-arrow-right-s-line         | Cell / NoticeBar |
-| ri-checkbox-fill              | Checkbox         |
-| ri-checkbox-line              | Checkbox         |
-| ri-close-circle-fill          | Input            |
-| ri-arrow-left-s-line          | NavBar           |
-| ri-volume-down-line           | NoticeBar        |
-| ri-close-line                 | NoticeBar        |
-| ri-delete-back-2-line         | NumKeyboard      |
-| ri-skip-down-line             | NumKeyboard      |
-| ri-more-line                  | Pagination       |
-| ri-more-fill                  | Pagination       |
-| ri-radio-button-line          | Radio            |
-| ri-checkbox-blank-circle-line | Radio            |
-| ri-star-fill                  | Rate             |
-| ri-image-2-fill               | Skeleton         |
-| ri-movie-2-fill               | Skeleton         |
-| ri-code-box-fill              | Skeleton         |
-| ri-qr-code-fill               | Skeleton         |
-| ri-barcode-fill               | Skeleton         |
-| ri-checkbox-circle-line       | Toast            |
-| ri-close-circle-line          | Toast            |
-| ri-error-warning-line         | Toast            |
-| ri-information-line           | Toast            |
+Please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon) for details.
 
 You can find the SVG source files for these icons in `node_modules/stdf/assets/svg_base/`.
 

@@ -1,3 +1,5 @@
+> Toast 使用了图标 ri-checkbox-circle-line、ri-close-circle-line、ri-error-warning-line、ri-information-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+
 ## 显示位置
 
 提示默认显示在屏幕中央，也可以通过 `position` 属性设置显示位置，当 position 为 `top` 或 `bottom` 时，可以通过 `py` 属性设置距离顶部或底部的距离。

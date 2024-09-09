@@ -1,3 +1,5 @@
+> Skeleton uses the icon ri-image-fill, ri-movie-2-fill, ri-code-box-fill,ri-qr-code-fill, ri-barcode-fill, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## Explanation
 
 1. The Skeleton component is not a mandatory component, but it can optimize the visual effect during the page loading process, thereby effectively improving the user experience.

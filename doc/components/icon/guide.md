@@ -20,35 +20,7 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 
 **如果使用这些组件，请确保项目的 symbol.svg 中包含了对应图标。**
 
-具体使用如下：
-
-| 图标名称                      | 所属组件         |
-| ----------------------------- | ---------------- |
-| ri-user-3-line                | Avatar           |
-| ri-user-add-line              | Avatars          |
-| ri-arrow-right-s-line         | Cell / NoticeBar |
-| ri-checkbox-fill              | Checkbox         |
-| ri-checkbox-line              | Checkbox         |
-| ri-close-circle-fill          | Input            |
-| ri-arrow-left-s-line          | NavBar           |
-| ri-volume-down-line           | NoticeBar        |
-| ri-close-line                 | NoticeBar        |
-| ri-delete-back-2-line         | NumKeyboard      |
-| ri-skip-down-line             | NumKeyboard      |
-| ri-more-line                  | Pagination       |
-| ri-more-fill                  | Pagination       |
-| ri-radio-button-line          | Radio            |
-| ri-checkbox-blank-circle-line | Radio            |
-| ri-star-fill                  | Rate             |
-| ri-image-2-fill               | Skeleton         |
-| ri-movie-2-fill               | Skeleton         |
-| ri-code-box-fill              | Skeleton         |
-| ri-qr-code-fill               | Skeleton         |
-| ri-barcode-fill               | Skeleton         |
-| ri-checkbox-circle-line       | Toast            |
-| ri-close-circle-line          | Toast            |
-| ri-error-warning-line         | Toast            |
-| ri-information-line           | Toast            |
+具体请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
 
 可到 `node_modules/stdf/assets/svg_base/` 查看这些图标的 SVG 源文件。
 

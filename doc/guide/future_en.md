@@ -7,6 +7,7 @@
 - [x] Develop a template scaffold that supports initializing STDF projects according to configuration. Initial support for Vite and SvelteKit.
 - [x] Add NumKeyboard component, which is generally used for entering numbers.
 - [x] Added Pagination component.
+- [x] Added Stepper component.
 
 ---
 

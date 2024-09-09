@@ -1,3 +1,5 @@
+> NavBar uses the icon ri-arrow-left-s-line, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## Explanation
 
 On mobile devices, the NavBar is generally used to display the current page and to perform routing operations at the top of the page. STDF's NavBar consists of three parts: left, center, and right, and each part supports slot rendering. The class of the outermost element also supports injClass (class injection).

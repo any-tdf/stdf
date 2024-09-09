@@ -45,6 +45,8 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 | ri-code-box-fill              | Skeleton         |
 | ri-qr-code-fill               | Skeleton         |
 | ri-barcode-fill               | Skeleton         |
+| ri-add-line                   | Stepper          |
+| ri-subtract-line              | Stepper          |
 | ri-checkbox-circle-line       | Toast            |
 | ri-close-circle-line          | Toast            |
 | ri-error-warning-line         | Toast            |

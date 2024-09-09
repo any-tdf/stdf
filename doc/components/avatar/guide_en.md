@@ -1,3 +1,5 @@
+> Avatar uses the icons ri-user-3-line and ri-user-add-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## Description
 
 The `Avatar` component can receive a relative or absolute path for `image`, which will be converted to the `src` attribute of the `img` tag inside the component. If `alt` is passed in, it will be displayed as text. If `icon` is passed in as `Icon Props`, the `Icon` component will be used to render the contents of the avatar. If none of `image`, `alt`, and `icon` are passed in, the `Avatar` component will default to using the `Icon` component to display a user icon.

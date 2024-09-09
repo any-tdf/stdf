@@ -1,3 +1,5 @@
+> NavBar 使用了图标 ri-arrow-left-s-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+
 ## 说明
 
 移动端的 NavBar 一般用于页面顶部显示当前页面与路由跳转操作。STDF 的 NavBar 由左中右三个部分组成，且每个部分都支持插槽渲染，而最外层元素的 Class 支持 injClass（class 注入）。

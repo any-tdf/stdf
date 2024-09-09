@@ -1,3 +1,7 @@
+## 0.5.0 <font size=1>2024-09-09</font>
+
+- 新增 Stepper 组件，详见 [Stepper](https://stdf.design/#/components?nav=stepper&tab=0)。
+
 ## 0.4.7 <font size=1>2024-08-12</font>
 
 - 修复 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。

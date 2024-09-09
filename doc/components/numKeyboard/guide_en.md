@@ -1,3 +1,5 @@
+> NumKeyboard uses the icons ri-delete-back-2-line and ri-skip-down-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## Description
 
 The NumKeyboard component is a virtual numeric keyboard used for inputting integers or decimals. It uses a grid layout, with two layout options: 3\*4 or 4\*4. If the completion key is not displayed, there will only be 3 columns; otherwise, there will be 4 columns.

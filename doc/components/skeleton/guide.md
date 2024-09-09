@@ -1,3 +1,5 @@
+> Skeleton 使用了图标 ri-image-fill、ri-movie-2-fill、ri-code-box-fill、ri-qr-code-fill、ri-barcode-fill，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+
 ## 说明
 
 1. Skeleton 组件并不是必需组件，但它能优化页面加载过程中的视觉效果，进而有效地提升用户体验。

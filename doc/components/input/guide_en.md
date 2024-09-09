@@ -1,3 +1,5 @@
+> Input uses the icon ri-close-circle-fill, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+
 ## title and placeholder
 
 If the title is passed in but the placeholder is not, the Input component will use "Please enter + title" as the default placeholder. Both title and placeholder should be passed in at least one.
