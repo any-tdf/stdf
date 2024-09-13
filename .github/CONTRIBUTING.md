@@ -1,3 +1,5 @@
+[简体中文](https://stdf.design/#/guide/contribution?lang=zh_CN)
+
 ## Introduction
 
 Thank you for using STDF.
