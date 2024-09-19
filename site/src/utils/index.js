@@ -118,7 +118,7 @@ export const groupIconMdPlugin = md => {
 		const arr = [];
 		item.forEach((subItem, subIndex) => {
 			const label = `
-			<input id="tab-${index + '-' + subIndex}" type="radio" name="tab-${index}" class="peer/tab-${index + '-' + subIndex} w-0" ${
+			<input id="tab-${index + '-' + subIndex}" type="radio" name="tab-${index}" class="peer/tab-${index + '-' + subIndex} w-0 hidden" ${
 				subIndex === 0 ? 'checked' : ''
 			} />
 				<label
