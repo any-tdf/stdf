@@ -1,7 +1,7 @@
 <script>
 	import { onMount, createEventDispatcher, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { throttle } from '../utils';
+	import { throttleWithRAF } from '../utils';
 	import zh_CN from '../../lang/zh_CN';
 
 	import Mask from '../mask/Mask.svelte';
@@ -355,7 +355,7 @@
 		>
 			<div
 				on:pointerdown={touchstartFun}
-				on:pointermove={throttle(touchmoveFun)}
+				on:pointermove={throttleWithRAF(touchmoveFun)}
 				on:pointerup={touchendFun}
 				bind:this={scrollTopDom}
 				class="py-1 touch-none cursor-move select-none"
