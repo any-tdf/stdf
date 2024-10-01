@@ -140,7 +140,7 @@
 				? 'STDF 示例'
 				: 'STDF Demo'
 			: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
-			  (isZh ? '示例' : ' Demo')}
+				(isZh ? '示例' : ' Demo')}
 		left={showLeft ? 'back' : 'none'}
 		rightSlot
 		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
