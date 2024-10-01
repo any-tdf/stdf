@@ -252,10 +252,10 @@
 						? ' scale-75'
 						: ''
 					: animation === 'current'
-					? clickIndex === index && isScale
-						? ' scale-75'
+						? clickIndex === index && isScale
+							? ' scale-75'
+							: ''
 						: ''
-					: ''
 			}`}
 			style="height:{height}px;width:{width}px;"
 			on:click={() => clickFun(index)}

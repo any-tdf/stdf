@@ -94,8 +94,8 @@
 		textPosition === 'b' || textPosition === 't'
 			? 'flex-col items-center'
 			: $STDF_checkboxLayoutStore === 'h'
-			? 'justify-center'
-			: 'items-center'
+				? 'justify-center'
+				: 'items-center'
 	}`}
 	on:click={clickRadioFun}
 >

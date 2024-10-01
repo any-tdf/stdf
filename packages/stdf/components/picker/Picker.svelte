@@ -326,8 +326,8 @@
 								? currentLevelData[0][linkageChildrenKey]
 								: []
 							: currentLevelData[index]
-							? currentLevelData[index][linkageChildrenKey]
-							: [];
+								? currentLevelData[index][linkageChildrenKey]
+								: [];
 					if (nextLevelData.length > 0) {
 						const nextData = nextLevelData.map(item =>
 							linkageLabelKeys[col + 1] ? { label: item[linkageLabelKeys[col + 1]] } : { label: item.label },

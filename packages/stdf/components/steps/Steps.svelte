@@ -81,8 +81,8 @@
 								i < current - 1
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
+										? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
+										: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
 							} ${radiusObj[radius] || radiusObj.base} ${!barBorder ? '!border-transparent' : ''}`}
 							style="top:12px"
 						>
@@ -119,8 +119,8 @@
 								i < current - 1
 									? 'border-primary dark:border-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'
+										? 'border-primary dark:border-dark bg-primary dark:bg-dark'
+										: 'border-black/30 dark:border-white/30'
 							} ${radiusObj[radius] || radiusObj.base}`}
 							style="top:16px"
 						/>
@@ -132,8 +132,8 @@
 							i < current - 1
 								? 'text-black dark:text-white'
 								: i === current - 1
-								? 'text-primary dark:text-dark'
-								: 'text-black/30 dark:text-white/30'
+									? 'text-primary dark:text-dark'
+									: 'text-black/30 dark:text-white/30'
 						}`}
 					>
 						{item.finishStep && i < current - 1 ? item.finishStep.title : item.step.title}
@@ -145,8 +145,8 @@
 									? item.finishStep.desc
 									: ''
 								: item.step.desc
-								? item.step.desc
-								: ''}
+									? item.step.desc
+									: ''}
 						</div>
 					{/if}
 					{#if item.step?.injComponent || item.finishStep?.injComponent}
@@ -171,8 +171,8 @@
 								i < current - 1
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
+										? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
+										: 'border-black/30 dark:border-white/30 text-black/30 dark:text-white/30'
 							} ${radiusObj[radius] || radiusObj.base} ${!barBorder ? '!border-transparent' : ''}`}
 							style="left:calc(50% - 15px)"
 						>
@@ -209,8 +209,8 @@
 								i < current - 1
 									? 'border-primary dark:border-dark'
 									: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'
+										? 'border-primary dark:border-dark bg-primary dark:bg-dark'
+										: 'border-black/30 dark:border-white/30'
 							} ${radiusObj[radius] || radiusObj.base}`}
 							style="left:calc(50% - 5px)"
 						/>
@@ -221,8 +221,8 @@
 						i < current - 1
 							? 'text-black dark:text-white'
 							: i === current - 1
-							? 'text-primary dark:text-dark'
-							: 'text-black/30 dark:text-white/30'
+								? 'text-primary dark:text-dark'
+								: 'text-black/30 dark:text-white/30'
 					}`}
 				>
 					{item.finishStep && i < current - 1 ? item.finishStep.title : item.step.title}

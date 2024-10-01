@@ -275,8 +275,8 @@
 		data.length > 1
 			? [data[data.length - 1], ...data, data[0], data[1]]
 			: data.length === 1
-			? [data[data.length - 1], ...data, data[0]]
-			: data; //实现无限轮播，复制一个新数组，防止改变原数组 implement infinite loop, copy a new array to prevent change original array
+				? [data[data.length - 1], ...data, data[0]]
+				: data; //实现无限轮播，复制一个新数组，防止改变原数组 implement infinite loop, copy a new array to prevent change original array
 	const indicateAlignObj = { left: 'justify-start', center: 'justify-center', right: 'justify-end' };
 	const pxObj = { '0': '', '1': 'px-1', '2': 'px-2', '4': 'px-4', '6': 'px-6', '8': 'px-8', '12': 'px-12', '16': 'px-16', '24': 'px-24' };
 	const pyObj = { '0': '', '1': 'py-1', '2': 'py-2', '4': 'py-4', '6': 'py-6', '8': 'py-8', '12': 'py-12' };

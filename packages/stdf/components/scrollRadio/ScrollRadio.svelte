@@ -65,8 +65,8 @@
 		showRowsInner === 3
 			? [...[emptyObj], ...data, ...[emptyObj]]
 			: showRowsInner === 5
-			? [...[emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj]]
-			: [...[emptyObj, emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj, emptyObj]];
+				? [...[emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj]]
+				: [...[emptyObj, emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj, emptyObj]];
 
 	// 滚动元素
 	// Scroll element

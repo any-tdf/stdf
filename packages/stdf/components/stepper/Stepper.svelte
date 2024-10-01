@@ -178,8 +178,8 @@
 			'rounded'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
 			? ''
 			: theme
-			? ' bg-primary/5 dark:bg-dark/10'
-			: ' bg-white dark:bg-black'}"
+				? ' bg-primary/5 dark:bg-dark/10'
+				: ' bg-white dark:bg-black'}"
 		disabled={async || value === min}
 		aria-label="decrease"
 	>
@@ -210,8 +210,8 @@
 			'rounded'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
 			? ''
 			: theme
-			? ' bg-primary/5 dark:bg-dark/10'
-			: ' bg-white dark:bg-black'}"
+				? ' bg-primary/5 dark:bg-dark/10'
+				: ' bg-white dark:bg-black'}"
 		aria-label="increase"
 		disabled={async || value === max}
 	>
