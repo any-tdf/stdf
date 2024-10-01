@@ -4,7 +4,7 @@
 	"description": "Format code and lint code",
 	"scripts": {
 		"format": "prettier . --write --plugin prettier-plugin-svelte",
-		"lint": "eslint --ext .js,.svelte,.json,.ts,.cjs ."
+		"lint": "eslint packages demo"
 	},
 	"author": "dufu1991",
 	"license": "MIT",
