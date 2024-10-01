@@ -1,7 +1,7 @@
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { throttle } from '../utils';
+	import { throttleWithRAF } from '../utils';
 
 	// 定义事件派发器
 	// Define event dispatcher
@@ -216,7 +216,7 @@
 </div>
 <div
 	on:pointerdown={touchBoxStart}
-	on:pointermove={throttle(touchBoxMove)}
+	on:pointermove={throttleWithRAF(touchBoxMove)}
 	on:pointerup={touchBoxEnd}
 	bind:clientHeight={barHeight}
 	bind:this={barDom}

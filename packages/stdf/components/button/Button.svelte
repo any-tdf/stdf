@@ -1,4 +1,6 @@
 <script>
+	import Icon from '../icon/Icon.svelte';
+	import Loading from '../loading/Loading.svelte';
 	/**
 	 * 填充模式
 	 * Fill mode
@@ -111,6 +113,29 @@
 	 */
 	export let customHeight = 0;
 
+	/**
+	 * @typedef {Object} iconLoading
+	 * @property {string|undefined} type 类型
+	 * @property {Object|undefined} params 参数
+	 */
+
+	/**
+	 * Icon/loading area
+	 * @type {iconLoading}
+	 * @default {}
+	 */
+	export let iconLoading = { type: 'icon', params: {} };
+
+	/**
+	 * 如果带加载，是否禁用
+	 * Whether to disable if loading
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let disabledLoading = true;
+
+	const innerDisabled = disabled || (iconLoading.type === 'loading' && disabledLoading);
+
 	// 状态样式
 	// State style
 	const stateObj = { theme: 'bg-primary dark:bg-dark', success: 'bg-success', warning: 'bg-warning', error: 'bg-error', info: 'bg-info' };
@@ -163,14 +188,24 @@
 >
 	<button
 		on:click
-		class={`truncate ${!group && !disabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
+		class={`truncate ${!group && !innerDisabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
 			sizeObj[size] || sizeObj.big
 		} ${textColor} ${lineObj[line] || lineObj.solid} ${radiusObj[radius] || radiusObj.base} ${
 			fill === 'base' && (stateObj[state] || stateObj.theme)
-		} ${fillObj[fill] || fillObj.base} ${injClass} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
-		{disabled}
+		} ${fillObj[fill] || fillObj.base} ${injClass} ${innerDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+		disabled={innerDisabled}
 		style={customSize ? `width:${customWidth}px;height:${customHeight}px;padding:0;` : ''}
 	>
-		<slot />
+		{#if iconLoading.type === 'loading'}
+			<div class="flex items-center justify-center gap-2">
+				<Loading {...iconLoading.params} />
+				<slot />
+			</div>
+		{:else if iconLoading.type === 'icon' && iconLoading.params.name}
+			<Icon {...iconLoading.params} />
+			<slot />
+		{:else}
+			<slot />
+		{/if}
 	</button>
 </div>

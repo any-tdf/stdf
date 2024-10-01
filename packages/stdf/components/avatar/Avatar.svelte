@@ -139,7 +139,7 @@
 		</div>
 	{:else if image === '' && alt !== ''}
 		<div
-			class={`text-center text-primary-950 dark:text-dark-950 ${altSizeObj[altSize] || altSizeObj.base}`}
+			class={`text-center text-primary-950 dark:text-dark-950 ${altSizeObj[altSize] || altSizeObj.md}`}
 			style="position: absolute;top: 50%;left:50%;transform: translate(-50%, -50%);"
 		>
 			{alt}
