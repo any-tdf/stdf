@@ -2,13 +2,13 @@
 name: RELEASES SITE
 
 on:
-  # 仅在推送到默认分支且 site 文件夹有变动时触发工作流
+  # 仅在推送到默认分支且 site 文件夹和 doc 文件夹有变动时触发工作流
   push:
     branches:
       - main
     paths:
       - 'site/**'
-
+      - 'doc/**'
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
 
