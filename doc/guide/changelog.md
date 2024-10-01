@@ -1,3 +1,10 @@
+## 0.5.1 <font size=1>2024-10-02</font>
+
+- 增强 Button 组件，详见 [Button](https://stdf.design/#/components?nav=button&tab=4)。
+- 优化 BottomSheet 组件，详见 [BottomSheet](https://stdf.design/#/components?nav=bottomSheet&tab=4)。
+- 优化 IndexBar 组件，详见 [IndexBar](https://stdf.design/#/components?nav=indexBar&tab=4)。
+- 修复 Avatar 组件，详见 [Avatar](https://stdf.design/#/components?nav=avatar&tab=4)。
+
 ## 0.5.0 <font size=1>2024-09-09</font>
 
 - 新增 Stepper 组件，详见 [Stepper](https://stdf.design/#/components?nav=stepper&tab=0)。

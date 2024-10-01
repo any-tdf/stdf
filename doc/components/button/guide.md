@@ -27,3 +27,7 @@
 ## 按钮组
 
 要使用按钮组可以直接通过在内部插槽放入多个元素，结合 heightOut 与 heightIn 就可以实现。需要注意的是此时点击事件就需要绑定在内部独立元素之上，另外需要通过将 Props 的 group 设置为 true，将不显示整个按钮区域的点击效果。可参考示例。
+
+## 带图标或加载
+
+通过 iconLoading 参数可以向 Button 组件内容区域前注入图标或加载效果，type 为 icon 时表示图标，loading 时表示加载效果，params 为注入的对应参数，支持传入 Icon 和 Loading 两种组件的 Props。当 type 为 loading 时，按钮默认禁用，可通过 disabledLoading 参数控制。请参考示例。

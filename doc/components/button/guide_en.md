@@ -27,3 +27,7 @@ If the injected class does not take effect, please add "!" before the injected c
 ## Button group
 
 To use the button group, you can directly put multiple elements in the inner slot, which can be achieved by combining heightOut and heightIn. It should be noted that the click event needs to be bound to the internal independent element at this time. In addition, by setting the group of Props to true, the click effect of the entire button area will not be displayed. Examples are available.
+
+## With icon or loading
+
+Through the iconLoading parameter, you can inject an icon or loading effect into the content area of the Button component. When type is icon, it represents an icon, and loading represents a loading effect. params is the corresponding parameter of the injected, supporting the Props of Icon and Loading two components. When type is loading, the button is disabled by default, which can be controlled by the disabledLoading parameter. Please refer to the example.

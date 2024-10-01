@@ -1,3 +1,10 @@
+## 0.5.1 <font size=1>2024-10-02</font>
+
+- Optimized Button component, please see [Button](https://stdf.design/#/components?nav=button&tab=4).
+- Optimized BottomSheet component, please see [BottomSheet](https://stdf.design/#/components?nav=bottomSheet&tab=4).
+- Optimized IndexBar component, please see [IndexBar](https://stdf.design/#/components?nav=indexBar&tab=4).
+- Fixed Avatar component, please see [Avatar](https://stdf.design/#/components?nav=avatar&tab=4).
+
 ## 0.5.0 <font size=1>2024-09-09</font>
 
 - Added Stepper component, please see [Stepper](https://stdf.design/#/components?nav=stepper&tab=0).
