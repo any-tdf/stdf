@@ -17,11 +17,13 @@ pnpm-lock.yaml
 /demo/RefreshAndPredload.log
 /demo/pnpm-lock.yaml
 /demo/public/fonts
+/demo/build
+/demo/.github
+/demo/.svelte-kit
+/demo/scripts
 
 # 忽略全部 site 和 publish 文件
 /site
-/publish.md
-/publish_en.md
 
 # 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages
 /packages/stdf/pnpm-lock.yaml
