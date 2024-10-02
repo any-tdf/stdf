@@ -114,17 +114,20 @@
 	export let customHeight = 0;
 
 	/**
-	 * @typedef {Object} iconLoading
-	 * @property {string|undefined} type 类型
-	 * @property {Object|undefined} params 参数
+	 * Icon 参数
+	 * Icon params
+	 * @type {object|null}
+	 * @default null
 	 */
+	export let icon = null;
 
 	/**
-	 * Icon/loading area
-	 * @type {iconLoading}
-	 * @default {}
+	 * Loading 参数
+	 * Loading params
+	 * @type {object|null}
+	 * @default null
 	 */
-	export let iconLoading = { type: 'icon', params: {} };
+	export let loading = null;
 
 	/**
 	 * 如果带加载，是否禁用
@@ -134,7 +137,7 @@
 	 */
 	export let disabledLoading = true;
 
-	const innerDisabled = disabled || (iconLoading.type === 'loading' && disabledLoading);
+	$: innerDisabled = disabled || (loading && disabledLoading);
 
 	// 状态样式
 	// State style
@@ -188,7 +191,7 @@
 >
 	<button
 		on:click
-		class={`truncate ${!group && !innerDisabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
+		class={`truncate inline-flex items-center justify-center gap-1 ${!group && !innerDisabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
 			sizeObj[size] || sizeObj.big
 		} ${textColor} ${lineObj[line] || lineObj.solid} ${radiusObj[radius] || radiusObj.base} ${
 			fill === 'base' && (stateObj[state] || stateObj.theme)
@@ -196,16 +199,12 @@
 		disabled={innerDisabled}
 		style={customSize ? `width:${customWidth}px;height:${customHeight}px;padding:0;` : ''}
 	>
-		{#if iconLoading.type === 'loading'}
-			<div class="flex items-center justify-center gap-2">
-				<Loading {...iconLoading.params} />
-				<slot />
-			</div>
-		{:else if iconLoading.type === 'icon' && iconLoading.params.name}
-			<Icon {...iconLoading.params} />
-			<slot />
-		{:else}
-			<slot />
+		{#if loading}
+			<Loading {...loading} />
 		{/if}
+		{#if icon && icon.name}
+			<Icon {...icon} />
+		{/if}
+		<slot />
 	</button>
 </div>
