@@ -30,4 +30,4 @@ To use the button group, you can directly put multiple elements in the inner slo
 
 ## With icon or loading
 
-Through the iconLoading parameter, you can inject an icon or loading effect into the content area of the Button component. When type is icon, it represents an icon, and loading represents a loading effect. params is the corresponding parameter of the injected, supporting the Props of Icon and Loading two components. When type is loading, the button is disabled by default, which can be controlled by the disabledLoading parameter. Please refer to the example.
+Through the icon parameter, you can inject an icon into the content area of the Button component, the parameter is the Props of the Icon component; through the loading parameter, you can inject a loading into the content area of the Button component, the parameter is the Props of the Loading component. When loading is passed in, the button is disabled by default, which can be controlled by the disabledLoading parameter. Please refer to the example.

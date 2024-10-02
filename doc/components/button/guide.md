@@ -30,4 +30,4 @@
 
 ## 带图标或加载
 
-通过 iconLoading 参数可以向 Button 组件内容区域前注入图标或加载效果，type 为 icon 时表示图标，loading 时表示加载效果，params 为注入的对应参数，支持传入 Icon 和 Loading 两种组件的 Props。当 type 为 loading 时，按钮默认禁用，可通过 disabledLoading 参数控制。请参考示例。
+通过 icon 参数可以向 Button 组件内容区域前注入图标，参数为 Icon 组件的 Props；通过 loading 参数可以向 Button 组件内容区域前注入加载，参数为 Loading 组件的 Props，当传入 loading 时按钮默认禁用，可通过 disabledLoading 参数控制。请参考示例。
