@@ -82,38 +82,16 @@
 		<Button disabled>Disable</Button>
 		<Button fill="lineTheme" disabled>Disable</Button>
 	</div>
-	<!-- <div>
-		<div class="p-4 font-bold">Load</div>
-		<Button>
-			<Loading inverse height="6" width="6" />
-		</Button>
-		<Button>
-			<Loading inverse width="16" height="6" type="1_17" />
-		</Button>
-	</div>
-	<div>
-		<div class="p-4 font-bold">Icon</div>
-		<Button>
-			<Icon name="ri-share-forward-2-fill" size={18} top={-2} />
-			Throw the two way foil
-		</Button>
-		<Button fill="lineTheme">
-			<Icon name="ri-mic-off-fill" size={16} top={-2} />
-			Start the surface wall plan
-		</Button>
-	</div> -->
 	<div>
 		<div class="p-4 font-bold">With icon</div>
-		<Button iconLoading={{ type: 'icon', params: { name: 'ri-share-forward-2-fill', size: 18, top: -2 } }}>Throw the two way foil</Button>
-		<Button fill="lineTheme" iconLoading={{ type: 'icon', params: { name: 'ri-mic-off-fill', size: 16, top: -2 } }}
-			>Start the surface wall plan</Button
-		>
+		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18, top: -2 }}>Throw the two way foil</Button>
+		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16, top: -2 }}>Start the surface wall plan</Button>
 	</div>
 	<div>
-		<div class="p-4 font-bold">Load (disabled by default)</div>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, height: '6', width: '6' } }}>Loading</Button>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, width: '16', height: '6', type: '1_17' } }}>Loading</Button>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, height: '6', width: '6' } }} disabledLoading={false}>Loading</Button>
+		<div class="p-4 font-bold">With loading (disabled by default)</div>
+		<Button loading={{ inverse: true, height: '6', width: '6' }}>Loading</Button>
+		<Button loading={{ inverse: true, width: '16', height: '6', type: '1_17' }}>Loading</Button>
+		<Button loading={{ inverse: true, height: '6', width: '6' }} disabledLoading={false}>Loading</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">With icon (passed through slots)</div>
@@ -154,12 +132,12 @@
 	<div>
 		<div class="p-4 font-bold">Button group</div>
 		<Button fill="lineTheme" heightIn="0" group>
-			<div class="flex">
-				<div class="flex-1 border-r py-2 active:opacity-80">
+			<div class="flex w-full">
+				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					Application
 				</div>
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					Collect
 				</div>
@@ -172,12 +150,12 @@
 			</div>
 		</Button>
 		<Button radius="full" heightIn="0" group>
-			<div class="flex">
-				<div class="flex-1 border-r py-2 active:opacity-80">
+			<div class="flex w-full">
+				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					Application
 				</div>
-				<div class="flex-1 border-r py-2 active:opacity-80">
+				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					Collect
 				</div>

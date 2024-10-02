@@ -84,14 +84,14 @@
 	</div>
 	<div>
 		<div class="p-4 font-bold">带图标</div>
-		<Button iconLoading={{ type: 'icon', params: { name: 'ri-share-forward-2-fill', size: 18, top: -2 } }}>投掷二向箔</Button>
-		<Button fill="lineTheme" iconLoading={{ type: 'icon', params: { name: 'ri-mic-off-fill', size: 16, top: -2 } }}>启动面壁计划</Button>
+		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18, top: -2 }}>投掷二向箔</Button>
+		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16, top: -2 }}>启动面壁计划</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带加载（默认禁用）</div>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, height: '6', width: '6' } }}>加载中</Button>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, width: '16', height: '6', type: '1_17' } }}>加载中</Button>
-		<Button iconLoading={{ type: 'loading', params: { inverse: true, height: '6', width: '6' } }} disabledLoading={false}>加载中</Button>
+		<Button loading={{ inverse: true, height: '6', width: '6' }}>加载中</Button>
+		<Button loading={{ inverse: true, height: '6', width: '6', type: '1_28' }}>加载中</Button>
+		<Button loading={{ inverse: true, height: '6', width: '6' }} disabledLoading={false}>加载中</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带图标（通过插槽传入）</div>
@@ -132,7 +132,7 @@
 	<div>
 		<div class="p-4 font-bold">按钮组</div>
 		<Button fill="lineTheme" heightIn="0" group>
-			<div class="flex">
+			<div class="flex w-full">
 				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					应用
@@ -150,7 +150,7 @@
 			</div>
 		</Button>
 		<Button radius="full" heightIn="0" group>
-			<div class="flex">
+			<div class="flex w-full">
 				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					应用
