@@ -90,7 +90,7 @@
 	<div>
 		<div class="p-4 font-bold">With loading (disabled by default)</div>
 		<Button loading={{ inverse: true, height: '6', width: '6' }}>Loading</Button>
-		<Button loading={{ inverse: true, width: '16', height: '6', type: '1_17' }}>Loading</Button>
+		<Button loading={{ inverse: true, width: '16', height: '6', type: '1_28' }}>Loading</Button>
 		<Button loading={{ inverse: true, height: '6', width: '6' }} disabledLoading={false}>Loading</Button>
 	</div>
 	<div>
