@@ -526,11 +526,11 @@ ${extendListStr2}`,
 		<div class="flex mx-4 mt-1" style="height:{windowHeight - 395}px;width:{windowWidth - 858}px">
 			<div class="grow rounded bg-codeLight dark:bg-codeDark relative mr-1">
 				<div class="overflow-auto" style="height:{windowHeight - 395}px;width:{((windowWidth - 858) / 5) * 3 - 6}px">
-					<article class="prose dark:prose-invert max-w-none text-sm">
+					<article class="prose dark:prose-invert max-w-none text-xs">
 						<pre><code class="hljs" id="myCodeBlock">{@html configStr}</code></pre>
 					</article>
 				</div>
-				<button class="absolute right-1 top-0 py-2 px-3 rounded-bl bg-black/5 dark:bg-white/10 text-sm hover:opacity-80" id="copyButton">
+				<button class="absolute right-0 top-0 py-2 px-3 rounded-bl bg-black/5 dark:bg-white/10 text-sm hover:opacity-80" id="copyButton">
 					<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
 							class="fill-gray-700 dark:fill-gray-300"
@@ -546,11 +546,11 @@ ${extendListStr2}`,
 			</div>
 			<div class="grow rounded bg-codeLight dark:bg-codeDark relative">
 				<div class="overflow-auto" style="height:{windowHeight - 395}px;width:{((windowWidth - 858) / 5) * 2 + 4}px">
-					<article class="prose dark:prose-invert max-w-none text-sm">
+					<article class="prose dark:prose-invert max-w-none text-xs">
 						<pre><code class="hljs" id="myCodeBlock2">{@html configStr2}</code></pre>
 					</article>
 				</div>
-				<button class="absolute right-1 top-0 py-2 px-3 rounded-bl bg-black/5 dark:bg-white/10 text-sm hover:opacity-80" id="copyButton2">
+				<button class="absolute right-0 top-0 py-2 px-3 rounded-bl bg-black/5 dark:bg-white/10 text-sm hover:opacity-80" id="copyButton2">
 					<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
 							class="fill-gray-700 dark:fill-gray-300"
