@@ -47,3 +47,16 @@ name 为 'slot' 表示使用插槽渲染，其他字符如 'ri-home-line' 使用
 ## 插槽
 
 可放入任何元素（甚至 Icon 组件自身），当然主要用于自定义图标或自定义图标颜色，如将自定义 SVG 放入 Icon 组件，请注意 SVG 的 viewBox、height、width 关系与 display 属性。此时图标内容取决于传入的元素，Props 中的 name、size、theme 等参数都将失效。通过插槽将使组件内容有更多自定义可能性。
+
+## 全局注入图标 svg 路径
+
+STDF Icon 组件使用 Svg 文件路径配置，适用于应用部署在服务器非根路径下。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
+
+```svelte
+<!-- App.svelte/+layout.svelte -->
+<script>
+	import { setContext } from 'svelte'; // 引入 setContext
+
+	setContext('STDF_icon_svg_path', 'webapps/svelte_demo/fonts/symbol.svg'); // 设置 svg 文件路径
+</script>
+```
