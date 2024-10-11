@@ -377,7 +377,7 @@ ${extendListStr2}`,
 <div class="block md:hidden">{isZh ? '请在桌面端使用！' : 'Please use it on the desktop!'}</div>
 <div class="hidden md:flex justify-between">
 	<div>
-		<div class="text-center mt-2 mb-2 font-bold">{isZh ? '配置' : 'Configure'}</div>
+		<div class="text-center mb-2 font-bold">{isZh ? '配置' : 'Configure'}</div>
 		<div class="text-center flex flex-col gap-1">
 			<div class="text-left">{isZh ? '主题名称' : 'Theme name'}</div>
 			<div class="flex-1">
@@ -411,7 +411,7 @@ ${extendListStr2}`,
 						{/if}
 					</div>
 				{/each}
-				<div class="flex flex-col gap-4 overflow-y-auto p-1 mt-6" style="height: {windowHeight - 500}px;">
+				<div class="flex flex-col gap-4 overflow-y-auto p-1 mt-6" style="height: {windowHeight - 480}px;">
 					{#each extendList as item, i}
 						<div class="flex flex-col gap-2">
 							<div class="flex gap-2 justify-end">
@@ -463,32 +463,28 @@ ${extendListStr2}`,
 		</div>
 	</div>
 	<div class="flex-1">
-		<div class="text-center mt-2 mb-2 font-bold">{isZh ? '色板 & 配置文件' : 'Palette & Profiles'}</div>
+		<div class="text-center mb-4 font-bold">{isZh ? '色板 & 配置文件' : 'Palette & Profiles'}</div>
 		<div class="flex flex-col px-4 text-xs text-center">
-			<div class="flex-1 flex justify-between rounded">
+			<div class="flex-1 flex justify-between gap-1 mb-1">
 				{#each primaryColors as color, index}
 					<div
-						class="flex-1 h-12 {index === 0 ? 'rounded-tl' : 'rounded-none'} {index === primaryColors.length - 1
-							? 'rounded-tr'
-							: 'rounded-none'} {index >= 5 ? 'text-primaryWhite' : 'text-primaryBlack'}"
-						style="background-color: {color.hex};"
+						class="h-12 rounded {index >= 5 ? 'text-primaryWhite' : 'text-primaryBlack'}"
+						style="background-color: {color.hex};flex: {index === 6 ? '2' : '1'}"
 					>
 						<div class="flex flex-col justify-between items-center">
-							<div class="flex-1 leading-10 mt-1">{index === 6 ? 'primary' : `${color.n}`}</div>
+							<div class="flex-1 leading-10 mt-1{index === 6 ? ' text-xl font-bold' : ''}">{index === 6 ? 'primary' : `${color.n}`}</div>
 						</div>
 					</div>
 				{/each}
 			</div>
-			<div class="flex-1 flex justify-between rounded">
+			<div class="flex-1 flex justify-between gap-1">
 				{#each darkColors as color, index}
 					<div
-						class="flex-1 h-12 {index === 0 ? 'rounded-bl' : 'rounded-none'} {index === primaryColors.length - 1
-							? 'rounded-br'
-							: 'rounded-none'} {index <= 6 ? 'text-darkBlack' : 'text-darkWhite'}"
-						style="background-color: {color.hex};"
+						class="h-12 rounded {index <= 6 ? 'text-darkBlack' : 'text-darkWhite'}"
+						style="background-color: {color.hex};flex: {index === 6 ? '2' : '1'};"
 					>
 						<div class="flex justify-between items-center">
-							<div class="flex-1 leading-10 mt-1">{index === 6 ? 'dark' : `${color.n}`}</div>
+							<div class="flex-1 leading-10 mt-1{index === 6 ? ' text-xl font-bold' : ''}">{index === 6 ? 'dark' : `${color.n}`}</div>
 						</div>
 					</div>
 				{/each}
@@ -523,9 +519,9 @@ ${extendListStr2}`,
 			{/if}
 		</div>
 		<!-- 配置文件 -->
-		<div class="flex mx-4 mt-1" style="height:{windowHeight - 395}px;width:{windowWidth - 858}px">
-			<div class="grow rounded bg-codeLight dark:bg-codeDark relative mr-1">
-				<div class="overflow-auto" style="height:{windowHeight - 395}px;width:{((windowWidth - 858) / 5) * 3 - 6}px">
+		<div class="flex mx-4 mt-1" style="height:{windowHeight - 388}px;width:{windowWidth - 858}px">
+			<div class="grow bg-codeLight dark:bg-codeDark relative mr-1">
+				<div class="overflow-auto rounded" style="height:{windowHeight - 388}px;width:{((windowWidth - 858) / 5) * 3 - 6}px">
 					<article class="prose dark:prose-invert max-w-none text-xs">
 						<pre><code class="hljs" id="myCodeBlock">{@html configStr}</code></pre>
 					</article>
@@ -544,8 +540,8 @@ ${extendListStr2}`,
 					</div>
 				{/if}
 			</div>
-			<div class="grow rounded bg-codeLight dark:bg-codeDark relative">
-				<div class="overflow-auto" style="height:{windowHeight - 395}px;width:{((windowWidth - 858) / 5) * 2 + 4}px">
+			<div class="grow bg-codeLight dark:bg-codeDark relative">
+				<div class="overflow-auto rounded" style="height:{windowHeight - 388}px;width:{((windowWidth - 858) / 5) * 2 + 4}px">
 					<article class="prose dark:prose-invert max-w-none text-xs">
 						<pre><code class="hljs" id="myCodeBlock2">{@html configStr2}</code></pre>
 					</article>
@@ -589,7 +585,7 @@ ${extendListStr2}`,
 			</div>
 			<div
 				class="bg-primaryWhite dark:bg-darkBlack border border-primary/20 dark:border-dark/20 w-[392px] dark:border-gray-700 h-96 overflow-auto"
-				style="height:{windowHeight - 140}px"
+				style="height:{windowHeight - 130}px"
 			>
 				<GeneratorPreview />
 			</div>

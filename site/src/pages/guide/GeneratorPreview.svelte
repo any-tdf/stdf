@@ -1,5 +1,5 @@
 <script>
-	import { Button, Switch, Progress, ProgressLoop, Loading, NoticeBar, Input, Icon, Rate } from '../../../../packages/stdf/components';
+	import { Button, Switch, Progress, ProgressLoop, Loading, NoticeBar, Icon, Slider } from '../../../../packages/stdf/components';
 	import Calendar from './Calendar.svelte';
 	import { currentThemeStore } from '../../store';
 
@@ -578,12 +578,13 @@
 	<div class="w-1/3">
 		<ProgressLoop />
 	</div>
-	<div class="flex flex-col justify-between flex-1">
+	<div class="flex flex-col justify-between flex-1 py-2">
 		<div class="flex justify-around">
 			<Loading theme />
-			<Loading />
+			<Loading theme type="1_30" />
+			<Loading theme type="1_13" />
 		</div>
-		<div class="flex justify-between">
+		<div class="flex justify-around">
 			<Switch check></Switch>
 			<Switch check injClass="bg-success dark:bg-success" />
 			<Switch check injClass="!bg-error dark:!bg-error" />
@@ -599,6 +600,9 @@
 			<Icon name={icon} theme />
 		</div>
 	{/each}
+</div>
+<div class="p-4">
+	<Slider />
 </div>
 <Button>{isZh ? '按钮' : 'Button'}</Button>
 <Calendar />

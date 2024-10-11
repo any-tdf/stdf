@@ -169,7 +169,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 md:left-0 top-14 w-48 overflow-y-scroll transition-all duration-300 z-[100] bg-white dark:bg-black md:bg-transparent dark:md:bg-transparent"
+		class="fixed -left-52 md:left-0 top-14 w-48 overflow-y-scroll transition-all duration-300 z-[100] bg-white dark:bg-black md:bg-transparent dark:md:bg-transparent border-r border-black/10 dark:border-white/20"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
@@ -185,7 +185,7 @@
 			</div>
 			<div class="h-px bg-black/10 dark:bg-white/20" />
 		{/if}
-		<div class="px-4 pt-4 {currentNav.nav === 'generator' ? 'md:pt-6 md:px-4' : 'md:pt-12 md:px-8'}">
+		<div class="px-4 pt-4 {currentNav.nav === 'generator' ? 'md:pt-4 md:px-4' : 'md:pt-12 md:px-8'}">
 			<Router routes={guideRoutes} prefix="/guide" />
 		</div>
 		{#if currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey' && currentNav.nav != 'generator'}

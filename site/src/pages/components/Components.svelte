@@ -179,7 +179,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 md:left-0 top-14 w-52 overflow-y-scroll transition-all duration-300 z-[100] bg-white dark:bg-black md:bg-transparent dark:md:bg-transparent"
+		class="fixed -left-52 md:left-0 top-14 w-52 overflow-y-scroll transition-all duration-300 z-[100] bg-white dark:bg-black md:bg-transparent dark:md:bg-transparent border-r border-black/10 dark:border-white/20"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{navBarHeight + 'px'}"
