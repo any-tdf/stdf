@@ -1,98 +1,30 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const actionSheetLang = currentLang.actionSheet;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 标题
-	 * Title
-	 * @type {String}
-	 * @default ''
-	 */
-	export let title = '';
-
-	/**
-	 * 标题对齐方式
-	 * Title alignment
-	 * @type {'left'|'center'|'right'}
-	 * @default 'center'
-	 */
-	export let titleAlign = 'center';
-
-	/**
-	 * @typedef {Object} action
-	 * @property {string} content 选项文本
-	 * @property {Boolean} [showImg] 是否显示图片
-	 * @property {'normal'|'theme'|'danger'|'disabled'} [style] 选项样式
-	 * @property {string} [desc] 选项描述
-	 * @property {'none'|'base'|'full'|'lg'} [imgRadius] 图片圆角
-	 * @property {string} [imgSrc] 图片地址
-	 */
-
-	/**
-	 * 选项
-	 * Options
-	 * @type {Array<action>}
-	 * @default []
-	 */
-	export let actions = [];
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {Object}
-	 * @default {}
-	 */
-	export let popup = {};
-
-	/**
-	 * 是否显示取消选项
-	 * Whether to show the cancel option
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let showCancel = false;
-
-	/**
-	 * 取消选项文本
-	 * Cancel option text
-	 * @type {String}
-	 * @default Current language actionSheet.cancelText
-	 */
-	export let cancelText = actionSheetLang.cancelText;
-
-	/**
-	 * 点击选项是否关闭
-	 * Click option to close
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let actionClosable = true;
-
-	/**
-	 * 对齐方式
-	 * Alignment
-	 * @type {'left'|'center'|'right'}
-	 * @default 'center'
-	 */
-	export let align = 'center';
+	/** @typedef {import('../../index.d').ActionSheet} ActionSheetProps */
+	/** @type {ActionSheetProps} */
+	let {
+		visible = $bindable(false),
+		title = '',
+		titleAlign = 'center',
+		actions = [],
+		popup = {},
+		showCancel = false,
+		cancelText = actionSheetLang.cancelText,
+		actionClosable = true,
+		align = 'center',
+		oncancel,
+		onclickAction,
+		onopen,
+		onclose,
+	} = $props();
 
 	// 标题对齐方式
 	// Title alignment
@@ -132,14 +64,14 @@
 	// Click event of cancel button
 	const cancelFunc = () => {
 		visible = false;
-		dispatch('cancel'); //派发取消事件
+		oncancel && oncancel(); // 如果 cancel 存在，执行 cancel 函数
 	};
 
 	// 选项点击事件，如果选项不可点击，不触发事件，如果可点击，触发事件，如果 actionClosable 为 true，关闭弹出层
 	// Click event of action, if the action is not clickable, the event will not be triggered, if it is clickable, the event will be triggered, and if actionClosable is true, the popup will be closed
 	const clickActionFunc = (index, item) => {
 		if (item.style !== 'disabled') {
-			dispatch('clickAction', { index, item }); //派发选项点击事件，返回选项索引和选项对象
+			onclickAction && onclickAction(index, item); // 如果 clickAction 存在，执行 clickAction 函数
 			if (actionClosable) {
 				visible = false;
 			}
@@ -148,13 +80,13 @@
 
 	// 监听 visible 变化，如果为 true，派发 open 事件，如果为 false，派发 close 事件
 	// Listen to the change of visible, if it is true, dispatch the open event, if it is false, dispatch the close event
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 </script>
 
 <Popup bind:visible size={0} maskClosable transitionDistance={getTransitionDistanceunc(title, showCancel, actions)} {...popup}>
@@ -169,15 +101,15 @@
 	{/if}
 	<div>
 		{#each actions as item, index}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div
 				class={`${item.style !== 'disabled' ? 'active:scale-90 ' : ''}transition-all flex items-center gap-2 ${
 					alignClass[align] || alignClass['center']
 				}`}
-				on:click={() => clickActionFunc(index, item)}
+				onclick={() => clickActionFunc(index, item)}
 			>
-				<!-- 图片 -->
+				<!-- image -->
 				{#if item.showImg}
 					<div class={`w-6 h-6 overflow-hidden ${imgRadiusClass[item.imgRadius] || 'rounded-full'}`}>
 						<img class="w-full h-full object-cover" src={item.imgSrc} alt="" />
@@ -197,14 +129,14 @@
 				</div>
 			</div>
 			{#if index !== actions.length - 1}
-				<div class="h-px w-full bg-black/5 dark:bg-white/5" />
+				<div class="h-px w-full bg-black/5 dark:bg-white/5"></div>
 			{/if}
 		{/each}
 	</div>
 	{#if showCancel}
-		<div class="bg-black/5 dark:bg-white/5 h-2" />
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="active:scale-90 transition-all text-center h-12 flex flex-col justify-center" on:click={cancelFunc}>{cancelText}</div>
+		<div class="bg-black/5 dark:bg-white/5 h-2"></div>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="active:scale-90 transition-all text-center h-12 flex flex-col justify-center" onclick={cancelFunc}>{cancelText}</div>
 	{/if}
 </Popup>

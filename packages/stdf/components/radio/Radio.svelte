@@ -2,37 +2,9 @@
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	/**
-	 * 名称
-	 * name
-	 * @type {string}
-	 * @default ''
-	 */
-	export let name = '';
-
-	/**
-	 * 文本位置
-	 * text position
-	 * @type {'l'|'r'|'t'|'b'}
-	 * @default 'r'
-	 */
-	export let textPosition = 'r';
-
-	/**
-	 * 图标
-	 * icon
-	 * @type {'defaulr'|'none'|Object}
-	 * @default 'default'
-	 */
-	export let icon = 'default';
-
-	/**
-	 * 选中图标
-	 * icon checked
-	 * @type {'defaulr'|'none'|Object}
-	 * @default 'default'
-	 */
-	export let iconChecked = 'default';
+	/** @typedef {import('../../index.d').Radio} Radio */
+	/** @type {Radio} */
+	let { name = '', textPosition = 'r', icon = 'default', iconChecked = 'default', children } = $props();
 
 	const STDF_radioValueStore = getContext('STDF_radioValueContext');
 	const STDF_radioHorizontalStore = getContext('STDF_radioHorizontalContext');
@@ -41,17 +13,17 @@
 	};
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	class={`flex grow active:opacity-80 ${textPosition === 'l' && !$STDF_radioHorizontalStore ? 'justify-between' : ''} ${
 		textPosition === 'b' || textPosition === 't' ? 'flex-col items-center' : $STDF_radioHorizontalStore ? 'justify-center' : 'items-center'
 	}`}
-	on:click={clickRadioFun}
+	onclick={clickRadioFun}
 >
 	{#if textPosition === 'l' || textPosition === 't'}
 		<div class={`${textPosition === 'l' && 'mr-0.5'} ${!$STDF_radioHorizontalStore ? 'grow' : ''}`}>
-			<slot />
+			{@render children?.()}
 		</div>
 	{/if}
 	<div class:hidden={$STDF_radioValueStore !== name}>
@@ -74,7 +46,7 @@
 	</div>
 	{#if textPosition === 'r' || textPosition === 'b'}
 		<div class={`${textPosition === 'r' && 'ml-0.5'} ${!$STDF_radioHorizontalStore ? 'grow' : ''}`}>
-			<slot />
+			{@render children?.()}
 		</div>
 	{/if}
 </div>

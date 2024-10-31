@@ -1,75 +1,7 @@
 <script>
-	/**
-	 * 分隔线类型
-	 * Divider type
-	 * @type {'h' | 'v'}
-	 * @default 'h'
-	 */
-	export let layout = 'h';
-
-	/**
-	 * 水平间距
-	 * Horizontal spacing
-	 * @type {'0' | '4' | '8' | '16' | '36'}
-	 * @default '0'
-	 */
-	export let px = '0';
-
-	/**
-	 * 水平高度
-	 * Horizontal height
-	 * @type {'0' | '4' | '8'}
-	 * @default '4'
-	 */
-	export let py = '4';
-
-	/**
-	 * 文本内容
-	 * Text content
-	 * @type {string}
-	 * @default ''
-	 */
-	export let text = '';
-
-	/**
-	 * 文本位置（仅在水平分割线有效）
-	 * Text position (only valid for horizontal divider)
-	 * @type {'left' | 'center' | 'right'}
-	 * @default 'center'
-	 */
-	export let align = 'center';
-
-	/**
-	 * 线条风格
-	 * Line style
-	 * @type {'solid' | 'dashed' | 'dotted'}
-	 * @default 'solid'
-	 */
-	export let line = 'solid';
-
-	/**
-	 * 垂直间距
-	 * Vertical spacing
-	 * @type {'1' | '2' | '4'}
-	 * @default '1'
-	 */
-	export let mx = '1';
-
-	/**
-	 * 线条粗细
-	 * Line thickness
-	 * @type {'1' | '2' | '4'}
-	 * @default '1'
-	 */
-	export let weight = '1';
-
-	/**
-	 * 注入CSS
-	 * Inject CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
+	/** @typedef {import('../../index.d').Divider} DividerProps */
+	/** @type {DividerProps} */
+	let { layout = 'h', px = '0', py = '4', text = '', align = 'center', line = 'solid', mx = '1', weight = '1', injClass = '' } = $props();
 
 	// 水平间距样式
 	// Horizontal spacing style
@@ -101,7 +33,7 @@
 		class={`inline ${weightWObj[weight] || weightWObj['1']} border-black/10 dark:border-white/20 ${mxObj[mx] || mxObj['1']} ${
 			lineObj[line] || lineObj.solid
 		} ${injClass}`}
-	/>
+	></div>
 {:else}
 	<div class={`flex items-center ${pxObj[px] || pxObj['0']} ${pyObj[py] || pyObj['4']}`}>
 		{#if (text !== '' && align !== 'left') || text === ''}
@@ -109,7 +41,7 @@
 				class={`grow  ${weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 ${
 					lineObj[line] || lineObj.solid
 				}  ${injClass}`}
-			/>
+			></div>
 		{/if}
 		{#if text !== ''}
 			<div class={`flex-none mx-2 text-xs text-gray-400 ${injClass}`}>{text}</div>
@@ -119,7 +51,7 @@
 				class={`grow  ${weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 ${
 					lineObj[line] || lineObj.solid
 				}  ${injClass}`}
-			/>
+			></div>
 		{/if}
 	</div>
 {/if}

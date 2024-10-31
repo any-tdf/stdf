@@ -1,5 +1,5 @@
 <script>
-	import { onMount, createEventDispatcher, getContext } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF } from '../utils';
 	import zh_CN from '../../lang/zh_CN';
@@ -12,128 +12,30 @@
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const bottomSheetLang = currentLang.bottomSheet;
 
-	/**
-	 * 是否显示
-	 * show or not
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 标题
-	 * title
-	 * @type {string}
-	 * @default Current language bottomSheet.title
-	 */
-	export let title = bottomSheetLang.title;
-
-	/**
-	 * 标题对齐方式
-	 * title align
-	 * @type {'left'|'center'|'right'}
-	 * @default 'left'
-	 */
-	export let titleAlign = 'left';
-
-	/**
-	 * 是否显示返回图标
-	 * show back icon or not
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let showBackIcon = false;
-
-	/**
-	 * 关闭区域内容
-	 * close content
-	 * @type {'downIcon'|'closeIcon'|''|string}
-	 * @default 'downIcon'
-	 */
-	export let closeContent = 'downIcon';
-
-	/**
-	 * 是否在顶部显示分割线
-	 * show divider or not at the top
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let showDivider = true;
-
-	/**
-	 * 过渡动画出现时间
-	 * transition animation appear time
-	 * @type {number}
-	 * @default 450
-	 */
-	export let duration = 450;
-
-	/**
-	 * 过渡动画退出时间
-	 * transition animation exit time
-	 * @type {number}
-	 * @default 240
-	 */
-	export let outDuration = 240;
-
-	/**
-	 * 遮罩层参数
-	 * mask params
-	 * @type {object}
-	 * @default {}
-	 */
-	export let mask = {};
-
-	/**
-	 * 点击遮罩层是否关闭
-	 * click mask to close or not
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let maskClosable = false;
-
-	/**
-	 * z-index
-	 * @type {number}
-	 * @default 600
-	 */
-	export let zIndex = 600;
-
-	/**
-	 * 固定高度列表
-	 * stay height list
-	 * @type {Array<number>}
-	 * @default [10, 50, 90]
-	 */
-	export let stayHeightList = [10, 50, 90];
-
-	/**
-	 * 初始固定高度索引
-	 * initial stay height index
-	 * @type {number}
-	 * @default 1
-	 */
-	export let stayHeightIndex = 1;
-
-	/**
-	 * 滑动结束时位置低于此高度自动关闭
-	 * close when position lower than this height
-	 * @type {number}
-	 * @range 1 - 100
-	 */
-	export let closeHeight = 0;
-
-	/**
-	 * 圆角风格
-	 * radius style
-	 * @type {'none'|'base'|'full'}
-	 * @default 'full'
-	 */
-	export let radius = 'full';
-
-	// 创建事件派发器
-	// create event dispatcher
-	const dispatch = createEventDispatcher();
+	/** @typedef {import('../../index.d').BottomSheet} BottomSheetProps */
+	/** @type {BottomSheetProps} */
+	let {
+		visible = $bindable(false),
+		title = bottomSheetLang.title,
+		titleAlign = 'left',
+		showBackIcon = false,
+		closeContent = 'downIcon',
+		showDivider = true,
+		duration = 450,
+		outDuration = 240,
+		mask = {},
+		maskClosable = false,
+		zIndex = 600,
+		stayHeightList = [10, 50, 90],
+		stayHeightIndex = 1,
+		closeHeight = 0,
+		radius = 'full',
+		children,
+		onheightChange,
+		onclickMask,
+		onclose,
+		onback,
+	} = $props();
 
 	// 固定高度
 	// stay height
@@ -141,7 +43,7 @@
 
 	// 此时是否正在滑动
 	// is sliding or not now
-	let isTouch = false;
+	let isTouch = $state(false);
 
 	// 滑动开始Y坐标，px
 	// start Y coordinate, px
@@ -153,23 +55,26 @@
 
 	// 滑动开始距离顶部高度，%
 	// start distance from top, %
-	let startTop = 100 - stayHeight;
+	let startTop = $state(100 - stayHeight);
 
 	// 滑动距离，%
 	// move distance, %
-	let moveDistance = 0;
+	let moveDistance = $state(0);
 
 	// 顶部滚动区域高度，%
 	// top scroll area height, %
-	let scrollTopHeight = 5;
+	let scrollTopHeight = $state(5);
 
 	// 顶部滚动区域元素
 	// top scroll area element
-	let scrollTopDom = null;
+	let scrollTopDom = $state(null);
 
 	// 当前距离顶部高度，%
 	// current distance from top, %
-	$: currentTop = startTop + moveDistance;
+	let currentTop = $state(0);
+	$effect(() => {
+		currentTop = startTop + moveDistance;
+	});
 
 	// 如果 stayHeightList 不是数组，或者元素不是正数，或者元素不是 0-100 之间的数，或者元素不是整数，给出警告。
 	// If stayHeightList is not an array, or the element is not a positive number, or the element is not a number between 0 and 100, or the element is not an integer, give a warning.
@@ -229,6 +134,7 @@
 
 	// 滑动开始
 	// start sliding
+	/** @type {(e:PointerEvent) => void} */
 	const touchstartFun = e => {
 		moveDistance = 0;
 		startTop = currentTop;
@@ -238,6 +144,7 @@
 
 	// 滑动中
 	// sliding
+	/** @type {(e:PointerEvent) => void} */
 	const touchmoveFun = e => {
 		if (!isTouch) return;
 		scrollTopDom.setPointerCapture(e.pointerId);
@@ -270,21 +177,21 @@
 		currentTop = toTopList[currentIndex];
 		//派发事件，传递当前高度
 		//Dispatch events and pass the current
-		dispatch('heightChange', stayHeightList[currentIndex]);
+		onheightChange && onheightChange(stayHeightList[currentIndex]);
 		//判断滑动结束时如果位置低于 closeHeight 自动关闭，并派发事件
 		//If the position is lower than closeHeight at the end of the slide, it will be automatically closed and the event will be dispatched.
 		if (((window.innerHeight - currentY) / window.innerHeight) * 100 < closeHeight && closeHeight > 0) {
 			visible = false;
-			dispatch('close');
+			onclose && onclose();
 		}
 	};
 
 	//点击遮罩层
 	//click mask
-	const clickMask = () => {
+	const clickMaskFn = () => {
 		//点击遮罩时派发clickMask事件
 		//Dispatch clickMask event when clicking mask
-		dispatch('clickMask');
+		onclickMask && onclickMask();
 		if (maskClosable) {
 			visible = false;
 		}
@@ -296,7 +203,7 @@
 		visible = false;
 		//点击关闭时派发close事件
 		//Dispatch close event when clicking close
-		dispatch('close');
+		onclose && onclose();
 	};
 
 	//点击返回图标
@@ -304,12 +211,12 @@
 	const backFunc = () => {
 		//点击返回时派发back事件
 		//Dispatch back event when clicking back
-		dispatch('back');
+		onback && onback();
 	};
 
 	// 滚动时禁止 body 滚动
 	// Disable body scrolling when scrolling
-	$: {
+	$effect(() => {
 		if (visible) {
 			//当 visible 为 true 时，禁止 body 滚动
 			//When visible is true, body scrolling is disabled
@@ -329,7 +236,7 @@
         `;
 			window.scrollTo(0, Math.abs(parseFloat(top)));
 		}
-	}
+	});
 	onMount(() => {
 		if (visible) {
 			// 滚动内容高度
@@ -340,7 +247,7 @@
 </script>
 
 {#if visible}
-	<Mask visible {duration} {outDuration} {...mask} on:clickMask={clickMask} />
+	<Mask visible {duration} {outDuration} {...mask} on:clickMask={clickMaskFn} />
 {/if}
 
 <div class={`fixed w-screen h-screen inset-0 flex flex-col justify-end px-0 pointer-events-none`} style={`z-index:${zIndex};`}>
@@ -354,20 +261,20 @@
 			out:fly={{ y: (stayHeightList[stayHeightList.length - 1] / 100) * window.innerHeight, opacity: 1, duration: outDuration }}
 		>
 			<div
-				on:pointerdown={touchstartFun}
-				on:pointermove={throttleWithRAF(touchmoveFun)}
-				on:pointerup={touchendFun}
+				onpointerdown={e => touchstartFun(e)}
+				onpointermove={e => throttleWithRAF(touchmoveFun)(e)}
+				onpointerup={touchendFun}
 				bind:this={scrollTopDom}
 				class="py-1 touch-none cursor-move select-none"
 			>
-				<div class={`w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto${radius === 'none' ? ' rounded-none' : ' rounded-full'}`} />
+				<div class={`w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto${radius === 'none' ? ' rounded-none' : ' rounded-full'}`}></div>
 				<div class="px-3 py-1 flex justify-between items-center gap-2">
 					{#if showBackIcon}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
 						<div
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
-							on:click={backFunc}
+							onclick={backFunc}
 						>
 							<Icon name="ri-arrow-left-s-line" alpha={0.4} size={16} top={-2} />
 						</div>
@@ -378,38 +285,38 @@
 					{#if closeContent === ''}
 						<!-- null -->
 					{:else if closeContent === 'closeIcon'}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
 						<div
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
-							on:click={closeFunc}
+							onclick={closeFunc}
 						>
 							<Icon name="ri-close-line" alpha={0.4} size={14} top={-2} />
 						</div>
 					{:else if closeContent === 'downIcon'}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
 						<div
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
-							on:click={closeFunc}
+							onclick={closeFunc}
 						>
 							<Icon name="ri-arrow-down-s-line" alpha={0.4} size={16} top={-1} />
 						</div>
 					{:else}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
-						<div class="text-primary dark:text-dark font-bold cursor-pointer" on:click={closeFunc}>{closeContent}</div>
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
+						<div class="text-primary dark:text-dark font-bold cursor-pointer" onclick={closeFunc}>{closeContent}</div>
 					{/if}
 				</div>
 			</div>
 			{#if showDivider}
-				<div class="w-full h-px bg-black/5 dark:bg-white/10" />
+				<div class="w-full h-px bg-black/5 dark:bg-white/10"></div>
 			{/if}
 			<div
 				class="overflow-auto"
 				style="height:{window.innerHeight * ((100 - currentTop) / 100) - scrollTopHeight}px;overscroll-behavior-y: contain;"
 			>
-				<slot />
+				{@render children?.()}
 			</div>
 		</div>
 	{/if}

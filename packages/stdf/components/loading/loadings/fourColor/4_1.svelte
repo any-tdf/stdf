@@ -1,26 +1,32 @@
 <script>
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 */
+
+	/** @type {Props} */
+	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 </script>
 
 <div class={`${size} m-auto relative rotate-45`}>
 	<div
 		class="w-1/3 h-1/3 absolute left-0 top-0 shape1"
 		style="background: {customColor[0] || '#DA1414'};animation-duration: {0.5 / speed}s;-webkit-animation-duration: {0.5 / speed}s;"
-	/>
+	></div>
 	<div
 		class="w-1/3 h-1/3 absolute right-0 top-0 shape2"
 		style="background: {customColor[1] || '#11BB8D'};animation-duration: {0.5 / speed}s;-webkit-animation-duration: {0.5 / speed}s;"
-	/>
+	></div>
 	<div
 		class="w-1/3 h-1/3 absolute right-0 bottom-0 shape3"
 		style="background: {customColor[2] || '#7356BF'};animation-duration: {0.5 / speed}s;-webkit-animation-duration: {0.5 / speed}s;"
-	/>
+	></div>
 	<div
 		class="w-1/3 h-1/3 absolute left-0 bottom-0 shape4"
 		style="background: {customColor[3] || '#FFC043'};animation-duration: {0.5 / speed}s;-webkit-animation-duration: {0.5 / speed}s;"
-	/>
+	></div>
 </div>
 
 <style>

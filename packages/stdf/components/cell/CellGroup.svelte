@@ -1,35 +1,7 @@
 <script>
-	/**
-	 * 圆角风格
-	 * Radius style
-	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'full'}
-	 * @default 'lg'
-	 */
-	export let radius = 'lg';
-
-	/**
-	 * 阴影
-	 * Shadow
-	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
-	 * @default 'sm'
-	 */
-	export let shadow = 'sm';
-
-	/**
-	 * 上下边距
-	 * Top and bottom margin
-	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
-	 * @default '4'
-	 */
-	export let my = '4';
-
-	/**
-	 * 左右间距
-	 * Left and right margin
-	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
-	 * @default '2'
-	 */
-	export let mx = '2';
+	/** @typedef {import('../../index.d').CellGroup} CellGroupProps */
+	/** @type {CellGroupProps} */
+	let { radius = 'lg', shadow = 'sm', my = '4', mx = '2', children } = $props();
 
 	const shadowClass = {
 		none: ' shadow-none',
@@ -58,5 +30,5 @@
 		myClass[my] || myClass['4']
 	}${mxClass[mx] || mxClass['2']}`}
 >
-	<slot />
+	{@render children?.()}
 </div>

@@ -1,77 +1,17 @@
 <script>
-	/**
-	 * 百分比
-	 * percent
-	 * @type {number}
-	 * @range 0 - 100
-	 * @default 66
-	 */
-	export let percent = 66;
-
-	/**
-	 * 圆环宽度
-	 * circle width
-	 * @type {number}
-	 * @range 0 - 12
-	 * @default 2
-	 */
-	export let strokeWidth = 2;
-
-	/**
-	 * 是否直角
-	 * is butt
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let butt = false;
-
-	/**
-	 * 是否反向
-	 * is reverse
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let reverse = false;
-
-	/**
-	 * 动画时间
-	 * animation duration
-	 * @type {'150'|'300'|'500'|'700'|'1000'}
-	 * @default '300'
-	 */
-	export let duration = '300';
-
-	/**
-	 * 渐变色
-	 * gradient color
-	 * @type {string[]}
-	 * @default []
-	 */
-	export let gradient = [];
-
-	/**
-	 * 是否使用slot
-	 * is use slot
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let useSlot = false;
-
-	/**
-	 * 注入class
-	 * inject class
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
-
-	/**
-	 * 轨道注入class
-	 * tranck inject class
-	 * @type {string}
-	 * @default ''
-	 */
-	export let trackInjClass = '';
+	/** @typedef {import('../../index.d').ProgressLoop} ProgressLoop */
+	/** @type {ProgressLoop} */
+	let {
+		percent = 66,
+		strokeWidth = 2,
+		butt = false,
+		reverse = false,
+		duration = '300',
+		gradient = null,
+		injClass = '',
+		trackInjClass = '',
+		children,
+	} = $props();
 
 	// 通过百分比计算半径
 	// calculate radius by percent
@@ -102,7 +42,7 @@
 			fill="none"
 			class={`stroke-black/5 dark:stroke-white/5${trackInjClass === '' ? '' : ` ${trackInjClass}`}`}
 		></circle>
-		{#if gradient.length === 2}
+		{#if gradient && gradient.length === 2}
 			<defs>
 				<linearGradient id="gradient_ProgressLoop">
 					<stop offset="0%" style="stop-color: {gradient[1]};" />
@@ -115,7 +55,7 @@
 			cy="12"
 			{r}
 			stroke-width={strokeWidth}
-			class={`${gradient.length < 2 ? 'stroke-primary dark:stroke-dark ' : ''}transition-all ${
+			class={`${!gradient || gradient.length < 2 ? 'stroke-primary dark:stroke-dark ' : ''}transition-all ${
 				durationClass[duration] || durationClass['300']
 			}${injClass === '' ? '' : ` ${injClass}`}`}
 			fill="none"
@@ -126,8 +66,8 @@
 		></circle>
 	</svg>
 	<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-		{#if useSlot}
-			<slot />
+		{#if children}
+			{@render children?.()}
 		{:else}
 			<div class="text-xs">{percent}%</div>
 		{/if}

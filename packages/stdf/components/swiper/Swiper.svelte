@@ -1,275 +1,58 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 
-	// 事件派发器
-	// event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * @typedef {Object} img
-	 * @property {'img'} type 类型
-	 * @property {String} url 图片地址
-	 */
-
-	/**
-	 * @typedef {Object} component
-	 * @property {'component'} type 类型
-	 * @property {Object} component 组件
-	 */
-
-	/**
-	 * 数据
-	 * Data
-	 * @type {Array<img|component>}
-	 * @default []
-	 */
-	export let data = [];
-
-	/**
-	 * 间隔时间，单位秒
-	 * Interval time (seconds)
-	 * @type {Number}
-	 * @default 4
-	 */
-	export let interval = 4;
-
-	/**
-	 * 过渡时间，单位毫秒
-	 * Duration time (milliseconds)
-	 * @type {Number}
-	 * @range 0 - interval*1000
-	 * @default 1000
-	 */
-	export let duration = 1000;
-
-	/**
-	 * 是否自动播放
-	 * Is autoplay
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let autoplay = true;
-
-	/**
-	 * 是否懒轮播
-	 * Is lazyplay
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let lazyplay = true;
-
-	/**
-	 * 初始激活索引
-	 * init active index
-	 * @type {Number}
-	 * @range 0 - data.length-1
-	 * @default 0
-	 */
-	export let initActive = 0;
-
-	/**
-	 * 指示器位置
-	 * indicate position
-	 * @type {'inner'|'out'|'none'}
-	 * @default 'inner'
-	 */
-	export let indicatePosition = 'inner';
-
-	/**
-	 * 指示器对齐方式
-	 * indicate align
-	 * @type {'center'|'right'|'left'}
-	 * @default 'center'
-	 */
-	export let indicateAlign = 'center';
-
-	/**
-	 * 指示器样式
-	 * indicate style
-	 * @type {'point'|'line'|'pointLine'|'longLine'}
-	 * @default 'pointLine'
-	 */
-	export let indicateStyle = 'pointLine';
-
-	/**
-	 * 指示器是否圆角
-	 * indicate radius
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let indicateRadius = true;
-
-	/**
-	 * 指示器注入 Class
-	 * indicate inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let indicateInjClass = '';
-
-	/**
-	 * 指示器颜色，注入 Class
-	 * indicate color, inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let indicateColor = '';
-
-	/**
-	 * 指示器激活颜色，注入 Class
-	 * indicate active color, inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let indicateActiveColor = '';
-
-	/**
-	 * 容器宽高比
-	 * container aspect ratio
-	 * @type {[Number, Number]}
-	 * @default [16, 9]
-	 */
-	export let aspectRatio = [16, 9];
-
-	/**
-	 * 容器宽度
-	 * container width
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let containerWidth = 0;
-
-	/**
-	 * 容器横向内边距
-	 * container padding x
-	 * @type {'0'|'1'|'2'|'4'|'6'|'8'|'12'|'16'|'24'}
-	 * @default '0'
-	 */
-	export let px = '0';
-
-	/**
-	 * 容器纵向内边距
-	 * container padding y
-	 * @type {'0'|'1'|'2'|'4'|'6'|'8'|'12'}
-	 * @default '0'
-	 */
-	export let py = '0';
-
-	/**
-	 * 未激活容器X方向偏移值，单位 px
-	 * no active container translate x (px)
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let translateX = 0;
-
-	/**
-	 * 未激活容器Z方向偏移值，单位 px
-	 * no active container translate z (px)
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let translateZ = 0;
-
-	/**
-	 * 未激活容器X轴旋转值，单位 px
-	 * no active container rotate x (px)
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let rotateX = 0;
-
-	/**
-	 * 未激活容器Y轴旋转值，单位 px
-	 * no active container rotate y (px)
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let rotateY = 0;
-
-	/**
-	 * 未激活容器Z轴旋转值，单位 px
-	 * no active container rotate z (px)
-	 * @type {Number}
-	 * @default 0
-	 */
-	export let rotateZ = 0;
-
-	/**
-	 * 激活容器注入 Class
-	 * active container inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let activeInjClass = '';
-
-	/**
-	 * 未激活容器注入 Class
-	 * no active container inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let notActiveInjClass = '';
-
-	/**
-	 * 容器内部区域圆角
-	 * container inner radius
-	 * @type {'none'|'base'|'xl'|'2xl'|'full'}
-	 * @default 'none'
-	 */
-	export let radius = 'none';
-
-	/**
-	 * 容器内部元素注入 Class
-	 * container inner inject class
-	 * @type {String}
-	 * @default ''
-	 */
-	export let innerInjClass = ''; //容器内部元素注入 Class container inner inject class
-
-	/**
-	 * 始终触发的滑动距离百分比
-	 * Always trigger the percentage of the sliding distance
-	 * @type {Number}
-	 * @range 0 - 100
-	 * @default 30
-	 */
-	export let triggerLong = 30;
-
-	/**
-	 * 始终不触发的滑动距离百分比
-	 * The percentage of the sliding distance that is never triggered
-	 * @type {Number}
-	 * @range 0 - 100
-	 * @default 10
-	 */
-	export let notTriggerLong = 10;
-
-	/**
-	 * 触发的滑动速度系数
-	 * Touch move speed coefficient
-	 * @type {Number}
-	 * @range 0 - 1
-	 * @default 0.5
-	 */
-	export let triggerSpeed = 0.5;
+	/** @typedef {import('../../index.d').Swiper} SwiperProps */
+	/** @type {SwiperProps} */
+	let {
+		data = [],
+		interval = 4,
+		duration = 1000,
+		autoplay = true,
+		lazyplay = true,
+		initActive = 0,
+		indicatePosition = 'inner',
+		indicateAlign = 'center',
+		indicateStyle = 'pointLine',
+		indicateRadius = true,
+		indicateInjClass = '',
+		indicateColor = '',
+		indicateActiveColor = '',
+		aspectRatio = [16, 9],
+		containerWidth = 0,
+		px = '0',
+		py = '0',
+		translateX = 0,
+		translateZ = 0,
+		rotateX = 0,
+		rotateY = 0,
+		rotateZ = 0,
+		activeInjClass = '',
+		notActiveInjClass = '',
+		radius = 'none',
+		innerInjClass = '',
+		triggerLong = 30,
+		notTriggerLong = 10,
+		triggerSpeed = 0.5,
+		onchange,
+		onclickImg,
+	} = $props();
 
 	let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
-	let active = data.length > 1 ? initActive + 1 : 1; //当前激活的item current active item
-	let currentIndicate = data.length > 1 ? initActive : 0; //当前激活的指示器  current active indicate
-	let longTransition = true; //长线指示器过渡 long line indicate transition
-	let long = false; //长线指示器是否较长状态 long line indicate is long
-	let once = true; //是否是第首次轮播，处理轮播间隔与过渡时间的差异 is first time play, handle interval and duration difference
-	let translateXTransition = true; //是否进行过渡动画 is transition animation
+	let active = $state(data.length > 1 ? initActive + 1 : 1); //当前激活的item current active item
+	let currentIndicate = $state(data.length > 1 ? initActive : 0); //当前激活的指示器  current active indicate
+	let longTransition = $state(true); //长线指示器过渡 long line indicate transition
+	let long = $state(false); //长线指示器是否较长状态 long line indicate is long
+	let once = $state(true); //是否是第首次轮播，处理轮播间隔与过渡时间的差异 is first time play, handle interval and duration difference
+	let translateXTransition = $state(true); //是否进行过渡动画 is transition animation
 	let initialState = true; //是否是初始状态 is initial state
 	let startX = 0; //滑动开始X坐标 when start touch x position
-	let moveX = 0; //滑动移动X坐标 when move touch x position
+	let moveX = $state(0); //滑动移动X坐标 when move touch x position
 	let startTime = 0; //滑动开始时间 when start touch time
 	let endTime = 0; //滑动结束时间 when end touch time
 	let isMove = false; //是否滑动 is touch move
 	// let transition = true;
-	let swiperDom = null; //Swiper容器
-	$: movePercent = moveX / width; //滑动距离占总宽度的百分比 touch width percent
+	let swiperDom = $state(null); //Swiper容器
+	let movePercent = $derived(moveX / width); //滑动距离占总宽度的百分比 touch width percent
 
 	const dataNew =
 		data.length > 1
@@ -433,7 +216,7 @@
 			}
 			//派发Swiper容器change事件，i表示当前容器索引值
 			// dispatch the Swiper container change event, i indicates the current container index value
-			dispatch('change', currentIndicate);
+			onchange && onchange(currentIndicate);
 		}, interval * 1000);
 	};
 	//判断Swiper容器是否在可视区域内，如果在，则开启定时器，否则不开启定时器
@@ -482,7 +265,7 @@
 	const clickImgFun = () => {
 		//派发Swiper容器点击事件，currentIndicate表示点击的容器索引值
 		// dispatch the Swiper container click event, currentIndicate indicates the index value of the clicked container
-		dispatch('clickimg', currentIndicate);
+		onclickImg && onclickImg(currentIndicate);
 	};
 	//滑动开始
 	// slide start
@@ -605,16 +388,17 @@
 			clearInterval(intervalTime); //清除定时器 clear timer
 			intervalTimeFun();
 		} else {
-			dispatch('change', currentIndicate); //派发Swiper容器change事件，i表示当前容器索引值  Dispatch the Swiper container change event, i indicates the current container index value
+			//派发Swiper容器change事件，i表示当前容器索引值  Dispatch the Swiper container change event, i indicates the current container index value
+			onchange && onchange(currentIndicate);
 		}
 	};
 </script>
 
 <div
 	bind:this={swiperDom}
-	on:pointerdown={touchstartFun}
-	on:pointermove={touchmoveFun}
-	on:pointerup={touchendFun}
+	onpointerdown={touchstartFun}
+	onpointermove={touchmoveFun}
+	onpointerup={touchendFun}
 	class="touch-none cursor-move"
 >
 	<!-- 轮播容器 -->
@@ -640,10 +424,10 @@
 				)}) rotateY({rotateYFun(i, active, rotateY, movePercent)}) rotateZ({rotateZFun(i, active, rotateZ, movePercent)});"
 			>
 				{#if item.type === 'img'}
-					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+					<!-- svelte-ignore a11y_click_events_have_key_events -->
+					<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 					<img
-						on:click={clickImgFun}
+						onclick={clickImgFun}
 						class={`object-cover w-full h-full ${radiusObj[radius] || ''} ${innerInjClass}`}
 						src={item.url}
 						alt=""
@@ -651,7 +435,7 @@
 				{/if}
 				{#if item.type === 'component'}
 					<div class={` w-full h-full ${radiusObj[radius] || ''} ${innerInjClass}`}>
-						<svelte:component this={item.component} />
+						<item.component />
 					</div>
 				{/if}
 			</div>
@@ -682,7 +466,7 @@
 									? `transition-duration: ${currentIndicate === 0 && once ? interval * 1000 : interval * 1000 - duration}ms`
 									: `transition-duration:${duration}ms`
 							}`}
-						/>
+						></div>
 					{/if}
 				</div>
 			{/each}
@@ -710,7 +494,7 @@
 						style={longTransition
 							? `transition-duration: ${currentIndicate === 0 && once ? interval * 1000 : interval * 1000 - duration}ms;`
 							: `transition-duration:${duration}ms`}
-					/>
+					></div>
 				{/if}
 			</div>
 		{/each}

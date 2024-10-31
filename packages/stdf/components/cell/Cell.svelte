@@ -1,137 +1,37 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import Switch from '../switch/Switch.svelte';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const commonLang = currentLang.common;
 
-	/**
-	 * 标题
-	 * Title
-	 * @type {string}
-	 * @default ''
-	 */
-	export let title = '';
-
-	/**
-	 * 右侧详情
-	 * Right side details
-	 * @type {string}
-	 * @default ''
-	 */
-	export let detail = '';
-
-	/**
-	 * 右侧内容
-	 * Right side content
-	 * @type {'none'|'arrow'|'slot'|Object}
-	 * @default 'arrow'
-	 */
-	export let right = 'arrow';
-
-	/**
-	 * 左侧内容
-	 * Left side content
-	 * @type {'slot'|''|Object}
-	 * @default ''
-	 */
-	export let left = '';
-
-	/**
-	 * 左侧下方描述
-	 * Left side description
-	 * @type {string}
-	 * @default ''
-	 */
-	export let subTitle = '';
-
-	/**
-	 * 右侧下方描述
-	 * Right side description
-	 * @type {string}
-	 * @default ''
-	 */
-	export let info = '';
-
-	/**
-	 * 是否显示底部分割线
-	 * Whether to show the bottom line
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let line = false;
-
-	/**
-	 * 上下边距
-	 * Top and bottom margin
-	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
-	 * @default '4'
-	 */
-	export let my = '4';
-
-	/**
-	 * 左右间距
-	 * Left and right margin
-	 * @type {'0'|'1'|'2'|'3'|'4'|'6'|'8'}
-	 * @default '2'
-	 */
-	export let mx = '2';
-
-	/**
-	 * 圆角风格
-	 * Rounded style
-	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'full'}
-	 * @default 'lg'
-	 */
-	export let radius = 'lg';
-
-	/**
-	 * 开关状态
-	 * Switch status
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let switcheck = false;
-
-	/**
-	 * 阴影
-	 * Shadow
-	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
-	 * @default 'sm'
-	 */
-	export let shadow = 'sm';
-
-	/**
-	 * 注入 Class
-	 * Inject Class
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
-
-	/**
-	 * 是否开启关爱版
-	 * Whether to open the care version
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let love = false;
-
-	/**
-	 * 是否点击整个 Cell 都触发事件
-	 * Whether to click the entire Cell to trigger the event
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let clickAll = true;
+	/** @typedef {import('../../index.d').Cell} CellProps */
+	/** @type {CellProps} */
+	let {
+		title = '',
+		detail = '',
+		right = 'arrow',
+		left = '',
+		subTitle = '',
+		info = '',
+		line = false,
+		my = '4',
+		mx = '2',
+		radius = 'lg',
+		switchActive = false,
+		shadow = 'sm',
+		injClass = '',
+		love = false,
+		clickAll = true,
+		leftChild,
+		rightChild,
+		detailChild,
+		onclick,
+	} = $props();
 
 	// 圆角风格样式
 	// Rounded style style
@@ -169,20 +69,20 @@
 	// Click event
 	const setClickFun = () => {
 		if (clickAll) {
-			if (right?.constructor === Object && right.type === 'switch' && !right.switch?.disabled) {
-				switcheck = right.switch?.async ? switcheck : !switcheck;
+			if (typeof right === 'object' && right.type === 'switch' && !right.switch?.disabled) {
+				switchActive = right.switch?.async ? switchActive : !switchActive;
 			}
 			// 派发事件
 			// Dispatch event
-			dispatch('click');
+			onclick && onclick();
 		}
 	};
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	on:click={setClickFun}
+	onclick={setClickFun}
 	class={`px-4 cursor-pointer bg-white dark:bg-gray-800${clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} ${
 		myClass[my] || myClass['4']
 	}${mxClass[mx] || mxClass['2']}${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${
@@ -194,10 +94,8 @@
 		<div class="flex justify-between items-center">
 			{#if left === ''}
 				<!-- none -->
-			{:else if left === 'slot'}
-				<slot name="left">
-					{commonLang.slotEmpty}
-				</slot>
+			{:else if left === 'child'}
+				{@render leftChild?.()}
 			{:else}
 				<div class="mr-1 flex flex-col justify-center">
 					<Icon {...left} />
@@ -212,9 +110,7 @@
 		<div class="flex justify-between items-center">
 			<div class={`flex flex-col ${info === '' ? 'justify-center' : 'justify-between'} text-right `}>
 				{#if detail === 'slot'}
-					<slot name="detail">
-						{commonLang.slotEmpty}
-					</slot>
+					{@render detailChild?.()}
 				{:else}
 					<div class="text-gray-700 dark:text-gray-300">{detail}</div>
 				{/if}
@@ -226,18 +122,16 @@
 				<div class="text-gray-700 dark:text-gray-300 flex flex-col justify-center">
 					<Icon name="ri-arrow-right-s-line" size={love ? 26 : 20} alpha={0.6} top={-2} />
 				</div>
-			{:else if right?.constructor === Object && right.type === 'switch'}
+			{:else if typeof right === 'object' && right.type === 'switch' && right.switch}
 				<div class="ml-1 flex flex-col justify-center">
-					<Switch check={switcheck} {...right.switch} />
+					<Switch active={switchActive} {...right.switch} />
 				</div>
-			{:else if right?.constructor === Object && right.type === 'icon'}
+			{:else if typeof right === 'object' && right.type === 'icon' && right.icon}
 				<div class="ml-1 flex flex-col justify-center">
-					<Icon {...right} />
+					<Icon {...right.icon} />
 				</div>
-			{:else if right === 'slot'}
-				<slot name="right">
-					{commonLang.slotEmpty}
-				</slot>
+			{:else if right === 'child'}
+				{@render rightChild?.()}
 			{:else}
 				<!-- none -->
 			{/if}

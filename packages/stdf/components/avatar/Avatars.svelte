@@ -1,83 +1,21 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
 	import Avatar from './Avatar.svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * 头像数据
-	 * avatar data
-	 * @type {Array}
-	 * @default []
-	 */
-	export let data = [];
-
-	/**
-	 * 圆角风格
-	 * radius style
-	 * @type {'none'|'base'|'xl'|'2xl'|'3xl'|'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'full';
-
-	/**
-	 * 头像框大小
-	 * avatar size
-	 * @type {'xs'|'sm'|'base'|'md'|'lg'|'xl'}
-	 * @default 'base'
-	 */
-	export let size = 'base';
-
-	/**
-	 * 紧凑度，1-10
-	 * compactness, 1-10
-	 * @type {Number}
-	 * @default 5
-	 */
-	export let compact = 5;
-
-	/**
-	 * 边框粗细
-	 * border width
-	 * @type {'0'|'1'|'2'|'3'|'4'|'8'}
-	 * @default '3'
-	 */
-	export let lineWidth = '3';
-
-	/**
-	 * 是否反向
-	 * is reverse
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let reverse = false;
-
-	/**
-	 * 最大显示数量
-	 * max display count
-	 * @type {Number}
-	 * @default 10
-	 */
-	export let max = 10;
-
-	/**
-	 * 顶层内容
-	 * top content
-	 * @type {'totle'|'add'|'none'|'slot'}
-	 * @default 'totle'
-	 */
-	export let top = 'totle';
-
-	/**
-	 * 注入CSS
-	 * inject CSS
-	 * @type {String}
-	 * @default ''
-	 */
-	export let injClass = '';
+	/** @typedef {import('../../index.d').Avatars} AvatarsProps */
+	/** @type {AvatarsProps} */
+	let {
+		data = [],
+		radius = 'full',
+		size = 'base',
+		compact = 5,
+		lineWidth = '3',
+		reverse = false,
+		max = 10,
+		top = 'totle',
+		injClass = '',
+		onclickGroup,
+	} = $props();
 
 	// 圆角风格样式
 	// radius style
@@ -126,12 +64,12 @@
 	const dataInner = data.slice(0, max);
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	class="flex"
-	on:click={() => {
-		dispatch('clickgroup');
+	onclick={() => {
+		onclickGroup && onclickGroup();
 	}}
 >
 	{#if reverse}
@@ -155,12 +93,10 @@
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>
-			{:else if top === 'slot'}
-				<slot />
 			{:else if top === 'none'}
 				<!-- none -->
 			{:else}
-				<span>Please pass in the correct top!</span>
+				{@render top?.()}
 			{/if}
 		</div>
 	{/if}
@@ -194,12 +130,10 @@
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>
-			{:else if top === 'slot'}
-				<slot />
 			{:else if top === 'none'}
 				<!-- none -->
 			{:else}
-				<span>Please pass in the correct top!</span>
+				{@render top?.()}
 			{/if}
 		</div>
 	{/if}

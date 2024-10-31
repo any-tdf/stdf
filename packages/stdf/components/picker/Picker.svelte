@@ -1,161 +1,55 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const pickerLang = currentLang.picker;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let visible = false;
+	/** @typedef {import('../../index.d').Picker} PickerProps */
+	/** @typedef {import('../../index.d').PickerDatas} PickerDatas */
+	/** @type {PickerProps} */
+	let {
+		visible = $bindable(false),
+		datas = [],
+		autoScrollToLast = true,
+		cancelText = pickerLang.defaultCancel,
+		confirmText = pickerLang.defaultConfirm,
+		title = pickerLang.defaultTitle,
+		isLinkage = false,
+		linkageInitIndexs = [],
+		linkageShowRows = [],
+		linkageFlexs = [],
+		linkageLabelKeys = [],
+		linkageAligns = [],
+		linkageChildrenKey = 'children',
+		popup = {},
+		onopen,
+		onclose,
+		onconfirm,
+		oncancel,
+	} = $props();
 
-	/**
-	 * @typedef {Object} datasObj - 每一列的数据
-	 * @property {Array} data - 每一列的数据
-	 * @property {'left'|'center'|'right'} [align] - 对齐方式
-	 * @property {3|5|7} [showRow] - 每列显示行数
-	 * @property {Number} [initIndex] - 初始选中项
-	 * @property {Boolean} [useAnimation] - 是否使用动画
-	 * @property {String} [labelKey] - 显示文本的 key
-	 * @property {Number} [flex] - 每列的宽度
-	 * @property {Number} [lastSelectedIndex] - 上次选中项
-	 */
-
-	/**
-	 * @typedef {Object} isLinkageObject - 对象类型的定义，必须包含两个属性，第一个属性的值为字符，第二个属性的值为数组
-	 * @property {String} [label] - 显示文本
-	 * @property {Array} [children] - 下级数据
-	 * @property {Number} [initIndex] - 初始选中项
-	 * @property {Array} [data] - 每一列的数据
-	 * @property {3|5|7} [showRow] - 每列显示行数
-	 * @property {String} [labelKey] - 显示文本的 key
-	 * @property {Boolean} [useAnimation] - 是否使用动画
-	 * @property {'left'|'center'|'right'} [align] - 对齐方式
-	 * @property {Number} [flex] - 每列的宽度
-	 */
-
-	/**
-	 * 所有列数据
-	 * All column data
-	 * @type {Array<datasObj>|Array<isLinkageObject>}
-	 * @default []
-	 */
-	export let datas = [];
-
-	/**
-	 * 是否自动滚动到上次的选中项
-	 * Whether to automatically scroll to the last selected item
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let autoScrollToLast = true;
-
-	/**
-	 * 取消选项文本
-	 * Cancel option text
-	 * @type {string}
-	 * @default Current language picker.cancelText
-	 */
-	export let cancelText = pickerLang.defaultCancel;
-
-	/**
-	 * 确定选项文本
-	 * Confirm option text
-	 * @type {string}
-	 * @default Current language picker.confirmText
-	 */
-	export let confirmText = pickerLang.defaultConfirm;
-
-	/**
-	 * 中间选项文本
-	 * Middle option text
-	 * @type {string}
-	 * @default Current language picker.defaultTitle
-	 */
-	export let title = pickerLang.defaultTitle;
-
-	/**
-	 * 是否多级联动
-	 * Whether multi-level linkage
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let isLinkage = false;
-
-	/**
-	 * 如果是多级联动，可以通过传入的 linkageInitIndexs 来设置初始选中项
-	 * If it is multi-level linkage, you can set the initial selected item by passing in linkageInitIndexs
-	 * @type {Array<Number>}
-	 * @default []
-	 */
-	export let linkageInitIndexs = [];
-
-	/**
-	 * 如果是多级联动，可以通过传入的 linkageShowRows 来设置每列显示行数
-	 * If it is multi-level linkage, you can set the number of rows displayed in each column by passing in linkageShowRows
-	 * @type {Array<3|5|7>}
-	 * @default []
-	 */
-	export let linkageShowRows = [];
-
-	/**
-	 * 如果是多级联动，可以通过传入的 linkageFlexs 来设置每列的宽度
-	 * If it is multi-level linkage, you can set the width of each column by passing in linkageFlexs
-	 * @type {Array<Number>}
-	 * @default []
-	 */
-	export let linkageFlexs = [];
-
-	/**
-	 * 如果是多级联动，可以通过传入的 linkageLabelKeys 来设置每列的 labelKey
-	 * If it is multi-level linkage, you can set the labelKey of each column by passing in linkageLabelKeys
-	 * @type {Array<String>}
-	 * @default []
-	 */
-	export let linkageLabelKeys = [];
-
-	/**
-	 * 如果是多级联动，可以通过传入的 linkageAligns 来设置每列的对齐方式
-	 * If it is multi-level linkage, you can set the alignment of each column by passing in linkageAligns
-	 * @type {Array<'left'|'center'|'right'>}
-	 * @default []
-	 */
-	export let linkageAligns = [];
-
-	/**
-	 * 如果是多级联动，可以通过传入上下级 children 的 key 来设置
-	 * If it is multi-level linkage, you can set the key of the children of the upper and lower levels by passing it in
-	 * @type {string}
-	 * @default 'children'
-	 */
-	export let linkageChildrenKey = 'children';
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {Object}
-	 * @default {}
-	 */
-	export let popup = {};
-
-	/**
-	 * 内部使用的 datas
-	 * Datas used internally
-	 * @type {Array<datasObj>|Array<isLinkageObject>}
-	 */
-	let newDatas = datas;
+	// 内部使用的 datas
+	// Datas used internally
+	/** @typedef {{
+		data: PickerDatas[];
+		initIndex?: number;
+		showRow?: number;
+		lastSelectedIndex?: number;
+		flex?: number;
+		align?: string;
+		labelKey?: string;
+		useAnimation?: boolean;
+	}} PickerColumn */
+	/** @type {PickerColumn[]} */
+	let newDatas = $state([]);
+	$effect(() => {
+		newDatas = datas;
+	});
 
 	// 如果是多级联动，对 newDatas 进行处理，使其结构符合 ScrollRadio 组件的结构
 	// If it is multi-level linkage, process newDatas to make its structure conform to the structure of the ScrollRadio component
@@ -172,7 +66,7 @@
 				}
 			}
 		};
-		newDatasFormatFunc(newDatas, 0);
+		newDatasFormatFunc(datas, 0);
 		newDatas = newLinkageData;
 	}
 	// 对 datas 处理，如果没有设置 initIndex 则默认为 0，如果没有设置 showRow 则默认为 5
@@ -220,7 +114,7 @@
 
 	// 上次所有选中项，由上次单列选中项组成的数组，初始值为 datas 中每项的 initIndex
 	// All last selected items, an array of last single column selected items, the initial value is the initIndex of each item in datas
-	let lastSelectedIndexs = newDatas.map(item => item.initIndex);
+	let lastSelectedIndexs = $state(newDatas.map(item => item.initIndex));
 
 	// 循环 newDatas，将 每项的 showRow 组成一个数组 showRowsArr
 	// Loop newDatas to form an array showRowsArr of each item's showRow
@@ -257,7 +151,7 @@
 	// Click cancel button
 	const clickCancelFunc = () => {
 		visible = false;
-		dispatch('cancel');
+		oncancel && oncancel();
 	};
 
 	// 点击确定按钮
@@ -278,18 +172,18 @@
 			// Loop datas and scrollEndIndexs to form a new array of values corresponding to data in datas according to scrollEndIndexs
 			items = datas.map((item, index) => item.data[scrollEndIndexs[index]]);
 		}
-		dispatch('confirm', { items, indexs: lastSelectedIndexs });
+		onconfirm && onconfirm(items, lastSelectedIndexs);
 	};
 
 	// 监听 visible 的变化，触发 show 或 close 事件
 	// Listen to the change of visible, trigger the show or close event
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 
 	// 滚动结束
 	// Scroll end
@@ -349,39 +243,6 @@
 					}
 				}
 			};
-
-			// 递归计算后面的所有列数据
-			// Recursively calculate the data of all columns behind
-			// const recursionFunc = (col, currentLevelData) => {
-			//     const nextCol = col + 1;
-			//     if (nextCol < newDatas.length) {
-			//         const nextLevelData =
-			//             currentLevelData.length === 1
-			//                 ? currentLevelData[0]
-			//                     ? currentLevelData[0][linkageChildrenKey]
-			//                     : []
-			//                 : currentLevelData[index]
-			//                 ? currentLevelData[index][linkageChildrenKey]
-			//                 : [];
-			//         if (nextLevelData.length > 0) {
-			//             const nextData = nextLevelData.map(item =>
-			//                 linkageLabelKeys[col + 1] ? { label: item[linkageLabelKeys[col + 1]] } : { label: item.label }
-			//             );
-			//             // 将数据置空，此列数据为空，此列将立即消失，然后通过 setTimeout 立即设置数据，此列数据不为空，此列将立即出现，由此保证下级数据从0开始
-			//             // Set the data to empty, the data of this column is empty, this column will disappear immediately, and then set the data immediately through setTimeout, the data of this column is not empty, this column will appear immediately, thus ensuring that the next level data starts from 0
-			//             newDatas[nextCol].data = [];
-			//             setTimeout(() => {
-			//                 newDatas[nextCol].data = nextData;
-			//                 newDatas[nextCol].initIndex = 0;
-			//             });
-			//         }
-			//         allLevelData[col] = currentLevelData;
-			//         allLevelData[nextCol] = nextLevelData;
-			//         recursionFunc(nextCol, nextLevelData);
-			//     }
-			//     // 使用尾递归优化 recursionFunc , 使其不会因为递归层级过深而导致栈溢出
-			//     // Use tail recursion optimization recursionFunc to prevent stack overflow due to too deep recursion level
-			// };
 			recursionFunc(col, currentLevelData);
 		}
 	};
@@ -395,13 +256,13 @@
 	{...popup}
 >
 	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" on:click={clickCancelFunc}>{cancelText}</div>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" onclick={clickCancelFunc}>{cancelText}</div>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" on:click={clickConfirmFunc}>{confirmText}</div>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" onclick={clickConfirmFunc}>{confirmText}</div>
 	</div>
 	<div class="flex justify-around items-center gap-1 bg-white dark:bg-black">
 		{#each newDatas as item, col}
@@ -416,7 +277,7 @@
 						useAnimation={item.useAnimation}
 						lastSelectedIndex={lastSelectedIndexs[col]}
 						{autoScrollToLast}
-						on:scrollEnd={e => scrollEndFunc(e, col)}
+						onscrollEnd={e => scrollEndFunc(e, col)}
 					/>
 				{/if}
 			</div>

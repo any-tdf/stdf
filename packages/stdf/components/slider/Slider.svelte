@@ -1,126 +1,39 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF, debounce, stepNumberFun } from '../utils';
 
-	/**
-	 * 当前值
-	 * Current value
-	 * @type {number}
-	 * @range minRange - maxRange
-	 * @default 40
-	 */
-	export let value = 40;
+	/** @typedef {import('../../index.d').Slider} Slider */
+	/** @type {Slider} */
+	let {
+		value = $bindable(40),
+		step = 1,
+		minRange = 0,
+		maxRange = 100,
+		isRange = false,
+		startValue = $bindable(20),
+		endValue = $bindable(60),
+		showTip = 'touch',
+		radius = 'full',
+		lineBlock = false,
+		disabled = false,
+		readonly = false,
+		children,
+		onchange,
+	} = $props();
 
-	/**
-	 * 步长
-	 * Step length
-	 * @type {number}
-	 * @default 1
-	 */
-	export let step = 1;
-
-	/**
-	 * 可选最小值
-	 * Optional minimum value
-	 * @type {number}
-	 * @default 0
-	 */
-	export let minRange = 0;
-
-	/**
-	 * 可选最大值
-	 * Optional maximum value
-	 * @type {number}
-	 * @default 100
-	 */
-	export let maxRange = 100;
-
-	/**
-	 * 是否为区间选择
-	 * is range
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let isRange = false;
-
-	/**
-	 * 区间选择开始值
-	 * Range selection start value
-	 * @type {number}
-	 * @default 20
-	 */
-	export let startValue = 20;
-
-	/**
-	 * 区间选择结束值
-	 * Range selection end value
-	 * @type {number}
-	 * @default 60
-	 */
-	export let endValue = 60;
-
-	/**
-	 * 提示显示方式
-	 * Tip display method
-	 * @type {'always'|'touch'|'never'}
-	 * @default 'touch'
-	 */
-	export let showTip = 'touch';
-
-	/**
-	 * 圆角
-	 * Radius
-	 * @type {'none'|'base'|'xl'|'full'}
-	 * @default 'full'
-	 */
-	export let radius = 'full';
-
-	/**
-	 * 滑块是否为线框
-	 * is line block
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let lineBlock = false;
-
-	/**
-	 * 是否使用slot
-	 * is use slot
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let useSlot = false;
-
-	/**
-	 * 是否禁用
-	 * is disabled
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let disabled = false;
-
-	/**
-	 * 是否只读
-	 * is readonly
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let readonly = false;
-
-	let lineDom = null; //滑动条dom slider dom
-	let blockDom = null; //滑块dom block dom
+	let lineDom = $state(null); //滑动条dom slider dom
+	let blockDom = $state(null); //滑块dom block dom
 	let blockWidth = 0; //滑块宽度 block width
 	let lineDomStartX = 0; //滑块条起始位置 slider start position
 	let lineDomEndX = 0; //滑块条结束位置 slider end position
 	let lineDomWidth = 0; //滑块条宽度 slider width
-	let currentX = ((value - minRange) / (maxRange - minRange)) * lineDomWidth; //初始位置 initial position
-	let currentStartX = ((startValue - minRange) / (maxRange - minRange)) * lineDomWidth; //区间选择时开始位置 start position
-	let currentEndX = ((endValue - minRange) / (maxRange - minRange)) * lineDomWidth; //区间选择时结束位置 end position
-	let currentMove = 'none'; //当前移动的滑块 current move block
+	let currentX = $state(((value - minRange) / (maxRange - minRange)) * lineDomWidth); //初始位置 initial position
+	let currentStartX = $state(((startValue - minRange) / (maxRange - minRange)) * lineDomWidth); //区间选择时开始位置 start position
+	let currentEndX = $state(((endValue - minRange) / (maxRange - minRange)) * lineDomWidth); //区间选择时结束位置 end position
+	let currentMove = $state('none'); //当前移动的滑块 current move block
 
 	let isDown = false; //是否按下 is down
-	const dispatch = createEventDispatcher(); //事件分发器 event dispatcher
 
 	//滑动开始
 	//slide start
@@ -158,12 +71,12 @@
 			}
 			startValue = stepNumberFun(minRange + (currentStartX / lineDomWidth) * (maxRange - minRange), step);
 			endValue = stepNumberFun(minRange + (currentEndX / lineDomWidth) * (maxRange - minRange), step);
-			dispatch('change', [startValue, endValue]); //触发事件 trigger event
+			onchange && onchange([startValue, endValue]);
 		} else {
 			currentMove = 'one';
 			currentX = clientX - lineDomStartX;
 			value = stepNumberFun((currentX / lineDomWidth) * (maxRange - minRange), step);
-			dispatch('change', value); //触发事件 trigger event
+			onchange && onchange([value]);
 		}
 	};
 	const touchLineMove = e => {
@@ -202,7 +115,7 @@
 			}
 			startValue = stepNumberFun(minRange + (currentStartX / lineDomWidth) * (maxRange - minRange), step);
 			endValue = stepNumberFun(minRange + (currentEndX / lineDomWidth) * (maxRange - minRange), step);
-			dispatch('change', [startValue, endValue]); //触发事件 trigger event
+			onchange && onchange([startValue, endValue]);
 		} else {
 			if (clientX <= lineDomStartX) {
 				currentX = 0;
@@ -212,7 +125,7 @@
 				currentX = clientX - lineDomStartX;
 			}
 			value = stepNumberFun(minRange + (currentX / lineDomWidth) * (maxRange - minRange), step);
-			dispatch('change', value); //触发事件 trigger event
+			onchange && onchange([value]);
 		}
 	};
 	const touchLineEnd = e => {
@@ -236,29 +149,30 @@
 	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
 	onMount(() => {
 		handleResize();
+		// @ts-ignore
 		window.addEventListener('resize', debounce(handleResize, 200));
 	});
 </script>
 
 <div class={`relative h-7${disabled ? ' opacity-50' : ''}`}>
 	<div
-		on:pointerdown={touchLineStart}
-		on:pointermove={throttleWithRAF(touchLineMove)}
-		on:pointerup={touchLineEnd}
+		onpointerdown={touchLineStart}
+		onpointermove={e => throttleWithRAF(touchLineMove)(e)}
+		onpointerup={touchLineEnd}
 		class="absolute flex flex-col justify-center h-7 w-full touch-none cursor-move"
 		bind:this={lineDom}
 	>
-		{#if useSlot}
-			<slot />
+		{#if children}
+			{@render children()}
 		{:else}
 			<div class={`w-full h-1 bg-black/10 dark:bg-white/20${radiusObj[radius] || radiusObj['full']}`}>
 				{#if isRange}
 					<div
 						class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`}
 						style={`width:${currentEndX - currentStartX}px;transform: translateX(${currentStartX}px);`}
-					/>
+					></div>
 				{:else}
-					<div class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`} style={`width:${currentX}px`} />
+					<div class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`} style={`width:${currentX}px`}></div>
 				{/if}
 			</div>
 		{/if}
@@ -286,7 +200,7 @@
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
 							style={`top:100%;left:50%;transform: translateX(-50%)`}
-						/>
+						></div>
 					</div>
 				{/if}
 			</div>
@@ -314,7 +228,7 @@
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
 							style={`top:100%;left:50%;transform: translateX(-50%)`}
-						/>
+						></div>
 					</div>
 				{/if}
 			</div>
@@ -342,7 +256,7 @@
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
 							style={`top:100%;left:50%;transform: translateX(-50%)`}
-						/>
+						></div>
 					</div>
 				{/if}
 			</div>

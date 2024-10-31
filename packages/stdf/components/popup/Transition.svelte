@@ -1,13 +1,28 @@
 <script>
 	import { fly, scale } from 'svelte/transition';
 
-	export let visible = false; //是否显示
-	export let size = 40; //尺寸
-	export let transitionParams = {}; //过渡动画参数
-	export let transitionOutParams = {}; //过渡动画出去参数
-	export let position = 'bottom'; //显示位置,center,top,bottom,left,right
-	export let px = '0'; //左右间距
-	export let py = '0'; //上下间距
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [visible]
+	 * @property {number} [size]
+	 * @property {any} [transitionParams]
+	 * @property {any} [transitionOutParams]
+	 * @property {string} [position]
+	 * @property {string} [px]
+	 * @property {string} [py]
+	 * @property {import('svelte').Snippet} [children]
+	 */
+	/** @type {Props} */
+	let {
+		visible = false,
+		size = 40,
+		transitionParams = {},
+		transitionOutParams = {},
+		position = 'bottom',
+		px = '0',
+		py = '0',
+		children,
+	} = $props();
 
 	const sizeClass = { bottom: 'w-full', top: 'w-full', left: 'h-full', right: 'h-full', center: 'w-full' };
 	const sizeStyle = {
@@ -60,7 +75,7 @@
 			} pointer-events-auto`}
 			style={sizeStyle[position] || sizeStyle['bottom']}
 		>
-			<slot />
+			{@render children?.()}
 		</div>
 	{:else}
 		<div
@@ -71,7 +86,7 @@
 			} pointer-events-auto`}
 			style={sizeStyle[position] || sizeStyle['bottom']}
 		>
-			<slot />
+			{@render children?.()}
 		</div>
 	{/if}
 {/if}

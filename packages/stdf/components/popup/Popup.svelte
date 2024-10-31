@@ -1,164 +1,35 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
 	import * as eases from 'svelte/easing';
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 弹出层大小，值为 0 时由内部元素决定
-	 * Popup size, value of 0 is determined by internal elements
-	 * @type {number}
-	 * @range 0 - 100
-	 * @default 40
-	 */
-	export let size = 40;
-
-	/**
-	 * 弹出层位置
-	 * Popup position
-	 * @type {'center'|'top'|'bottom'|'left'|'right'}
-	 * @default 'bottom'
-	 */
-	export let position = 'bottom';
-
-	/**
-	 * 过渡动画出现时间，单位毫秒
-	 * Transition animation appearance time (ms)
-	 * @type {number}
-	 * @default 450
-	 */
-	export let duration = 450;
-
-	/**
-	 * 过渡动画退出时间，单位毫秒
-	 * Transition animation exit time (ms)
-	 * @type {number}
-	 * @default 240
-	 */
-	export let outDuration = 240;
-
-	/**
-	 * 过渡动画进入类型
-	 * Transition animation entry type
-	 * @type {'linear'|'quadIn'|'quadOut'|'quadInOut'|'cubicIn'|'cubicOut'|'cubicInOut'|'quartIn'|'quartOut'|'quartInOut'|'quintIn'|'quintOut'|'quintInOut'|'sineIn'|'sineOut'|'sineInOut'|'expoIn'|'expoOut'|'expoInOut'|'circIn'|'circOut'|'circInOut'|'backIn'|'backOut'|'backInOut'|'elasticIn'|'elasticOut'|'elasticInOut'|'bounceIn'|'bounceOut'|'bounceInOut'}
-	 * @default 'cubicOut'
-	 */
-	export let easeType = 'cubicOut';
-
-	/**
-	 * 过渡动画退出类型
-	 * Transition animation exit type
-	 * @type {'linear'|'quadIn'|'quadOut'|'quadInOut'|'cubicIn'|'cubicOut'|'cubicInOut'|'quartIn'|'quartOut'|'quartInOut'|'quintIn'|'quintOut'|'quintInOut'|'sineIn'|'sineOut'|'sineInOut'|'expoIn'|'expoOut'|'expoInOut'|'circIn'|'circOut'|'circInOut'|'backIn'|'backOut'|'backInOut'|'elasticIn'|'elasticOut'|'elasticInOut'|'bounceIn'|'bounceOut'|'bounceInOut'}
-	 * @default 'cubicOut'
-	 */
-	export let easeOutType = 'cubicOut';
-
-	/**
-	 * 左右间距
-	 * Left and right spacing
-	 * @type {'0'|'1'|'2'|'3'|'4'|'5'|'6'|'8'|'10'|'12'|'16'|'20'}
-	 * @default '0'
-	 */
-	export let px = '0';
-
-	/**
-	 * 上下间距
-	 * Top and bottom spacing
-	 * @type {'0'|'1'|'2'|'3'|'4'|'5'|'6'|'8'|'10'|'12'|'16'|'24'|'32'|'48'|'64'}
-	 * @default '0'
-	 */
-	export let py = '0';
-
-	/**
-	 * 遮罩层参数
-	 * Mask layer parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let mask = {};
-
-	/**
-	 * 点击遮罩层是否关闭
-	 * Click mask layer to close
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let maskClosable = true;
-
-	/**
-	 * 圆角位置
-	 * Corner position
-	 * @type {'all'|'top'|'bottom'|'left'|'right'}
-	 * @default 'top'
-	 */
-	export let radiusPosition = 'top';
-
-	/**
-	 * 圆角大小
-	 * Corner size
-	 * @type {'none'|'base'|'md'|'lg'|'xl'|'2xl'|'3xl'|'full'}
-	 * @default 'md'
-	 */
-	export let radius = 'none';
-
-	/**
-	 * 动画距离，当弹出层大小由内部元素决定时生效，单位 px
-	 * Animation distance, effective when popup size is determined by internal elements (px)
-	 * @type {number}
-	 * @default 0
-	 */
-	export let transitionDistance = 0;
-
-	/**
-	 * 背景是否透明
-	 * Whether the background is transparent
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let transparent = false;
-
-	/**
-	 * 是否允许 body 滚动
-	 * Whether to allow body scrolling
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let allowBodyScroll = false;
-
-	/**
-	 * z-index
-	 * @type {number}
-	 * @default 600
-	 */
-	export let zIndex = 600;
-
-	/**
-	 * 是否动态固定
-	 * Whether to dynamically fix
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let dynamicFixed = true;
-
-	/**
-	 * 是否隐藏滚动区域滚动条
-	 * Whether to hide the scroll bar of the scroll area
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let hideScrollbar = false;
+	/** @typedef {import('../../index.d').Popup} PopupProps */
+	/** @type {PopupProps} */
+	let {
+		visible = $bindable(false),
+		size = 40,
+		position = 'bottom',
+		duration = 450,
+		outDuration = 240,
+		easeType = 'cubicOut',
+		easeOutType = 'cubicOut',
+		px = '0',
+		py = '0',
+		mask = {},
+		maskClosable = true,
+		radiusPosition = 'top',
+		radius = 'none',
+		transitionDistance = 0,
+		transparent = false,
+		allowBodyScroll = false,
+		zIndex = 600,
+		dynamicFixed = true,
+		hideScrollbar = false,
+		children,
+		onopen,
+		onclose,
+		onclickMask,
+	} = $props();
 
 	// 通过不同位置结合圆角参数，生成不同的 class
 	// Generate different classes by combining different positions and corner parameters
@@ -268,18 +139,18 @@
 
 	// 监听 visible 变化派发事件
 	// Listen to the change of visible and dispatch events
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 
 	// 点击遮罩时派发事件
 	// Dispatch events when clicking the mask
 	const clickMask = () => {
-		dispatch('clickMask');
+		onclickMask && onclickMask();
 		if (maskClosable) {
 			visible = false;
 		}
@@ -354,7 +225,7 @@
 
 	// 监听 visible 与是否允许 body 滚动，动态控制 body 滚动
 	// Listen to the change of visible and allowBodyScroll, and dynamically control the body scroll
-	$: {
+	$effect(() => {
 		if (visible && !allowBodyScroll) {
 			const top = document.documentElement.scrollTop || document.body.scrollTop;
 			document.body.style.cssText += `
@@ -372,11 +243,14 @@
         `;
 			window.scrollTo(0, Math.abs(parseFloat(top)));
 		}
-	}
+	});
 
 	// 页面滚动时，动态计算窗口高度
 	// Dynamically calculate the window height when the page scrolls
-	$: innerHeight = window.innerHeight;
+	let innerHeight = $state(0);
+	$effect(() => {
+		innerHeight = window.innerHeight;
+	});
 	if (dynamicFixed) {
 		//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
 		//Solve the problem of window height change caused by Safari and Chrome or other browsers hiding and showing the toolbar when scrolling
@@ -387,7 +261,7 @@
 </script>
 
 {#if visible}
-	<Mask visible {duration} {outDuration} {...mask} on:clickMask={clickMask} />
+	<Mask visible {duration} {outDuration} {...mask} onclickMask={clickMask} />
 {/if}
 
 {#if visible}
@@ -404,14 +278,16 @@
 			transitionParams={transitionParamsFun()}
 			transitionOutParams={transitionOutParamsFun()}
 		>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div
 				class={`w-full h-full${transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} ${radiusFun()} overflow-y-auto`}
 				class:popup-container={hideScrollbar}
-				on:click|stopPropagation
+				onclick={e => {
+					e.stopPropagation();
+				}}
 			>
-				<slot />
+				{@render children?.()}
 			</div>
 		</Transition>
 	</div>

@@ -1,7 +1,13 @@
 <script>
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 */
+
+	/** @type {Props} */
+	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 </script>
 
 <div
@@ -9,7 +15,7 @@
 	style={`border-color: ${customColor[0] || '#DA1414'} ${customColor[1] || '#11BB8D'} ${customColor[2] || '#7356BF'} ${
 		customColor[3] || '#FFC043'
 	};animation-duration: ${2 / speed}s;-webkit-animation-duration: ${2 / speed}s;`}
-/>
+></div>
 
 <style>
 	.loading {

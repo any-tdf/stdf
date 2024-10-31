@@ -1,67 +1,17 @@
 <script>
-	/**
-	 * 徽标文案
-	 * badge text
-	 * @type {string}
-	 * @default ''
-	 */
-	export let text = '';
-
-	/**
-	 * 圆角风格
-	 * radius style
-	 * @type {'full'|'base'|'none'|'leaf'}
-	 * @default 'full'
-	 */
-	export let radius = 'full';
-
-	/**
-	 * 是否位于左侧
-	 * is on the left
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let isLeft = false;
-
-	/**
-	 * 是否显示
-	 * is show
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let isShow = true;
-
-	/**
-	 * 上下偏移量
-	 * offset top
-	 * @type {number}
-	 * @default 0
-	 */
-	export let offsetY = 0;
-
-	/**
-	 * 左右偏移量
-	 * offset left
-	 * @type {number}
-	 * @default 0
-	 */
-	export let offsetX = 0;
-
-	/**
-	 * 是否位于内部
-	 * is inner
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let isInner = false;
-
-	/**
-	 * 注入CSS
-	 * inject CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
+	/** @typedef {import('../../index.d').Badge} BadgeProps */
+	/** @type {BadgeProps} */
+	let {
+		text = '',
+		radius = 'full',
+		isLeft = false,
+		isShow = true,
+		offsetY = 0,
+		offsetX = 0,
+		isInner = false,
+		injClass = '',
+		children,
+	} = $props();
 
 	// 圆角风格样式
 	// radius style
@@ -89,7 +39,7 @@
 	</div>
 {:else}
 	<div class="relative">
-		<slot />
+		{@render children?.()}
 		<div
 			class={`absolute${text === '' ? ' -top-1.5' : ' -top-2'}${
 				isLeft ? ' left-0' : ' right-0'

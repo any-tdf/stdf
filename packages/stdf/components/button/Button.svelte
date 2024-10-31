@@ -1,143 +1,32 @@
 <script>
 	import Icon from '../icon/Icon.svelte';
 	import Loading from '../loading/Loading.svelte';
-	/**
-	 * 填充模式
-	 * Fill mode
-	 * @type {'base' | 'line' | 'lineLight' | 'lineTheme' | 'text' | 'textTheme' | 'colorLight'}
-	 * @default 'base'
-	 */
-	export let fill = 'base';
 
-	/**
-	 * 状态
-	 * State
-	 * @type {'theme' | 'success' | 'warning' | 'error' | 'info'}
-	 * @default 'theme'
-	 */
-	export let state = 'theme';
+	/** @typedef {import('../../index.d').Button} ButtonProps */
+	/** @type {ButtonProps} */
+	let {
+		fill = 'base',
+		state = 'theme',
+		radius = 'base',
+		size = 'big',
+		line = 'solid',
+		injClass = '',
+		love = false,
+		heightOut = '2',
+		heightIn = '3',
+		group = false,
+		disabled = false,
+		customSize = false,
+		customWidth = 0,
+		customHeight = 0,
+		icon = null,
+		loading = null,
+		disabledLoading = true,
+		children,
+		onclick,
+	} = $props();
 
-	/**
-	 * 圆角风格
-	 * Corner style
-	 * @type {'none' | 'base' | 'xl' | '2xl' | 'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'base';
-
-	/**
-	 * 尺寸
-	 * Size
-	 * @type {'full' | 'big' | 'md' | 'sm' | 'auto'}
-	 * @default 'big'
-	 */
-	export let size = 'big';
-
-	/**
-	 * 边框风格
-	 * Border style
-	 * @type {'solid' | 'dashed' | 'dotted'}
-	 * @default 'solid'
-	 */
-	export let line = 'solid';
-
-	/**
-	 * 注入类
-	 * Inject class
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
-
-	/**
-	 * 是否开启关爱版
-	 * Whether to open the care version
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let love = false;
-
-	/**
-	 * 按钮外部高度
-	 * Button outer height
-	 * @type {'0' | '1' | '2' | '3' | '4'}
-	 * @default '2'
-	 */
-	export let heightOut = '2';
-
-	/**
-	 * 按钮内部高度
-	 * Button inner height
-	 * @type {'0' | '1' | '2' | '3' | '4'}
-	 * @default '3'
-	 */
-	export let heightIn = '3';
-
-	/**
-	 * 是否使用按钮组
-	 * Whether to use button group
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let group = false;
-
-	/**
-	 * 是否禁用
-	 * Whether to disable
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let disabled = false;
-
-	/**
-	 * 是否自定义大小
-	 * Whether to customize size
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let customSize = false;
-
-	/**
-	 * 自定义宽度
-	 * Custom width
-	 * @type {number}
-	 * @default 0
-	 */
-	export let customWidth = 0;
-
-	/**
-	 * 自定义高度
-	 * Custom height
-	 * @type {number}
-	 * @default 0
-	 */
-	export let customHeight = 0;
-
-	/**
-	 * Icon 参数
-	 * Icon params
-	 * @type {object|null}
-	 * @default null
-	 */
-	export let icon = null;
-
-	/**
-	 * Loading 参数
-	 * Loading params
-	 * @type {object|null}
-	 * @default null
-	 */
-	export let loading = null;
-
-	/**
-	 * 如果带加载，是否禁用
-	 * Whether to disable if loading
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let disabledLoading = true;
-
-	$: innerDisabled = disabled || (loading && disabledLoading);
+	let innerDisabled = $derived(disabled || (loading && disabledLoading));
 
 	// 状态样式
 	// State style
@@ -190,7 +79,7 @@
 	} ${love ? 'text-xl' : ''}`}
 >
 	<button
-		on:click
+		{onclick}
 		class={`truncate inline-flex items-center justify-center gap-1 ${!group && !innerDisabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
 			sizeObj[size] || sizeObj.big
 		} ${textColor} ${lineObj[line] || lineObj.solid} ${radiusObj[radius] || radiusObj.base} ${
@@ -205,6 +94,6 @@
 		{#if icon && icon.name}
 			<Icon {...icon} />
 		{/if}
-		<slot />
+		{@render children?.()}
 	</button>
 </div>

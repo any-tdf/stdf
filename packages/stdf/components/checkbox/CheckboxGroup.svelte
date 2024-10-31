@@ -1,18 +1,10 @@
 <script>
-	import { setContext, createEventDispatcher } from 'svelte';
+	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * 排列方式
-	 * layout type
-	 * @type {'h' | 'v' | 'inline'}
-	 * @default 'v'
-	 */
-	export let layout = 'v';
+	/** @typedef {import('../../index.d').CheckboxGroup} CheckboxGroupProps */
+	/** @type {CheckboxGroupProps} */
+	let { layout = 'v', children, onchange } = $props();
 
 	// 选中的值
 	// checked value
@@ -28,11 +20,12 @@
 	setContext('STDF_checkboxLayoutContext', STDF_checkboxLayoutStore);
 
 	// 监听排列方式变化
+	// Listen for layout type changes
 	STDF_checkboxCheckedsStore.subscribe(v => {
-		dispatch('change', v);
+		onchange && onchange(v);
 	});
 </script>
 
 <div class={`${layout === 'inline' ? '' : `flex ${layout === 'h' ? 'justify-between' : 'flex-col space-y-2'}`}`}>
-	<slot />
+	{@render children?.()}
 </div>

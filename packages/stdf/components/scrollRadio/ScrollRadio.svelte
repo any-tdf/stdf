@@ -1,45 +1,34 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	// 数据
-	// Data
-	export let data = [];
-
-	// 可见行数
-	// Visible rows
-	export let showRow = 5;
-
-	// 默认选中项索引
-	// Default selected item index
-	export let initIndex = 0;
-
-	// data 中 label 对应的 key
-	// The key corresponding to label in data
-	export let labelKey = 'label';
-
-	// 是否自动滚动到上次的选中项
-	// Whether to automatically scroll to the last selected item
-	export let autoScrollToLast = true;
-
-	// 自动滚动到选中项（initIndex）时，是否使用动画
-	// Whether to use animation when automatically scrolling to the selected item (initIndex)
-	export let useAnimation = true;
-
-	// 上次选中项索引
-	// Last selected item index
-	export let lastSelectedIndex = 0;
-
-	// 对齐方式
-	// Alignment
-	export let align = 'center';
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} [data] - Data
+	 * @property {number} [showRow] - Visible rows
+	 * @property {number} [initIndex] - Default selected item index
+	 * @property {string} [labelKey] - The key corresponding to label in data
+	 * @property {boolean} [autoScrollToLast] - Whether to automatically scroll to the last selected item
+	 * @property {boolean} [useAnimation] - Whether to use animation when automatically scrolling to the selected item (initIndex)
+	 * @property {number} [lastSelectedIndex] - Last selected item index
+	 * @property {'center' | 'left' | 'right'} [align] - Alignment
+	 * @property {(index: number, isTouch: boolean) => void} [onscrollEnd] - Callback function when scrolling ends
+	 */
+	/** @type {Props} */
+	let {
+		data = [],
+		showRow = 5,
+		initIndex = 0,
+		labelKey = 'label',
+		autoScrollToLast = true,
+		useAnimation = true,
+		lastSelectedIndex = 0,
+		align = 'center',
+		onscrollEnd,
+	} = $props();
 
 	// 是否触摸
 	// Whether to touch
-	let isTouch = false;
+	let isTouch = $state(false);
 
 	// 对齐方式样式
 	// Alignment style
@@ -70,7 +59,7 @@
 
 	// 滚动元素
 	// Scroll element
-	let scrollElement = null;
+	let scrollElement = $state(null);
 
 	// 当前选中项索引
 	// Current selected item index
@@ -85,12 +74,12 @@
 				scrollTimer = setTimeout(() => {
 					const scrollTop = e.target.scrollTop;
 					currentIndex = Math.round(scrollTop / (itemHeight * 16));
-					dispatch('scrollEnd', { index: currentIndex, isTouch });
+					onscrollEnd && onscrollEnd(currentIndex, isTouch);
 				});
 			});
 		}
 	});
-	$: {
+	$effect(() => {
 		if (scrollElement) {
 			if (autoScrollToLast) {
 				scrollElement.scrollTop = lastSelectedIndex * itemHeight * 16;
@@ -98,7 +87,7 @@
 				scrollElement.scrollTop = initIndex * itemHeight * 16;
 			}
 		}
-	}
+	});
 </script>
 
 <div class="overflow-auto relative picker-contents" style="height:{itemHeight * showRowsInner}rem;">
@@ -106,7 +95,7 @@
 		class={`overflow-auto snap-y picker-contents ${useAnimation ? 'scroll-smooth' : 'scroll-auto'}`}
 		style="height:{itemHeight * showRowsInner}rem;"
 		bind:this={scrollElement}
-		on:scroll={() => {
+		onscroll={() => {
 			isTouch = true;
 		}}
 	>
@@ -125,12 +114,12 @@
 			<div
 				class="bg-gradient-to-b from-white to-white/60 dark:from-black dark:to-black/60 border-b border-black/10 dark:border-white/20"
 				style="height:{itemHeight * ((showRowsInner - 1) / 2)}rem;"
-			/>
-			<div style="height:{itemHeight}rem;" />
+			></div>
+			<div style="height:{itemHeight}rem;"></div>
 			<div
 				class="bg-gradient-to-t from-white to-white/60 dark:from-black dark:to-black/60 border-t border-black/10 dark:border-white/20"
 				style="height:{itemHeight * ((showRowsInner - 1) / 2)}rem;"
-			/>
+			></div>
 		</div>
 	</div>
 </div>

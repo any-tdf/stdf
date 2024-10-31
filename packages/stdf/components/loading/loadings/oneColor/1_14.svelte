@@ -1,9 +1,15 @@
 <script>
-	export let theme = false;
-	export let inverse = false;
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [theme]
+	 * @property {boolean} [inverse]
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 */
+
+	/** @type {Props} */
+	let { theme = false, inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 
 	const borderClass = () => {
 		if (inverse) {
@@ -25,11 +31,11 @@
 	<div
 		class={`absolute w-full h-full border-2 !border-r-transparent !border-l-transparent rounded-full${borderClass()} loading1`}
 		style="border-color: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
-	/>
+	></div>
 	<div
 		class={`absolute left-1/4 top-1/4 w-1/2 h-1/2 rounded-full${colorClass()} loading2`}
 		style="background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
-	/>
+	></div>
 </div>
 
 <style>

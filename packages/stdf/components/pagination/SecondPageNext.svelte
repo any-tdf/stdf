@@ -1,25 +1,23 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
 	import Page from './Page.svelte';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [pageCol]
+	 * @property {any} [Pages]
+	 * @property {number} [maxShowPage]
+	 * @property {string} [radius]
+	 * @property {string} [type]
+	 * @property {(index: number) => void} [onclickItem]
+	 */
 
-	export let pageCol = 3;
-
-	export let Pages = [];
-
-	export let maxShowPage = 9;
-
-	export let radius = 'md'; // 'base'/'md'/'lg'/'xl'/'full'/'none'
-
-	export let type = 'bold'; // 'border'/'block'/'bold'
+	/** @type {Props} */
+	let { pageCol = 3, Pages = [], maxShowPage = 9, radius = 'md', type = 'bold', onclickItem } = $props();
 
 	// 点击页码
 	// click page
 	const clickItemFunc = index => {
-		dispatch('clickItem', index);
+		onclickItem && onclickItem(index);
 	};
 </script>
 
@@ -30,13 +28,13 @@
 			100}%;grid-template-columns: repeat({pageCol}, minmax(0, 1fr));"
 	>
 		{#each Pages as item}
-			<Page on:click={() => clickItemFunc(item)} {type} {radius}>{item}</Page>
+			<Page onclick={() => clickItemFunc(item)} {type} {radius}>{item}</Page>
 		{/each}
 	</div>
 	<div
 		class="absolute -top-3 w-0 h-0 border-8 border-t-8 border-transparent translate-x-1/2 border-t-white dark:border-t-black"
 		style="right:{(2.5 / (maxShowPage + 2)) * 100}%;"
-	/>
+	></div>
 {/if}
 
 <style>

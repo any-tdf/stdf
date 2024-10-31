@@ -59,73 +59,22 @@
 	import { Loading2_0, Loading2_1, Loading2_2, Loading2_3, Loading2_4, Loading2_5 } from './loadings/twoColor';
 	import { Loading4_0, Loading4_1, Loading4_2, Loading4_3 } from './loadings/fourColor';
 
-	/**
-	 * 编号
-	 * Number
-	 * @type {string}
-	 * @default '1_0'
-	 */
-	export let type = '1_0';
-
-	/**
-	 * 容器高度
-	 * container height
-	 * @type {'2'|'4'|'6'|'8'|'12'|'16'|'20'|'28'|'36'|'48'|'56'|'64'|'72'|'80'|'96'|'full'}
-	 * @default '8'
-	 */
-	export let height = '8';
-
-	/**
-	 * 容器宽度
-	 * container width
-	 * @type {'2'|'4'|'6'|'8'|'12'|'16'|'20'|'28'|'36'|'48'|'56'|'64'|'72'|'80'|'96'|'full'}
-	 * @default '8'
-	 */
-	export let width = '8';
-
-	/**
-	 * 是否使用主题色
-	 * use theme color
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let theme = false;
-
-	/**
-	 * 是否反色
-	 * inverse color
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let inverse = false;
-
-	/**
-	 * 自定义颜色
-	 * custom color
-	 * @type {string[]}
-	 * @default []
-	 */
-	export let customColor = [];
-
-	/**
-	 * 是否开启懒动画
-	 * lazy animation
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let lazyAnimation = true;
-
-	/**
-	 * 速度系数，基础为1，数值越大，速度越快
-	 * speed coefficient, the basic is 1, the larger the number, the faster the speed
-	 * @type {number}
-	 * @default 1
-	 */
-	export let speed = 1;
+	/** @typedef {import('../../index.d').Loading} LoadingProps */
+	/** @type {LoadingProps} */
+	let {
+		type = '1_0',
+		height = '8',
+		width = '8',
+		theme = false,
+		inverse = false,
+		customColor = [],
+		lazyAnimation = true,
+		speed = $bindable(1),
+	} = $props();
 
 	// loading 元素
 	// loading element
-	let loadingDom = null;
+	let loadingDom = $state(null);
 
 	// 容器高度样式
 	// container height class

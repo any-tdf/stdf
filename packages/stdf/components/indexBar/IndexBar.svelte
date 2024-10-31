@@ -1,92 +1,25 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF } from '../utils';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * @typedef {Object} child
-	 * @property {string} text 索引项文本
-	 */
-
-	/**
-	 * @typedef {Object} item
-	 * @property {string} index 索引
-	 * @property {string} title 索引组标题
-	 * @property {Array<child>} child 索引项
-	 * @property {number} [height] 索引组高度
-	 */
-
-	/**
-	 * 数据
-	 * Data
-	 * @type {Array<item>}
-	 * @default []
-	 */
-	export let data = [];
-
-	/**
-	 * 当前页码
-	 * Current page
-	 * @type {number}
-	 * @default 0
-	 */
-	export let current = 0;
-
-	/**
-	 * 索引内容区域距离文档顶部的距离
-	 * The distance from the top of the document to the index content area
-	 * @type {number}
-	 * @default 0
-	 */
-	export let top = 0;
-
-	/**
-	 * 索引内容区域高度
-	 * Index content area height
-	 * @type {number}
-	 * @default 100
-	 */
-	export let height = 100;
-
-	/**
-	 * 圆角风格
-	 * Rounded style
-	 * @type {'none' | 'base' | 'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'base';
-
-	/**
-	 * 是否滚动对齐
-	 * Whether to scroll align
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let scrollAlign = true;
-
-	/**
-	 * 索引组标题注入 CSS
-	 * Index group title injection CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let titleInjClass = '';
-
-	/**
-	 * 索引项文本注入 CSS
-	 * Index item text injection CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let textInjClass = '';
+	/** @typedef {import('../../index.d').IndexBar} IndexBarProps */
+	/** @type {IndexBarProps} */
+	let {
+		data = [],
+		current = $bindable(0),
+		top = 0,
+		height = 100,
+		radius = 'base',
+		scrollAlign = true,
+		titleInjClass = '',
+		textInjClass = '',
+		onclickChild,
+	} = $props();
 
 	// 用于绑定bar的高度
 	// Used to bind the height of the bar
-	let barHeight = 0;
+	let barHeight = $state(0);
 
 	// 主体内容高度累计，用于监听滑动
 	// The cumulative height of the main content is used to listen to the slide
@@ -94,11 +27,11 @@
 
 	// 当前滑动的索引
 	// Current sliding index
-	let currentTouch = -1;
+	let currentTouch = $state(-1);
 
 	// 主体内容元素
 	// Main body content element
-	let bodyDom = null;
+	let bodyDom = $state(null);
 
 	// Bar外层距离顶部的距离
 	// Bar outside the distance from the top
@@ -106,13 +39,13 @@
 
 	// bar元素
 	// bar element
-	let barDom = null;
+	let barDom = $state(null);
 
 	let isDown = false; //是否按下 is down
 
 	// 每一个的高度
 	// Height of each
-	$: itemHeight = barHeight / data.length;
+	let itemHeight = $derived(barHeight / data.length);
 
 	// 圆角风格样式
 	// Rounded style style
@@ -122,7 +55,6 @@
 		bodyDom.scrollTop = 0;
 		for (let t = 0; t < data.length + 1; t++) {
 			const long = data.slice(0, t).reduce((sum, current) => {
-				// @ts-ignore
 				return sum + current.height;
 			}, 0);
 			longSumList.push(long);
@@ -193,31 +125,31 @@
 	// 点击主体内容区域
 	// Click on the main body content area
 	const chickChildFun = (index, group, childIndex, child) => {
-		// 派发点击事件，向外传递出四个参数。 1. index：点击项的父级组索引值；2. group：点击项的父级组内容；3. childIndex：点击项索引值；4. child：点击项内容。
-		// Dispatch click events to pass four parameters out. 1. index: the parent group index value of the clicked item; 2. group: the parent group content of the clicked item; 3. childIndex: the index value of the clicked item; 4. child: the content of the clicked item.
-		dispatch('clickchild', { index, group, childIndex, child });
+		// 向外传递四个参数：1. index：点击项的父级组索引值；2. group：点击项的父级组内容；3. childIndex：点击项索引值；4. child：点击项内容。
+		// Pass out four parameters: 1. index: parent group index of clicked item; 2. group: parent group content of clicked item; 3. childIndex: index of clicked item; 4. child: content of clicked item
+		onclickChild && onclickChild(index, group, childIndex, child);
 	};
 </script>
 
-<div bind:this={bodyDom} class={`overflow-y-auto ${scrollAlign && 'snap-y'}`} on:scroll={scrollBody} style="height:{height}px;">
+<div bind:this={bodyDom} class={`overflow-y-auto ${scrollAlign && 'snap-y'}`} onscroll={scrollBody} style="height:{height}px;">
 	{#each data as group, index}
 		<div class="px-4 pt-8 snap-start" bind:clientHeight={group.height}>
 			<div class={`text-primary dark:text-dark text-sm ${titleInjClass}`}>{group.title}</div>
 			{#each group.child as child, childIndex}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class={`py-2 ${textInjClass}`} on:click={() => chickChildFun(index, group, childIndex, child)}>
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				<div class={`py-2 ${textInjClass}`} onclick={() => chickChildFun(index, group, childIndex, child)}>
 					{child.text}
 				</div>
-				<div class="h-px bg-black/5 dark:bg-white/5" />
+				<div class="h-px bg-black/5 dark:bg-white/5"></div>
 			{/each}
 		</div>
 	{/each}
 </div>
 <div
-	on:pointerdown={touchBoxStart}
-	on:pointermove={throttleWithRAF(touchBoxMove)}
-	on:pointerup={touchBoxEnd}
+	onpointerdown={touchBoxStart}
+	onpointermove={e => throttleWithRAF(touchBoxMove)(e)}
+	onpointerup={touchBoxEnd}
 	bind:clientHeight={barHeight}
 	bind:this={barDom}
 	class={`fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around touch-none cursor-move select-none ${

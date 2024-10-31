@@ -1,62 +1,9 @@
 <script>
 	import Icon from '../icon/Icon.svelte';
 
-	/**
-	 * Skeleton 类型
-	 * Skeleton type
-	 * @type {'div'|'p'|'img'|'video'|'code'|'qrcode'|'barcode'}
-	 * @default 'div'
-	 */
-	export let type = 'div';
-
-	/**
-	 * 宽度
-	 * Width
-	 * @type {'full'|'2'|'4'|'6'|'8'|'12'|'16'|'24'|'32'|'48'|'64'|'96'}
-	 * @default '6'
-	 */
-	export let width = '6';
-
-	/**
-	 * 高度
-	 * Height
-	 * @type {'1'|'2'|'4'|'6'|'8'|'12'|'16'|'24'|'32'|'48'|'64'|'96'}
-	 * @default '6'
-	 */
-	export let height = '6';
-
-	/**
-	 * 圆角
-	 * Radius
-	 * @type {'none'|'base'|'md'|'xl'|'2xl'|'3xl'|'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'base';
-
-	/**
-	 * 间距
-	 * Space
-	 * @type {'0.5'|'1'|'2'|'4'|'8'}
-	 * @default '1'
-	 */
-	export let padding = '1';
-
-	/**
-	 * 行数
-	 * Lines
-	 * @type {number}
-	 * @default 3
-	 */
-	export let lines = 3;
-
-	/**
-	 * 图标占比
-	 * Icon ratio
-	 * @type {number}
-	 * @range 0- 1
-	 * @default 0.6
-	 */
-	export let iconRatio = 0.6;
+	/** @typedef {import('../../index.d').Skeleton} Skeleton */
+	/** @type {Skeleton} */
+	let { type = 'div', width = '6', height = '6', radius = 'base', space = '1', lines = 3, iconRatio = 0.6 } = $props();
 
 	const radiusObj = {
 		none: ' rounded-none',
@@ -115,18 +62,20 @@
 	};
 </script>
 
-<div class={`animate-pulse ${type === 'p' || width === 'full' ? 'block' : 'inline-block'}${paddingObj[padding] || paddingObj['1']}`}>
+<div class={`animate-pulse ${type === 'p' || width === 'full' ? 'block' : 'inline-block'}${paddingObj[space] || paddingObj['1']}`}>
 	{#if type === 'p'}
 		<div class="flex flex-col space-y-2">
 			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each new Array(lines - 1) as item}
-				<div class={`bg-black/20 dark:bg-white/20 w-full${heightObj[height] || heightObj['6']}${radiusObj[radius] || radiusObj.base}`} />
+				<div
+					class={`bg-black/20 dark:bg-white/20 w-full${heightObj[height] || heightObj['6']}${radiusObj[radius] || radiusObj.base}`}
+				></div>
 			{/each}
 			<div
 				class={`bg-black/20 dark:bg-white/20 ${randomArr[Math.floor(Math.random() * randomArr.length)]}${
 					heightObj[height] || heightObj['6']
 				}${radiusObj[radius] || radiusObj.base}`}
-			/>
+			></div>
 		</div>
 	{:else}
 		<div
@@ -136,7 +85,7 @@
 		>
 			{#if type === 'img' || type === 'video' || type === 'code' || type === 'qrcode' || type === 'barcode'}
 				<div class="m-auto" style="width:{iconRatio * 100 + '%'}">
-					<Icon name={typeIconFun(type)} size="100%" alpha={0.2} />
+					<Icon name={typeIconFun(type)} size="full" alpha={0.2} />
 				</div>
 			{/if}
 		</div>

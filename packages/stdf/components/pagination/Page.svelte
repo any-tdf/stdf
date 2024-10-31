@@ -1,9 +1,15 @@
 <script>
-	export let active = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [active]
+	 * @property {string} [radius]
+	 * @property {string} [type]
+	 * @property {import('svelte').Snippet} [children]
+	 * @property {() => void} [onclick]
+	 */
 
-	export let radius = 'md'; // 'base'/'md'/'lg'/'xl'/'full'/'none'
-
-	export let type = 'border'; // 'border'/'block'/'bold'
+	/** @type {Props} */
+	let { active = false, radius = 'md', type = 'border', children, onclick } = $props();
 
 	const typeClass = {
 		border: 'border-primary dark:border-dark text-primary dark:text-dark',
@@ -14,13 +20,13 @@
 	const radiusClass = { base: 'rounded', md: 'rounded-md', lg: 'rounded-lg', xl: 'rounded-xl', full: 'rounded-full', none: 'rounded-none' };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	on:click
+	{onclick}
 	class="flex-1 py-2 border cursor-pointer {active
 		? typeClass[type] || typeClass.border
 		: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
 >
-	<slot />
+	{@render children?.()}
 </div>

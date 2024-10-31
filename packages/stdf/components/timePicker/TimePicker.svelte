@@ -1,293 +1,56 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
 	import { getDayNum } from '../utils';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const timePickerLang = currentLang.timePicker;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 时间类型
-	 * Time type
-	 * @type {'Y'|'M'|'h'|'m'|'s'|'YM'|'hm'|'ms'|'YMD'|'hms'|'YMDh'|'YMDhm'|'YMDhms'}
-	 * @default 'YMDhms'
-	 */
-	export let type = 'YMDhms';
-
-	/**
-	 * 单项选项属性
-	 * Single option attribute
-	 * @typedef {Object} ItemProps
-	 * @property {number} [flex] - flex 值 flex value
-	 * @property {3|5|7} [showRow] - 每行显示数量 number of rows displayed per line
-	 * @property {'left'|'center'|'right'} [align] - 对齐方式 alignment
-	 */
-
-	/**
-	 * 年参数
-	 * Year parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let yearProps = {};
-
-	/**
-	 * 月参数
-	 * Month parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let monthProps = {};
-
-	/**
-	 * 日参数
-	 * Day parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let dayProps = {};
-
-	/**
-	 * 时参数
-	 * Hour parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let hourProps = {};
-
-	/**
-	 * 分参数
-	 * Minute parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let minuteProps = {};
-
-	/**
-	 * 秒参数
-	 * Second parameter
-	 * @type {ItemProps}
-	 * @default {}
-	 */
-	export let secondProps = {};
-
-	/**
-	 * 初始选定的年份
-	 * The initial selected year
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initYear = '';
-
-	/**
-	 * 初始选定的月份
-	 * The initial selected month
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initMonth = '';
-
-	/**
-	 * 初始选定的天数
-	 * The initial selected day
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initDay = '';
-
-	/**
-	 * 初始选定的小时
-	 * The initial selected hour
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initHour = '';
-
-	/**
-	 * 初始选定的分钟
-	 * The initial selected minute
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initMinute = '';
-
-	/**
-	 * 初始选定的秒数
-	 * The initial selected second
-	 * @type {string}
-	 * @default ''
-	 */
-	export let initSecond = '';
-
-	/**
-	 * 分钟步长
-	 * Minute step
-	 * @type {number}
-	 * @range 1 - 59
-	 * @default 1
-	 */
-	export let minuteStep = 1;
-
-	/**
-	 * 秒钟步长
-	 * Second step
-	 * @type {number}
-	 * @range 1 - 59
-	 * @default 1
-	 */
-	export let secondStep = 1;
-
-	/**
-	 * 年份区间
-	 * Year range
-	 * @type {[number, number]|[]}
-	 * @default []
-	 */
-	export let yearRange = [];
-
-	/**
-	 * 月份区间
-	 * Month range
-	 * @type {[number, number]}
-	 * @default [1, 12]
-	 */
-	export let monthRange = [1, 12];
-
-	/**
-	 * 小时区间
-	 * Hour range
-	 * @type {[number, number]}
-	 * @default [0, 23]
-	 */
-	export let hourRange = [0, 23];
-
-	/**
-	 * 分钟区间
-	 * Minute range
-	 * @type {[number, number]}
-	 * @default [0, 59]
-	 */
-	export let minuteRange = [0, 59];
-
-	/**
-	 * 秒数区间
-	 * Second range
-	 * @type {[number, number]}
-	 * @default [0, 59]
-	 */
-	export let secondRange = [0, 59];
-
-	/**
-	 * 顶部是否显示提示文字
-	 * Whether to display a prompt at the top
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let showTips = true;
-
-	/**
-	 * 取消选项文本
-	 * Cancel option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultCancel
-	 */
-	export let cancelText = timePickerLang.defaultCancel;
-
-	/**
-	 * 确定选项文本
-	 * Confirm option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultConfirm
-	 */
-	export let confirmText = timePickerLang.defaultConfirm;
-
-	/**
-	 * 中间选项文本
-	 * Middle option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultTitle
-	 */
-	export let title = timePickerLang.defaultTitle;
-
-	/**
-	 * 年选项文本
-	 * Year option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultYear
-	 */
-	export let yearText = timePickerLang.defaultYear;
-
-	/**
-	 * 月选项文本
-	 * Month option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultMonth
-	 */
-	export let monthText = timePickerLang.defaultMonth;
-
-	/**
-	 * 日选项文本
-	 * Day option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultDay
-	 */
-	export let dayText = timePickerLang.defaultDay;
-
-	/**
-	 * 时选项文本
-	 * Hour option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultHour
-	 */
-	export let hourText = timePickerLang.defaultHour;
-
-	/**
-	 * 分选项文本
-	 * Minute option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultMinute
-	 */
-	export let minuteText = timePickerLang.defaultMinute;
-
-	/**
-	 * 秒选项文本
-	 * Second option text
-	 * @type {string}
-	 * @default Current language timePicker.defaultSecond
-	 */
-	export let secondText = timePickerLang.defaultSecond;
-
-	/**
-	 * 返回数据格式
-	 * Return data format
-	 * @type {string}
-	 * @default ''
-	 */
-	export let outFormat = '';
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {Object}
-	 * @default {}
-	 */
-	export let popup = {};
+	/** @typedef {import('../../index.d').TimePicker} TimePickerProps */
+	/** @type {TimePickerProps} */
+	let {
+		visible = $bindable(false),
+		type = 'YMDhms',
+		yearProps = {},
+		monthProps = {},
+		dayProps = {},
+		hourProps = {},
+		minuteProps = {},
+		secondProps = {},
+		initYear = '',
+		initMonth = '',
+		initDay = '',
+		initHour = '',
+		initMinute = '',
+		initSecond = '',
+		minuteStep = 1,
+		secondStep = 1,
+		yearRange = [],
+		monthRange = [1, 12],
+		hourRange = [0, 23],
+		minuteRange = [0, 59],
+		secondRange = [0, 59],
+		showTips = true,
+		cancelText = timePickerLang.defaultCancel,
+		confirmText = timePickerLang.defaultConfirm,
+		title = timePickerLang.defaultTitle,
+		yearText = timePickerLang.defaultYear,
+		monthText = timePickerLang.defaultMonth,
+		dayText = timePickerLang.defaultDay,
+		hourText = timePickerLang.defaultHour,
+		minuteText = timePickerLang.defaultMinute,
+		secondText = timePickerLang.defaultSecond,
+		outFormat = '',
+		popup = {},
+		onopen,
+		onclose,
+		onconfirm,
+		oncancel,
+	} = $props();
 
 	// 获取当前时间，取出对应的年月日时分秒，转成字符，月、日、时、分、秒小于 10 的前面补 0
 	// Get the current time, take out the corresponding year, month, day, hour, minute, and second, convert to a character, and add 0 to the front of month, day, hour, minute, and second less than 10
@@ -399,13 +162,15 @@
 
 	// 天数列数据
 	// Day column data
-	let baseDayData = [];
+	let baseDayData = $state([]);
 
 	// 根据当前年月初始一次天数列数据
 	// Initialize the day column data according to the current year and month
+	const tempDayData = [];
 	for (let i = 1; i <= getDayNum(currentYear, currentMonth); i++) {
-		baseDayData.push({ label: (i < 10 ? '0' + i : i).toString() });
+		tempDayData.push({ label: (i < 10 ? '0' + i : i).toString() });
 	}
+	baseDayData = tempDayData;
 
 	// 初始时年份索引
 	// Initial year index
@@ -423,10 +188,11 @@
 
 	// 初始时天数索引
 	// Initial day index
-	let initDayIndex =
+	let initDayIndex = $state(
 		initDay === ''
-			? baseDayData.findIndex(item => item.label === currentDay)
-			: baseDayData.findIndex(item => item.label === initDay.toString());
+			? tempDayData.findIndex(item => item.label === currentDay)
+			: tempDayData.findIndex(item => item.label === initDay.toString()),
+	);
 
 	// 初始时小时索引
 	// Initial hour index
@@ -535,7 +301,7 @@
 	// Callback function when clicking the cancel button
 	const clickCancelFunc = () => {
 		visible = false;
-		dispatch('cancel');
+		oncancel && oncancel();
 	};
 
 	// 传入时间格式与时间对象，返回时间字符串
@@ -575,7 +341,7 @@
 		if (outFormat === 'object') {
 			// 如果 outFormat 为 object，则返回时间对象
 			// If outFormat is empty, return the time object
-			dispatch('confirm', { times: outData });
+			onconfirm && onconfirm(outData);
 		} else {
 			// 如果 outFormat 为空，则根据 type 格式
 			// If outFormat is empty, format according to type
@@ -594,7 +360,7 @@
 				if (defaultOutFormat.endsWith('-') || defaultOutFormat.endsWith(':') || defaultOutFormat.endsWith(' ')) {
 					defaultOutFormat = defaultOutFormat.slice(0, -1);
 				}
-				dispatch('confirm', { times: getTimeStr(defaultOutFormat, outData) });
+				onconfirm && onconfirm(getTimeStr(defaultOutFormat, outData));
 			} else {
 				// 删除掉 outFormat 里面 YMDhms 以外的所有字符
 				// Delete all characters other than YMDhms in outFormat
@@ -616,20 +382,20 @@
 				} else {
 					// 如果 outFormat 为空，则返回时间对象，否则返回时间字符串
 					// If outFormat is empty, return the time object, otherwise return the time string
-					dispatch('confirm', { times: getTimeStr(outFormat, outData) });
+					onconfirm && onconfirm(getTimeStr(outFormat, outData));
 				}
 			}
 		}
 	};
 	// 监听 visible 的变化，派发事件
 	// Listen to the change of visible, dispatch events
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 </script>
 
 <Popup
@@ -640,13 +406,13 @@
 	{...popup}
 >
 	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" on:click={clickCancelFunc}>{cancelText}</div>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" onclick={clickCancelFunc}>{cancelText}</div>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" on:click={clickConfirmFunc}>{confirmText}</div>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" onclick={clickConfirmFunc}>{confirmText}</div>
 	</div>
 	{#if showTips}
 		<div
@@ -669,32 +435,32 @@
 	<div class="flex justify-around items-center gap-1 bg-white dark:bg-black">
 		{#if typeInner.includes('Y')}
 			<div class="truncate" style="flex:{yearProps.flex || '1'}">
-				<ScrollRadio data={yearData} initIndex={initYearIndex} autoScrollToLast={false} {...yearProps} on:scrollEnd={scrollEndYearFunc} />
+				<ScrollRadio data={yearData} initIndex={initYearIndex} autoScrollToLast={false} {...yearProps} onscrollEnd={scrollEndYearFunc} />
 			</div>
 		{/if}
 		{#if typeInner.includes('M')}
 			<div class="truncate" style="flex:{monthProps.flex || '1'}">
-				<ScrollRadio data={baseMonthData} lastSelectedIndex={initMonthIndex} {...monthProps} on:scrollEnd={scrollEndMonthFunc} />
+				<ScrollRadio data={baseMonthData} lastSelectedIndex={initMonthIndex} {...monthProps} onscrollEnd={scrollEndMonthFunc} />
 			</div>
 		{/if}
 		{#if baseDayData.length > 0 && typeInner.includes('D')}
 			<div class="truncate" style="flex:{dayProps.flex || '1'}">
-				<ScrollRadio data={baseDayData} lastSelectedIndex={initDayIndex} {...dayProps} on:scrollEnd={scrollEndDayFunc} />
+				<ScrollRadio data={baseDayData} lastSelectedIndex={initDayIndex} {...dayProps} onscrollEnd={scrollEndDayFunc} />
 			</div>
 		{/if}
 		{#if typeInner.includes('h')}
 			<div class="truncate" style="flex:{hourProps.flex || '1'}">
-				<ScrollRadio data={baseHourData} lastSelectedIndex={initHourIndex} {...hourProps} on:scrollEnd={scrollEndHourFunc} />
+				<ScrollRadio data={baseHourData} lastSelectedIndex={initHourIndex} {...hourProps} onscrollEnd={scrollEndHourFunc} />
 			</div>
 		{/if}
 		{#if typeInner.includes('m')}
 			<div class="truncate" style="flex:{minuteProps.flex || '1'}">
-				<ScrollRadio data={baseMinuteData} lastSelectedIndex={initMinuteIndex} {...minuteProps} on:scrollEnd={scrollEndMinuteFunc} />
+				<ScrollRadio data={baseMinuteData} lastSelectedIndex={initMinuteIndex} {...minuteProps} onscrollEnd={scrollEndMinuteFunc} />
 			</div>
 		{/if}
 		{#if typeInner.includes('s')}
 			<div class="truncate" style="flex:{secondProps.flex || '1'}">
-				<ScrollRadio data={baseSecondData} lastSelectedIndex={initSecondIndex} {...secondProps} on:scrollEnd={scrollEndSecondFunc} />
+				<ScrollRadio data={baseSecondData} lastSelectedIndex={initSecondIndex} {...secondProps} onscrollEnd={scrollEndSecondFunc} />
 			</div>
 		{/if}
 	</div>

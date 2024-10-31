@@ -1,19 +1,7 @@
 <script>
-	/**
-	 * 单元格所占列数
-	 * Number of columns occupied by the cell
-	 * @type {'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'}
-	 * @default '1'
-	 */
-	export let col = '1';
-
-	/**
-	 * 单元格所占行数
-	 * Number of rows occupied by the cell
-	 * @type {'1' | '2' | '3' | '4' | '5' | '6'}
-	 * @default '1'
-	 */
-	export let row = '1';
+	/** @typedef {import('../../index.d').Grid} GridProps */
+	/** @type {GridProps} */
+	let { col = '1', row = '1', children } = $props();
 
 	// 根据行数生成样式
 	// Generate styles based on the number of rows
@@ -37,4 +25,4 @@
 	};
 </script>
 
-<div class={`${rowObj[row] || rowObj['1']}${colObj[col] || colObj['1']}`}><slot /></div>
+<div class={`${rowObj[row] || rowObj['1']}${colObj[col] || colObj['1']}`}>{@render children?.()}</div>

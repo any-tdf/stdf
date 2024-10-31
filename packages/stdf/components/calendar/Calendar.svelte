@@ -1,5 +1,5 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Button from '../button/Button.svelte';
 	import {
@@ -14,215 +14,43 @@
 	} from '../utils';
 	import zh_CN from '../../lang/zh_CN';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const calendarLang = currentLang.calendar;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 开始月，格式如：'202101'
-	 * The start month, the format is: '202101'
-	 * @type {string}
-	 * @default 6 months before the current month
-	 */
-	export let startMonth = getNowBeforeOrAfterMonth(-6);
-
-	/**
-	 * 结束月，格式如：'202101'
-	 * End month, format: '202101'
-	 * @type {string}
-	 * @default 6 months after the current month
-	 */
-	export let endMonth = getNowBeforeOrAfterMonth(6);
-
-	/**
-	 * 初始化时显示月份，格式如：'202101'
-	 * The month displayed when initializing, format: '202101'
-	 * @type {string}
-	 * @default current month
-	 */
-	export let initMonth = getNowBeforeOrAfterMonth(0);
-
-	/**
-	 * 选择模式
-	 * Selection mode
-	 * @type {'single' | 'multiple' | 'range'}
-	 * @default 'single'
-	 */
-	export let mode = 'single';
-
-	/**
-	 * 是否从周日开始
-	 * Whether to start from Sunday
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let startSunday = false;
-
-	/**
-	 * 周末文字是否标红
-	 * Whether the weekend text is marked red
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let weekendRed = false;
-
-	/**
-	 * 月数据是否使用卡片样式
-	 * Whether to use the card style for the month data
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let monthCard = true;
-
-	/**
-	 * 是否显示月份水印
-	 * Whether to show the month watermark
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let monthMark = false;
-
-	/**
-	 * 月份水印文字大小
-	 * Month watermark text size
-	 * @type {'3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-	 * @default '7xl'
-	 */
-	export let monthMarkSize = '7xl';
-
-	/**
-	 * 高度百分比
-	 * Height percentage
-	 * @type {number}
-	 * @range 0-100
-	 * @default 50
-	 */
-	export let height = 50;
-
-	/**
-	 * 显示信息的日期
-	 * Date to display information
-	 * @type {Array<{date: string, info: string}>}
-	 * @default []
-	 */
-	export let infoDates = [];
-
-	/**
-	 * 不允许选择日期集合
-	 * Collection of dates not allowed to be selected
-	 * @type {Array<string>}
-	 * @default []
-	 */
-	export let disabledDates = [];
-
-	/**
-	 * 圆角风格
-	 * Rounded style
-	 * @type {'base' | 'xl' | '2xl' | 'none'}
-	 * @default 'xl'
-	 */
-	export let radius = 'xl';
-
-	/**
-	 * 多选和范围选择时显示已选天数
-	 * Show the number of days selected when multiple and range selection
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let showSelectedDay = true;
-
-	/**
-	 * 确认文本
-	 * Confirm text
-	 * @type {string}
-	 * @default Current language calendar.confirmText
-	 */
-	export let confirmText = calendarLang.confirmText;
-
-	/**
-	 * 已选文本
-	 * Selected text
-	 * @type {string}
-	 * @default Current language calendar.selectedText
-	 */
-	export let selectedText = calendarLang.selectedText;
-
-	/**
-	 * 天数文本
-	 * Number of days text
-	 * @type {string}
-	 * @default Current language calendar.dayText
-	 */
-	export let dayText = calendarLang.dayText;
-
-	/**
-	 * 快速选择配置
-	 * Quick selection configuration
-	 * @type {Array<'week' | 'month' | 'quarter' | number>}
-	 * @default []
-	 */
-	export let quickSelects = [];
-
-	/**
-	 * 快速选择天数时是否包含今天
-	 * Whether to include today when selecting the number of days quickly
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let includeToday = false;
-
-	/**
-	 * 自动滚动到某个月时，是否使用动画
-	 * Whether to use animation when automatically scrolling to a month
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let useAnimation = true;
-
-	/**
-	 * 高亮显示今天
-	 * Highlight today
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let highlightToday = true;
-
-	/**
-	 * 返回日期数据格式，包含 Y、M、D 的字符串，如：'YMD'、'Y-M-D'、'Y年M月D日' 等
-	 * Return data format, including Y, M, D string, such as: 'YMD', 'M/D/Y', etc.
-	 * @type {string}
-	 * @default 'YMD'
-	 */
-	export let outFormat = 'YMD';
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let popup = {};
-
-	/**
-	 * 按钮参数
-	 * Button parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let button = {};
+	/** @typedef {import('../../index.d').Calendar} CalendarProps */
+	/** @type {CalendarProps} */
+	let {
+		visible = $bindable(false),
+		startMonth = getNowBeforeOrAfterMonth(-6),
+		endMonth = getNowBeforeOrAfterMonth(6),
+		initMonth = getNowBeforeOrAfterMonth(0),
+		mode = 'single',
+		startSunday = false,
+		weekendRed = false,
+		monthCard = true,
+		monthMark = false,
+		monthMarkSize = '7xl',
+		height = 50,
+		infoDates = [],
+		disabledDates = [],
+		radius = 'xl',
+		showSelectedDay = true,
+		confirmText = calendarLang.confirmText,
+		selectedText = calendarLang.selectedText,
+		dayText = calendarLang.dayText,
+		quickSelects = [],
+		includeToday = false,
+		useAnimation = true,
+		highlightToday = true,
+		outFormat = 'YMD',
+		popup = {},
+		button = {},
+		onconfirm,
+		onopen,
+		onclose,
+	} = $props();
 
 	// 圆角风格样式
 	// Rounded style style
@@ -250,11 +78,11 @@
 
 	// 滚动元素
 	// Scroll element
-	let scrollElement = null;
+	let scrollElement = $state(null);
 
 	// 是否点击了快速选择
 	// Whether to click the quick selection
-	let isQuickSelect = false;
+	let isQuickSelect = $state(false);
 
 	// 定义周数据文字
 	// Define the week data text
@@ -318,7 +146,7 @@
 
 	// 选中的日期
 	// Selected date
-	let selectedDate = [];
+	let selectedDate = $state([]);
 
 	// 范围选择时，点击的开始与结束
 	// When range selection is clicked, the beginning and end are clicked
@@ -326,7 +154,7 @@
 
 	// selectedDate 字符串
 	// selectedDate string
-	let selectedDateStr = '';
+	let selectedDateStr = $state('');
 
 	// 点击日期事件
 	// Click date event
@@ -371,7 +199,7 @@
 
 	// 快速选择项目
 	// Quick selection item
-	let quickSelectItem = '';
+	let quickSelectItem = $state('');
 
 	// 点击快速选择
 	// Click quick selection
@@ -436,28 +264,28 @@
 				return getDateStrFunc(outFormat, item);
 			});
 		}
-		dispatch('confirm', { dates: selectedDate });
+		onconfirm && onconfirm(selectedDate);
 	};
 
 	// 根据 initMonthIndex 在 monthList 中的索引，自动滚动到 scrollElement 高度的百分比
 	// Automatically scroll to the percentage of the height of scrollElement according to the index of initMonthIndex in monthList
-	$: {
+	$effect(() => {
 		if (scrollElement && visible && !isQuickSelect) {
 			scrollElement.scrollTop = scrollElement.scrollHeight * (initMonthIndex / monthList.length);
 		}
-	}
+	});
 
 	// 监听 visible 的变化，派发事件
 	// Listen to the change of visible, dispatch events
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
 			selectedDate = [];
 			selectedDateStr = '';
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 </script>
 
 <Popup
@@ -472,15 +300,15 @@
 			{#if quickSelects.length > 0 && mode === 'range'}
 				<div class="flex flex-nowrap gap-4 px-4 pt-2 pb-1 overflow-x-auto calendar-container">
 					{#each quickSelects as item}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
 						<div
 							class="text-xs px-2 py-1 cursor-pointer flex-none bg-white dark:bg-black dark:shadow-white/10 shadow rounded"
 							class:!bg-primary={isQuickSelect && quickSelectItem === item}
 							class:text-white={isQuickSelect && quickSelectItem === item}
 							class:dark:!bg-dark={isQuickSelect && quickSelectItem === item}
 							class:dark:text-black={isQuickSelect && quickSelectItem === item}
-							on:click={() => quickSelectFunc(item)}
+							onclick={() => quickSelectFunc(item)}
 						>
 							{#if item === 'week'}
 								{calendarLang.currentWeekText}
@@ -524,11 +352,11 @@
 					</div>
 					<div class={`grid grid-cols-7 gap-y-1 text-center p-2`}>
 						{#each item.data as i}
-							<!-- svelte-ignore a11y-click-events-have-key-events -->
-							<!-- svelte-ignore a11y-no-static-element-interactions -->
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_static_element_interactions -->
 							<div
 								class={`p-px cursor-pointer${i.day ? ' bg-primary/10 dark:bg-dark/20' : ''}`}
-								on:click={() => {
+								onclick={() => {
 									if (!i.disabled) clickDayFunc(item.year, item.month, i);
 								}}
 								class:!bg-transparent={!selectedDateStr.includes(`${item.year}${item.month}${i.day}`)}
@@ -635,7 +463,7 @@
 			{/each}
 		</div>
 		<div class="sticky z-10 bottom-0 left-0 w-full bg-gray-50 dark:bg-gray-800">
-			<Button {...button} on:click={confirmFunc}>
+			<Button {...button} onclick={confirmFunc}>
 				{confirmText}
 				{showSelectedDay && mode !== 'single' && selectedDateStr.split(',').length > 0
 					? `(${selectedText} ${selectedDate.length} ${dayText})`

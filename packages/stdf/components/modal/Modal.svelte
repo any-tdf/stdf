@@ -1,106 +1,32 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Button from '../button/Button.svelte';
 	import Icon from '../icon/Icon.svelte';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const modalLang = currentLang.modal;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 标题
-	 * Title
-	 * @type {string}
-	 * @default Current language modal.title
-	 */
-	export let title = modalLang.title;
-
-	/**
-	 * 标题对齐方式
-	 * Title alignment
-	 * @type {'left'|'center'|'right'}
-	 * @default 'center'
-	 */
-	export let titleAlign = 'center';
-
-	/**
-	 * 内容
-	 * Content
-	 * @type {string}
-	 * @default Current language modal.content
-	 */
-	export let content = modalLang.content;
-
-	/**
-	 * 内容是否使用slot
-	 * Whether to use slot for content
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let contentSlot = false;
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let popup = {};
-
-	/**
-	 * 是否显示图标
-	 * Whether to show icon
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let showIcon = false;
-
-	/**
-	 * 图标参数
-	 * Icon parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let icon = {};
-
-	/**
-	 * 是否显示按钮
-	 * Whether to show button
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let showBtn = true;
-
-	/**
-	 * 按钮文字
-	 * Button text
-	 * @type {string}
-	 * @default Current language modal.btnText
-	 */
-	export let btnText = modalLang.btnText;
-
-	/**
-	 * 按钮参数
-	 * Button parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let button = {};
+	/** @typedef {import('../../index.d').Modal} ModalProps */
+	/** @type {ModalProps} */
+	let {
+		visible = $bindable(false),
+		title = modalLang.title,
+		titleAlign = 'center',
+		content = modalLang.content,
+		popup = {},
+		showIcon = false,
+		icon = {},
+		showBtn = true,
+		btnText = modalLang.btnText,
+		button = {},
+		contentChild,
+		onopen,
+		onclose,
+	} = $props();
 
 	// 标题对齐方式样式
 	// Title alignment style
@@ -110,18 +36,18 @@
 	// Close and dispatch events
 	const closeModalFunc = () => {
 		visible = false;
-		dispatch('close');
+		onclose && onclose();
 	};
 
 	// 监听visible变化并派发事件
 	// Listen to the change of visible and dispatch events
-	$: {
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 </script>
 
 <Popup
@@ -144,15 +70,15 @@
 			</div>
 		{/if}
 		<div>
-			{#if contentSlot}
-				<slot />
+			{#if contentChild}
+				{@render contentChild()}
 			{:else}
 				{content}
 			{/if}
 		</div>
 		{#if showBtn}
 			<div>
-				<Button size="full" {...button} on:click={closeModalFunc}>{btnText}</Button>
+				<Button size="full" {...button} onclick={closeModalFunc}>{btnText}</Button>
 			</div>
 		{/if}
 	</div>

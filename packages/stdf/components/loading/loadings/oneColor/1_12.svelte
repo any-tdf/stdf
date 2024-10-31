@@ -1,9 +1,15 @@
 <script>
-	export let theme = false;
-	export let inverse = false;
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [theme]
+	 * @property {boolean} [inverse]
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 */
+
+	/** @type {Props} */
+	let { theme = false, inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 
 	const colorClass = () => {
 		if (inverse) {
@@ -20,25 +26,25 @@
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 0.6 / speed : 0.6}s;-webkit-animation-duration: {speed >= 1
 			? 0.6 / speed
 			: 0.6}s;"
-	/>
+	></div>
 	<div
 		class={`absolute top-0 right-0${colorClass()} steps step1`}
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"
-	/>
+	></div>
 	<div
 		class={`absolute top-0 right-0${colorClass()} steps step2`}
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"
-	/>
+	></div>
 	<div
 		class={`absolute top-0 right-0${colorClass()} steps step3`}
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"
-	/>
+	></div>
 </div>
 
 <style>

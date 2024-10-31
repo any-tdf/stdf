@@ -1,111 +1,25 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	/**
-	 * 默认值
-	 * default value
-	 * @type {number}
-	 * @range 0 - total
-	 * @default 4
-	 */
-	export let value = 4;
-
-	/**
-	 * 总数
-	 * total number of stars
-	 * @type {number}
-	 * @default 5
-	 */
-	export let total = 5;
-
-	/**
-	 * 高度
-	 * height of the star
-	 * @type {number}
-	 * @default 24
-	 */
-	export let height = 24;
-
-	/**
-	 * 宽度
-	 * width of the star
-	 * @type {number}
-	 * @default 24
-	 */
-	export let width = 24;
-
-	/**
-	 * 未选中透明度
-	 * opacity of the unselected star
-	 * @type {'0.1'|'0.2'|'0.3'|'0.4'|'0.5'|'0.6'|'0.7'|'0.8'|'0.9'|'1'}
-	 * @default '0.2'
-	 */
-	export let opacity = '0.2';
-
-	/**
-	 * 间距
-	 * space between stars
-	 * @type {'0'|'1'|'2'|'3'|'4'|'8'}
-	 * @default '3'
-	 */
-	export let space = '3';
-
-	/**
-	 * 是否允许半选
-	 * whether to allow half selection
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let half = false;
-
-	/**
-	 * 是否允许0分
-	 * whether to allow 0 points
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let zero = false;
-
-	/**
-	 * 是否垂直半选
-	 * whether to allow vertical half selection
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let vertical = false;
-
-	/**
-	 * 是否禁用
-	 * whether to disable
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let disabled = false;
-
-	/**
-	 * 是否只读
-	 * whether to read only
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let readonly = false;
-
-	/**
-	 * 是否自定义
-	 * whether to customize
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let custom = false;
-
-	/**
-	 * 点击动画类型，current 表示仅点击的图标有动画，active 表示激活的图标有动画，none 表示无动画
-	 * click animation type, current means that only the clicked icon has animation, active means that the activated icon has animation, and none means no animation
-	 * @type {'current'|'active'|'none'}
-	 * @default 'current'
-	 */
-	export let animation = 'current';
+	/** @typedef {import('../../index.d').Rate} Rate */
+	/** @type {Rate} */
+	let {
+		value = $bindable(4),
+		total = 5,
+		height = 24,
+		width = 24,
+		opacity = '0.2',
+		space = '3',
+		half = false,
+		zero = false,
+		vertical = false,
+		disabled = false,
+		readonly = false,
+		animation = 'current',
+		children,
+		onclick,
+	} = $props();
 
 	// 当前语言
 	// current language
@@ -129,10 +43,6 @@
 		console.error(currentLang.error5);
 	}
 
-	// 事件派发
-	// event dispatch
-	const dispatch = createEventDispatcher();
-
 	// 间距样式
 	// space style
 	const spaceObj = { '0': ' gap-0', '1': ' gap-1', '2': ' gap-2', '3': ' gap-3', '4': ' gap-4', '8': ' gap-8' };
@@ -140,6 +50,7 @@
 	// 透明度样式
 	// opacity style
 	const opacityObj = {
+		'0.05': ' opacity-5',
 		'0.1': ' opacity-10',
 		'0.2': ' opacity-20',
 		'0.3': ' opacity-30',
@@ -154,11 +65,11 @@
 
 	// 是否缩放
 	// whether to scale
-	let isScale = false;
+	let isScale = $state(false);
 
 	// 点击索引
 	// click index
-	let clickIndex = 0;
+	let clickIndex = $state(0);
 
 	// 点击事件
 	// click event
@@ -200,7 +111,7 @@
 		}
 		// 派发事件
 		// dispatch event
-		dispatch('click', value);
+		onclick && onclick(value);
 	};
 
 	// 处理允许半选情况时的样式
@@ -243,8 +154,8 @@
 <div class={`inset-0 inline-flex flex-wrap${spaceObj[space] || spaceObj['4']}${disabled ? ' opacity-50' : ''}`}>
 	<!-- eslint-disable-next-line no-unused-vars -->
 	{#each new Array(Math.floor(total)) as item, index}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class={`flex flex-wrap transition-all${disabled ? ' cursor-not-allowed' : ' cursor-pointer'}${
 				animation === 'active'
@@ -258,7 +169,7 @@
 						: ''
 			}`}
 			style="height:{height}px;width:{width}px;"
-			on:click={() => clickFun(index)}
+			onclick={() => clickFun(index)}
 		>
 			{#each [0, 1, 2, 3] as i}
 				<div
@@ -268,8 +179,8 @@
 					style="height:{height / 2}px;width:{width / 2}px;"
 				>
 					<div style={`transform:translateX(${i === 0 || i === 2 ? 0 : -(width / 2)}px) translateY(${i < 2 ? 0 : -(height / 2)}px)`}>
-						{#if custom}
-							<slot />
+						{#if children}
+							{@render children?.()}
 						{:else}
 							<Icon name="ri-star-fill" theme size={height} top={height < 24 ? height - 24 : 0} />
 						{/if}

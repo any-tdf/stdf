@@ -1,167 +1,64 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Popup from '../popup/Popup.svelte';
 	import Loading from '../loading/Loading.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
 	import zh_CN from '../../lang/zh_CN';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const asyncPickerLang = currentLang.asyncPicker;
 
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 列数据
-	 * Column data
-	 * @type {Array<Object>}
-	 * @default []
-	 */
-	export let data = [];
-
-	/**
-	 * 是否是最后一级
-	 * Whether it is the last level
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let lastLevel = false;
-
-	/**
-	 * 是否是第一级
-	 * Whether it is the first level
-	 * @type {Boolean}
-	 * @default true
-	 */
-	export let firstLevel = true;
-
-	/**
-	 * 可见行数
-	 * Visible rows
-	 * @type {3|5|7}
-	 * @default 5
-	 */
-	export let showRow = 5;
-
-	/**
-	 * data 中 label 对应的 key
-	 * The key corresponding to label in data
-	 * @type {String}
-	 * @default 'label'
-	 */
-	export let labelKey = 'label';
-
-	/**
-	 * 对齐方式
-	 * Alignment
-	 * @type {'left'|'center'|'right'}
-	 * @default 'center'
-	 */
-	export let align = 'center';
-
-	/**
-	 * 取消选项文本
-	 * Cancel option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultCancel
-	 */
-	export let cancelText = asyncPickerLang.defaultCancel;
-
-	/**
-	 * 确定选项文本
-	 * Confirm option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultConfirm
-	 */
-	export let confirmText = asyncPickerLang.defaultConfirm;
-
-	/**
-	 * 中间选项文本
-	 * Middle option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultTitle
-	 */
-	export let title = asyncPickerLang.defaultTitle;
-
-	/**
-	 * 下一步选项文本
-	 * Next option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultNext
-	 */
-	export let nextText = asyncPickerLang.defaultNext;
-
-	/**
-	 * 上一步选项文本
-	 * Previous option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultPrev
-	 */
-	export let prevText = asyncPickerLang.defaultPrev;
-
-	/**
-	 * 是否显示已选选项
-	 * Whether to show selected options
-	 * @type {Boolean}
-	 * @default false
-	 */
-	export let showSelected = false;
-
-	/**
-	 * 已选选项文本
-	 * Selected option text
-	 * @type {String}
-	 * @default Current language asyncPicker.defaultSelected
-	 */
-	export let selectedText = asyncPickerLang.defaultSelected;
-
-	/**
-	 * 弹出层参数
-	 * Popup parameters
-	 * @type {Object}
-	 */
-	export let popup = {};
-
-	/**
-	 * 加载数据时的loading参数
-	 * Loading parameters when loading data
-	 * @type {Object}
-	 */
-	export let loading = {};
+	/** @typedef {import('../../index.d').AsyncPicker} AsyncPickerProps */
+	/** @type {AsyncPickerProps} */
+	let {
+		visible = $bindable(false),
+		data = $bindable([]),
+		lastLevel = false,
+		firstLevel = true,
+		showRow = 5,
+		labelKey = 'label',
+		align = 'center',
+		cancelText = asyncPickerLang.defaultCancel,
+		confirmText = asyncPickerLang.defaultConfirm,
+		title = asyncPickerLang.defaultTitle,
+		nextText = asyncPickerLang.defaultNext,
+		prevText = asyncPickerLang.defaultPrev,
+		showSelected = false,
+		selectedText = asyncPickerLang.defaultSelected,
+		popup = {},
+		loading = {},
+		oncancel,
+		onprev,
+		onconfirm,
+		onnext,
+		onopen,
+		onclose,
+	} = $props();
 
 	// 用于存储当前选定的所有项和索引
 	// Used to store all selected items and indexes
-	let items = [];
-	let indexs = [];
+	let items = $state([]);
+	let indexs = $state([]);
 
 	// 当前选中项索引
 	// Current selected item index
-	let currentIndex = 0;
+	let currentIndex = $state(0);
 
 	// 点击左侧按钮
 	// Click left button
 	const clickLeftFunc = () => {
 		if (firstLevel) {
 			visible = false;
-			dispatch('cancel');
+			oncancel && oncancel();
 		} else {
 			items = items.slice(0, items.length - 1);
 			indexs.pop();
 			data = [];
 			setTimeout(() => {
-				dispatch('prev');
+				onprev && onprev();
 				currentIndex = 0;
 			});
 		}
@@ -176,14 +73,14 @@
 			data = [];
 			visible = false;
 			currentIndex = 0;
-			dispatch('confirm', { items, indexs });
+			onconfirm && onconfirm(items, indexs);
 		} else {
 			items = [...items, data[currentIndex]];
 			indexs.push(currentIndex);
 			indexs = indexs;
 			data = [];
 			setTimeout(() => {
-				dispatch('next', { index: currentIndex });
+				onnext && onnext(currentIndex);
 				currentIndex = 0;
 			});
 		}
@@ -194,17 +91,17 @@
 	const scrollEndFunc = e => {
 		currentIndex = e.detail.index;
 	};
-	$: isLoading = data.length === 0;
-	$: {
+	let isLoading = $derived(data.length === 0);
+	$effect(() => {
 		if (visible) {
-			dispatch('open');
+			onopen && onopen();
 		} else {
 			currentIndex = 0;
 			items = [];
 			indexs = [];
-			dispatch('close');
+			onclose && onclose();
 		}
-	}
+	});
 </script>
 
 <Popup
@@ -215,11 +112,11 @@
 	{...popup}
 >
 	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer"
-			on:click={() => {
+			onclick={() => {
 				!isLoading && clickLeftFunc();
 			}}
 		>
@@ -232,11 +129,11 @@
 			{/if}
 		</div>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer"
-			on:click={() => {
+			onclick={() => {
 				!isLoading && clickRightFunc();
 			}}
 		>
@@ -273,7 +170,7 @@
 				</div>
 			{:else}
 				<div>
-					<ScrollRadio {data} {showRow} {labelKey} {align} autoScrollToLast={false} on:scrollEnd={scrollEndFunc} />
+					<ScrollRadio {data} {showRow} {labelKey} {align} autoScrollToLast={false} onscrollEnd={scrollEndFunc} />
 				</div>
 			{/if}
 		</div>

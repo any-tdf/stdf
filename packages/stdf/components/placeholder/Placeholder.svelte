@@ -1,43 +1,7 @@
 <script>
-	/**
-	 * 上下内边距
-	 * up down padding
-	 * @type {'0'|'1'|'2'|'3'|'4'}
-	 * @default '4'
-	 */
-	export let py = '4';
-
-	/**
-	 * 高度
-	 * height
-	 * @type {'full'|'1'|'2'|'4'|'8'|'16'|'24'|'32'|'48'|'64'|'96'}
-	 * @default 'full'
-	 */
-	export let height = 'full';
-
-	/**
-	 * 圆角风格
-	 * radius style
-	 * @type {'none'|'base'|'md'|'xl'|'2xl'|'3xl'|'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'md';
-
-	/**
-	 * 阴影风格
-	 * shadow style
-	 * @type {'none'|'sm'|'md'|'lg'|'xl'|'2xl'}
-	 * @default 'none'
-	 */
-	export let shadow = 'none';
-
-	/**
-	 * 注入class
-	 * inject class
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
+	/** @typedef {import('../../index.d').Placeholder} PlaceholderProps */
+	/** @type {PlaceholderProps} */
+	let { py = '4', height = 'full', radius = 'md', shadow = 'none', injClass = '', children } = $props();
 
 	// 上下内边距样式
 	// up down padding style
@@ -81,5 +45,5 @@
 		pyObj[py] || pyObj['4']
 	}${radiusObj[radius] || radiusObj.base}${shadowObj[shadow] || shadowObj.none}${injClass === '' ? '' : ` ${injClass}`}`}
 >
-	<slot />
+	{@render children?.()}
 </div>

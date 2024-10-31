@@ -377,8 +377,8 @@ export const getMonthListRange = (startMonthStr, endMonthStr) => {
  * Pass in the start and end date YYYYMMDD, the array of disabled dates to be removed. Return the array of all dates in the middle, including the start and end dates, and the month and day less than two digits are filled with 0, in the format of YYYYMMDD
  * @param {String} startDate
  * @param {String} endDate
- * @param {Array} disabledDates
- * @returns {Array}
+ * @param {String[]} disabledDates
+ * @returns {String[]}
  * @example
  * getDateRange('20200501', '20200503') // ['20200501', '20200502', '20200503']
  */

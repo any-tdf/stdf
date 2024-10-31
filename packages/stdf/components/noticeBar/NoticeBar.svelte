@@ -1,104 +1,34 @@
 <script>
-	import { onMount, createEventDispatcher, getContext } from 'svelte';
+	import { onMount } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
+	/** @typedef {import('../../index.d').NoticeBar} NoticeBarProps */
+	/** @type {NoticeBarProps} */
+	let {
+		textList = [],
+		leftIcon = { name: 'ri-volume-down-line', size: 20, top: -1 },
+		rightIcon = 'close',
+		fontSize = 'sm',
+		space = 100,
+		speed = 30,
+		vertical = false,
+		duration = 500,
+		interval = 4,
+		injClass = '',
+		leftChild,
+		onclickRight,
+	} = $props();
 
-	// 当前语言
-	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const commonLang = currentLang.common;
-
-	/**
-	 * 通告内容组成的数组
-	 * Array of notice content
-	 * @type {string[]}
-	 */
-	export let textList = [];
-
-	/**
-	 * 左侧内容
-	 * Left content
-	 * @type {'slot'|'none'|object}
-	 * @default { name: 'ri-volume-down-line', size: 20, top: -1 }
-	 */
-	export let leftIcon = { name: 'ri-volume-down-line', size: 20, top: -1 };
-
-	/**
-	 * 右侧内容
-	 * Right content
-	 * @type {'close'|'arrow'|'none'}
-	 * @default 'close'
-	 */
-	export let rightIcon = 'close';
-
-	/**
-	 * 通告字体大小
-	 * Notice font size
-	 * @type {'xs'|'sm'|'base'|'lg'}
-	 * @default 'sm'
-	 */
-	export let fontSize = 'sm';
-
-	/**
-	 * 通告间距，单位是 px
-	 * Notice spacing, unit is px
-	 * @type {number}
-	 * @default 100
-	 */
-	export let space = 100;
-
-	/**
-	 * 横向滚动速度，单位是 px/s
-	 * Horizontal scroll speed, unit is px/s
-	 * @type {number}
-	 * @default 30
-	 */
-	export let speed = 30;
-
-	/**
-	 * 是否垂直滚动
-	 * Whether to scroll vertically
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let vertical = false;
-
-	/**
-	 * 垂直滚动过渡时间，单位是 ms
-	 * Vertical scroll transition time, unit is ms
-	 * @type {100|300|500|700|1000}
-	 * @default 500
-	 */
-	export let duration = 500;
-
-	/**
-	 * 垂直滚动间隔时间，单位是 s
-	 * Vertical scroll interval time，unit is s
-	 * @type {number}
-	 * @default 4
-	 */
-	export let interval = 4;
-
-	/**
-	 * 注入 CSS 名称
-	 * Inject CSS name
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
-
-	//如果 textList 不是数组给出中英文报错
+	// 如果 textList 不是数组给出中英文报错
+	// If textList is not an array, give Chinese and English error
 	if (!Array.isArray(textList)) {
 		console.error('[STDF NoticeBar error]textList 必须是数组。(textList must be an array.)');
 	}
 
-	//如果 textList 为空数组给出中英文报错
+	// 如果 textList 为空数组给出中英文报错
+	// If textList is an empty array, give Chinese and English error
 	if (textList.length === 0) {
-		console.error('[STDF NoticeBar error]textList 不能为空数组。(textList must not be empty.)');
+		console.error('[STDF NoticeBar error]textList must not be empty.');
 	}
 
 	// 字体大小样式
@@ -115,12 +45,12 @@
 		'1000': ' duration-1000',
 	};
 
-	let left = speed;
-	let boxDom = null;
-	let outBoxDom = null;
+	let left = $state(speed);
+	let boxDom = $state(null);
+	let outBoxDom = $state(null);
 	let boxWidth = 0;
-	let outBoxWidth = 0;
-	let outBoxHeight = 0;
+	let outBoxWidth = $state(0);
+	let outBoxHeight = $state(0);
 	let requestAnimationFrameFlag = null;
 	let startTime = 0;
 	let fps = 0;
@@ -128,9 +58,9 @@
 	//垂直滚动时的处理
 	//Processing when scrolling vertically
 	let times = null;
-	let currentIndex = 0;
+	let currentIndex = $state(0);
 	let textListVertical = [...textList, textList[0]];
-	let isTransition = true;
+	let isTransition = $state(true);
 	const stepFun = time => {
 		fps = time - startTime;
 		startTime = time;
@@ -140,7 +70,7 @@
 			left = 0;
 		}
 	};
-	let newTextList = [...textList, ...textList];
+	let newTextList = $state([...textList, ...textList]);
 	onMount(() => {
 		if (!vertical) {
 			boxWidth = boxDom.getBoundingClientRect().width;
@@ -176,8 +106,8 @@
 			}
 		};
 	});
-	let isShow = true;
-	let isShowClose = true;
+	let isShow = $state(true);
+	let isShowClose = $state(true);
 	const clickFun = () => {
 		if (rightIcon === 'close') {
 			isShow = false;
@@ -185,7 +115,7 @@
 				isShowClose = false;
 			}, 200);
 		}
-		dispatch('clickright');
+		onclickRight && onclickRight();
 	};
 </script>
 
@@ -193,14 +123,12 @@
 	<div
 		class={`flex justify-between bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark${
 			fontSizeClass[fontSize] || fontSizeClass['sm']
-		} p-2${rightIcon === 'none' ? ' pr-2' : ' pr-0'} transition-all duration-300${isShow ? '' : ' scale-0'}${
-			injClass === '' ? '' : ` ${injClass}`
-		}`}
+		} p-2${!rightIcon ? ' pr-2' : ' pr-0'} transition-all duration-300${isShow ? '' : ' scale-0'}${injClass === '' ? '' : ` ${injClass}`}`}
 	>
-		<div class={`${leftIcon === 'none' ? '' : 'mr-1'}`}>
-			{#if leftIcon === 'slot'}
-				<slot>{commonLang.slotEmpty}</slot>
-			{:else if leftIcon === 'none'}
+		<div class={`${!leftIcon ? '' : 'mr-1'}`}>
+			{#if leftChild}
+				{@render leftChild()}
+			{:else if !leftIcon}
 				<!--none-->
 			{:else}
 				<Icon {...leftIcon} />
@@ -230,9 +158,9 @@
 				</div>
 			</div>
 		{/if}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class={`${rightIcon === 'none' ? '' : 'pl-2 pr-4'}`} on:click={clickFun}>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class={`${!rightIcon ? '' : 'pl-2 pr-4'}`} onclick={clickFun}>
 			{#if rightIcon === 'close'}
 				<Icon name="ri-close-line" size={20} top={-1} />
 			{:else if rightIcon === 'arrow'}

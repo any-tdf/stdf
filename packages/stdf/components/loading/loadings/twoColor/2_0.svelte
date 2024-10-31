@@ -1,8 +1,14 @@
 <script>
-	export let inverse = false;
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [inverse]
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 */
+
+	/** @type {Props} */
+	let { inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 
 	const outerBorderClass = () => {
 		return inverse ? ' border-white/10 dark:border-black/10' : ' border-black/10 dark:border-white/10';
@@ -21,5 +27,5 @@
 	<div
 		class={`w-full h-full border-2 rounded-full${innerColorClass()}`}
 		style="border-color:{customColor[1] && 'transparent'};border-left-color:{customColor[1]}"
-	/>
+	></div>
 </div>

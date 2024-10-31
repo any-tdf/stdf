@@ -1,82 +1,20 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * 图片地址
-	 * image url
-	 * @type {string}
-	 * @default ''
-	 */
-	export let image = '';
-
-	/**
-	 * 替换文本
-	 * replace text
-	 * @type {string}
-	 * @default ''
-	 */
-	export let alt = '';
-
-	/**
-	 * 替换Icon
-	 * replace Icon
-	 * @type {Object}
-	 * @default { name: 'ri-user-3-line', theme: true }
-	 */
-	export let icon = { name: 'ri-user-3-line', theme: true };
-
-	/**
-	 * 替换文本大小
-	 * replace text size
-	 * @type {'xs'|'sm'|'md'|'lg'|'xl'}
-	 * @default 'md'
-	 */
-	export let altSize = 'md';
-
-	/**
-	 * 圆角风格
-	 * radius style
-	 * @type {'none'|'base'|'xl'|'2xl'|'3xl'|'full'}
-	 * @default 'base'
-	 */
-	export let radius = 'base';
-
-	/**
-	 * 头像框大小
-	 * avatar size
-	 * @type {'xs'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'}
-	 * @default 'base'
-	 */
-	export let size = 'base';
-
-	/**
-	 * 头像图片大小
-	 * avatar image size
-	 * @type {'s'|'m'|'l'}
-	 * @default 'l'
-	 */
-	export let imgSize = 'l';
-
-	/**
-	 * 边框风格
-	 * border style
-	 * @type {'none'|'solid'|'dashed'|'dotted'}
-	 * @default 'none'
-	 */
-	export let line = 'none';
-
-	/**
-	 * 注入CSS
-	 * inject CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
+	/** @typedef {import('../../index.d').Avatar} AvatarProps */
+	/** @type {AvatarProps} */
+	let {
+		image = '',
+		alt = '',
+		icon = { name: 'ri-user-3-line', theme: true },
+		altSize = 'md',
+		radius = 'base',
+		size = 'base',
+		imgSize = 'l',
+		line = 'none',
+		injClass = '',
+		onclick,
+	} = $props();
 
 	// 圆角风格样式
 	// radius style
@@ -123,14 +61,14 @@
 	const iconSizeObj = { xs: 12, sm: 20, base: 24, md: 32, lg: 40, xl: 56, '2xl': 64 };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	class={`bg-primary-200 dark:bg-dark-200 flex justify-center overflow-hidden relative ${lineObj[line] || ''} ${
 		sizeObj[size] || sizeObj.md
 	} ${radiusObj[radius] || radiusObj.base} ${injClass}`}
-	on:click={() => {
-		dispatch('click');
+	onclick={() => {
+		onclick && onclick();
 	}}
 >
 	{#if image === '' && alt === ''}

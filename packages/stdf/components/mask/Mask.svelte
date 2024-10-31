@@ -2,73 +2,20 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
-
-	/**
-	 * 是否显示
-	 * Whether to show
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let visible = false;
-
-	/**
-	 * 遮罩透明度
-	 * Mask opacity
-	 * @type {number}
-	 * @range 0 - 1
-	 * @default 0.5
-	 */
-	export let opacity = 0.5;
-
-	/**
-	 * 遮罩是否可点击穿透
-	 * Whether the mask can be clicked through
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let clickable = false;
-
-	/**
-	 * 是否反色
-	 * Whether to reverse color
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let inverse = false;
-
-	/**
-	 * 模糊度
-	 * Blur degree
-	 * @type {'none'|'sm'|'base'|'md'|'lg'|'xl'|'2xl'|'3xl'}
-	 * @default 'none'
-	 */
-	export let backdropBlur = 'none';
-
-	/**
-	 * 出现动画过渡时长，单位毫秒
-	 * Transition duration of appearance animation, in milliseconds
-	 * @type {number}
-	 * @default 150
-	 */
-	export let duration = 150;
-
-	/**
-	 * 消失动画过渡时长，单位毫秒
-	 * Transition duration of disappearance animation, in milliseconds
-	 * @type {number}
-	 * @default 0
-	 */
-	export let outDuration = 0;
-
-	/**
-	 * z-index
-	 * @type {number}
-	 * @default 500
-	 */
-	export let zIndex = 500;
+	/** @typedef {import('../../index.d').Mask} MaskProps */
+	/** @type {MaskProps} */
+	let {
+		visible = false,
+		opacity = 0.5,
+		clickable = false,
+		inverse = false,
+		backdropBlur = 'none',
+		duration = 150,
+		outDuration = 0,
+		zIndex = 500,
+		children,
+		onclickMask,
+	} = $props();
 
 	//遮罩模糊度样式
 	// Mask blur style
@@ -118,22 +65,22 @@
 	// 点击遮罩派发事件
 	// Click mask to dispatch event
 	const clickMaskFunc = () => {
-		dispatch('clickMask');
+		onclickMask && onclickMask?.();
 	};
 </script>
 
 {#if visible}
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		in:fade|global={{ duration }}
 		out:fade|global={{ duration: outDuration }}
-		on:click={clickMaskFunc}
+		onclick={clickMaskFunc}
 		class={`fixed w-screen h-screen inset-0${
 			inverse ? bgClassInverse[opacity] || bgClassInverse['0.5'] : bgClass[opacity] || bgClass['0.5']
 		}${clickable ? ' pointer-events-none' : ''}${backdropBlurClass[backdropBlur] || backdropBlurClass['none']}`}
 		style={`z-index:${zIndex};`}
 	>
-		<slot />
+		{@render children?.()}
 	</div>
 {/if}

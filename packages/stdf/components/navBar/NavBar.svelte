@@ -1,113 +1,32 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import zh_CN from '../../lang/zh_CN';
-
-	// 定义事件派发器
-	// Define event dispatcher
-	const dispatch = createEventDispatcher();
 
 	// 当前语言
 	// current language
 	const currentLang = getContext('STDF_lang') || zh_CN;
 	const navBarLang = currentLang.navBar;
-	const commonLang = currentLang.common;
 
-	/**
-	 * 标题
-	 * Title
-	 * @type {string}
-	 * @default Current language navBar.title
-	 */
-	export let title = navBarLang.title;
-
-	/**
-	 * 标题是否使用slot
-	 * Whether to use slot for title
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let titleSlot = false;
-
-	/**
-	 * 左侧图标
-	 * Left icon
-	 * @type {'back'|'customIcon'|'none'}
-	 * @default 'back'
-	 */
-	export let left = 'back';
-
-	/**
-	 * 左侧图标参数
-	 * Left icon parameters
-	 * @type {object}
-	 * @default {}
-	 */
-	export let leftIcon = {};
-
-	/**
-	 * 左侧是否使用slot
-	 * Whether to use slot for left
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let leftSlot = false;
-
-	/**
-	 * 右侧 Icon 数组
-	 * Right Icon array
-	 * @type {object[]}
-	 * @default []
-	 */
-	export let rights = [];
-
-	/**
-	 * 右侧是否使用slot
-	 * Whether to use slot for right
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let rightSlot = false;
-
-	/**
-	 * 是否显示底部分割线
-	 * Whether to show bottom line
-	 * @type {boolean}
-	 * @default true
-	 */
-	export let line = true;
-
-	/**
-	 * 注入CSS
-	 * Inject CSS
-	 * @type {string}
-	 * @default ''
-	 */
-	export let injClass = '';
-
-	/**
-	 * 是否开启关爱版
-	 * Whether to open love version
-	 * @type {boolean}
-	 * @default false
-	 */
-	export let love = false;
+	/** @typedef {import('../../index.d').NavBar} NavBarProps */
+	/** @type {NavBarProps} */
+	let {
+		title = navBarLang.title,
+		left = 'back',
+		rights = [],
+		line = true,
+		injClass = '',
+		love = false,
+		onclickLeft,
+		onclickRight,
+		titleChild,
+		leftChild,
+		rightChild,
+	} = $props();
 
 	//图标大小
 	//Icon size
 	const iconSize = love ? 30 : 24;
-
-	//左侧图标点击事件
-	//Left icon click event
-	const clickLeftFun = () => {
-		dispatch('clickleft');
-	};
-
-	//右侧图标点击事件
-	//Right icon click event
-	const clickRightFun = i => {
-		dispatch('clickright', i);
-	};
 </script>
 
 <div
@@ -115,42 +34,38 @@
 		line ? 'border-b ' : ' '
 	}bg-white dark:bg-black/50${love ? ' text-xl' : ''}${injClass === '' ? '' : ' ' + injClass}`}
 >
-	{#if leftSlot}
-		<slot name="left">
-			{commonLang.slotEmpty}
-		</slot>
+	{#if leftChild}
+		{@render leftChild()}
 	{:else if left === 'back'}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={clickLeftFun}>
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={() => onclickLeft && onclickLeft()}>
 			<Icon name="ri-arrow-left-s-line" size={iconSize} top={-2} />
 		</div>
-	{:else if left === 'customIcon'}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={clickLeftFun}>
-			<Icon {...leftIcon} />
-		</div>
+	{:else if left === 'none'}
+		<div class="w-4 h-full"></div>
 	{:else}
-		<div class="w-4 h-full" />
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={() => onclickLeft && onclickLeft()}>
+			<Icon {...left} />
+		</div>
 	{/if}
 	<div class="flex-1 truncate" class:pl-2={left === 'none'}>
-		{#if titleSlot}
-			<slot name="title">
-				{commonLang.slotEmpty}
-			</slot>
+		{#if titleChild}
+			{@render titleChild()}
 		{:else}
 			{title}
 		{/if}
 	</div>
 	<div class="flex">
-		{#if rightSlot}
-			<slot name="right">{commonLang.slotEmpty}</slot>
+		{#if rightChild}
+			{@render rightChild()}
 		{:else if rights.length > 0}
 			{#each rights as icon, i}
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="w-12 text-center active:opacity-80" on:click={() => clickRightFun(i)}>
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				<div class="w-12 text-center active:opacity-80" on:click={() => onclickRight && onclickRight(i)}>
 					<Icon {...icon} size={iconSize} />
 				</div>
 			{/each}

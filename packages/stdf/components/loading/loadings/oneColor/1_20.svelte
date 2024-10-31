@@ -1,9 +1,15 @@
 <script>
-	export let size = 'w-8 h-8';
-	export let customColor = [];
-	export let speed = 1;
-	export let theme = false;
-	export let inverse = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [size]
+	 * @property {any} [customColor]
+	 * @property {number} [speed]
+	 * @property {boolean} [theme]
+	 * @property {boolean} [inverse]
+	 */
+
+	/** @type {Props} */
+	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1), theme = false, inverse = false } = $props();
 
 	const colorClass = () => {
 		if (inverse) {
@@ -23,7 +29,7 @@
 	style={`border-color: ${customColor[0] + '0D'} ${customColor[0] + 'FF'} ${customColor[0] + '0D'} ${
 		customColor[0] + 'FF'
 	};animation-duration: ${2 / speed}s;-webkit-animation-duration: ${2 / speed}s;`}
-/>
+></div>
 
 <style>
 	.loading {
