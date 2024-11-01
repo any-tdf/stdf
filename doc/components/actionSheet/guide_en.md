@@ -10,10 +10,13 @@ ActionSheet is encapsulated based on Popup. By predefining some Props of Popup, 
 
 The actions property of ActionSheet is an array, and each item in the array is an object. The properties of the object refer to Action Props.
 
-## ActionSheet, Picker, Radio
+## Differences between Radio, ActionSheet, IndexBar, Picker, and AsyncPicker
 
-ActionSheet, Picker, and Radio all give data for users to select or perform some operations, but when to use which component?
+Radio, Checkbox, ActionSheet, IndexBar, Picker, and AsyncPicker components essentially provide a series of data for users to select or perform operations, but there are some differences in their usage:
 
-- Radio is generally used for single selection data, with a fixed and relatively small amount of data. It needs to directly display options on the UI interface, and is convenient for users to have an overview of multiple data when interacting with the interface, such as gender selection.
-- ActionSheet is generally used to immediately perform some operations after selection. The options are fixed and relatively small, but there is no need to directly display the options on the UI interface, such as deleting and modifying operations.
-- Picker is generally used to select single or multiple data, dynamic data with a large amount of data or an undetermined length, or for the selection of some linked data, such as province, city, and district selection.
+- Radio is generally used for single selection data with fixed and small amount of options that need to be displayed directly on the UI interface, making it convenient for users to have an overview of alternative data during interface interaction, such as gender selection.
+- Checkbox has similar usage scenarios to Radio, but allows multiple selections.
+- ActionSheet is generally used for immediate operations after selection, with fixed and few options that don't need to be displayed directly on the UI interface, such as delete or modify operations.
+- IndexBar is generally used to select a single piece of data from a very large dynamic dataset that has been categorized with indexes, usually displayed on an entire page.
+- Picker is generally used to select single or multiple pieces of data from large or uncertain length dynamic datasets, or for linked data selection. **Whether linked or not, the data is determined when passed in.**
+- AsyncPicker is generally used to select multiple pieces of data where lower-level data is dynamically obtained based on upper-level data, such as when a server interface only returns one level of data at a time and needs to request the interface again based on the user's first-level selection to get the next level of data.
