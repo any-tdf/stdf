@@ -8,7 +8,7 @@ ActionSheet is encapsulated based on Popup. By predefining some Props of Popup, 
 
 ## Actions
 
-The actions property of ActionSheet is an array, and each item in the array is an object. The properties of the object refer to Actions Props.
+The actions property of ActionSheet is an array, and each item in the array is an object. The properties of the object refer to Action Props.
 
 ## ActionSheet, Picker, Radio
 

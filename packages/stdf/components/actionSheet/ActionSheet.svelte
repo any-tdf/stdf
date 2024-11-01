@@ -22,7 +22,6 @@
 		align = 'center',
 		oncancel,
 		onclickAction,
-		onopen,
 		onclose,
 	} = $props();
 
@@ -43,8 +42,8 @@
 	// Image radius
 	const imgRadiusClass = { none: 'rounded-none', base: 'rounded', full: 'rounded-full', lg: 'rounded-lg' };
 
-	// 图片对齐方式
-	// Image alignment
+	// 对齐方式
+	// alignment
 	const alignClass = { left: 'justify-start pl-4', center: 'justify-center', right: 'justify-end pr-4' };
 
 	// 计算弹出层高度
@@ -64,7 +63,8 @@
 	// Click event of cancel button
 	const cancelFunc = () => {
 		visible = false;
-		oncancel && oncancel(); // 如果 cancel 存在，执行 cancel 函数
+		oncancel && oncancel();
+		onclose && onclose();
 	};
 
 	// 选项点击事件，如果选项不可点击，不触发事件，如果可点击，触发事件，如果 actionClosable 为 true，关闭弹出层
@@ -74,52 +74,39 @@
 			onclickAction && onclickAction(index, item); // 如果 clickAction 存在，执行 clickAction 函数
 			if (actionClosable) {
 				visible = false;
+				onclose && onclose();
 			}
 		}
 	};
-
-	// 监听 visible 变化，如果为 true，派发 open 事件，如果为 false，派发 close 事件
-	// Listen to the change of visible, if it is true, dispatch the open event, if it is false, dispatch the close event
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
 </script>
 
-<Popup bind:visible size={0} maskClosable transitionDistance={getTransitionDistanceunc(title, showCancel, actions)} {...popup}>
+<Popup bind:visible size={0} maskClosable transitionDistance={getTransitionDistanceunc(title, showCancel, actions)} {onclose} {...popup}>
 	{#if title}
 		<div
-			class={`truncate text-xs text-black/50 dark:text-white/50 border-b border-black/5 dark:border-white/5 h-10 flex flex-col justify-center ${
-				titleAlignClass[titleAlign] || titleAlignClass['left']
-			}`}
+			class="truncate text-xs text-black/50 dark:text-white/50 border-b border-black/5 dark:border-white/5 h-10 flex flex-col justify-center {titleAlignClass[
+				titleAlign
+			] || titleAlignClass['left']}"
 		>
 			{title}
 		</div>
 	{/if}
 	<div>
 		{#each actions as item, index}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div
-				class={`${item.style !== 'disabled' ? 'active:scale-90 ' : ''}transition-all flex items-center gap-2 ${
-					alignClass[align] || alignClass['center']
-				}`}
+			<button
+				class="{item.style !== 'disabled' ? 'active:scale-90 ' : ''}transition-all flex items-center gap-2 w-full {alignClass[align] ||
+					alignClass['center']}"
 				onclick={() => clickActionFunc(index, item)}
 			>
-				<!-- image -->
 				{#if item.showImg}
-					<div class={`w-6 h-6 overflow-hidden ${imgRadiusClass[item.imgRadius] || 'rounded-full'}`}>
+					<div class="w-6 h-6 overflow-hidden {imgRadiusClass[item.imgRadius] || 'rounded-full'}">
 						<img class="w-full h-full object-cover" src={item.imgSrc} alt="" />
 					</div>
 				{/if}
 				<div>
 					<div
-						class={`truncate text-center font-bold${stateClass[item.style] || stateClass.normal}flex flex-col justify-center${
-							item.desc ? ' h-10' : ' h-14'
-						}`}
+						class="truncate text-center font-bold {stateClass[item.style] || stateClass.normal} flex flex-col justify-center {item.desc
+							? ' h-10'
+							: ' h-14'}"
 					>
 						{item.content}
 					</div>
@@ -127,7 +114,7 @@
 						<div class="truncate text-center text-xs pb-1 text-black/50 dark:text-white/40">{item.desc}</div>
 					{/if}
 				</div>
-			</div>
+			</button>
 			{#if index !== actions.length - 1}
 				<div class="h-px w-full bg-black/5 dark:bg-white/5"></div>
 			{/if}
@@ -135,8 +122,13 @@
 	</div>
 	{#if showCancel}
 		<div class="bg-black/5 dark:bg-white/5 h-2"></div>
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="active:scale-90 transition-all text-center h-12 flex flex-col justify-center" onclick={cancelFunc}>{cancelText}</div>
+		<button
+			class="active:scale-90 transition-all h-12 flex items-center w-full {alignClass[align] || alignClass['center']}"
+			onclick={cancelFunc}
+		>
+			<div>
+				{cancelText}
+			</div>
+		</button>
 	{/if}
 </Popup>

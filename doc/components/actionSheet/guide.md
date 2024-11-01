@@ -8,7 +8,7 @@ ActionSheet 动作面板是在 Popup 基础上封装的，通过预先定义一�
 
 ## actions
 
-ActionSheet 的 actions 属性是一个数组，数组中的每一项都是一个对象，对象属性参考 Actions Props。
+ActionSheet 的 actions 属性是一个数组，数组中的每一项都是一个对象，对象属性参考 Action Props。
 
 ## ActionSheet、Picker、Radio
 

@@ -2,41 +2,41 @@
 <script>
 	import { Cell, ActionSheet, Toast } from '../../../../../packages/stdf/components';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
 
 	const actions = [{ content: '选项一' }, { content: '选项二' }, { content: '选项三' }];
 
-	let toastVisible1 = false;
-	let toastVisible2 = false;
-	let toastVisible3 = false;
-	let index = 0;
-	let item = {};
-	const clickActionFunc = e => {
-		index = e.detail.index;
-		item = e.detail.item;
+	let toastVisible1 = $state(false);
+	let toastVisible2 = $state(false);
+	let toastVisible3 = $state(false);
+	let index = $state(0);
+	let item = $state({ content: '' });
+	const clickActionFunc = (i, action) => {
+		index = i;
+		item = action;
 		toastVisible3 = true;
 	};
 </script>
 
 <div class="py-4">
-	<Cell title="基础用法" on:click={() => (visible1 = true)} />
+	<Cell title="基础用法" onclick={() => (visible1 = true)} />
 	<ActionSheet bind:visible={visible1} {actions} />
 
-	<Cell title="有取消操作且点击遮罩不可关闭" on:click={() => (visible2 = true)} />
+	<Cell title="有取消操作且点击遮罩不可关闭" onclick={() => (visible2 = true)} />
 	<ActionSheet bind:visible={visible2} {actions} showCancel popup={{ maskClosable: false }} />
 
-	<Cell title="不同样式" on:click={() => (visible3 = true)} />
+	<Cell title="不同样式" onclick={() => (visible3 = true)} />
 	<ActionSheet
 		bind:visible={visible3}
 		actions={[
@@ -47,7 +47,7 @@
 		]}
 	/>
 
-	<Cell title="带标题和描述信息" on:click={() => (visible4 = true)} />
+	<Cell title="带标题和描述信息" onclick={() => (visible4 = true)} />
 	<ActionSheet
 		bind:visible={visible4}
 		actions={[
@@ -58,28 +58,28 @@
 		title="这里是标题，可以简要说明以下操作。"
 	/>
 
-	<Cell title="顶部来点圆角" on:click={() => (visible5 = true)} />
+	<Cell title="顶部来点圆角" onclick={() => (visible5 = true)} />
 	<ActionSheet bind:visible={visible5} {actions} popup={{ radius: 'xl' }} />
 
-	<Cell title="两侧有间距" on:click={() => (visible6 = true)} />
+	<Cell title="两侧有间距" onclick={() => (visible6 = true)} />
 	<ActionSheet bind:visible={visible6} {actions} popup={{ radius: 'xl', px: '2' }} />
 
-	<Cell title="监听关闭事件" on:click={() => (visible7 = true)} />
-	<ActionSheet bind:visible={visible7} {actions} on:close={() => (toastVisible1 = true)} />
+	<Cell title="监听关闭事件" onclick={() => (visible7 = true)} />
+	<ActionSheet bind:visible={visible7} {actions} onclose={() => (toastVisible1 = true)} />
 	<Toast bind:visible={toastVisible1} message="关闭了 ActionSheet！" />
 
-	<Cell title="监听取消事件" on:click={() => (visible8 = true)} />
-	<ActionSheet bind:visible={visible8} {actions} showCancel on:cancel={() => (toastVisible2 = true)} />
+	<Cell title="监听取消事件" onclick={() => (visible8 = true)} />
+	<ActionSheet bind:visible={visible8} {actions} showCancel oncancel={() => (toastVisible2 = true)} />
 	<Toast bind:visible={toastVisible2} message="点击了取消！" />
 
-	<Cell title="监听选项点击事件" on:click={() => (visible9 = true)} />
-	<ActionSheet bind:visible={visible9} {actions} on:clickAction={clickActionFunc} />
+	<Cell title="监听选项点击事件" onclick={() => (visible9 = true)} />
+	<ActionSheet bind:visible={visible9} {actions} onclickAction={clickActionFunc} />
 	<Toast bind:visible={toastVisible3} message={`点击了第 ${index + 1} 项，${item.content}！`} />
 
-	<Cell title="点击选项不关闭" on:click={() => (visible10 = true)} />
+	<Cell title="点击选项不关闭" onclick={() => (visible10 = true)} />
 	<ActionSheet bind:visible={visible10} {actions} actionClosable={false} />
 
-	<Cell title="选项带图片" on:click={() => (visible11 = true)} />
+	<Cell title="选项带图片" onclick={() => (visible11 = true)} />
 	<ActionSheet
 		bind:visible={visible11}
 		actions={[
@@ -89,7 +89,7 @@
 		]}
 	/>
 
-	<Cell title="选项左对齐" on:click={() => (visible12 = true)} />
+	<Cell title="选项左对齐" onclick={() => (visible12 = true)} />
 	<ActionSheet
 		bind:visible={visible12}
 		actions={[
