@@ -16,14 +16,14 @@
 	let {
 		visible = $bindable(false),
 		data = $bindable([]),
-		lastLevel = false,
-		firstLevel = true,
+		lastLevel = $bindable(false),
+		firstLevel = $bindable(true),
 		showRow = 5,
-		labelKey = 'label',
+		labelKey = $bindable('label'),
 		align = 'center',
 		cancelText = asyncPickerLang.defaultCancel,
 		confirmText = asyncPickerLang.defaultConfirm,
-		title = asyncPickerLang.defaultTitle,
+		title = $bindable(asyncPickerLang.defaultTitle),
 		nextText = asyncPickerLang.defaultNext,
 		prevText = asyncPickerLang.defaultPrev,
 		showSelected = false,
@@ -34,7 +34,6 @@
 		onprev,
 		onconfirm,
 		onnext,
-		onopen,
 		onclose,
 	} = $props();
 
@@ -72,6 +71,7 @@
 			indexs.push(currentIndex);
 			data = [];
 			visible = false;
+			onclose && onclose();
 			currentIndex = 0;
 			onconfirm && onconfirm(items, indexs);
 		} else {
@@ -88,20 +88,10 @@
 
 	// 滚动结束
 	// Scroll end
-	const scrollEndFunc = e => {
-		currentIndex = e.detail.index;
+	const scrollEndFunc = index => {
+		currentIndex = index;
 	};
 	let isLoading = $derived(data.length === 0);
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			currentIndex = 0;
-			items = [];
-			indexs = [];
-			onclose && onclose();
-		}
-	});
 </script>
 
 <Popup
@@ -112,10 +102,8 @@
 	{...popup}
 >
 	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div
-			class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer"
+		<button
+			class="text-black/60 dark:text-white/60 h-10 leading-10 px-4"
 			onclick={() => {
 				!isLoading && clickLeftFunc();
 			}}
@@ -127,12 +115,10 @@
 			{:else}
 				{firstLevel ? cancelText : prevText}
 			{/if}
-		</div>
+		</button>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div
-			class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer"
+		<button
+			class="text-primary dark:text-dark h-10 leading-10 px-4"
 			onclick={() => {
 				!isLoading && clickRightFunc();
 			}}
@@ -144,7 +130,7 @@
 			{:else}
 				{lastLevel ? confirmText : nextText}
 			{/if}
-		</div>
+		</button>
 	</div>
 	{#if showSelected}
 		<div class="flex gap-3 w-full overflow-x-hidden px-4 bg-white dark:bg-black">
