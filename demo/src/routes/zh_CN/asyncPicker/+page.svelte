@@ -4,26 +4,25 @@
 	// 为避免 Demo 页面杂乱，具体参考数据放在 data.js 文件内，可查看此页面底部注释。
 	import { linkageData, linkageDiffLabeData } from './data';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
 
-	let data = linkageData;
-	let currentLevel = 0;
-	let lastLevel = false;
-	let firstLevel = true;
-	let level1Data = linkageData[0].children;
-	let titleBind = '请选择省级';
+	let data = $state(linkageData);
+	let currentLevel = $state(0);
+	let lastLevel = $state(false);
+	let firstLevel = $state(true);
+	let level1Data = $state(linkageData[0].children);
+	let titleBind = $state('请选择省级');
 
-	// 模拟 3 秒后获取到数据
-	const nextFunc = e => {
-		const { index } = e.detail;
+	// 模拟 2 秒后获取到数据
+	const nextFunc = index => {
 		if (currentLevel === 0) {
 			const nextData = linkageData[index].children;
 			level1Data = nextData;
@@ -33,7 +32,7 @@
 				currentLevel = 1;
 				titleBind = '请选择市级';
 				firstLevel = false;
-			}, 3000);
+			}, 2000);
 		} else if (currentLevel === 1) {
 			const nextData = level1Data[index].children;
 			setTimeout(() => {
@@ -42,7 +41,7 @@
 				currentLevel = 2;
 				titleBind = '请选择区级';
 				lastLevel = true;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('最后一级');
 		}
@@ -55,7 +54,7 @@
 				currentLevel = 0;
 				titleBind = '请选择省级';
 				firstLevel = true;
-			}, 3000);
+			}, 2000);
 		} else if (currentLevel === 2) {
 			const prevData = level1Data;
 			setTimeout(() => {
@@ -64,29 +63,27 @@
 				currentLevel = 1;
 				titleBind = '请选择市级';
 				lastLevel = false;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('第一级');
 		}
 	};
 
-	let allIndexs = [];
-	let allItems = [];
-	const getAllDataFunc = e => {
-		const { items, indexs } = e.detail;
+	let allIndexs = $state([]);
+	let allItems = $state([]);
+	const getAllDataFunc = (items, indexs) => {
 		allItems = items;
 		allIndexs = indexs;
 	};
 
 	// 每一级对应的 labelKey 不同时的处理逻辑
-	let diffLabelKeyData = linkageDiffLabeData;
-	let labelKey = 'province';
-	let diffLabelKeyCurrentLevel = 0;
-	let diffLabelKeyLastLevel = false;
-	let diffLabelKeyFirstLevel = true;
-	let diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
-	const diffLabelKeyNextFunc = e => {
-		const { index } = e.detail;
+	let diffLabelKeyData = $state(linkageDiffLabeData);
+	let labelKey = $state('province');
+	let diffLabelKeyCurrentLevel = $state(0);
+	let diffLabelKeyLastLevel = $state(false);
+	let diffLabelKeyFirstLevel = $state(true);
+	let diffLabelKeyLevel1Data = $state(linkageDiffLabeData[0].children);
+	const diffLabelKeyNextFunc = index => {
 		if (diffLabelKeyCurrentLevel === 0) {
 			const nextData = linkageDiffLabeData[index].children;
 			diffLabelKeyLevel1Data = nextData;
@@ -96,7 +93,7 @@
 				labelKey = 'city';
 				diffLabelKeyCurrentLevel = 1;
 				diffLabelKeyFirstLevel = false;
-			}, 3000);
+			}, 2000);
 		} else if (diffLabelKeyCurrentLevel === 1) {
 			const nextData = diffLabelKeyLevel1Data[index].children;
 			setTimeout(() => {
@@ -105,7 +102,7 @@
 				diffLabelKeyCurrentLevel = 2;
 				labelKey = 'region';
 				diffLabelKeyLastLevel = true;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('最后一级');
 		}
@@ -118,7 +115,7 @@
 				diffLabelKeyCurrentLevel = 0;
 				diffLabelKeyFirstLevel = true;
 				labelKey = 'province';
-			}, 3000);
+			}, 2000);
 		} else if (diffLabelKeyCurrentLevel === 2) {
 			const prevData = diffLabelKeyLevel1Data;
 			setTimeout(() => {
@@ -127,7 +124,7 @@
 				diffLabelKeyCurrentLevel = 1;
 				labelKey = 'city';
 				diffLabelKeyLastLevel = false;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('第一级');
 		}
@@ -157,7 +154,7 @@
 	</div>
 	<Cell
 		title="基础用法"
-		on:click={() => {
+		onclick={() => {
 			visible1 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -171,14 +168,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
-		on:confirm={getAllDataFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
+		onconfirm={getAllDataFunc}
 	/>
 
 	<Cell
 		title="可见 7 行数为"
-		on:click={() => {
+		onclick={() => {
 			visible2 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -187,11 +184,11 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showRow={7} />
+	<AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel onnext={nextFunc} onprev={prevFunc} showRow={7} />
 
 	<Cell
 		title="左对齐"
-		on:click={() => {
+		onclick={() => {
 			visible3 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -200,11 +197,11 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" on:next={nextFunc} on:prev={prevFunc} />
+	<AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" onnext={nextFunc} onprev={prevFunc} />
 
 	<Cell
 		title="自定义上下一步文字"
-		on:click={() => {
+		onclick={() => {
 			visible5 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -218,15 +215,15 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
 		nextText="继续"
 		prevText="返回"
 	/>
 
 	<Cell
 		title="不同级别使用不同的 labelKey"
-		on:click={() => {
+		onclick={() => {
 			visible4 = true;
 			diffLabelKeyData = linkageDiffLabeData;
 			labelKey = 'province';
@@ -242,13 +239,13 @@
 		bind:lastLevel={diffLabelKeyLastLevel}
 		bind:firstLevel={diffLabelKeyFirstLevel}
 		bind:labelKey
-		on:next={diffLabelKeyNextFunc}
-		on:prev={diffLabelKeyPrevFunc}
+		onnext={diffLabelKeyNextFunc}
+		onprev={diffLabelKeyPrevFunc}
 	/>
 
 	<Cell
 		title="换一个 Loading 效果"
-		on:click={() => {
+		onclick={() => {
 			visible6 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -262,14 +259,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
-		loading={{ type: '1_15', width: 12, height: 12 }}
+		onnext={nextFunc}
+		onprev={prevFunc}
+		loading={{ type: '1_15', width: '12', height: '12' }}
 	/>
 
 	<Cell
 		title="顶部来点圆角"
-		on:click={() => {
+		onclick={() => {
 			visible8 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -283,14 +280,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
 		popup={{ radius: 'xl' }}
 	/>
 
 	<Cell
 		title="显示已选选项"
-		on:click={() => {
+		onclick={() => {
 			visible7 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -299,11 +296,11 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showSelected />
+	<AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel onnext={nextFunc} onprev={prevFunc} showSelected />
 
 	<Cell
 		title="动态改变标题"
-		on:click={() => {
+		onclick={() => {
 			visible9 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -319,8 +316,8 @@
 		bind:lastLevel
 		bind:firstLevel
 		bind:title={titleBind}
-		on:next={nextFunc}
-		on:prev={prevFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
 	/>
 </div>
 <!-- 

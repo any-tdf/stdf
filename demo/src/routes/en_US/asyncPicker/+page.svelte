@@ -1,29 +1,28 @@
 <!-- AsyncPicker Demo -->
 <script>
 	import { AsyncPicker, Cell } from '../../../../../packages/stdf/components';
-	// In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
+	// For the sake of clarity, the reference data is placed in the data_en.js file, which can be viewed at the bottom of this page.
 	import { linkageData, linkageDiffLabeData } from './data_en';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
 
-	let data = linkageData;
-	let currentLevel = 0;
-	let lastLevel = false;
-	let firstLevel = true;
-	let level1Data = linkageData[0].children;
-	let titleBind = 'Please select the provincial level';
+	let data = $state(linkageData);
+	let currentLevel = $state(0);
+	let lastLevel = $state(false);
+	let firstLevel = $state(true);
+	let level1Data = $state(linkageData[0].children);
+	let titleBind = $state('Please select province');
 
-	// Get the data after simulation for 3 seconds
-	const nextFunc = e => {
-		const { index } = e.detail;
+	// Simulate data obtained after 2 seconds
+	const nextFunc = index => {
 		if (currentLevel === 0) {
 			const nextData = linkageData[index].children;
 			level1Data = nextData;
@@ -31,20 +30,20 @@
 				// @ts-ignore
 				data = nextData;
 				currentLevel = 1;
-				titleBind = 'Please select the city level';
+				titleBind = 'Please select city';
 				firstLevel = false;
-			}, 3000);
+			}, 2000);
 		} else if (currentLevel === 1) {
 			const nextData = level1Data[index].children;
 			setTimeout(() => {
 				// @ts-ignore
 				data = nextData;
 				currentLevel = 2;
-				titleBind = 'Please select the district level';
+				titleBind = 'Please select district';
 				lastLevel = true;
-			}, 3000);
+			}, 2000);
 		} else {
-			console.log('Last Level');
+			console.log('Last level');
 		}
 	};
 	const prevFunc = () => {
@@ -53,40 +52,38 @@
 			setTimeout(() => {
 				data = prevData;
 				currentLevel = 0;
-				titleBind = 'Please select the provincial level';
+				titleBind = 'Please select province';
 				firstLevel = true;
-			}, 3000);
+			}, 2000);
 		} else if (currentLevel === 2) {
 			const prevData = level1Data;
 			setTimeout(() => {
 				// @ts-ignore
 				data = prevData;
 				currentLevel = 1;
-				titleBind = 'Please select the city level';
+				titleBind = 'Please select city';
 				lastLevel = false;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('First level');
 		}
 	};
 
-	let allIndexs = [];
-	let allItems = [];
-	const getAllDataFunc = e => {
-		const { items, indexs } = e.detail;
+	let allIndexs = $state([]);
+	let allItems = $state([]);
+	const getAllDataFunc = (items, indexs) => {
 		allItems = items;
 		allIndexs = indexs;
 	};
 
-	// The processing logic of Labelkey at each level at different times
-	let diffLabelKeyData = linkageDiffLabeData;
-	let labelKey = 'province';
-	let diffLabelKeyCurrentLevel = 0;
-	let diffLabelKeyLastLevel = false;
-	let diffLabelKeyFirstLevel = true;
-	let diffLabelKeyLevel1Data = linkageDiffLabeData[0].children;
-	const diffLabelKeyNextFunc = e => {
-		const { index } = e.detail;
+	// 每一级对应的 labelKey 不同时的处理逻辑
+	let diffLabelKeyData = $state(linkageDiffLabeData);
+	let labelKey = $state('province');
+	let diffLabelKeyCurrentLevel = $state(0);
+	let diffLabelKeyLastLevel = $state(false);
+	let diffLabelKeyFirstLevel = $state(true);
+	let diffLabelKeyLevel1Data = $state(linkageDiffLabeData[0].children);
+	const diffLabelKeyNextFunc = index => {
 		if (diffLabelKeyCurrentLevel === 0) {
 			const nextData = linkageDiffLabeData[index].children;
 			diffLabelKeyLevel1Data = nextData;
@@ -96,7 +93,7 @@
 				labelKey = 'city';
 				diffLabelKeyCurrentLevel = 1;
 				diffLabelKeyFirstLevel = false;
-			}, 3000);
+			}, 2000);
 		} else if (diffLabelKeyCurrentLevel === 1) {
 			const nextData = diffLabelKeyLevel1Data[index].children;
 			setTimeout(() => {
@@ -105,7 +102,7 @@
 				diffLabelKeyCurrentLevel = 2;
 				labelKey = 'region';
 				diffLabelKeyLastLevel = true;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('Last level');
 		}
@@ -118,7 +115,7 @@
 				diffLabelKeyCurrentLevel = 0;
 				diffLabelKeyFirstLevel = true;
 				labelKey = 'province';
-			}, 3000);
+			}, 2000);
 		} else if (diffLabelKeyCurrentLevel === 2) {
 			const prevData = diffLabelKeyLevel1Data;
 			setTimeout(() => {
@@ -127,14 +124,14 @@
 				diffLabelKeyCurrentLevel = 1;
 				labelKey = 'city';
 				diffLabelKeyLastLevel = false;
-			}, 3000);
+			}, 2000);
 		} else {
 			console.log('First level');
 		}
 	};
 </script>
 
-<div class="py-4 text-left">
+<div class="py-4">
 	<div class="px-4">
 		{#if allItems.length}
 			Currently selected:
@@ -142,22 +139,22 @@
 				<span class="mr-2 text-primary dark:text-dark">{item.label}</span>
 			{/each}
 		{:else}
-			<div>Please select the data</div>
+			<div>Please select data</div>
 		{/if}
 	</div>
 	<div class="px-4">
 		{#if allIndexs.length}
-			The index value of the current selection value is located::
+			The index values of current selections in their respective columns are:
 			{#each allIndexs as index}
 				<span class="mr-2 text-primary dark:text-dark">{index}</span>
 			{/each}
 		{:else}
-			<div>Please select the data</div>
+			<div>Please select data</div>
 		{/if}
 	</div>
 	<Cell
-		title="Basic usage"
-		on:click={() => {
+		title="Basic Usage"
+		onclick={() => {
 			visible1 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -171,14 +168,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
-		on:confirm={getAllDataFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
+		onconfirm={getAllDataFunc}
 	/>
 
 	<Cell
-		title="It can be seen that the number of 7 lines is"
-		on:click={() => {
+		title="Show 7 Rows"
+		onclick={() => {
 			visible2 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -187,11 +184,11 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showRow={7} />
+	<AsyncPicker bind:visible={visible2} bind:data bind:lastLevel bind:firstLevel onnext={nextFunc} onprev={prevFunc} showRow={7} />
 
 	<Cell
-		title="Left -handed alignment"
-		on:click={() => {
+		title="Left Align"
+		onclick={() => {
 			visible3 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -200,11 +197,11 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" on:next={nextFunc} on:prev={prevFunc} />
+	<AsyncPicker bind:visible={visible3} bind:data bind:lastLevel bind:firstLevel align="left" onnext={nextFunc} onprev={prevFunc} />
 
 	<Cell
-		title="Customize the next text"
-		on:click={() => {
+		title="Custom Next/Previous Text"
+		onclick={() => {
 			visible5 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -218,15 +215,15 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
-		nextText="continue"
-		prevText="return"
+		onnext={nextFunc}
+		onprev={prevFunc}
+		nextText="Continue"
+		prevText="Back"
 	/>
 
 	<Cell
-		title="Use different Labelkey at different levels"
-		on:click={() => {
+		title="Different labelKey for Each Level"
+		onclick={() => {
 			visible4 = true;
 			diffLabelKeyData = linkageDiffLabeData;
 			labelKey = 'province';
@@ -242,13 +239,13 @@
 		bind:lastLevel={diffLabelKeyLastLevel}
 		bind:firstLevel={diffLabelKeyFirstLevel}
 		bind:labelKey
-		on:next={diffLabelKeyNextFunc}
-		on:prev={diffLabelKeyPrevFunc}
+		onnext={diffLabelKeyNextFunc}
+		onprev={diffLabelKeyPrevFunc}
 	/>
 
 	<Cell
-		title="Change a loading"
-		on:click={() => {
+		title="Different Loading Effect"
+		onclick={() => {
 			visible6 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -262,14 +259,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
-		loading={{ type: '1_15', width: 12, height: 12 }}
+		onnext={nextFunc}
+		onprev={prevFunc}
+		loading={{ type: '1_15', width: '12', height: '12' }}
 	/>
 
 	<Cell
-		title="Radius on the top"
-		on:click={() => {
+		title="Rounded Top Corners"
+		onclick={() => {
 			visible8 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -283,14 +280,14 @@
 		bind:data
 		bind:lastLevel
 		bind:firstLevel
-		on:next={nextFunc}
-		on:prev={prevFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
 		popup={{ radius: 'xl' }}
 	/>
 
 	<Cell
-		title="Show selected options"
-		on:click={() => {
+		title="Show Selected Options"
+		onclick={() => {
 			visible7 = true;
 			data = linkageData;
 			lastLevel = false;
@@ -299,17 +296,17 @@
 			level1Data = linkageData[0].children;
 		}}
 	/>
-	<AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel on:next={nextFunc} on:prev={prevFunc} showSelected />
+	<AsyncPicker bind:visible={visible7} bind:data bind:lastLevel bind:firstLevel onnext={nextFunc} onprev={prevFunc} showSelected />
 
 	<Cell
-		title="Dynamic change title"
-		on:click={() => {
+		title="Dynamic Title"
+		onclick={() => {
 			visible9 = true;
 			data = linkageData;
 			lastLevel = false;
 			firstLevel = true;
 			currentLevel = 0;
-			titleBind = 'Please select the provincial level';
+			titleBind = 'Please select province';
 			level1Data = linkageData[0].children;
 		}}
 	/>
@@ -319,8 +316,8 @@
 		bind:lastLevel
 		bind:firstLevel
 		bind:title={titleBind}
-		on:next={nextFunc}
-		on:prev={prevFunc}
+		onnext={nextFunc}
+		onprev={prevFunc}
 	/>
 </div>
 <!-- 
