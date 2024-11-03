@@ -4,7 +4,7 @@
 
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
 
-	let currentColor = 'STDF';
+	let currentColor = $state('STDF');
 
 	const selectColorFunc = (e, item) => {
 		// 阻止冒泡
@@ -13,20 +13,16 @@
 		currentColor = item.name;
 		switchTheme(item.theme);
 	};
-	const bgFunc = str => {
-		return str.charAt(0) === '#' ? str : `rgb(${str})`;
-	};
+	const bgFunc = str => (str.charAt(0) === '#' ? str : `rgb(${str})`);
 </script>
 
 <div class="flex flex-col gap-2 flex-wrap my-4">
 	{#each themes as item}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div
+		<button
 			class="flex p-2 gap-2 justify-between items-center border {currentColor === item.name
 				? 'border-primary dark:border-dark'
 				: 'border-gray-100 dark:border-gray-700'} rounded-md cursor-pointer"
-			on:click={e => selectColorFunc(e, item)}
+			onclick={e => selectColorFunc(e, item)}
 		>
 			<div class="w-5 h-5 {currentColor === item.name ? 'fill-primary dark:fill-dark' : 'fill-gray-300 dark:fill-gray-700'}">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -59,6 +55,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</button>
 	{/each}
 </div>

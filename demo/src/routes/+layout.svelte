@@ -1,8 +1,6 @@
 <script>
 	import { setContext, onMount } from 'svelte';
-	// @ts-ignore
 	import { page } from '$app/stores';
-	// @ts-ignore
 	import { goto } from '$app/navigation';
 	import { NavBar, Icon } from '../../../packages/stdf/components';
 	import zh_CN from '../../../packages/stdf/lang/zh_CN';
@@ -11,12 +9,12 @@
 	import menuList from '../data/menuList';
 	import ThemeSwitch from './components/ThemeSwitch.svelte';
 
+	let { children } = $props();
+
 	// 循环 menuList，将所有元素的 childs 组成一个数组
 	// Cycle menuList, and combine the childs of all elements into an array
 	const menuListArr = menuList.reduce((acc, cur) => {
-		if (cur.childs) {
-			acc.push(...cur.childs);
-		}
+		cur.childs && acc.push(...cur.childs);
 		return acc;
 	}, []);
 
@@ -33,16 +31,15 @@
 
 	// 环境变量
 	// environment variables
-	// @ts-ignore
 	const mode = import.meta.env.MODE;
 
 	// mode 是否是指定组件模式
 	// whether mode is specified component mode
 	const isComponentMode = mode != 'production' && mode != 'development' && mode != 'english';
 
-	$: showLeft = !(isIframe === '1' || $page.url.pathname === '/' || isComponentMode);
+	let showLeft = $derived(!(isIframe === '1' || $page.url.pathname === '/' || isComponentMode));
 
-	let theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+	let theme = $state(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
 	// 设置主题
 	// Set theme
 	if (localStorage.getItem('theme') === 'dark') {
@@ -125,7 +122,7 @@
 		}
 	});
 
-	let showTheme = false;
+	let showTheme = $state(false);
 	// 切换主题
 	// switch theme
 	const switchThemeFunc = () => {
@@ -142,41 +139,38 @@
 			: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
 				(isZh ? '示例' : ' Demo')}
 		left={showLeft ? 'back' : 'none'}
-		rightSlot
 		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
-		on:clickleft={() => window.history.back()}
+		onclickLeft={() => window.history.back()}
 	>
-		<div slot="right" class="flex text-center">
-			{#if isIframe === '0'}
-				<div class="h-12 w-10 leading-10">
-					<a href="https://github.com/any-tdf/stdf" target="_blank" rel="noreferrer">
-						<Icon name="ri-github-fill" />
-					</a>
-				</div>
-				<div class="h-12 w-10 leading-10">
-					<a
-						href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/#/components?nav=${$page.url.pathname.substring(7)}&tab=0`}`}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<Icon name="ri-compass-line" />
-					</a>
-				</div>
-			{/if}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="h-12 w-10 leading-10" on:click={toggleFun}>
-				<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme={true} />
+		{#snippet rightChild()}
+			<div slot="right" class="flex text-center">
+				{#if isIframe === '0'}
+					<div class="h-12 w-10">
+						<a href="https://github.com/any-tdf/stdf" target="_blank" rel="noreferrer">
+							<Icon name="ri-github-fill" />
+						</a>
+					</div>
+					<div class="h-12 w-10">
+						<a
+							href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/#/components?nav=${$page.url.pathname.substring(7)}&tab=0`}`}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<Icon name="ri-compass-line" />
+						</a>
+					</div>
+				{/if}
+				<button class="h-12 w-10" onclick={toggleFun}>
+					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme />
+				</button>
+				<button class="h-12 w-10" onclick={switchThemeFunc}>
+					<Icon name="ri-palette-line" theme />
+				</button>
 			</div>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="h-12 w-10 leading-10" on:click={switchThemeFunc}>
-				<Icon name="ri-palette-line" theme={true} />
-			</div>
-		</div>
+		{/snippet}
 	</NavBar>
 </div>
-<slot />
+{@render children?.()}
 <div
 	class="fixed z-[1000] {showTheme
 		? 'right-0'

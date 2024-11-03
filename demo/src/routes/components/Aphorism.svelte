@@ -3,13 +3,13 @@
 	// import data
 	import aphorisms from '../../data/aphorisms';
 
-	// 显示条数
-	// number of items to display
-	export let num = 0;
-
-	// 是否紧凑模式
-	// whether to use compact mode
-	export let compact = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [num] - number of items to display
+	 * @property {boolean} [compact] - whether to use compact mode
+	 */
+	/** @type {Props} */
+	let { num = 0, compact = false } = $props();
 
 	// 从 aphorisms 随机取出 num 条数据
 	// get num items from aphorisms randomly

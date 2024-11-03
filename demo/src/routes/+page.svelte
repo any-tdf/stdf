@@ -2,18 +2,11 @@
 	import { CellGroup, Cell } from '../../../packages/stdf/components';
 	import menuList from '../data/menuList';
 
-	// 循环 menuList，将所有元素的 childs 组成一个数组
-	// Cycle menuList, and combine the childs of all elements into an array
 	const menuListArr = menuList.reduce((acc, cur) => {
-		if (cur.childs) {
-			acc.push(...cur.childs);
-		}
+		cur.childs && acc.push(...cur.childs);
 		return acc;
 	}, []);
-	// 设置语言
-	// setting language
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
-
 	const changeLangFunc = () => {
 		sessionStorage.setItem('lang', isZh ? 'en_US' : 'zh_CN');
 		window.location.reload();
@@ -32,7 +25,6 @@
 <a href="https://stdf.design" target="_blank" rel="noreferrer">
 	<div class="text-center text-lg underline">stdf.design</div>
 </a>
-
 <div class="flex flex-col py-4">
 	<div>
 		{#each menuList as menu}
@@ -47,18 +39,14 @@
 							shadow="none"
 							radius="none"
 							line={i !== menu.childs.length - 1}
-						/></a
-					>
+						/>
+					</a>
 				{/each}
 			</CellGroup>
 		{/each}
 	</div>
 	<div class="p-4">{isZh ? '当前组件总数：' : 'Current number of components: '}{menuListArr.length}</div>
 	<div class="flex text-xs justify-around p-4 text-primary dark:text-dark underline">
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div on:click={changeLangFunc}>
-			{isZh ? 'English' : '简体中文'}
-		</div>
+		<button on:click={changeLangFunc} class="text-primary dark:text-dark">{isZh ? 'English' : '简体中文'}</button>
 	</div>
 </div>

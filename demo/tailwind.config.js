@@ -69,11 +69,7 @@ export default {
 			transparent: 'transparent',
 		},
 		extend: {
-			// 自定义字体
-			// Custom Font
-			fontFamily: {
-				Trueno: 'Trueno',
-			},
+			fontFamily: { Trueno: 'Trueno' },
 		},
 	},
 	darkMode: 'class',
