@@ -1,39 +1,39 @@
 ## Avatar Props
 
-| Properties | Type   | Default value                                     | Optional value                        | required | Description                                  |
-| ---------- | ------ | ------------------------------------------------- | ------------------------------------- | -------- | -------------------------------------------- |
-| image      | String | ''                                                | -                                     | N        | Picture path.                                |
-| alt        | String | ''                                                | -                                     | N        | Replace the text, it is recommended to word. |
-| icon       | Object | { name: 'ri-user-3-line', theme: true, size: 32 } | Icon Props                            | N        | Replace the icon and pass in Icon Props.     |
-| altSize    | String | 'md'                                              | 'xs'/'sm'/'md'/'lg'/'xl'              | N        | Replace the text size.                       |
-| radius     | String | 'base'                                            | 'none'/'base'/'xl'/'2xl'/'3xl'/'full' | N        | Round -corner style.                         |
-| size       | String | 'md'                                              | 'xs'/'sm'/'base'/'md'/'lg'/'xl'/'2xl' | N        | The size of the avatar box.                  |
-| imgSize    | String | 'l'                                               | 's'/'m'/'l'                           | N        | Avatar picture size.                         |
-| line       | String | 'none'                                            | 'none'/'solid'/'dashed'/'dotted'      | N        | Border style.                                |
-| injClass   | String | ''                                                | Class                                 | N        | Inject the CSS name.                         |
+| Name     | Type                                          | Default                                             | Required | Description                                                               |
+| -------- | --------------------------------------------- | --------------------------------------------------- | -------- | ------------------------------------------------------------------------- |
+| image    | `string`                                      | `''`                                                | N        | Image path.                                                               |
+| alt      | `string`                                      | `''`                                                | N        | Alternative text, single character recommended.                           |
+| icon     | `Icon`                                        | `{ name: 'ri-user-3-line', theme: true, size: 32 }` | N        | Icon props [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
+| altSize  | `'xs'\|'sm'\|'md'\|'lg'\|'xl'`                | `'md'`                                              | N        | Alternative text size.                                                    |
+| radius   | `'none'\|'base'\|'xl'\|'2xl'\|'3xl'\|'full'`  | `'base'`                                            | N        | Border radius style.                                                      |
+| size     | `'xs'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'` | `'md'`                                              | N        | Avatar frame size.                                                        |
+| imgSize  | `'s'\|'m'\|'l'`                               | `'l'`                                               | N        | Avatar image size.                                                        |
+| line     | `'none'\|'solid'\|'dashed'\|'dotted'`         | `'none'`                                            | N        | Border style.                                                             |
+| injClass | `string`                                      | `''`                                                | N        | Inject CSS class name.                                                    |
 
 ## Avatar Events
 
-| Name  | Parameter | Description       |
-| ----- | --------- | ----------------- |
-| click | -         | Click to trigger. |
+| Name    | Type         | Parameters | Description         |
+| ------- | ------------ | ---------- | ------------------- |
+| onclick | `() => void` | -          | Triggered on click. |
 
 ## Avatars Props
 
-| Properties | Type    | Default value | Optional value                        | required | Description                               |
-| ---------- | ------- | ------------- | ------------------------------------- | -------- | ----------------------------------------- |
-| data       | Array   | []            | -                                     | N        | The avatar data composed of Avatar Props. |
-| radius     | String  | 'full'        | 'none'/'base'/'xl'/'2xl'/'3xl'/'full' | N        | Round -corner style.                      |
-| size       | String  | 'md'          | 'xs'/'sm'/'base'/'md'/'lg'/'xl'       | N        | The size of the avatar box.               |
-| compact    | Number  | 5             | 1-10                                  | N        | Compactness, the larger the more compact. |
-| lineWidth  | String  | 3             | '0'/'1'/'2'/'3'/'4'/'8'               | N        | Border thickness.                         |
-| reverse    | Boolean | false         | true/false                            | N        | Whether to reverse.                       |
-| max        | Number  | 10            | -                                     | N        | Maximum maximum display quantity.         |
-| top        | String  | 0             | 'totle'/'add'/'none'/Slot             | N        | Top content.                              |
-| injClass   | String  | ''            | Class                                 | N        | Inject the CSS name.                      |
+| Name      | Type                                          | Default   | Required | Description                                                                                |
+| --------- | --------------------------------------------- | --------- | -------- | ------------------------------------------------------------------------------------------ |
+| data      | `Avatar[]`                                    | `[]`      | N        | Avatar data array composed of Avatar Props.                                                |
+| radius    | `'none'\|'base'\|'xl'\|'2xl'\|'3xl'\|'full'`  | `'full'`  | N        | Border radius style.                                                                       |
+| size      | `'xs'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'` | `'md'`    | N        | Avatar frame size.                                                                         |
+| compact   | `number`                                      | `5`       | N        | Compactness level, larger value means more compact.                                        |
+| lineWidth | `'0'\|'1'\|'2'\|'3'\|'4'\|'8'`                | `'3'`     | N        | Border width.                                                                              |
+| reverse   | `boolean`                                     | `false`   | N        | Whether to reverse the order.                                                              |
+| max       | `number`                                      | `10`      | N        | Maximum number of avatars to display.                                                      |
+| top       | `'totle'\|'add'\|null\|Snippet`               | `'totle'` | N        | Top content, Note: type [Snippet](https://svelte.dev/docs/svelte/snippet#Typing-snippets). |
+| injClass  | `string`                                      | `''`      | N        | Inject CSS class name.                                                                     |
 
 ## Avatars Events
 
-| Name       | Parameter | Description                    |
-| ---------- | --------- | ------------------------------ |
-| clickgroup | -         | Click avatar group to trigger. |
+| Name    | Type         | Parameters | Description                          |
+| ------- | ------------ | ---------- | ------------------------------------ |
+| onclick | `() => void` | -          | Triggered when avatar group clicked. |

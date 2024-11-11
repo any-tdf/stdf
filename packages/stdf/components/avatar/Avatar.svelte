@@ -46,10 +46,10 @@
 	// 边框风格样式
 	// border style
 	const lineObj = {
-		none: '',
-		solid: 'border border-solid border-primary dark:border-dark',
-		dashed: 'border border-dashed border-primary dark:border-dark',
-		dotted: 'border border-dotted border-primary dark:border-dark',
+		none: ' ',
+		solid: ' border border-solid border-primary dark:border-dark',
+		dashed: ' border border-dashed border-primary dark:border-dark',
+		dotted: ' border border-dotted border-primary dark:border-dark',
 	};
 
 	// 替换文本大小样式
@@ -61,15 +61,10 @@
 	const iconSizeObj = { xs: 12, sm: 20, base: 24, md: 32, lg: 40, xl: 56, '2xl': 64 };
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div
-	class={`bg-primary-200 dark:bg-dark-200 flex justify-center overflow-hidden relative ${lineObj[line] || ''} ${
-		sizeObj[size] || sizeObj.md
-	} ${radiusObj[radius] || radiusObj.base} ${injClass}`}
-	onclick={() => {
-		onclick && onclick();
-	}}
+<button
+	class="bg-primary-200 dark:bg-dark-200 flex justify-center overflow-hidden relative{lineObj[line] || ''} {sizeObj[size] ||
+		sizeObj.md} {radiusObj[radius] || radiusObj.base} {injClass}"
+	onclick={() => onclick && onclick()}
 >
 	{#if image === '' && alt === ''}
 		<div class="m-auto">
@@ -77,7 +72,7 @@
 		</div>
 	{:else if image === '' && alt !== ''}
 		<div
-			class={`text-center text-primary-950 dark:text-dark-950 ${altSizeObj[altSize] || altSizeObj.md}`}
+			class="text-center text-primary-950 dark:text-dark-950 {altSizeObj[altSize] || altSizeObj.md}"
 			style="position: absolute;top: 50%;left:50%;transform: translate(-50%, -50%);"
 		>
 			{alt}
@@ -86,10 +81,10 @@
 		<div class="m-auto text-center">
 			<img
 				src={image}
-				class={`object-cover inline-block ${imgSizeObj[imgSize] || imgSizeObj.l}`}
+				class="object-cover inline-block {imgSizeObj[imgSize] || imgSizeObj.l}"
 				alt=""
 				style="position: absolute;top: 50%;left:50%;transform: translate(-50%, -50%);"
 			/>
 		</div>
 	{/if}
-</div>
+</button>

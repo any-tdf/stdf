@@ -1,6 +1,6 @@
 <!-- Avatar Demo -->
 <script>
-	import { Avatar, Avatars, Divider } from '../../../../../packages/stdf/components';
+	import { Avatar, Avatars, Divider, Icon } from '../../../../../packages/stdf/components';
 
 	const icons = [
 		{ name: 'ri-aliens-fill', theme: true, top: -1, size: 16 },
@@ -9,21 +9,22 @@
 		{ name: 'ri-emotion-line', theme: true, top: -1, size: 46 },
 	];
 
-	const data = [
-		{ image: '/assets/images/dota_火女.png' },
-		{ image: '/assets/images/dota_火枪.png' },
-		{ image: '/assets/images/dota_小牛.png' },
-		{ image: '/assets/images/wall_1.jpg' },
-		{ image: '/assets/images/dota_斯温.png' },
-		{ image: '/assets/images/dota_水人.png' },
-		{ image: '/assets/images/wall_2.jpg' },
-		{ image: '/assets/images/wall_3.jpg' },
-		{ image: '/assets/images/wall_4.jpg' },
-		{ image: '/assets/images/avatar_1.jpg' },
-		{ image: '/assets/images/dota_火枪.png' },
-		{ image: '/assets/images/dota_小牛.png' },
-		{ image: '/assets/images/dota_斯温.png' },
+	const imgNames = [
+		'dota_火女.png',
+		'dota_火枪.png',
+		'dota_小牛.png',
+		'wall_1.jpg',
+		'dota_斯温.png',
+		'dota_水人.png',
+		'wall_2.jpg',
+		'wall_3.jpg',
+		'wall_4.jpg',
+		'avatar_1.jpg',
+		'dota_火枪.png',
+		'dota_小牛.png',
+		'dota_斯温.png',
 	];
+	const data = imgNames.map(name => ({ image: `/assets/images/${name}` }));
 </script>
 
 <div class="py-8 px-4">
@@ -121,5 +122,16 @@
 	<Avatars {data} top="add" />
 
 	<div class="font-bold mt-6 mb-2">Do not show top layer</div>
-	<Avatars {data} top="none" />
+	<Avatars {data} top={null} />
+
+	<div class="font-bold mt-6 mb-2">Custom top layer</div>
+	<Avatars {data}>
+		{#snippet top()}
+			<button class="bg-primary-200 dark:bg-dark-200 flex justify-center overflow-hidden relative w-12 h-12 rounded-full">
+				<div class="flex justify-center items-center w-full h-full text-primary-950 dark:text-dark-950">
+					<Icon name="ri-svelte-line" />
+				</div>
+			</button>
+		{/snippet}
+	</Avatars>
 </div>

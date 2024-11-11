@@ -14,7 +14,7 @@
 		max = 10,
 		top = 'totle',
 		injClass = '',
-		onclickGroup,
+		onclick,
 	} = $props();
 
 	// 圆角风格样式
@@ -29,14 +29,7 @@
 	};
 	// 边框粗细样式
 	// border width style
-	const lineWidthClass = {
-		0: 'ring-0',
-		1: 'ring-1',
-		2: 'ring-2',
-		3: 'ring',
-		4: 'ring-4',
-		8: 'ring-8',
-	};
+	const lineWidthClass = { 0: 'ring-0', 1: 'ring-1', 2: 'ring-2', 3: 'ring', 4: 'ring-4', 8: 'ring-8' };
 
 	// 头像框大小样式
 	// avatar size style
@@ -52,26 +45,12 @@
 
 	// 替换文本大小样式
 	// replace text size style
-	const textSizeObj = {
-		xs: 'text-xs',
-		sm: 'text-sm',
-		base: 'text-lg',
-		md: 'text-3xl',
-		lg: 'text-4xl',
-		xl: 'text-6xl',
-	};
+	const textSizeObj = { xs: 'text-xs', sm: 'text-sm', base: 'text-lg', md: 'text-3xl', lg: 'text-4xl', xl: 'text-6xl' };
 
 	const dataInner = data.slice(0, max);
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div
-	class="flex"
-	onclick={() => {
-		onclickGroup && onclickGroup();
-	}}
->
+<button class="flex" onclick={() => onclick && onclick()}>
 	{#if reverse}
 		<div
 			class="relative {lineWidthClass[lineWidth] || lineWidthClass[2]} ring-primaryWhite dark:ring-darkBlack {radiusObj[radius] ||
@@ -93,9 +72,7 @@
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>
-			{:else if top === 'none'}
-				<!-- none -->
-			{:else}
+			{:else if top === null}{:else}
 				{@render top?.()}
 			{/if}
 		</div>
@@ -130,11 +107,9 @@
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>
-			{:else if top === 'none'}
-				<!-- none -->
-			{:else}
+			{:else if top === null}{:else}
 				{@render top?.()}
 			{/if}
 		</div>
 	{/if}
-</div>
+</button>
