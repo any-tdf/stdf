@@ -74,17 +74,18 @@
 </script>
 
 <div
-	class={`${heightOutObj[heightOut] || heightOutObj['2']} ${size === 'big' && !customSize ? 'px-4' : 'px-0'} ${
-		block ? 'block' : 'inline'
-	} ${love ? 'text-xl' : ''}`}
+	class="{heightOutObj[heightOut] || heightOutObj['2']} {size === 'big' && !customSize ? 'px-4' : 'px-0'} {block ? 'block' : 'inline'} {love
+		? 'text-xl'
+		: ''}"
 >
 	<button
 		{onclick}
-		class={`truncate inline-flex items-center justify-center gap-1 ${!group && !innerDisabled ? 'active:opacity-80' : ''} ${heightInObj[heightIn] || heightInObj['3']} ${
-			sizeObj[size] || sizeObj.big
-		} ${textColor} ${lineObj[line] || lineObj.solid} ${radiusObj[radius] || radiusObj.base} ${
-			fill === 'base' && (stateObj[state] || stateObj.theme)
-		} ${fillObj[fill] || fillObj.base} ${injClass} ${innerDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+		class="truncate inline-flex items-center justify-center gap-1 {!group && !innerDisabled ? 'active:opacity-80' : ''} {heightInObj[
+			heightIn
+		] || heightInObj['3']} {sizeObj[size] || sizeObj.big} {textColor} {lineObj[line] || lineObj.solid} {radiusObj[radius] ||
+			radiusObj.base} {fill === 'base' && (stateObj[state] || stateObj.theme)} {fillObj[fill] || fillObj.base} {injClass} {innerDisabled
+			? 'cursor-not-allowed opacity-50'
+			: ''}"
 		disabled={innerDisabled}
 		style={customSize ? `width:${customWidth}px;height:${customHeight}px;padding:0;` : ''}
 	>

@@ -2,7 +2,7 @@
 <script>
 	import { Button, Icon, Toast, Loading } from '../../../../../packages/stdf/components';
 
-	let visible = false;
+	let visible = $state(false);
 </script>
 
 <div class="flex flex-col space-y-8 py-8">
@@ -133,38 +133,34 @@
 		<div class="p-4 font-bold">Button group</div>
 		<Button fill="lineTheme" heightIn="0" group>
 			<div class="flex w-full">
-				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
+				<button class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					Application
-				</div>
-				<div class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
+				</button>
+				<button class="flex-1 border-r border-primary dark:border-dark py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					Collect
-				</div>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div class="flex-1 py-2 active:opacity-80" on:click={() => (visible = true)}>
+				</button>
+				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
 					<Icon name="ri-share-forward-line" size={18} top={-2} />
 					Share
-				</div>
+				</button>
 			</div>
 		</Button>
 		<Button radius="full" heightIn="0" group>
 			<div class="flex w-full">
-				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
+				<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-apps-2-line" size={18} top={-2} />
 					Application
-				</div>
-				<div class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
+				</button>
+				<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80">
 					<Icon name="ri-star-line" size={18} top={-2} />
 					Collect
-				</div>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-interactive-supports-focus -->
-				<div class="flex-1 py-2 active:opacity-80" on:click={() => (visible = true)} role="button">
+				</button>
+				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
 					<Icon name="ri-share-forward-line" size={18} top={-2} />
 					Share
-				</div>
+				</button>
 			</div>
 		</Button>
 	</div>

@@ -1,33 +1,33 @@
 ## Button Props
 
-| property        | type        | default value | optional value                               | required | description                                       |
-| --------------- | ----------- | ------------- | -------------------------------------------- | -------- | ------------------------------------------------- |
-| fill            | String      | 'base'        | base/line/lineLight/lineTheme/text/textTheme | N        | fill mode.                                        |
-| state           | String      | 'theme'       | theme/success/warning/error/info             | N        | Status color, theme means follow the theme color. |
-| radius          | String      | 'base'        | none/base/xl/2xl/full                        | N        | Rounded corner style.                             |
-| size            | String      | 'big'         | full/big/md/sm/auto                          | N        | size.                                             |
-| line            | String      | 'solid'       | solid/dashed/dotted                          | N        | border style.                                     |
-| heightOut       | String      | '2'           | '0'/'1'/'2'/'4'                              | N        | Button outer height.                              |
-| heightIn        | String      | '3'           | '0'/'1'/'2'/'4'                              | N        | Button height.                                    |
-| injClass        | String      | ''            | Class                                        | N        | Inject CSS name.                                  |
-| love            | Boolean     | false         | true/false                                   | N        | Whether to open the love version.                 |
-| group           | Boolean     | false         | true/false                                   | N        | Whether to use a button group.                    |
-| disabled        | Boolean     | false         | true/false                                   | N        | Whether to disable.                               |
-| customSize      | Boolean     | false         | true/false                                   | N        | Whether to customize the size.                    |
-| customWidth     | Number      | 0             | -                                            | N        | Customize the width.                              |
-| customHeight    | Number      | 0             | -                                            | N        | Customize the height.                             |
-| icon            | Object/null | null          | Reference Icon Props                         | N        | Icon params.                                      |
-| loading         | Object/null | null          | Reference Loading Props                      | N        | Loading params.                                   |
-| disabledLoading | Boolean     | false         | true/false                                   | N        | Whether to disable when using loading.            |
+| Name            | Type                                                                          | Default   | Required | Description                                                                        |
+| --------------- | ----------------------------------------------------------------------------- | --------- | -------- | ---------------------------------------------------------------------------------- |
+| fill            | `'base'\|'line'\|'lineLight'\|'lineTheme'\|'text'\|'textTheme'\|'colorLight'` | `'base'`  | N        | Fill mode.                                                                         |
+| state           | `'theme'\|'success'\|'warning'\|'error'\|'info'`                              | `'theme'` | N        | Status color, theme means following theme color.                                   |
+| radius          | `'none'\|'base'\|'xl'\|'2xl'\|'full'`                                         | `'base'`  | N        | Border radius style.                                                               |
+| size            | `'full'\|'big'\|'md'\|'sm'\|'auto'`                                           | `'big'`   | N        | Size.                                                                              |
+| line            | `'solid'\|'dashed'\|'dotted'`                                                 | `'solid'` | N        | Border style.                                                                      |
+| heightOut       | `'0'\|'1'\|'2'\|'3'\|'4'`                                                     | `'2'`     | N        | Button outer height.                                                               |
+| heightIn        | `'0'\|'1'\|'2'\|'3'\|'4'`                                                     | `'3'`     | N        | Button height.                                                                     |
+| injClass        | `string`                                                                      | `''`      | N        | Inject CSS class name.                                                             |
+| love            | `boolean`                                                                     | `false`   | N        | Whether to enable care version.                                                    |
+| group           | `boolean`                                                                     | `false`   | N        | Whether to use button group.                                                       |
+| disabled        | `boolean`                                                                     | `false`   | N        | Whether to disable.                                                                |
+| customSize      | `boolean`                                                                     | `false`   | N        | Whether to use custom size.                                                        |
+| customWidth     | `number`                                                                      | `0`       | N        | Custom width.                                                                      |
+| customHeight    | `number`                                                                      | `0`       | N        | Custom height.                                                                     |
+| icon            | `Icon\|null`                                                                  | `null`    | N        | Icon props [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).          |
+| loading         | `Loading\|null`                                                               | `null`    | N        | Loading props [Loading Props](https://stdf.design/#/components?nav=loading&tab=1). |
+| disabledLoading | `boolean`                                                                     | `false`   | N        | Whether to disable when loading.                                                   |
 
 ## Button Events
 
-| Name  | Parameters | Description       |
-| ----- | ---------- | ----------------- |
-| click | -          | Click to trigger. |
+| Name    | Type         | Parameters | Description         |
+| ------- | ------------ | ---------- | ------------------- |
+| onclick | `() => void` | -          | Triggered on click. |
 
-## Button Slots
+## Button Snippets
 
-| Name | Description     |
-| ---- | --------------- |
-| -    | Button content. |
+| Name     | Description     |
+| -------- | --------------- |
+| children | Button content. |
