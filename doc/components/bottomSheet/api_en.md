@@ -1,34 +1,34 @@
 ## BottomSheet Props
 
-| Properties      | Type    | Default value                      | Optional value                     | required | Description                                                        |
-| --------------- | ------- | ---------------------------------- | ---------------------------------- | -------- | ------------------------------------------------------------------ |
-| visible         | Boolean | false                              | true/false                         | N        | Whether to display.                                                |
-| title           | String  | Current language bottomSheet.title | -                                  | N        | title.                                                             |
-| titleAlign      | String  | 'left'                             | 'left'/'center'/'right'            | N        | Title alignment method.                                            |
-| showBackIcon    | Boolean | false                              | true/false                         | N        | Whether the icon is returned.                                      |
-| closeContent    | String  | 'downIcon'                         | 'downIcon'/'closeIcon'/''/Any text | N        | Close the area content.                                            |
-| showDivider     | Boolean | true                               | true/false                         | N        | Whether to display the segmentation line.                          |
-| duration        | Number  | 450                                | -                                  | N        | The time of transition animation, unit: ms.                        |
-| outDuration     | Number  | 240                                | -                                  | N        | The exit time of the transition animation, unit: ms.               |
-| mask            | Object  | {}                                 | refer to Mask Props                | N        | Cover layer parameters.                                            |
-| maskClosable    | Boolean | false                              | true/false                         | N        | Click whether the mask layer is closed.                            |
-| zIndex          | Number  | 600                                | -                                  | N        | z-index.                                                           |
-| stayHeightList  | Array   | [10, 50, 90]                       | -                                  | N        | List of fixed height.                                              |
-| stayHeightIndex | Number  | 1                                  | stayHeightList Index value         | N        | Initial fixed height index.                                        |
-| closeHeight     | Number  | 0                                  | 0-100                              | N        | At the end of the sliding, the position is lower than this height. |
-| radius          | String  | 'full'                             | 'none'/'base'/'full'               | N        | Round -corner style.                                               |
+| Name            | Type                                  | Default                        | Required | Description                                                                    |
+| --------------- | ------------------------------------- | ------------------------------ | -------- | ------------------------------------------------------------------------------ |
+| visible         | `boolean`                             | `false`                        | N        | Whether to display.                                                            |
+| title           | `string`                              | Current lang bottomSheet.title | N        | Title.                                                                         |
+| titleAlign      | `'left'\|'center'\|'right'`           | `'left'`                       | N        | Title alignment.                                                               |
+| showBackIcon    | `boolean`                             | `false`                        | N        | Whether to show back icon.                                                     |
+| closeContent    | `'downIcon'\|'closeIcon'\|''\|string` | `'downIcon'`                   | N        | Close area content.                                                            |
+| showDivider     | `boolean`                             | `true`                         | N        | Whether to show divider.                                                       |
+| duration        | `number`                              | `450`                          | N        | Transition animation appear time, unit: ms.                                    |
+| outDuration     | `number`                              | `240`                          | N        | Transition animation exit time, unit: ms.                                      |
+| mask            | `Mask`                                | `{}`                           | N        | Mask parameters [Mask Props](https://stdf.design/#/components?nav=mask&tab=1). |
+| maskClosable    | `boolean`                             | `false`                        | N        | Whether to close when clicking mask.                                           |
+| zIndex          | `number`                              | `600`                          | N        | z-index.                                                                       |
+| stayHeightList  | `number[]`                            | `[10, 50, 90]`                 | N        | Fixed height list.                                                             |
+| stayHeightIndex | `number`                              | `1`                            | N        | Initial fixed height index.                                                    |
+| closeHeight     | `number`                              | `0`                            | N        | Auto close when position is lower than this height after sliding ends.         |
+| radius          | `'none'\|'base'\|'full'`              | `'full'`                       | N        | Border radius style.                                                           |
 
 ## BottomSheet Events
 
-| Name         | Parameter                                          | Description                                                                                            |
-| ------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| close        | -                                                  | Triggered when the floating window is turned off.                                                      |
-| clickMask    | -                                                  | Triggered when clicking the floating window mask, even if MaskClosable is false, it will be triggered. |
-| back         | -                                                  | Trigger when clicking the icon on the left.                                                            |
-| heightChange | EVENT: Event object, where it is a current height. | Triggered at the end of sliding.                                                                       |
+| Name           | Type                       | Parameters              | Description                                                  |
+| -------------- | -------------------------- | ----------------------- | ------------------------------------------------------------ |
+| onclose        | `() => void`               | -                       | Triggered when popup closes.                                 |
+| onclickMask    | `() => void`               | -                       | Triggered when clicking mask, even if maskClosable is false. |
+| onback         | `() => void`               | -                       | Triggered when clicking left back icon.                      |
+| onheightChange | `(height: number) => void` | height - Current height | Triggered when sliding ends.                                 |
 
-## BottomSheet Slots
+## BottomSheet Snippets
 
-| Name | Description          |
-| ---- | -------------------- |
-| -    | BottomSheet content. |
+| Name     | Description          |
+| -------- | -------------------- |
+| children | BottomSheet content. |

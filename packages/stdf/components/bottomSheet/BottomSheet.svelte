@@ -110,27 +110,15 @@
 
 	// 标题对齐方式
 	// title align
-	const titleAlignClass = {
-		left: ' text-left',
-		center: ' text-center',
-		right: ' text-right',
-	};
+	const titleAlignClass = { left: ' text-left', center: ' text-center', right: ' text-right' };
 
 	// 窗口圆角风格
 	// window radius style
-	const windowRadiusClass = {
-		none: ' rounded-none',
-		base: ' rounded-t-lg',
-		full: ' rounded-t-2xl',
-	};
+	const windowRadiusClass = { none: ' rounded-none', base: ' rounded-t-lg', full: ' rounded-t-2xl' };
 
 	// 图标圆角风格
 	// icon radius style
-	const iconRadiusClass = {
-		none: ' rounded-none',
-		base: ' rounded',
-		full: ' rounded-full',
-	};
+	const iconRadiusClass = { none: ' rounded-none', base: ' rounded', full: ' rounded-full' };
 
 	// 滑动开始
 	// start sliding
@@ -247,7 +235,7 @@
 </script>
 
 {#if visible}
-	<Mask visible {duration} {outDuration} {...mask} on:clickMask={clickMaskFn} />
+	<Mask visible {duration} {outDuration} {...mask} onclickMask={clickMaskFn} />
 {/if}
 
 <div class={`fixed w-screen h-screen inset-0 flex flex-col justify-end px-0 pointer-events-none`} style={`z-index:${zIndex};`}>
@@ -270,14 +258,12 @@
 				<div class={`w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto${radius === 'none' ? ' rounded-none' : ' rounded-full'}`}></div>
 				<div class="px-3 py-1 flex justify-between items-center gap-2">
 					{#if showBackIcon}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
+						<button
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
 							onclick={backFunc}
 						>
 							<Icon name="ri-arrow-left-s-line" alpha={0.4} size={16} top={-2} />
-						</div>
+						</button>
 					{/if}
 					<div class={`font-bold text-lg h-7 truncate grow${titleAlignClass[titleAlign] || titleAlignClass['left']}`}>
 						{title}
@@ -285,27 +271,21 @@
 					{#if closeContent === ''}
 						<!-- null -->
 					{:else if closeContent === 'closeIcon'}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
+						<button
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
 							onclick={closeFunc}
 						>
 							<Icon name="ri-close-line" alpha={0.4} size={14} top={-2} />
-						</div>
+						</button>
 					{:else if closeContent === 'downIcon'}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
+						<button
 							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
 							onclick={closeFunc}
 						>
 							<Icon name="ri-arrow-down-s-line" alpha={0.4} size={16} top={-1} />
-						</div>
+						</button>
 					{:else}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div class="text-primary dark:text-dark font-bold cursor-pointer" onclick={closeFunc}>{closeContent}</div>
+						<button class="text-primary dark:text-dark font-bold cursor-pointer" onclick={closeFunc}>{closeContent}</button>
 					{/if}
 				</div>
 			</div>

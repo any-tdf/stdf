@@ -16,4 +16,4 @@ BottomSheet 的高度由 stayHeightList 决定，stayHeightList 是由多个 0-1
 
 ## 事件
 
-BottomSheet 支持通过 close/back/heightChange 来监听关闭、返回、固定高度变化事件，而 clickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
+BottomSheet 支持通过 onclose/onback/onheightChange 来监听关闭、返回、固定高度变化事件，而 onclickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
