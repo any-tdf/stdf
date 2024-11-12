@@ -26,7 +26,7 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 
 ## 图标名称
 
-name 为 'slot' 表示使用插槽渲染，其他字符如 'ri-home-line' 使用 symbol.svg 中对应的 SVG 图标渲染。
+当传入 Snippet 时表示图标内部使用传入的元素渲染，其他字符如 'ri-home-line' 使用 symbol.svg 中对应的 SVG 图标渲染。
 
 ## 图标颜色
 
@@ -34,7 +34,7 @@ name 为 'slot' 表示使用插槽渲染，其他字符如 'ri-home-line' 使用
 
 ## 颜色优先级
 
-颜色优先级 slot > injClass > theme > 默认。
+颜色优先级 Snippet > injClass > theme > 默认。
 
 ## 偏移量
 
@@ -44,6 +44,6 @@ name 为 'slot' 表示使用插槽渲染，其他字符如 'ri-home-line' 使用
 
 通过 injClass 参数可以向组件内部最外层元素注入 CSS 名称（不仅限于 Tailwind CSS），这将使组件样式有更多自定义可能性。因为 CSS 注入于最后，此时最外层元素若已有同属性 CSS 将会以 injClass 为准，这也是通过 injClass 实现自定义图标颜色的原因。
 
-## 插槽
+## Snippet
 
-可放入任何元素（甚至 Icon 组件自身），当然主要用于自定义图标或自定义图标颜色，如将自定义 SVG 放入 Icon 组件，请注意 SVG 的 viewBox、height、width 关系与 display 属性。此时图标内容取决于传入的元素，Props 中的 name、size、theme 等参数都将失效。通过插槽将使组件内容有更多自定义可能性。
+可放入任何元素（甚至 Icon 组件自身），当然主要用于自定义图标或自定义图标颜色，如将自定义 SVG 放入 Icon 组件，请注意 SVG 的 viewBox、height、width 关系与 display 属性。此时图标内容取决于传入的元素，Props 中的 name、size、theme 等参数都将失效。通过 Snippet 将使组件内容有更多自定义可能性。

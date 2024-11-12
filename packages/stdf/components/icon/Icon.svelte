@@ -5,10 +5,8 @@
 </script>
 
 <i class={`cursor-pointer relative ${theme ? 'text-primary dark:text-dark' : ''} ${injClass}`} style="top:{top}px;">
-	{#if name === 'slot'}
-		{#if children}
-			{@render children()}
-		{/if}
+	{#if children}
+		{@render children()}
 	{:else}
 		<svg width={size} height={size === 'full' ? '100%' : size} style="fill: currentColor;fill-opacity: {alpha};display: inline;">
 			<use xlink:href="/{path}#{name}" />

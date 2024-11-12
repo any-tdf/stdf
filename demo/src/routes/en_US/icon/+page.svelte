@@ -63,27 +63,22 @@
 	</div>
 	<div>
 		<div class="mb-2 font-bold text-xl">
-			Custom color<span class="ml-2 text-xs font-normal">by slot</span>
+			Custom color<span class="ml-2 text-xs font-normal">by Snippet</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
-					<Icon name="slot">
-						<i class="text-[#266CF6] dark:text-[#C84031]">
-							<Icon name={icon} />
-						</i>
-					</Icon>
+					<Icon><i class="text-[#266CF6] dark:text-[#C84031]"> <Icon name={icon} /></i></Icon>
 				</div>
 			{/each}
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 font-bold text-xl">Slot</div>
+		<div class="mb-2 font-bold text-xl">Snippet</div>
 		<div class="flex flex-wrap justify-between">
-			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each icons as icon, index}
 				<div class="py-2 text-center flex-1">
-					<Icon name="slot">
+					<Icon>
 						<svg
 							height="24"
 							width="24"
@@ -106,7 +101,6 @@
 	<div>
 		<div class="mb-2 font-bold text-xl">Offset</div>
 		<div class="flex flex-wrap justify-between">
-			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each icons as icon, i}
 				<div class="py-2 text-center flex-1">
 					<Icon name={icons[1]} top={-4 + i * 2} />

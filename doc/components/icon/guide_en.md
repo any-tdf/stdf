@@ -1,49 +1,49 @@
 ## Background
 
-STDF uses SVG Sprites technology for icons, which helps reduce HTTP requests and improve page performance.
+STDF uses SVG Sprites technology for icons, which reduces HTTP requests and improves page performance.
 
-STDF's SVG Sprites use [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), which is similar to CSS Sprite technique. It combines SVG files in the project into a single file and uses the `<use>` element in SVG to display the corresponding icons.
+STDF's SVG Sprites uses [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), with a principle similar to CSS Sprite technology - combining project SVG files into one file and displaying icons through the SVG use element.
 
-You can think of it as a type of font, except that it is composed of SVG and can be styled using CSS properties such as color and size. Therefore, for larger or more complex icons with multiple colors, it is recommended to use individual SVG files instead of placing them in the symbol.
+You can think of it as a font, except it's composed of SVGs and can be styled with CSS properties like color and size. For large or complex icons with multiple colors, it's recommended to import SVG files separately rather than including them in the symbol.
 
-Compatibility is not an issue. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility) for more information.
+Browser compatibility is not an issue. See [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
 
 ## rollup-plugin-stdf-icon
 
-STDF has developed a Rollup/Vite plugin called rollup-plugin-stdf-icon, which combines SVG files in the project into SVG Sprites. Please refer to [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) for specific usage. Due to the diversity of SVG formats, there may be cases where rollup-plugin-stdf-icon does not handle them accurately. In such cases, please raise an issue on [GitHub](https://github.com/any-tdf/stdf/issues) and provide details about the SVG file.
+STDF has developed a Rollup/Vite plugin to merge SVG files into SVG Sprites. For usage details, see [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon). Due to SVG format variations, if you encounter any issues with rollup-plugin-stdf-icon processing, please submit an issue on [GitHub](https://github.com/any-tdf/stdf/issues) with specific SVG file details.
 
-Alternatively, you can use other SVG Sprites synthesis tools or manually combine them. You can also ask the designer to provide the corresponding SVG Sprites along with the design materials.Or, for icon libraries like Remix Icon, you can directly download a selection of multiple icons as SVG Sprites.
+You can also use other SVG Sprites generation tools, manual compilation, or request SVG Sprites from designers along with design assets. Icon libraries like Remix Icon allow direct download of selected icons as SVG Sprites.
 
 ## Built-in Icons
 
-Some of the icons used in STDF components are sourced from [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). Many thanks to them! 🙏🏻🙏🏻
+Some STDF components use icons from [Remix Icon](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). We express our gratitude 🙏🏻🙏🏻.
 
-**If you are using these components, please make sure that the `symbol.svg` file in your project includes the corresponding icons.**
+**When using these components, ensure your project's symbol.svg includes the corresponding icons.**
 
-Please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon) for details.
+For details, refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
-You can find the SVG source files for these icons in `node_modules/stdf/assets/svg_base/`.
+You can find SVG source files in `node_modules/stdf/assets/svg_base/`.
 
-## Icon Name
+## Icon Names
 
-If the `name` is `'slot'`, use a slot to render, otherwise use the corresponding SVG icon in `symbol.svg` to render.
+When a Snippet is passed, the icon renders using the passed element. Other strings like 'ri-home-line' render the corresponding SVG icon from symbol.svg.
 
-## Icon Color
+## Icon Colors
 
-If `theme` is not passed or passed in as `false`, the icon color will inherit the parent's text color. If `true` is passed, the icon color will change according to the theme (including light and dark modes). If you want to achieve a custom color and the color includes both light and dark modes, it is recommended to use CSS injection or slot rendering, and configure the light and dark colors in `injClass` or slots separately. Please refer to the example.
+Without theme prop or when set to false, icons inherit parent text color. When true, icons follow theme colors (including light/dark modes). For custom colors with light/dark mode support, use CSS injection or slot rendering with injClass or slots configured for both modes. See examples.
 
 ## Color Priority
 
-Color priority: slot > injClass > theme > default.
+Color priority: Snippet > injClass > theme > default.
 
-## Offset
+## Vertical Offset
 
-In European and West Asian typesetting, there is a baseline, but there is no baseline in East Asian typesetting, refer to [MDN](https://developer.mozilla.org/en-US/docs/Glossary/baseline). However, due to differences in fonts in different systems, it may cause misalignment when icons are arranged together with text. Adjust the offset to fine-tune these alignments. Or, for some icons, due to differences in visual gravity, an offset is required when laying out to maintain visual balance.
+European and West Asian typography has a baseline, while East Asian text doesn't. See [MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/baseline). Due to differences in system fonts, icons may misalign with text. Use the offset to fine-tune alignment or balance visual weight of icons.
 
 ## CSS Injection
 
-The `injClass` parameter can be used to inject a CSS class name (not limited to Tailwind CSS) into the outermost element of the component, which will give the component more customizability in terms of style. Because CSS injection comes last, if there are existing CSS properties on the outermost element, `injClass` will override them. This is also the reason for using `injClass` to customize the icon color.
+The injClass parameter injects CSS classes (not limited to Tailwind CSS) into the component's outer element, enabling more style customization. Since CSS injection occurs last, any existing CSS properties on the outer element will be overridden by injClass, which enables custom icon colors.
 
-## Slot
+## Snippet
 
-Any element can be inserted (even the Icon component itself), but mainly used for customizing icons or icon colors, such as inserting custom SVGs into the Icon component. Please note the relationship between the viewBox, height, and width of the SVG and the display property. The icon content depends on the element passed in. The parameters such as name, size, and theme in Props will be invalid. The slot will give the component more customizability in terms of content.
+Can contain any element (even Icon component itself), primarily used for custom icons or colors. When placing custom SVGs in Icon component, note the relationships between SVG viewBox, height, width, and display property. Icon content depends on the passed element, and Props like name, size, theme become ineffective. Snippets enable more customization possibilities for component content.
