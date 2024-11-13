@@ -1,18 +1,24 @@
 ## Mask Props
 
-| Property     | Type    | Default | Options                                       | Required | Description                                         |
-| ------------ | ------- | ------- | --------------------------------------------- | -------- | --------------------------------------------------- |
-| visible      | Boolean | false   | true/false                                    | N        | Whether to display the mask.                        |
-| opacity      | Number  | 0.5     | 0-1                                           | N        | The opacity value of the mask.                      |
-| duration     | Number  | 150     | -                                             | N        | The duration of the appearance animation, in ms.    |
-| outDuration  | Number  | 0       | -                                             | N        | The duration of the disappearance animation, in ms. |
-| inverse      | Boolean | false   | true/false                                    | N        | Whether to invert the background of the mask.       |
-| clickable    | Boolean | false   | true/false                                    | N        | Whether the mask is clickable and penetrable.       |
-| backdropBlur | String  | 'none'  | 'none'/'sm'/'base'/'md'/'lg'/'xl'/'2xl'/'3xl' | N        | The backdrop blur value of the mask.                |
-| zIndex       | Number  | 500     | -                                             | N        | The zIndex value.                                   |
+| Name         | Type                                                                 | Default  | Required | Description                                  |
+| ------------ | -------------------------------------------------------------------- | -------- | -------- | -------------------------------------------- |
+| visible      | `boolean`                                                            | `false`  | N        | Whether to show the mask.                    |
+| opacity      | `'0.1'\|'0.2'\|'0.3'\|'0.4'\|'0.5'\|'0.6'\|'0.7'\|'0.8'\|'0.9'\|'1'` | `'0.5'`  | N        | Opacity of the mask.                         |
+| duration     | `number`                                                             | `150`    | N        | Duration of the show animation in ms.        |
+| outDuration  | `number`                                                             | `0`      | N        | Duration of the hide animation in ms.        |
+| inverse      | `boolean`                                                            | `false`  | N        | Whether to invert the mask background color. |
+| clickable    | `boolean`                                                            | `false`  | N        | Whether the mask is click-through.           |
+| backdropBlur | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'`               | `'none'` | N        | Backdrop blur level.                         |
+| zIndex       | `number`                                                             | `500`    | N        | z-index value.                               |
 
 ## Mask Events
 
-| Name      | Parameters | Description                                                                                              |
-| --------- | ---------- | -------------------------------------------------------------------------------------------------------- |
-| clickMask | -          | Triggered when the mask is clicked on. Note that it will not be triggered if `clickable` is set to true. |
+| Name        | Type         | Parameters | Description                                                             |
+| ----------- | ------------ | ---------- | ----------------------------------------------------------------------- |
+| onclickMask | `() => void` | -          | Triggered when clicking the mask. Not triggered when clickable is true. |
+
+## Mask Snippets
+
+| Name     | Description   |
+| -------- | ------------- |
+| children | Mask content. |

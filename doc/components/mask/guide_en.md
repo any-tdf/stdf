@@ -4,13 +4,13 @@ The Mask component is usually used in combination with other components such as 
 
 ## Animation
 
-The animation effect of the mask is fade, which can be referred to [svelte/transition/fade](https://svelte.dev/docs#run-time-svelte-transition-fade).
+The animation effect of the mask is fade, which can be referred to [svelte/transition/fade](https://svelte.dev/docs/svelte/svelte-transition#fade).
 
 Normally, the mask is placed below other interactive components, so considering the smoothness of appearance and disappearance, there is a short animation (default 150ms) when the mask appears, generally the same length as the content. After the content is displayed, it is generally necessary to close quickly, so the exit animation is 0ms by default, but of course, the exit animation time can also be set through the `outDuration` attribute.
 
 ## Click-through
 
-The Mask can be set whether it can be clicked through by the `clickable` attribute. When it is set to `true`, clicking the mask will not trigger the `clickMask` event.
+The Mask can be set whether it can be clicked through by the `clickable` attribute. When it is set to `true`, clicking the mask will not trigger the `onclickMask` event.
 
 ## Inverse
 
