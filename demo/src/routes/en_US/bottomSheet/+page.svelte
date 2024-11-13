@@ -146,7 +146,7 @@
 	const aphorismsList = aphorisms.sort(() => Math.random() - 0.5).slice(0, num);
 </script>
 
-<div class={`${compact ? '' : 'px-4 py-8 '}divide-y divide-black/5 dark:divide-white/5`}>
+<div class="{compact ? '' : 'px-4 py-8 '}divide-y divide-black/5 dark:divide-white/5">
 	{#each aphorismsList as item}
 		<div class:py-6={num > 1}>
 			<div class="text-sm text-justify">{item.text}</div>
