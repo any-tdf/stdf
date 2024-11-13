@@ -30,27 +30,24 @@
 
 {#if layout === 'v'}
 	<div
-		class={`inline ${weightWObj[weight] || weightWObj['1']} border-black/10 dark:border-white/20 ${mxObj[mx] || mxObj['1']} ${
-			lineObj[line] || lineObj.solid
-		} ${injClass}`}
+		class="inline {weightWObj[weight] || weightWObj['1']} border-black/10 dark:border-white/20 {mxObj[mx] || mxObj['1']} {lineObj[line] ||
+			lineObj.solid} {injClass}"
 	></div>
 {:else}
-	<div class={`flex items-center ${pxObj[px] || pxObj['0']} ${pyObj[py] || pyObj['4']}`}>
+	<div class="flex items-center {pxObj[px] || pxObj['0']} {pyObj[py] || pyObj['4']}">
 		{#if (text !== '' && align !== 'left') || text === ''}
 			<div
-				class={`grow  ${weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 ${
-					lineObj[line] || lineObj.solid
-				}  ${injClass}`}
+				class="grow {weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 {lineObj[line] ||
+					lineObj.solid} {injClass}"
 			></div>
 		{/if}
 		{#if text !== ''}
-			<div class={`flex-none mx-2 text-xs text-gray-400 ${injClass}`}>{text}</div>
+			<div class="flex-none mx-2 text-xs text-gray-400 {injClass}">{text}</div>
 		{/if}
 		{#if (text !== '' && align !== 'right') || text === ''}
 			<div
-				class={`grow  ${weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 ${
-					lineObj[line] || lineObj.solid
-				}  ${injClass}`}
+				class="grow {weightHObj[weight] || weightHObj['1']} border-black/10 dark:border-white/20 {lineObj[line] ||
+					lineObj.solid} {injClass}"
 			></div>
 		{/if}
 	</div>

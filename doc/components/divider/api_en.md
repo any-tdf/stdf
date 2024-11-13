@@ -1,13 +1,13 @@
 ## Divider Props
 
-| Property | Type   | Default  | Options             | Required | Description                                                          |
-| -------- | ------ | -------- | ------------------- | -------- | -------------------------------------------------------------------- |
-| layout   | String | 'h'      | h/v                 | No       | The Orientation of Divider, horizontal or vertical                   |
-| px       | String | '4'      | 0/4/8/16/36         | No       | Left and right paddings (only available for horizontal divider)      |
-| py       | String | '4'      | 0/4/8               | No       | Height (only available for horizontal divider)                       |
-| text     | String | ''       | -                   | No       | Text content (only available for horizontal divider)                 |
-| align    | String | 'center' | left/right/center   | No       | Text alignment (only available for horizontal divider)               |
-| line     | String | 'solid'  | solid/dashed/dotted | No       | Line style                                                           |
-| weight   | String | '1'      | 1/2/4               | No       | Line thickness                                                       |
-| mx       | String | '1'      | 1/2/4               | No       | Spacing between left and right (only available for vertical divider) |
-| injClass | String | ''       | Class               | No       | CSS class name to be injected                                        |
+| Name     | Type                          | Default    | Required | Description                               |
+| -------- | ----------------------------- | ---------- | -------- | ----------------------------------------- |
+| layout   | `'h'\|'v'`                    | `'h'`      | N        | Divider type, horizontal h/vertical v.    |
+| px       | `'0'\|'4'\|'8'\|'16'\|'36'`   | `'0'`      | N        | Left and right padding (horizontal only). |
+| py       | `'0'\|'4'\|'8'`               | `'4'`      | N        | Height (horizontal only).                 |
+| text     | `string`                      | `''`       | N        | Text content (horizontal only).           |
+| align    | `'left'\|'center'\|'right'`   | `'center'` | N        | Text position (horizontal only).          |
+| line     | `'solid'\|'dashed'\|'dotted'` | `'solid'`  | N        | Line style.                               |
+| weight   | `'1'\|'2'\|'4'`               | `'1'`      | N        | Line thickness.                           |
+| mx       | `'1'\|'2'\|'4'`               | `'1'`      | N        | Left and right margin (vertical only).    |
+| injClass | `string`                      | `''`       | N        | Inject CSS class name.                    |

@@ -3,9 +3,9 @@
 	import { Divider } from '../../../../../packages/stdf/components';
 </script>
 
-<div class="flex flex-col space-y-8 py-8 text-left">
+<div class="flex flex-col space-y-8 py-8">
 	<div>
-		<div class="p-4 font-bold">Different length</div>
+		<div class="p-4 font-bold">Different lengths</div>
 		<Divider />
 		<Divider px="4" />
 		<Divider px="8" />
@@ -13,13 +13,13 @@
 		<Divider px="36" />
 	</div>
 	<div>
-		<div class="p-4 font-bold">Include text</div>
-		<Divider text="Zheng Plan" />
-		<Divider px="4" text="Red bank base" />
+		<div class="p-4 font-bold">Text</div>
+		<Divider text="The Guzheng Project" />
+		<Divider px="4" text="Red Cliff Base" />
 	</div>
 	<div>
 		<div class="p-4 font-bold">Different heights</div>
-		<div class="px-4 text-sm">start</div>
+		<div class="px-4 text-sm">Start</div>
 		<Divider py="0" />
 		<div class="px-4 text-sm">Height is 0</div>
 		<Divider />
@@ -29,50 +29,52 @@
 	</div>
 
 	<div>
-		<div class="p-4 font-bold">Text location</div>
+		<div class="p-4 font-bold">Text position</div>
 		<Divider text="Left" align="left" />
 		<Divider text="Center" />
 		<Divider text="Right" align="right" />
 	</div>
 	<div>
 		<div class="p-4 font-bold">Line style</div>
-		<Divider text="solid line" />
-		<Divider line="dashed" text="Dashed line" />
-		<Divider line="dotted" text="Dotted line" />
+		<Divider text="Solid" />
+		<Divider line="dashed" text="Dashed" />
+		<Divider line="dotted" text="Dotted" />
 	</div>
 	<div>
 		<div class="p-4 font-bold">Custom color</div>
-		<Divider injClass="border-blue dark:border-yellow" />
-		<Divider text="Custom line" injClass="border-[red] dark:border-extend1" />
-		<Divider text="Custom text" injClass="text-[red]" />
-		<Divider text="Custom lines and text" injClass="border-[red] text-[blue] dark:text-[yellow]" />
-		<Divider line="dashed" text="Custom dotted line" injClass="border-[#FF5722]" />
+		<Divider injClass="!border-[blue] dark:!border-[yellow]" />
+		<Divider text="Custom line" injClass="!border-[red] dark:!border-[purple]" />
+		<Divider text="Custom text" injClass="!text-[red]" />
+		<Divider text="Custom line and text" injClass="!border-[red] !text-[blue] dark:!text-[purple]" />
+		<Divider line="dashed" text="Custom dashed line" injClass="!border-[#FF5722]" />
 	</div>
 	<div class="px-4">
-		<div class="py-4 font-bold">Vertical segmentation line</div>
+		<div class="py-4 font-bold">Vertical divider</div>
 		<div class="text-sm">
-			Three -day volley<Divider layout="v" />Three -day Lianzhu<Divider layout="v" />Person computer
+			Three days in the sky<Divider layout="v" />Three days in a row<Divider layout="v" />Human computer
 		</div>
 	</div>
 	<div>
-		<div class="p-4 font-bold">Different thickness</div>
+		<div class="p-4 font-bold">Different weights</div>
 		<Divider />
 		<Divider weight="2" />
 		<Divider weight="4" />
 		<div class="px-4 text-sm">
-			Sword<Divider layout="v" />Three -day volley<Divider layout="v" weight="2" />Three -day Lianzhu<Divider layout="v" weight="4" />Person
-			computer
+			Guardian<Divider layout="v" />Three days in the sky<Divider layout="v" weight="2" />Three days in a row<Divider
+				layout="v"
+				weight="4"
+			/>Human computer
 		</div>
 	</div>
 	<div class="px-4">
-		<div class="py-4 font-bold">Custom vertical division line</div>
+		<div class="py-4 font-bold">Custom vertical divider</div>
 		<div class="text-sm">
-			Increase
+			Increase spacing
 			<Divider layout="v" mx="4" />
-			customize
-			<Divider layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
-			color
-			<Divider line="dashed" layout="v" mx="4" injClass="border-[red] dark:border-extend1" />
+			Custom
+			<Divider layout="v" mx="4" injClass="!border-[red] dark:!border-[purple]" />
+			Color
+			<Divider line="dashed" layout="v" mx="4" injClass="!border-[red] dark:!border-[purple]" />
 			Line style
 		</div>
 	</div>
