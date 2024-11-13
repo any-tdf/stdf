@@ -238,13 +238,13 @@
 	<Mask visible {duration} {outDuration} {...mask} onclickMask={clickMaskFn} />
 {/if}
 
-<div class={`fixed w-screen h-screen inset-0 flex flex-col justify-end px-0 pointer-events-none`} style={`z-index:${zIndex};`}>
+<div class="fixed w-screen h-screen inset-0 flex flex-col justify-end px-0 pointer-events-none" style="z-index:{zIndex};">
 	{#if visible}
 		<div
-			class={`fixed w-screen bg-white dark:bg-gray-950${windowRadiusClass[radius] || windowRadiusClass['full']} pointer-events-auto${
-				isTouch ? '' : ' transition-all duration-300'
-			}`}
-			style={`height:${stayHeightList[stayHeightList.length - 1]}%;top:${currentTop}%;`}
+			class="fixed w-screen bg-white dark:bg-gray-950{windowRadiusClass[radius] || windowRadiusClass['full']} pointer-events-auto{isTouch
+				? ''
+				: ' transition-all duration-300'}"
+			style="height:{stayHeightList[stayHeightList.length - 1]}%;top:{currentTop}%"
 			in:fly={{ y: (stayHeightList[stayHeightList.length - 1] / 100) * window.innerHeight, opacity: 1, duration }}
 			out:fly={{ y: (stayHeightList[stayHeightList.length - 1] / 100) * window.innerHeight, opacity: 1, duration: outDuration }}
 		>
@@ -255,31 +255,29 @@
 				bind:this={scrollTopDom}
 				class="py-1 touch-none cursor-move select-none"
 			>
-				<div class={`w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto${radius === 'none' ? ' rounded-none' : ' rounded-full'}`}></div>
+				<div class="w-8 h-1 bg-black/20 dark:bg-white/30 mx-auto{radius === 'none' ? ' rounded-none' : ' rounded-full'}"></div>
 				<div class="px-3 py-1 flex justify-between items-center gap-2">
 					{#if showBackIcon}
 						<button
-							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
+							class="flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={backFunc}
 						>
 							<Icon name="ri-arrow-left-s-line" alpha={0.4} size={16} top={-2} />
 						</button>
 					{/if}
-					<div class={`font-bold text-lg h-7 truncate grow${titleAlignClass[titleAlign] || titleAlignClass['left']}`}>
-						{title}
-					</div>
+					<div class="font-bold text-lg h-7 truncate grow{titleAlignClass[titleAlign] || titleAlignClass['left']}">{title}</div>
 					{#if closeContent === ''}
 						<!-- null -->
 					{:else if closeContent === 'closeIcon'}
 						<button
-							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
+							class="flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={closeFunc}
 						>
 							<Icon name="ri-close-line" alpha={0.4} size={14} top={-2} />
 						</button>
 					{:else if closeContent === 'downIcon'}
 						<button
-							class={`flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center${iconRadiusClass[radius] || iconRadiusClass['full']}`}
+							class="flex-none bg-black/5 dark:bg-white/10 w-6 h-6 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={closeFunc}
 						>
 							<Icon name="ri-arrow-down-s-line" alpha={0.4} size={16} top={-1} />

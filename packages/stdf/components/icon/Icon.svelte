@@ -4,7 +4,7 @@
 	let { name = '', size = 24, theme = false, alpha = 1, path = 'fonts/symbol.svg', top = 0, injClass = '', children } = $props();
 </script>
 
-<i class={`cursor-pointer relative ${theme ? 'text-primary dark:text-dark' : ''} ${injClass}`} style="top:{top}px;">
+<i class="relative{theme ? ' text-primary dark:text-dark' : ''} {injClass}" style="top:{top}px;">
 	{#if children}
 		{@render children()}
 	{:else}
