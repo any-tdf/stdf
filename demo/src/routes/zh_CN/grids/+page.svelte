@@ -2,30 +2,30 @@
 <script>
 	import { Grids, Grid, Placeholder, Switch, Icon, Button } from '../../../../../packages/stdf/components';
 
-	let devices = ['iOS', 'Android', 'Windows', 'macOS', 'Ubuntu'];
-	let curentIndex = 0;
-	$: currentDevice = devices[curentIndex];
+	const devices = ['iOS', 'Android', 'Windows', 'macOS', 'Ubuntu'];
+	let curentIndex = $state(0);
+	let currentDevice = $derived(devices[curentIndex]);
 	const changeDeviceFun = () => {
 		curentIndex === devices.length - 1 ? (curentIndex = 0) : curentIndex++;
 	};
-	let color = false;
-	$: colorCss = `${color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700'}`;
-	const changeColorFun = e => {
-		color = e.detail;
+	let color = $state(false);
+	let colorCss = $derived(`${color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700'}`);
+	const changeColorFun = active => {
+		color = active;
 	};
 	//获取当前时间
 	const date = new Date();
 	//获取当前月份转为汉字
 	const monthArr = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
 	const monthIndex = date.getMonth();
-	$: month = monthArr[monthIndex];
+	let month = $derived(monthArr[monthIndex]);
 	const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 	const hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
 	const minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-	$: time = `${hour}:${minute}`;
+	let time = $derived(`${hour}:${minute}`);
 	//获取中文周几
 	const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-	$: weekDay = week[date.getDay()];
+	let weekDay = $derived(week[date.getDay()]);
 </script>
 
 <div class="font-bold px-4 mt-8">使用占位符示例 3﹡4</div>
@@ -131,22 +131,26 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full" on:change={changeColorFun}>
-							<div slot="false">
-								<Icon name="ri-paint-brush-line" size={12} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-paint-brush-fill" size={12} theme />
-							</div>
+						<Switch inside="child" radius="full" onchange={changeColorFun}>
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-paint-brush-line" size={12} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-paint-brush-fill" size={12} theme />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
-					<div>彩 色</div>
+					<div>彩色</div>
 				</div>
 			</Grid>
 
 			<Grid row="2" col="2">
 				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
-					<Button fill="lineTheme" radius="full" on:click={changeDeviceFun}>切换设备</Button>
+					<Button fill="lineTheme" radius="full" onclick={changeDeviceFun}>切换设备</Button>
 				</div>
 			</Grid>
 			<Grid row="2" col="2">
@@ -199,13 +203,17 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full">
-							<div slot="false">
-								<Icon name="ri-bluetooth-line" size={12} top={-1} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} />
-							</div>
+						<Switch inside="child" radius="full">
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-bluetooth-line" size={12} top={-1} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
 					<div>蓝 牙</div>
@@ -263,13 +271,17 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full">
-							<div slot="false">
-								<Icon name="ri-wifi-off-line" size={12} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-wifi-line" size={12} theme />
-							</div>
+						<Switch inside="child" radius="full">
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-wifi-off-line" size={12} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-wifi-line" size={12} theme />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
 					<div>Wi-Fi</div>

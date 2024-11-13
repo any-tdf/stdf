@@ -25,4 +25,6 @@
 	};
 </script>
 
-<div class={`${rowObj[row] || rowObj['1']}${colObj[col] || colObj['1']}`}>{@render children?.()}</div>
+<div class="{rowObj[row] || rowObj['1']}{colObj[col] || colObj['1']}">
+	{@render children?.()}
+</div>

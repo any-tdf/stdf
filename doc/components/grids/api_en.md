@@ -1,27 +1,27 @@
 ## Grids Props
 
-| Property | Type   | Default | Options                                            | Required | Description                |
-| -------- | ------ | ------- | -------------------------------------------------- | -------- | -------------------------- |
-| cols     | String | '6'     | '1'/'2'/'3'/'4'/'5'/'6'/'7'/'8'/'9'/'10'/'11'/'12' | No       | Number of columns          |
-| gap      | String | '2'     | '0'/'1'/'2'/'4'/'8'                                | No       | Spacing between grid cells |
-| mx       | String | '2'     | '0'/'1'/'2'/'4'/'8'                                | No       | Left and right margin      |
-| my       | String | '2'     | '0'/'1'/'2'/'4'/'8'                                | No       | Top and bottom margin      |
+| Name | Type                                                            | Default | Required | Description       |
+| ---- | --------------------------------------------------------------- | ------- | -------- | ----------------- |
+| cols | `'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'7'\|'8'\|'9'\|'10'\|'11'\|'12'` | `'6'`   | N        | Number of columns |
+| gap  | `'0'\|'1'\|'2'\|'4'\|'8'`                                       | `'2'`   | N        | Cell spacing      |
+| mx   | `'0'\|'1'\|'2'\|'4'\|'8'`                                       | `'2'`   | N        | Horizontal margin |
+| my   | `'0'\|'1'\|'2'\|'4'\|'8'`                                       | `'2'`   | N        | Vertical margin   |
 
-## Grids Slots
+## Grids Snippets
 
-| Name | Description                   |
-| ---- | ----------------------------- |
-| -    | The content inside the Grids. |
+| Name     | Description   |
+| -------- | ------------- |
+| children | Grids content |
 
 ## Grid Props
 
-| Property | Type   | Default | Options                                            | Required | Description                          |
-| -------- | ------ | ------- | -------------------------------------------------- | -------- | ------------------------------------ |
-| col      | String | '1'     | '1'/'2'/'3'/'4'/'5'/'6'/'7'/'8'/'9'/'10'/'11'/'12' | No       | The number of columns the cell spans |
-| row      | String | '1'     | '1'/'2'/'3'/'4'/'5'/'6'                            | No       | The number of rows the cell spans    |
+| Name | Type                                                            | Default | Required | Description                            |
+| ---- | --------------------------------------------------------------- | ------- | -------- | -------------------------------------- |
+| col  | `'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'7'\|'8'\|'9'\|'10'\|'11'\|'12'` | `'1'`   | N        | Number of columns occupied by the cell |
+| row  | `'1'\|'2'\|'3'\|'4'\|'5'\|'6'`                                  | `'1'`   | N        | Number of rows occupied by the cell    |
 
-## Grid Slots
+## Grid Snippets
 
-| Name | Description                  |
-| ---- | ---------------------------- |
-| -    | The content inside the Grid. |
+| Name     | Description  |
+| -------- | ------------ |
+| children | Grid content |

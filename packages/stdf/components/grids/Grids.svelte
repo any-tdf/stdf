@@ -33,6 +33,6 @@
 	const gapObj = { '0': ' gap-0', '1': ' gap-1', '2': ' gap-2', '4': ' gap-4', '8': ' gap-8' };
 </script>
 
-<div class={`grid${colsObj[cols] || colsObj['6']}${mxObj[mx] || mxObj['2']}${myObj[my] || myObj['2']}${gapObj[gap] || gapObj['2']}`}>
+<div class="grid{colsObj[cols] || colsObj['6']}{mxObj[mx] || mxObj['2']}{myObj[my] || myObj['2']}{gapObj[gap] || gapObj['2']}">
 	{@render children?.()}
 </div>

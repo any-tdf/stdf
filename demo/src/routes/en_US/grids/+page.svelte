@@ -2,33 +2,33 @@
 <script>
 	import { Grids, Grid, Placeholder, Switch, Icon, Button } from '../../../../../packages/stdf/components';
 
-	let devices = ['iOS', 'Android', 'Windows', 'macOS', 'Ubuntu'];
-	let curentIndex = 0;
-	$: currentDevice = devices[curentIndex];
+	const devices = ['iOS', 'Android', 'Windows', 'macOS', 'Ubuntu'];
+	let curentIndex = $state(0);
+	let currentDevice = $derived(devices[curentIndex]);
 	const changeDeviceFun = () => {
 		curentIndex === devices.length - 1 ? (curentIndex = 0) : curentIndex++;
 	};
-	let color = false;
-	$: colorCss = `${color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700'}`;
-	const changeColorFun = e => {
-		color = e.detail;
+	let color = $state(false);
+	let colorCss = $derived(`${color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700'}`);
+	const changeColorFun = active => {
+		color = active;
 	};
-	//Get the current time
+	// Get current date
 	const date = new Date();
-	//Get the current month and turn into Chinese characters
+	// Get current month in Chinese
 	const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	const monthIndex = date.getMonth();
-	$: month = monthArr[monthIndex];
+	let month = $derived(monthArr[monthIndex]);
 	const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 	const hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
 	const minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-	$: time = `${hour}:${minute}`;
-	//Get Chinese week
+	let time = $derived(`${hour}:${minute}`);
+	// Get Chinese week
 	const week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	$: weekDay = week[date.getDay()];
+	let weekDay = $derived(week[date.getDay()]);
 </script>
 
-<div class="font-bold px-4 mt-8 text-left">Example of using a placeholder 3﹡4</div>
+<div class="font-bold px-4 mt-8">Using Placeholder Example 3﹡4</div>
 <Grids cols="4">
 	<Grid row="3">
 		<Placeholder>3﹡1</Placeholder>
@@ -50,7 +50,7 @@
 	</Grid>
 </Grids>
 
-<div class="font-bold px-4 mt-8">Example of using a placeholder 4﹡6</div>
+<div class="font-bold px-4 mt-8">Using Placeholder Example 4﹡6</div>
 <Grids>
 	<Grid row="3" col="2">
 		<Placeholder>3﹡2</Placeholder>
@@ -84,7 +84,7 @@
 	</Grid>
 </Grids>
 
-<div class="font-bold px-4 mt-8">Increase the outer marginal and unit grid spacing</div>
+<div class="font-bold px-4 mt-8">Increase Margin and Cell Gap</div>
 <Grids cols="4" gap="4" mx="8" my="8">
 	<Grid row="3">
 		<Placeholder>3﹡1</Placeholder>
@@ -106,7 +106,7 @@
 	</Grid>
 </Grids>
 
-<div class="font-bold px-4 mt-8">Scene example 6﹡5</div>
+<div class="font-bold px-4 mt-8">Scene Example 6﹡5</div>
 <div class="pb-8 pt-2">
 	<div class={`mx-2 rounded-xl p-2 shadow transition duration-300${colorCss}`}>
 		<Grids cols="5" mx="0" my="0">
@@ -131,13 +131,17 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full" on:change={changeColorFun}>
-							<div slot="false">
-								<Icon name="ri-paint-brush-line" size={12} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-paint-brush-fill" size={12} theme />
-							</div>
+						<Switch inside="child" radius="full" onchange={changeColorFun}>
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-paint-brush-line" size={12} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-paint-brush-fill" size={12} theme />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
 					<div>Colorful</div>
@@ -146,7 +150,7 @@
 
 			<Grid row="2" col="2">
 				<div class="bg-white dark:bg-black h-full rounded-lg text-xs text-center flex flex-col justify-center shadow dark:shadow-white/10">
-					<Button fill="lineTheme" radius="full" on:click={changeDeviceFun}>Switching</Button>
+					<Button fill="lineTheme" radius="full" onclick={changeDeviceFun}>Device</Button>
 				</div>
 			</Grid>
 			<Grid row="2" col="2">
@@ -169,7 +173,7 @@
 							{#if currentDevice === 'iOS'}
 								A15 Bionic
 							{:else if currentDevice === 'Android'}
-								Snapdragon 8 Gen1
+								Snapdragon
 							{:else if currentDevice === 'Windows'}
 								AMD YES
 							{:else if currentDevice === 'macOS'}
@@ -199,13 +203,17 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full">
-							<div slot="false">
-								<Icon name="ri-bluetooth-line" size={12} top={-1} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} />
-							</div>
+						<Switch inside="child" radius="full">
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-bluetooth-line" size={12} top={-1} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
 					<div>Bluetooth</div>
@@ -228,7 +236,7 @@
 					<div class="animate-pulse">
 						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-extend1" />
 					</div>
-					<div>charging</div>
+					<div>充电中</div>
 				</div>
 			</Grid>
 			<Grid row="2">
@@ -263,13 +271,17 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="slot" radius="full">
-							<div slot="false">
-								<Icon name="ri-wifi-off-line" size={12} />
-							</div>
-							<div slot="true">
-								<Icon name="ri-wifi-line" size={12} theme />
-							</div>
+						<Switch inside="child" radius="full">
+							{#snippet falseChild()}
+								<div>
+									<Icon name="ri-wifi-off-line" size={12} />
+								</div>
+							{/snippet}
+							{#snippet trueChild()}
+								<div>
+									<Icon name="ri-wifi-line" size={12} theme />
+								</div>
+							{/snippet}
 						</Switch>
 					</div>
 					<div>Wi-Fi</div>
