@@ -45,7 +45,7 @@ The background color of the popup layer will automatically adapt to the light an
 
 ## Events
 
-By default, clicking on the mask of the popup layer will close it. If this function is not required, you can set `maskClosable` to false. Additionally, `on:open` and `on:close` are supported to listen for the appearance and exit events of the popup layer, while `on:clickMask` is triggered when the mask layer is clicked. Even if `maskClosable` is set to false, this event will still be triggered.
+By default, clicking on the mask of the popup layer will close it. If this function is not required, you can set `maskClosable` to false. Additionally, `onclose` is supported to listen for the exit event of the popup layer, while `onclickMask` is triggered when the mask layer is clicked. Even if `maskClosable` is set to false, this event will still be triggered.
 
 ## Optimization
 

@@ -45,7 +45,7 @@ BottomSheet 作为底部浮窗，就只能从底部弹出。「浮」体现在�
 
 ## 事件
 
-弹出层默认点击遮罩会关闭，若不需要此功能，可以设置 maskClosable 为 false 。另外支持通过 on:open 和 on:close 来监听弹出层的出现与退出事件，而 on:clickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
+弹出层默认点击遮罩会关闭，若不需要此功能，可以设置 maskClosable 为 false 。另外支持通过 onclose 来监听弹出层退出事件，而 onclickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
 
 ## 优化
 

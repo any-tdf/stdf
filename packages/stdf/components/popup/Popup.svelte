@@ -26,7 +26,6 @@
 		dynamicFixed = true,
 		hideScrollbar = false,
 		children,
-		onopen,
 		onclose,
 		onclickMask,
 	} = $props();
@@ -34,96 +33,68 @@
 	// 通过不同位置结合圆角参数，生成不同的 class
 	// Generate different classes by combining different positions and corner parameters
 	const radiusFun = () => {
+		const radioMap = {
+			none: 'rounded-none',
+			base: 'rounded',
+			md: 'rounded-md',
+			lg: 'rounded-lg',
+			xl: 'rounded-xl',
+			'2xl': 'rounded-2xl',
+			'3xl': 'rounded-3xl',
+			full: 'rounded-full',
+		};
+		const radiusTopMap = {
+			none: 'rounded-t-none',
+			base: 'rounded-t',
+			md: 'rounded-t-md',
+			lg: 'rounded-t-lg',
+			xl: 'rounded-t-xl',
+			'2xl': 'rounded-t-2xl',
+			'3xl': 'rounded-t-3xl',
+			full: 'rounded-t-full',
+		};
+		const radiusBottomMap = {
+			none: 'rounded-b-none',
+			base: 'rounded-b',
+			md: 'rounded-b-md',
+			lg: 'rounded-b-lg',
+			xl: 'rounded-b-xl',
+			'2xl': 'rounded-b-2xl',
+			'3xl': 'rounded-b-3xl',
+			full: 'rounded-b-full',
+		};
+		const radiusLeftMap = {
+			none: 'rounded-l-none',
+			base: 'rounded-l',
+			md: 'rounded-l-md',
+			lg: 'rounded-l-lg',
+			xl: 'rounded-l-xl',
+			'2xl': 'rounded-l-2xl',
+			'3xl': 'rounded-l-3xl',
+			full: 'rounded-l-full',
+		};
+		const radiusRightMap = {
+			none: 'rounded-r-none',
+			base: 'rounded-r',
+			md: 'rounded-r-md',
+			lg: 'rounded-r-lg',
+			xl: 'rounded-r-xl',
+			'2xl': 'rounded-r-2xl',
+			'3xl': 'rounded-r-3xl',
+			full: 'rounded-r-full',
+		};
 		if (radiusPosition === 'all') {
-			if (radius === 'none') {
-				return 'rounded-none';
-			} else if (radius === 'base') {
-				return 'rounded';
-			} else if (radius === 'md') {
-				return 'rounded-md';
-			} else if (radius === 'lg') {
-				return 'rounded-lg';
-			} else if (radius === 'xl') {
-				return 'rounded-xl';
-			} else if (radius === '2xl') {
-				return 'rounded-2xl';
-			} else if (radius === '3xl') {
-				return 'rounded-3xl';
-			} else if (radius === 'full') {
-				return 'rounded-full';
-			}
+			return radioMap[radius];
 		} else if (radiusPosition === 'top') {
-			if (radius === 'none') {
-				return 'rounded-t-none';
-			} else if (radius === 'base') {
-				return 'rounded-t';
-			} else if (radius === 'md') {
-				return 'rounded-t-md';
-			} else if (radius === 'lg') {
-				return 'rounded-t-lg';
-			} else if (radius === 'xl') {
-				return 'rounded-t-xl';
-			} else if (radius === '2xl') {
-				return 'rounded-t-2xl';
-			} else if (radius === '3xl') {
-				return 'rounded-t-3xl';
-			} else if (radius === 'full') {
-				return 'rounded-t-full';
-			}
+			return radiusTopMap[radius];
 		} else if (radiusPosition === 'bottom') {
-			if (radius === 'none') {
-				return 'rounded-b-none';
-			} else if (radius === 'base') {
-				return 'rounded-b';
-			} else if (radius === 'md') {
-				return 'rounded-b-md';
-			} else if (radius === 'lg') {
-				return 'rounded-b-lg';
-			} else if (radius === 'xl') {
-				return 'rounded-b-xl';
-			} else if (radius === '2xl') {
-				return 'rounded-b-2xl';
-			} else if (radius === '3xl') {
-				return 'rounded-b-3xl';
-			} else if (radius === 'full') {
-				return 'rounded-b-full';
-			}
+			return radiusBottomMap[radius];
 		} else if (radiusPosition === 'left') {
-			if (radius === 'none') {
-				return 'rounded-l-none';
-			} else if (radius === 'base') {
-				return 'rounded-l';
-			} else if (radius === 'md') {
-				return 'rounded-l-md';
-			} else if (radius === 'lg') {
-				return 'rounded-l-lg';
-			} else if (radius === 'xl') {
-				return 'rounded-l-xl';
-			} else if (radius === '2xl') {
-				return 'rounded-l-2xl';
-			} else if (radius === '3xl') {
-				return 'rounded-l-3xl';
-			} else if (radius === 'full') {
-				return 'rounded-l-full';
-			}
+			return radiusLeftMap[radius];
 		} else if (radiusPosition === 'right') {
-			if (radius === 'none') {
-				return 'rounded-r-none';
-			} else if (radius === 'base') {
-				return 'rounded-r';
-			} else if (radius === 'md') {
-				return 'rounded-r-md';
-			} else if (radius === 'lg') {
-				return 'rounded-r-lg';
-			} else if (radius === 'xl') {
-				return 'rounded-r-xl';
-			} else if (radius === '2xl') {
-				return 'rounded-r-2xl';
-			} else if (radius === '3xl') {
-				return 'rounded-r-3xl';
-			} else if (radius === 'full') {
-				return 'rounded-r-full';
-			}
+			return radiusRightMap[radius];
+		} else {
+			return '';
 		}
 	};
 
@@ -137,22 +108,13 @@
 		center: ' flex-col justify-center',
 	};
 
-	// 监听 visible 变化派发事件
-	// Listen to the change of visible and dispatch events
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
-
 	// 点击遮罩时派发事件
 	// Dispatch events when clicking the mask
 	const clickMask = () => {
 		onclickMask && onclickMask();
 		if (maskClosable) {
 			visible = false;
+			onclose && onclose();
 		}
 	};
 
@@ -266,8 +228,8 @@
 
 {#if visible}
 	<div
-		class={`fixed w-screen h-screen inset-0 flex${positionClass[position] || positionClass['bottom']} px-0 pointer-events-none`}
-		style={`z-index:${zIndex};height:${innerHeight}px`}
+		class="fixed w-screen h-screen inset-0 flex{positionClass[position] || positionClass['bottom']} px-0 pointer-events-none"
+		style="z-index:{zIndex};height:{innerHeight}px"
 	>
 		<Transition
 			{visible}
@@ -278,17 +240,15 @@
 			transitionParams={transitionParamsFun()}
 			transitionOutParams={transitionOutParamsFun()}
 		>
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div
-				class={`w-full h-full${transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} ${radiusFun()} overflow-y-auto`}
+			<button
+				class="w-full h-full{transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} {radiusFun()} overflow-y-auto"
 				class:popup-container={hideScrollbar}
 				onclick={e => {
 					e.stopPropagation();
 				}}
 			>
 				{@render children?.()}
-			</div>
+			</button>
 		</Transition>
 	</div>
 {/if}

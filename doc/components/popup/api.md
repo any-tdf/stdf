@@ -1,37 +1,73 @@
 ## Popup Props
 
-| 属性               | 类型    | 默认值     | 可选值                                                                                         | 必传 | 说明                                         |
-| ------------------ | ------- | ---------- | ---------------------------------------------------------------------------------------------- | ---- | -------------------------------------------- |
-| visible            | Boolean | false      | true/false                                                                                     | N    | 是否显示。                                   |
-| size               | Number  | 40         | 0-100                                                                                          | N    | 弹出层大小，值为 0 时由内部元素决定。        |
-| position           | String  | 'bottom'   | 'center'/'top'/'bottom'/'left'/'right'                                                         | N    | 显示位置。                                   |
-| duration           | Number  | 450        | -                                                                                              | N    | 出现动画过渡时间，单位：ms。                 |
-| outDuration        | Number  | 240        | -                                                                                              | N    | 退出动画过渡时间，单位：ms。                 |
-| easeType           | String  | 'cubicOut' | 支持 31 种效果，具体数值参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 | N    | 出现动画类型。                               |
-| easeOutType        | String  | 'cubicOut' | 支持 31 种效果，具体数值参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 | N    | 退出动画类型。                               |
-| px                 | String  | '0'        | '0'/'1'/'2'/'3'/'4'/'5'/'6'/'8'/'10'/'12'/'16'/'20'                                            | N    | 左右间距。                                   |
-| py                 | String  | '0'        | '0'/'1'/'2'/'3'/'4'/'5'/'6'/'8'/'10'/'12'/'16'/'24'/'32'/'48'/'64'                             | N    | 上下间距。                                   |
-| mask               | Object  | {}         | 参考 Mask Props                                                                                | N    | 遮罩层参数。                                 |
-| maskClosable       | Boolean | true       | true/false                                                                                     | N    | 点击遮罩层是否关闭。                         |
-| radiusPosition     | String  | 'top'      | 'all'/'top'/'bottom'/'left'/'right'                                                            | N    | 圆角位置。                                   |
-| radius             | String  | 'none'     | 'none'/'base'/'md'/'lg'/'xl'/'2xl'/'3xl'/'full'                                                | N    | 圆角大小。                                   |
-| transitionDistance | Number  | 0          | -                                                                                              | N    | 动画距离，当弹出层大小由内部元素决定时生效。 |
-| transparent        | Boolean | false      | true/false                                                                                     | N    | 背景是否透明。                               |
-| allowBodyScroll    | Boolean | true       | true/false                                                                                     | N    | 弹出层显示时是否允许 body 滚动。             |
-| zIndex             | Number  | 600        | -                                                                                              | N    | z-index。                                    |
-| dynamicFixed       | Boolean | true       | true/false                                                                                     | N    | 是否动态固定。                               |
-| hideScrollbar      | Boolean | false      | true/false                                                                                     | N    | 是否隐藏滚动区域滚动条。                     |
+| 名称               | 类型                                                                               | 默认值       | 必传 | 说明                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------- | ------------ | ---- | -------------------------------------------------------------------------------------------- |
+| visible            | `boolean`                                                                          | `false`      | N    | 是否显示。                                                                                   |
+| size               | `number`                                                                           | `40`         | N    | 弹出层大小，值为 0 时由内部元素决定。                                                        |
+| position           | `'center'\|'top'\|'bottom'\|'left'\|'right'`                                       | `'bottom'`   | N    | 显示位置。                                                                                   |
+| duration           | `number`                                                                           | `450`        | N    | 出现动画过渡时间，单位：ms。                                                                 |
+| outDuration        | `number`                                                                           | `240`        | N    | 退出动画过渡时间，单位：ms。                                                                 |
+| easeType           | `SvelteEasing`                                                                     | `'cubicOut'` | N    | 出现动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
+| easeOutType        | `SvelteEasing`                                                                     | `'cubicOut'` | N    | 退出动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
+| px                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'20'`                   | `'0'`        | N    | 左右间距。                                                                                   |
+| py                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'24'\|'32'\|'48'\|'64'` | `'0'`        | N    | 上下间距。                                                                                   |
+| mask               | `Mask`                                                                             | `{}`         | N    | 遮罩层参数 [Mask Props](https://stdf.design/#/components?nav=mask&tab=1)。                   |
+| maskClosable       | `boolean`                                                                          | `true`       | N    | 点击遮罩层是否关闭。                                                                         |
+| radiusPosition     | `'all'\|'top'\|'bottom'\|'left'\|'right'`                                          | `'top'`      | N    | 圆角位置。                                                                                   |
+| radius             | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                           | `'none'`     | N    | 圆角大小。                                                                                   |
+| transitionDistance | `number`                                                                           | `0`          | N    | 动画距离，当弹出层大小由内部元素决定时生效。                                                 |
+| transparent        | `boolean`                                                                          | `false`      | N    | 背景是否透明。                                                                               |
+| allowBodyScroll    | `boolean`                                                                          | `true`       | N    | 弹出层显示时是否允许 body 滚动。                                                             |
+| zIndex             | `number`                                                                           | `600`        | N    | z-index。                                                                                    |
+| dynamicFixed       | `boolean`                                                                          | `true`       | N    | 是否动态固定。                                                                               |
+| hideScrollbar      | `boolean`                                                                          | `false`      | N    | 是否隐藏滚动区域滚动条。                                                                     |
 
 ## Popup Events
 
-| 名称      | 参数 | 描述                                                        |
-| --------- | ---- | ----------------------------------------------------------- |
-| open      | -    | 弹出层打开时触发。                                          |
-| clickMask | -    | 点击弹出层遮罩时触发，即使 maskClosable 为 false 也会触发。 |
-| close     | -    | 弹出层关闭时触发。                                          |
+| 名称        | 类型         | 参数 | 描述                                                        |
+| ----------- | ------------ | ---- | ----------------------------------------------------------- |
+| onclickMask | `() => void` | -    | 点击弹出层遮罩时触发，即使 maskClosable 为 false 也会触发。 |
+| onclose     | `() => void` | -    | 弹出层关闭时触发。                                          |
 
-## Popup Slots
+## Popup Snippets
 
-| 名称 | 说明         |
-| ---- | ------------ |
-| -    | Popup 内容。 |
+| 名称     | 说明         |
+| -------- | ------------ |
+| children | Popup 内容。 |
+
+## SvelteEasing
+
+```javascript
+type SvelteEasing =
+	| 'backIn'
+	| 'backInOut'
+	| 'backOut'
+	| 'bounceIn'
+	| 'bounceInOut'
+	| 'bounceOut'
+	| 'circIn'
+	| 'circInOut'
+	| 'circOut'
+	| 'cubicIn'
+	| 'cubicInOut'
+	| 'cubicOut'
+	| 'elasticIn'
+	| 'elasticInOut'
+	| 'elasticOut'
+	| 'expoIn'
+	| 'expoInOut'
+	| 'expoOut'
+	| 'linear'
+	| 'quadIn'
+	| 'quadInOut'
+	| 'quadOut'
+	| 'quartIn'
+	| 'quartInOut'
+	| 'quartOut'
+	| 'quintIn'
+	| 'quintInOut'
+	| 'quintOut'
+	| 'sineIn'
+	| 'sineInOut'
+	| 'sineOut';
+```
