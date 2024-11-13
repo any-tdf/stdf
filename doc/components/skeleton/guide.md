@@ -10,8 +10,8 @@
 
 ## type
 
-Skeleton 组件目前提供了七种类型的骨架屏，分别是：'div'/'p'/'img'/'video'/'code'/'qrcode'/'barcode'，其中 code 是代码块，qrcode 是二维码，barcode 是条形码。
+Skeleton 组件目前提供了七种类型的骨架屏，分别是：`'div'|'p'|'img'|'video'|'code'|'qrcode'|'barcode'`，其中 code 是代码块，qrcode 是二维码，barcode 是条形码。
 
 ## 特殊
 
-当 type 为'p'时可以通过 lines 属性来控制段落行数，此时最后一行的长度会在一个合适的范围内随机变化。
+当 type 为 `'p'` 时可以通过 lines 属性来控制段落行数，此时最后一行的长度会在一个合适的范围内随机变化。

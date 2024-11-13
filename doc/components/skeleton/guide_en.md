@@ -10,8 +10,8 @@
 
 ## Type
 
-The Skeleton component currently provides seven types of skeletons, which are: 'div'/'p'/'img'/'video'/'code'/'qrcode'/'barcode', where code is a code block, qrcode is a QR code, and barcode is a barcode.
+The Skeleton component currently provides seven types of skeletons, which are: `'div'|'p'|'img'|'video'|'code'|'qrcode'|'barcode'`, where code is a code block, qrcode is a QR code, and barcode is a barcode.
 
 ## Special
 
-When the type is 'p', you can control the number of lines in the paragraph through the lines attribute, and the length of the last line will randomly change within a reasonable range.
+When the type is `'p'`, you can control the number of lines in the paragraph through the lines attribute, and the length of the last line will randomly change within a reasonable range.

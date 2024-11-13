@@ -49,7 +49,6 @@
 	</div>
 
 	<div class="m-4 font-bold text-lg">示例 6</div>
-	<!-- eslint-disable-next-line no-unused-vars -->
 	{#each [1, 1, 1] as item}
 		<div class="flex justify-between items-center">
 			<div class="flex">
