@@ -41,9 +41,8 @@
 </script>
 
 <div
-	class={`bg-black/5 dark:bg-white/5 flex flex-col justify-center text-center${heightObj[height] || heightObj.full}${
-		pyObj[py] || pyObj['4']
-	}${radiusObj[radius] || radiusObj.base}${shadowObj[shadow] || shadowObj.none}${injClass === '' ? '' : ` ${injClass}`}`}
+	class="bg-black/5 dark:bg-white/5 flex flex-col justify-center text-center{heightObj[height] || heightObj.full}{pyObj[py] ||
+		pyObj['4']}{radiusObj[radius] || radiusObj.base}{shadowObj[shadow] || shadowObj.none}{injClass === '' ? '' : ` ${injClass}`}"
 >
 	{@render children?.()}
 </div>

@@ -1,15 +1,15 @@
 ## Placeholder Props
 
-| Name     | Type   | Default | Options                                              | Required | Description                     |
-| -------- | ------ | ------- | ---------------------------------------------------- | -------- | ------------------------------- |
-| py       | String | '4'     | '0'/'1'/'2'/'4'/'8'                                  | No       | Padding-top and Padding-bottom. |
-| height   | String | 'full'  | 'full'/'1'/'2'/'4'/'8'/'16'/'24'/'32'/'48'/'64'/'96' | No       | Height.                         |
-| radius   | String | 'md'    | 'none'/'base'/'md'/'xl'/'2xl'/'3xl'/'full'           | No       | Rounded corner style.           |
-| shadow   | String | 'none'  | 'none'/'sm'/'md'/'lg'/'xl'/'2xl'                     | No       | Shadow style.                   |
-| injClass | String | ''      | Class                                                | No       | Class name for custom CSS.      |
+| Name     | Type                                                             | Default  | Required | Description              |
+| -------- | ---------------------------------------------------------------- | -------- | -------- | ------------------------ |
+| py       | `'0'\|'1'\|'2'\|'3'\|'4'`                                        | `'4'`    | N        | Vertical padding.        |
+| height   | `'full'\|'1'\|'2'\|'4'\|'8'\|'16'\|'24'\|'32'\|'48'\|'64'\|'96'` | `'full'` | N        | Height.                  |
+| radius   | `'none'\|'base'\|'md'\|'xl'\|'2xl'\|'3xl'\|'full'`               | `'md'`   | N        | Border radius style.     |
+| shadow   | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                          | `'none'` | N        | Shadow style.            |
+| injClass | `string`                                                         | `''`     | N        | Injected CSS class name. |
 
-## Placeholder Slots
+## Placeholder Snippets
 
-| Name | Description          |
-| ---- | -------------------- |
-| -    | Placeholder content. |
+| Name     | Description          |
+| -------- | -------------------- |
+| children | Placeholder content. |
