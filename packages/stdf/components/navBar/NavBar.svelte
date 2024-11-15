@@ -30,28 +30,24 @@
 </script>
 
 <div
-	class={`h-12 w-full border-black/10 dark:border-white/10 flex justify-between leading-[3rem] ${
-		line ? 'border-b ' : ' '
-	}bg-white dark:bg-black/50${love ? ' text-xl' : ''}${injClass === '' ? '' : ' ' + injClass}`}
+	class="h-12 w-full border-black/10 dark:border-white/10 flex justify-between leading-[3rem] {line
+		? 'border-b '
+		: ' '}bg-white dark:bg-black/50{love ? ' text-xl' : ''}{injClass === '' ? '' : ' ' + injClass}"
 >
 	{#if leftChild}
 		{@render leftChild()}
 	{:else if left === 'back'}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={() => onclickLeft && onclickLeft()}>
+		<button class="text-center lining-nums min-w-[3rem] active:opacity-80" onclick={() => onclickLeft && onclickLeft()}>
 			<Icon name="ri-arrow-left-s-line" size={iconSize} top={-2} />
-		</div>
-	{:else if left === 'none'}
+		</button>
+	{:else if left === null}
 		<div class="w-4 h-full"></div>
 	{:else}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-center lining-nums min-w-[3rem] active:opacity-80" on:click={() => onclickLeft && onclickLeft()}>
+		<button class="text-center lining-nums min-w-[3rem] active:opacity-80" onclick={() => onclickLeft && onclickLeft()}>
 			<Icon {...left} />
-		</div>
+		</button>
 	{/if}
-	<div class="flex-1 truncate" class:pl-2={left === 'none'}>
+	<div class="flex-1 truncate" class:pl-2={left === null}>
 		{#if titleChild}
 			{@render titleChild()}
 		{:else}
@@ -63,14 +59,10 @@
 			{@render rightChild()}
 		{:else if rights.length > 0}
 			{#each rights as icon, i}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class="w-12 text-center active:opacity-80" on:click={() => onclickRight && onclickRight(i)}>
+				<button class="w-12 text-center active:opacity-80" onclick={() => onclickRight && onclickRight(i)}>
 					<Icon {...icon} size={iconSize} />
-				</div>
+				</button>
 			{/each}
-		{:else}
-			<!-- none -->
-		{/if}
+		{:else}{/if}
 	</div>
 </div>
