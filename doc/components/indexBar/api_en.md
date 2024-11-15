@@ -1,18 +1,27 @@
 ## IndexBar Props
 
-| Prop          | Type    | Default | Accepted Values      | Required | Description                                                                         |
-| ------------- | ------- | ------- | -------------------- | -------- | ----------------------------------------------------------------------------------- |
-| data          | Array   | []      | -                    | Y        | An array of index groups.                                                           |
-| current       | Number  | 0       | -                    | N        | The index value of the currently active index.                                      |
-| top           | Number  | 0       | -                    | N        | The distance between the top of the index content area and the top of the document. |
-| height        | Number  | 100     | -                    | Y        | The height of the index content area.                                               |
-| radius        | String  | 'base'  | 'none'/'base'/'full' | N        | The style of the border radius.                                                     |
-| scrollAlign   | Boolean | true    | true/false           | N        | Whether to enable automatic scroll alignment.                                       |
-| titleInjClass | String  | ''      | -                    | N        | Inject custom CSS into the title of the index group.                                |
-| textInjClass  | String  | ''      | -                    | N        | Inject custom CSS into the text of the index item.                                  |
+| Name          | Type                     | Default  | Required | Description                                       |
+| ------------- | ------------------------ | -------- | -------- | ------------------------------------------------- |
+| data          | `IndexBarItem[]`         | `[]`     | Y        | Array of index data.                              |
+| current       | `number`                 | `0`      | N        | Currently active index value.                     |
+| top           | `number`                 | `0`      | N        | Distance from index content area to document top. |
+| height        | `number`                 | `100`    | Y        | Height of index content area.                     |
+| radius        | `'none'\|'base'\|'full'` | `'base'` | N        | Border radius style.                              |
+| scrollAlign   | `boolean`                | `true`   | N        | Whether to enable scroll auto-alignment.          |
+| titleInjClass | `string`                 | `''`     | N        | Inject CSS for index group title.                 |
+| textInjClass  | `string`                 | `''`     | N        | Inject CSS for index item text.                   |
 
 ## IndexBar Events
 
-| Event Name | Parameters                                                                                                                                                                                                                                                                                                       | Description                              |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| clickchild | event: Event object, which contains four parameters in the detail property: <br />1. index: The index value of the parent group of the clicked item. <br />2. group: The content of the parent group. <br />3. childIndex: The index value of the clicked item. <br />4. child: The content of the clicked item. | Triggered when an index item is clicked. |
+| Name         | Type                                                                              | Parameters                                                                                                                                                                | Description                            |
+| ------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| onclickChild | `(index: number, group: IndexBarItem, childIndex: number, child: string) => void` | index - Parent group index of clicked item<br />group - Parent group content of clicked item<br />childIndex - Index of clicked item<br />child - Content of clicked item | Triggered when clicking an index item. |
+
+## IndexBarItem Props
+
+| Name   | Type       | Default | Required | Description            |
+| ------ | ---------- | ------- | -------- | ---------------------- |
+| index  | `string`   | `''`    | Y        | Index value.           |
+| title  | `string`   | `''`    | Y        | Title.                 |
+| child  | `string[]` | `[]`    | Y        | Array of child items.  |
+| height | `number`   | `0`     | N        | Height of child items. |

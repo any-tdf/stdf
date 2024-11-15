@@ -121,26 +121,16 @@
 			}
 		}
 	};
-
-	// 点击主体内容区域
-	// Click on the main body content area
-	const chickChildFun = (index, group, childIndex, child) => {
-		// 向外传递四个参数：1. index：点击项的父级组索引值；2. group：点击项的父级组内容；3. childIndex：点击项索引值；4. child：点击项内容。
-		// Pass out four parameters: 1. index: parent group index of clicked item; 2. group: parent group content of clicked item; 3. childIndex: index of clicked item; 4. child: content of clicked item
-		onclickChild && onclickChild(index, group, childIndex, child);
-	};
 </script>
 
-<div bind:this={bodyDom} class={`overflow-y-auto ${scrollAlign && 'snap-y'}`} onscroll={scrollBody} style="height:{height}px;">
+<div bind:this={bodyDom} class="overflow-y-auto {scrollAlign && 'snap-y'}" onscroll={scrollBody} style="height:{height}px;">
 	{#each data as group, index}
 		<div class="px-4 pt-8 snap-start" bind:clientHeight={group.height}>
-			<div class={`text-primary dark:text-dark text-sm ${titleInjClass}`}>{group.title}</div>
+			<div class="text-primary dark:text-dark text-sm {titleInjClass}">{group.title}</div>
 			{#each group.child as child, childIndex}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={`py-2 ${textInjClass}`} onclick={() => chickChildFun(index, group, childIndex, child)}>
-					{child.text}
-				</div>
+				<button class="py-2 w-full text-left {textInjClass}" onclick={() => onclickChild && onclickChild(index, group, childIndex, child)}>
+					{child}
+				</button>
 				<div class="h-px bg-black/5 dark:bg-white/5"></div>
 			{/each}
 		</div>
@@ -152,25 +142,25 @@
 	onpointerup={touchBoxEnd}
 	bind:clientHeight={barHeight}
 	bind:this={barDom}
-	class={`fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around touch-none cursor-move select-none ${
-		radiusObj[radius] || radiusObj.base
-	}`}
+	class="fixed right-5 bg-black/5 dark:bg-white/5 w-7 p-1 flex flex-col justify-around touch-none cursor-move select-none {radiusObj[
+		radius
+	] || radiusObj.base}"
 	style="top:{top + (height - barHeight) / 2}px;min-height:{height / 4}px;"
 >
 	{#each data as group, i}
-		<div class={`flex-1 relative flex flex-col justify-center`}>
+		<div class="flex-1 relative flex flex-col justify-center">
 			<div
-				class={`w-5 h-5 leading-5 text-center text-xs transition-all ${
-					current === i ? 'bg-primary dark:bg-dark text-white dark:text-black' : 'text-gray-600 dark:text-gray-400'
-				} ${radiusObj[radius] || radiusObj.base}`}
+				class="w-5 h-5 leading-5 text-center text-xs transition-all {current === i
+					? 'bg-primary dark:bg-dark text-white dark:text-black'
+					: 'text-gray-600 dark:text-gray-400'} {radiusObj[radius] || radiusObj.base}"
 			>
 				{group.index}
 			</div>
 			{#if currentTouch === i}
 				<div
-					class={`absolute text-center -left-24 top-1/2 -translate-y-2/4 text-3xl border border-primary dark:border-dark w-14 h-14 leading-[3.5rem] text-primary dark:text-dark ${
-						radiusObj[radius] || radiusObj.base
-					}`}
+					class="absolute text-center -left-24 top-1/2 -translate-y-2/4 text-3xl border border-primary dark:border-dark w-14 h-14 leading-[3.5rem] text-primary dark:text-dark {radiusObj[
+						radius
+					] || radiusObj.base}"
 					transition:fly={{ x: 38, duration: 300 }}
 				>
 					{group.index}

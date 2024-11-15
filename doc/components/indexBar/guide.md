@@ -4,7 +4,7 @@
 
 ## data
 
-此 Props 是索引项组组成的数组，基本结构为`{ index: 'x', title: 'xx', child: [{ text: 'xx' }] }`，其中 index 用于显示右侧 Bar 内的文字（建议单个字符），title 为内容区域每一组索引的标题，child 为一组索引内的单项内容，其中至少要存在 text，作为单项索引的显示文本。具体使用请参考示例。
+此 Props 是索引项组组成的数组，基本结构为`{ index: 'x', title: 'xx', child: ['xx', 'xx'] }`，其中 index 用于显示右侧 Bar 内的文字（建议单个字符），title 为内容区域每一组索引的标题，child 为一组索引内的单项内容，具体使用请参考示例。
 
 ## height && top
 

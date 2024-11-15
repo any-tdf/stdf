@@ -4,7 +4,7 @@ Generally used for quickly searching information on a page, where you can quickl
 
 ## data
 
-This Props is an array composed of indexing items, the basic structure is `{ index: 'x', title: 'xx', child: [{ text: 'xx' }] }`, where index is used to display the text in the right-side bar (it is recommended to use a single character), title is the title of each index group in the content area, and child is the content of a single indexing group, where there must be at least a text as the display text for the single index. For specific usage, please refer to the example.
+This Props is an array composed of indexing items, the basic structure is `{ index: 'x', title: 'xx', child: ['xx', 'xx'] }`, where index is used to display the text in the right-side bar (it is recommended to use a single character), title is the title of each index group in the content area, and child is the content of a single indexing group. For specific usage, please refer to the example.
 
 ## height && top
 
