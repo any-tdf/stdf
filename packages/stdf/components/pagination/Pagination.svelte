@@ -57,9 +57,9 @@
 	// next ellipsis page array
 	let nextEllipsisPages = $state([]);
 
-	// 当页码变化时对一系列数据动态计算
-	// Dynamic calculation of a series of data when the page number changes
 	$effect(() => {
+		// 当页码变化时对一系列数据动态计算
+		// Dynamic calculation of a series of data when the page number changes
 		if (showPreEllipsis && showNextEllipsis) {
 			if (maxShowPage === 5) {
 				middleShowPage = [current];
@@ -73,6 +73,9 @@
 		} else {
 			middleShowPage = [];
 		}
+	});
+
+	$effect(() => {
 		// 当仅显示后省略号时
 		// when only show next ellipsis
 		if (!showPreEllipsis && showNextEllipsis) {
@@ -80,6 +83,8 @@
 			// nextEllipsisPages is maxShowPage - 2 to total page - 1
 			nextEllipsisPages = Array.from({ length: totalPage }, (v, k) => k + 1).slice(maxShowPage - 2, totalPage - 1);
 		}
+	});
+	$effect(() => {
 		// 当仅显示前省略号时
 		// when only show pre ellipsis
 		if (showPreEllipsis && !showNextEllipsis) {
@@ -87,6 +92,8 @@
 			// preEllipsisPages is 2 to total page - (maxShowPage-2)
 			preEllipsisPages = Array.from({ length: totalPage }, (v, k) => k + 1).slice(1, totalPage - (maxShowPage - 2));
 		}
+	});
+	$effect(() => {
 		// 当显示前后省略号时
 		// when show pre and next ellipsis
 		if (showPreEllipsis && showNextEllipsis) {
@@ -102,9 +109,9 @@
 		}
 	});
 
-	// 特殊情况处理
-	// Special case handling
 	$effect(() => {
+		// 特殊情况处理
+		// Special case handling
 		if (totalPage <= maxShowPage) {
 			showNextOmitPage = false;
 		}
@@ -128,7 +135,7 @@
 
 	// 页码改变的回调，参数是改变后的页码及每页条数
 	// onChange
-	const onChange = () => {
+	const onChangeFn = () => {
 		showNextOmitPage = false;
 		showPreOmitPage = false;
 		onchange && onchange(current);
@@ -140,7 +147,7 @@
 		if (current < totalPage) {
 			current++;
 			onnext && onnext(current);
-			onChange();
+			onChangeFn();
 		}
 	};
 
@@ -150,7 +157,7 @@
 		if (current > 1) {
 			current--;
 			onpre && onpre(current);
-			onChange();
+			onChangeFn();
 		}
 	};
 
@@ -158,16 +165,16 @@
 	// click page
 	const clickItemFunc = index => {
 		current = index;
-		onChange();
+		onChangeFn();
 	};
 
 	// 点击省略页码事件
 	// click second page item event
-	const clickSecondPageItemFunc = e => {
-		current = e.detail;
+	const clickSecondPageItemFunc = index => {
+		current = index;
 		showNextOmitPage = false;
 		showPreOmitPage = false;
-		onChange();
+		onChangeFn();
 	};
 
 	// 类型样式
@@ -184,22 +191,19 @@
 </script>
 
 <div class="py-1 bg-white dark:bg-black flex justify-between text-center text-sm relative {injClass}">
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
+	<button
 		class="flex-1 py-2 border border-transparent transition-all {current > 1
 			? 'text-primary dark:text-dark'
 			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.base} active:scale-75"
 		onclick={preFunc}
 	>
 		<Icon name="ri-arrow-left-s-line" size={18} />
-	</div>
+	</button>
 	{#if totalPage === 0}
 		<div class="flex-1 py-2 border border-transparent">{noDataText}</div>
 	{:else if totalPage === 1}
 		<div class="flex-1 py-2 border border-transparent">{onePageText}</div>
 	{:else if totalPage > 1 && totalPage <= maxShowPage}
-		<!-- eslint-disable-next-line no-unused-vars -->
 		{#each new Array(totalPage) as item, index}
 			<Page active={current === index + 1} {type} {radius} onclick={() => !continuous && clickItemFunc(index + 1)}>
 				{index + 1}
@@ -208,9 +212,7 @@
 	{:else}
 		<Page active={current === 1} {type} {radius} onclick={() => !continuous && clickItemFunc(1)}>1</Page>
 		{#if showPreEllipsis}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div
+			<button
 				class="flex-1 py-2 border {showPreOmitPage
 					? typeClass[type] || typeClass.border
 					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
@@ -221,10 +223,9 @@
 				{:else}
 					<Icon name="ri-more-line" size={18} />
 				{/if}
-			</div>
+			</button>
 		{/if}
 		{#if !showPreEllipsis && current <= maxShowPage - 1}
-			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each new Array(maxShowPage - 3) as item, index}
 				<Page active={current === index + 2} {type} {radius} onclick={() => !continuous && clickItemFunc(index + 2)}>
 					{index + 2}
@@ -239,7 +240,6 @@
 			{/each}
 		{/if}
 		{#if !showNextEllipsis && current > totalPage - (maxShowPage - 3)}
-			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each new Array(maxShowPage - 3) as item, index}
 				<Page
 					active={current === totalPage + index + 3 - maxShowPage}
@@ -252,9 +252,7 @@
 			{/each}
 		{/if}
 		{#if showNextEllipsis}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div
+			<button
 				class="flex-1 py-2 border {showNextOmitPage
 					? typeClass[type] || typeClass.border
 					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
@@ -265,20 +263,18 @@
 				{:else}
 					<Icon name="ri-more-line" size={18} />
 				{/if}
-			</div>
+			</button>
 		{/if}
 		<Page active={current === totalPage} {type} {radius} onclick={() => !continuous && clickItemFunc(totalPage)}>{totalPage}</Page>
 	{/if}
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
+	<button
 		class="flex-1 py-2 border border-transparent transition-all {current < totalPage
 			? 'text-primary dark:text-dark'
 			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.base} active:scale-75"
 		onclick={nextFunc}
 	>
 		<Icon name="ri-arrow-right-s-line" size={20} />
-	</div>
+	</button>
 	{#if showNextOmitPage}
 		<SecondPageNext {pageCol} Pages={nextEllipsisPages} {type} {radius} onclickItem={clickSecondPageItemFunc} {maxShowPage} />
 	{/if}

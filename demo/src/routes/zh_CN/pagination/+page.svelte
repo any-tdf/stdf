@@ -7,23 +7,14 @@
 	const total = 200;
 
 	// 当前页码，演示事件监听
-	let current = 1;
-	const preFunc = e => {
-		current = e.detail;
-	};
-	const nextFunc = e => {
-		current = e.detail;
-	};
-	const changeFunc = e => {
-		current = e.detail;
-	};
+	let current = $state(1);
 
 	// 模拟请求数据
-	let data = [];
-	let currentPage = 1;
+	let data = $state([]);
+	let currentPage = $state(1);
 	let pageSize = 4;
-	let totalData = 0;
-	let loading = false;
+	let totalData = $state(0);
+	let loading = $state(false);
 	const getData = () => {
 		loading = true;
 		// 使用 setTimeout 模拟请求
@@ -34,8 +25,8 @@
 			totalData = 64;
 		}, 2000);
 	};
-	const changePageFunc = e => {
-		currentPage = e.detail;
+	const changePageFunc = c => {
+		currentPage = c;
 		getData();
 	};
 	// 初始请求第一页
@@ -49,7 +40,7 @@
 
 <div class="mx-4 mt-8 font-bold text-lg">事件监听</div>
 <div class="mx-4 mb-2 text-sm">当前页码：{current}</div>
-<Pagination {total} on:pre={preFunc} on:next={nextFunc} on:change={changeFunc} />
+<Pagination {total} onpre={c => (current = c)} onnext={c => (current = c)} onchange={c => (current = c)} />
 
 <div class="mx-4 mt-24 font-bold text-lg">初始展示省略页码</div>
 <div class="mx-4 mb-4 text-xs">可用于引导用户</div>
@@ -122,10 +113,10 @@
 		</div>
 	{/if}
 </div>
-<Pagination {pageSize} total={totalData} on:change={changePageFunc} />
+<Pagination {pageSize} total={totalData} onchange={changePageFunc} />
 
 <div class="mx-4 mt-8 font-bold text-lg">连续模式</div>
 <div class="mx-4 mb-4 text-xs">只允许点击上下页</div>
 <Pagination {total} continuous />
 
-<div class="pb-10" />
+<div class="pb-10"></div>

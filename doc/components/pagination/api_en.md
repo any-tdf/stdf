@@ -1,25 +1,25 @@
 ## Pagination Props
 
-| Property         | Type    | Default Value                                  | Options                             | Required | Description                                                      |
-| ---------------- | ------- | ---------------------------------------------- | ----------------------------------- | -------- | ---------------------------------------------------------------- |
-| total            | Number  | 0                                              | -                                   | Y        | Total number of items.                                           |
-| pageSize         | Number  | 10                                             | -                                   | N        | Number of items per page.                                        |
-| current          | Number  | 1                                              | -                                   | N        | Current page number.                                             |
-| maxShowPage      | Number  | 7                                              | 5/7/9/11                            | N        | Maximum number of page numbers to display.                       |
-| radius           | String  | 'md'                                           | 'base'/'md'/'lg'/'xl'/'full'/'none' | N        | Style of pagination button corners.                              |
-| type             | String  | 'bold'                                         | 'border'/'block'/'bold'             | N        | Style of highlighted page number.                                |
-| pageCol          | Number  | 3                                              | -                                   | N        | Number of columns to display omitted page numbers.               |
-| showNextOmitPage | Boolean | false                                          | true/false                          | N        | Whether to display omitted page numbers after the current page.  |
-| showPreOmitPage  | Boolean | false                                          | true/false                          | N        | Whether to display omitted page numbers before the current page. |
-| injClass         | String  | ''                                             | Class                               | N        | Injected CSS class name.                                         |
-| noDataText       | String  | Current language common.noData                 | -                                   | N        | Text to display when there is no data.                           |
-| onePageText      | String  | Current language pagination.defaultOnlyOnePage | -                                   | N        | Text to display when there is only one page.                     |
-| continuous       | Boolean | false                                          | true/false                          | N        | Whether it is a continuous mode.                                 |
+| Name             | Type                                                 | Default                                          | Required | Description                                  |
+| ---------------- | ---------------------------------------------------- | ------------------------------------------------ | -------- | -------------------------------------------- |
+| total            | `number`                                             | `0`                                              | Y        | Total number of items.                       |
+| pageSize         | `number`                                             | `10`                                             | N        | Number of items per page.                    |
+| current          | `number`                                             | `1`                                              | N        | Current page number.                         |
+| maxShowPage      | `5` \| `7` \| `9` \| `11`                            | `7`                                              | N        | Maximum number of page numbers to display.   |
+| radius           | `'none'`\|`'base'`\|`'md'`\|`'lg'`\|`'xl'`\|`'full'` | `'md'`                                           | N        | Border radius style.                         |
+| type             | `'border'`\|`'block'`\|`'bold'`                      | `'bold'`                                         | N        | Highlighted page number style.               |
+| pageCol          | `number`                                             | `3`                                              | N        | Number of columns for omitted page numbers.  |
+| showNextOmitPage | `boolean`                                            | `false`                                          | N        | Whether to show omitted page numbers after.  |
+| showPreOmitPage  | `boolean`                                            | `false`                                          | N        | Whether to show omitted page numbers before. |
+| injClass         | `string`                                             | `''`                                             | N        | Inject CSS class name.                       |
+| noDataText       | `string`                                             | Current language's common.noData                 | N        | Text to display when no data.                |
+| onePageText      | `string`                                             | Current language's pagination.defaultOnlyOnePage | N        | Text to display when only one page.          |
+| continuous       | `boolean`                                            | `false`                                          | N        | Whether to use continuous mode.              |
 
 ## Pagination Events
 
-| Name   | Parameter(s)                                     | Description                                      |
-| ------ | ------------------------------------------------ | ------------------------------------------------ |
-| change | event: Event object, detail: current page number | Triggered when the page number is changed.       |
-| next   | event: Event object, detail: current page number | Triggered when the "next" button is clicked.     |
-| pre    | event: Event object, detail: current page number | Triggered when the "previous" button is clicked. |
+| Name     | Type                        | Parameters                    | Description                            |
+| -------- | --------------------------- | ----------------------------- | -------------------------------------- |
+| onchange | `(current: number) => void` | current - Current page number | Triggered when page number changes.    |
+| onnext   | `(current: number) => void` | current - Current page number | Triggered when clicking next page.     |
+| onpre    | `(current: number) => void` | current - Current page number | Triggered when clicking previous page. |

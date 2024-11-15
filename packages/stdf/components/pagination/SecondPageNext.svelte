@@ -10,15 +10,8 @@
 	 * @property {string} [type]
 	 * @property {(index: number) => void} [onclickItem]
 	 */
-
 	/** @type {Props} */
 	let { pageCol = 3, Pages = [], maxShowPage = 9, radius = 'md', type = 'bold', onclickItem } = $props();
-
-	// 点击页码
-	// click page
-	const clickItemFunc = index => {
-		onclickItem && onclickItem(index);
-	};
 </script>
 
 {#if Pages.length > 0}
@@ -28,7 +21,7 @@
 			100}%;grid-template-columns: repeat({pageCol}, minmax(0, 1fr));"
 	>
 		{#each Pages as item}
-			<Page onclick={() => clickItemFunc(item)} {type} {radius}>{item}</Page>
+			<Page onclick={() => onclickItem && onclickItem(item)} {type} {radius}>{item}</Page>
 		{/each}
 	</div>
 	<div

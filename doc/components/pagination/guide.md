@@ -10,9 +10,11 @@
 
 当然，你也可以配置为**连续模式**，即只允许点击上一页、下一页，比如一些后端接口必须根据上一页数据查询下一页数据的情况。但这样无疑会降低用户体验。
 
+> To be in charge, the user must be informed. When, for example, the user initiates an operation, immediate feedback confirms that the operation is being carried out, and (eventually) then it’s finished… This communication should be brief, direct, and expressed in the user’s vocabulary rather than the programmer’s. (Apple Human Interface Guidelines)
+
 ## 事件监听
 
-Pagination 组件对外暴露了三个事件：change、next、pre，分别对应页码变化、下一页、上一页。next 和 pre 事件同时也会触发 change 事件，请按需监听。
+Pagination 组件对外暴露了三个事件：onchange、onnext、onpre，分别对应页码变化、下一页、上一页。onnext 和 onpre 事件都会触发 onchange 事件，请按需监听。
 
 ## total
 

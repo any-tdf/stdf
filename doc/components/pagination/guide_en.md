@@ -10,9 +10,11 @@ In my opinion, pagination should not be based on scrolling up to load the next p
 
 Of course, you can also configure it to **continuous mode**, that is, you are only allowed to click on the previous page and the next page. For example, some backend APIs must query the next page of data based on the previous page. But this will undoubtedly reduce the user experience.
 
+> To be in charge, the user must be informed. When, for example, the user initiates an operation, immediate feedback confirms that the operation is being carried out, and (eventually) then it’s finished… This communication should be brief, direct, and expressed in the user’s vocabulary rather than the programmer’s. (Apple Human Interface Guidelines)
+
 ## Event Listening
 
-The Pagination component exposes three events to the outside: change, next, and pre, corresponding to page number changes, next page, and previous page, respectively. The next and pre events will also trigger the change event, so listen as needed.
+The Pagination component exposes three events to the outside: onchange, onnext, and onpre, corresponding to page number changes, next page, and previous page, respectively. The onnext and onpre events will also trigger the onchange event, so listen as needed.
 
 ## total
 
