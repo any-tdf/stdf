@@ -1,14 +1,14 @@
 ## 说明
 
-TabBar 通过绑定的 change 事件，传递出当前激活选项卡的索引值。
+TabBar 通过绑定的 onchange 事件，传递出当前激活选项卡的索引值。
 
 ## labels
 
-此参数决定了 TabBar 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon、activeIcon 搭配组成。icon 和 activeIcon 使用 Icon 组件渲染，其中 activeIcon 表示 TabBar 激活时的 Icon。具体参数请参考 Icon API。
+此参数决定了 TabBar 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon、activeIcon 搭配组成。icon 和 activeIcon 使用 Icon 组件渲染，其中 activeIcon 表示 TabBar 激活时的 Icon。具体参数请参考 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。
 
 ## 底部线条
 
-line 为 true 时激活的 TabBar 底部会显示线条，lineW 和 activeInjClass 只会在 line 为 true 时生效。
+line 为 true 时激活的 TabBar 底部会显示线条，lineW 和 activeInjClass 只会在 line 为 true 时生效。线条宽度可由 lineW 控制，lineW 的值为线条宽度占当前 Tab 宽度的比例，默认值为 4，**lineW 的值越大线条越窄**。
 
 ## CSS 注入
 

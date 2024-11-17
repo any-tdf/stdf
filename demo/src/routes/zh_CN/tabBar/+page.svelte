@@ -26,10 +26,7 @@
 		{ text: '消息', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
 		{ text: '我的', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
 	];
-	let active = 0;
-	const tabBarChangeFun = e => {
-		active = e.detail;
-	};
+	let active = $state(0);
 </script>
 
 <div class="py-8 mb-20">
@@ -66,24 +63,24 @@
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">自定义 Tab</div>
-			<TabBar {labels} tabInjClass="text-extend0 dark:text-extend2" activeTabInjClass="!text-primary dark:!text-dark" />
+			<TabBar {labels} tabInjClass="text-[purple] dark:text-[yellow]" activeTabInjClass="!text-primary dark:!text-dark" />
 		</div>
 		<div>
-			<div class="font-bold px-4 mb-2">自定义选定 Tab</div>
-			<TabBar {labels} activeTabInjClass="text-extend0 dark:text-extend1" />
+			<div class="font-bold px-4 mb-2">仅自定义选定 Tab</div>
+			<TabBar {labels} activeTabInjClass="text-[purple] dark:text-[yellow]" />
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">自定义线条</div>
-			<TabBar {labels} line activeInjClass="bg-extend0 dark:bg-extend1" />
+			<TabBar {labels} line activeInjClass="bg-[purple] dark:bg-[yellow]" />
 		</div>
 		<div>
 			<div class="font-bold px-4 mb-2">关爱版</div>
 			<TabBar {labels} love />
 		</div>
 		<div>
-			<div class="font-bold px-4 mb-2">监听 change 事件</div>
+			<div class="font-bold px-4 mb-2">监听 onchange 事件</div>
 			<div class="m-4">当前 TabBar 激活的 active：{active}</div>
-			<TabBar {labels} on:change={tabBarChangeFun} />
+			<TabBar {labels} onchange={a => (active = a)} />
 		</div>
 	</div>
 </div>

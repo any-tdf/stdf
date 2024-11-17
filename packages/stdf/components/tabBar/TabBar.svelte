@@ -36,13 +36,11 @@
 	{/if}
 	<div class="flex justify-between">
 		{#each labels as label, i}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div
+			<button
 				onclick={() => clickFun(i)}
-				class={`flex-1 flex flex-col justify-center text-center py-1 active:opacity-80 cursor-pointer ${
-					i === active ? 'text-primary dark:text-dark' : 'text-black/80 dark:text-white/90'
-				} ${love ? 'text-lg' : 'text-sm'} ${tabInjClass} ${i === active && activeTabInjClass}`}
+				class="flex-1 flex flex-col justify-center text-center items-center py-1 active:opacity-80 {i === active
+					? 'text-primary dark:text-dark'
+					: 'text-black/80 dark:text-white/90'} {love ? 'text-lg' : 'text-sm'} {tabInjClass} {i === active && activeTabInjClass}"
 			>
 				{#if label.icon}
 					<div class:py-2={!label.text}>
@@ -71,11 +69,11 @@
 					</div>
 				{/if}
 				{#if label.text}
-					<div class={`${label.icon ? 'mt-[2px]' : 'py-1 text-lg'} ${i === active && !label.icon ? ' font-bold' : ''}`}>
+					<div class="{label.icon ? 'mt-[2px]' : 'py-1 text-lg'} {i === active && !label.icon ? ' font-bold' : ''}">
 						{label.text}
 					</div>
 				{/if}
-			</div>
+			</button>
 		{/each}
 	</div>
 </div>

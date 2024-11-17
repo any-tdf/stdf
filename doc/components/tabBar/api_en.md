@@ -1,19 +1,27 @@
 ## TabBar Props
 
-| Prop Name         | Type    | Default | Options    | Required | Description                                                  |
-| ----------------- | ------- | ------- | ---------- | -------- | ------------------------------------------------------------ |
-| labels            | Array   | []      | -          | Yes      | TabBar content group, composed of text and Icon Props.       |
-| active            | Number  | 0       | -          | No       | Active Tab index value.                                      |
-| line              | Boolean | false   | true/false | No       | Whether to show a line at the bottom.                        |
-| lineW             | Number  | 4       | -          | No       | The proportion of the line width to the current Tab width.   |
-| love              | Boolean | false   | true/false | No       | Whether to enable the caring version.                        |
-| injClass          | String  | ''      | -          | No       | Inject CSS class names into the outermost element of TabBar. |
-| tabInjClass       | String  | ''      | -          | No       | Inject CSS class names into a single Tab.                    |
-| activeTabInjClass | String  | ''      | -          | No       | Inject CSS class names into the active Tab.                  |
-| activeInjClass    | String  | ''      | -          | No       | Inject CSS class names into the bottom line.                 |
+| Name              | Type            | Default | Required | Description                            |
+| ----------------- | --------------- | ------- | -------- | -------------------------------------- |
+| labels            | `TabBarLabel[]` | `[]`    | Y        | Tab content group.                     |
+| active            | `number`        | `0`     | N        | Index value of active tab.             |
+| line              | `boolean`       | `false` | N        | Whether to show bottom line.           |
+| lineW             | `number`        | `4`     | N        | Line width ratio of current tab width. |
+| love              | `boolean`       | `false` | N        | Whether to enable care version.        |
+| injClass          | `string`        | `''`    | N        | Inject CSS class for TabBar wrapper.   |
+| tabInjClass       | `string`        | `''`    | N        | Inject CSS class for single tab.       |
+| activeTabInjClass | `string`        | `''`    | N        | Inject CSS class for active tab.       |
+| activeInjClass    | `string`        | `''`    | N        | Inject CSS class for bottom line.      |
+
+## TabBarLabel Props
+
+| Name       | Type     | Default | Required | Description                                                                    |
+| ---------- | -------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| text       | `string` | `''`    | N        | Tab text.                                                                      |
+| icon       | `Icon`   | -       | N        | Tab icon [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).        |
+| activeIcon | `Icon`   | -       | N        | Active tab icon [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
 
 ## TabBar Events
 
-| Name   | Parameters                                                                   | Description                       |
-| ------ | ---------------------------------------------------------------------------- | --------------------------------- |
-| change | event: Event object, with `detail` indicating the active TabBar index value. | Triggered when TabBar is clicked. |
+| Name     | Type                       | Parameters                     | Description                       |
+| -------- | -------------------------- | ------------------------------ | --------------------------------- |
+| onchange | `(active: number) => void` | `active` - Active TabBar index | Triggered when TabBar is clicked. |
