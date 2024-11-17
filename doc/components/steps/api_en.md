@@ -1,22 +1,47 @@
 ## Steps Props
 
-| Property  | Type    | Default | Options                   | Required | Description                                    |
-| --------- | ------- | ------- | ------------------------- | -------- | ---------------------------------------------- |
-| steps     | Array   | []      | -                         | Y        | An array composed of step or finishStep Props. |
-| current   | Number  | 1       | -                         | N        | The current step number.                       |
-| radius    | String  | 'base'  | 'none'/'base'/'xl'/'full' | N        | The border radius style.                       |
-| barBorder | Boolean | true    | true/false                | N        | Whether the icon has a border.                 |
-| vertical  | Boolean | false   | true/false                | N        | Whether to use a vertical layout.              |
+| Name      | Type                              | Default  | Required | Description                                       |
+| --------- | --------------------------------- | -------- | -------- | ------------------------------------------------- |
+| steps     | `StepsItem[]`                     | `[]`     | Y        | Array composed of step Props or finishStep Props. |
+| current   | `number`                          | `1`      | N        | Current step number.                              |
+| radius    | `'none'`/`'base'`/`'xl'`/`'full'` | `'base'` | N        | Border radius style.                              |
+| barBorder | `boolean`                         | `true`   | N        | Whether the icon has a border.                    |
+| vertical  | `boolean`                         | `false`  | N        | Whether to use vertical layout.                   |
 
-## step Props
+## StepsItem
 
-| Property     | Type          | Default | Options          | Required | Description                        |
-| ------------ | ------------- | ------- | ---------------- | -------- | ---------------------------------- |
-| title        | String        | -       | -                | Y        | The title of step.                 |
-| bar          | String/Object | -       | String/Object    | N        | The content of the step icon area. |
-| desc         | String        | -       | -                | N        | The description of the step.       |
-| injComponent | Component     | -       | Svelte Component | N        | The Svelte component.              |
+| Name       | Type              | Default | Required | Description                                                                |
+| ---------- | ----------------- | ------- | -------- | -------------------------------------------------------------------------- |
+| step       | `StepsStep`       | `{}`    | Y        | Step parameters.                                                           |
+| finishStep | `StepsFinishStep` | `{}`    | N        | Completed step parameters.                                                 |
+| height     | `number`          | `0`     | N        | Step height for vertical layout, usually auto-calculated by the component. |
 
-## finishStep Props
+## step Props && StepsFinishStep Props
 
-The same as step Props, representing the parameters of completed steps.
+| Name         | Type                                                          | Default | Required | Description                             |
+| ------------ | ------------------------------------------------------------- | ------- | -------- | --------------------------------------- |
+| title        | `string`                                                      | `''`    | Y        | Step title.                             |
+| bar          | `StepsStepBarIcon \| StepsStepBarImage \| StepsStepBarString` | `{}`    | N        | Step area content.                      |
+| desc         | `string`                                                      | `''`    | N        | Step description content.               |
+| injComponent | `Component`                                                   | -       | N        | Inject Svelte component into step area. |
+
+## StepsStepBarIcon Props
+
+| Name    | Type     | Default | Required | Description                                                                    |
+| ------- | -------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| type    | `'icon'` | `{}`    | Y        | Used when step area content is an icon.                                        |
+| content | `Icon`   | `-`     | Y        | Icon parameters [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
+
+## StepsStepBarImage Props
+
+| Name    | Type      | Default | Required | Description                              |
+| ------- | --------- | ------- | -------- | ---------------------------------------- |
+| type    | `'image'` | `{}`    | Y        | Used when step area content is an image. |
+| content | `string`  | `-`     | Y        | Image path.                              |
+
+## StepsStepBarString Props
+
+| Name    | Type       | Default | Required | Description                              |
+| ------- | ---------- | ------- | -------- | ---------------------------------------- |
+| type    | `'string'` | `{}`    | Y        | Used when step area content is a string. |
+| content | `string`   | `-`     | Y        | String content.                          |

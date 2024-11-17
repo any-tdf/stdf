@@ -1,27 +1,27 @@
 ## Description
 
-By default, Steps are horizontally layouted, but due to limited display on mobile devices, horizontal layout is recommended only for simple use. When there are many steps, long titles, or more content to display, vertical layout is recommended. Horizontal layout only displays titles and step bar areas, and other parameters such as desc will not be displayed.
+Steps defaults to horizontal layout. Due to limited horizontal display content on mobile devices, horizontal layout is recommended only for simple use. When there are multiple steps, long titles, or more content to display, vertical layout is recommended.
+
+> Horizontal layout only displays the title and step bar area, even if other parameters like desc are passed in, they will not be displayed.
 
 ## current
 
-The actual step number starting from 1, corresponding to the index value +1 of steps within the component.
+The actual step number starting from 1, which corresponds to the steps array index + 1 internally in the component.
 
 ## finishStep
 
-Props for each step support finishStep, which is used for more precise expressions of completed steps in some scenarios. Please refer to the example for details.
+Each step's Props supports passing in finishStep, which has the same format as step, used to more accurately and precisely express completed steps in some scenarios. Please refer to the examples.
 
-## Step bar area
+## Step Bar Area
 
-The step bar area bar can be passed in as an object or a character. If a character is passed in, it will be displayed directly. It is recommended to use a single character. The object supports image and icon through type. Icon uses Icon Props, and image can pass the relative or absolute path of the image, and the component will convert it to the src attribute of the img tag.
-
-Please refer to Icon API for Icon Props.
+The step bar area can accept three types of content: when type is `'string'`, it will directly display characters (single character recommended); when type is `'image'`, it will display an image, accepting relative or absolute image paths which will be converted to img tag src attribute internally; when type is `'icon'`, it will display an icon rendered according to the passed [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).
 
 ## injComponent
 
-step Props and finishStep Props support the injection of Svelte components through injComponent. Steps will use the `<svelte:component>`syntax to render the entire Svelte component passed in. Refer to the example for details.
+step and finishStep support injecting Svelte components via injComponent, which Steps will render at the bottom of the step area. Please refer to the examples.
 
-For \<svelte:component\>, please refer to [\<svelte:component\>](https://svelte.dev/docs#template-syntax-svelte-component).
+The implementation of passing and rendering Svelte components as parameters uses Svelte's `{@const ...}` syntax, please refer to [{@const ...}](https://svelte.dev/docs/svelte/@const).
 
-## Supplement
+## Additional Note
 
-Tip: The business scenario that represents a timeline can also use the Steps component.
+Tip: The Steps component can also be used for timeline business scenarios.
