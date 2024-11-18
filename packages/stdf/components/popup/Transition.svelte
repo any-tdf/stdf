@@ -70,9 +70,7 @@
 		<div
 			out:scale|global={transitionOutParams}
 			in:scale|global={transitionParams}
-			class={`${sizeClass[position] || sizeClass['bottom']}${pxClass[px] || pxClass['0']}${
-				pyClass[py] || pyClass['0']
-			} pointer-events-auto`}
+			class="{sizeClass[position] || sizeClass['bottom']}{pxClass[px] || pxClass['0']}{pyClass[py] || pyClass['0']} pointer-events-auto"
 			style={sizeStyle[position] || sizeStyle['bottom']}
 		>
 			{@render children?.()}
@@ -81,9 +79,7 @@
 		<div
 			in:fly|global={transitionParams}
 			out:fly|global={transitionOutParams}
-			class={`${sizeClass[position] || sizeClass['bottom']}${pxClass[px] || pxClass['0']}${
-				pyClass[py] || pyClass['0']
-			} pointer-events-auto`}
+			class="{sizeClass[position] || sizeClass['bottom']}{pxClass[px] || pxClass['0']}{pyClass[py] || pyClass['0']} pointer-events-auto"
 			style={sizeStyle[position] || sizeStyle['bottom']}
 		>
 			{@render children?.()}
