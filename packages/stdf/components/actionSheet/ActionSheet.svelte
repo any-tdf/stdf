@@ -25,67 +25,52 @@
 		onclose,
 	} = $props();
 
-	// 标题对齐方式
-	// Title alignment
-	const titleAlignClass = { left: 'text-left', center: 'text-center', right: 'text-right' };
-
-	// 选项样式
-	// Option style
-	const stateClass = {
-		normal: ' ',
-		theme: ' text-primary dark:text-dark ',
-		danger: ' text-error ',
-		disabled: ' text-black/20 dark:text-white/20 ',
+	// 静态样式类定义移到组件外部
+	// static style class definition moved to component outside
+	const STYLE_MAPS = {
+		titleAlign: { left: 'text-left', center: 'text-center', right: 'text-right' },
+		state: { normal: ' ', theme: ' text-primary dark:text-dark ', danger: ' text-error ', disabled: ' text-black/20 dark:text-white/20 ' },
+		imgRadius: { none: 'rounded-none', base: 'rounded', full: 'rounded-full', lg: 'rounded-lg' },
+		align: { left: 'justify-start pl-4', center: 'justify-center', right: 'justify-end pr-4' },
 	};
 
-	// 图片圆角
-	// Image radius
-	const imgRadiusClass = { none: 'rounded-none', base: 'rounded', full: 'rounded-full', lg: 'rounded-lg' };
-
-	// 对齐方式
-	// alignment
-	const alignClass = { left: 'justify-start pl-4', center: 'justify-center', right: 'justify-end pr-4' };
-
-	// 计算弹出层高度
-	// Calculate the height of the popup
-	const getTransitionDistanceunc = (title, showCancel, actions) => {
-		const titleHeight = title ? 40 : 0;
-		const cancelHeight = showCancel ? 56 : 0;
-		// 循环 actions，如果有 desc 高度为 61, 没有 desc 高度为 56，分割线每条1px，计算总高度
-		// Loop actions, if there is desc, the height is 61, if there is no desc, the height is 56, and the divider is 1px each, and the total height is calculated
-		const actionsHeight = actions.reduce((total, item) => {
-			return total + (item.desc ? 60 : 56);
-		}, 0);
-		return titleHeight + cancelHeight + actionsHeight + actions.length - 1;
+	// 优化高度计算函数
+	// optimize height calculation function
+	const getTransitionDistance = (title, showCancel, actions) => {
+		const BASE_HEIGHTS = { title: 40, cancel: 56, action: 56, actionWithDesc: 60, divider: 1 };
+		return (
+			(title ? BASE_HEIGHTS.title : 0) +
+			(showCancel ? BASE_HEIGHTS.cancel : 0) +
+			actions.reduce((total, item) => total + (item.desc ? BASE_HEIGHTS.actionWithDesc : BASE_HEIGHTS.action), 0) +
+			(actions.length - 1) * BASE_HEIGHTS.divider
+		);
 	};
 
-	// 取消按钮点击事件
-	// Click event of cancel button
-	const cancelFunc = () => {
+	// 优化事件处理函数
+	// optimize event handling function
+	const handleCancel = () => {
 		visible = false;
-		oncancel && oncancel();
-		onclose && onclose();
+		oncancel?.();
+		onclose?.();
 	};
 
-	// 选项点击事件，如果选项不可点击，不触发事件，如果可点击，触发事件，如果 actionClosable 为 true，关闭弹出层
-	// Click event of action, if the action is not clickable, the event will not be triggered, if it is clickable, the event will be triggered, and if actionClosable is true, the popup will be closed
-	const clickActionFunc = (index, item) => {
-		if (item.style !== 'disabled') {
-			onclickAction && onclickAction(index, item); // 如果 clickAction 存在，执行 clickAction 函数
-			if (actionClosable) {
-				visible = false;
-				onclose && onclose();
-			}
+	// 处理选项点击事件
+	// handle option click event
+	const handleActionClick = (index, item) => {
+		if (item.style === 'disabled') return;
+		onclickAction?.(index, item);
+		if (actionClosable) {
+			visible = false;
+			onclose?.();
 		}
 	};
 </script>
 
-<Popup bind:visible size={0} maskClosable transitionDistance={getTransitionDistanceunc(title, showCancel, actions)} {onclose} {...popup}>
+<Popup bind:visible size={0} transitionDistance={getTransitionDistance(title, showCancel, actions)} {onclose} {...popup}>
 	{#if title}
 		<div
-			class="truncate text-xs text-black/50 dark:text-white/50 border-b border-black/5 dark:border-white/5 h-10 flex flex-col justify-center {titleAlignClass[
-				titleAlign
-			] || titleAlignClass['left']}"
+			class="truncate text-xs text-black/50 dark:text-white/50 border-b border-black/5 dark:border-white/5 h-10 flex flex-col justify-center {STYLE_MAPS
+				.titleAlign[titleAlign] || STYLE_MAPS.titleAlign['left']}"
 		>
 			{title}
 		</div>
@@ -93,20 +78,21 @@
 	<div>
 		{#each actions as item, index}
 			<button
-				class="{item.style !== 'disabled' ? 'active:scale-90 ' : ''}transition-all flex items-center gap-2 w-full {alignClass[align] ||
-					alignClass['center']}"
-				onclick={() => clickActionFunc(index, item)}
+				class="{item.style !== 'disabled'
+					? 'active:scale-90 '
+					: 'cursor-not-allowed '}transition-all flex items-center gap-2 w-full {STYLE_MAPS.align[align] || STYLE_MAPS.align['center']}"
+				disabled={item.style === 'disabled'}
+				onclick={() => handleActionClick(index, item)}
 			>
 				{#if item.showImg}
-					<div class="w-6 h-6 overflow-hidden {imgRadiusClass[item.imgRadius] || 'rounded-full'}">
+					<div class="w-6 h-6 overflow-hidden {STYLE_MAPS.imgRadius[item.imgRadius] || 'rounded-full'}">
 						<img class="w-full h-full object-cover" src={item.imgSrc} alt="" />
 					</div>
 				{/if}
 				<div>
 					<div
-						class="truncate text-center font-bold {stateClass[item.style] || stateClass.normal} flex flex-col justify-center {item.desc
-							? ' h-10'
-							: ' h-14'}"
+						class="truncate text-center font-bold {STYLE_MAPS.state[item.style] ||
+							STYLE_MAPS.state.normal} flex flex-col justify-center {item.desc ? ' h-10' : ' h-14'}"
 					>
 						{item.content}
 					</div>
@@ -123,8 +109,8 @@
 	{#if showCancel}
 		<div class="bg-black/5 dark:bg-white/5 h-2"></div>
 		<button
-			class="active:scale-90 transition-all h-12 flex items-center w-full {alignClass[align] || alignClass['center']}"
-			onclick={cancelFunc}
+			class="active:scale-90 transition-all h-12 flex items-center w-full {STYLE_MAPS.align[align] || STYLE_MAPS.align['center']}"
+			onclick={handleCancel}
 		>
 			<div>
 				{cancelText}

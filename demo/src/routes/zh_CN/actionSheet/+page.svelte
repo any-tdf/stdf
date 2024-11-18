@@ -17,6 +17,34 @@
 
 	const actions = [{ content: '选项一' }, { content: '选项二' }, { content: '选项三' }];
 
+	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	const actions1 = [
+		{ content: '常规选项' },
+		{ content: '主题选项', style: 'theme' },
+		{ content: '禁用选项', style: 'disabled' },
+		{ content: '警告选项', style: 'danger' },
+	];
+	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	const actions2 = [
+		{ content: '选项一' },
+		{ content: '选项二', desc: '这里是描述信息' },
+		{ content: '选项三', style: 'danger', desc: '这里是描述信息' },
+	];
+	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	const actions3 = [
+		{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
+		{ content: '小牛', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
+		{ content: '水人', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
+	];
+	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	const actions4 = [
+		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
+		{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },
+		{ content: 'Microsoft', showImg: true, imgSrc: '/assets/logos/microsoft.png', imgRadius: 'none' },
+		{ content: 'Adobe', showImg: true, imgSrc: '/assets/logos/adobe.png', imgRadius: 'none' },
+		{ content: 'Figma', showImg: true, imgSrc: '/assets/logos/figma.png', imgRadius: 'none' },
+	];
+
 	let toastVisible1 = $state(false);
 	let toastVisible2 = $state(false);
 	let toastVisible3 = $state(false);
@@ -37,26 +65,10 @@
 	<ActionSheet bind:visible={visible2} {actions} showCancel popup={{ maskClosable: false }} />
 
 	<Cell title="不同样式" onclick={() => (visible3 = true)} />
-	<ActionSheet
-		bind:visible={visible3}
-		actions={[
-			{ content: '常规选项' },
-			{ content: '主题选项', style: 'theme' },
-			{ content: '禁用选项', style: 'disabled' },
-			{ content: '警告选项', style: 'danger' },
-		]}
-	/>
+	<ActionSheet bind:visible={visible3} actions={actions1} />
 
 	<Cell title="带标题和描述信息" onclick={() => (visible4 = true)} />
-	<ActionSheet
-		bind:visible={visible4}
-		actions={[
-			{ content: '选项一' },
-			{ content: '选项二', desc: '这里是描述信息' },
-			{ content: '选项三', style: 'danger', desc: '这里是描述信息' },
-		]}
-		title="这里是标题，可以简要说明以下操作。"
-	/>
+	<ActionSheet bind:visible={visible4} actions={actions2} title="这里是标题，可以简要说明以下操作。" />
 
 	<Cell title="顶部来点圆角" onclick={() => (visible5 = true)} />
 	<ActionSheet bind:visible={visible5} {actions} popup={{ radius: 'xl' }} />
@@ -80,25 +92,8 @@
 	<ActionSheet bind:visible={visible10} {actions} actionClosable={false} />
 
 	<Cell title="选项带图片" onclick={() => (visible11 = true)} />
-	<ActionSheet
-		bind:visible={visible11}
-		actions={[
-			{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
-			{ content: '小牛', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
-			{ content: '水人', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
-		]}
-	/>
+	<ActionSheet bind:visible={visible11} actions={actions3} />
 
 	<Cell title="选项左对齐" onclick={() => (visible12 = true)} />
-	<ActionSheet
-		bind:visible={visible12}
-		actions={[
-			{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
-			{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },
-			{ content: 'Microsoft', showImg: true, imgSrc: '/assets/logos/microsoft.png', imgRadius: 'none' },
-			{ content: 'Adobe', showImg: true, imgSrc: '/assets/logos/adobe.png', imgRadius: 'none' },
-			{ content: 'Figma', showImg: true, imgSrc: '/assets/logos/figma.png', imgRadius: 'none' },
-		]}
-		align="left"
-	/>
+	<ActionSheet bind:visible={visible12} actions={actions4} align="left" />
 </div>
