@@ -2,33 +2,34 @@
 <script>
 	import { Cell, Calendar } from '../../../../../packages/stdf/components';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
-	let visible20 = false;
-	let visible21 = false;
-	let visible22 = false;
-	let visible23 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
+	let visible22 = $state(false);
+	let visible23 = $state(false);
+	let visible24 = $state(false);
 
 	// 随机取出当前日期后的6天，组成 infoDates 数组，其中 date 格式为 YYYYMMDD，月和日补足2位
 	const now = new Date();
-	const infoDates = [];
+	const infoDates = $state([]);
 	for (let i = 0; i < 6; i++) {
 		const date = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
 		infoDates.push(
@@ -68,76 +69,76 @@
 
 	const quickSelectsDay = [-5, -2, 3, 7];
 
-	let selectedDates = [];
-	const getSelectedDatesFunc = e => {
-		selectedDates = e.detail.dates;
+	let selectedDates = $state([]);
+	const getSelectedDatesFunc = dates => {
+		selectedDates = dates;
 	};
 
-	let selectedFormatDates = [];
-	const getSelectedFormatDatesFunc = e => {
-		selectedFormatDates = e.detail.dates;
+	let selectedFormatDates = $state([]);
+	const getSelectedFormatDatesFunc = dates => {
+		selectedFormatDates = dates;
 	};
 </script>
 
 <div class="py-4">
-	<Cell title="基础用法" on:click={() => (visible1 = true)} />
+	<Cell title="基础用法" onclick={() => (visible1 = true)} />
 	<Calendar bind:visible={visible1} />
 
-	<Cell title="多选" on:click={() => (visible7 = true)} />
+	<Cell title="多选" onclick={() => (visible7 = true)} />
 	<Calendar bind:visible={visible7} mode="multiple" />
 
-	<Cell title="范围选择" on:click={() => (visible8 = true)} />
+	<Cell title="范围选择" onclick={() => (visible8 = true)} />
 	<Calendar bind:visible={visible8} mode="range" />
 
-	<Cell title="从周日开始" on:click={() => (visible2 = true)} />
+	<Cell title="从周日开始" onclick={() => (visible2 = true)} />
 	<Calendar bind:visible={visible2} startSunday />
 
-	<Cell title="周末文字标红" on:click={() => (visible3 = true)} />
+	<Cell title="周末文字标红" onclick={() => (visible3 = true)} />
 	<Calendar bind:visible={visible3} weekendRed />
 
-	<Cell title="不使用卡片样式且加水印" on:click={() => (visible4 = true)} />
+	<Cell title="不使用卡片样式且加水印" onclick={() => (visible4 = true)} />
 	<Calendar bind:visible={visible4} monthCard={false} monthMark />
 
-	<Cell title="高一点" on:click={() => (visible5 = true)} />
+	<Cell title="高一点" onclick={() => (visible5 = true)} />
 	<Calendar bind:visible={visible5} height={60} />
 
-	<Cell title="自定义显示信息的日期" on:click={() => (visible6 = true)} />
+	<Cell title="自定义显示信息的日期" onclick={() => (visible6 = true)} />
 	<Calendar bind:visible={visible6} {infoDates} />
 
-	<Cell title="不要圆角" on:click={() => (visible9 = true)} />
+	<Cell title="不要圆角" onclick={() => (visible9 = true)} />
 	<Calendar bind:visible={visible9} mode="range" radius="none" />
 
-	<Cell title="加大圆角" on:click={() => (visible10 = true)} />
+	<Cell title="加大圆角" onclick={() => (visible10 = true)} />
 	<Calendar bind:visible={visible10} mode="range" radius="2xl" />
 
-	<Cell title="滚动时关闭动画" on:click={() => (visible18 = true)} />
+	<Cell title="滚动时关闭动画" onclick={() => (visible18 = true)} />
 	<Calendar bind:visible={visible18} useAnimation={false} />
 
-	<Cell title="配置确认按钮样式" on:click={() => (visible11 = true)} />
+	<Cell title="配置确认按钮样式" onclick={() => (visible11 = true)} />
 	<Calendar bind:visible={visible11} button={{ radius: 'full' }} />
 
-	<Cell title="顶部来点圆角" on:click={() => (visible19 = true)} />
+	<Cell title="顶部来点圆角" onclick={() => (visible19 = true)} />
 	<Calendar bind:visible={visible19} popup={{ radius: 'xl' }} />
 
-	<Cell title="定义开始与结束月" on:click={() => (visible12 = true)} />
+	<Cell title="定义开始与结束月" onclick={() => (visible12 = true)} />
 	<Calendar bind:visible={visible12} startMonth="202101" endMonth="202106" />
 
-	<Cell title="自定义不可选日期" on:click={() => (visible13 = true)} />
+	<Cell title="自定义不可选日期" onclick={() => (visible13 = true)} />
 	<Calendar bind:visible={visible13} {disabledDates} mode="range" />
 
-	<Cell title="多选或范围选择时不显示已选天数" on:click={() => (visible14 = true)} />
+	<Cell title="多选或范围选择时不显示已选天数" onclick={() => (visible14 = true)} />
 	<Calendar bind:visible={visible14} mode="range" showSelectedDay={false} />
 
-	<Cell title="自定义初始显示月份" subTitle="开始月份为当前月份前第三个月" on:click={() => (visible15 = true)} />
+	<Cell title="自定义初始显示月份" subTitle="开始月份为当前月份前第三个月" onclick={() => (visible15 = true)} />
 	<Calendar bind:visible={visible15} {initMonth} />
 
-	<Cell title="展示一些快速选择项" on:click={() => (visible16 = true)} />
+	<Cell title="展示一些快速选择项" onclick={() => (visible16 = true)} />
 	<Calendar bind:visible={visible16} mode="range" quickSelects={['week', 'month', 'quarter', -3, -7, -30, 3, 7, 30]} />
 
-	<Cell title="快速选择天数时包含当天" on:click={() => (visible23 = true)} />
+	<Cell title="快速选择天数时包含当天" onclick={() => (visible23 = true)} />
 	<Calendar bind:visible={visible23} mode="range" quickSelects={quickSelectsDay} includeToday />
 
-	<Cell title="从周日开始快速选择本周" on:click={() => (visible17 = true)} />
+	<Cell title="从周日开始快速选择本周" onclick={() => (visible17 = true)} />
 	<Calendar bind:visible={visible17} mode="range" startSunday quickSelects={['week']} />
 
 	<div class="px-4">
@@ -152,8 +153,8 @@
 			<div class="text-center">{item}</div>
 		{/each}
 	</div>
-	<Cell title="获取返回的选定日期" on:click={() => (visible20 = true)} />
-	<Calendar bind:visible={visible20} mode="range" on:confirm={getSelectedDatesFunc} />
+	<Cell title="获取返回的选定日期" onclick={() => (visible20 = true)} />
+	<Calendar bind:visible={visible20} mode="range" onconfirm={getSelectedDatesFunc} />
 
 	<div class="px-4">
 		{#if selectedFormatDates.length}
@@ -167,9 +168,12 @@
 			<div class="text-center">{item}</div>
 		{/each}
 	</div>
-	<Cell title="自定义返回的日期格式" on:click={() => (visible21 = true)} />
-	<Calendar bind:visible={visible21} mode="range" outFormat="Y年M月D日" on:confirm={getSelectedFormatDatesFunc} />
+	<Cell title="自定义返回的日期格式" onclick={() => (visible21 = true)} />
+	<Calendar bind:visible={visible21} mode="range" outFormat="Y年M月D日" onconfirm={getSelectedFormatDatesFunc} />
 
-	<Cell title="今日日期关闭高亮显示" on:click={() => (visible22 = true)} />
+	<Cell title="今日日期关闭高亮显示" onclick={() => (visible22 = true)} />
 	<Calendar bind:visible={visible22} highlightToday={false} />
+
+	<Cell title="关闭时不清空已选日期" onclick={() => (visible24 = true)} />
+	<Calendar bind:visible={visible24} mode="range" clear={false} />
 </div>

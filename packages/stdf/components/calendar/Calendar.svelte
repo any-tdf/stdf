@@ -47,8 +47,8 @@
 		outFormat = 'YMD',
 		popup = {},
 		button = {},
+		clear = true,
 		onconfirm,
-		onopen,
 		onclose,
 	} = $props();
 
@@ -108,13 +108,11 @@
 
 	// 循环 monthList，根据每个月份的数据，生成全部的日历数据，其中 month 为当前月，year 为年，data 为日期数组
 	// Loop monthList, generate all calendar data according to the data of each month, where month is the current month, year is the year, and data is the date array
-	const allMonthData = monthList.map(monthStr => {
-		return {
-			year: monthStr.slice(0, 4),
-			month: monthStr.slice(4),
-			data: getCalendarData(monthStr, startSunday),
-		};
-	});
+	const allMonthData = monthList.map(monthStr => ({
+		year: monthStr.slice(0, 4),
+		month: monthStr.slice(4),
+		data: getCalendarData(monthStr, startSunday),
+	}));
 
 	// 如果 infoDates 不为空，循环 allMonthData，循环 data，循环 infoDates，如果 infoDates 中的日期和 data 中的日期相同，将 infoDates 中的 info 赋值给 data 中的 info
 	// If infoDates is not empty, loop allMonthData, loop data, loop infoDates, if the date in infoDates is the same as the date in data, assign the info in infoDates to the info in data
@@ -171,9 +169,7 @@
 			if (rangeArr.length === 2) {
 				// 将 rangeArr 排序，保证第一个日期小于第二个日期
 				// Sort rangeArr to ensure that the first date is less than the second date
-				rangeArr.sort((a, b) => {
-					return Number(a) - Number(b);
-				});
+				rangeArr.sort((a, b) => Number(a) - Number(b));
 				selectedDate = getDateRange(rangeArr[0], rangeArr[1], disabledDates);
 				rangeArr = [];
 			} else {
@@ -191,9 +187,7 @@
 		}
 		// 对 selectedDate 按照日期排序
 		// Sort selectedDate by date
-		selectedDate.sort((a, b) => {
-			return Number(a) - Number(b);
-		});
+		selectedDate.sort((a, b) => Number(a) - Number(b));
 		selectedDateStr = selectedDate.join(',');
 	};
 
@@ -260,9 +254,7 @@
 		// 根据传入的 outFormat，循环 selectedDate，将 selectedDate 中的日期使用 getDateStrFunc 转换为 outFormat 格式的日期字符串
 		// Loop selectedDate according to the outFormat passed in, and use getDateStrFunc to convert the date in selectedDate to a date string in the outFormat format
 		if (selectedDate.length) {
-			selectedDate = selectedDate.map(item => {
-				return getDateStrFunc(outFormat, item);
-			});
+			selectedDate = selectedDate.map(item => getDateStrFunc(outFormat, item));
 		}
 		onconfirm && onconfirm(selectedDate);
 	};
@@ -278,11 +270,11 @@
 	// 监听 visible 的变化，派发事件
 	// Listen to the change of visible, dispatch events
 	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			selectedDate = [];
-			selectedDateStr = '';
+		if (!visible) {
+			if (clear) {
+				selectedDate = [];
+				selectedDateStr = '';
+			}
 			onclose && onclose();
 		}
 	});
@@ -300,10 +292,8 @@
 			{#if quickSelects.length > 0 && mode === 'range'}
 				<div class="flex flex-nowrap gap-4 px-4 pt-2 pb-1 overflow-x-auto calendar-container">
 					{#each quickSelects as item}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
-							class="text-xs px-2 py-1 cursor-pointer flex-none bg-white dark:bg-black dark:shadow-white/10 shadow rounded"
+						<button
+							class="text-xs px-2 py-1 flex-none bg-white dark:bg-black dark:shadow-white/10 shadow rounded"
 							class:!bg-primary={isQuickSelect && quickSelectItem === item}
 							class:text-white={isQuickSelect && quickSelectItem === item}
 							class:dark:!bg-dark={isQuickSelect && quickSelectItem === item}
@@ -323,39 +313,39 @@
 							{:else}
 								<!-- else content here -->
 							{/if}
-						</div>
+						</button>
 					{/each}
 				</div>
 			{/if}
 			<div class="flex justify-around items-center text-center gap-1 px-6 h-10 leading-10">
 				{#each weekTexts as item, index}
-					<div class={`flex-1 font-bold${weekendRed && isWeekendFunc(startSunday, index) ? ' text-error' : ''}`}>
+					<div class="flex-1 font-bold{weekendRed && isWeekendFunc(startSunday, index) ? ' text-error' : ''}">
 						{item}
 					</div>
 				{/each}
 			</div>
 		</div>
 		<div
-			class={`bg-gray-50 dark:bg-gray-800 py-2 px-4 flex flex-col gap-4 overflow-y-auto calendar-container ${
-				useAnimation ? 'scroll-smooth' : 'scroll-auto'
-			}`}
+			class="bg-gray-50 dark:bg-gray-800 py-2 px-4 flex flex-col gap-4 overflow-y-auto calendar-container {useAnimation
+				? 'scroll-smooth'
+				: 'scroll-auto'}"
 			style="height:{(window.innerHeight * height) / 100}px"
 			bind:this={scrollElement}
 		>
 			{#each allMonthData as item}
-				<div class={`${monthCard ? 'bg-white dark:bg-black shadow-md dark:shadow-white/5 rounded-xl ' : ''}relative`}>
+				<div
+					class="{monthCard ? `bg-white dark:bg-black shadow-md dark:shadow-white/5 ${radiusClass[radius] || 'rounded-xl'}` : ''} relative"
+				>
 					<div class="px-4 pt-4 text-xl text-black/30 dark:text-white/30">
 						<span class="font-bold text-black dark:text-white mr-2">
 							{calendarLang.monthTextList[Number(item.month) - 1]}
 						</span>
 						{item.year}
 					</div>
-					<div class={`grid grid-cols-7 gap-y-1 text-center p-2`}>
+					<div class="grid grid-cols-7 gap-y-1 text-center p-2">
 						{#each item.data as i}
-							<!-- svelte-ignore a11y_click_events_have_key_events -->
-							<!-- svelte-ignore a11y_no_static_element_interactions -->
-							<div
-								class={`p-px cursor-pointer${i.day ? ' bg-primary/10 dark:bg-dark/20' : ''}`}
+							<button
+								class="p-px{i.day ? ' bg-primary/10 dark:bg-dark/20' : ''}"
 								onclick={() => {
 									if (!i.disabled) clickDayFunc(item.year, item.month, i);
 								}}
@@ -390,9 +380,9 @@
 								class:!rounded={radius === 'base' && mode !== 'range'}
 							>
 								<div
-									class={`${radiusClass[radius] || 'rounded-xl'} relative w-full h-full flex flex-col justify-center ${
-										i.info ? 'py-1' : 'py-2'
-									}`}
+									class="{radiusClass[radius] || 'rounded-xl'} relative w-full h-full flex flex-col justify-center {i.info
+										? 'py-1'
+										: 'py-2'}"
 									class:bg-primary={(i.day && mode !== 'range' && selectedDateStr.includes(`${item.year}${item.month}${i.day}`)) ||
 										(i.day &&
 											selectedDateStr.includes(`${item.year}${item.month}${i.day}`) &&
@@ -445,16 +435,15 @@
 										</div>
 									{/if}
 								</div>
-							</div>
+							</button>
 						{/each}
 					</div>
 					{#if monthMark}
 						<div
-							class={`absolute pointer-events-none w-full ${
-								monthMarkSizeClass[monthMarkSize] || 'text-7xl'
-							} text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-black/5 ${
-								monthCard ? 'dark:text-white/10' : 'dark:text-white/5'
-							}`}
+							class="absolute pointer-events-none w-full {monthMarkSizeClass[monthMarkSize] ||
+								'text-7xl'} text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-black/5 {monthCard
+								? 'dark:text-white/10'
+								: 'dark:text-white/5'}"
 						>
 							{calendarLang.monthTextList[Number(item.month) - 1]}
 						</div>

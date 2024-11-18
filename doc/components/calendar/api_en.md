@@ -1,44 +1,44 @@
 ## Calendar Props
 
-| Property        | Type         | Default Value                        | Optional Values                                             | Required | Description                                                       |
-| --------------- | ------------ | ------------------------------------ | ----------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
-| visible         | Boolean      | false                                | true/false                                                  | N        | Whether the calendar is visible.                                  |
-| startMonth      | String       | 6 months ago from current month      | A YYYYMM formatted string representing a date.              | N        | The starting month.                                               |
-| endMonth        | String       | 6 months after current month         | A YYYYMM formatted string representing a date.              | N        | The ending month.                                                 |
-| initMonth       | String       | Current month                        | A YYYYMM formatted string representing a date.              | N        | The initial month to display.                                     |
-| mode            | String       | 'single'                             | 'single'/'multiple'/'range'                                 | N        | The selection mode.                                               |
-| startSunday     | Boolean      | false                                | true/false                                                  | N        | Whether the week starts on Sunday.                                |
-| weekendRed      | Boolean      | false                                | true/false                                                  | N        | Whether weekends are displayed in red.                            |
-| monthCard       | Boolean      | true                                 | true/false                                                  | N        | Whether to use card style for month data.                         |
-| monthMark       | Boolean      | false                                | true/false                                                  | N        | Whether to display the month watermark.                           |
-| monthMarkSize   | String       | '7xl'                                | '3xl'/'4xl'/'5xl'/'6xl'/'7xl'/'8xl'/'9xl'                   | N        | The size of the month watermark text.                             |
-| height          | Number       | 50                                   | A number representing the percentage of height.             | N        | The height of the calendar as a percentage.                       |
-| infoDates       | Array        | []                                   | Refer to infoDates Props.                                   | Y        | Dates that need to display information.                           |
-| disabledDates   | Array        | []                                   | Array of dates in YYYYMMDD format.                          | Y        | Dates that are not selectable.                                    |
-| radius          | String       | 'xl'                                 | 'none'/'base'/'xl'/'2xl'                                    | Y        | The style of rounded corners on selected dates.                   |
-| showSelectedDay | Boolean      | true                                 | true/false                                                  | Y        | Whether to show the number of selected days.                      |
-| confirmText     | String       | The current language's confirm text  | -                                                           | Y        | The text shown on the confirm button.                             |
-| selectedText    | String       | The current language's selected text | -                                                           | Y        | Part of the text shown on the confirm button.                     |
-| dayText         | String       | The current language's day text      | -                                                           | Y        | Part of the text shown on the confirm button.                     |
-| quickSelects    | Array/Number | []                                   | 'week'/'month'/'quarter'/positive integer/ negative integer | Y        | Configuration parameters for quick date selection.                |
-| includeToday    | Boolean      | false                                | true/false                                                  | Y        | Whether to include today in quick date selection.                 |
-| highlightToday  | Boolean      | true                                 | true/false                                                  | Y        | Whether to highlight today.                                       |
-| useAnimation    | Boolean      | true                                 | true/false                                                  | Y        | Whether to use animation when auto-scrolling to specified months. |
-| outFormat       | String       | 'YMD'                                | A combination of characters including Y M D.                | Y        | The format of the returned date data.                             |
-| popup           | Object       | {}                                   | Refer to Popup Props.                                       | Y        | Parameters for the popup component.                               |
-| button          | Object       | {}                                   | Refer to Button Props.                                      | Y        | Parameters for the confirm button.                                |
+| Name            | Type                                              | Default                                    | Required | Description                                                                                  |
+| --------------- | ------------------------------------------------- | ------------------------------------------ | -------- | -------------------------------------------------------------------------------------------- |
+| visible         | `boolean`                                         | `false`                                    | N        | Whether to show the calendar.                                                                |
+| startMonth      | `string`                                          | 6 months before current month              | N        | Start month in YYYYMM format.                                                                |
+| endMonth        | `string`                                          | 6 months after current month               | N        | End month in YYYYMM format.                                                                  |
+| initMonth       | `string`                                          | Current month                              | N        | Initial display month in YYYYMM format.                                                      |
+| mode            | `'single'\|'multiple'\|'range'`                   | `'single'`                                 | N        | Selection mode.                                                                              |
+| startSunday     | `boolean`                                         | `false`                                    | N        | Whether week starts from Sunday.                                                             |
+| weekendRed      | `boolean`                                         | `false`                                    | N        | Whether weekend dates are in red.                                                            |
+| monthCard       | `boolean`                                         | `true`                                     | N        | Whether to use card style for month data.                                                    |
+| monthMark       | `boolean`                                         | `false`                                    | N        | Whether to show month watermark.                                                             |
+| monthMarkSize   | `'3xl'\|'4xl'\|'5xl'\|'6xl'\|'7xl'\|'8xl'\|'9xl'` | `'7xl'`                                    | N        | Month watermark text size.                                                                   |
+| height          | `number`                                          | `50`                                       | N        | Display height as percentage of page height.                                                 |
+| infoDates       | `InfoDate[]`                                      | `[]`                                       | N        | Dates that need to display information.                                                      |
+| disabledDates   | `string[]`                                        | `[]`                                       | N        | Disabled dates.                                                                              |
+| radius          | `'none'\|'base'\|'xl'\|'2xl'`                     | `'xl'`                                     | N        | Border radius style for selected dates.                                                      |
+| showSelectedDay | `boolean`                                         | `true`                                     | N        | Whether to show selected days count in confirm button for multiple/range mode.               |
+| confirmText     | `string`                                          | Current language calendarLang.confirmText  | N        | Confirm button text.                                                                         |
+| selectedText    | `string`                                          | Current language calendarLang.selectedText | N        | Part of confirm button text when showSelectedDay is true.                                    |
+| dayText         | `string`                                          | Current language calendarLang.dayText      | N        | Part of confirm button text when showSelectedDay is true.                                    |
+| quickSelects    | `('week'\|'month'\|'quarter'\|number)[]`          | `[]`                                       | N        | Quick selection configuration parameters.                                                    |
+| includeToday    | `boolean`                                         | `false`                                    | N        | Whether to include today when using quick select days.                                       |
+| highlightToday  | `boolean`                                         | `true`                                     | N        | Whether to highlight today.                                                                  |
+| useAnimation    | `boolean`                                         | `true`                                     | N        | Whether to use animation when auto-scrolling to specified month.                             |
+| outFormat       | `string`                                          | `'YMD'`                                    | N        | Output date format.                                                                          |
+| popup           | `Popup`                                           | `{}`                                       | N        | Popup parameters [Popup Props](https://stdf.design/#/components?nav=popup&tab=1).            |
+| button          | `Button`                                          | `{}`                                       | N        | Confirm button parameters [Button Props](https://stdf.design/#/components?nav=button&tab=1). |
+| clear           | `boolean`                                         | `true`                                     | N        | Whether to clear selected dates when closing.                                                |
 
 ## Calendar Events
 
-| Name    | Parameter                                                                                 | Description                                   |
-| ------- | ----------------------------------------------------------------------------------------- | --------------------------------------------- |
-| open    | -                                                                                         | Triggered when the calendar is opened.        |
-| close   | -                                                                                         | Triggered when the calendar is closed.        |
-| confirm | event: the event object, which includes a parameter `dates`: an array of formatted dates. | Triggered when the Confirm button is clicked. |
+| Name      | Type                        | Parameters                                        | Description                 |
+| --------- | --------------------------- | ------------------------------------------------- | --------------------------- |
+| onclose   | `() => void`                | -                                                 | Triggered when closing.     |
+| onconfirm | `(dates: string[]) => void` | dates - Array of formatted selected date strings. | Triggered on confirm click. |
 
-## infoDates Props
+## InfoDate Props
 
-| Property | Type   | Default Value | Optional Values                | Required | Description  |
-| -------- | ------ | ------------- | ------------------------------ | -------- | ------------ |
-| date     | String | -             | An array of dates in YYYYMMDD. | Y        | The date.    |
-| info     | String | -             | -                              | Y        | Information. |
+| Name | Type     | Default | Required | Description                           |
+| ---- | -------- | ------- | -------- | ------------------------------------- |
+| date | `string` | -       | Y        | Date in YYYYMMDD format.              |
+| info | `string` | -       | Y        | Information content, keep it concise. |

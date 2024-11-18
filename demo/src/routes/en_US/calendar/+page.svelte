@@ -2,33 +2,34 @@
 <script>
 	import { Cell, Calendar } from '../../../../../packages/stdf/components';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
-	let visible20 = false;
-	let visible21 = false;
-	let visible22 = false;
-	let visible23 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
+	let visible22 = $state(false);
+	let visible23 = $state(false);
+	let visible24 = $state(false);
 
 	// The 6 days after the current date randomly takes out the INFODATES array, the Date format is yyyymmdd, and the month and day make up for 2 digits
 	const now = new Date();
-	const infoDates = [];
+	const infoDates = $state([]);
 	for (let i = 0; i < 6; i++) {
 		const date = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
 		infoDates.push(
@@ -68,76 +69,76 @@
 
 	const quickSelectsDay = [-5, -2, 3, 7];
 
-	let selectedDates = [];
-	const getSelectedDatesFunc = e => {
-		selectedDates = e.detail.dates;
+	let selectedDates = $state([]);
+	const getSelectedDatesFunc = dates => {
+		selectedDates = dates;
 	};
 
-	let selectedFormatDates = [];
-	const getSelectedFormatDatesFunc = e => {
-		selectedFormatDates = e.detail.dates;
+	let selectedFormatDates = $state([]);
+	const getSelectedFormatDatesFunc = dates => {
+		selectedFormatDates = dates;
 	};
 </script>
 
 <div class="py-4">
-	<Cell title="Basic usage" on:click={() => (visible1 = true)} />
+	<Cell title="Basic usage" onclick={() => (visible1 = true)} />
 	<Calendar bind:visible={visible1} />
 
-	<Cell title="Choice" on:click={() => (visible7 = true)} />
+	<Cell title="Choice" onclick={() => (visible7 = true)} />
 	<Calendar bind:visible={visible7} mode="multiple" />
 
-	<Cell title="Range selection" on:click={() => (visible8 = true)} />
+	<Cell title="Range selection" onclick={() => (visible8 = true)} />
 	<Calendar bind:visible={visible8} mode="range" />
 
-	<Cell title="Starting from Sunday" on:click={() => (visible2 = true)} />
+	<Cell title="Starting from Sunday" onclick={() => (visible2 = true)} />
 	<Calendar bind:visible={visible2} startSunday />
 
-	<Cell title="Weekend text marking red" on:click={() => (visible3 = true)} />
+	<Cell title="Weekend text marking red" onclick={() => (visible3 = true)} />
 	<Calendar bind:visible={visible3} weekendRed />
 
-	<Cell title="No card style but add watermark" on:click={() => (visible4 = true)} />
+	<Cell title="No card style but add watermark" onclick={() => (visible4 = true)} />
 	<Calendar bind:visible={visible4} monthCard={false} monthMark />
 
-	<Cell title="Higher" on:click={() => (visible5 = true)} />
+	<Cell title="Higher" onclick={() => (visible5 = true)} />
 	<Calendar bind:visible={visible5} height={60} />
 
-	<Cell title="Customize the date of display information" on:click={() => (visible6 = true)} />
+	<Cell title="Customize the date of display information" onclick={() => (visible6 = true)} />
 	<Calendar bind:visible={visible6} {infoDates} />
 
-	<Cell title="Do not round the corner" on:click={() => (visible9 = true)} />
+	<Cell title="Do not round the corner" onclick={() => (visible9 = true)} />
 	<Calendar bind:visible={visible9} mode="range" radius="none" />
 
-	<Cell title="Increase the corner" on:click={() => (visible10 = true)} />
+	<Cell title="Increase the corner" onclick={() => (visible10 = true)} />
 	<Calendar bind:visible={visible10} mode="range" radius="2xl" />
 
-	<Cell title="Turn off the animation when rolling" on:click={() => (visible18 = true)} />
+	<Cell title="Turn off the animation when rolling" onclick={() => (visible18 = true)} />
 	<Calendar bind:visible={visible18} useAnimation={false} />
 
-	<Cell title="Configure confirmation button style" on:click={() => (visible11 = true)} />
+	<Cell title="Configure confirmation button style" onclick={() => (visible11 = true)} />
 	<Calendar bind:visible={visible11} button={{ radius: 'full' }} />
 
-	<Cell title="Top rounded corner" on:click={() => (visible19 = true)} />
+	<Cell title="Top rounded corner" onclick={() => (visible19 = true)} />
 	<Calendar bind:visible={visible19} popup={{ radius: 'xl' }} />
 
-	<Cell title="Definition start and end month" on:click={() => (visible12 = true)} />
+	<Cell title="Definition start and end month" onclick={() => (visible12 = true)} />
 	<Calendar bind:visible={visible12} startMonth="202101" endMonth="202106" />
 
-	<Cell title="Customize the unsalented date" on:click={() => (visible13 = true)} />
+	<Cell title="Customize the unsalented date" onclick={() => (visible13 = true)} />
 	<Calendar bind:visible={visible13} {disabledDates} mode="range" />
 
-	<Cell title="No showed days have been displayed" on:click={() => (visible14 = true)} />
+	<Cell title="No showed days have been displayed" onclick={() => (visible14 = true)} />
 	<Calendar bind:visible={visible14} mode="range" showSelectedDay={false} />
 
-	<Cell title="Customized initial display month" subTitle="Third month before the current month" on:click={() => (visible15 = true)} />
+	<Cell title="Customized initial display month" subTitle="Third month before the current month" onclick={() => (visible15 = true)} />
 	<Calendar bind:visible={visible15} {initMonth} />
 
-	<Cell title="Show some fast selection items" on:click={() => (visible16 = true)} />
+	<Cell title="Show some fast selection items" onclick={() => (visible16 = true)} />
 	<Calendar bind:visible={visible16} mode="range" quickSelects={['week', 'month', 'quarter', -3, -7, -30, 3, 7, 30]} />
 
-	<Cell title="Quickly choose to include that day" on:click={() => (visible23 = true)} />
+	<Cell title="Quickly choose to include that day" onclick={() => (visible23 = true)} />
 	<Calendar bind:visible={visible23} mode="range" quickSelects={quickSelectsDay} includeToday />
 
-	<Cell title="Select this week from Sunday" on:click={() => (visible17 = true)} />
+	<Cell title="Select this week from Sunday" onclick={() => (visible17 = true)} />
 	<Calendar bind:visible={visible17} mode="range" startSunday quickSelects={['week']} />
 
 	<div class="px-4">
@@ -152,8 +153,8 @@
 			<div class="text-center">{item}</div>
 		{/each}
 	</div>
-	<Cell title="Get the selection date of returning" on:click={() => (visible20 = true)} />
-	<Calendar bind:visible={visible20} mode="range" on:confirm={getSelectedDatesFunc} />
+	<Cell title="Get the selection date of returning" onclick={() => (visible20 = true)} />
+	<Calendar bind:visible={visible20} mode="range" onconfirm={getSelectedDatesFunc} />
 
 	<div class="px-4">
 		{#if selectedFormatDates.length}
@@ -167,9 +168,12 @@
 			<div class="text-center">{item}</div>
 		{/each}
 	</div>
-	<Cell title="Customized date format" on:click={() => (visible21 = true)} />
-	<Calendar bind:visible={visible21} mode="range" outFormat="M/D/Y" on:confirm={getSelectedFormatDatesFunc} />
+	<Cell title="Customized date format" onclick={() => (visible21 = true)} />
+	<Calendar bind:visible={visible21} mode="range" outFormat="M/D/Y" onconfirm={getSelectedFormatDatesFunc} />
 
-	<Cell title="Turn off today's highlight display" on:click={() => (visible22 = true)} />
+	<Cell title="Turn off today's highlight display" onclick={() => (visible22 = true)} />
 	<Calendar bind:visible={visible22} highlightToday={false} />
+
+	<Cell title="Do not clear the selected date when closing" onclick={() => (visible24 = true)} />
+	<Calendar bind:visible={visible24} mode="range" clear={false} />
 </div>
