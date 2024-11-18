@@ -31,14 +31,14 @@
 		{ text: '滑板' },
 		{ text: '飞碟' },
 	];
-	let width = 0;
-	let changeActive = 0;
-	let active = 2;
-	const clicktabFun = e => {
-		active = e.detail;
+	let width = $state(0);
+	let changeActive = $state(0);
+	let active = $state(2);
+	const clicktabFun = a => {
+		active = a;
 	};
-	const tabsChangeFun = e => {
-		changeActive = e.detail;
+	const tabsChangeFun = a => {
+		changeActive = a;
 	};
 </script>
 
@@ -91,41 +91,43 @@
 		<Divider />
 
 		<div class="font-bold px-4">选项卡位于左侧</div>
-		<Tabs tab={{ labels }} position="l" let:active>
-			<TabContent show={active === 0}>我是飞机</TabContent>
-			<TabContent show={active === 1}>我是轮船</TabContent>
-			<TabContent show={active === 2}>我是火车</TabContent>
-			<TabContent show={active === 3}>我是汽车</TabContent>
+		<Tabs tab={{ labels }} position="l">
+			{#snippet children({ active })}
+				<TabContent show={active === 0}>我是飞机</TabContent>
+				<TabContent show={active === 1}>我是轮船</TabContent>
+				<TabContent show={active === 2}>我是火车</TabContent>
+				<TabContent show={active === 3}>我是汽车</TabContent>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4">选项卡位于右侧</div>
-		<Tabs tab={{ labels }} position="r" let:active>
-			<TabContent show={active === 0}>我是飞机</TabContent>
-			<TabContent show={active === 1}>我是轮船</TabContent>
-			<TabContent show={active === 2}>我是火车</TabContent>
-			<TabContent show={active === 3}>我是汽车</TabContent>
+		<Tabs tab={{ labels }} position="r">
+			{#snippet children({ active })}
+				<TabContent show={active === 0}>我是飞机</TabContent>
+				<TabContent show={active === 1}>我是轮船</TabContent>
+				<TabContent show={active === 2}>我是火车</TabContent>
+				<TabContent show={active === 3}>我是汽车</TabContent>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4" bind:clientWidth={width}>自定义过渡</div>
-		<Tabs tab={{ labels }} let:active transition={false}>
-			<div class="relative py-8">
-				{#if active === 0}
-					<div class="absolute" in:fly={{ y: -60, x: 0, duration: 1000 }}>我是飞机</div>
-				{:else if active === 1}
-					<div class="absolute" in:fly={{ y: -60, x: width / 4, duration: 1000 }}>我是轮船</div>
-				{:else if active === 2}
-					<div class="absolute" in:fly={{ y: -60, x: width / 2, duration: 1000 }}>我是火车</div>
-				{:else if active === 3}
-					<div class="absolute" in:fly={{ y: -60, x: (width / 4) * 3, duration: 1000 }}>我是汽车</div>
-				{/if}
-			</div>
+		<Tabs tab={{ labels }} transition={false}>
+			{#snippet children({ active })}
+				<div class="relative py-8">
+					{#each labels as item, i}
+						{#if active === i}
+							<div class="absolute" in:fly={{ y: -80, x: (width / 4) * i, duration: 1000 }}>我是{item.text}</div>
+						{/if}
+					{/each}
+				</div>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4">监听 change 事件</div>
-		<Tabs tab={{ labels }} on:change={tabsChangeFun}>
+		<Tabs tab={{ labels }} onchange={tabsChangeFun}>
 			<TabContent>我是飞机</TabContent>
 			<TabContent>我是轮船</TabContent>
 			<TabContent>我是火车</TabContent>
@@ -209,7 +211,7 @@
 
 	<div class="font-bold my-8 text-xl px-4">单独使用 Tab</div>
 	<div class="my-4">
-		<Tab {labels} {active} on:clicktab={clicktabFun} />
+		<Tab {labels} {active} onclickTab={clicktabFun} />
 		<div class="mt-4">当前 Tab 点击的 active：{active}</div>
 	</div>
 	<Divider />

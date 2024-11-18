@@ -1,46 +1,39 @@
 ## Tabs
 
-### Description
+The Tabs component internally uses the Tab component, and the tab in Tabs Props is fully passed through to Tab to configure different styles of Tab.
 
-The Tabs component internally uses the Tab component, and all tab props in the Tabs props are passed through to configure different styles for the Tab.
+### Snippet
 
-### Slots
+The transition in Tabs Props defaults to true, at which point the Tabs main content switches with transition effects. When transition is false, or position is 'l' or 'r', the Tabs main content will not have transition effects. It can be passed in through Svelte's [{#snippet ...}](https://svelte.dev/docs/svelte/snippet). Note that children needs to pass in the currently active Tab index value `{ active }` to expose it to the Snippet interior, and then combine with TabContent's show to control the display and hiding of the main content. Through the exposed active, you can also freely use other ways to control the transition effects of the main area content. The example shows one way, please try other switching effects in combination with specific business needs.
 
-When the `transition` property in the Tabs props is set to `true` (which is the default value), a transition effect is added when switching between Tabs. However, when `transition` is set to false, or when `position` is set to 'l' or 'r', there will be no transition effect on the Tab contents. In this case, the Svelte slot feature can be used to expose the active Tab index value to the internal contents of the slot using the `let:` directive. You can use TabContent's `show` property to control whether the main content area is displayed or hidden.
-By using the active index value exposed through the slot, you can also freely control the transition effects of the main content area in other ways. The example below shows one way to do this, but you can try other transition effects based on your specific business requirements.
+### Tab Position
 
-For more information on how to use Svelte slots, see [Svelte Slot](https://svelte.dev/docs#template-syntax-slot-slot-key-value).
-
-### Tab position
-
-The `position` property of Tabs determines the position of the Tabs (t: top, b: bottom, l: left, r: right), which affects the layout style of the `Tab` component. Horizontal and vertical layout styles are available, depending on the value of the `layout` property.
+Tabs determines the tab position through position (t: top, b: bottom, l: left, r: right), and this parameter also determines the layout mode of Tab within it (h: horizontal, v: vertical).
 
 ---
 
 ## Tab
 
-### Description
-
-The `Tab` component can be used on its own to expose the currently active tab index value through the `clicktab` event binding.
+The Tab component can be used independently, passing out the index value of the currently active tab through the bound onclickTab event.
 
 ### labels
 
-This property determines the content of the Tabs, and supports a combination of icons and text. The data type is an array of objects, where each object contains a `text` and an `icon` property. The `icon` property uses the `Icon` component to render, its specific parameters can be found in the Icon API.
+This parameter determines the tab content inside Tab, supporting free combination of icons and text. The data type is an array of objects, with internal objects consisting of text and icon, while icon is rendered using the Icon component. For specific parameters, please refer to [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).
 
-### Linear style
+### Line Style
 
-When the `lineType` property of the `Tab` component is set to `true`, a linear style is used. However, it will not work when the layout is set to 'v' (vertical).
+When lineType in Tab props is true, Tab will use line style, but if the layout mode is v (vertical), the line style will not take effect.
 
-### Overflow mode
+### Overflow Mode
 
-Due to the limited horizontal space on mobile devices, when the layout is horizontal and the number of Tabs is large or dynamic, you can enable the overflow mode. In this case, the Tabs will automatically hide the overflowed Tabs and allow you to scroll to view them. When overflow mode is enabled, you can use `showNum` to control the number of Tabs displayed, and use `autoScroll` to control whether to enable automatic scrolling.
+Due to limited horizontal space on mobile devices, when using horizontal layout and the number of Tabs is large or dynamically uncertain, overflow mode can be enabled. At this time, Tabs will automatically hide overflowing Tabs, which can be viewed by sliding. After enabling overflow mode, you can control the number of displayed Tabs through `showNum`, and control whether to enable auto-scrolling through `autoScroll`.
 
-When overflow mode is enabled, the actual number of Tabs displayed in the visible area is `showNum+0.5`. This design hides the last Tab by half at the beginning, so that users can naturally realize that a Tab is hidden without being deliberately prompted, thus generating a sliding operation.
+In overflow mode, the actual number of Tabs displayed in the visible area is `showNum+0.5`. This design will initially hide half of the last Tab, so that users can naturally realize that Tabs are hidden without deliberate prompting, thus producing sliding operations.
 
-> Tip: If the Tab content width is too large, please reduce `showNum` appropriately to avoid hiding the Tab content overflow.
+> Tip: If the Tab content width is too large, please appropriately reduce `showNum` to prevent Tab content from being hidden due to overflow.
 
-### CSS injection
+### CSS Injection
 
-The Tab structure is relatively complex. In order to support more flexible customization, four places for injecting CSS are provided internally. The `injClass` property is applied to the outermost element of the Tab. The `tabInjClass` property is applied to the internal single tab. The `activeTabInjClass` property is applied to the currently active tab. And, the `activeInjClass` property is used to apply a specific style to the Tab indicator.
+The Tab structure is relatively complex. To support more flexible custom styles, four places are supported for CSS injection internally: injClass acts on the outermost element of Tab; tabInjClass acts on the internal single tab; activeTabInjClass acts on the currently active tab; activeInjClass acts on the Tab indicator.
 
-If the injected class does not take effect, add an "!" before the class name, similar to the [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).
+If the injected class doesn't take effect, please add "!" before the injected class name. You can refer to [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).

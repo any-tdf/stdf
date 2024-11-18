@@ -31,14 +31,14 @@
 		{ text: 'skateboard' },
 		{ text: 'flying saucer' },
 	];
-	let width = 0;
-	let changeActive = 0;
-	let active = 2;
-	const clicktabFun = e => {
-		active = e.detail;
+	let width = $state(0);
+	let changeActive = $state(0);
+	let active = $state(2);
+	const clicktabFun = a => {
+		active = a;
 	};
-	const tabsChangeFun = e => {
-		changeActive = e.detail;
+	const tabsChangeFun = a => {
+		changeActive = a;
 	};
 </script>
 
@@ -91,41 +91,43 @@
 		<Divider />
 
 		<div class="font-bold px-4">The TAB is located on the left</div>
-		<Tabs tab={{ labels }} position="l" let:active>
-			<TabContent show={active === 0}>I am a plane</TabContent>
-			<TabContent show={active === 1}>I am a ship</TabContent>
-			<TabContent show={active === 2}>I am a train</TabContent>
-			<TabContent show={active === 3}>I am a car</TabContent>
+		<Tabs tab={{ labels }} position="l">
+			{#snippet children({ active })}
+				<TabContent show={active === 0}>I am a plane</TabContent>
+				<TabContent show={active === 1}>I am a ship</TabContent>
+				<TabContent show={active === 2}>I am a train</TabContent>
+				<TabContent show={active === 3}>I am a car</TabContent>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4">The TAB is located on the right</div>
-		<Tabs tab={{ labels }} position="r" let:active>
-			<TabContent show={active === 0}>I am a plane</TabContent>
-			<TabContent show={active === 1}>I am a ship</TabContent>
-			<TabContent show={active === 2}>I am a train</TabContent>
-			<TabContent show={active === 3}>I am a car</TabContent>
+		<Tabs tab={{ labels }} position="r">
+			{#snippet children({ active })}
+				<TabContent show={active === 0}>I am a plane</TabContent>
+				<TabContent show={active === 1}>I am a ship</TabContent>
+				<TabContent show={active === 2}>I am a train</TabContent>
+				<TabContent show={active === 3}>I am a car</TabContent>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4" bind:clientWidth={width}>Custom transition</div>
-		<Tabs tab={{ labels }} let:active transition={false}>
-			<div class="relative py-8">
-				{#if active === 0}
-					<div class="absolute" in:fly={{ y: -60, x: 0, duration: 1000 }}>I am a plane</div>
-				{:else if active === 1}
-					<div class="absolute" in:fly={{ y: -60, x: width / 4, duration: 1000 }}>I am a ship</div>
-				{:else if active === 2}
-					<div class="absolute" in:fly={{ y: -60, x: width / 2, duration: 1000 }}>I am a train</div>
-				{:else if active === 3}
-					<div class="absolute" in:fly={{ y: -60, x: (width / 4) * 3, duration: 1000 }}>I am a car</div>
-				{/if}
-			</div>
+		<Tabs tab={{ labels }} transition={false}>
+			{#snippet children({ active })}
+				<div class="relative py-8">
+					{#each labels as item, i}
+						{#if active === i}
+							<div class="absolute" in:fly={{ y: -80, x: (width / 4) * i, duration: 1000 }}>I am {item.text}</div>
+						{/if}
+					{/each}
+				</div>
+			{/snippet}
 		</Tabs>
 		<Divider />
 
 		<div class="font-bold px-4">monitor change event</div>
-		<Tabs tab={{ labels }} on:change={tabsChangeFun}>
+		<Tabs tab={{ labels }} onchange={tabsChangeFun}>
 			<TabContent>I am a plane</TabContent>
 			<TabContent>I am a ship</TabContent>
 			<TabContent>I am a train</TabContent>
@@ -156,7 +158,7 @@
 		<Divider />
 
 		<div class="font-bold px-4">Overflow mode shows 2 items</div>
-		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 5 }}>
+		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 2 }}>
 			{#each overflowLabels as item}
 				<TabContent>I am {item.text}</TabContent>
 			{/each}
@@ -209,7 +211,7 @@
 
 	<div class="font-bold my-8 text-xl px-4">Use alone Tab</div>
 	<div class="my-4">
-		<Tab {labels} {active} on:clicktab={clicktabFun} />
+		<Tab {labels} {active} onclickTab={clicktabFun} />
 		<div class="mt-4">At present Tab clickable active：{active}</div>
 	</div>
 	<Divider />

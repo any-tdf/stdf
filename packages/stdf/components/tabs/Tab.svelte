@@ -39,8 +39,6 @@
 
 	const clickTabFun = i => {
 		active = i;
-		//派发Tab点击事件，i表示点击的Tab索引值，即labels索引值
-		// dispatch Tab click event,i represents the index value of the clicked Tab, that is, the index value of labels
 		onclickTab && onclickTab(i);
 	};
 	let tabW = $state(0);
@@ -95,12 +93,10 @@
 		></div>
 		<div class="relative flex whitespace-nowrap" style="width: {itemW * labels.length + 2}px;">
 			{#each labels as label, i}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					class="shrink-0 cursor-pointer flex justify-center py-1 font-medium overflow-hidden {love
-						? 'text-lg'
-						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
+				<button
+					class="shrink-0 flex justify-center py-1 font-medium overflow-hidden {love ? 'text-lg' : 'text-sm'} leading-6 {radiusObj[
+						radius
+					] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
 					style="width: {itemW}px"
 					onclick={() => clickTabFun(i)}
 				>
@@ -112,7 +108,7 @@
 					{#if label.text}
 						<div class="transition-all {durationObj[duration] || durationObj.base}">{label.text}</div>
 					{/if}
-				</div>
+				</button>
 			{/each}
 		</div>
 	</div>
@@ -137,10 +133,8 @@
 		></div>
 		<div class="relative {layout === 'h' ? 'flex justify-between' : 'px-4 whitespace-nowrap'}">
 			{#each labels as label, i}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					class="cursor-pointer flex-1 flex justify-center {layout === 'h' ? 'py-1' : 'py-2'} font-medium overflow-hidden {love
+				<button
+					class="flex-1 flex justify-center {layout === 'h' ? 'py-1' : 'py-2'} font-medium overflow-hidden {love
 						? 'text-lg'
 						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
 					onclick={() => clickTabFun(i)}
@@ -153,7 +147,7 @@
 					{#if label.text}
 						<div class="transition-all {durationObj[duration] || durationObj.base}">{label.text}</div>
 					{/if}
-				</div>
+				</button>
 			{/each}
 		</div>
 	</div>

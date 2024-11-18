@@ -1,14 +1,10 @@
 ## Tabs
 
-### 说明
-
 Tabs 组件内部使用了 Tab 组件，而 Tabs Props 中的 tab 全部透传给 Tab，用于配置 Tab 不同的样式。
 
-### 插槽
+### Snippet
 
-Tabs Props 的 transition 默认为 true，此时 Tabs 主体内容切换带有过渡效果。而当 transition 为 false，或者 position 为 'l' 或 'r' 时，Tabs 主体内容将不会有过渡效果，可以通过 Svelte 提供的插槽传值，`let:`指令将当前激活的 Tab 索引值 active 暴露给插槽内部，再结合 TabContent 的 show 控制主体内容的显示与隐藏。通过暴露出的 active，你还可以自由使用其他方式控制主体区域内容的过渡效果。示例中展示了一种方式，请结合具体业务尝试其他切换效果。
-
-Svelte 插槽传值可参考 [Svelte Slot](https://svelte.dev/docs#template-syntax-slot-slot-key-value)。
+Tabs Props 的 transition 默认为 true，此时 Tabs 主体内容切换带有过渡效果。而当 transition 为 false，或者 position 为 'l' 或 'r' 时，Tabs 主体内容将不会有过渡效果，可以通过 Svelte 提供的 [{#snippet ...}](https://svelte.dev/docs/svelte/snippet) 传入，注意此时 children 需要将当前激活的 Tab 索引值 `{ active }` 传入，暴露给 Snippet 内部，再结合 TabContent 的 show 控制主体内容的显示与隐藏。通过暴露出的 active，你还可以自由使用其他方式控制主体区域内容的过渡效果。示例中展示了一种方式，请结合具体业务尝试其他切换效果。
 
 ### 选项卡位置
 
@@ -18,13 +14,11 @@ Tabs 通过 position（t：上、b：下、l：左、r：右）决定选项卡�
 
 ## Tab
 
-### 说明
-
-Tab 组件可以单独使用，通过绑定的 clicktab 事件，传递出当前激活选项卡的索引值。
+Tab 组件可以单独使用，通过绑定的 onclickTab 事件，传递出当前激活选项卡的索引值。
 
 ### labels
 
-此参数决定了 Tab 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon 组成，而 icon 使用 Icon 组件渲染，具体参数请参考 Icon API。
+此参数决定了 Tab 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon 组成，而 icon 使用 Icon 组件渲染，具体参数请参考 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。
 
 ### 线性风格
 

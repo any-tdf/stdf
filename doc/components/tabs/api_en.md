@@ -1,59 +1,66 @@
 ## Tabs Props
 
-| Prop Name  | Type    | Default | Options                       | Required | Description                                                         |
-| ---------- | ------- | ------- | ----------------------------- | -------- | ------------------------------------------------------------------- |
-| tab        | Object  | {}      | Tab Props                     | Yes      | Pass in the Tab Props, which applies to the internal Tab component. |
-| active     | Number  | 0       | -                             | No       | Index value of the active Tab.                                      |
-| duration   | String  | 'base'  | 'fast'/'base'/'slow'/'slower' | No       | Transition animation speed.                                         |
-| position   | String  | 't'     | 't'/'b'/'l'/'r'               | No       | Tab position corresponds to duration in Tab Props.                  |
-| transition | Boolean | true    | true/false                    | No       | Whether to use transition animations.                               |
+| Name       | Type                               | Default  | Required | Description                        |
+| ---------- | ---------------------------------- | -------- | -------- | ---------------------------------- |
+| tab        | `Tab`                              | `{}`     | Y        | Internal Tab component.            |
+| active     | `number`                           | `0`      | N        | Active tab index.                  |
+| duration   | `'fast'\|'base'\|'slow'\|'slower'` | `'base'` | N        | Transition animation duration.     |
+| position   | `'t'\|'b'\|'l'\|'r'`               | `'t'`    | N        | Tab position.                      |
+| transition | `boolean`                          | `true`   | N        | Whether to use transition effects. |
 
 ## Tabs Events
 
-| Name   | Parameters                                                                       | Description                            |
-| ------ | -------------------------------------------------------------------------------- | -------------------------------------- |
-| change | event: Event object, with `detail` indicating the index value of the active Tab. | Triggered when the active Tab changes. |
+| Name     | Type                       | Parameters                | Description                        |
+| -------- | -------------------------- | ------------------------- | ---------------------------------- |
+| onchange | `(active: number) => void` | active - Active tab index | Triggered when active tab changes. |
 
-## Tabs Slots
+## Tabs Snippets
 
-| Name | Description           |
-| ---- | --------------------- |
-| -    | Main content of Tabs. |
+| Name     | Type                            | Parameters                | Description        |
+| -------- | ------------------------------- | ------------------------- | ------------------ |
+| children | `Snippet<[{ active: number }]>` | active - Active tab index | Tabs main content. |
 
 ## Tab Props
 
-| Prop Name         | Type    | Default | Options                                    | Required | Description                                                             |
-| ----------------- | ------- | ------- | ------------------------------------------ | -------- | ----------------------------------------------------------------------- |
-| labels            | Array   | []      | -                                          | Yes      | An array of tab content, consisting of text and Icon Props.             |
-| active            | Number  | 0       | -                                          | No       | Index value of the active Tab.                                          |
-| lineType          | Boolean | false   | true/false                                 | No       | Whether to use linear style.                                            |
-| radius            | String  | 'base'  | 'none'/'base'/'xl'/'full'                  | No       | Corner style.                                                           |
-| mx                | String  | '2'     | '0'/'1'/'2'/'3'/'4'/'6'/'8'/'12'/'16'/'20' | No       | Horizontal margin.                                                      |
-| duration          | String  | 'base'  | 'fast'/'base'/'slow'/'slower'              | No       | Transition animation speed.                                             |
-| layout            | String  | 'h'     | 'h'/'v'                                    | No       | Horizontal or vertical layout, corresponding to position in Tabs Props. |
-| love              | Boolean | false   | true/false                                 | No       | Whether to enable Love Edition.                                         |
-| injClass          | String  | ''      | -                                          | No       | Inject CSS to wrap the Tabs.                                            |
-| tabInjClass       | String  | ''      | -                                          | No       | Inject CSS for individual Tabs.                                         |
-| activeTabInjClass | String  | ''      | -                                          | No       | Inject CSS for active Tab.                                              |
-| activeInjClass    | String  | ''      | -                                          | No       | Inject CSS for indicator.                                               |
-| overflow          | Boolean | false   | true/false                                 | No       | Whether to enable overflow mode.                                        |
-| showNum           | Number  | 3       | -                                          | No       | When overflow mode is enabled, the number of Tabs to be displayed.      |
-| autoScroll        | Boolean | false   | true/false                                 | No       | Whether to enable automatic scrolling when overflow mode is enabled.    |
+| Name              | Type                                                  | Default  | Required | Description                                      |
+| ----------------- | ----------------------------------------------------- | -------- | -------- | ------------------------------------------------ |
+| labels            | `TabLabel[]`                                          | `[]`     | Y        | Tab content group.                               |
+| active            | `number`                                              | `0`      | N        | Active tab index.                                |
+| lineType          | `boolean`                                             | `false`  | N        | Whether to use line style.                       |
+| radius            | `'none'\|'base'\|'xl'\|'full'`                        | `'base'` | N        | Border radius style.                             |
+| mx                | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'\|'12'\|'16'\|'20'` | `'2'`    | N        | Horizontal margin.                               |
+| duration          | `'fast'\|'base'\|'slow'\|'slower'`                    | `'base'` | N        | Transition animation duration.                   |
+| layout            | `'h'\|'v'`                                            | `'h'`    | N        | Horizontal or vertical layout.                   |
+| love              | `boolean`                                             | `false`  | N        | Whether to enable care version.                  |
+| injClass          | `string`                                              | `''`     | N        | Inject CSS to Tab wrapper.                       |
+| tabInjClass       | `string`                                              | `''`     | N        | Inject CSS to single Tab.                        |
+| activeTabInjClass | `string`                                              | `''`     | N        | Inject CSS to active Tab.                        |
+| activeInjClass    | `string`                                              | `''`     | N        | Inject CSS to indicator.                         |
+| overflow          | `boolean`                                             | `false`  | N        | Whether to enable overflow mode.                 |
+| showNum           | `number`                                              | `3`      | N        | Number of fully displayed tabs in overflow mode. |
+| autoScroll        | `boolean`                                             | `false`  | N        | Auto scroll in overflow mode.                    |
 
 ## Tab Events
 
-| Name     | Parameters                                                                       | Description                      |
-| -------- | -------------------------------------------------------------------------------- | -------------------------------- |
-| clicktab | event: Event object, with `detail` indicating the index value of the active Tab. | Triggered when a Tab is clicked. |
+| Name       | Type                       | Parameters                 | Description                    |
+| ---------- | -------------------------- | -------------------------- | ------------------------------ |
+| onclickTab | `(active: number) => void` | active - Active tab index. | Triggered when tab is clicked. |
+
+## TabLabel Props
+
+| Name | Type     | Default | Required | Description                                                               |
+| ---- | -------- | ------- | -------- | ------------------------------------------------------------------------- |
+| text | `string` | `''`    | N        | Label text.                                                               |
+| icon | `Icon`   | `{}`    | N        | Label icon [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
 
 ## TabContent Props
 
-| Prop Name | Type    | Default | Options    | Required | Description              |
-| --------- | ------- | ------- | ---------- | -------- | ------------------------ |
-| show      | Boolean | true    | true/false | No       | Whether to show content. |
+| Name | Type      | Default | Required | Description              |
+| ---- | --------- | ------- | -------- | ------------------------ |
+| show | `boolean` | `true`  | N        | Whether to show content. |
 
-## TabContent Slots
+## TabContent Snippets
 
-| Name | Description                |
-| ---- | -------------------------- |
-| -    | Content of the TabContent. |
+| Name     | Type      | Parameters | Description         |
+| -------- | --------- | ---------- | ------------------- |
+| children | `Snippet` | -          | TabContent content. |
