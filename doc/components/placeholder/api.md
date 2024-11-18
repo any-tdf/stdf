@@ -10,6 +10,6 @@
 
 ## Placeholder Snippets
 
-| 名称     | 说明               |
-| -------- | ------------------ |
-| children | Placeholder 内容。 |
+| 名称     | 类型      | 参数 | 说明               |
+| -------- | --------- | ---- | ------------------ |
+| children | `Snippet` | -    | Placeholder 内容。 |

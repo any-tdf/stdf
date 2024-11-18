@@ -8,7 +8,7 @@
 | barBorder | `boolean`                         | `true`   | N        | Whether the icon has a border.                    |
 | vertical  | `boolean`                         | `false`  | N        | Whether to use vertical layout.                   |
 
-## StepsItem
+## StepsItem Props
 
 | Name       | Type              | Default | Required | Description                                                                |
 | ---------- | ----------------- | ------- | -------- | -------------------------------------------------------------------------- |

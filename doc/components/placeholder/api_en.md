@@ -10,6 +10,6 @@
 
 ## Placeholder Snippets
 
-| Name     | Description          |
-| -------- | -------------------- |
-| children | Placeholder content. |
+| Name     | Type      | Parameters | Description          |
+| -------- | --------- | ---------- | -------------------- |
+| children | `Snippet` | -          | Placeholder content. |

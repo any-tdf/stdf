@@ -9,9 +9,9 @@
 
 ## Grids Snippets
 
-| Name     | Description   |
-| -------- | ------------- |
-| children | Grids content |
+| Name     | Type      | Parameters | Description   |
+| -------- | --------- | ---------- | ------------- |
+| children | `Snippet` | -          | Grids content |
 
 ## Grid Props
 
@@ -22,6 +22,6 @@
 
 ## Grid Snippets
 
-| Name     | Description  |
-| -------- | ------------ |
-| children | Grid content |
+| Name     | Type      | Parameters | Description  |
+| -------- | --------- | ---------- | ------------ |
+| children | `Snippet` | -          | Grid content |

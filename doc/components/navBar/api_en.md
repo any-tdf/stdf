@@ -18,8 +18,8 @@
 
 ## NavBar Snippets
 
-| Name       | Description                     |
-| ---------- | ------------------------------- |
-| titleChild | Renders title area when passed. |
-| leftChild  | Renders left area when passed.  |
-| rightChild | Renders right area when passed. |
+| Name       | Type      | Parameters | Description                     |
+| ---------- | --------- | ---------- | ------------------------------- |
+| titleChild | `Snippet` | -          | Renders title area when passed. |
+| leftChild  | `Snippet` | -          | Renders left area when passed.  |
+| rightChild | `Snippet` | -          | Renders right area when passed. |

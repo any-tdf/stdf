@@ -29,6 +29,6 @@
 
 ## BottomSheet Snippets
 
-| Name     | Description          |
-| -------- | -------------------- |
-| children | BottomSheet content. |
+| Name     | Type      | Parameters | Description          |
+| -------- | --------- | ---------- | -------------------- |
+| children | `Snippet` | -          | BottomSheet content. |

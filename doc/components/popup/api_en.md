@@ -31,9 +31,9 @@
 
 ## Popup Snippets
 
-| Name     | Description    |
-| -------- | -------------- |
-| children | Popup content. |
+| Name     | Type      | Parameters | Description    |
+| -------- | --------- | ---------- | -------------- |
+| children | `Snippet` | -          | Popup content. |
 
 ## SvelteEasing
 

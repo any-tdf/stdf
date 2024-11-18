@@ -29,6 +29,6 @@
 
 ## BottomSheet Snippets
 
-| 名称     | 说明               |
-| -------- | ------------------ |
-| children | BottomSheet 内容。 |
+| 名称     | 类型      | 参数 | 说明   |
+| -------- | --------- | ---- | ------ |
+| children | `Snippet` | -    | 内容。 |

@@ -12,6 +12,6 @@
 
 ## Icon Snippets
 
-| Name     | Description                                            |
-| -------- | ------------------------------------------------------ |
-| children | Custom content, usually Icon component or SVG element. |
+| Name     | Type      | Parameters | Description                                            |
+| -------- | --------- | ---------- | ------------------------------------------------------ |
+| children | `Snippet` | -          | Custom content, usually Icon component or SVG element. |

@@ -28,6 +28,6 @@
 
 ## Button Snippets
 
-| Name     | Description     |
-| -------- | --------------- |
-| children | Button content. |
+| Name     | Type      | Parameters | Description     |
+| -------- | --------- | ---------- | --------------- |
+| children | `Snippet` | -          | Button content. |
