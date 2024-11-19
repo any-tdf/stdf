@@ -39,7 +39,7 @@
 	 * @type {string}
 	 * @default 'fonts/symbol.svg'
 	 */
-	export let path = getContext('STDF_icon_svg_path') || 'fonts/symbol.svg';
+	export let path = getContext('STDF-global-icon-svg-path') || 'fonts/symbol.svg';
 
 	/**
 	 * 偏移量
