@@ -47,3 +47,16 @@ The `injClass` parameter can be used to inject a CSS class name (not limited to 
 ## Slot
 
 Any element can be inserted (even the Icon component itself), but mainly used for customizing icons or icon colors, such as inserting custom SVGs into the Icon component. Please note the relationship between the viewBox, height, and width of the SVG and the display property. The icon content depends on the element passed in. The parameters such as name, size, and theme in Props will be invalid. The slot will give the component more customizability in terms of content.
+
+## Global Injection Icon SVG Path
+
+STDF Icon component uses SVG file path configuration, which is suitable for a one-time configuration of the global SVG symbol path or the application being deployed on a non-root server path. Usually, the Context is configured in the entry of the application, such as `App.svelte` or `+layout.svelte`, for example:
+
+```svelte
+<!-- App.svelte/+layout.svelte -->
+<script>
+	import { setContext } from 'svelte'; // Import setContext
+
+	setContext('STDF-global-icon-svg-path', 'webapps/svelte_demo/fonts/symbol.svg'); // Set the SVG file path
+</script>
+```

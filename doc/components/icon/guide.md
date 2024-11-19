@@ -50,13 +50,13 @@ name 为 'slot' 表示使用插槽渲染，其他字符如 'ri-home-line' 使用
 
 ## 全局注入图标 svg 路径
 
-STDF Icon 组件使用 Svg 文件路径配置，适用于应用部署在服务器非根路径下。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
+STDF Icon 组件使用 Svg 文件路径配置，适用于一次性配置全局 SVG symbol 路径，或应用部署在服务器非根路径下。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
 
 ```svelte
 <!-- App.svelte/+layout.svelte -->
 <script>
 	import { setContext } from 'svelte'; // 引入 setContext
 
-	setContext('STDF_icon_svg_path', 'webapps/svelte_demo/fonts/symbol.svg'); // 设置 svg 文件路径
+	setContext('STDF-global-icon-svg-path', 'webapps/svelte_demo/fonts/symbol.svg'); // 设置 svg 文件路径
 </script>
 ```

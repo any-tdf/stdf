@@ -1,3 +1,7 @@
+## 0.5.3
+
+- [!tag|O|0|] 支持一次性配置全局 SVG symbol 路径。关联 [PR](https://github.com/any-tdf/stdf/pull/28)。[!contribute|zh1047842950|]
+
 ## 0.2.11
 
 - [!tag|B|1|] Icon 组件区域不再是 `inline-block`。
