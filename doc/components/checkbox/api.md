@@ -1,34 +1,46 @@
-## CheckboxGroup Props
-
-| 属性   | 类型   | 默认值 | 可选值           | 必传 | 说明                                    |
-| ------ | ------ | ------ | ---------------- | ---- | --------------------------------------- |
-| layout | String | 'v'    | 'v'/'h'/'inline' | N    | 排列方式，h-水平，v-垂直，inline-行内。 |
-
-## CheckboxGroup Events
-
-| 名称   | 参数                                                      | 描述                   |
-| ------ | --------------------------------------------------------- | ---------------------- |
-| change | event：事件对象，其中 detail 表示选定项标识符组成的数组。 | 点击 Checkbox 时触发。 |
-
-## CheckboxGroup Slots
-
-| 名称 | 说明                                        |
-| ---- | ------------------------------------------- |
-| -    | CheckboxGroup 内部插槽一般为多条 Checkbox。 |
-
 ## Checkbox Props
 
-| 属性         | 类型          | 默认值    | 可选值                      | 必传 | 说明                                                         |
-| ------------ | ------------- | --------- | --------------------------- | ---- | ------------------------------------------------------------ |
-| name         | String        | ''        | -                           | Y    | 标识符。                                                     |
-| checkeds     | Array         | []        | -                           | N    | Checkbox 所在的 CheckboxGroup 内所有选定项标识符组成的数组。 |
-| textPosition | String        | 'r'       | 't'/'b'/'l'/'r'             | N    | 选项内容区域位置。                                           |
-| icon         | String/Object | 'default' | 'default'/'none'/Icon Props | N    | 未选中选项图标区域内容。                                     |
-| iconChecked  | String/Object | 'default' | 'default'/'none'/Icon Props | N    | 选中选项图标区域内容。                                       |
-| outControl   | Boolean       | false     | true/false                  | N    | 选中状态是否由外部控制。                                     |
+| 名称         | 类型                    | 默认值      | 必传 | 说明                         |
+| ------------ | ----------------------- | ----------- | ---- | ---------------------------- |
+| data         | `CheckboxItem[]`        | `[]`        | Y    | 选项数据。                   |
+| layout       | `'h'\|'v'\|'inline'`    | `'v'`       | N    | 排列方式。                   |
+| checkeds     | `string[]`              | `[]`        | N    | 选中的选项标识符组成的数组。 |
+| textPosition | `'l'\|'r'\|'t'\|'b'`    | `'r'`       | N    | 选项文本区域位置。           |
+| icon         | `'default'\|null\|Icon` | `'default'` | N    | 未选中选项图标区域内容。     |
+| iconChecked  | `'default'\|null\|Icon` | `'default'` | N    | 选中选项图标区域内容。       |
 
-## Checkbox Slots
+## Checkbox Events
 
-| 名称 | 说明           |
-| ---- | -------------- |
-| -    | 选项区域内容。 |
+| 名称     | 类型                           | 参数                                | 描述             |
+| -------- | ------------------------------ | ----------------------------------- | ---------------- |
+| onchange | `(checkeds: string[]) => void` | checkeds - 选定项标识符组成的数组。 | 点击选项时触发。 |
+
+## Checkbox Snippets
+
+| 名称          | 类型                                | 参数              | 说明                     |
+| ------------- | ----------------------------------- | ----------------- | ------------------------ |
+| checkboxChild | `Snippet<[{ item: CheckboxItem }]>` | item - 选项数据。 | 当选项区域自定义时使用。 |
+
+## CheckboxItem Props
+
+| 名称         | 类型                    | 默认值      | 必传 | 说明                     |
+| ------------ | ----------------------- | ----------- | ---- | ------------------------ |
+| name         | `string`                | `''`        | Y    | 标识符。                 |
+| label        | `string`                | `''`        | N    | 选项文本，主要用于显示。 |
+| layout       | `'h'\|'v'\|'inline'`    | `'v'`       | N    | 排列方式。               |
+| textPosition | `'l'\|'r'\|'t'\|'b'`    | `'r'`       | N    | 选项文本区域位置。       |
+| icon         | `'default'\|null\|Icon` | `'default'` | N    | 未选中选项图标区域内容。 |
+| iconChecked  | `'default'\|null\|Icon` | `'default'` | N    | 选中选项图标区域内容。   |
+| checked      | `boolean`               | `false`     | N    | 是否选中。               |
+
+## CheckboxItem Events
+
+| 名称    | 类型                     | 参数            | 描述             |
+| ------- | ------------------------ | --------------- | ---------------- |
+| onclick | `(name: string) => void` | name - 标识符。 | 点击选项时触发。 |
+
+## CheckboxItem Snippets
+
+| 名称     | 类型      | 参数 | 说明               |
+| -------- | --------- | ---- | ------------------ |
+| children | `Snippet` | -    | 选项文本区域内容。 |
