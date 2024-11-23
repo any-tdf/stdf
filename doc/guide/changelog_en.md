@@ -1,3 +1,7 @@
+## 0.5.3 <font size=1>2024-11-19</font>
+
+- Optimized Icon component, please see [Icon](https://stdf.design/#/components?nav=icon&tab=4).
+
 ## 0.5.2 <font size=1>2024-10-02</font>
 
 - Optimized Button component, please see [Button](https://stdf.design/#/components?nav=button&tab=4).

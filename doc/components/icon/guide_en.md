@@ -47,3 +47,16 @@ The injClass parameter injects CSS classes (not limited to Tailwind CSS) into th
 ## Snippet
 
 Can contain any element (even Icon component itself), primarily used for custom icons or colors. When placing custom SVGs in Icon component, note the relationships between SVG viewBox, height, width, and display property. Icon content depends on the passed element, and Props like name, size, theme become ineffective. Snippets enable more customization possibilities for component content.
+
+## Global Injection Icon SVG Path
+
+STDF Icon component uses SVG file path configuration, which is suitable for a one-time configuration of the global SVG symbol path or the application being deployed on a non-root server path. Usually, the Context is configured in the entry of the application, such as `App.svelte` or `+layout.svelte`, for example:
+
+```svelte
+<!-- App.svelte/+layout.svelte -->
+<script>
+	import { setContext } from 'svelte'; // Import setContext
+
+	setContext('STDF-global-icon-svg-path', 'webapps/svelte_demo/fonts/symbol.svg'); // Set the SVG file path
+</script>
+```
