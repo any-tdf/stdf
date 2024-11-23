@@ -3,34 +3,34 @@
 	import { getContext } from 'svelte';
 	import { Input, Button, Icon, Toast } from '../../../../../packages/stdf/components';
 
-	let value = '初始文本';
-	let visible = false;
+	let value = $state('初始文本');
+	let visible = $state(false);
 
-	let IdCard = '';
+	let IdCard = $state('');
 
 	const isIframe = getContext('iframe') === '1'; //判断是否是iframe
 
-	$: placeholderIdCard = IdCard === '' ? '请输入身份证号' : '';
+	let placeholderIdCard = $state('');
+	$effect(() => {
+		placeholderIdCard = IdCard === '' ? '请输入身份证号' : '';
+	});
 	const clickLabel4Fun = () => {
 		placeholderIdCard = '两秒后识别完毕......';
 		setTimeout(() => {
 			IdCard = '1234567890XXX-XX';
 		}, 2000);
 	};
-	let mobileLength = 0;
-	const changeStateFun = e => {
-		mobileLength = e.detail.length;
+	let mobileLength = $state(0);
+	const changeStateFun = v => {
+		mobileLength = v.length;
 	};
 	/**
 	 * @type {'success' | 'warning' | 'error' | 'info'| 'theme'}
 	 */
-	$: mobileState = mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error';
+	let mobileState = $derived(mobileLength === 11 ? 'success' : mobileLength === 0 ? 'theme' : 'error');
 
 	// 按键 key
-	let key = '';
-	const keydownFun = e => {
-		key = e.detail;
-	};
+	let key = $state('');
 </script>
 
 <div class="px-4 pt-8 font-bold text-xl">基础用法</div>
@@ -45,7 +45,7 @@
 <div class="px-4 pt-8 font-bold text-xl">
 	不同输入类型
 	{#if isIframe}
-		<span class="text-xs opacity-50 ml-2">请在移动设备查看键盘类型。</span>
+		<span class="text-xs opacity-50 ml-2">请在移动设备查看键盘类型</span>
 	{/if}
 </div>
 <Input title="任意文本（常规键盘）" />
@@ -74,7 +74,7 @@
 <div class="px-4 pt-8 font-bold text-xl">不同标题位置</div>
 <Input title="标题（外部）" />
 <Input title="标题（内部）" titlePosition="in" />
-<Input title="标题（无）" titlePosition="none" />
+<Input title="标题（无）" titlePosition={null} />
 
 <div class="px-4 pt-8 font-bold text-xl">不同输入文字位置</div>
 <Input title="文本" />
@@ -108,7 +108,7 @@
 <Input title="信息" state="info" />
 <Input title="警告&线性" inputStyle="line" state="error" />
 <Input title="警告&线性&动画" inputStyle="line" state="error" lineTransition="center" />
-<Input title="动态改变状态色" type="tel" placeholder="请输入11位手机号" maxlength={11} state={mobileState} on:change={changeStateFun} />
+<Input title="动态改变状态色" type="tel" placeholder="请输入11位手机号" maxlength={11} state={mobileState} onchange={changeStateFun} />
 
 <div class="px-4 pt-8 font-bold text-xl">左侧带图标</div>
 <Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
@@ -203,50 +203,46 @@
 />
 
 <div class="px-4 pt-8 font-bold text-xl">label1 和 label4 使用插槽</div>
-<Input title="验证码" label1="slot" label4="slot">
-	<div slot="label1">
-		<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-			<path
-				d="M511.198384 637.07798c-17.170101 0-31.08202 13.911919-31.08202 31.08202v124.302222c0 17.157172 13.924848 31.08202 31.08202 31.08202s31.069091-13.924848 31.069091-31.08202v-124.302222c0-17.170101-13.911919-31.08202-31.069091-31.08202z m0 0"
-				fill="#515151"
-			/>
-			<path
-				d="M759.815758 513.331717V264.145455C759.815758 126.823434 648.520404 15.515152 511.198384 15.515152c-137.309091 0-248.630303 111.308283-248.630303 248.630303v249.186262C223.702626 565.20404 200.40404 629.423838 200.40404 699.229091c0 171.649293 139.145051 310.794343 310.794344 310.794343s310.794343-139.145051 310.794343-310.794343c0-69.805253-23.311515-134.025051-62.176969-185.897374zM324.719192 264.145455c0-102.994747 83.497374-186.479192 186.479192-186.479192 102.981818 0 186.466263 83.484444 186.466262 186.479192v186.88c-51.975758-39.111111-116.402424-62.577778-186.466262-62.577778s-134.490505 23.453737-186.479192 62.577778V264.145455z m186.479192 683.726868c-137.309091 0-248.630303-111.321212-248.630303-248.643232 0-137.309091 111.308283-248.617374 248.630303-248.617374 132.628687 0 248.617374 115.988687 248.617374 248.617374 0 137.32202-111.295354 248.643232-248.617374 248.643232z m0 0"
-				fill="#515151"
-			/>
-		</svg>
-	</div>
-	<div slot="label4">
-		<Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
-			<div class="px-2">获取验证码</div>
-		</Button>
-	</div>
+<Input title="验证码">
+	{#snippet label1Child()}
+		<div>
+			<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+				<path
+					d="M511.198384 637.07798c-17.170101 0-31.08202 13.911919-31.08202 31.08202v124.302222c0 17.157172 13.924848 31.08202 31.08202 31.08202s31.069091-13.924848 31.069091-31.08202v-124.302222c0-17.170101-13.911919-31.08202-31.069091-31.08202z m0 0"
+					fill="#515151"
+				/>
+				<path
+					d="M759.815758 513.331717V264.145455C759.815758 126.823434 648.520404 15.515152 511.198384 15.515152c-137.309091 0-248.630303 111.308283-248.630303 248.630303v249.186262C223.702626 565.20404 200.40404 629.423838 200.40404 699.229091c0 171.649293 139.145051 310.794343 310.794344 310.794343s310.794343-139.145051 310.794343-310.794343c0-69.805253-23.311515-134.025051-62.176969-185.897374zM324.719192 264.145455c0-102.994747 83.497374-186.479192 186.479192-186.479192 102.981818 0 186.466263 83.484444 186.466262 186.479192v186.88c-51.975758-39.111111-116.402424-62.577778-186.466262-62.577778s-134.490505 23.453737-186.479192 62.577778V264.145455z m186.479192 683.726868c-137.309091 0-248.630303-111.321212-248.630303-248.643232 0-137.309091 111.308283-248.617374 248.630303-248.617374 132.628687 0 248.617374 115.988687 248.617374 248.617374 0 137.32202-111.295354 248.643232-248.617374 248.643232z m0 0"
+					fill="#515151"
+				/>
+			</svg>
+		</div>
+	{/snippet}
+	{#snippet label4Child()}
+		<div>
+			<Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
+				<div class="px-2">获取验证码</div>
+			</Button>
+		</div>
+	{/snippet}
 </Input>
 
 <div class="px-4 pt-8 font-bold text-xl">动态显示</div>
-<Input
-	title="动态显示 label5"
-	type="tel"
-	placeholder="请输入11位手机号"
-	maxlength={11}
-	state={mobileState}
-	on:change={changeStateFun}
-	label5="slot"
->
-	<div slot="label5">
-		{#if mobileLength === 11}
-			<Icon name="ri-check-fill" injClass="text-extend1" size={14} />
-		{:else if mobileLength === 0}
-			<!-- none -->
-		{:else}
-			<Icon name="ri-close-fill" injClass="text-[red]" size={14} />
-		{/if}
-	</div>
+<Input title="动态显示 label5" type="tel" placeholder="请输入11位手机号" maxlength={11} state={mobileState} onchange={changeStateFun}>
+	{#snippet label5Child()}
+		<div>
+			{#if mobileLength === 11}
+				<Icon name="ri-check-fill" injClass="text-success" size={14} />
+			{:else if mobileLength === 0}{:else}
+				<Icon name="ri-close-fill" injClass="text-error" size={14} />
+			{/if}
+		</div>
+	{/snippet}
 </Input>
 
 <div class="px-4 pt-8 font-bold text-xl">绑定 value</div>
 <Input title="文本" bind:value />
-<Button on:click={() => (visible = true)}>显示当前值</Button>
+<Button onclick={() => (visible = true)}>显示当前值</Button>
 <Toast bind:visible message={`当前输入文本：${value}`} />
 
 <div class="px-4 pt-8 font-bold text-xl">点击 label4 触发事件</div>
@@ -255,7 +251,7 @@
 	placeholder={placeholderIdCard}
 	bind:value={IdCard}
 	label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
-	on:clicklabel4={clickLabel4Fun}
+	onclickLabel4={clickLabel4Fun}
 	clear
 />
 
@@ -267,4 +263,4 @@
 
 <div class="px-4 pt-4 font-bold text-xl">监听 keydown 事件</div>
 <div class="px-4 pt-4">你按下了 {key}</div>
-<Input placeholder="请输入内容" on:keydown={keydownFun} />
+<Input placeholder="请输入内容" onkeydown={v => (key = v)} />

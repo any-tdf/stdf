@@ -16,20 +16,20 @@
 		inputPosition = 'left',
 		placeholder = '',
 		radius = 'base',
-		label1 = '',
-		label2 = '',
-		label3 = '',
-		label4 = '',
-		label5 = '',
-		label6 = '',
-		tip = '',
-		data1 = '',
-		data2 = '',
-		data3 = '',
-		value = '',
+		label1 = null,
+		label2 = null,
+		label3 = null,
+		label4 = null,
+		label5 = null,
+		label6 = null,
+		tip = null,
+		data1 = null,
+		data2 = null,
+		data3 = null,
+		value = $bindable(''),
 		clear = false,
 		inputStyle = 'block',
-		lineTransition = 'none',
+		lineTransition = null,
 		duration = 'base',
 		autocomplete = true,
 		py = '2',
@@ -45,12 +45,12 @@
 		onblur,
 		onchange,
 		onclear,
-		onclicklabel1,
-		onclicklabel2,
-		onclicklabel3,
-		onclicklabel4,
-		onclicklabel5,
-		onclicklabel6,
+		onclickLabel1,
+		onclickLabel2,
+		onclickLabel3,
+		onclickLabel4,
+		onclickLabel5,
+		onclickLabel6,
 		onkeydown,
 		titleChild,
 		data1Child,
@@ -220,22 +220,6 @@
 		onclear && onclear();
 	};
 
-	// const clickLabel2Fun = () => {
-	// 	onclicklabel2 && onclicklabel2();
-	// };
-	// const clickLabel3Fun = () => {
-	// 	onclicklabel3 && onclicklabel3();
-	// };
-	// const clickLabel4Fun = () => {
-	// 	onclicklabel4 && onclicklabel4();
-	// };
-	// const clickLabel5Fun = () => {
-	// 	onclicklabel5 && onclicklabel5();
-	// };
-	// const clickLabel6Fun = () => {
-	// 	onclicklabel6 && onclicklabel6();
-	// };
-
 	// 键盘事件
 	// Keyboard event
 	const keydownFunc = e => {
@@ -245,89 +229,55 @@
 	};
 </script>
 
-<div class={`px-2 ${pyObj[py] || pyObj['2']}`}>
+<div class="px-2 {pyObj[py] || pyObj['2']}">
 	<label>
-		<div class={`flex px-2 ${title === '' ? 'justify-end' : 'justify-between'}`}>
+		<div class="flex px-2 {title === '' ? 'justify-end' : 'justify-between'}">
 			{#if titlePosition === 'out'}
 				{#if titleChild}
 					{@render titleChild?.()}
-				{:else if title === ''}
-					<!-- none -->
-				{:else}
+				{:else if title === ''}{:else}
 					<div class="text-sm font-semibold mb-1">{title}</div>
 				{/if}
 			{/if}
 			<div class="flex space-x-2 text-xs">
 				{#if data1Child}
 					{@render data1Child?.()}
-				{:else if data1 === ''}
-					<!-- none -->
-				{:else}
+				{:else if data1 === ''}{:else}
 					{data1}
 				{/if}
 				{#if data2Child}
 					{@render data2Child?.()}
-				{:else if data2 === ''}
-					<!-- none -->
-				{:else}
+				{:else if data2 === ''}{:else}
 					{data2}
 				{/if}
 			</div>
 		</div>
 		<div
-			class={`flex items-center my-0.5 space-x-1 text-sm relative transition-all whitespace-nowrap ${
-				durationObj[duration] || durationObj.base
-			} ${titlePosition === 'in' ? 'py-1' : 'py-3'} ${
-				focus ? inputStyleFocusObj[inputStyle] || inputStyleFocusObj.block : inputStyleObj[inputStyle] || inputStyleObj.block
-			} ${inputStyle === 'block' ? radiusObj[radius] || radiusObj.base : ''}`}
+			class="flex items-center my-0.5 space-x-1 text-sm relative transition-all whitespace-nowrap {durationObj[duration] ||
+				durationObj.base} {titlePosition === 'in' ? 'py-1' : 'py-3'} {focus
+				? inputStyleFocusObj[inputStyle] || inputStyleFocusObj.block
+				: inputStyleObj[inputStyle] || inputStyleObj.block} {inputStyle === 'block' ? radiusObj[radius] || radiusObj.base : ''}"
 		>
 			{#if label1Child}
 				{@render label1Child?.()}
-			{:else if label1 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel1 && onclicklabel1();
-					}}
-				>
+			{:else if label1 === null}{:else}
+				<button onclick={() => onclickLabel1 && onclickLabel1()}>
 					<Icon {...label1} />
-				</div>
+				</button>
 			{/if}
 			{#if label2Child}
 				{@render label2Child?.()}
-			{:else if label2 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel2 && onclicklabel2();
-					}}
-				>
+			{:else if label2 === null}{:else}
+				<button onclick={() => onclickLabel2 && onclickLabel2()}>
 					{label2}
-				</div>
+				</button>
 			{/if}
 			{#if label3Child}
 				{@render label3Child?.()}
-			{:else if label3 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel3 && onclicklabel3();
-					}}
-				>
+			{:else if label3 === null}{:else}
+				<button onclick={() => onclickLabel3 && onclickLabel3()}>
 					<Icon {...label3} />
-				</div>
+				</button>
 			{/if}
 			<div class="flex flex-col grow">
 				{#if titlePosition === 'in'}
@@ -342,9 +292,9 @@
 								{rows}
 								inputmode={mode}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class={`w-full focus:outline-none bg-transparent font-semibold ${inputPosition === 'left' ? 'text-left' : 'text-right'} ${
-									disabled ? 'cursor-not-allowed opacity-50' : ''
-								}`}
+								class="w-full focus:outline-none bg-transparent font-semibold {inputPosition === 'left'
+									? 'text-left'
+									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
 								onblur={onBlur}
 								oninput={valueChangeFun}
@@ -361,9 +311,9 @@
 								use:typeAction
 								inputmode={mode}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class={`w-full focus:outline-none bg-transparent font-semibold whitespace-normal ${
-									inputPosition === 'left' ? 'text-left' : 'text-right'
-								} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
+								class="w-full focus:outline-none bg-transparent font-semibold whitespace-normal {inputPosition === 'left'
+									? 'text-left'
+									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
 								onblur={onBlur}
 								oninput={valueChangeFun}
@@ -376,97 +326,60 @@
 						{/if}
 					</div>
 					{#if clear && value !== ''}
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_static_element_interactions -->
-						<div
-							onclick={e => {
-								e.preventDefault();
-								clearFun();
-							}}
-						>
+						<button onclick={() => clearFun()}>
 							<Icon name="ri-close-circle-fill" size={16} alpha={0.3} />
-						</div>
+						</button>
 					{/if}
 				</div>
 			</div>
 			{#if label4Child}
 				{@render label4Child?.()}
-			{:else if label4 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel4 && onclicklabel4();
-					}}
-				>
+			{:else if label4 === null}{:else}
+				<button onclick={() => onclickLabel4 && onclickLabel4()}>
 					<Icon {...label4} />
-				</div>
+				</button>
 			{/if}
 			{#if label5Child}
 				{@render label5Child?.()}
-			{:else if label5 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel5 && onclicklabel5();
-					}}
-				>
+			{:else if label5 === null}{:else}
+				<button onclick={() => onclickLabel5 && onclickLabel5()}>
 					{label5}
-				</div>
+				</button>
 			{/if}
 			{#if label6Child}
 				{@render label6Child?.()}
-			{:else if label6 === ''}
-				<!-- none -->
-			{:else}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					onclick={e => {
-						e.preventDefault();
-						onclicklabel6 && onclicklabel6();
-					}}
-				>
+			{:else if label6 === null}{:else}
+				<button onclick={() => onclickLabel6 && onclickLabel6()}>
 					<Icon {...label6} />
-				</div>
+				</button>
 			{/if}
 			{#if inputStyle === 'line'}
 				<div
-					class={`h-[2px] absolute -bottom-px ${lineTransition === 'none' ? 'transition-colors' : 'transition-all'} ${
-						durationObj[duration] || durationObj.base
-					} ${!focus && lineTransition === 'none' && 'bg-transparent w-full'} ${
-						focus && lineTransition === 'none' && `${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme} w-full`
-					} ${!focus && lineTransition !== 'none' && `w-0 ${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme}`} ${
-						focus && lineTransition !== 'none' && `w-full ${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme}`
-					}`}
+					class="h-0.5 absolute -bottom-px {lineTransition === null ? 'transition-colors' : 'transition-all'} {durationObj[duration] ||
+						durationObj.base} {!focus && lineTransition === null && 'bg-transparent w-full'} {focus &&
+						lineTransition === null &&
+						`${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme} w-full`} {!focus &&
+						lineTransition !== null &&
+						`w-0 ${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme}`} {focus &&
+						lineTransition !== null &&
+						`w-full ${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme}`}"
 					style={lineTransition === 'center'
 						? 'left:50%;transform:translateX(calc( -50% - 0.25rem ));-webkit-transform:translateX(calc( -50% - 0.25rem ));'
 						: 'left:0;transform:translateX( -0.25rem );-webkit-transform:translateX( -0.25rem );'}
 				></div>
 			{/if}
 		</div>
-		<div class={`flex  px-2 text-gay6 ${tip === '' ? 'justify-end' : 'justify-between'}`}>
+		<div class="flex px-2 text-gay6 {tip === null ? 'justify-end' : 'justify-between'}">
 			{#if tipChild}
 				{@render tipChild?.()}
-			{:else if tip === ''}
-				<!-- none -->
-			{:else}
+			{:else if tip === null}{:else}
 				<div class="text-sm text-gray-400">
 					{tip}
 				</div>
 			{/if}
 			{#if data3Child}
 				{@render data3Child?.()}
-			{:else if data3 === ''}
-				<!-- none -->
-			{:else}
+			{:else if data3 === null}{:else}
 				<div class="text-xs">
 					{data3}
 				</div>

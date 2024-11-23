@@ -1,35 +1,35 @@
-> Input uses the icon ri-close-circle-fill, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Input uses the icon ri-close-circle-fill. Please ensure this icon is included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
 ## title and placeholder
 
-If the title is passed in but the placeholder is not, the Input component will use "Please enter + title" as the default placeholder. Both title and placeholder should be passed in at least one.
+If title is provided but placeholder is not, the Input component internally uses "Please enter + title" as the default placeholder. **At least one of title or placeholder must be provided**.
 
 ## type and inputmode
 
-Please refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) for inputmode.
+For inputmode, please refer to [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/inputmode).
 
-Considering mobile interaction characteristics, the Input component is mainly used for text input. Other components support or interact with input tags with type values ​​such as file, radio, and date. At the same time, type and inputmode have high overlappingness. The optional values ​​of type add password and number on the basis of inputmode. Generally, only type needs to be entered. Of course, you can also set inputmode separately.
+Considering mobile interaction characteristics, the Input component is mainly used for text input. Native input tag type values like file, radio, date, etc. have other component support or interaction methods. Additionally, type and inputmode have high overlap, with type adding password and number options on top of inputmode's base values. **Generally, you only need to pass type, though you can set inputmode separately if needed.**
 
-Because some processing is done on the input content inside the component, except for password, type will be converted to text when rendering the final input on the page. If needed, please convert the type yourself.
+Because the component internally processes input content, when rendering the final input to the page, all type values except password will be converted to text. Please convert the return value type as needed.
 
-## Listening for Key Events
+## Listening to Key Events
 
-The Input component internally listens for keyboard key events. When any key is pressed, the keydown event is triggered. The detail property in the event object represents the key that was pressed (Note: keyCode is deprecated, refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)). You can use this value to perform special actions. Please refer to the example.
+The Input component internally listens to keyboard events. When any key is pressed, it triggers the onkeydown event, returning a `value` representing the pressed key (Note: keyCode is deprecated, refer to [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent/keyCode)). You can handle this value for special processing. See examples.
 
-## Configurable Items
+## Configuration Options
 
-The location of all configurable items of the Input component is shown in the following figure.
+All configurable items of the Input component are shown in the image below.
 
-<img src="input.jpg" alt="input config" title="输入框配置项">
+<img src="input_en.png" alt="input config" title="Input Configuration Items">
 
-Normally, Icon Props is used for label1, label3, label4, and label6, and text is used for label2 and label5.
+Typically, label1, label3, label4, and label6 use Icon Props, while label2 and label5 use text.
 
-Of course, if these configuration items cannot meet the requirements, they also support rendering with slots. Please refer to the example.
+Of course, if these configuration options don't meet your needs, they all support Snippet rendering. Please refer to the examples.
 
-## Textarea
+## textarea
 
-The three parameters textareaMaxlength, rows, and autosize only take effect when the type is "textarea", and rows will be invalid when autosize is true.
+The parameters textareaMaxlength, rows, and autosize only take effect when type is 'textarea', and when autosize is true, rows will be ineffective.
 
-## Input Optimization
+## CJK Input
 
-During the input process of various texts containing "select word" links such as Chinese, Japanese, and Korean, the component verifies the input length and content information only after it is displayed on the screen.
+When inputting Chinese, Japanese, Korean, or other text that involves a character selection process, the component internally validates input length, content, and other information **only after the content is committed to the screen**.
