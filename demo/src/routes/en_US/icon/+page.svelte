@@ -56,7 +56,7 @@
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon}
 				<div class="py-2 text-center flex-1">
-					<Icon name={icon} injClass="text-[red] dark:text-extend1" />
+					<Icon name={icon} injClass="text-[red] dark:text-[green]" />
 				</div>
 			{/each}
 		</div>

@@ -28,10 +28,10 @@
 	/>
 	<Toast bind:visible={visible2} message={`点击的右侧图标索引值是 ${rightIndex}。`} />
 	<NavBar title="无左侧与底分割线，文字过长长长长长长长" left={null} line={false} rights={icons3} />
-	<NavBar title="自定义背景颜色 by injClass" injClass="bg-[wheat] dark:bg-extend0" />
+	<NavBar title="自定义背景颜色 by injClass" injClass="!bg-[#e0e0e0] dark:!bg-[green]" />
 	<NavBar>
 		{#snippet titleChild()}
-			<div class="text-[red] dark:text-extend1">自定义文字颜色 by Snippet</div>
+			<div class="text-[red] dark:text-[green]">自定义文字颜色 by Snippet</div>
 		{/snippet}
 	</NavBar>
 	<NavBar>

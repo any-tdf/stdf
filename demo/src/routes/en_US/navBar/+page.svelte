@@ -28,10 +28,10 @@
 	/>
 	<Toast bind:visible={visible2} message={`The index of the clicked right icon is ${rightIndex}.`} />
 	<NavBar title="No left and bottom dividers, long text" left={null} line={false} rights={icons3} />
-	<NavBar title="Custom background color by injClass" injClass="bg-[wheat] dark:bg-extend0" />
+	<NavBar title="Custom background color by injClass" injClass="!bg-[#e0e0e0] dark:!bg-[green]" />
 	<NavBar>
 		{#snippet titleChild()}
-			<div class="text-[red] dark:text-extend1">Custom text color by Snippet</div>
+			<div class="text-[red] dark:text-[green]">Custom text color by Snippet</div>
 		{/snippet}
 	</NavBar>
 	<NavBar>
