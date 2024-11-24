@@ -24,7 +24,7 @@ The key text size will dynamically adjust according to the height of the key.
 
 ## Keyboard Height
 
-When using the keyboard on a mobile device, it is important to consider the height of the keyboard. The keyboard may cover the area where input content needs to be displayed on the page. Therefore, the NumKeyboard component automatically calculates the height of the keyboard when it is opened and dispatches it through the open event. Developers can use this value to handle the issue of keyboard covering content.
+When using the keyboard on a mobile device, it is important to consider the height of the keyboard. The keyboard may cover the area where input content needs to be displayed on the page. Therefore, the NumKeyboard component automatically calculates the height of the keyboard when it is opened and dispatches it through the onopen event. Developers can use this value to handle the issue of keyboard covering content.
 
 ## CSS Injection
 

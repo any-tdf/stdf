@@ -22,7 +22,7 @@
 		dot = true,
 		close = false,
 		doneText = commonLang.done,
-		doneDisabled = false,
+		doneDisabled = $bindable(false),
 		radius = 'base',
 		panelClass = '',
 		keyClass = '',
@@ -73,13 +73,13 @@
 
 	// 按钮式 class
 	// Button type class
-	const buttonClass = `flex flex-col justify-center shadow-sm font-bold cursor-pointer active:scale-95 transition-all duration-100 ${
+	const buttonClass = `flex flex-col justify-center items-center shadow-sm font-bold active:scale-95 transition-all duration-100 ${
 		heightClass[height] || 'h-12'
 	} ${fontSizeClass[height] || 'text-base'} ${radiusClass[radius] || 'rounded'}${keyClass ? ' ' + keyClass : ''}`;
 
 	// 块式 class
 	// Block type class
-	const blockClass = `flex flex-col justify-center font-bold cursor-pointer active:opacity-40 transition-all duration-100 ${
+	const blockClass = `flex flex-col justify-center items-center font-bold active:opacity-40 transition-all duration-100 ${
 		heightClass[height] || 'h-12'
 	} ${fontSizeClass[height] || 'text-base'}${keyClass ? ' ' + keyClass : ''}`;
 
@@ -138,80 +138,56 @@
 	// Activate and close the keyboard event
 	$effect(() => {
 		if (visible) {
-			onopen?.(keyboardHeight());
+			onopen && onopen(keyboardHeight());
 		} else {
 			onclose && onclose();
 		}
 	});
 </script>
 
-<Popup bind:visible size={0} mask={{ opacity: 0 }} transitionDistance={keyboardHeight()} {...popup}>
+<Popup bind:visible size={0} mask={{ opacity: '0' }} transitionDistance={keyboardHeight()} {...popup}>
 	<div
 		class="bg-gray-100 dark:bg-gray-950 text-center {type === 'block' ? 'border-t border-gray-100 dark:border-gray-950' : ''} {pClass[p] ||
 			'p-2'}{panelClass ? ' ' + panelClass : ''}"
 	>
 		<div class="grid {type === 'button' ? gapClass[space] || 'gap-2' : 'gap-px'} {done ? 'grid-cols-4' : 'grid-cols-3'}">
 			{#each reverse ? [7, 8, 9] : [1, 2, 3] as item}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc(item)} onclick={() => clickFunc(item)}>
-					{item}
-				</div>
+				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if done}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc('delete')} onclick={() => clickFunc('delete')}>
+				<button class={baseClassFunc('delete')} onclick={() => clickFunc('delete')}>
 					<Icon name="ri-delete-back-2-line" size={Number(height) * 2} />
-				</div>
+				</button>
 			{/if}
 			{#each [4, 5, 6] as item}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc(item)} onclick={() => clickFunc(item)}>
-					{item}
-				</div>
+				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if done}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
+				<button
 					class="{baseClassFunc('done')} h-full row-span-3 bg-primary dark:bg-dark text-white dark:text-black {doneDisabled
 						? 'active:!scale-100 transition-none !opacity-50'
 						: ''}{doneClass ? '' + doneClass : ''}"
 					onclick={() => clickFunc('done')}
 				>
 					{doneText}
-				</div>
+				</button>
 			{/if}
 			{#each reverse ? [1, 2, 3] : [7, 8, 9] as item}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc(item)} onclick={() => clickFunc(item)}>
-					{item}
-				</div>
+				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if dot}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc('.')} onclick={() => clickFunc('.')}>.</div>
+				<button class={baseClassFunc('.')} onclick={() => clickFunc('.')}>.</button>
 			{/if}
 			{#if done ? close : !dot && close}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc('close')} onclick={() => clickFunc('close')}>
+				<button class={baseClassFunc('close')} onclick={() => clickFunc('close')}>
 					<Icon name="ri-skip-down-line" size={Number(height) * 2} />
-				</div>
+				</button>
 			{/if}
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			<div class={baseClassFunc('0') + ' ' + zeroColFunc()} onclick={() => clickFunc('0')}>0</div>
+			<button class={baseClassFunc('0') + ' ' + zeroColFunc()} onclick={() => clickFunc('0')}>0</button>
 			{#if !done}
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div class={baseClassFunc('delete')} onclick={() => clickFunc('delete')}>
+				<button class={baseClassFunc('delete')} onclick={() => clickFunc('delete')}>
 					<Icon name="ri-delete-back-2-line" size={Number(height) * 2} />
-				</div>
+				</button>
 			{/if}
 		</div>
 	</div>
