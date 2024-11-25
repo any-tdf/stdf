@@ -1,7 +1,7 @@
 <!-- Picker Demo -->
 <script>
 	import { Picker, Cell } from '../../../../../packages/stdf/components';
-	// In order to avoid the messy Demo page, the specific reference data is placed in the data.js file, and you can view the bottom of the page.
+	// For the sake of clarity, the specific reference data is placed in the data_en.js file, which can be viewed at the bottom of this page.
 	import {
 		someProvinceList,
 		weekList,
@@ -14,82 +14,76 @@
 	} from './data_en';
 
 	const datas = [{ data: someProvinceList }];
+
 	const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
-	let visible20 = false;
-	let visible21 = false;
-	let visible22 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
+	let visible22 = $state(false);
 
-	let currentDetail = 'please choose';
-	const getCurrentDetailFunc = e => {
-		currentDetail = e.detail.items[0].label;
-	};
-	let allItems = [];
-	let allIndexs = [];
-	const getAllDataFunc = e => {
-		allItems = e.detail.items;
-		allIndexs = e.detail.indexs;
-	};
+	let currentDetail = $state('Please select');
+	let allItems = $state([]);
+	let allIndexs = $state([]);
 </script>
 
 <div class="py-4">
-	<Cell title="Basic usage" on:click={() => (visible1 = true)} />
+	<Cell title="Basic usage" onclick={() => (visible1 = true)} />
 	<Picker bind:visible={visible1} {datas} />
 
-	<Cell title="Custom title" on:click={() => (visible2 = true)} />
-	<Picker bind:visible={visible2} title="Please select province" {datas} />
+	<Cell title="Custom title" onclick={() => (visible2 = true)} />
+	<Picker bind:visible={visible2} title="Please select state" {datas} />
 
-	<Cell title="Visible line 7" on:click={() => (visible3 = true)} />
+	<Cell title="Visible 7 rows" onclick={() => (visible3 = true)} />
 	<Picker bind:visible={visible3} datas={[{ data: someProvinceList, showRow: 7 }]} />
 
-	<Cell title="Do not roll until the last selection item" on:click={() => (visible4 = true)} />
+	<Cell title="Close automatic scrolling to the last selected item" onclick={() => (visible4 = true)} />
 	<Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
 
 	<Cell
-		title="The initial selection is always item 4"
-		on:click={() => (visible5 = true)}
-		subTitle="You need to disable automatic selection of the last selected item"
+		title="Initial selection is always the 4th item"
+		onclick={() => (visible5 = true)}
+		subTitle="Need to close automatic selection of the last selected item"
 	/>
 	<Picker bind:visible={visible5} datas={[{ data: someProvinceList, initIndex: 3 }]} autoScrollToLast={false} />
 
-	<Cell title="Cancel animation when auto scrolling" on:click={() => (visible6 = true)} />
+	<Cell title="Cancel animation when scrolling" onclick={() => (visible6 = true)} />
 	<Picker bind:visible={visible6} datas={[{ data: someProvinceList, useAnimation: false }]} />
 
-	<Cell title="Customize the key value of the label" on:click={() => (visible7 = true)} />
+	<Cell title="Custom label key value" onclick={() => (visible7 = true)} />
 	<Picker bind:visible={visible7} datas={[{ data: cityList, labelKey: 'cityName' }]} title="Please select city" />
 
-	<Cell title="The selected items are displayed on the right" detail={currentDetail} on:click={() => (visible8 = true)} />
-	<Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
+	<Cell title="Right display selected item" detail={currentDetail} onclick={() => (visible8 = true)} />
+	<Picker bind:visible={visible8} {datas} onconfirm={items => (currentDetail = items[0].label)} />
 
-	<Cell title="Single column left justified" on:click={() => (visible20 = true)} />
+	<Cell title="Single column left alignment" onclick={() => (visible20 = true)} />
 	<Picker bind:visible={visible20} datas={[{ data: someProvinceList, align: 'left' }]} />
 
-	<Cell title="Multi-column selector" on:click={() => (visible9 = true)} />
+	<Cell title="Multi-column picker" onclick={() => (visible9 = true)} />
 	<Picker bind:visible={visible9} datas={col3Datas} />
 
-	<Cell title="Number of visible rows for different columns" on:click={() => (visible10 = true)} />
+	<Cell title="Different column visibility rows" onclick={() => (visible10 = true)} />
 	<Picker bind:visible={visible10} datas={[{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }]} />
 
-	<Cell title="flex ratio for different columns" on:click={() => (visible11 = true)} />
+	<Cell title="Different column flex ratios" onclick={() => (visible11 = true)} />
 	<Picker
 		bind:visible={visible11}
 		datas={[
@@ -99,7 +93,7 @@
 		]}
 	/>
 
-	<Cell title="Multiple columns with different alignments" on:click={() => (visible21 = true)} />
+	<Cell title="Different column alignments" onclick={() => (visible21 = true)} />
 	<Picker
 		bind:visible={visible21}
 		datas={[
@@ -109,25 +103,25 @@
 		]}
 	/>
 
-	<Cell title="Multilevel linkage" on:click={() => (visible12 = true)} />
+	<Cell title="Multi-level linkage" onclick={() => (visible12 = true)} />
 	<Picker bind:visible={visible12} datas={linkageData} isLinkage />
 
-	<Cell title="Multilevel linkage has different visible lines" on:click={() => (visible13 = true)} />
+	<Cell title="Multi-level linkage different visible rows" onclick={() => (visible13 = true)} />
 	<Picker bind:visible={visible13} datas={linkageData} linkageShowRows={[3, 5, 7]} isLinkage />
 
-	<Cell title="Multistage linkage with different flex proportions" on:click={() => (visible14 = true)} />
+	<Cell title="Multi-level linkage different flex ratios" onclick={() => (visible14 = true)} />
 	<Picker bind:visible={visible14} datas={linkageData} linkageFlexs={[1, 2, 3]} isLinkage />
 
-	<Cell title="Multilevel linkage defines the key values of labels at each level" on:click={() => (visible15 = true)} />
+	<Cell title="Multi-level linkage custom label key for each level" onclick={() => (visible15 = true)} />
 	<Picker bind:visible={visible15} datas={linkagDiffLabelKeyData} linkageLabelKeys={['province', 'city', 'region']} isLinkage />
 
-	<Cell title="Multilevel linkage You can customize key values for the upper and lower children" on:click={() => (visible16 = true)} />
+	<Cell title="Multi-level linkage custom key for each level's children" onclick={() => (visible16 = true)} />
 	<Picker bind:visible={visible16} datas={linkagCustomChildrenKeyData} linkageChildrenKey="child" isLinkage />
 
-	<Cell title="Linkage different alignment modes" on:click={() => (visible22 = true)} />
+	<Cell title="Multi-level linkage different alignments" onclick={() => (visible22 = true)} />
 	<Picker bind:visible={visible22} datas={linkageData} linkageAligns={['right', 'center', 'left']} isLinkage />
 
-	<Cell title="Multilevel linkage sets the initial selection for each column" on:click={() => (visible17 = true)} />
+	<Cell title="Multi-level linkage set initial selected items for each column" onclick={() => (visible17 = true)} />
 	<Picker bind:visible={visible17} datas={linkageData} linkageInitIndexs={[0, 1, 8]} isLinkage />
 
 	<div class="px-4">
@@ -142,7 +136,7 @@
 	</div>
 	<div class="px-4">
 		{#if allIndexs.length}
-			The index values of the current selected values in the column are:
+			Currently selected value is located at the index of each column:
 			{#each allIndexs as index}
 				<span class="mr-2 text-primary dark:text-dark">{index}</span>
 			{/each}
@@ -150,638 +144,628 @@
 			<div>Please select data</div>
 		{/if}
 	</div>
-	<Cell title="Get selected data" on:click={() => (visible18 = true)} />
-	<Picker bind:visible={visible18} datas={col3Datas} on:confirm={getAllDataFunc} />
+	<Cell title="Get selected data" onclick={() => (visible18 = true)} />
+	<Picker
+		bind:visible={visible18}
+		datas={col3Datas}
+		onconfirm={(items, indexs) => {
+			allItems = items;
+			allIndexs = indexs;
+		}}
+	/>
 
-	<Cell title="I want some rounded corners on the top" on:click={() => (visible19 = true)} />
+	<Cell title="Top corner rounded" onclick={() => (visible19 = true)} />
 	<Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
 </div>
 
-<!-- data.js -->
+<!-- data_en.js -->
 <!-- 
 const someProvinceList = [
-    { label: 'Yunnan' },
-    { label: 'Beijing' },
-    { label: 'Guangdong' },
-    { label: 'Chongqing' },
-    { label: 'Sichuan' },
-    { label: 'Hubei' },
-    { label: 'Henan' },
-    { label: 'Hunan' },
-    { label: 'Shandong' },
-    { label: 'Jiangsu' },
-    { label: 'Zhejiang' },
-    { label: 'Jiangxi' },
-    { label: 'Anhui' },
-    { label: 'Fujian' },
+	{ label: 'California' },
+	{ label: 'New York' },
+	{ label: 'Texas' },
+	{ label: 'Florida' },
+	{ label: 'Illinois' },
+	{ label: 'Pennsylvania' },
+	{ label: 'Ohio' },
+	{ label: 'Michigan' },
+	{ label: 'Georgia' },
+	{ label: 'Virginia' },
+	{ label: 'Washington' },
+	{ label: 'Arizona' },
+	{ label: 'Massachusetts' },
+	{ label: 'Tennessee' },
 ];
 const weekList = [
-    { label: 'Monday' },
-    { label: 'Tuesday' },
-    { label: 'Wednesday' },
-    { label: 'Thursday' },
-    { label: 'Friday' },
-    { label: 'Saturday' },
-    { label: 'Sunday' },
+	{ label: 'Monday' },
+	{ label: 'Tuesday' },
+	{ label: 'Wednesday' },
+	{ label: 'Thursday' },
+	{ label: 'Friday' },
+	{ label: 'Saturday' },
+	{ label: 'Sunday' },
 ];
 const amOrPmList = [{ label: 'AM' }, { label: 'PM' }];
 const timeList = [
-    { label: '01:00' },
-    { label: '02:00' },
-    { label: '03:00' },
-    { label: '04:00' },
-    { label: '05:00' },
-    { label: '06:00' },
-    { label: '07:00' },
-    { label: '08:00' },
-    { label: '09:00' },
-    { label: '10:00' },
-    { label: '11:00' },
-    { label: '12:00' },
+	{ label: '01:00' },
+	{ label: '02:00' },
+	{ label: '03:00' },
+	{ label: '04:00' },
+	{ label: '05:00' },
+	{ label: '06:00' },
+	{ label: '07:00' },
+	{ label: '08:00' },
+	{ label: '09:00' },
+	{ label: '10:00' },
+	{ label: '11:00' },
+	{ label: '12:00' },
 ];
 const cityList = [
-    { cityName: 'kunming' },
-    { cityName: 'qujing' },
-    { cityName: 'yuxi' },
-    { cityName: 'baoshan' },
-    { cityName: 'zhaotong' },
-    { cityName: 'lijiang' },
-    { cityName: 'puer' },
-    { cityName: 'lincang' },
-    { cityName: 'chuxiong' },
-    { cityName: 'honghe' },
-    { cityName: 'wenshan' },
+	{ cityName: 'losangeles' },
+	{ cityName: 'sandiego' },
+	{ cityName: 'sanfrancisco' },
+	{ cityName: 'sacramento' },
+	{ cityName: 'fresno' },
+	{ cityName: 'oakland' },
+	{ cityName: 'sanjose' },
+	{ cityName: 'bakersfield' },
+	{ cityName: 'anaheim' },
+	{ cityName: 'riverside' },
+	{ cityName: 'stockton' },
 ];
 const linkageData = [
-    {
-        label: 'Yunnan',
-        children: [
-            {
-                label: 'Kunming',
-                children: [
-                    { label: 'Panlong District' },
-                    { label: 'Wuhua District' },
-                    { label: 'Guandu District' },
-                    { label: 'Xishan District' },
-                    { label: 'Dongchuan District' },
-                ],
-            },
-            {
-                label: 'Qujing',
-                children: [
-                    { label: 'Qilin District' },
-                    { label: 'Zhanyi District' },
-                    { label: 'Malong County' },
-                    { label: 'Luliang County' },
-                    { label: 'Shizong County' },
-                    { label: 'Luoping County' },
-                ],
-            },
-            {
-                label: 'Yuxi',
-                children: [
-                    { label: 'Hongta District' },
-                    { label: 'Jiangchuan District' },
-                    { label: 'Chengjiang County' },
-                    { label: 'Tonghai County' },
-                    { label: 'Huaning County' },
-                ],
-            },
-            {
-                label: 'Baoshan',
-                children: [
-                    { label: 'Longyang District' },
-                    { label: 'Shidian County' },
-                    { label: 'Longling County' },
-                    { label: 'Changning County' },
-                    { label: 'Tengchong City' },
-                    { label: 'Longling County' },
-                ],
-            },
-            {
-                label: 'Lijiang',
-                children: [{ label: 'Gucheng District' }, { label: 'Yongsheng County' }, { label: 'Huaping County' }],
-            },
-            {
-                label: "Pu'er",
-                children: [
-                    { label: 'Simao District' },
-                    { label: "Ning'er Hani and Yi Autonomous County" },
-                    { label: 'Mojiang Hani Autonomous County' },
-                    { label: 'Jingdong Yi Autonomous County' },
-                    { label: 'Jinggu Dai and Yi Autonomous County' },
-                ],
-            },
-            {
-                label: 'Lincang',
-                children: [
-                    { label: 'Linxia District' },
-                    { label: 'Fengqing County' },
-                    { label: 'Yun County' },
-                    { label: 'Yongde County' },
-                    { label: 'Zhenkang County' },
-                ],
-            },
-            {
-                label: 'Chuxiong',
-                children: [
-                    { label: 'Chuxiong City' },
-                    { label: 'Shuangbai County' },
-                    { label: 'Mouding County' },
-                    { label: 'Nanhua County' },
-                    { label: "Yao'an County" },
-                    { label: 'Dayao County' },
-                ],
-            },
-            {
-                label: 'Honghe',
-                children: [
-                    { label: 'Gejiu City' },
-                    { label: 'Kaiyuan City' },
-                    { label: 'Mengzi City' },
-                    { label: 'Mile City' },
-                    { label: 'Pingbian Miao Autonomous County' },
-                ],
-            },
-            {
-                label: 'Wenshan',
-                children: [
-                    { label: 'Wenshan City' },
-                    { label: 'Yanshan County' },
-                    { label: 'Xichou County' },
-                    { label: 'Malipo County' },
-                    { label: 'Maguan County' },
-                    { label: 'Qiubei County' },
-                    { label: 'Guangnan County' },
-                    { label: 'Funing County' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Guangdong',
-        children: [
-            {
-                label: 'Guangzhou',
-                children: [
-                    { label: 'Tianhe District' },
-                    { label: 'Haizhu District' },
-                    { label: 'Liwan District' },
-                    { label: 'Yuexiu District' },
-                    { label: 'Baiyun District' },
-                    { label: 'Huangpu District' },
-                ],
-            },
-            {
-                label: 'Shenzhen',
-                children: [
-                    { label: 'Luohu District' },
-                    { label: 'Futian District' },
-                    { label: 'Nanshan District' },
-                    { label: "Bao'an District" },
-                    { label: 'Longgang District' },
-                    { label: 'Yantian District' },
-                ],
-            },
-            {
-                label: 'Zhuhai',
-                children: [{ label: 'Xiangzhou District' }, { label: 'Doumen District' }, { label: 'Jinwan District' }],
-            },
-            {
-                label: 'Shantou',
-                children: [
-                    { label: 'Longhu District' },
-                    { label: 'Jinping District' },
-                    { label: 'Haojiang District' },
-                    { label: 'Chaoyang District' },
-                    { label: "Chao'an District" },
-                    { label: 'Chenghai District' },
-                ],
-            },
-            {
-                label: 'Foshan',
-                children: [
-                    { label: 'Chancheng District' },
-                    { label: 'Nanhai District' },
-                    { label: 'Shunde District' },
-                    { label: 'Sanshui District' },
-                    { label: 'Gaoming District' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Sichuan',
-        children: [
-            {
-                label: 'Chengdu',
-                children: [
-                    { label: 'Jinjiang District' },
-                    { label: 'Qingyang District' },
-                    { label: 'Jinniu District' },
-                    { label: 'Wuhou District' },
-                    { label: 'Chenghua District' },
-                    { label: 'Longquanyi District' },
-                ],
-            },
-            {
-                label: 'Mianyang',
-                children: [
-                    { label: 'Fucheng District' },
-                    { label: 'Youxian District' },
-                    { label: 'Anzhou District' },
-                    { label: 'Santai County' },
-                    { label: 'Yanting County' },
-                    { label: 'Zitong County' },
-                ],
-            },
-            {
-                label: 'Zigong',
-                children: [
-                    { label: 'Ziliujing District' },
-                    { label: 'Gongjing District' },
-                    { label: "Da'an District" },
-                    { label: 'Yantan District' },
-                    { label: 'Rong County' },
-                    { label: 'Fushun County' },
-                ],
-            },
-            {
-                label: 'Panzhihua',
-                children: [
-                    { label: 'Dong District' },
-                    { label: 'Xi District' },
-                    { label: 'Renhe District' },
-                    { label: 'Miyi County' },
-                    { label: 'Yanbian County' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Beijing',
-        children: [
-            {
-                label: 'Beijing City',
-                children: [
-                    { label: 'Dongcheng District' },
-                    { label: 'Xicheng District' },
-                    { label: 'Chaoyang District' },
-                    { label: 'Fengtai District' },
-                    { label: 'Shijingshan District' },
-                    { label: 'Haidian District' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'Zhejiang',
-        children: [
-            {
-                label: 'Hangzhou',
-                children: [
-                    { label: 'Shangcheng District' },
-                    { label: 'Xiacheng District' },
-                    { label: 'Jianggan District' },
-                    { label: 'Gongshu District' },
-                    { label: 'Xihu District' },
-                    { label: 'Binjiang District' },
-                ],
-            },
-            {
-                label: 'Ningbo',
-                children: [
-                    { label: 'Haishu District' },
-                    { label: 'Jiangdong District' },
-                    { label: 'Jiangbei District' },
-                    { label: 'Beilun District' },
-                    { label: 'Zhenhai District' },
-                    { label: 'Yinzhou District' },
-                ],
-            },
-            {
-                label: 'Wenzhou',
-                children: [
-                    { label: 'Lucheng District' },
-                    { label: 'Longwan District' },
-                    { label: 'Ouhai District' },
-                    { label: 'Dongtou District' },
-                    { label: 'Yongjia County' },
-                    { label: 'Pingyang County' },
-                ],
-            },
-            {
-                label: 'Jiaxing',
-                children: [
-                    { label: 'Nanhu District' },
-                    { label: 'Xiuzhou District' },
-                    { label: 'Jiashan County' },
-                    { label: 'Haiyan County' },
-                    { label: 'Haining City' },
-                    { label: 'Pinghu City' },
-                ],
-            },
-            {
-                label: 'Huzhou',
-                children: [
-                    { label: 'Wuxing District' },
-                    { label: 'Nanxun District' },
-                    { label: 'Deqing County' },
-                    { label: 'Changxing County' },
-                    { label: 'Anji County' },
-                ],
-            },
-        ],
-    },
+	{
+		label: 'California',
+		children: [
+			{
+				label: 'Los Angeles',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Hollywood' },
+					{ label: 'Beverly Hills' },
+					{ label: 'Santa Monica' },
+					{ label: 'Pasadena' },
+				],
+			},
+			{
+				label: 'San Francisco',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Mission District' },
+					{ label: 'North Beach' },
+					{ label: 'Chinatown' },
+					{ label: 'Haight-Ashbury' },
+					{ label: 'Castro' },
+				],
+			},
+			{
+				label: 'San Diego',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'La Jolla' },
+					{ label: 'Pacific Beach' },
+					{ label: 'Mission Beach' },
+					{ label: 'Coronado' },
+				],
+			},
+			{
+				label: 'Sacramento',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Midtown' },
+					{ label: 'East Sacramento' },
+					{ label: 'Land Park' },
+					{ label: 'Natomas' },
+					{ label: 'Arden-Arcade' },
+				],
+			},
+			{
+				label: 'Oakland',
+				children: [{ label: 'Downtown' }, { label: 'Lake Merritt' }, { label: 'Rockridge' }],
+			},
+			{
+				label: 'San Jose',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Willow Glen' },
+					{ label: 'Almaden Valley' },
+					{ label: 'Berryessa' },
+					{ label: 'Evergreen' },
+				],
+			},
+			{
+				label: 'Fresno',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Tower District' },
+					{ label: 'River Park' },
+					{ label: 'Fig Garden' },
+					{ label: 'Woodward Park' },
+				],
+			},
+			{
+				label: 'Long Beach',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Belmont Shore' },
+					{ label: 'Bixby Knolls' },
+					{ label: 'Naples' },
+					{ label: 'Alamitos Beach' },
+					{ label: 'Rose Park' },
+				],
+			},
+			{
+				label: 'Bakersfield',
+				children: [{ label: 'Downtown' }, { label: 'Rosedale' }, { label: 'Oildale' }, { label: 'Seven Oaks' }, { label: 'Stockdale' }],
+			},
+			{
+				label: 'Anaheim',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Anaheim Hills' },
+					{ label: 'The Colony' },
+					{ label: 'The Platinum Triangle' },
+					{ label: 'West Anaheim' },
+					{ label: 'East Anaheim' },
+					{ label: 'South Anaheim' },
+					{ label: 'Resort District' },
+				],
+			},
+		],
+	},
+	{
+		label: 'Texas',
+		children: [
+			{
+				label: 'Houston',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Midtown' },
+					{ label: 'Heights' },
+					{ label: 'River Oaks' },
+					{ label: 'Memorial' },
+					{ label: 'Medical Center' },
+				],
+			},
+			{
+				label: 'Dallas',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Uptown' },
+					{ label: 'Deep Ellum' },
+					{ label: 'Oak Lawn' },
+					{ label: 'Bishop Arts' },
+					{ label: 'Knox Henderson' },
+				],
+			},
+			{
+				label: 'Austin',
+				children: [{ label: 'Downtown' }, { label: 'South Congress' }, { label: 'East Austin' }],
+			},
+			{
+				label: 'San Antonio',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Alamo Heights' },
+					{ label: 'Pearl District' },
+					{ label: 'King William' },
+					{ label: 'Stone Oak' },
+				],
+			},
+		],
+	},
+	{
+		label: 'Illinois',
+		children: [
+			{
+				label: 'Chicago',
+				children: [
+					{ label: 'Loop' },
+					{ label: 'River North' },
+					{ label: 'Lincoln Park' },
+					{ label: 'Wicker Park' },
+					{ label: 'Gold Coast' },
+					{ label: 'Lakeview' },
+				],
+			},
+			{
+				label: 'Springfield',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'West Side' },
+					{ label: 'East Side' },
+					{ label: 'North End' },
+					{ label: 'South Side' },
+					{ label: 'Jerome' },
+				],
+			},
+			{
+				label: 'Rockford',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'East Side' },
+					{ label: 'North End' },
+					{ label: 'Rural Oaks' },
+					{ label: 'Churchill Grove' },
+					{ label: 'Signal Hill' },
+				],
+			},
+			{
+				label: 'Peoria',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'West Bluff' },
+					{ label: 'East Bluff' },
+					{ label: 'North Valley' },
+					{ label: 'South Side' },
+				],
+			},
+		],
+	},
+	{
+		label: 'New York',
+		children: [
+			{
+				label: 'New York City',
+				children: [
+					{ label: 'Manhattan' },
+					{ label: 'Brooklyn' },
+					{ label: 'Queens' },
+					{ label: 'The Bronx' },
+					{ label: 'Staten Island' },
+					{ label: 'Harlem' },
+				],
+			},
+		],
+	},
+	{
+		label: 'Washington',
+		children: [
+			{
+				label: 'Seattle',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Capitol Hill' },
+					{ label: 'Ballard' },
+					{ label: 'Fremont' },
+					{ label: 'Queen Anne' },
+					{ label: 'South Lake Union' },
+				],
+			},
+			{
+				label: 'Spokane',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'South Hill' },
+					{ label: 'North Side' },
+					{ label: 'West Central' },
+					{ label: 'East Central' },
+					{ label: 'Riverside' },
+				],
+			},
+			{
+				label: 'Tacoma',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'North End' },
+					{ label: 'South End' },
+					{ label: 'East Side' },
+					{ label: 'West End' },
+					{ label: 'Central' },
+				],
+			},
+			{
+				label: 'Vancouver',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'Uptown' },
+					{ label: 'Hazel Dell' },
+					{ label: 'Salmon Creek' },
+					{ label: "Fisher's Landing" },
+					{ label: 'Cascade Park' },
+				],
+			},
+			{
+				label: 'Bellevue',
+				children: [
+					{ label: 'Downtown' },
+					{ label: 'West Bellevue' },
+					{ label: 'Crossroads' },
+					{ label: 'Eastgate' },
+					{ label: 'Factoria' },
+				],
+			},
+		],
+	},
 ];
 const linkagDiffLabelKeyData = [
-    {
-        province: 'Yunnan',
-        children: [
-            {
-                city: 'Kunming',
-                children: [
-                    { region: 'Panlong Qu' },
-                    { region: 'Wuhua Qu' },
-                    { region: 'Guandu Qu' },
-                    { region: 'Xishan Qu' },
-                    { region: 'Dongchuan Qu' },
-                    { region: 'Chenggong Qu' },
-                    { region: 'Jinning Qu' },
-                ],
-            },
-            {
-                city: 'Qujing',
-                children: [
-                    { region: 'Qilin Qu' },
-                    { region: 'Zhanyi Qu' },
-                    { region: 'Malong Xian' },
-                    { region: 'Luliang Xian' },
-                    { region: 'Shizong Xian' },
-                    { region: 'Luoping Xian' },
-                ],
-            },
-            {
-                city: 'Yuxi',
-                children: [
-                    { region: 'Hongta Qu' },
-                    { region: 'Jiangchuan Qu' },
-                    { region: 'Chengjiang Xian' },
-                    { region: 'Tonghai Xian' },
-                    { region: 'Huaning Xian' },
-                    { region: 'Yimen Xian' },
-                ],
-            },
-        ],
-    },
-    {
-        province: 'Guizhou',
-        children: [
-            {
-                city: 'Guiyang',
-                children: [
-                    { region: 'Nanming Qu' },
-                    { region: 'Yunyan Qu' },
-                    { region: 'Huaxi Qu' },
-                    { region: 'Wudang Qu' },
-                    { region: 'Baiyun Qu' },
-                    { region: 'Guanshanhu Qu' },
-                ],
-            },
-            {
-                city: 'Zunyi',
-                children: [
-                    { region: 'Honghuagang Qu' },
-                    { region: 'Huichuan Qu' },
-                    { region: 'Bozhou Qu' },
-                    { region: 'Tongzi Xian' },
-                    { region: 'Suiyang Xian' },
-                    { region: 'Zhengan Xian' },
-                ],
-            },
-            {
-                city: 'Liupanshui',
-                children: [
-                    { region: 'Zhongshan Qu' },
-                    { region: 'Liuzhi Special District' },
-                    { region: 'Shuicheng Xian' },
-                    { region: 'Pan Xian' },
-                ],
-            },
-        ],
-    },
-    {
-        province: 'Sichuan',
-        children: [
-            {
-                city: 'Chengdu',
-                children: [
-                    { region: 'Jinjiang Qu' },
-                    { region: 'Qingyang Qu' },
-                    { region: 'Jinniu Qu' },
-                    { region: 'Wuhou Qu' },
-                    { region: 'Chenghua Qu' },
-                    { region: 'Longquanyi Qu' },
-                ],
-            },
-            {
-                city: 'Mianyang',
-                children: [
-                    { region: 'Fucheng Qu' },
-                    { region: 'Youxian Qu' },
-                    { region: 'Anzhou Qu' },
-                    { region: 'Santai Xian' },
-                    { region: 'Yanling Xian' },
-                    { region: 'Zitong Xian' },
-                ],
-            },
-            {
-                city: 'Panzhihua',
-                children: [
-                    { region: 'Dongqu' },
-                    { region: 'Xiqu' },
-                    { region: 'Renhe Qu' },
-                    { region: 'Miyi Xian' },
-                    { region: 'Yanbian Xian' },
-                ],
-            },
-        ],
-    },
-    {
-        province: 'Beijing',
-        children: [
-            {
-                city: 'Beijing',
-                children: [
-                    { region: 'Dongcheng Qu' },
-                    { region: 'Xicheng Qu' },
-                    { region: 'Chaoyang Qu' },
-                    { region: 'Fengtai Qu' },
-                    { region: 'Shijingshan Qu' },
-                    { region: 'Haidian Qu' },
-                ],
-            },
-        ],
-    },
+	{
+		province: 'California',
+		children: [
+			{
+				city: 'Los Angeles',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'Hollywood' },
+					{ region: 'Beverly Hills' },
+					{ region: 'Santa Monica' },
+					{ region: 'Pasadena' },
+					{ region: 'Venice Beach' },
+					{ region: 'Westwood' },
+				],
+			},
+			{
+				city: 'San Francisco',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'Mission District' },
+					{ region: 'North Beach' },
+					{ region: 'Chinatown' },
+					{ region: 'Haight-Ashbury' },
+					{ region: 'Castro' },
+				],
+			},
+			{
+				city: 'San Diego',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'La Jolla' },
+					{ region: 'Pacific Beach' },
+					{ region: 'Mission Beach' },
+					{ region: 'Coronado' },
+					{ region: 'North Park' },
+				],
+			},
+		],
+	},
+	{
+		province: 'Florida',
+		children: [
+			{
+				city: 'Miami',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'South Beach' },
+					{ region: 'Brickell' },
+					{ region: 'Coconut Grove' },
+					{ region: 'Little Havana' },
+					{ region: 'Coral Gables' },
+				],
+			},
+			{
+				city: 'Orlando',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'Winter Park' },
+					{ region: 'Lake Nona' },
+					{ region: 'College Park' },
+					{ region: 'Baldwin Park' },
+					{ region: 'Mills 50' },
+				],
+			},
+			{
+				city: 'Tampa',
+				children: [{ region: 'Downtown' }, { region: 'Hyde Park' }, { region: 'Ybor City' }, { region: 'Channelside' }],
+			},
+		],
+	},
+	{
+		province: 'Illinois',
+		children: [
+			{
+				city: 'Chicago',
+				children: [
+					{ region: 'Loop' },
+					{ region: 'River North' },
+					{ region: 'Lincoln Park' },
+					{ region: 'Wicker Park' },
+					{ region: 'Gold Coast' },
+					{ region: 'Lakeview' },
+				],
+			},
+			{
+				city: 'Springfield',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'West Side' },
+					{ region: 'East Side' },
+					{ region: 'North End' },
+					{ region: 'South Side' },
+					{ region: 'Jerome' },
+				],
+			},
+			{
+				city: 'Peoria',
+				children: [
+					{ region: 'Downtown' },
+					{ region: 'West Bluff' },
+					{ region: 'East Bluff' },
+					{ region: 'North Valley' },
+					{ region: 'South Side' },
+				],
+			},
+		],
+	},
+	{
+		province: 'New York',
+		children: [
+			{
+				city: 'New York City',
+				children: [
+					{ region: 'Manhattan' },
+					{ region: 'Brooklyn' },
+					{ region: 'Queens' },
+					{ region: 'The Bronx' },
+					{ region: 'Staten Island' },
+					{ region: 'Harlem' },
+				],
+			},
+		],
+	},
 ];
 const linkagCustomChildrenKeyData = [
-    {
-        label: 'YunNan',
-        child: [
-            {
-                label: 'KunMing',
-                child: [
-                    { label: 'PanLongQu' },
-                    { label: 'WuHuaQu' },
-                    { label: 'GuanDuQu' },
-                    { label: 'XiShanQu' },
-                    { label: 'DongChuanQu' },
-                    { label: 'ChengGongQu' },
-                    { label: 'JinNingQu' },
-                ],
-            },
-            {
-                label: 'QuJing',
-                child: [
-                    { label: 'QiLinQu' },
-                    { label: 'ZhanYiQu' },
-                    { label: 'MaLongXian' },
-                    { label: 'LuLiangXian' },
-                    { label: 'ShiZongXian' },
-                    { label: 'LuoPingXian' },
-                ],
-            },
-            {
-                label: 'YuXi',
-                child: [
-                    { label: 'HongTaQu' },
-                    { label: 'JiangChuanQu' },
-                    { label: 'ChengJiangXian' },
-                    { label: 'TongHaiXian' },
-                    { label: 'HuaNingXian' },
-                    { label: 'YiMenXian' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'GuiZhou',
-        child: [
-            {
-                label: 'GuiYang',
-                child: [
-                    { label: 'NanMingQu' },
-                    { label: 'YunYanQu' },
-                    { label: 'HuaXiQu' },
-                    { label: 'WuDangQu' },
-                    { label: 'BaiYunQu' },
-                    { label: 'GuanShanHuQu' },
-                ],
-            },
-            {
-                label: 'ZunYi',
-                child: [
-                    { label: 'HongHuaGangQu' },
-                    { label: 'HuiChuanQu' },
-                    { label: 'BoZhouQu' },
-                    { label: 'TongZiXian' },
-                    { label: 'SuiYangXian' },
-                    { label: 'ZhengAnXian' },
-                ],
-            },
-            {
-                label: 'LiuPanShui',
-                child: [{ label: 'ZhongShanQu' }, { label: 'LiuZhiTeQu' }, { label: 'ShuiChengXian' }, { label: 'PanXian' }],
-            },
-        ],
-    },
-    {
-        label: 'SiChuan',
-        child: [
-            {
-                label: 'ChengDu',
-                child: [
-                    { label: 'JinJiangQu' },
-                    { label: 'QingYangQu' },
-                    { label: 'JinNiuQu' },
-                    { label: 'WuHouQu' },
-                    { label: 'ChengHuaQu' },
-                    { label: 'LongQuanYiQu' },
-                ],
-            },
-            {
-                label: 'MianYang',
-                child: [
-                    { label: 'FuChengQu' },
-                    { label: 'YouXianQu' },
-                    { label: 'AnZhouQu' },
-                    { label: 'SanTaiXian' },
-                    { label: 'YanTingXian' },
-                    { label: 'ZiTongXian' },
-                ],
-            },
-            {
-                label: 'PanZhiHua',
-                child: [{ label: 'DongQu' }, { label: 'XiQu' }, { label: 'RenHeQu' }, { label: 'MiYiXian' }, { label: 'YanBianXian' }],
-            },
-        ],
-    },
-    {
-        label: 'BeiJing',
-        child: [
-            {
-                label: 'BeiJing',
-                child: [
-                    { label: 'DongChengQu' },
-                    { label: 'XiChengQu' },
-                    { label: 'ChaoYangQu' },
-                    { label: 'FengTaiQu' },
-                    { label: 'ShiJingShanQu' },
-                    { label: 'HaiDianQu' },
-                ],
-            },
-        ],
-    },
-    {
-        label: 'ZheJiang',
-        child: [
-            {
-                label: 'HangZhou',
-                child: [
-                    { label: 'XiHuQu' },
-                    { label: 'ShangChengQu' },
-                    { label: 'XiaChengQu' },
-                    { label: 'JiangGanQu' },
-                    { label: 'GongShuQu' },
-                    { label: 'BinJiangQu' },
-                ],
-            },
-            {
-                label: 'NingBo',
-                child: [
-                    { label: 'HaiShuQu' },
-                    { label: 'JiangDongQu' },
-                    { label: 'JiangBeiQu' },
-                    { label: 'BeiLunQu' },
-                    { label: 'ZhenHaiQu' },
-                    { label: 'YinZhouQu' },
-                ],
-            },
-            {
-                label: 'WenZhou',
-                child: [
-                    { label: 'LuChengQu' },
-                    { label: 'LongWanQu' },
-                    { label: 'OuHaiQu' },
-                    { label: 'DongTouQu' },
-                    { label: 'YongJiaXian' },
-                    { label: 'PingYangXian' },
-                ],
-            },
-        ],
-    },
+	{
+		label: 'California',
+		child: [
+			{
+				label: 'Los Angeles',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'Hollywood' },
+					{ label: 'Beverly Hills' },
+					{ label: 'Santa Monica' },
+					{ label: 'Pasadena' },
+					{ label: 'Venice Beach' },
+					{ label: 'Westwood' },
+				],
+			},
+			{
+				label: 'San Francisco',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'Mission District' },
+					{ label: 'North Beach' },
+					{ label: 'Chinatown' },
+					{ label: 'Haight-Ashbury' },
+					{ label: 'Castro' },
+				],
+			},
+			{
+				label: 'San Diego',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'La Jolla' },
+					{ label: 'Pacific Beach' },
+					{ label: 'Mission Beach' },
+					{ label: 'Coronado' },
+					{ label: 'North Park' },
+				],
+			},
+		],
+	},
+	{
+		label: 'Florida',
+		child: [
+			{
+				label: 'Miami',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'South Beach' },
+					{ label: 'Brickell' },
+					{ label: 'Coconut Grove' },
+					{ label: 'Little Havana' },
+					{ label: 'Coral Gables' },
+				],
+			},
+			{
+				label: 'Orlando',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'Winter Park' },
+					{ label: 'Lake Nona' },
+					{ label: 'College Park' },
+					{ label: 'Baldwin Park' },
+					{ label: 'Mills 50' },
+				],
+			},
+			{
+				label: 'Tampa',
+				child: [{ label: 'Downtown' }, { label: 'Hyde Park' }, { label: 'Ybor City' }, { label: 'Channelside' }],
+			},
+		],
+	},
+	{
+		label: 'Illinois',
+		child: [
+			{
+				label: 'Chicago',
+				child: [
+					{ label: 'Loop' },
+					{ label: 'River North' },
+					{ label: 'Lincoln Park' },
+					{ label: 'Wicker Park' },
+					{ label: 'Gold Coast' },
+					{ label: 'Lakeview' },
+				],
+			},
+			{
+				label: 'Springfield',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'West Side' },
+					{ label: 'East Side' },
+					{ label: 'North End' },
+					{ label: 'South Side' },
+					{ label: 'Jerome' },
+				],
+			},
+			{
+				label: 'Peoria',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'West Bluff' },
+					{ label: 'East Bluff' },
+					{ label: 'North Valley' },
+					{ label: 'South Side' },
+				],
+			},
+		],
+	},
+	{
+		label: 'New York',
+		child: [
+			{
+				label: 'New York City',
+				child: [
+					{ label: 'Manhattan' },
+					{ label: 'Brooklyn' },
+					{ label: 'Queens' },
+					{ label: 'The Bronx' },
+					{ label: 'Staten Island' },
+					{ label: 'Harlem' },
+				],
+			},
+		],
+	},
+	{
+		label: 'Washington',
+		child: [
+			{
+				label: 'Seattle',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'Capitol Hill' },
+					{ label: 'Ballard' },
+					{ label: 'Fremont' },
+					{ label: 'Queen Anne' },
+					{ label: 'South Lake Union' },
+				],
+			},
+			{
+				label: 'Spokane',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'South Hill' },
+					{ label: 'North Side' },
+					{ label: 'West Central' },
+					{ label: 'East Central' },
+					{ label: 'Riverside' },
+				],
+			},
+			{
+				label: 'Tacoma',
+				child: [
+					{ label: 'Downtown' },
+					{ label: 'North End' },
+					{ label: 'South End' },
+					{ label: 'East Side' },
+					{ label: 'West End' },
+					{ label: 'Central' },
+				],
+			},
+		],
+	},
 ];
 
 export { someProvinceList, weekList, amOrPmList, timeList, cityList, linkageData, linkagDiffLabelKeyData, linkagCustomChildrenKeyData };
-
 -->

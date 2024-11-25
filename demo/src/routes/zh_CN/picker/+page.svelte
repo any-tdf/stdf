@@ -14,78 +14,72 @@
 	} from './data';
 
 	const datas = [{ data: someProvinceList }];
+
 	const col3Datas = [{ data: weekList }, { data: amOrPmList }, { data: timeList }];
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
-	let visible20 = false;
-	let visible21 = false;
-	let visible22 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
+	let visible22 = $state(false);
 
-	let currentDetail = '请选择';
-	const getCurrentDetailFunc = e => {
-		currentDetail = e.detail.items[0].label;
-	};
-	let allItems = [];
-	let allIndexs = [];
-	const getAllDataFunc = e => {
-		allItems = e.detail.items;
-		allIndexs = e.detail.indexs;
-	};
+	let currentDetail = $state('请选择');
+	let allItems = $state([]);
+	let allIndexs = $state([]);
 </script>
 
 <div class="py-4">
-	<Cell title="基础用法" on:click={() => (visible1 = true)} />
+	<Cell title="基础用法" onclick={() => (visible1 = true)} />
 	<Picker bind:visible={visible1} {datas} />
 
-	<Cell title="自定义标题" on:click={() => (visible2 = true)} />
+	<Cell title="自定义标题" onclick={() => (visible2 = true)} />
 	<Picker bind:visible={visible2} title="请选择省份" {datas} />
 
-	<Cell title="可见 7 行" on:click={() => (visible3 = true)} />
+	<Cell title="可见 7 行" onclick={() => (visible3 = true)} />
 	<Picker bind:visible={visible3} datas={[{ data: someProvinceList, showRow: 7 }]} />
 
-	<Cell title="关闭自动滚动至上次选定项" on:click={() => (visible4 = true)} />
+	<Cell title="关闭自动滚动至上次选定项" onclick={() => (visible4 = true)} />
 	<Picker bind:visible={visible4} {datas} autoScrollToLast={false} />
 
-	<Cell title="初始选定始终为第 4 项" on:click={() => (visible5 = true)} subTitle="需要关闭自动选定上次选中项" />
+	<Cell title="初始选定始终为第 4 项" onclick={() => (visible5 = true)} subTitle="需要关闭自动选定上次选中项" />
 	<Picker bind:visible={visible5} datas={[{ data: someProvinceList, initIndex: 3 }]} autoScrollToLast={false} />
 
-	<Cell title="自动滚动时取消动画" on:click={() => (visible6 = true)} />
+	<Cell title="自动滚动时取消动画" onclick={() => (visible6 = true)} />
 	<Picker bind:visible={visible6} datas={[{ data: someProvinceList, useAnimation: false }]} />
 
-	<Cell title="自定义 label 的 key 值" on:click={() => (visible7 = true)} />
+	<Cell title="自定义 label 的 key 值" onclick={() => (visible7 = true)} />
 	<Picker bind:visible={visible7} datas={[{ data: cityList, labelKey: 'cityName' }]} title="请选择城市" />
 
-	<Cell title="右侧展示选定项" detail={currentDetail} on:click={() => (visible8 = true)} />
-	<Picker bind:visible={visible8} {datas} on:confirm={getCurrentDetailFunc} />
+	<Cell title="右侧展示选定项" detail={currentDetail} onclick={() => (visible8 = true)} />
+	<Picker bind:visible={visible8} {datas} onconfirm={items => (currentDetail = items[0].label)} />
 
-	<Cell title="单列左对齐" on:click={() => (visible20 = true)} />
+	<Cell title="单列左对齐" onclick={() => (visible20 = true)} />
 	<Picker bind:visible={visible20} datas={[{ data: someProvinceList, align: 'left' }]} />
 
-	<Cell title="多列选择器" on:click={() => (visible9 = true)} />
+	<Cell title="多列选择器" onclick={() => (visible9 = true)} />
 	<Picker bind:visible={visible9} datas={col3Datas} />
 
-	<Cell title="不同列可见行数" on:click={() => (visible10 = true)} />
+	<Cell title="不同列可见行数" onclick={() => (visible10 = true)} />
 	<Picker bind:visible={visible10} datas={[{ data: weekList }, { data: amOrPmList, showRow: 3 }, { data: timeList, showRow: 7 }]} />
 
-	<Cell title="不同列 flex 比例" on:click={() => (visible11 = true)} />
+	<Cell title="不同列 flex 比例" onclick={() => (visible11 = true)} />
 	<Picker
 		bind:visible={visible11}
 		datas={[
@@ -95,7 +89,7 @@
 		]}
 	/>
 
-	<Cell title="多列不同对齐方式" on:click={() => (visible21 = true)} />
+	<Cell title="多列不同对齐方式" onclick={() => (visible21 = true)} />
 	<Picker
 		bind:visible={visible21}
 		datas={[
@@ -105,25 +99,25 @@
 		]}
 	/>
 
-	<Cell title="多级联动" on:click={() => (visible12 = true)} />
+	<Cell title="多级联动" onclick={() => (visible12 = true)} />
 	<Picker bind:visible={visible12} datas={linkageData} isLinkage />
 
-	<Cell title="多级联动不同可见行数" on:click={() => (visible13 = true)} />
+	<Cell title="多级联动不同可见行数" onclick={() => (visible13 = true)} />
 	<Picker bind:visible={visible13} datas={linkageData} linkageShowRows={[3, 5, 7]} isLinkage />
 
-	<Cell title="多级联动不同 flex 比例" on:click={() => (visible14 = true)} />
+	<Cell title="多级联动不同 flex 比例" onclick={() => (visible14 = true)} />
 	<Picker bind:visible={visible14} datas={linkageData} linkageFlexs={[1, 2, 3]} isLinkage />
 
-	<Cell title="多级联动自定义每级 label 的 key 值" on:click={() => (visible15 = true)} />
+	<Cell title="多级联动自定义每级 label 的 key 值" onclick={() => (visible15 = true)} />
 	<Picker bind:visible={visible15} datas={linkagDiffLabelKeyData} linkageLabelKeys={['province', 'city', 'region']} isLinkage />
 
-	<Cell title="多级联动自定义上下级 children 的 key 值" on:click={() => (visible16 = true)} />
+	<Cell title="多级联动自定义上下级 children 的 key 值" onclick={() => (visible16 = true)} />
 	<Picker bind:visible={visible16} datas={linkagCustomChildrenKeyData} linkageChildrenKey="child" isLinkage />
 
-	<Cell title="联动不同对齐方式" on:click={() => (visible22 = true)} />
+	<Cell title="联动不同对齐方式" onclick={() => (visible22 = true)} />
 	<Picker bind:visible={visible22} datas={linkageData} linkageAligns={['right', 'center', 'left']} isLinkage />
 
-	<Cell title="多级联动设置每列初始选定项" on:click={() => (visible17 = true)} />
+	<Cell title="多级联动设置每列初始选定项" onclick={() => (visible17 = true)} />
 	<Picker bind:visible={visible17} datas={linkageData} linkageInitIndexs={[0, 1, 8]} isLinkage />
 
 	<div class="px-4">
@@ -146,10 +140,17 @@
 			<div>请选定数据</div>
 		{/if}
 	</div>
-	<Cell title="获取选定数据" on:click={() => (visible18 = true)} />
-	<Picker bind:visible={visible18} datas={col3Datas} on:confirm={getAllDataFunc} />
+	<Cell title="获取选定数据" onclick={() => (visible18 = true)} />
+	<Picker
+		bind:visible={visible18}
+		datas={col3Datas}
+		onconfirm={(items, indexs) => {
+			allItems = items;
+			allIndexs = indexs;
+		}}
+	/>
 
-	<Cell title="顶部来点圆角" on:click={() => (visible19 = true)} />
+	<Cell title="顶部来点圆角" onclick={() => (visible19 = true)} />
 	<Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
 </div>
 

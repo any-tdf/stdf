@@ -4,7 +4,7 @@ The Picker component is used to select one or more pieces of data from a large a
 
 ## Incoming Data
 
-When there is no multi-level linkage, the incoming data `datas` is an array. Each item in the array is an object, and the properties of the object reference the `Picker data Props`. The `data` is the data for each column, and the data for each column is an array.
+When there is no multi-level linkage, the incoming data `datas` is an array. Each item in the array is an object, and the properties of the object reference the `PickerDatas Props`. The `data` is the data for each column, and the data for each column is an array.
 
 When there is multi-level linkage, the incoming data structure will be completely different from non-linked structures. You need to pass in a multi-level array that the Picker component processes automatically. Refer to the example for details.
 
@@ -22,7 +22,7 @@ In actual development, the data used for the Picker is usually obtained dynamica
 
 When there is no multi-level linkage:
 
-- You can customize the `label` property name for the column data passed in through the `Picker data Props` with `labelKey`. If not passed in, it defaults to `'label'`. See the example for details.
+- You can customize the `label` property name for the column data passed in through the `PickerDatas Props` with `labelKey`. If not passed in, it defaults to `'label'`. See the example for details.
 
 When there is multi-level linkage:
 
