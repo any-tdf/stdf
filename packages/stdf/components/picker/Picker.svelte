@@ -10,7 +10,6 @@
 	const pickerLang = currentLang.picker;
 
 	/** @typedef {import('../../index.d').Picker} PickerProps */
-	/** @typedef {import('../../index.d').PickerDatas} PickerDatas */
 	/** @type {PickerProps} */
 	let {
 		visible = $bindable(false),
@@ -27,7 +26,6 @@
 		linkageAligns = [],
 		linkageChildrenKey = 'children',
 		popup = {},
-		onopen,
 		onclose,
 		onconfirm,
 		oncancel,
@@ -35,21 +33,10 @@
 
 	// 内部使用的 datas
 	// Datas used internally
-	/** @typedef {{
-		data: PickerDatas[];
-		initIndex?: number;
-		showRow?: number;
-		lastSelectedIndex?: number;
-		flex?: number;
-		align?: string;
-		labelKey?: string;
-		useAnimation?: boolean;
-	}} PickerColumn */
-	/** @type {PickerColumn[]} */
-	let newDatas = $state([]);
-	$effect(() => {
-		newDatas = datas;
-	});
+	let newDatas = $state(datas);
+	// $effect(() => {
+	// 	newDatas = datas;
+	// });
 
 	// 如果是多级联动，对 newDatas 进行处理，使其结构符合 ScrollRadio 组件的结构
 	// If it is multi-level linkage, process newDatas to make its structure conform to the structure of the ScrollRadio component
@@ -59,14 +46,16 @@
 		// When multi-level linkage, recursively process newDatas to take the first piece of data in each level of the original data to form a new data structure
 		const newDatasFormatFunc = (data, index) => {
 			if (data && data.length > 0) {
-				const newData = data.map(item => (linkageLabelKeys[index] ? { label: item[linkageLabelKeys[index]] } : { label: item.label }));
+				const newData = data.map(item =>
+					linkageLabelKeys[index] ? { label: /** @type { string } */ (item[linkageLabelKeys[index]]) } : { label: item.label },
+				);
 				newLinkageData.push({ data: newData, showRow: 5, labelKey: 'label' });
 				if (data[0][linkageChildrenKey]) {
 					newDatasFormatFunc(data[0][linkageChildrenKey], index + 1);
 				}
 			}
 		};
-		newDatasFormatFunc(datas, 0);
+		datas.length > 0 && newDatasFormatFunc(datas, 0);
 		newDatas = newLinkageData;
 	}
 	// 对 datas 处理，如果没有设置 initIndex 则默认为 0，如果没有设置 showRow 则默认为 5
@@ -94,7 +83,7 @@
 				item.initIndex = 0;
 			}
 			if (linkageShowRows[index]) {
-				item.showRow = linkageShowRows[index];
+				item.showRow = /** @type {3 | 5 | 7} */ (linkageShowRows[index]);
 			}
 			if (linkageFlexs[index]) {
 				item.flex = linkageFlexs[index];
@@ -122,7 +111,7 @@
 
 	// 找出 showRowsArr 中最大值
 	// Find the maximum value in showRowsArr
-	const maxShowRows = Math.max(...showRowsArr);
+	const maxShowRows = showRowsArr.length > 0 ? Math.max(...showRowsArr) : 5;
 
 	// 多级联动时，根据当前选中项的索引，需要知道滚动的上级、当前级、下级以及所有级的数据
 	// When multi-level linkage, according to the index of the currently selected item, you need to know the data of the scrolling upper level, current level, next level and all levels
@@ -152,12 +141,14 @@
 	const clickCancelFunc = () => {
 		visible = false;
 		oncancel && oncancel();
+		onclose && onclose();
 	};
 
 	// 点击确定按钮
 	// Click confirm button
 	const clickConfirmFunc = () => {
 		visible = false;
+		onclose && onclose();
 		lastSelectedIndexs = scrollEndIndexs;
 		let items = [];
 		if (isLinkage) {
@@ -177,20 +168,20 @@
 
 	// 监听 visible 的变化，触发 show 或 close 事件
 	// Listen to the change of visible, trigger the show or close event
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
+	// $effect(() => {
+	// 	if (visible) {
+	// 		onopen && onopen();
+	// 	} else {
+	// 		onclose && onclose();
+	// 	}
+	// });
 
 	// 滚动结束
 	// Scroll end
-	const scrollEndFunc = (e, col) => {
+	const scrollEndFunc = (i, col) => {
 		// col 为当前滚动结束的列的索引
 		// index 为当前滚动结束的列的选中项的索引
-		const { index } = e.detail;
+		const index = i;
 		scrollEndIndexs[col] = index;
 		if (isLinkage) {
 			// 任何列滚动之后，使传入的 linkageInitIndexs 都会失效，将所有下级的初始选中项设置为 0
@@ -256,28 +247,19 @@
 	{...popup}
 >
 	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" onclick={clickCancelFunc}>{cancelText}</div>
+		<button class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" onclick={clickCancelFunc}>{cancelText}</button>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" onclick={clickConfirmFunc}>{confirmText}</div>
+		<button class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" onclick={clickConfirmFunc}>{confirmText}</button>
 	</div>
 	<div class="flex justify-around items-center gap-1 bg-white dark:bg-black">
 		{#each newDatas as item, col}
-			<div class="truncate" style="flex:{item.flex}">
+			<div class="truncate" style="flex:{item.flex || 1}">
 				{#if item.data.length > 0}
 					<ScrollRadio
-						data={item.data}
-						initIndex={item.initIndex}
-						showRow={item.showRow}
-						labelKey={item.labelKey}
-						align={item.align}
-						useAnimation={item.useAnimation}
+						{...item}
 						lastSelectedIndex={lastSelectedIndexs[col]}
 						{autoScrollToLast}
-						onscrollEnd={e => scrollEndFunc(e, col)}
+						onscrollEnd={index => scrollEndFunc(index, col)}
 					/>
 				{/if}
 			</div>

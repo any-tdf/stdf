@@ -4,7 +4,7 @@
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} [data] - Data
-	 * @property {number} [showRow] - Visible rows
+	 * @property {3 | 5 | 7} [showRow] - Visible rows
 	 * @property {number} [initIndex] - Default selected item index
 	 * @property {string} [labelKey] - The key corresponding to label in data
 	 * @property {boolean} [autoScrollToLast] - Whether to automatically scroll to the last selected item
@@ -92,7 +92,7 @@
 
 <div class="overflow-auto relative picker-contents" style="height:{itemHeight * showRowsInner}rem;">
 	<div
-		class={`overflow-auto snap-y picker-contents ${useAnimation ? 'scroll-smooth' : 'scroll-auto'}`}
+		class="overflow-auto snap-y picker-contents {useAnimation ? 'scroll-smooth' : 'scroll-auto'}"
 		style="height:{itemHeight * showRowsInner}rem;"
 		bind:this={scrollElement}
 		onscroll={() => {
@@ -100,10 +100,7 @@
 		}}
 	>
 		{#each newData as item}
-			<div
-				class={`${alignClass[align] || alignClass.center} px-2 flex flex-col justify-center snap-center`}
-				style="height:{itemHeight}rem;"
-			>
+			<div class="{alignClass[align] || alignClass.center} px-2 flex flex-col justify-center snap-center" style="height:{itemHeight}rem;">
 				<div class="truncate">{item[labelKey]}</div>
 			</div>
 		{/each}
