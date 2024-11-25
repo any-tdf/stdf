@@ -13,6 +13,10 @@ Considering the interaction mode on mobile devices, when allowing half selection
 
 Note: When considering the click area, please make sure that **the values of width and height are not less than 20**.
 
+## Click Animation
+
+Control click animation through animation, `'current'` means only the clicked item has animation, `'active'` means the clicked item and all previous items have animation, and `null` means no animation.
+
 ## Special attention
 
 When custom content is needed, it can be achieved by passing in Slots. At this time, **be sure to pass in the width and height of the custom content**.

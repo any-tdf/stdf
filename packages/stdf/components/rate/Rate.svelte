@@ -2,8 +2,8 @@
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 
-	/** @typedef {import('../../index.d').Rate} Rate */
-	/** @type {Rate} */
+	/** @typedef {import('../../index.d').Rate} RateProps */
+	/** @type {RateProps} */
 	let {
 		value = $bindable(4),
 		total = 5,
@@ -151,34 +151,27 @@
 	};
 </script>
 
-<div class={`inset-0 inline-flex flex-wrap${spaceObj[space] || spaceObj['4']}${disabled ? ' opacity-50' : ''}`}>
-	<!-- eslint-disable-next-line no-unused-vars -->
+<div class="inset-0 inline-flex flex-wrap{spaceObj[space] || spaceObj['4']}{disabled ? ' opacity-50' : ''}">
 	{#each new Array(Math.floor(total)) as item, index}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div
-			class={`flex flex-wrap transition-all${disabled ? ' cursor-not-allowed' : ' cursor-pointer'}${
-				animation === 'active'
-					? clickIndex >= index && isScale
+		<button
+			class="flex flex-wrap transition-all{disabled ? ' cursor-not-allowed' : ' cursor-pointer'}{animation === 'active'
+				? clickIndex >= index && isScale
+					? ' scale-75'
+					: ''
+				: animation === 'current'
+					? clickIndex === index && isScale
 						? ' scale-75'
 						: ''
-					: animation === 'current'
-						? clickIndex === index && isScale
-							? ' scale-75'
-							: ''
-						: ''
-			}`}
+					: ''}"
 			style="height:{height}px;width:{width}px;"
 			onclick={() => clickFun(index)}
 		>
 			{#each [0, 1, 2, 3] as i}
 				<div
-					class={`overflow-hidden${
-						isActiveFun(index, value, half, vertical, i) ? '' : ` grayscale${opacityObj[opacity] || ' opacity-30'}`
-					}`}
+					class="overflow-hidden{isActiveFun(index, value, half, vertical, i) ? '' : ` grayscale${opacityObj[opacity] || ' opacity-30'}`}"
 					style="height:{height / 2}px;width:{width / 2}px;"
 				>
-					<div style={`transform:translateX(${i === 0 || i === 2 ? 0 : -(width / 2)}px) translateY(${i < 2 ? 0 : -(height / 2)}px)`}>
+					<div style="transform:translateX({i === 0 || i === 2 ? 0 : -(width / 2)}px) translateY({i < 2 ? 0 : -(height / 2)}px)">
 						{#if children}
 							{@render children?.()}
 						{:else}
@@ -187,6 +180,6 @@
 					</div>
 				</div>
 			{/each}
-		</div>
+		</button>
 	{/each}
 </div>

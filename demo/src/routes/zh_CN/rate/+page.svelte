@@ -2,10 +2,7 @@
 <script>
 	import { Rate, Icon } from '../../../../../packages/stdf/components';
 
-	let value = 2.5;
-	const getValueFun = e => {
-		value = e.detail;
-	};
+	let value = $state(2.5);
 </script>
 
 <div class="mx-4 mt-8 font-bold text-lg">基础用法</div>
@@ -64,38 +61,38 @@
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">自定义</div>
 <div class="p-4">
-	<Rate custom opacity="0.6">
+	<Rate opacity="0.6">
 		<Icon name="ri-star-fill" injClass="text-[#f5b53f]" />
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate custom>
+	<Rate>
 		<Icon name="ri-heart-3-fill" injClass="text-[red]" />
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half custom>
+	<Rate half>
 		<Icon name="ri-heart-3-fill" injClass="text-[red]" />
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity="0.5" width={30} height={36} custom>
+	<Rate half opacity="0.5" width={30} height={36}>
 		<div class="text-3xl">👍</div>
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity="0.5" width={30} height={36} vertical custom>
+	<Rate half opacity="0.5" width={30} height={36} vertical>
 		<div class="text-3xl">🍺</div>
 	</Rate>
 </div>
 <div class="p-4">
-	<Rate half opacity="0.5" width={30} height={36} custom>
+	<Rate half opacity="0.5" width={30} height={36}>
 		<div class="text-3xl text-primary dark:text-dark">富</div>
 	</Rate>
 </div>
 <div class="mx-4 mt-8 font-bold text-lg">监听事件</div>
 <div class="p-4">
-	<Rate half {value} on:click={getValueFun} />
+	<Rate half {value} onclick={v => (value = v)} />
 	<p class="mt-2">评分：{value} 星</p>
 </div>
 
@@ -106,5 +103,5 @@
 
 <div class="mx-4 mt-8 font-bold text-lg">关闭点击动画</div>
 <div class="p-4">
-	<Rate animation="none" />
+	<Rate animation={null} />
 </div>
