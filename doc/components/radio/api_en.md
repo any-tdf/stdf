@@ -1,33 +1,46 @@
-## RadioGroup Props
-
-| Property   | Type    | Default | Options    | Required | Description                                                            |
-| ---------- | ------- | ------- | ---------- | -------- | ---------------------------------------------------------------------- |
-| value      | String  | ''      | -          | Y        | The selected value, corresponding to the name property of Radio Props. |
-| horizontal | Boolean | false   | true/false | N        | Whether to display the radio buttons horizontally.                     |
-
-## RadioGroup Events
-
-| Event Name | Event Parameter                                                                     | Description                                                                                     |
-| ---------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| change     | event: event object, where detail represents the name of the selected radio button. | Triggered when a radio button is clicked (when the value property of RadioGroup Props changes). |
-
-## RadioGroup Slots
-
-| Name | Description                                                             |
-| ---- | ----------------------------------------------------------------------- |
-| -    | The RadioGroup internal slot generally includes multiple radio buttons. |
-
 ## Radio Props
 
-| Property     | Type          | Default   | Options                     | Required | Description                                                              |
-| ------------ | ------------- | --------- | --------------------------- | -------- | ------------------------------------------------------------------------ |
-| name         | String        | ''        | -                           | Y        | The identifier, corresponding to the value property of RadioGroup Props. |
-| textPosition | String        | 'r'       | 't'/'b'/'l'/'r'             | N        | The position of the option content area.                                 |
-| icon         | String/Object | 'default' | 'default'/'none'/Icon Props | N        | The content of the unchecked option icon area.                           |
-| iconChecked  | String/Object | 'default' | 'default'/'none'/Icon Props | N        | The content of the checked option icon area.                             |
+| Name         | Type                                                                         | Default     | Required | Description                            |
+| ------------ | ---------------------------------------------------------------------------- | ----------- | -------- | -------------------------------------- |
+| data         | `RadioItem[]`                                                                | `[]`        | Y        | Option data.                           |
+| layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                           |
+| value        | `string`                                                                     | `''`        | N        | Selected value.                        |
+| textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option content area.       |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
 
-## Radio Slots
+## Radio Events
 
-| Name | Description     |
-| ---- | --------------- |
-| -    | Option content. |
+| Name     | Type                      | Parameters                        | Description                                                |
+| -------- | ------------------------- | --------------------------------- | ---------------------------------------------------------- |
+| onchange | `(value: string) => void` | value - Selected Radio identifier | Triggered when RadioItem is clicked (Radio value changes). |
+
+## Radio Snippets
+
+| Name       | Type                                                                                       | Parameters         | Description                            |
+| ---------- | ------------------------------------------------------------------------------------------ | ------------------ | -------------------------------------- |
+| radioChild | [`Snippet<[{ item: RadioItem }]>`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | item - Option data | Used when customizing the option area. |
+
+## RadioItem Props
+
+| Name         | Type                                                                         | Default     | Required | Description                                   |
+| ------------ | ---------------------------------------------------------------------------- | ----------- | -------- | --------------------------------------------- |
+| name         | `string`                                                                     | `''`        | Y        | Identifier, corresponds to Radio Props value. |
+| label        | `string`                                                                     | `''`        | N        | Option content.                               |
+| layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                                  |
+| textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option content area.              |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area.        |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.          |
+| checked      | `boolean`                                                                    | `false`     | N        | Whether checked.                              |
+
+## RadioItem Events
+
+| Name    | Type                     | Parameters                     | Description             |
+| ------- | ------------------------ | ------------------------------ | ----------------------- |
+| onclick | `(name: string) => void` | name - Clicked item identifier | Triggered when clicked. |
+
+## RadioItem Snippets
+
+| Name     | Type                                                                | Parameters | Description          |
+| -------- | ------------------------------------------------------------------- | ---------- | -------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Option area content. |

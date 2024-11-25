@@ -1,155 +1,197 @@
 <!-- Radio Demo -->
 <script>
-	import { RadioGroup, Radio, Divider, Button } from '../../../../../packages/stdf/components';
+	import { Radio, Divider, Button, Icon } from '../../../../../packages/stdf/components';
 
 	const dota = [
-		{ label: '主宰', name: '奶棒人', desc: '主宰是一个近战敏捷英雄，他能够迅速切入战斗。' },
-		{ label: '白牛', name: '令狐冲', desc: '巴拉森，裂魂人是一个强大的 Gank 型的力量型近战英雄。' },
-		{ label: '光法', name: '光之守卫', desc: '伊扎洛，光之守卫，他是一个著名的辅助性智力英雄。' },
-		{ label: '猛犸', name: '马格纳斯', desc: '猛犸？为什么不 BAN 猛犸？为什么不 BAN 猛犸？' },
+		{ label: '主宰', name: '奶棒人' },
+		{ label: '白牛', name: '令狐冲' },
+		{ label: '光法', name: '光之守卫' },
+		{ label: '猛犸', name: '马格纳斯' },
 	];
-	let value = dota[0].name;
-	const dotaFun = e => {
-		value = e.detail;
-	};
-	const dotaImgs = ['火女', '小牛', '水人', '火枪', '斯温'];
-	let imgValue = dotaImgs[3];
-	const dotaImgsFun = e => {
-		imgValue = e.detail;
-	};
+	let value = $state(dota[0].name);
+	let checkedsCustom = $state('');
+
+	const dotaInlines = [
+		{ label: '火女', name: '火女' },
+		{ label: '小牛', name: '小牛' },
+		{ label: '水人', name: '水人' },
+		{ label: '火枪', name: '火枪' },
+		{ label: '斯温', name: '斯温' },
+		{ label: '祈求者', name: '祈求者' },
+		{ label: '潮汐', name: '潮汐' },
+		{ label: '蝙蝠', name: '蝙蝠' },
+		{ label: '猛犸', name: '猛犸' },
+	];
+	let checkInline = $state('小牛');
+
+	const dotaImgs = [
+		{ label: '火女', name: '火女' },
+		{ label: '小牛', name: '小牛' },
+		{ label: '水人', name: '水人' },
+		{ label: '火枪', name: '火枪' },
+		{ label: '斯温', name: '斯温' },
+	];
+	let imgChecked = $state('火女');
+
+	const dotaLong = [
+		{ name: '主宰', label: '主宰是一个近战敏捷英雄，他能够迅速切入战斗。' },
+		{ name: '白牛', label: '巴拉森，裂魂人是一个强大的 Gank 型的力量型近战英雄。' },
+		{ name: '光法', label: '伊扎洛，光之守卫，他是一个著名的辅助性智力英雄。' },
+		{ name: '猛犸', label: '猛犸？为什么不 BAN 猛犸？为什么不 BAN 猛犸？' },
+	];
+
 	const dotaVoices = [
-		{ label: '祈求者', name: '祈求者', voices: ['“来自于伟大的奥秘。”'] },
-		{ label: '风暴之灵', name: '风暴之灵', voices: ['“喂~快醒醒，快喝点咖啡，我方上塔正遭受攻击。”'] },
+		{ name: '祈求者', label: '祈求者', voices: ['“来自于伟大的奥秘。”'] },
+		{ name: '风暴之灵', label: '风暴之灵', voices: ['“喂~快醒醒，快喝点咖啡，我方上塔正遭受攻击。”'] },
 		{
-			label: '蝙蝠骑士',
 			name: '蝙蝠骑士',
+			label: '蝙蝠骑士',
 			voices: ['“哦，莉娜，当我的压寨夫人怎么样？”', '“哦，风行者，见着我你不用跑。”', '“水晶室女，你就像一个装满冰水的高脚杯。”'],
 		},
-		{ label: '潮汐猎人', name: '潮汐猎人', voices: ['“我还能吃下一根海藻。”'] },
+		{ name: '潮汐猎人', label: '潮汐猎人', voices: ['“我还能吃下一根海藻。”'] },
 	];
-	let voiceValue = dotaVoices[0].name;
-	const dotaVoicesFun = e => {
-		voiceValue = e.detail;
-	};
+	let voiceChecked = $state('');
 </script>
 
 <div class="px-4">
 	<div class="mt-8 mb-4 font-bold text-2xl">横向排列</div>
 	<div class="mt-6 mb-4 font-bold text-lg">简单用法</div>
-	<RadioGroup {value} horizontal>
-		{#each dota as item}
-			<Radio name={item.name}>{item.label}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio layout="h" data={dota} />
+	<Divider />
+
+	<div class="mt-6 mb-4 font-bold text-lg">获取选中值</div>
+	<Radio layout="h" data={dota} bind:value />
+	<div class="mt-4 text-sm">已选：{value}</div>
+	<Divider />
 
 	<div class="mt-8 mb-4 font-bold text-lg">文字在不同位置</div>
-	<RadioGroup {value} horizontal>
-		{#each dota as item}
-			<Radio name={item.name} textPosition="l">{item.label}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio layout="h" data={dota} textPosition="l" />
 	<Divider />
-	<RadioGroup {value} horizontal>
-		{#each dota as item}
-			<Radio name={item.name} textPosition="b">{item.label}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio layout="h" data={dota} textPosition="b" />
 	<Divider />
-	<RadioGroup {value} horizontal>
-		{#each dota as item}
-			<Radio name={item.name} textPosition="t">{item.label}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio layout="h" data={dota} textPosition="t" />
+	<Divider />
 
 	<div class="mt-8 mb-4 font-bold text-lg">自定义图标</div>
-	<RadioGroup value="奶棒人" horizontal>
-		<Radio icon={{ name: 'ri-checkbox-line' }} iconChecked={{ name: 'ri-checkbox-fill' }} name="奶棒人">主宰</Radio>
-		<Radio icon={{ name: 'ri-checkbox-circle-line' }} iconChecked={{ name: 'ri-checkbox-circle-fill' }} name="令狐冲">白牛</Radio>
-		<Radio icon={{ name: 'ri-checkbox-multiple-line' }} iconChecked={{ name: 'ri-checkbox-multiple-fill' }} name="光之守卫">光法</Radio>
-		<Radio icon={{ name: 'ri-check-line' }} iconChecked={{ name: 'ri-check-fill' }} name="马格纳斯">猛犸</Radio>
-	</RadioGroup>
+	<Radio layout="h" data={dota} icon={{ name: 'ri-checkbox-blank-circle-line' }} iconChecked={{ name: 'ri-radio-button-fill' }} />
+	<Divider />
+	<Radio layout="h" data={dota} icon={{ name: 'ri-checkbox-circle-line' }} iconChecked={{ name: 'ri-checkbox-circle-fill' }} />
+	<Divider />
+	<Radio layout="h" data={dota} icon={{ name: 'ri-checkbox-multiple-line' }} iconChecked={{ name: 'ri-checkbox-multiple-fill' }} />
+	<Divider />
+	<Radio layout="h" data={dota} icon={{ name: 'ri-check-line' }} iconChecked={{ name: 'ri-check-fill' }} />
+	<Divider />
+	<Radio layout="h" data={dota} icon={{ name: 'ri-check-double-line' }} iconChecked={{ name: 'ri-check-double-line' }} />
+	<Divider />
+
+	<div class="mt-8 mb-4 font-bold text-lg">Snippet 为 Button 组件</div>
+	<Radio layout="h" data={dota}>
+		{#snippet radioChild({ item })}
+			<Button fill={value === item.name ? 'base' : 'lineLight'} injClass="px-2 !py-1" onclick={() => (value = item.name)}>
+				{item.label}
+			</Button>
+		{/snippet}
+	</Radio>
+	<Divider />
+
+	<div class="mt-8 mb-4 font-bold text-lg">Snippet 为自定义元素</div>
+	<Radio layout="h" data={dota}>
+		{#snippet radioChild({ item })}
+			<button
+				class="border py-0.5 px-5 text-sm rounded {checkedsCustom === item.name
+					? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
+					: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'}"
+				onclick={() => (checkedsCustom = item.name)}
+			>
+				{item.label}
+			</button>
+		{/snippet}
+	</Radio>
+	<Divider />
 
 	<div class="mt-8 mb-4 font-bold text-lg">图片选项</div>
-	<RadioGroup value={imgValue} horizontal on:change={dotaImgsFun}>
-		{#each dotaImgs as dota}
-			<Radio name={dota} textPosition="t" icon={{ name: 'ri-arrow-up-s-line' }} iconChecked={{ name: 'ri-arrow-up-s-fill', size: 30 }}>
-				<div class={`w-12 h-12 mb-1 rounded overflow-hidden ${imgValue === dota && 'ring-2 ring-primary dark:ring-dark'}`}>
-					<img class="w-full h-full object-cover" src={`/assets/images/dota_${dota}.png`} alt="" />
-				</div>
-			</Radio>
-		{/each}
-	</RadioGroup>
-	<div class="text-sm">什么，你又要选 <span class="text-[red] font-bold text-lg">{imgValue}！！</span></div>
-
-	<div class="mt-8 mb-4 font-bold text-lg">不用图标 && 使用 Button</div>
-	<RadioGroup {value} horizontal on:change={dotaFun}>
-		{#each dota as item}
-			<Radio name={item.name} icon="none" iconChecked="none">
-				<Button fill={value === item.name ? 'base' : 'lineLight'} heightIn="0">{item.label}</Button>
-			</Radio>
-		{/each}
-	</RadioGroup>
-
-	<div class="mt-8 mb-4 font-bold text-lg">不用图标 && 自定义选中效果</div>
-	<RadioGroup {value} horizontal on:change={dotaFun}>
-		{#each dota as item}
-			<Radio name={item.name} icon="none" iconChecked="none">
+	<Radio layout="h" data={dotaImgs}>
+		{#snippet radioChild({ item })}
+			<div class="flex flex-col items-center">
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
-					class={`border py-0.5 px-5 text-sm rounded ${
-						value === item.name
-							? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
-							: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'
-					}`}
+					class="w-12 h-12 mb-1 rounded overflow-hidden {imgChecked === item.name ? 'ring-2 ring-primary dark:ring-dark' : ''}"
+					onclick={() => (imgChecked = item.name)}
 				>
-					{item.label}
+					<img class="w-full h-full object-cover" src={`/assets/images/dota_${item.name}.png`} alt="" />
 				</div>
-			</Radio>
-		{/each}
-	</RadioGroup>
+				<div>
+					<Icon
+						name={imgChecked === item.name ? 'ri-arrow-up-s-fill' : 'ri-arrow-up-s-line'}
+						theme={imgChecked === item.name}
+						alpha={imgChecked === item.name ? 1 : 0.2}
+					/>
+				</div>
+			</div>
+		{/snippet}
+	</Radio>
+	<div class="text-sm">
+		已选 <span class="text-[red]">{imgChecked}</span>
+	</div>
+	<Divider />
+</div>
+
+<div class="px-4">
+	<div class="mb-4 font-bold text-2xl">行内元素排列</div>
+	<div class="mt-8 mb-4 font-bold text-lg">Snippet 行内元素排列</div>
+	<Radio layout="inline" data={dotaInlines}>
+		{#snippet radioChild({ item })}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<div
+				class="border py-0.5 px-2 m-1 text-sm rounded {checkInline === item.name
+					? 'text-primary dark:text-dark bg-primary/10 dark:bg-dark/10'
+					: 'bg-gray-100 dark:bg-gray-600 border-gray-200 dark:border-gray-500'}"
+				onclick={() => (checkInline = item.name)}
+			>
+				{item.label}
+			</div>
+		{/snippet}
+	</Radio>
+	<div class="text-xs mt-2">已选：{checkInline}</div>
 </div>
 <Divider />
+
 <div class="px-4 pb-8">
 	<div class="mb-4 font-bold text-2xl">纵向排列</div>
 	<div class="mt-8 mb-4 font-bold text-lg">基础用法</div>
-	<RadioGroup {value}>
-		{#each dota as item}
-			<Radio name={item.name}>{item.label}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio data={dota} />
+	<Divider />
 
 	<div class="mt-8 mb-4 font-bold text-lg">长文字选项</div>
-	<RadioGroup {value}>
-		{#each dota as item}
-			<Radio name={item.name}>{item.desc}</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio data={dotaLong} />
+	<Divider />
 
 	<div class="mt-8 mb-4 font-bold text-lg">文字靠左</div>
-	<RadioGroup {value}>
-		{#each dota as item, i}
-			<Radio name={item.name} textPosition="l">
-				{item.label}
-				{#if i !== dota.length - 1}
-					<div class="h-px mt-1 bg-gray-100 dark:bg-gray-800" />
-				{/if}
-			</Radio>
-		{/each}
-	</RadioGroup>
+	<Radio data={dota} textPosition="l" />
 
 	<div class="mt-8 mb-4 font-bold text-lg">复杂选项 && 自定义选中效果</div>
-	<RadioGroup value={voiceValue} on:change={dotaVoicesFun}>
-		{#each dotaVoices as item, i}
-			<Radio name={item.name}>
-				<div class={`ml-2 ${voiceValue === item.name ? 'text-primary dark:text-dark' : ''}`}>
+	<Radio data={dotaVoices}>
+		{#snippet radioChild({ item })}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<div class="flex items-center cursor-pointer" onclick={() => (voiceChecked = item.name)}>
+				<div>
+					<Icon
+						name={voiceChecked === item.name ? 'ri-radio-button-line' : 'ri-checkbox-blank-circle-line'}
+						theme={voiceChecked === item.name}
+						alpha={voiceChecked === item.name ? 1 : 0.2}
+					/>
+				</div>
+				<div class="ml-2 grow {voiceChecked === item.name ? 'text-primary dark:text-dark' : ''}">
 					{item.label}
 					{#each item.voices as voice}
 						<div class="text-xs">{voice}</div>
 					{/each}
-					{#if i !== dotaVoices.length - 1}
-						<div class="h-px mt-1 bg-gray-100 dark:bg-gray-800" />
-					{/if}
+					<div class="h-px mt-1 bg-black/10 dark:bg-white/10"></div>
 				</div>
-			</Radio>
-		{/each}
-	</RadioGroup>
+			</div>
+		{/snippet}
+	</Radio>
 </div>

@@ -1,31 +1,31 @@
-> Radio uses the icons ri-radio-button-line and ri-checkbox-blank-circle-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Radio uses icons ri-radio-button-line and ri-checkbox-blank-circle-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
-## Explanation
+## Description
 
-Due to limited horizontal space on mobile devices, RadioGroup defaults to vertical layout. Horizontal layout is recommended only for simple use cases. When there are many options, long content, or a lot of information to display, a vertical layout is recommended.
+Due to limited horizontal display space on mobile devices, Radio defaults to vertical layout. Horizontal layout is recommended only for simple use cases. When there are multiple options, longer content, or more display content, vertical layout is recommended.
 
-RadioGroup passes a value as the initial identifier for internal Radio components with the value property. When a Radio button is clicked, RadioGroup triggers a change event, which can be used to obtain the current value, corresponding to the name of the currently selected Radio.
+Radio accepts a value prop as the initial identifier for internal Radio items. When a RadioItem is clicked, Radio can get the current value through the onchange event, which is the name of the currently selected RadioItem.
 
 ## icon && iconChecked
 
-The default value of the icon property of Radio Props is 'default', which will render as an Icon component in the shape of ri-checkbox-blank-circle-line in Remix Icon. Passing the character 'none' indicates that the unchecked option icon area should not display any content. You can also pass in Icon Props, and the unchecked option icon area will be rendered as an Icon component based on the parameters passed in.
+The default value `'default'` for Radio Props' icon will render as an Icon component using Remix Icon's ri-checkbox-blank-circle-line. Passing `null` means no content will be displayed in the unchecked option's icon area. You can also pass Icon Props, and the unchecked option's icon area will render as an Icon component with the passed parameters.
 
-The logic for iconChecked is the same as that for icon, and corresponds to the content of the selected option's icon area.
+iconChecked follows the same logic as icon, corresponding to the icon area content of the selected option.
 
-## Radio Slots
+## Radio Snippets
 
-The slot for Radio will be rendered in the content area of each Radio button. By combining the value obtained from the RadioGroup change event, you can freely design the selection and unselection effects.
+When radioChild is passed, the content area of each RadioItem in Radio will use the content area of radioChild. You can freely design the selected and unselected effects by combining with the value obtained from Radio's onchange event.
 
-Note: Although it is convenient to write styles with Tailwind, too much customization will lose the meaning of using a component library.
+Note: Although Tailwind makes styling convenient, too much customization will defeat the purpose of using a component library.
 
-## Optimization for Clicking Areas
+## Click Area Optimization
 
-To optimize the user experience, the entire area of RadioGroup can be clicked, which will activate the corresponding Radio, not just the text or icon area of the Radio button.
+To optimize the user experience, the entire area of RadioItem is clickable and will activate its corresponding value, not just the text or icon areas.
 
-## ActionSheet, Picker, and Radio
+## ActionSheet, Picker, Radio
 
-ActionSheet, Picker, and Radio are all used to give users options for data selection or to perform some actions. But when and how to use which component?
+ActionSheet, Picker, and Radio all provide data for users to select or perform operations, but when should each component be used?
 
-- Radio is generally used for single-choice data with a fixed and small number of options, when you need to display the options directly in the UI for users to preview multiple data items during interaction, such as selecting gender.
-- ActionSheet is generally used when you need to immediately perform some operations after selecting, with a fixed and small number of options, but when you do not need to directly display the options in the UI, such as deleting or modifying items.
-- Picker is generally used when you need to select single or multiple items, with a large or undetermined number of dynamic data or when you need to select some linked data, such as selecting cities and districts.
+- Radio is generally used for single-selection data with a fixed and small number of options that need to be directly displayed on the UI interface, allowing users to have an overview of multiple data points during interface interaction, such as gender selection.
+- ActionSheet is generally used when actions need to be executed immediately after selection, with fixed and fewer options that don't need to be directly displayed on the UI interface, such as delete or modify operations.
+- Picker is generally used for selecting single or multiple data points with a large amount of data or dynamic data of uncertain length, or for selecting linked data, such as province-city-district selection.

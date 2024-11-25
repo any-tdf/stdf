@@ -2,25 +2,25 @@
 
 ## 说明
 
-由于移动端横向显示内容有限，RadioGroup 默认为纵向布局，横向布局建议只用作简单使用。当选项较多、内容较长或显示内容较多时建议使用纵向布局，
+由于移动端横向显示内容有限，Radio 默认为纵向布局，横向布局建议只用作简单使用。当选项较多、内容较长或显示内容较多时建议使用纵向布局，
 
-RadioGroup 通过 value 传入一个值作为内部 Radio 的初始标识符；而当 Radio 被点击时，RadioGroup 通过 change 事件，可以获取到当前 value，即当前选定 Radio 的 name。
+Radio 通过 value 传入一个值作为内部 Radio 的初始标识符；而当 RadioItem 被点击时，Radio 通过 onchange 事件，可以获取到当前 value，即当前选定 RadioItem 的 name。
 
 ## icon && iconChecked
 
-Radio Props 的 icon 默认值 'default' 会按照 Remix Icon 的 ri-checkbox-blank-circle-line 以 Icon 组件形式渲染；传入字符 'none'，表示未选中选项图标区域不显示内容；也可以传入 Icon Props，未选中选项图标区域将会以传入的参数以 Icon 组件形式渲染。
+Radio Props 的 icon 默认值 `'default'` 会按照 Remix Icon 的 ri-checkbox-blank-circle-line 以 Icon 组件形式渲染；传入 `null` 表示未选中选项图标区域不显示内容；也可以传入 Icon Props，未选中选项图标区域将会以传入的参数以 Icon 组件形式渲染。
 
 iconChecked 与 icon 逻辑一样，对应的是选中选项的图标区域内容。
 
-## Radio Slots
+## Radio Snippets
 
-Radio 的插槽将会渲染在每条 Radio 的内容区域，可结合 RadioGroup change 事件获取到的 value，自由设计选中与未选中的效果。
+当传入 radioChild 时，Radio 的每条 RadioItem 的内容区域将会使用 radioChild 的内容区域，可结合 Radio 的 onchange 事件获取到的 value，自由设计选中与未选中的效果。
 
 注：虽然有 Tailwind 写样式比较方便，但过多的自定义将会失去使用组件库的意义。
 
 ## 点击区域优化
 
-为了优化体验，RadioGroup 整个区域都可以点击，将会激活与之对应的 Radio，不仅仅只可以点击 Radio 的文字或图标区域。
+为了优化体验，RadioItem 整个区域都可以点击，将会激活与之对应的 value，不仅仅只可以点击文字或图标区域。
 
 ## ActionSheet、Picker、Radio
 
