@@ -6,10 +6,10 @@
 	import { Checkbox, CheckboxItem, Divider, Button, Icon } from '../../../../../packages/stdf/components';
 
 	const dota = [
-		{ label: '主宰', name: '奶棒人', desc: '主宰是一个近战敏捷英雄，他能够迅速切入战斗。' },
-		{ label: '白牛', name: '令狐冲', desc: '巴拉森，裂魂人是一个强大的 Gank 型的力量型近战英雄。' },
-		{ label: '光法', name: '光之守卫', desc: '伊扎洛，光之守卫，他是一个著名的辅助性智力英雄。' },
-		{ label: '猛犸', name: '马格纳斯', desc: '猛犸？为什么不 BAN 猛犸？为什么不 BAN 猛犸？' },
+		{ label: '主宰', name: '奶棒人' },
+		{ label: '白牛', name: '令狐冲' },
+		{ label: '光法', name: '光之守卫' },
+		{ label: '猛犸', name: '马格纳斯' },
 	];
 	let checkeds = $state([]);
 	const clickItemFn = name => {

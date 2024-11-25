@@ -6,10 +6,10 @@
 	import { Checkbox, CheckboxItem, Divider, Button, Icon } from '../../../../../packages/stdf/components';
 
 	const dota = [
-		{ label: 'Jugg', name: 'Juggernaut', desc: 'Juggernaut is a melee agility hero who can quickly engage in combat.' },
-		{ label: 'SB', name: 'Spirit Breaker', desc: 'Barathrum, Spirit Breaker is a powerful ganking strength melee hero.' },
-		{ label: 'KOTL', name: 'Keeper of the Light', desc: 'Ezalor, Keeper of the Light, is a famous support intelligence hero.' },
-		{ label: 'Mag', name: 'Magnus', desc: 'Magnus? Why not ban Magnus? Why not ban Magnus?' },
+		{ label: 'Jugg', name: 'Juggernaut' },
+		{ label: 'SB', name: 'Spirit Breaker' },
+		{ label: 'KOTL', name: 'Keeper of the Light' },
+		{ label: 'Mag', name: 'Magnus' },
 	];
 	let checkeds = $state([]);
 	const clickItemFn = name => {
