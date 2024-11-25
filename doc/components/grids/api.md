@@ -9,9 +9,9 @@
 
 ## Grids Snippets
 
-| 名称     | 类型      | 参数 | 说明         |
-| -------- | --------- | ---- | ------------ |
-| children | `Snippet` | -    | Grids 内容。 |
+| 名称     | 类型                                                                | 参数 | 说明         |
+| -------- | ------------------------------------------------------------------- | ---- | ------------ |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | Grids 内容。 |
 
 ## Grid Props
 
@@ -22,6 +22,6 @@
 
 ## Grid Snippets
 
-| 名称     | 类型      | 参数 | 说明        |
-| -------- | --------- | ---- | ----------- |
-| children | `Snippet` | -    | Grid 内容。 |
+| 名称     | 类型                                                                | 参数 | 说明        |
+| -------- | ------------------------------------------------------------------- | ---- | ----------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | Grid 内容。 |

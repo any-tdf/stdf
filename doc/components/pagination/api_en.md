@@ -1,20 +1,20 @@
 ## Pagination Props
 
-| Name             | Type                                                 | Default                                          | Required | Description                                  |
-| ---------------- | ---------------------------------------------------- | ------------------------------------------------ | -------- | -------------------------------------------- |
-| total            | `number`                                             | `0`                                              | Y        | Total number of items.                       |
-| pageSize         | `number`                                             | `10`                                             | N        | Number of items per page.                    |
-| current          | `number`                                             | `1`                                              | N        | Current page number.                         |
-| maxShowPage      | `5` \| `7` \| `9` \| `11`                            | `7`                                              | N        | Maximum number of page numbers to display.   |
-| radius           | `'none'`\|`'base'`\|`'md'`\|`'lg'`\|`'xl'`\|`'full'` | `'md'`                                           | N        | Border radius style.                         |
-| type             | `'border'`\|`'block'`\|`'bold'`                      | `'bold'`                                         | N        | Highlighted page number style.               |
-| pageCol          | `number`                                             | `3`                                              | N        | Number of columns for omitted page numbers.  |
-| showNextOmitPage | `boolean`                                            | `false`                                          | N        | Whether to show omitted page numbers after.  |
-| showPreOmitPage  | `boolean`                                            | `false`                                          | N        | Whether to show omitted page numbers before. |
-| injClass         | `string`                                             | `''`                                             | N        | Inject CSS class name.                       |
-| noDataText       | `string`                                             | Current language's common.noData                 | N        | Text to display when no data.                |
-| onePageText      | `string`                                             | Current language's pagination.defaultOnlyOnePage | N        | Text to display when only one page.          |
-| continuous       | `boolean`                                            | `false`                                          | N        | Whether to use continuous mode.              |
+| Name             | Type                                       | Default                                          | Required | Description                                  |
+| ---------------- | ------------------------------------------ | ------------------------------------------------ | -------- | -------------------------------------------- |
+| total            | `number`                                   | `0`                                              | Y        | Total number of items.                       |
+| pageSize         | `number`                                   | `10`                                             | N        | Number of items per page.                    |
+| current          | `number`                                   | `1`                                              | N        | Current page number.                         |
+| maxShowPage      | `5\|7\|9\|11`                              | `7`                                              | N        | Maximum number of page numbers to display.   |
+| radius           | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'full'` | `'md'`                                           | N        | Border radius style.                         |
+| type             | `'border'\|'block'\|'bold'`                | `'bold'`                                         | N        | Highlighted page number style.               |
+| pageCol          | `number`                                   | `3`                                              | N        | Number of columns for omitted page numbers.  |
+| showNextOmitPage | `boolean`                                  | `false`                                          | N        | Whether to show omitted page numbers after.  |
+| showPreOmitPage  | `boolean`                                  | `false`                                          | N        | Whether to show omitted page numbers before. |
+| injClass         | `string`                                   | `''`                                             | N        | Inject CSS class name.                       |
+| noDataText       | `string`                                   | Current language's common.noData                 | N        | Text to display when no data.                |
+| onePageText      | `string`                                   | Current language's pagination.defaultOnlyOnePage | N        | Text to display when only one page.          |
+| continuous       | `boolean`                                  | `false`                                          | N        | Whether to use continuous mode.              |
 
 ## Pagination Events
 

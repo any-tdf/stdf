@@ -12,6 +12,6 @@
 
 ## Icon Snippets
 
-| Name     | Type      | Parameters | Description                                            |
-| -------- | --------- | ---------- | ------------------------------------------------------ |
-| children | `Snippet` | -          | Custom content, usually Icon component or SVG element. |
+| Name     | Type                                                                | Parameters | Description                                            |
+| -------- | ------------------------------------------------------------------- | ---------- | ------------------------------------------------------ |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Custom content, usually Icon component or SVG element. |

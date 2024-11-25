@@ -1,12 +1,12 @@
 ## Steps Props
 
-| 名称      | 类型                              | 默认值   | 必传 | 说明                                        |
-| --------- | --------------------------------- | -------- | ---- | ------------------------------------------- |
-| steps     | `StepsItem[]`                     | `[]`     | Y    | step Props 或 finishStep Props 组成的数组。 |
-| current   | `number`                          | `1`      | N    | 当前进行的步骤序号。                        |
-| radius    | `'none'`/`'base'`/`'xl'`/`'full'` | `'base'` | N    | 圆角风格。                                  |
-| barBorder | `boolean`                         | `true`   | N    | 图标是否带边框。                            |
-| vertical  | `boolean`                         | `false`  | N    | 是否纵向布局。                              |
+| 名称      | 类型                           | 默认值   | 必传 | 说明                                        |
+| --------- | ------------------------------ | -------- | ---- | ------------------------------------------- |
+| steps     | `StepsItem[]`                  | `[]`     | Y    | step Props 或 finishStep Props 组成的数组。 |
+| current   | `number`                       | `1`      | N    | 当前进行的步骤序号。                        |
+| radius    | `'none'\|'base'\|'xl'\|'full'` | `'base'` | N    | 圆角风格。                                  |
+| barBorder | `boolean`                      | `true`   | N    | 图标是否带边框。                            |
+| vertical  | `boolean`                      | `false`  | N    | 是否纵向布局。                              |
 
 ## StepsItem Props
 
@@ -27,10 +27,10 @@
 
 ## StepsStepBarIcon Props
 
-| 名称    | 类型     | 默认值 | 必传 | 说明                                                                     |
-| ------- | -------- | ------ | ---- | ------------------------------------------------------------------------ |
-| type    | `'icon'` | `{}`   | Y    | 步骤区域内容为图标时使用。                                               |
-| content | `Icon`   | `-`    | Y    | 图标参数 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。 |
+| 名称    | 类型                                                      | 默认值 | 必传 | 说明                       |
+| ------- | --------------------------------------------------------- | ------ | ---- | -------------------------- |
+| type    | `'icon'`                                                  | `{}`   | Y    | 步骤区域内容为图标时使用。 |
+| content | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `-`    | Y    | 图标参数。                 |
 
 ## StepsStepBarImage Props
 

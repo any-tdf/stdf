@@ -7,11 +7,11 @@
 | position           | `'center'\|'top'\|'bottom'\|'left'\|'right'`                                       | `'bottom'`   | N    | 显示位置。                                                                                   |
 | duration           | `number`                                                                           | `450`        | N    | 出现动画过渡时间，单位：ms。                                                                 |
 | outDuration        | `number`                                                                           | `240`        | N    | 退出动画过渡时间，单位：ms。                                                                 |
-| easeType           | `SvelteEasing`                                                                     | `'cubicOut'` | N    | 出现动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
-| easeOutType        | `SvelteEasing`                                                                     | `'cubicOut'` | N    | 退出动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
+| easeType           | [`SvelteEasing`](https://svelte.dev/docs#run-time-svelte-easing)                   | `'cubicOut'` | N    | 出现动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
+| easeOutType        | [`SvelteEasing`](https://svelte.dev/docs#run-time-svelte-easing)                   | `'cubicOut'` | N    | 退出动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
 | px                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'20'`                   | `'0'`        | N    | 左右间距。                                                                                   |
 | py                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'24'\|'32'\|'48'\|'64'` | `'0'`        | N    | 上下间距。                                                                                   |
-| mask               | `Mask`                                                                             | `{}`         | N    | 遮罩层参数 [Mask Props](https://stdf.design/#/components?nav=mask&tab=1)。                   |
+| mask               | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)                          | `{}`         | N    | 遮罩层参数。                                                                                 |
 | maskClosable       | `boolean`                                                                          | `true`       | N    | 点击遮罩层是否关闭。                                                                         |
 | radiusPosition     | `'all'\|'top'\|'bottom'\|'left'\|'right'`                                          | `'top'`      | N    | 圆角位置。                                                                                   |
 | radius             | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                           | `'none'`     | N    | 圆角大小。                                                                                   |
@@ -31,9 +31,9 @@
 
 ## Popup Snippets
 
-| 名称     | 类型      | 参数 | 说明         |
-| -------- | --------- | ---- | ------------ |
-| children | `Snippet` | -    | Popup 内容。 |
+| 名称     | 类型                                                                | 参数 | 说明         |
+| -------- | ------------------------------------------------------------------- | ---- | ------------ |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | Popup 内容。 |
 
 ## SvelteEasing
 

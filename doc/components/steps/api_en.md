@@ -1,12 +1,12 @@
 ## Steps Props
 
-| Name      | Type                              | Default  | Required | Description                                       |
-| --------- | --------------------------------- | -------- | -------- | ------------------------------------------------- |
-| steps     | `StepsItem[]`                     | `[]`     | Y        | Array composed of step Props or finishStep Props. |
-| current   | `number`                          | `1`      | N        | Current step number.                              |
-| radius    | `'none'`/`'base'`/`'xl'`/`'full'` | `'base'` | N        | Border radius style.                              |
-| barBorder | `boolean`                         | `true`   | N        | Whether the icon has a border.                    |
-| vertical  | `boolean`                         | `false`  | N        | Whether to use vertical layout.                   |
+| Name      | Type                           | Default  | Required | Description                                       |
+| --------- | ------------------------------ | -------- | -------- | ------------------------------------------------- |
+| steps     | `StepsItem[]`                  | `[]`     | Y        | Array composed of step Props or finishStep Props. |
+| current   | `number`                       | `1`      | N        | Current step number.                              |
+| radius    | `'none'\|'base'\|'xl'\|'full'` | `'base'` | N        | Border radius style.                              |
+| barBorder | `boolean`                      | `true`   | N        | Whether the icon has a border.                    |
+| vertical  | `boolean`                      | `false`  | N        | Whether to use vertical layout.                   |
 
 ## StepsItem Props
 
@@ -27,10 +27,10 @@
 
 ## StepsStepBarIcon Props
 
-| Name    | Type     | Default | Required | Description                                                                    |
-| ------- | -------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| type    | `'icon'` | `{}`    | Y        | Used when step area content is an icon.                                        |
-| content | `Icon`   | `-`     | Y        | Icon parameters [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
+| Name    | Type                                                      | Default | Required | Description                             |
+| ------- | --------------------------------------------------------- | ------- | -------- | --------------------------------------- |
+| type    | `'icon'`                                                  | `{}`    | Y        | Used when step area content is an icon. |
+| content | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `-`     | Y        | Icon parameters.                        |
 
 ## StepsStepBarImage Props
 

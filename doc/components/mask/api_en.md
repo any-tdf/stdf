@@ -19,6 +19,6 @@
 
 ## Mask Snippets
 
-| Name     | Type      | Parameters | Description   |
-| -------- | --------- | ---------- | ------------- |
-| children | `Snippet` | -          | Mask content. |
+| Name     | Type                                                                | Parameters | Description   |
+| -------- | ------------------------------------------------------------------- | ---------- | ------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Mask content. |

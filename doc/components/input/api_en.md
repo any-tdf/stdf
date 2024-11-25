@@ -20,12 +20,12 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N        | Maximum text length for textarea. |
 | rows              | `number`                                                                                                  | `2`       | N        | Number of rows for textarea.      |
 | autosize          | `boolean`                                                                                                 | `false`   | N        | Auto adjust height for textarea.  |
-| label1            | `Icon\|null`                                                                                              | `null`    | N        | Label 1 content.                  |
+| label1            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 1 content.                  |
 | label2            | `string\|null`                                                                                            | `null`    | N        | Label 2 content.                  |
-| label3            | `Icon\|null`                                                                                              | `null`    | N        | Label 3 content.                  |
-| label4            | `Icon\|null`                                                                                              | `null`    | N        | Label 4 content.                  |
+| label3            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 3 content.                  |
+| label4            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 4 content.                  |
 | label5            | `string\|null`                                                                                            | `null`    | N        | Label 5 content.                  |
-| label6            | `Icon\|null`                                                                                              | `null`    | N        | Label 6 content.                  |
+| label6            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 6 content.                  |
 | tip               | `string\|null`                                                                                            | `null`    | N        | Tip message content.              |
 | data1             | `string\|null`                                                                                            | `null`    | N        | Data item 1 content.              |
 | data2             | `string\|null`                                                                                            | `null`    | N        | Data item 2 content.              |
@@ -51,16 +51,16 @@
 
 ## Input Snippets
 
-| Name        | Type      | Parameters | Description               |
-| ----------- | --------- | ---------- | ------------------------- |
-| titleChild  | `Snippet` | -          | Title slot content.       |
-| data1Child  | `Snippet` | -          | Data item 1 slot content. |
-| data2Child  | `Snippet` | -          | Data item 2 slot content. |
-| data3Child  | `Snippet` | -          | Data item 3 slot content. |
-| label1Child | `Snippet` | -          | Label 1 slot content.     |
-| label2Child | `Snippet` | -          | Label 2 slot content.     |
-| label3Child | `Snippet` | -          | Label 3 slot content.     |
-| label4Child | `Snippet` | -          | Label 4 slot content.     |
-| label5Child | `Snippet` | -          | Label 5 slot content.     |
-| label6Child | `Snippet` | -          | Label 6 slot content.     |
-| tipChild    | `Snippet` | -          | Tip message slot content. |
+| Name        | Type                                                                | Parameters | Description               |
+| ----------- | ------------------------------------------------------------------- | ---------- | ------------------------- |
+| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Title slot content.       |
+| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 1 slot content. |
+| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 2 slot content. |
+| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 3 slot content. |
+| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 1 slot content.     |
+| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 2 slot content.     |
+| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 3 slot content.     |
+| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 4 slot content.     |
+| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 5 slot content.     |
+| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 6 slot content.     |
+| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Tip message slot content. |

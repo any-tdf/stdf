@@ -16,9 +16,9 @@
 
 ## Tabs Snippets
 
-| 名称     | 类型                            | 参数                        | 说明            |
-| -------- | ------------------------------- | --------------------------- | --------------- |
-| children | `Snippet<[{ active: number }]>` | active - 激活的选项卡索引值 | Tabs 主体内容。 |
+| 名称     | 类型                                                                                      | 参数                        | 说明            |
+| -------- | ----------------------------------------------------------------------------------------- | --------------------------- | --------------- |
+| children | [`Snippet<[{ active: number }]>`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | active - 激活的选项卡索引值 | Tabs 主体内容。 |
 
 ## Tab Props
 
@@ -48,10 +48,10 @@
 
 ## TabLabel Props
 
-| 名称 | 类型     | 默认值 | 必传 | 说明                                                                     |
-| ---- | -------- | ------ | ---- | ------------------------------------------------------------------------ |
-| text | `string` | `''`   | N    | 标签文本。                                                               |
-| icon | `Icon`   | `{}`   | N    | 标签图标 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。 |
+| 名称 | 类型                                                      | 默认值 | 必传 | 说明       |
+| ---- | --------------------------------------------------------- | ------ | ---- | ---------- |
+| text | `string`                                                  | `''`   | N    | 标签文本。 |
+| icon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `{}`   | N    | 标签图标。 |
 
 ## TabContent Props
 
@@ -61,6 +61,6 @@
 
 ## TabContent Snippets
 
-| 名称     | 类型      | 参数 | 说明              |
-| -------- | --------- | ---- | ----------------- |
-| children | `Snippet` | -    | TabContent 内容。 |
+| 名称     | 类型                                                                | 参数 | 说明              |
+| -------- | ------------------------------------------------------------------- | ---- | ----------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | TabContent 内容。 |

@@ -16,9 +16,9 @@
 
 ## Tabs Snippets
 
-| Name     | Type                            | Parameters                | Description        |
-| -------- | ------------------------------- | ------------------------- | ------------------ |
-| children | `Snippet<[{ active: number }]>` | active - Active tab index | Tabs main content. |
+| Name     | Type                                                                                      | Parameters                | Description        |
+| -------- | ----------------------------------------------------------------------------------------- | ------------------------- | ------------------ |
+| children | [`Snippet<[{ active: number }]>`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | active - Active tab index | Tabs main content. |
 
 ## Tab Props
 
@@ -48,10 +48,10 @@
 
 ## TabLabel Props
 
-| Name | Type     | Default | Required | Description                                                               |
-| ---- | -------- | ------- | -------- | ------------------------------------------------------------------------- |
-| text | `string` | `''`    | N        | Label text.                                                               |
-| icon | `Icon`   | `{}`    | N        | Label icon [Icon Props](https://stdf.design/#/components?nav=icon&tab=1). |
+| Name | Type                                                      | Default | Required | Description |
+| ---- | --------------------------------------------------------- | ------- | -------- | ----------- |
+| text | `string`                                                  | `''`    | N        | Label text. |
+| icon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `{}`    | N        | Label icon. |
 
 ## TabContent Props
 
@@ -61,6 +61,6 @@
 
 ## TabContent Snippets
 
-| Name     | Type      | Parameters | Description         |
-| -------- | --------- | ---------- | ------------------- |
-| children | `Snippet` | -          | TabContent content. |
+| Name     | Type                                                                | Parameters | Description         |
+| -------- | ------------------------------------------------------------------- | ---------- | ------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | TabContent content. |

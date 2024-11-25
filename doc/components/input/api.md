@@ -20,12 +20,12 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N    | textarea 时最多可输入文本长度。 |
 | rows              | `number`                                                                                                  | `2`       | N    | textarea 时行数。               |
 | autosize          | `boolean`                                                                                                 | `false`   | N    | textarea 时是否自动调整高度。   |
-| label1            | `Icon\|null`                                                                                              | `null`    | N    | 标签 1 内容。                   |
+| label1            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 1 内容。                   |
 | label2            | `string\|null`                                                                                            | `null`    | N    | 标签 2 内容。                   |
-| label3            | `Icon\|null`                                                                                              | `null`    | N    | 标签 3 内容。                   |
-| label4            | `Icon\|null`                                                                                              | `null`    | N    | 标签 4 内容。                   |
+| label3            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 3 内容。                   |
+| label4            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 4 内容。                   |
 | label5            | `string\|null`                                                                                            | `null`    | N    | 标签 5 内容。                   |
-| label6            | `Icon\|null`                                                                                              | `null`    | N    | 标签 6 内容。                   |
+| label6            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 6 内容。                   |
 | tip               | `string\|null`                                                                                            | `null`    | N    | 提示信息内容。                  |
 | data1             | `string\|null`                                                                                            | `null`    | N    | 数据项 1 内容。                 |
 | data2             | `string\|null`                                                                                            | `null`    | N    | 数据项 2 内容。                 |
@@ -51,16 +51,16 @@
 
 ## Input Snippets
 
-| 名称        | 类型      | 参数 | 说明                |
-| ----------- | --------- | ---- | ------------------- |
-| titleChild  | `Snippet` | -    | 标题插槽内容。      |
-| data1Child  | `Snippet` | -    | 数据项 1 插槽内容。 |
-| data2Child  | `Snippet` | -    | 数据项 2 插槽内容。 |
-| data3Child  | `Snippet` | -    | 数据项 3 插槽内容。 |
-| label1Child | `Snippet` | -    | 标签 1 插槽内容。   |
-| label2Child | `Snippet` | -    | 标签 2 插槽内容。   |
-| label3Child | `Snippet` | -    | 标签 3 插槽内容。   |
-| label4Child | `Snippet` | -    | 标签 4 插槽内容。   |
-| label5Child | `Snippet` | -    | 标签 5 插槽内容。   |
-| label6Child | `Snippet` | -    | 标签 6 插槽内容。   |
-| tipChild    | `Snippet` | -    | 提示信息插槽内容。  |
+| 名称        | 类型                                                                | 参数 | 说明                |
+| ----------- | ------------------------------------------------------------------- | ---- | ------------------- |
+| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标题插槽内容。      |
+| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 1 插槽内容。 |
+| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 2 插槽内容。 |
+| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 3 插槽内容。 |
+| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 1 插槽内容。   |
+| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 2 插槽内容。   |
+| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 3 插槽内容。   |
+| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 4 插槽内容。   |
+| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 5 插槽内容。   |
+| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 6 插槽内容。   |
+| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 提示信息插槽内容。  |

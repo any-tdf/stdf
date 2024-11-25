@@ -9,9 +9,9 @@
 
 ## Grids Snippets
 
-| Name     | Type      | Parameters | Description   |
-| -------- | --------- | ---------- | ------------- |
-| children | `Snippet` | -          | Grids content |
+| Name     | Type                                                                | Parameters | Description   |
+| -------- | ------------------------------------------------------------------- | ---------- | ------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Grids content |
 
 ## Grid Props
 
@@ -22,6 +22,6 @@
 
 ## Grid Snippets
 
-| Name     | Type      | Parameters | Description  |
-| -------- | --------- | ---------- | ------------ |
-| children | `Snippet` | -          | Grid content |
+| Name     | Type                                                                | Parameters | Description  |
+| -------- | ------------------------------------------------------------------- | ---------- | ------------ |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Grid content |

@@ -10,6 +10,6 @@
 
 ## Placeholder Snippets
 
-| Name     | Type      | Parameters | Description          |
-| -------- | --------- | ---------- | -------------------- |
-| children | `Snippet` | -          | Placeholder content. |
+| Name     | Type                                                                | Parameters | Description          |
+| -------- | ------------------------------------------------------------------- | ---------- | -------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Placeholder content. |
