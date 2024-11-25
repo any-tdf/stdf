@@ -36,7 +36,7 @@
 	// Distance from loveDom to window bottom
 	let loveDomBottom = 0;
 	let value = $state('0');
-	let doneDisabled = $state(false);
+	let doneDisabled = $state(true);
 	let top = $state(0);
 	const loveFunc = numStr => {
 		value = numStr || '0';

@@ -36,11 +36,11 @@
 	// loveDom 距离窗口底部的距离
 	let loveDomBottom = 0;
 	let value = $state('0');
-	let doneDisabled = $state(false);
+	let doneDisabled = $state(true);
 	let top = $state(0);
 	const loveFunc = numStr => {
 		value = numStr || '0';
-		doneDisabled = numStr === '5201314';
+		doneDisabled = numStr !== '5201314';
 	};
 	const openFunc = height => {
 		// 如果 loveDom 距离窗口底部小于键盘高度，就把 loveDom 向上移动键盘高度
