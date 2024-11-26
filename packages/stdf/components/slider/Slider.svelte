@@ -3,8 +3,8 @@
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF, debounce, stepNumberFun } from '../utils';
 
-	/** @typedef {import('../../index.d').Slider} Slider */
-	/** @type {Slider} */
+	/** @typedef {import('../../index.d').Slider} SliderProps */
+	/** @type {SliderProps} */
 	let {
 		value = $bindable(40),
 		step = 1,
@@ -22,21 +22,31 @@
 		onchange,
 	} = $props();
 
-	let lineDom = $state(null); //滑动条dom slider dom
-	let blockDom = $state(null); //滑块dom block dom
-	let blockWidth = 0; //滑块宽度 block width
-	let lineDomStartX = 0; //滑块条起始位置 slider start position
-	let lineDomEndX = 0; //滑块条结束位置 slider end position
-	let lineDomWidth = 0; //滑块条宽度 slider width
-	let currentX = $state(((value - minRange) / (maxRange - minRange)) * lineDomWidth); //初始位置 initial position
-	let currentStartX = $state(((startValue - minRange) / (maxRange - minRange)) * lineDomWidth); //区间选择时开始位置 start position
-	let currentEndX = $state(((endValue - minRange) / (maxRange - minRange)) * lineDomWidth); //区间选择时结束位置 end position
-	let currentMove = $state('none'); //当前移动的滑块 current move block
+	//滑动条 dom slider dom
+	let lineDom = $state(null);
+	//滑块 dom block dom
+	let blockDom = $state(null);
+	//滑块宽度 block width
+	let blockWidth = 0;
+	//滑块条起始位置 slider start position
+	let lineDomStartX = 0;
+	//滑块条结束位置 slider end position
+	let lineDomEndX = 0;
+	//滑块条宽度 slider width
+	let lineDomWidth = 0;
+	//初始位置 initial position
+	let currentX = $state(((value - minRange) / (maxRange - minRange)) * lineDomWidth);
+	//区间选择时开始位置 start position
+	let currentStartX = $state(((startValue - minRange) / (maxRange - minRange)) * lineDomWidth);
+	//区间选择时结束位置 end position
+	let currentEndX = $state(((endValue - minRange) / (maxRange - minRange)) * lineDomWidth);
+	//当前移动的滑块 current move block
+	let currentMove = $state('none');
 
-	let isDown = false; //是否按下 is down
+	//是否按下 is down
+	let isDown = false;
+	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
 
-	//滑动开始
-	//slide start
 	const touchLineStart = e => {
 		if (disabled || readonly) {
 			return;
@@ -108,7 +118,7 @@
 					currentEndX = lineDomEndX - lineDomStartX;
 				} else {
 					currentEndX = clientX - lineDomStartX;
-					//由于开启了防抖，有极短时间内会出现currentEndX大于lineDomEndX的情况，所以这里做了一个判断
+					//由于开启了防抖，有极短时间内会出现 currentEndX 大于 lineDomEndX 的情况，所以这里做了一个判断
 					//Due to the opening of the anti-shake, there will be a situation where currentEndX is greater than lineDomEndX in a very short time, so a judgment is made here
 					currentEndX = currentEndX < currentStartX ? currentStartX : currentEndX;
 				}
@@ -146,116 +156,109 @@
 			blockWidth = blockDom.getBoundingClientRect().width;
 		}
 	};
-	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
 	onMount(() => {
 		handleResize();
-		// @ts-ignore
+		// @ts-expect-error
 		window.addEventListener('resize', debounce(handleResize, 200));
 	});
 </script>
 
-<div class={`relative h-7${disabled ? ' opacity-50' : ''}`}>
+<div class="relative h-7{disabled ? ' opacity-50' : ''}">
 	<div
 		onpointerdown={touchLineStart}
 		onpointermove={e => throttleWithRAF(touchLineMove)(e)}
 		onpointerup={touchLineEnd}
-		class="absolute flex flex-col justify-center h-7 w-full touch-none cursor-move"
+		class="flex absolute flex-col justify-center w-full h-7 cursor-move touch-none"
 		bind:this={lineDom}
 	>
 		{#if children}
 			{@render children()}
 		{:else}
-			<div class={`w-full h-1 bg-black/10 dark:bg-white/20${radiusObj[radius] || radiusObj['full']}`}>
+			<div class="w-full h-1 bg-black/10 dark:bg-white/20{radiusObj[radius] || radiusObj['full']}">
 				{#if isRange}
 					<div
-						class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`}
-						style={`width:${currentEndX - currentStartX}px;transform: translateX(${currentStartX}px);`}
+						class="bg-primary dark:bg-dark h-1{radiusObj[radius] || radiusObj['full']}"
+						style="width:{currentEndX - currentStartX}px;transform: translateX({currentStartX}px);"
 					></div>
 				{:else}
-					<div class={`bg-primary dark:bg-dark h-1${radiusObj[radius] || radiusObj['full']}`} style={`width:${currentX}px`}></div>
+					<div class="bg-primary dark:bg-dark h-1{radiusObj[radius] || radiusObj['full']}" style="width:{currentX}px"></div>
 				{/if}
 			</div>
 		{/if}
 	</div>
 	{#if isRange}
-		<div class="absolute flex flex-col justify-center h-7 w-full pointer-events-none">
+		<div class="flex absolute flex-col justify-center w-full h-7 pointer-events-none">
 			<div
-				class={`${
-					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
-						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
-				}${radiusObj[radius] || radiusObj['full']}`}
-				style={`transform: translateX(calc(${currentStartX}px - 50%));`}
+				class="{lineBlock
+					? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
+					: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'}{radiusObj[radius] || radiusObj['full']}"
+				style="transform: translateX(calc({currentStartX}px - 50%));"
 			>
 				{#if showTip === 'always' || (currentMove === 'start' && showTip !== 'never')}
 					<div
-						class={`absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2${
-							radius === 'none' ? ' rounded-none' : ' rounded'
-						}`}
-						style={`left: 50%;transform: translateX(-50%);`}
+						class="absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2{radius === 'none'
+							? ' rounded-none'
+							: ' rounded'}"
+						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}
 					>
 						{startValue}
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
-							style={`top:100%;left:50%;transform: translateX(-50%)`}
+							style="top:100%;left:50%;transform: translateX(-50%)"
 						></div>
 					</div>
 				{/if}
 			</div>
 		</div>
-		<div class="absolute flex flex-col justify-center h-7 w-full pointer-events-none">
+		<div class="flex absolute flex-col justify-center w-full h-7 pointer-events-none">
 			<div
-				class={`${
-					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
-						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
-				}${radiusObj[radius] || radiusObj['full']}`}
-				style={`transform: translateX(calc(${currentEndX}px - 50%));`}
+				class="{lineBlock
+					? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
+					: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'}{radiusObj[radius] || radiusObj['full']}"
+				style="transform: translateX(calc({currentEndX}px - 50%));"
 				bind:this={blockDom}
 			>
 				{#if showTip === 'always' || (currentMove === 'end' && showTip !== 'never')}
 					<div
-						class={`absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2${
-							radius === 'none' ? ' rounded-none' : ' rounded'
-						}`}
-						style={`left: 50%;transform: translateX(-50%);`}
+						class="absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2{radius === 'none'
+							? ' rounded-none'
+							: ' rounded'}"
+						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}
 					>
 						{endValue}
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
-							style={`top:100%;left:50%;transform: translateX(-50%)`}
+							style="top:100%;left:50%;transform: translateX(-50%)"
 						></div>
 					</div>
 				{/if}
 			</div>
 		</div>
 	{:else}
-		<div class="absolute flex flex-col justify-center h-7 w-full pointer-events-none">
+		<div class="flex absolute flex-col justify-center w-full h-7 pointer-events-none">
 			<div
-				class={`${
-					lineBlock
-						? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
-						: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'
-				}${radiusObj[radius] || radiusObj['full']}`}
-				style={`transform: translateX(calc(${currentX}px - 50%));`}
+				class="{lineBlock
+					? 'w-6 h-6 border border-primary dark:border-dark bg-white dark:bg-black'
+					: 'w-5 h-5 ring-4 ring-primary/10 dark:ring-dark/10 bg-primary dark:bg-dark'}{radiusObj[radius] || radiusObj['full']}"
+				style="transform: translateX(calc({currentX}px - 50%));"
 			>
 				{#if showTip === 'always' || (currentMove === 'one' && showTip !== 'never')}
 					<div
-						class={`absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2${
-							radius === 'none' ? ' rounded-none' : ' rounded'
-						}`}
-						style={`left: 50%;transform: translateX(-50%);`}
+						class="absolute -top-9 text-white dark:text-black text-xs py-1 bg-black/90 dark:bg-white px-2{radius === 'none'
+							? ' rounded-none'
+							: ' rounded'}"
+						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}
 					>
 						{value}
 						<div
 							class="absolute w-0 h-0 border-4 border-t-4 border-transparent border-t-black/90 dark:border-t-white"
-							style={`top:100%;left:50%;transform: translateX(-50%)`}
+							style="top:100%;left:50%;transform: translateX(-50%)"
 						></div>
 					</div>
 				{/if}

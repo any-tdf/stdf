@@ -10,6 +10,6 @@ When passing in step, please try to ensure that (maxRange - minRange) / step is 
 
 The Slider component does not set external margins, please set it yourself when laying out the page.
 
-## Slot
+## Snippet
 
-When useSlot of the Props is true, the area representing the progress of the Slider will render using slots, refer to the example.
+When passing in Snippet, the area representing the progress of the Slider will render using Snippet, refer to the example.

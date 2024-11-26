@@ -10,6 +10,6 @@
 
 Slider 未设置外部间距，请在页面布局时自行设置。
 
-## Slot
+## Snippet
 
-当 Props 的 useSlot 为 true 时，Slider 表示进度的区域会使用 slot 渲染，参考示例。
+当传入 Snippet 时，Slider 的进度区域会使用 Snippet 渲染，参考示例。

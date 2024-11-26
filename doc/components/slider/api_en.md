@@ -1,29 +1,28 @@
 ## Slider Props
 
-| Properties | Type    | Default value | optional value            | required | Description                             |
-| ---------- | ------- | ------------- | ------------------------- | -------- | --------------------------------------- |
-| value      | Number  | 40            | -                         | N        | The current value.                      |
-| step       | Number  | 1             | -                         | N        | Step.                                   |
-| minRange   | Number  | 0             | -                         | N        | Optional minimum value.                 |
-| maxRange   | Number  | 100           | -                         | N        | The maximum value is available.         |
-| isRange    | Boolean | false         | true/false                | N        | Whether it is a interval selection.     |
-| startValue | Number  | 20            | -                         | N        | Select the start value of the interval. |
-| endValue   | Number  | 60            | -                         | N        | Select the end value of the interval.   |
-| showTip    | String  | 'touch'       | 'always'/'never'/'touch'  | N        | Prompt the display method.              |
-| radius     | String  | 'full'        | 'none'/'base'/'xl'/'full' | N        | Round -corner style.                    |
-| lineBlock  | Boolean | false         | true/false                | N        | Whether the slider is a wire frame.     |
-| disabled   | Boolean | false         | true/false                | N        | Whether to disable.                     |
-| readonly   | Boolean | false         | true/false                | N        | Whether to read only.                   |
-| useSlot    | Boolean | false         | true/false                | N        | Whether to use slot。                   |
+| Name       | Type                          | Default   | Required | Description                         |
+| ---------- | ----------------------------- | --------- | -------- | ----------------------------------- |
+| value      | `number`                      | `40`      | N        | Current value.                      |
+| step       | `number`                      | `1`       | N        | Step size.                          |
+| minRange   | `number`                      | `0`       | N        | Minimum selectable value.           |
+| maxRange   | `number`                      | `100`     | N        | Maximum selectable value.           |
+| isRange    | `boolean`                     | `false`   | N        | Whether it's a range selection.     |
+| startValue | `number`                      | `20`      | N        | Start value for range selection.    |
+| endValue   | `number`                      | `60`      | N        | End value for range selection.      |
+| showTip    | `'always'\|'never'\|'touch`   | `'touch'` | N        | Tip display mode.                   |
+| radius     | `'none'\|'base'\|'xl'\|'full` | `'full'`  | N        | Border radius style.                |
+| lineBlock  | `boolean`                     | `false`   | N        | Whether the slider is a line block. |
+| disabled   | `boolean`                     | `false`   | N        | Whether it's disabled.              |
+| readonly   | `boolean`                     | `false`   | N        | Whether it's read-only.             |
 
 ## Slider Events
 
-| Name   | Parameters                                                                                                                                         | Description                |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| change | Event: Event object, where default represents the current value (the array of the starting value and the end value when the interval is selected). | Click or slide to trigger. |
+| Name     | Type                                  | Parameters                                          | Description                   |
+| -------- | ------------------------------------- | --------------------------------------------------- | ----------------------------- |
+| onchange | `(values: [number, number?]) => void` | values - Current value array (two items for range). | Triggered when value changes. |
 
-## Slider Slots
+## Slider Snippets
 
-| Name | Description                                     |
-| ---- | ----------------------------------------------- |
-| -    | useSlot is the schedule area content when True. |
+| Name     | Type                                                                | Parameters | Description                                  |
+| -------- | ------------------------------------------------------------------- | ---------- | -------------------------------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Content to be rendered in the progress area. |
