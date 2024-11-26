@@ -1,28 +1,28 @@
 ## Stepper Props
 
-| Prop Name       | Type    | Default | Optional Values           | Required | Description                                         |
-| --------------- | ------- | ------- | ------------------------- | -------- | --------------------------------------------------- |
-| value           | Number  | 10      | -                         | N        | Current value.                                      |
-| min             | Number  | 0       | -                         | N        | Minimum value.                                      |
-| max             | Number  | 100     | -                         | N        | Maximum value.                                      |
-| step            | Number  | 1       | -                         | N        | Step.                                               |
-| vertical        | Boolean | false   | -                         | N        | Whether to be vertical.                             |
-| numberHighlight | Boolean | false   | -                         | N        | Whether to highlight the number area.               |
-| theme           | Boolean | true    | -                         | N        | Whether the highlighted area is the theme color.    |
-| radius          | String  | 'base'  | 'none'/'base'/'xl'/'full' | N        | Corner style.                                       |
-| decimal         | Number  | 0       | -                         | N        | Number of decimal places for internal display.      |
-| async           | Boolean | false   | -                         | N        | Whether to be asynchronous.                         |
-| asyncLoading    | Boolean | false   | -                         | N        | Whether to show internal Loading when asynchronous. |
-| loading         | Object  | {}      | 参考 Loading Props        | N        | Loading parameters when asynchronous.               |
-| padding         | Boolean | true    | -                         | N        | Whether there is padding outside.                   |
-| injClassOut     | String  | ''      | Class                     | N        | Class for outside.                                  |
-| injClassBtn     | String  | ''      | Class                     | N        | Class for button area.                              |
-| injClassNum     | String  | ''      | Class                     | N        | Class for number area.                              |
+| Name            | Type                                                            | Default  | Required | Description                                        |
+| --------------- | --------------------------------------------------------------- | -------- | -------- | -------------------------------------------------- |
+| value           | `number`                                                        | `10`     | N        | Current value.                                     |
+| min             | `number`                                                        | `0`      | N        | Minimum value.                                     |
+| max             | `number`                                                        | `100`    | N        | Maximum value.                                     |
+| step            | `number`                                                        | `1`      | N        | Step increment.                                    |
+| vertical        | `boolean`                                                       | `false`  | N        | Whether to display vertically.                     |
+| numberHighlight | `boolean`                                                       | `false`  | N        | Whether to highlight the number area.              |
+| theme           | `boolean`                                                       | `true`   | N        | Whether the highlighted area uses the theme color. |
+| radius          | `'none'\|'base'\|'xl'\|'full'`                                  | `'base'` | N        | Border radius style.                               |
+| decimal         | `number`                                                        | `0`      | N        | Number of decimal places for displayed value.      |
+| async           | `boolean`                                                       | `false`  | N        | Whether in async state.                            |
+| asyncLoading    | `boolean`                                                       | `false`  | N        | Whether to show internal Loading in async state.   |
+| loading         | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`     | N        | Loading parameters in async state.                 |
+| padding         | `boolean`                                                       | `true`   | N        | Whether to have external padding.                  |
+| injClassOut     | `string`                                                        | `''`     | N        | Injected class for the outer container.            |
+| injClassBtn     | `string`                                                        | `''`     | N        | Injected class for the button area.                |
+| injClassNum     | `string`                                                        | `''`     | N        | Injected class for the number area.                |
 
 ## Stepper Events
 
-| Name     | Parameters                                             | Description                          |
-| -------- | ------------------------------------------------------ | ------------------------------------ |
-| change   | event：event object, where value is the current value. | Current value.                       |
-| decrease | -                                                      | Triggered when clicking to decrease. |
-| increase | -                                                      | Triggered when clicking to increase. |
+| Name       | Type                | Parameters            | Description                                |
+| ---------- | ------------------- | --------------------- | ------------------------------------------ |
+| onchange   | `{ value: number }` | value - current value | Triggered when the value changes.          |
+| ondecrease | `() => void`        | -                     | Triggered when decrease button is clicked. |
+| onincrease | `() => void`        | -                     | Triggered when increase button is clicked. |
