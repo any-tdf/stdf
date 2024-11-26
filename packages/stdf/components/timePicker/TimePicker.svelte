@@ -14,7 +14,7 @@
 	/** @type {TimePickerProps} */
 	let {
 		visible = $bindable(false),
-		type = 'YMDhms',
+		type = 'YYYYMMDDhhmmss',
 		yearProps = {},
 		monthProps = {},
 		dayProps = {},
@@ -46,7 +46,6 @@
 		secondText = timePickerLang.defaultSecond,
 		outFormat = '',
 		popup = {},
-		onopen,
 		onclose,
 		onconfirm,
 		oncancel,
@@ -65,24 +64,24 @@
 	// 总共可以传入 13 种 type，做一个映射，方便后面使用
 	// A total of 13 types can be passed in, do a mapping, and it is convenient to use later
 	const typeMap = {
-		Y: 'Y',
-		M: 'M',
-		h: 'h',
-		m: 'm',
-		s: 's',
-		YM: 'YM',
-		hm: 'hm',
-		ms: 'ms',
-		YMD: 'YMD',
-		hms: 'hms',
-		YMDh: 'YMDh',
-		YMDhm: 'YMDhm',
-		YMDhms: 'YMDhms',
+		YYYY: 'YYYY',
+		MM: 'MM',
+		hh: 'hh',
+		mm: 'mm',
+		ss: 'ss',
+		YYYYMM: 'YYYYMM',
+		hhmm: 'hhmm',
+		mmss: 'mmss',
+		YYYYMMDD: 'YYYYMMDD',
+		hhmmss: 'hhmmss',
+		YYYYMMDDhh: 'YYYYMMDDhh',
+		YYYYMMDDhhmm: 'YYYYMMDDhhmm',
+		YYYYMMDDhhmmss: 'YYYYMMDDhhmmss',
 	};
 
 	// 定义 typeInner，对不在 typeMap 的 type 做一个过滤，不在 typeMap 的 type 设置为默认值 YMDhms
 	// Define typeInner, filter out types that are not in typeMap, and set types that are not in typeMap to the default value YMDhms
-	let typeInner = typeMap[type] || 'YMDhms';
+	let typeInner = typeMap[type] || 'YYYYMMDDhhmmss';
 
 	// 如果 yearRange 长度为2且后一项大于前一项，表示限定区间，否则取当前年的的前后 10 年
 	// If the length of yearRange is 2 and the second item is greater than the first item, it means that the range is limited, otherwise the previous and next 10 years of the current year are taken
@@ -239,8 +238,7 @@
 
 	// 年数据滚动结束时的回调函数
 	// Callback function when the year data scrolling ends
-	const scrollEndYearFunc = e => {
-		const { index, isTouch } = e.detail;
+	const scrollEndYearFunc = (index, isTouch) => {
 		yearIndex = index;
 		// 如果月份是 2 月，需要重新计算天数
 		// If the month is February, the number of days needs to be recalculated
@@ -255,8 +253,7 @@
 
 	// 月数据滚动结束时的回调函数
 	// Callback function when the month data scrolling ends
-	const scrollEndMonthFunc = e => {
-		const { index, isTouch } = e.detail;
+	const scrollEndMonthFunc = (index, isTouch) => {
 		monthIndex = index;
 		// 根据年份和月份获取对应的天数
 		// Get the number of days corresponding to the year and month according to the year and month
@@ -269,46 +266,19 @@
 		}
 	};
 
-	// 日数据滚动结束时的回调函数
-	// Callback function when the day data scrolling ends
-	const scrollEndDayFunc = e => {
-		const { index } = e.detail;
-		dayIndex = index;
-	};
-
-	// 时数据滚动结束时的回调函数
-	// Callback function when the hour data scrolling ends
-	const scrollEndHourFunc = e => {
-		const { index } = e.detail;
-		hourIndex = index;
-	};
-
-	// 分数据滚动结束时的回调函数
-	// Callback function when the minute data scrolling ends
-	const scrollEndMinuteFunc = e => {
-		const { index } = e.detail;
-		minuteIndex = index;
-	};
-
-	// 秒数据滚动结束时的回调函数
-	// Callback function when the second data scrolling ends
-	const scrollEndSecondFunc = e => {
-		const { index } = e.detail;
-		secondIndex = index;
-	};
-
 	// 点击取消按钮的回调函数
 	// Callback function when clicking the cancel button
 	const clickCancelFunc = () => {
 		visible = false;
 		oncancel && oncancel();
+		onclose && onclose();
 	};
 
 	// 传入时间格式与时间对象，返回时间字符串
 	// Pass in the time format and time object, return the time string
 	const getTimeStr = (format, timeObj) => {
-		const { Y, M, D, h, m, s } = timeObj;
-		const timeStr = format.replace('Y', Y).replace('M', M).replace('D', D).replace('h', h).replace('m', m).replace('s', s);
+		const { YYYY, MM, DD, hh, mm, ss } = timeObj;
+		const timeStr = format.replace('YYYY', YYYY).replace('MM', MM).replace('DD', DD).replace('hh', hh).replace('mm', mm).replace('ss', ss);
 		return timeStr;
 	};
 
@@ -316,86 +286,60 @@
 	// Callback function when clicking the confirm button
 	const clickConfirmFunc = () => {
 		visible = false;
+		onclose && onclose();
 		const outData = {};
-		if (typeInner.includes('Y')) {
-			outData.Y = yearData[yearIndex].label;
+		if (typeInner.includes('YYYY')) {
+			outData.YYYY = yearData[yearIndex].label;
 		}
-		if (typeInner.includes('M')) {
-			outData.M = baseMonthData[monthIndex].label;
+		if (typeInner.includes('MM')) {
+			outData.MM = baseMonthData[monthIndex].label;
 		}
-		if (typeInner.includes('D')) {
-			outData.D = baseDayData[dayIndex].label;
+		if (typeInner.includes('DD')) {
+			outData.DD = baseDayData[dayIndex].label;
 		}
-		if (typeInner.includes('h')) {
-			outData.h = baseHourData[hourIndex].label;
+		if (typeInner.includes('hh')) {
+			outData.hh = baseHourData[hourIndex].label;
 		}
-		if (typeInner.includes('m')) {
-			outData.m = baseMinuteData[minuteIndex].label;
+		if (typeInner.includes('mm')) {
+			outData.mm = baseMinuteData[minuteIndex].label;
 		}
-		if (typeInner.includes('s')) {
-			outData.s = baseSecondData[secondIndex].label;
+		if (typeInner.includes('ss')) {
+			outData.ss = baseSecondData[secondIndex].label;
 		}
 
-		// 如果传入的 outFormat 为空，则根据 type 格式，否则去除里面的 YMDhms 以外的字符，再按照 YMDhms 的顺序拼接，再与 typeInner 比对，如果不一致，则给出警告
-		// If the outFormat passed in is empty, it is formatted according to the type, otherwise the characters other than YMDhms are removed, and then they are spliced in the order of YMDhms, and then compared with typeInner. If they are inconsistent, a warning will be given
-		if (outFormat === 'object') {
-			// 如果 outFormat 为 object，则返回时间对象
-			// If outFormat is empty, return the time object
-			onconfirm && onconfirm(outData);
-		} else {
-			// 如果 outFormat 为空，则根据 type 格式
-			// If outFormat is empty, format according to type
-			if (outFormat === '') {
-				// 预先根据 typeInner 生成一份 defaultOutFormat 字符，年月日之间用 - 连接，时分秒之间用 : 连接，年月日和时分秒之间用空格连接
-				// Generate a copy of defaultOutFormat characters according to typeInner in advance, and connect the year, month and day with -, and connect the hour, minute and second with :, and connect the year, month, day and hour, minute and second with spaces
-				let defaultOutFormat = typeInner
-					.replace(/Y/g, 'Y-')
-					.replace(/M/g, 'M-')
-					.replace(/D/g, 'D ')
-					.replace(/h/g, 'h:')
-					.replace(/m/g, 'm:')
-					.replace(/s/g, 's');
-				// 如果 defaultOutFormat 以 - 或 : 或空格 结尾，则去掉最后一个字符
-				// If defaultOutFormat ends with - or : or space, remove the last character
-				if (defaultOutFormat.endsWith('-') || defaultOutFormat.endsWith(':') || defaultOutFormat.endsWith(' ')) {
-					defaultOutFormat = defaultOutFormat.slice(0, -1);
-				}
-				onconfirm && onconfirm(getTimeStr(defaultOutFormat, outData));
-			} else {
-				// 删除掉 outFormat 里面 YMDhms 以外的所有字符
-				// Delete all characters other than YMDhms in outFormat
-				const outFormatInner = outFormat.replace(/[^YMDhms]/g, '');
-				// 对 outFormatInner 字符按照 YMDhms 的顺序进行排序
-				// Sort the outFormatInner character in the order of YMDhms
-				const outFormatInnerArr = outFormatInner.split('');
-				outFormatInnerArr.sort((a, b) => {
-					const aIndex = typeInner.indexOf(a);
-					const bIndex = typeInner.indexOf(b);
-					return aIndex - bIndex;
-				});
-				const outFormatInnerSort = outFormatInnerArr.join('');
-
-				//  如果 outFormatInnerSort 与 typeInner 不一致，则给出警告
-				// If outFormatInnerSort is inconsistent with typeInner, a warning will be given
-				if (outFormatInnerSort !== typeInner) {
-					console.warn('The outFormat passed in is not consistent with the typeInner');
-				} else {
-					// 如果 outFormat 为空，则返回时间对象，否则返回时间字符串
-					// If outFormat is empty, return the time object, otherwise return the time string
-					onconfirm && onconfirm(getTimeStr(outFormat, outData));
-				}
+		// 如果 outFormat 为空，则根据 type 格式
+		// If outFormat is empty, format according to type
+		if (outFormat === '') {
+			// 预先根据 typeInner 生成一份 defaultOutFormat 字符，年月日之间用 - 连接，时分秒之间用 : 连接，年月日和时分秒之间用空格连接
+			// Generate a copy of defaultOutFormat characters according to typeInner in advance, and connect the year, month and day with -, and connect the hour, minute and second with :, and connect the year, month, day and hour, minute and second with spaces
+			let defaultOutFormat = typeInner
+				.replace(/YYYY/g, 'YYYY-')
+				.replace(/MM/g, 'MM-')
+				.replace(/DD/g, 'DD ')
+				.replace(/hh/g, 'hh:')
+				.replace(/mm/g, 'mm:')
+				.replace(/ss/g, 'ss');
+			// 如果 defaultOutFormat 以 - 或 : 或空格 结尾，则去掉最后一个字符
+			// If defaultOutFormat ends with - or : or space, remove the last character
+			if (defaultOutFormat.endsWith('-') || defaultOutFormat.endsWith(':') || defaultOutFormat.endsWith(' ')) {
+				defaultOutFormat = defaultOutFormat.slice(0, -1);
 			}
+			onconfirm && onconfirm(getTimeStr(defaultOutFormat, outData), outData);
+		} else {
+			// 将 outFormat 里面 YYYY MM DD hh mm ss 替换为对应的 outData 中的值
+			// Replace YYYY MM DD hh mm ss in outFormat with the corresponding value in outData
+			const outFormatInner = outFormat
+				.replace(/YYYY/g, outData.YYYY)
+				.replace(/MM/g, outData.MM)
+				.replace(/DD/g, outData.DD)
+				.replace(/hh/g, outData.hh)
+				.replace(/mm/g, outData.mm)
+				.replace(/ss/g, outData.ss);
+			// 如果 outFormat 为空，则返回时间对象，否则返回时间字符串
+			// If outFormat is empty, return the time object, otherwise return the time string
+			onconfirm && onconfirm(getTimeStr(outFormatInner, outData), outData);
 		}
 	};
-	// 监听 visible 的变化，派发事件
-	// Listen to the change of visible, dispatch events
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
 </script>
 
 <Popup
@@ -405,18 +349,14 @@
 	transitionDistance={(maxShowRows === 3 ? 64 : maxShowRows === 5 ? 48 : 32) * maxShowRows + 41 + (showTips ? 32 : 0)}
 	{...popup}
 >
-	<div class="flex justify-between items-center bg-white dark:bg-black border-b border-black/10 dark:border-white/20">
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-black/60 dark:text-white/60 h-10 leading-10 px-4 cursor-pointer" onclick={clickCancelFunc}>{cancelText}</div>
+	<div class="flex justify-between items-center bg-white border-b dark:bg-black border-black/10 dark:border-white/20">
+		<button class="px-4 h-10 leading-10 cursor-pointer text-black/60 dark:text-white/60" onclick={clickCancelFunc}>{cancelText}</button>
 		<div>{title}</div>
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="text-primary dark:text-dark h-10 leading-10 px-4 cursor-pointer" onclick={clickConfirmFunc}>{confirmText}</div>
+		<button class="px-4 h-10 leading-10 cursor-pointer text-primary dark:text-dark" onclick={clickConfirmFunc}>{confirmText}</button>
 	</div>
 	{#if showTips}
 		<div
-			class="flex justify-around items-center text-center gap-1 bg-white dark:bg-black text-black/60 dark:text-white/60 h-8 leading-8 text-sm"
+			class="flex gap-1 justify-around items-center h-8 text-sm leading-8 text-center bg-white dark:bg-black text-black/60 dark:text-white/60"
 		>
 			{#if typeInner.includes('Y')}
 				<div class="px-2" style="flex:{yearProps.flex || '1'};text-align:{yearProps.align}">{yearText}</div>{/if}
@@ -432,7 +372,7 @@
 				<div class="px-2" style="flex:{secondProps.flex || '1'};text-align:{secondProps.align}">{secondText}</div>{/if}
 		</div>
 	{/if}
-	<div class="flex justify-around items-center gap-1 bg-white dark:bg-black">
+	<div class="flex gap-1 justify-around items-center bg-white dark:bg-black">
 		{#if typeInner.includes('Y')}
 			<div class="truncate" style="flex:{yearProps.flex || '1'}">
 				<ScrollRadio data={yearData} initIndex={initYearIndex} autoScrollToLast={false} {...yearProps} onscrollEnd={scrollEndYearFunc} />
@@ -445,22 +385,32 @@
 		{/if}
 		{#if baseDayData.length > 0 && typeInner.includes('D')}
 			<div class="truncate" style="flex:{dayProps.flex || '1'}">
-				<ScrollRadio data={baseDayData} lastSelectedIndex={initDayIndex} {...dayProps} onscrollEnd={scrollEndDayFunc} />
+				<ScrollRadio data={baseDayData} lastSelectedIndex={initDayIndex} {...dayProps} onscrollEnd={index => (dayIndex = index)} />
 			</div>
 		{/if}
 		{#if typeInner.includes('h')}
 			<div class="truncate" style="flex:{hourProps.flex || '1'}">
-				<ScrollRadio data={baseHourData} lastSelectedIndex={initHourIndex} {...hourProps} onscrollEnd={scrollEndHourFunc} />
+				<ScrollRadio data={baseHourData} lastSelectedIndex={initHourIndex} {...hourProps} onscrollEnd={index => (hourIndex = index)} />
 			</div>
 		{/if}
 		{#if typeInner.includes('m')}
 			<div class="truncate" style="flex:{minuteProps.flex || '1'}">
-				<ScrollRadio data={baseMinuteData} lastSelectedIndex={initMinuteIndex} {...minuteProps} onscrollEnd={scrollEndMinuteFunc} />
+				<ScrollRadio
+					data={baseMinuteData}
+					lastSelectedIndex={initMinuteIndex}
+					{...minuteProps}
+					onscrollEnd={index => (minuteIndex = index)}
+				/>
 			</div>
 		{/if}
 		{#if typeInner.includes('s')}
 			<div class="truncate" style="flex:{secondProps.flex || '1'}">
-				<ScrollRadio data={baseSecondData} lastSelectedIndex={initSecondIndex} {...secondProps} onscrollEnd={scrollEndSecondFunc} />
+				<ScrollRadio
+					data={baseSecondData}
+					lastSelectedIndex={initSecondIndex}
+					{...secondProps}
+					onscrollEnd={index => (secondIndex = index)}
+				/>
 			</div>
 		{/if}
 	</div>

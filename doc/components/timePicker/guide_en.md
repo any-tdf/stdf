@@ -1,47 +1,48 @@
-## Usage Scenario
+## Usage Scenarios
 
-The TimePicker component is used to select time and supports single and multiple column selection. The default parameter selects the time ten years before and after, and the current time is selected by default.
+The TimePicker component is used for time selection, supporting both single-column and multi-column selection. By default, it allows selection of time within 10 years before and after the current year, and initially selects the current time.
 
 ## Time Types
 
-The TimePicker component determines the selected time type based on the type parameter passed in, which is composed of Y, M, D, h, m, and s. Currently, a total of 13 types are supported, and types not listed here will use the default 'YMDhms' type.
+The TimePicker component determines the time type through the type parameter, which is composed of YYYY MM DD hh mm ss. Currently, it supports the following 13 types. Any type not listed here will use the default 'YYYYMMDDhhmmss' type.
 
-- Y: Year
-- M: Month
-- h: Hour
-- m: Minute
-- s: Second
-- YM: Year and month
-- hm: Hour and minute
-- ms: Minute and second
-- YMD: Year, month, and day
-- hms: Hour, minute, and second
-- YMDh: Year, month, day, and hour
-- YMDhm: Year, month, day, hour, and minute
-- YMDhms: Year, month, day, hour, minute, and second
+- YYYY: Year
+- MM: Month
+- DD: Day
+- hh: Hour
+- mm: Minute
+- ss: Second
+- YYYYMM: Year and Month
+- hhmm: Hour and Minute
+- mmss: Minute and Second
+- YYYYMMDD: Year, Month and Day
+- hhmmss: Hour, Minute and Second
+- YYYYMMDDhh: Year, Month, Day and Hour
+- YYYYMMDDhhmm: Year, Month, Day, Hour and Minute
+- YYYYMMDDhhmmss: Year, Month, Day, Hour, Minute and Second
 
 ## Single Column Style
 
-The columns for year, month, day, hour, minute, and second data can all be customized with three styles by passing in the corresponding props, which are flex, showRow, and align. Please refer to the example for specific usage.
+For all column data (year, month, day, hour, minute, second), you can customize three styles by passing corresponding Props: flex, showRow, and align. Please refer to the examples for specific usage.
 
-## Limiting the Selection Range
+## Selection Range Limitation
 
-Because the number of days per month will dynamically update based on the current year and month, except for the column for day data, all other column data can be limited to a selection range by passing in the corresponding range, which is an array consisting of the corresponding data. However, please ensure that the range array passed in has two items, **each of which is a number**, and the first item is less than the second item, otherwise the default range will be used. Please refer to the example for specific usage.
+Since the number of days in each month updates dynamically based on the current year and month, all column data except days can have their selection range limited by passing in the corresponding Range, which is an array of corresponding data. However, please ensure that the range array has two items, **each item being of Number type**, and the first item is less than the second item, otherwise the default range will be used. Please refer to the examples for specific usage.
 
-## Initial Value
+## Initial Selected Value
 
-By default, each column of data is initialized to the current time. It also supports passing in the corresponding initial value to customize the initial selection. However, it should be noted that the type of the initial value passed in is a character type, and **ensure that the initial values for months, days, hours, minutes, and seconds are padded to two digits if less than two digits**. Please refer to the example for specific usage.
+By default, each column data initially selects the current time, but you can also pass in corresponding initial values to customize the initially selected value. Note that the initial value type should be string type, and **ensure that month, day, hour, minute, and second initial values are padded to two digits if less than two digits**. Please refer to the examples for specific usage.
 
 ## Minute and Second Step
 
-Considering the actual usage, support for setting the step size for minute and second data is added. The step size is 1 by default, so each selection will increase by 1 minute or 1 second. Please refer to the example for specific usage.
+Considering practical use, the component supports step settings for minute and second data. The default step is 1, meaning each selection increases by 1 minute or 1 second. Please refer to the examples for specific usage.
 
 ## outFormat
 
-By default, the outFormat of the TimePicker component is generated based on the type passed in, following the rule of "connecting with - between year, month, and day, connecting with : between hour, minute, and second, and connecting with a space between them", for example, YMD corresponds to Y-M-D, YMDh corresponds to Y-M-D h, and hms corresponds to h:m:s, etc. Of course, you can also customize the output format. Please refer to the example for specific usage.
+By default, the TimePicker component's outFormat is generated from the input type following the rule [years, months, and days are connected by -, hours, minutes, and seconds are connected by :, and the two parts are connected by space]. For example, `'YYYYMMDD'` corresponds to `YYYY-MM-DD`, `'YYYYMMDDhh'` corresponds to `YYYY-MM-DD hh`, `'hhmmss'` corresponds to `hh:mm:ss`, etc. Of course, you can also customize the output format. Please refer to the examples for specific usage.
 
-Please note that if the outFormat passed in is an empty string, the selected time will not be formatted, but the time object will be returned directly, which is also convenient for developers to handle themselves.
+Note that the second parameter returned by onconfirm is the selected time object, making it convenient for developers to handle themselves.
 
-## Description
+## Note
 
-The TimePicker is encapsulated based on the Popup, and is implemented by predefining some of the Popup Props. Therefore, different effects can be achieved by passing in the Popup attributes. For example, in the example, the radius of the popup is changed to change the rounded style.
+TimePicker is encapsulated based on Popup by pre-defining some Popup Props, so different effects can be achieved by passing in Popup properties. For example, in the example, the radius style is changed by setting the popup's radius.

@@ -2,46 +2,33 @@
 <script>
 	import { Cell, TimePicker } from '../../../../../packages/stdf/components';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
-	let visible20 = false;
-	let visible21 = false;
-	let visible22 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
+	let visible22 = $state(false);
 
-	let defaultTimeStr = '';
-	const getDefaultFunc = e => {
-		defaultTimeStr = e.detail.times;
-	};
-	let customFormatStr = '';
-	const customFormatFunc = e => {
-		customFormatStr = e.detail.times;
-	};
-	let monthFirstStr = '';
-	const monthFirstFunc = e => {
-		monthFirstStr = e.detail.times;
-	};
-	let timeObj = {};
-	$: timeObjStr = JSON.stringify(timeObj);
-	const getTimeObjFunc = e => {
-		timeObj = e.detail.times;
-	};
+	let defaultTimeStr = $state('');
+	let customFormatStr = $state('');
+	let monthFirstStr = $state('');
+	let timeObj = $state({});
+	let timeObjStr = $derived(JSON.stringify(timeObj));
 </script>
 
 <div class="py-4">
@@ -50,32 +37,25 @@
 			Currently selected:
 			<span class="mr-2 text-primary dark:text-dark">{defaultTimeStr}</span>
 		{:else}
-			<div>Please select the time</div>
+			<div>Please select a time</div>
 		{/if}
 	</div>
-	<Cell title="Basic usage" subTitle="By default, the current time is selected. 10 years is optional" on:click={() => (visible1 = true)} />
-	<TimePicker bind:visible={visible1} on:confirm={getDefaultFunc} />
+	<Cell title="Basic Usage" subTitle="Default to current time, can select 10 years before and after" onclick={() => (visible1 = true)} />
+	<TimePicker bind:visible={visible1} onconfirm={time => (defaultTimeStr = time)} />
 
-	<Cell title="Just the year, the month and the day" on:click={() => (visible2 = true)} />
-	<TimePicker bind:visible={visible2} type="YMD" />
+	<Cell title="Year Month Day only" onclick={() => (visible2 = true)} />
+	<TimePicker bind:visible={visible2} type="YYYYMMDD" />
 
-	<Cell
-		title="Misrepresentation unsupported type"
-		subTitle="Use the default year, month, day, hour and second"
-		on:click={() => (visible7 = true)}
-	/>
-	<TimePicker bind:visible={visible7} type="MD" />
+	<Cell title="Hour Minute Second only" onclick={() => (visible3 = true)} />
+	<TimePicker bind:visible={visible3} type="hhmmss" />
 
-	<Cell title="Just use the minutes and seconds" on:click={() => (visible3 = true)} />
-	<TimePicker bind:visible={visible3} type="hms" />
+	<Cell title="Year Month Day Hour only" onclick={() => (visible4 = true)} />
+	<TimePicker bind:visible={visible4} type="YYYYMMDDhh" />
 
-	<Cell title="Just the year, the month, the day" on:click={() => (visible4 = true)} />
-	<TimePicker bind:visible={visible4} type="YMDh" />
-
-	<Cell title="Do not display prompt" on:click={() => (visible5 = true)} />
+	<Cell title="Hide Tips" onclick={() => (visible5 = true)} />
 	<TimePicker bind:visible={visible5} showTips={false} />
 
-	<Cell title="Different columns have different visible rows" on:click={() => (visible6 = true)} />
+	<Cell title="Different visible rows for each column" onclick={() => (visible6 = true)} />
 	<TimePicker
 		bind:visible={visible6}
 		yearProps={{ showRow: 3 }}
@@ -84,25 +64,25 @@
 		secondProps={{ showRow: 7 }}
 	/>
 
-	<Cell title="Different columns have different widths" on:click={() => (visible8 = true)} />
+	<Cell title="Different widths for each column" onclick={() => (visible8 = true)} />
 	<TimePicker bind:visible={visible8} yearProps={{ flex: 3 }} dayProps={{ flex: 2 }} />
 
-	<Cell title="Align annual data to the right and daily data to the left" on:click={() => (visible22 = true)} />
-	<TimePicker bind:visible={visible22} type="YMD" yearProps={{ align: 'right' }} dayProps={{ align: 'left' }} />
+	<Cell title="Year data right-aligned, day data left-aligned" onclick={() => (visible22 = true)} />
+	<TimePicker bind:visible={visible22} type="YYYYMMDD" yearProps={{ align: 'right' }} dayProps={{ align: 'left' }} />
 
-	<Cell title="Limited year interval" on:click={() => (visible9 = true)} />
+	<Cell title="Limit year range" onclick={() => (visible9 = true)} />
 	<TimePicker bind:visible={visible9} yearRange={[2022, 2025]} />
 
-	<Cell title="Limited month range" on:click={() => (visible10 = true)} />
+	<Cell title="Limit month range" onclick={() => (visible10 = true)} />
 	<TimePicker bind:visible={visible10} monthRange={[2, 5]} />
 
-	<Cell title="Limited time interval" on:click={() => (visible11 = true)} />
+	<Cell title="Limit hour, minute, second range" onclick={() => (visible11 = true)} />
 	<TimePicker bind:visible={visible11} hourRange={[2, 5]} minuteRange={[25, 45]} secondRange={[5, 10]} />
 
-	<Cell title="The minute step length is 5" on:click={() => (visible12 = true)} />
+	<Cell title="Minute step of 5" onclick={() => (visible12 = true)} />
 	<TimePicker bind:visible={visible12} minuteStep={5} />
 
-	<Cell title="The second step is 10" on:click={() => (visible13 = true)} />
+	<Cell title="Second step of 10" onclick={() => (visible13 = true)} />
 	<TimePicker bind:visible={visible13} secondStep={10} />
 
 	<div class="px-4">
@@ -110,46 +90,50 @@
 			Currently selected:
 			<span class="mr-2 text-primary dark:text-dark">{customFormatStr}</span>
 		{:else}
-			<div>Please select the time</div>
+			<div>Please select a time</div>
 		{/if}
 	</div>
 	<Cell
-		title="User-defined return time format"
-		subTitle="The output format is Y year M month D day h hour m minute s second"
-		on:click={() => (visible15 = true)}
+		title="Custom return time format"
+		subTitle="Output format: X year X month X day X hour X minute X second"
+		onclick={() => (visible15 = true)}
 	/>
-	<TimePicker bind:visible={visible15} outFormat="Y year, M month, D day, h hour, m minutes, s seconds" on:confirm={customFormatFunc} />
+	<TimePicker
+		bind:visible={visible15}
+		outFormat="YYYY year MM month DD day hh hour mm minute ss second"
+		onconfirm={timeStr => (customFormatStr = timeStr)}
+	/>
 
 	<div class="px-4">
 		{#if monthFirstStr !== ''}
 			Currently selected:
 			<span class="mr-2 text-primary dark:text-dark">{monthFirstStr}</span>
 		{:else}
-			<div>Please select the time</div>
+			<div>Please select a time</div>
 		{/if}
 	</div>
-	<Cell title="Return time month before" on:click={() => (visible16 = true)} />
-	<TimePicker bind:visible={visible16} type="YMD" outFormat="M/D/Y" on:confirm={monthFirstFunc} />
+	<Cell title="Return time with month first" onclick={() => (visible16 = true)} />
+	<TimePicker bind:visible={visible16} type="YYYYMMDD" outFormat="MM/DD/YYYY" onconfirm={timeStr => (monthFirstStr = timeStr)} />
 
 	<div class="px-4 text-xs">
 		Currently selected:<br />
-		<span class="mr-2 text-primary dark:text-dark break-words">{timeObjStr}</span>
+		<span class="mr-2 break-words text-primary dark:text-dark">{timeObjStr}</span>
 	</div>
-	<Cell title="Return time object" on:click={() => (visible17 = true)} />
-	<TimePicker bind:visible={visible17} outFormat="object" on:confirm={getTimeObjFunc} />
+	<Cell title="Return time object" onclick={() => (visible17 = true)} />
+	<TimePicker bind:visible={visible17} onconfirm={(_, obj) => (timeObj = obj)} />
 
-	<Cell title="I want some rounded corners on the top" on:click={() => (visible14 = true)} />
+	<Cell title="Rounded corners at the top" onclick={() => (visible14 = true)} />
 	<TimePicker bind:visible={visible14} popup={{ radius: 'xl' }} />
 
-	<Cell title="Custom title" on:click={() => (visible18 = true)} />
-	<TimePicker bind:visible={visible18} title="Please select the time" />
+	<Cell title="Custom title" onclick={() => (visible18 = true)} />
+	<TimePicker bind:visible={visible18} title="Please select a time" />
 
-	<Cell title="Specifies the initial selection year" on:click={() => (visible19 = true)} />
+	<Cell title="Specify initial selected year" onclick={() => (visible19 = true)} />
 	<TimePicker bind:visible={visible19} initYear="2020" />
 
-	<Cell title="Specifies the initial selected month" on:click={() => (visible20 = true)} />
+	<Cell title="Specify initial selected month" onclick={() => (visible20 = true)} />
 	<TimePicker bind:visible={visible20} initMonth="05" />
 
-	<Cell title="Specifies the initial selection time" on:click={() => (visible21 = true)} />
+	<Cell title="Specify initial selected hour, minute, second" onclick={() => (visible21 = true)} />
 	<TimePicker bind:visible={visible21} initHour="05" initMinute="05" initSecond="05" />
 </div>

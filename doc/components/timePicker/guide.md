@@ -4,21 +4,22 @@ TimePicker 组件用于选择时间，支持单列选择和多列选择。默认
 
 ## 时间类型
 
-TimePicker 组件通过传入的 type 参数来决定选择的时间类型，由 Y M D h m s 组合而来，目前共支持以下 13 种，不在此列出的类型将使用默认的 'YMDhms' 类型。
+TimePicker 组件通过传入的 type 参数来决定选择的时间类型，由 YYYY MM DD hh mm ss 组合而来，目前共支持以下 13 种，不在此列出的类型将使用默认的 'YYYYMMDDhhmmss' 类型。
 
-- Y：年
-- M：月
-- h：时
-- m：分
-- s：秒
-- YM：年月
-- hm：时分
-- ms：分秒
-- YMD：年月日
-- hms：时分秒
-- YMDh：年月日时
-- YMDhm：年月日时分
-- YMDhms：年月日时分秒
+- YYYY：年
+- MM：月
+- DD：日
+- hh：时
+- mm：分
+- ss：秒
+- YYYYMM：年月
+- hhmm：时分
+- mmss：分秒
+- YYYYMMDD：年月日
+- hhmmss：时分秒
+- YYYYMMDDhh：年月日时
+- YYYYMMDDhhmm：年月日时分
+- YYYYMMDDhhmmss：年月日时分秒
 
 ## 单列样式
 
@@ -38,9 +39,9 @@ TimePicker 组件通过传入的 type 参数来决定选择的时间类型，由
 
 ## outFormat
 
-默认情况下，TimePicker 组件的 outFormat 由传入的 type 按照『年月日之间用 - 连接，时分秒之间用 : 连接，两者之间用空格连接』的规则生成，比如转入 YMD 对应 Y-M-D，YMDh 对应 Y-M-D h， hms 对应 h:m:s 等。当然也可以自定义输出格式。具体使用请参考示例。
+默认情况下，TimePicker 组件的 outFormat 由传入的 type 按照 【年月日之间用 - 连接，时分秒之间用 : 连接，两者之间用空格连接】的规则生成，比如转入 `'YYYYMMDD'` 对应 `YYYY-MM-DD`，`'YYYYMMDDhh'` 对应 `YYYY-MM-DD hh`，`'hhmmss'` 对应 `hh:mm:ss` 等。当然也可以自定义输出格式。具体使用请参考示例。
 
-需要注意的是，如果传入的 outFormat 是空字符串，则不会对选择的时间进行格式化，而是直接返回选择的时间对象，也方便开发者自行处理。
+需要注意的是，onconfirm 返回的第二个参数是选择的时间对象，方便开发者自行处理。
 
 ## 说明
 
