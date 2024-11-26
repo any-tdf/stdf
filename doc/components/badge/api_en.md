@@ -1,18 +1,18 @@
 ## Badge Props
 
-| Properties | Type    | Default value | Optional value              | required | Description                                                                    |
-| ---------- | ------- | ------------- | --------------------------- | -------- | ------------------------------------------------------------------------------ |
-| text       | String  | ''            | -                           | N        | Mark copywriting.                                                              |
-| radius     | String  | 'full'        | 'full'/'base'/'none'/'leaf' | N        | Round -corner style.                                                           |
-| isShow     | Boolean | true          | true/false                  | N        | Whether to display.                                                            |
-| isInner    | Boolean | false         | true/false                  | N        | Whether it is inside.                                                          |
-| isLeft     | Boolean | false         | true/false                  | N        | Whether it is located on the left (only isinner is effective when false).      |
-| offsetY    | Number  | 0             | -                           | N        | The displacement of the upper and lower part (only when the Isinner is false). |
-| offsetX    | Number  | 0             | -                           | N        | The left and right offset (only when the Isinner is false).                    |
-| injClass   | String  | ''            | Class                       | N        | Inject the CSS name.                                                           |
+| Name     | Type                             | Default  | Required | Description                                                         |
+| -------- | -------------------------------- | -------- | -------- | ------------------------------------------------------------------- |
+| text     | `string`                         | `''`     | N        | Badge text content.                                                 |
+| radius   | `'full'\|'base'\|'none'\|'leaf'` | `'full'` | N        | Border radius style.                                                |
+| isLeft   | `boolean`                        | `false`  | N        | Whether to position on the left (only works when isInner is false). |
+| isShow   | `boolean`                        | `true`   | N        | Whether to show the badge.                                          |
+| offsetY  | `number`                         | `0`      | N        | Vertical offset (only works when isInner is false).                 |
+| offsetX  | `number`                         | `0`      | N        | Horizontal offset (only works when isInner is false).               |
+| isInner  | `boolean`                        | `false`  | N        | Whether to position inside.                                         |
+| injClass | `string`                         | `''`     | N        | Injected CSS class name.                                            |
 
-## Badge Slots
+## Badge Snippets
 
-| Name | Explanation                                           |
-| ---- | ----------------------------------------------------- |
-| -    | Isinner is a relative position of Badge when isinner. |
+| Name     | Type                                                                | Params | Description                                             |
+| -------- | ------------------------------------------------------------------- | ------ | ------------------------------------------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -      | Content for relative positioning when isInner is false. |

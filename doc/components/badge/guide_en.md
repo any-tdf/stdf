@@ -10,7 +10,7 @@ By default, the `Badge` component is positioned relative to the upper right corn
 
 ## Leaf-shaped Corner Radius
 
-When `radius` is set to `leaf`, the corner style of the `Badge` is leaf-shaped, and the direction of the leaves is associated with the current position.
+When `radius` is set to `'leaf'`, the corner style of the `Badge` is leaf-shaped, and the direction of the leaves is associated with the current position.
 
 ## Injecting CSS
 
