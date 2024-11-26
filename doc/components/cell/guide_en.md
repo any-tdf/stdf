@@ -1,43 +1,43 @@
-> Cell uses the icon ri-arrow-right-s-line, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Cell uses the icon ri-arrow-right-s-line, please make sure this icon is included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
 ## Description
 
-It is always difficult to balance customization and ease of use in component library development.
+In component library development, satisfying both customization and ease of use is always a trade-off.
 
-As a component with high frequency of use in mobile scenes, Cell has a lot of props and customizable options due to the various use cases it can accommodate.
+As a frequently used component in mobile applications, Cell supports many use cases, which is why it has quite a few Props and customization options.
 
-## Slots
+## Snippet
 
-Cell component supports two slots: left and right. When the left parameter is set to 'slot', the leftmost content of the cell will be rendered in the left slot. You can refer to the example to customize the left image. When the right parameter is set to 'slot', the content on the right side of the cell will be rendered in the right slot. You can refer to the example to customize the right image.
+Cell component supports three slots: leftChild, rightChild and detailChild. When leftChild is provided, the leftmost content of Cell will be rendered by the leftChild slot, refer to examples for customizing left images; when rightChild is provided, the rightmost content will be rendered by rightChild, refer to examples for customizing right images; when detailChild is provided, the right detail content will be rendered by detailChild, refer to examples for customizing right detail content.
 
 ## left & right
 
-The left parameter also supports the Icon Props format Object. In this case, the STDF Icon component will be used to render it.
+The left parameter supports Icon Props, which will be rendered using STDF's Icon component.
 
-Considering that the arrow is widely used in the right area of the Cell component, the component defaults to the 'arrow' value for the right parameter, which displays the arrow.
+Considering that arrows are commonly used in the right area of Cell, the default right parameter is set to `'arrow'`, displaying an arrow.
 
-The right parameter also supports Icon Props. Considering that the switch is widely used in the right area of the Cell component, the right parameter adds a type property (optional 'icon' and 'switch') to distinguish between Icon and Switch components.
+right also supports Icon Props. Given that switches are frequently used on the right side, to distinguish between Switch Props and other Icon Props, right includes a type attribute (options are `'icon'` and `'switch'`) to differentiate between Icon and Switch components.
 
-Optimization: When the right side is a switch, clicking on the entire Cell area will toggle the switch.
+Optimization: When right is set to switch, clicking anywhere in the Cell area will toggle the Switch state.
 
-Please refer to the respective component API for specific Icon Props and Switch Props.
+For specific Icon Props and Switch Props, please refer to the corresponding component APIs.
 
 ## clickAll
 
-Considering the user-friendliness of mobile interaction, by default, clicking on any part of a cell on a mobile device will trigger an event. However, to accommodate different scenarios, you can disable this feature by setting the `clickAll` parameter to false. This means that events will only be triggered in specific areas, such as when using the Switch component in the example, where the event will only be triggered when clicking on the Switch.
+Considering mobile interaction friendliness, Cell triggers events by default when clicking anywhere in the row. However, for diverse scenarios, you can disable this feature by setting clickAll parameter to false. This restricts event triggering to specific areas, like in examples where it's used with Switch component to only trigger events when clicking the Switch.
 
-## switcheck
+## switchActive
 
-The switcheck value only takes effect when the type of right is switch, indicating the switch state value. Please note that the check inside the Cell Switch is determined by switcheck. **Please do not pass check inside the switch again**.
+switchActive value only takes effect when right's type is switch, indicating the switch state. Note that in this case, the Cell's internal Switch active state is determined by switchActive, **please do not pass active inside switch again**.
 
 ## Bottom Divider
 
-Mainly used for combination scenarios, when there is a gap between cells, you can use the line parameter to control whether the bottom divider is displayed.
+Mainly used in combinations, when there are gaps between Cells, you can use the line parameter to control whether to display the bottom divider.
 
 ## Combination Usage
 
-The Cell component supports combination usage, and Cell can be passed to Cell Group. In order not to affect the layout, please refer to the example to configure the line parameter, my, mx, radius, shadow for a single Cell.
+Cell component supports combination usage by passing Cells to CellGroup. To avoid affecting the layout, pay attention to configuring individual Cell's my, mx, radius, shadow, line parameters, please refer to examples.
 
 ## Customization
 
-By using the top, bottom, left, and right padding and top and bottom radius parameters, you can configure various Cell styles. If they still do not meet your needs, you can use injected CSS (injClass) to implement more customized styles. Please refer to the example.
+Using vertical and horizontal margin parameters and top/bottom border radius parameters, you can configure various Cell styles. If these still don't meet your needs, you can use injected CSS (injClass) to achieve more custom styles, please refer to examples.

@@ -26,9 +26,9 @@
 </script>
 
 <div
-	class={`bg-white dark:bg-black overflow-hidden${shadowClass[shadow] || shadowClass['sm']}${radiusClass[radius] || radiusClass['lg']}${
-		myClass[my] || myClass['4']
-	}${mxClass[mx] || mxClass['2']}`}
+	class="bg-white dark:bg-black overflow-hidden{shadowClass[shadow] || shadowClass['sm']}{radiusClass[radius] || radiusClass['lg']}{myClass[
+		my
+	] || myClass['4']}{mxClass[mx] || mxClass['2']}"
 >
 	{@render children?.()}
 </div>

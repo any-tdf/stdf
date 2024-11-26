@@ -1,13 +1,6 @@
 <script>
-	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import Switch from '../switch/Switch.svelte';
-	import zh_CN from '../../lang/zh_CN';
-
-	// 当前语言
-	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const commonLang = currentLang.common;
 
 	/** @typedef {import('../../index.d').Cell} CellProps */
 	/** @type {CellProps} */
@@ -15,14 +8,14 @@
 		title = '',
 		detail = '',
 		right = 'arrow',
-		left = '',
+		left = null,
 		subTitle = '',
 		info = '',
 		line = false,
 		my = '4',
 		mx = '2',
 		radius = 'lg',
-		switchActive = false,
+		switchActive = $bindable(false),
 		shadow = 'sm',
 		injClass = '',
 		love = false,
@@ -69,8 +62,8 @@
 	// Click event
 	const setClickFun = () => {
 		if (clickAll) {
-			if (typeof right === 'object' && right.type === 'switch' && !right.switch?.disabled) {
-				switchActive = right.switch?.async ? switchActive : !switchActive;
+			if (typeof right === 'object' && right?.type === 'switch' && !right?.switch?.disabled) {
+				switchActive = right?.switch?.async ? switchActive : !switchActive;
 			}
 			// 派发事件
 			// Dispatch event
@@ -79,62 +72,53 @@
 	};
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	onclick={setClickFun}
-	class={`px-4 cursor-pointer bg-white dark:bg-gray-800${clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} ${
-		myClass[my] || myClass['4']
-	}${mxClass[mx] || mxClass['2']}${radiusObj[radius] || radiusObj['lg']} ${shadowClass[shadow] || shadowClass['sm']}${
-		love ? ' text-xl' : ''
-	} ${injClass}`}
+	class="px-4 bg-white dark:bg-gray-800{clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} {myClass[my] ||
+		myClass['4']}{mxClass[mx] || mxClass['2']}{radiusObj[radius] || radiusObj['lg']} {shadowClass[shadow] || shadowClass['sm']}{love
+		? ' text-xl'
+		: ''} {injClass}"
 >
-	<div class={`flex justify-between gap-4 py-4${line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}`}>
-		<!-- left -->
+	<button
+		onclick={setClickFun}
+		class="flex w-full justify-between gap-4 py-4{line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}"
+	>
 		<div class="flex justify-between items-center">
-			{#if left === ''}
-				<!-- none -->
-			{:else if left === 'child'}
+			{#if leftChild}
 				{@render leftChild?.()}
-			{:else}
-				<div class="mr-1 flex flex-col justify-center">
+			{:else if left}
+				<div class="flex flex-col justify-center mr-1">
 					<Icon {...left} />
 				</div>
-			{/if}
-			<div class={`flex flex-col ${subTitle === '' ? 'justify-center' : 'justify-between'}`}>
+			{:else}{/if}
+			<div class="flex flex-col text-left {subTitle === '' ? 'justify-center' : 'justify-between'}">
 				<div class="font-medium">{title}</div>
 				<div class="text-xs text-gray-500 dark:text-gray-400">{subTitle}</div>
 			</div>
 		</div>
-		<!-- right -->
 		<div class="flex justify-between items-center">
-			<div class={`flex flex-col ${info === '' ? 'justify-center' : 'justify-between'} text-right `}>
-				{#if detail === 'slot'}
+			<div class="flex flex-col {info === '' ? 'justify-center' : 'justify-between'} text-right">
+				{#if detailChild}
 					{@render detailChild?.()}
-				{:else}
+				{:else if detail}
 					<div class="text-gray-700 dark:text-gray-300">{detail}</div>
-				{/if}
-				<div class="text-xs text-gray-500 dark:text-gray-400 font-light">{info}</div>
+				{:else}{/if}
+				<div class="text-xs font-light text-gray-500 dark:text-gray-400">{info}</div>
 			</div>
-			{#if right === 'none'}
-				<!-- none -->
+			{#if rightChild}
+				{@render rightChild?.()}
 			{:else if right === 'arrow'}
-				<div class="text-gray-700 dark:text-gray-300 flex flex-col justify-center">
+				<div class="flex flex-col justify-center text-gray-700 dark:text-gray-300">
 					<Icon name="ri-arrow-right-s-line" size={love ? 26 : 20} alpha={0.6} top={-2} />
 				</div>
-			{:else if typeof right === 'object' && right.type === 'switch' && right.switch}
-				<div class="ml-1 flex flex-col justify-center">
-					<Switch active={switchActive} {...right.switch} />
+			{:else if typeof right === 'object' && right?.type === 'switch'}
+				<div class="flex flex-col justify-center ml-1">
+					<Switch active={switchActive} {...right?.switch} />
 				</div>
-			{:else if typeof right === 'object' && right.type === 'icon' && right.icon}
-				<div class="ml-1 flex flex-col justify-center">
-					<Icon {...right.icon} />
+			{:else if typeof right === 'object' && right?.type === 'icon' && right?.icon}
+				<div class="flex flex-col justify-center ml-1">
+					<Icon {...right?.icon} />
 				</div>
-			{:else if right === 'child'}
-				{@render rightChild?.()}
-			{:else}
-				<!-- none -->
-			{/if}
+			{:else}{/if}
 		</div>
-	</div>
+	</button>
 </div>
