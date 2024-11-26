@@ -30,10 +30,10 @@
 
 {#if isInner}
 	<div
-		class={`px-1 text-xs text-white whitespace-nowrap${radiusClass}${
-			text === '' ? ' w-3 h-3' : ' '
-		} text-center leading-4 transition-all bg-[red]${injClass === '' ? '' : ` ${injClass}`}`}
-		style={`transform:${isShow ? ' scale(1)' : ' scale(0)'}`}
+		class="px-1 text-xs text-white whitespace-nowrap{radiusClass}{text === ''
+			? ' w-3 h-3'
+			: ' '} text-center leading-4 transition-all bg-[red]{injClass === '' ? '' : ` ${injClass}`}"
+		style="transform:{isShow ? ' scale(1)' : ' scale(0)'}"
 	>
 		{text}
 	</div>
@@ -41,14 +41,14 @@
 	<div class="relative">
 		{@render children?.()}
 		<div
-			class={`absolute${text === '' ? ' -top-1.5' : ' -top-2'}${
-				isLeft ? ' left-0' : ' right-0'
-			} px-1 text-xs text-white whitespace-nowrap${radiusClass}${
-				text === '' ? ' w-3 h-3' : ' '
-			} text-center leading-4 transition-all bg-[red]${injClass === '' ? '' : ` ${injClass}`}`}
-			style={`transform: translateX(calc(${isLeft ? '-' : ''}50% ${isLeft ? '+' : '-'} ${offsetX}px)) translateY(${offsetY}px)${
-				isShow ? ' scale(1)' : ' scale(0)'
-			}`}
+			class="absolute{text === '' ? ' -top-1.5' : ' -top-2'}{isLeft
+				? ' left-0'
+				: ' right-0'} px-1 text-xs text-white whitespace-nowrap{radiusClass}{text === ''
+				? ' w-3 h-3'
+				: ' '} text-center leading-4 transition-all bg-[red]{injClass === '' ? '' : ` ${injClass}`}"
+			style="transform: translateX(calc({isLeft ? '-' : ''}50% {isLeft ? '+' : '-'} {offsetX}px)) translateY({offsetY}px){isShow
+				? ' scale(1)'
+				: ' scale(0)'}"
 		>
 			{text}
 		</div>
