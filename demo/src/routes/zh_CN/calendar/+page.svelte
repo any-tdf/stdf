@@ -27,7 +27,7 @@
 	let visible23 = $state(false);
 	let visible24 = $state(false);
 
-	// 随机取出当前日期后的6天，组成 infoDates 数组，其中 date 格式为 YYYYMMDD，月和日补足2位
+	// 随机取出当前日期后的 6 天，组成 infoDates 数组，其中 date 格式为 YYYYMMDD，月和日补足 2 位
 	const now = new Date();
 	const infoDates = $state([]);
 	for (let i = 0; i < 6; i++) {
@@ -44,7 +44,7 @@
 		};
 	});
 
-	// 获取当前日期的前7天和后7天共14天，组成数组 disabledDates，其中 date 格式为 YYYYMMDD，月和日补足2位
+	// 获取当前日期的前 7 天和后 7 天共 14 天，组成数组 disabledDates，其中 date 格式为 YYYYMMDD，月和日补足 2 位
 	const disabledDates = [];
 	const before7 = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 	for (let i = 0; i < 14; i++) {
@@ -78,6 +78,12 @@
 	const getSelectedFormatDatesFunc = dates => {
 		selectedFormatDates = dates;
 	};
+
+	const labels4 = [
+		{ text: '首页', icon: { name: 'ri-home-3-line', size: 20 }, activeIcon: { name: 'ri-home-3-fill', size: 20 } },
+		{ text: '消息', icon: { name: 'ri-discuss-line', size: 20 }, activeIcon: { name: 'ri-discuss-fill', size: 20 } },
+		{ text: '我的', icon: { name: 'ri-account-circle-line', size: 20 }, activeIcon: { name: 'ri-account-circle-fill', size: 20 } },
+	];
 </script>
 
 <div class="py-4">
@@ -163,7 +169,7 @@
 			<div>请选定日期</div>
 		{/if}
 	</div>
-	<div class="grid grid-cols-3 gap-2 p-2 text-primary dark:text-dark text-sm">
+	<div class="grid grid-cols-3 gap-2 p-2 text-sm text-primary dark:text-dark">
 		{#each selectedFormatDates as item}
 			<div class="text-center">{item}</div>
 		{/each}
