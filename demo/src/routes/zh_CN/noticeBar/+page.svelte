@@ -5,7 +5,7 @@
 	let textList = ['1. 这是第一条通告内容！', '2. 这是第二条通告内容！'];
 	let textLongList = ['1. 这条通告超长长长长长长长长长长长长长长长长长长长长长！', '2. 这是第二条通告内容！'];
 
-	let visible = false;
+	let visible = $state(false);
 </script>
 
 <div class="m-4 mt-8 font-bold text-lg">基础用法</div>
@@ -21,22 +21,31 @@
 <NoticeBar speed={100} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">右侧箭头（监听点击事件）</div>
-<NoticeBar rightIcon="arrow" {textList} on:clickright={() => (visible = true)}></NoticeBar>
+<NoticeBar rightIcon="arrow" {textList} onclickRight={() => (visible = true)}></NoticeBar>
 <Toast bind:visible message="点击了右侧箭头！"></Toast>
 
 <div class="m-4 mt-8 font-bold text-lg">右侧无内容</div>
-<NoticeBar rightIcon="none" {textList}></NoticeBar>
+<NoticeBar rightIcon={null} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">左侧无内容</div>
-<NoticeBar leftIcon="none" {textList}></NoticeBar>
+<NoticeBar leftIcon={null} {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">设定文字大小</div>
 <NoticeBar fontSize="lg" {textList}></NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">自定义左侧</div>
 <NoticeBar leftIcon={{ name: 'ri-notification-2-line', size: 16, top: -1 }} {textList}></NoticeBar>
+<div class="my-4"></div>
 <NoticeBar leftIcon={{ name: 'ri-wireless-charging-line', size: 16, top: -1 }} {textList}></NoticeBar>
-<NoticeBar leftIcon="slot" {textList}>🥳</NoticeBar>
+<div class="my-4"></div>
+<NoticeBar {textList}>
+	{#snippet leftChild()}🥳{/snippet}
+</NoticeBar>
+
+<div class="m-4 mt-8 font-bold text-lg">自定义右侧</div>
+<NoticeBar {textList}>
+	{#snippet rightChild()}🥳{/snippet}
+</NoticeBar>
 
 <div class="m-4 mt-8 font-bold text-lg">垂直滚动</div>
 <NoticeBar vertical {textList}></NoticeBar>
@@ -55,6 +64,8 @@
 
 <div class="m-4 mt-8 font-bold text-lg">自定义样式</div>
 <NoticeBar injClass="!text-error !bg-error/10" {textList}></NoticeBar>
+<div class="my-4"></div>
 <NoticeBar leftIcon={{ name: 'ri-check-line', size: 16, top: -1 }} injClass="!text-success !bg-success/10" {textList}></NoticeBar>
+<div class="my-4"></div>
 <NoticeBar injClass="!text-extend0 !bg-extend0/10" {textList}></NoticeBar>
 <div class="pb-8"></div>

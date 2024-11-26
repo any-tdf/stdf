@@ -8,11 +8,11 @@
 
 ## leftIcon 与 rightIcon
 
-左侧区域 leftIcon 除了默认的小喇叭图标，可以传入 Icon Props 实现其他图标显示，还可以自定义任何内容，通过插槽实现，而右侧区域 rightIcon 只允许关闭、箭头、不显示三种情况，请参考示例。
+左侧区域 leftIcon 除了默认的小喇叭图标，可以传入 Icon Props 实现其他图标显示，还可以自定义任何内容，通过 leftChild 这个 Snippet 实现，而右侧区域 rightIcon 只允许关闭、箭头、不显示三种情况，也可以通过 rightChild 这个 Snippet 实现自定义内容，请参考示例。
 
-## clickright 事件
+## onclickRight 事件
 
-当点击右侧区域时，如果 rightIcon 为 close 会关闭当前通告栏；而 rightIcon 无论是 close 还是 arrow 都会派发 clickright 事件，可以通过监听该事件来实现自定义的业务逻辑。
+当点击右侧区域时，如果 rightIcon 为 close 会关闭当前通告栏；而 rightIcon 无论是 close 还是 arrow 都会派发 onclickRight 事件，可以通过监听该事件来实现自定义的业务逻辑。
 
 ## CSS 注入
 

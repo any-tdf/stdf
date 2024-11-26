@@ -6,7 +6,7 @@
 	/** @type {NoticeBarProps} */
 	let {
 		textList = [],
-		leftIcon = { name: 'ri-volume-down-line', size: 20, top: -1 },
+		leftIcon = {},
 		rightIcon = 'close',
 		fontSize = 'sm',
 		space = 100,
@@ -16,6 +16,7 @@
 		interval = 4,
 		injClass = '',
 		leftChild,
+		rightChild,
 		onclickRight,
 	} = $props();
 
@@ -121,28 +122,26 @@
 
 {#if isShowClose}
 	<div
-		class={`flex justify-between bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark${
-			fontSizeClass[fontSize] || fontSizeClass['sm']
-		} p-2${!rightIcon ? ' pr-2' : ' pr-0'} transition-all duration-300${isShow ? '' : ' scale-0'}${injClass === '' ? '' : ` ${injClass}`}`}
+		class="flex justify-between bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark{fontSizeClass[fontSize] ||
+			fontSizeClass['sm']} p-2{!rightIcon ? ' pr-2' : ' pr-0'} transition-all duration-300{isShow ? '' : ' scale-0'}{injClass === ''
+			? ''
+			: ` ${injClass}`}"
 	>
-		<div class={`${!leftIcon ? '' : 'mr-1'}`}>
+		<div class={!leftIcon ? '' : 'mr-1'}>
 			{#if leftChild}
 				{@render leftChild()}
-			{:else if !leftIcon}
-				<!--none-->
-			{:else}
-				<Icon {...leftIcon} />
+			{:else if !leftIcon}{:else}
+				<Icon name="ri-volume-down-line" size={20} top={-1} {...leftIcon} />
 			{/if}
 		</div>
 		{#if vertical}
 			<div class="grow" bind:this={outBoxDom}>
-				<div class="relative overflow-hidden" style={`height:${outBoxHeight}px;`}>
+				<div class="relative overflow-hidden" style="height:{outBoxHeight}px;">
 					{#each textListVertical as item, i}
 						<div
-							class={`absolute truncate${isTransition ? ' transition-all' : ' transition-none'}${
-								durationClass[duration] || durationClass['500']
-							}`}
-							style={`top:${-(currentIndex - i) * outBoxHeight}px;width:${outBoxWidth}px`}
+							class="absolute truncate{isTransition ? ' transition-all' : ' transition-none'}{durationClass[duration] ||
+								durationClass['500']}"
+							style="top:{-(currentIndex - i) * outBoxHeight}px;width:{outBoxWidth}px"
 						>
 							{item}
 						</div>
@@ -158,14 +157,14 @@
 				</div>
 			</div>
 		{/if}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class={`${!rightIcon ? '' : 'pl-2 pr-4'}`} onclick={clickFun}>
-			{#if rightIcon === 'close'}
+		<button class={!rightIcon ? '' : 'pl-2 pr-4'} onclick={clickFun}>
+			{#if rightChild}
+				{@render rightChild()}
+			{:else if !rightIcon}{:else if rightIcon === 'close'}
 				<Icon name="ri-close-line" size={20} top={-1} />
 			{:else if rightIcon === 'arrow'}
 				<Icon name="ri-arrow-right-s-line" size={20} top={-1} />
 			{/if}
-		</div>
+		</button>
 	</div>
 {/if}

@@ -1,21 +1,21 @@
-> NoticeBar uses the icons ri-volume-down-line and ri-close-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> NoticeBar uses icons ri-volume-down-line and ri-close-line. Please ensure these icons are included in your project's symbol.svg file. For more details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
 ## Description
 
-When placed horizontally, NoticeBar will automatically scroll horizontally if the total length of the content plus the spacing between each content exceeds the width of the container, otherwise it will not scroll.
+When placed horizontally, regardless of the number of content items, NoticeBar will automatically scroll horizontally if the total length of all content plus the spacing between them exceeds the container width. Otherwise, it will not scroll.
 
-When placed vertically, it will automatically scroll vertically if there is more than one piece of content, and if a single piece of content is too long it will overflow.
+When placed vertically, it will automatically scroll vertically if there is more than one content item. Single content items that are too long will overflow.
 
-## `leftIcon` and `rightIcon`
+## leftIcon and rightIcon
 
-The `leftIcon` area, in addition to the default small speaker icon, can display other icons with Icon Props or any custom content through a slot. The `rightIcon` area, on the other hand, only allows for the options of close, arrow, or not showing, please refer to the example.
+The left area (leftIcon), besides the default speaker icon, can display other icons by passing Icon Props. It can also be customized with any content through the leftChild Snippet. The right area (rightIcon) only allows three states: close, arrow, or hidden. It can also be customized through the rightChild Snippet. Please refer to the examples.
 
-## `clickright` event
+## onclickRight Event
 
-When clicking on the right area, if `rightIcon` is "close", it will close the current notice bar. Whether `rightIcon` is "close" or "arrow", it will dispatch a `clickright` event, which can be used to implement custom business logic by listening to the event.
+When clicking the right area, if rightIcon is set to close, it will close the current notice bar. Whether rightIcon is set to close or arrow, it will dispatch the onclickRight event, which can be listened to implement custom business logic.
 
-## CSS injection
+## CSS Injection
 
-The `injClass` parameter can inject a CSS classname (not limited to Tailwind CSS) into the outermost element within the component, which provides more customization options for the component's style. In the example, custom background color and text color are achieved through `injClass`.
+Through the injClass parameter, you can inject CSS class names (not limited to Tailwind CSS) into the component's outermost element. This provides more possibilities for custom styling. In the example, injClass is used to implement custom background and text colors.
 
-If the injected class does not take effect, add a "!" before the injected class name, as shown in the [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier) documentation.
+If the injected class doesn't take effect, please add "!" before the class name. You can refer to [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).
