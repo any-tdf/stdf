@@ -6,7 +6,7 @@
 	let {
 		image = '',
 		alt = '',
-		icon = { name: 'ri-user-3-line', theme: true },
+		icon = {},
 		altSize = 'md',
 		radius = 'base',
 		size = 'base',
@@ -68,7 +68,13 @@
 >
 	{#if image === '' && alt === ''}
 		<div class="m-auto">
-			<Icon size={iconSizeObj[size] || iconSizeObj.base} {...icon} injClass="text-primary-950 dark:text-dark-950" />
+			<Icon
+				size={iconSizeObj[size] || iconSizeObj.base}
+				name="ri-user-3-line"
+				theme
+				{...icon}
+				injClass="text-primary-950 dark:text-dark-950"
+			/>
 		</div>
 	{:else if image === '' && alt !== ''}
 		<div
