@@ -1,25 +1,25 @@
 ## Switch Props
 
-| 属性     | 类型         | 默认值 | 可选值                            | 必传 | 说明                                          |
-| -------- | ------------ | ------ | --------------------------------- | ---- | --------------------------------------------- |
-| check    | Boolean      | false  | true/false                        | N    | 开关状态。                                    |
-| radius   | String       | 'base' | 'full'/'base'/'none'              | N    | 圆角风格。                                    |
-| inside   | Array/String | ''     | Array/'state'/'loading'/'slot'/'' | N    | 开关内部内容。                                |
-| injClass | String       | ''     | Class                             | N    | 注入 CSS 名称。                               |
-| disabled | Boolean      | false  | true/false                        | N    | 是否禁用。                                    |
-| async    | Boolean      | false  | true/false                        | N    | 是否异步。                                    |
-| loading  | Object       | {}     | 参考 Loading Props                | N    | 加载组件参数，仅 inside 为 'loading' 时生效。 |
+| 名称     | 类型                                                            | 默认值   | 必传 | 说明                                            |
+| -------- | --------------------------------------------------------------- | -------- | ---- | ----------------------------------------------- |
+| active   | `boolean`                                                       | `false`  | N    | 开关状态。                                      |
+| radius   | `'none'\|'base'\|'full'`                                        | `'base'` | N    | 圆角风格。                                      |
+| inside   | `'state'\|'loading'\|[string,string]\|null`                     | `null`   | N    | 开关内部内容。                                  |
+| injClass | `string`                                                        | `''`     | N    | 注入 CSS 名称。                                 |
+| disabled | `boolean`                                                       | `false`  | N    | 是否禁用。                                      |
+| async    | `boolean`                                                       | `false`  | N    | 是否异步。                                      |
+| loading  | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`     | N    | 加载组件参数，仅 inside 为 `'loading'` 时生效。 |
 
 ## Switch Events
 
-| 名称   | 参数                                            | 描述                  |
-| ------ | ----------------------------------------------- | --------------------- |
-| click  | -                                               | 点击触发 。           |
-| change | event：事件对象，其中 detail 表示当前开关状态。 | 开关状态变化时触发 。 |
+| 名称     | 类型                        | 参数                    | 描述                  |
+| -------- | --------------------------- | ----------------------- | --------------------- |
+| onclick  | `() => void`                | -                       | 点击触发 。           |
+| onchange | `(active: boolean) => void` | active - 当前开关状态。 | 开关状态变化时触发 。 |
 
-## Switch Slots
+## Switch Snippets
 
-| 名称  | 说明                       |
-| ----- | -------------------------- |
-| true  | 状态为开启时开关内部内容。 |
-| false | 状态为关闭时开关内部内容。 |
+| 名称       | 类型                                                                | 参数 | 说明                       |
+| ---------- | ------------------------------------------------------------------- | ---- | -------------------------- |
+| trueChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 状态为开启时开关内部内容。 |
+| falseChild | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 状态为关闭时开关内部内容。 |

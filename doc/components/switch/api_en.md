@@ -1,25 +1,25 @@
 ## Switch Props
 
-| Prop Name | Type         | Default | Options                           | Required | Description                                                        |
-| --------- | ------------ | ------- | --------------------------------- | -------- | ------------------------------------------------------------------ |
-| check     | Boolean      | false   | true/false                        | No       | Switch status.                                                     |
-| radius    | String       | 'base'  | 'full'/'base'/'none'              | No       | Corner style.                                                      |
-| inside    | Array/String | []      | Array/'state'/'loading'/'slot'/'' | No       | Switch internal content.                                           |
-| injClass  | String       | ''      | Class                             | No       | Inject CSS class names.                                            |
-| disabled  | Boolean      | false   | true/false                        | No       | Whether disabled.                                                  |
-| async     | Boolean      | false   | true/false                        | No       | Whether asynchronous.                                              |
-| loading   | Object       | {}      | Refer to Loading Props            | No       | Loading component parameters, only valid when inside is 'loading'. |
+| Name     | Type                                                            | Default  | Required | Description                                                              |
+| -------- | --------------------------------------------------------------- | -------- | -------- | ------------------------------------------------------------------------ |
+| active   | `boolean`                                                       | `false`  | N        | Switch state.                                                            |
+| radius   | `'none'\|'base'\|'full'`                                        | `'base'` | N        | Border radius style.                                                     |
+| inside   | `'state'\|'loading'\|[string,string]\|null`                     | `null`   | N        | Switch inner content.                                                    |
+| injClass | `string`                                                        | `''`     | N        | Injected CSS class name.                                                 |
+| disabled | `boolean`                                                       | `false`  | N        | Whether the switch is disabled.                                          |
+| async    | `boolean`                                                       | `false`  | N        | Whether the switch is asynchronous.                                      |
+| loading  | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`     | N        | Loading component parameters, only effective when inside is `'loading'`. |
 
 ## Switch Events
 
-| Name   | Parameters                                                               | Description                           |
-| ------ | ------------------------------------------------------------------------ | ------------------------------------- |
-| click  | -                                                                        | Triggered when clicked.               |
-| change | event: Event object, with `detail` indicating the current switch status. | Triggered when switch status changes. |
+| Name     | Type                        | Parameters                     | Description                              |
+| -------- | --------------------------- | ------------------------------ | ---------------------------------------- |
+| onclick  | `() => void`                | -                              | Triggered when clicked.                  |
+| onchange | `(active: boolean) => void` | active - Current switch state. | Triggered when the switch state changes. |
 
-## Switch Slots
+## Switch Snippets
 
-| Name  | Description                                            |
-| ----- | ------------------------------------------------------ |
-| true  | Switch internal content when the switch status is on.  |
-| false | Switch internal content when the switch status is off. |
+| Name       | Type                                                                | Parameters | Description                                 |
+| ---------- | ------------------------------------------------------------------- | ---------- | ------------------------------------------- |
+| trueChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Switch inner content when the state is on.  |
+| falseChild | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Switch inner content when the state is off. |

@@ -2,20 +2,20 @@
 <script>
 	import { Switch, Icon, Cell, Dialog } from '../../../../../packages/stdf/components';
 
-	let checkAsync = false;
+	let checkAsync = $state(false);
 	const switchClickFun = () => {
 		setTimeout(() => {
 			checkAsync = !checkAsync;
 		}, 2000);
 	};
-	let cellCheck = false;
+	let cellCheck = $state(false);
 	const cellAsyncFun = () => {
 		setTimeout(() => {
 			cellCheck = !cellCheck;
 		}, 2000);
 	};
-	let loading = false;
-	let loadingCheck = false;
+	let loading = $state(false);
+	let loadingCheck = $state(false);
 	const loadingFun = () => {
 		loading = true;
 		setTimeout(() => {
@@ -23,8 +23,8 @@
 			loading = false;
 		}, 3000);
 	};
-	let cellLoading = false;
-	let cellLoadingCheck = false;
+	let cellLoading = $state(false);
+	let cellLoadingCheck = $state(false);
 	const cellLoadingFun = () => {
 		cellLoading = true;
 		setTimeout(() => {
@@ -32,21 +32,14 @@
 			cellLoading = false;
 		}, 3000);
 	};
-	let visible = false;
-	let confirmSwitcheck = false;
-	const confirmFunc = () => {
-		visible = false;
-		confirmSwitcheck = !confirmSwitcheck;
-	};
-	const showDialogFunc = () => {
-		visible = true;
-	};
+	let visible = $state(false);
+	let confirmswitchActive = $state(false);
 </script>
 
 <div class="pb-8">
-	<div class="flex flex-col space-y-8 py-8 px-4">
+	<div class="flex flex-col px-4 py-8 space-y-8">
 		<div>
-			<div class="mb-4 font-bold">Different fillet</div>
+			<div class="mb-4 font-bold">Different Radius</div>
 			<div class="flex justify-between">
 				<Switch />
 				<Switch radius="none" />
@@ -54,78 +47,88 @@
 			</div>
 		</div>
 		<div>
-			<div class="mb-4 font-bold">Different colors</div>
+			<div class="mb-4 font-bold">Different Colors</div>
 			<div class="flex justify-between">
-				<Switch check injClass="bg-success dark:bg-success" />
-				<Switch check injClass="bg-error dark:bg-error" />
-				<Switch check injClass="bg-warning dark:bg-warning" />
-				<Switch check injClass="bg-[#DC88F5] dark:bg-[#FFCA28]" />
+				<Switch active injClass="bg-success dark:bg-success" />
+				<Switch active injClass="bg-error dark:bg-error" />
+				<Switch active injClass="bg-warning dark:bg-warning" />
+				<Switch active injClass="bg-[#DC88F5] dark:bg-[#FFCA28]" />
 			</div>
 		</div>
 		<div>
-			<div class="mb-4 font-bold">With text/status/icon</div>
+			<div class="mb-4 font-bold">With Text / State / Icon</div>
 			<div class="flex justify-between">
 				<Switch inside={['OF', 'ON']} />
 				<Switch inside={['😭', '😄']} />
 				<Switch inside="state" />
-				<!-- <Switch inside="state" radius="none" /> -->
-				<Switch inside="slot">
-					<div slot="false">
-						<Icon name="ri-moon-line" size={16} top={-1} />
-					</div>
-					<div slot="true">
-						<Icon name="ri-sun-line" size={16} top={-1} />
-					</div>
+				<Switch>
+					{#snippet falseChild()}
+						<div>
+							<Icon name="ri-moon-line" size={16} top={-1} />
+						</div>
+					{/snippet}
+					{#snippet trueChild()}
+						<div slot="true">
+							<Icon name="ri-sun-line" size={16} top={-1} />
+						</div>
+					{/snippet}
 				</Switch>
 			</div>
 		</div>
 		<div>
-			<div class="mb-4 font-bold">disable</div>
+			<div class="mb-4 font-bold">Disabled</div>
 			<div class="flex justify-between">
 				<Switch disabled />
-				<Switch disabled check />
+				<Switch disabled active />
 			</div>
 		</div>
 		<div>
-			<div class="mb-4 font-bold">Asynchronous control</div>
+			<div class="mb-4 font-bold">Async Control</div>
 			<div class="flex justify-between">
-				<div class="flex flex-col space-y-2 items-center">
-					<Switch async check={checkAsync} on:click={switchClickFun} />
-					<div class="text-sm">Trigger after 2 seconds of clicking</div>
+				<div class="flex flex-col items-center space-y-2">
+					<Switch async active={checkAsync} onclick={switchClickFun} />
+					<div class="text-sm">Wait 2 seconds</div>
 				</div>
-				<div class="flex flex-col space-y-2 items-center">
-					<Switch async check={loadingCheck} loading={{ theme: true }} on:click={loadingFun} inside={loading ? 'loading' : ''} />
-					<div class="text-sm">Trigger after 3 seconds of clicking</div>
+				<div class="flex flex-col items-center space-y-2">
+					<Switch async active={loadingCheck} loading={{ theme: true }} onclick={loadingFun} inside={loading ? 'loading' : null} />
+					<div class="text-sm">Wait 3 seconds</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--    <div>-->
-	<div class="mb-4 font-bold px-4">Use in Cell</div>
-	<Cell title="switch" detail="Click on the whole row to trigger the switch" right={{ type: 'switch' }} />
-	<Cell title="Switch tape text" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} switcheck />
-	<Cell title="Switch with full rounded corners" right={{ type: 'switch', switch: { radius: 'full' } }} />
+
+	<div class="px-4 mb-4 font-bold">Used in Cell</div>
+	<Cell title="Switch" detail="Click anywhere in the row to trigger the switch" right={{ type: 'switch' }} />
+	<Cell title="Switch with Text" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} switchActive />
+	<Cell title="Full Radius Switch" right={{ type: 'switch', switch: { radius: 'full' } }} />
 	<Cell
-		title="Asynchronous control"
-		detail="Click 2 seconds to trigger the switch"
+		title="Async Control"
+		detail="Switch triggered 2 seconds after click"
 		right={{ type: 'switch', switch: { async: true } }}
-		switcheck={cellCheck}
-		on:click={cellAsyncFun}
+		switchActive={cellCheck}
+		onclick={cellAsyncFun}
 	/>
 	<Cell
-		title="Asynchronous loading"
-		detail="Click 3 seconds to trigger the switch"
-		right={{ type: 'switch', switch: { async: true, inside: cellLoading ? 'loading' : '' } }}
-		switcheck={cellLoadingCheck}
-		on:click={cellLoadingFun}
+		title="Async Loading"
+		detail="Switch triggered 3 seconds after click"
+		right={{ type: 'switch', switch: { async: true, inside: cellLoading ? 'loading' : null } }}
+		switchActive={cellLoadingCheck}
+		onclick={cellLoadingFun}
 	/>
-	<Cell title="Disable switch" right={{ type: 'switch', switch: { disabled: true } }} switcheck />
+	<Cell title="Disabled Switch" right={{ type: 'switch', switch: { disabled: true } }} switchActive />
 
 	<Cell
-		title="Secondary confirmation"
+		title="Double Confirmation"
 		right={{ type: 'switch', switch: { async: true } }}
-		bind:switcheck={confirmSwitcheck}
-		on:click={showDialogFunc}
+		bind:switchActive={confirmswitchActive}
+		onclick={() => (visible = true)}
 	/>
-	<Dialog bind:visible content={`determine ${confirmSwitcheck ? 'Shut down' : 'open'} this switch?`} on:primary={confirmFunc} />
+	<Dialog
+		bind:visible
+		content={`Are you sure you want to ${confirmswitchActive ? 'turn off' : 'turn on'}?`}
+		onprimary={() => {
+			visible = false;
+			confirmswitchActive = !confirmswitchActive;
+		}}
+	/>
 </div>
