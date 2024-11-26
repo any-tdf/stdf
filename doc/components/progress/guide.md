@@ -1,10 +1,10 @@
-## useSlot
+## Snippet
 
-当 useSlot 为 true，百分比内容不再使用默认百分比文字，而是使用传入的 slot 渲染。
+当传入 children 时，百分比内容不再使用默认百分比文字，而是使用传入的 children 渲染。
 
 ## overflowPercent
 
-当 percentPosition 为 inner 且百分比数值较低时，百分比文字会溢出，overflowPercent 为溢出的阀值，当百分比小于该值时，百分比文字会放置于进度条右侧。
+当 percentPosition 为 `'inner'` 且百分比数值较低时，百分比文字会溢出，overflowPercent 为溢出的阀值，当百分比小于该值时，百分比文字会放置于进度条右侧。
 
 ## CSS 注入
 

@@ -1,20 +1,19 @@
 ## Progress Props
 
-| 属性            | 类型    | 默认值  | 可选值                         | 必传 | 说明                                                |
-| --------------- | ------- | ------- | ------------------------------ | ---- | --------------------------------------------------- |
-| percent         | Number  | 66      | 0-100                          | N    | 百分比。                                            |
-| percentPosition | String  | 'right' | 'right'/'inner'/'block'/'none' | N    | 百分比位置。                                        |
-| height          | String  | '2'     | '1'/'2'/'3'/'4'                | N    | 高度。                                              |
-| radius          | String  | 'full'  | 'full'/'base'/'none'           | N    | 圆角风格。                                          |
-| inactive        | Boolean | false   | true/false                     | N    | 是否置灰。                                          |
-| useSlot         | Boolean | false   | true/false                     | N    | 百分比文字是否使用 slot。                           |
-| overflowPercent | Number  | 10      | 0-100                          | N    | percentPosition 为 inner 时，百分比文字溢出的阀值。 |
-| duration        | String  | '300'   | '150'/'300'/'500'/'700'/'1000' | N    | 动画过度时间（ms）。                                |
-| injClass        | String  | ''      | -                              | N    | 激活进度条注入 Class 名称。                         |
-| trackInjClass   | String  | ''      | -                              | N    | 轨道条注入 Class 名称。                             |
+| 名称            | 类型                                 | 默认值    | 必传 | 说明                                              |
+| --------------- | ------------------------------------ | --------- | ---- | ------------------------------------------------- |
+| percent         | `number`                             | `66`      | N    | 百分比。                                          |
+| percentPosition | `'inner'\|'right'\|'block'\|null`    | `'right'` | N    | 百分比位置。                                      |
+| height          | `'1'\|'2'\|'3'\|'4'`                 | `'2'`     | N    | 高度。                                            |
+| radius          | `'full'\|'base'\|'none'`             | `'full'`  | N    | 圆角风格。                                        |
+| inactive        | `boolean`                            | `false`   | N    | 是否置灰。                                        |
+| overflowPercent | `number`                             | `10`      | N    | percentPosition 为 `'inner'` 时，文字溢出的阀值。 |
+| duration        | `'150'\|'300'\|'500'\|'700'\|'1000'` | `'300'`   | N    | 动画过度时间（ms）。                              |
+| injClass        | `string`                             | `''`      | N    | 激活进度条注入 Class 名称。                       |
+| trackInjClass   | `string`                             | `''`      | N    | 轨道条注入 Class 名称。                           |
 
-## Progress Slots
+## Progress Snippets
 
-| 名称 | 说 明                                  |
-| ---- | -------------------------------------- |
-| -    | 当 useSlot 为 true 时百分比文字内容 。 |
+| 名称     | 类型                                                                | 参数 | 说明                 |
+| -------- | ------------------------------------------------------------------- | ---- | -------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 传入时渲染文字内容。 |

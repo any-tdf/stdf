@@ -1,20 +1,19 @@
 ## Progress Props
 
-| Property        | Type    | Default | Options                        | Required | Description                                          |
-| --------------- | ------- | ------- | ------------------------------ | -------- | ---------------------------------------------------- |
-| percent         | Number  | 66      | 0-100                          | Yes      | The percentage completed.                            |
-| percentPosition | String  | 'right' | 'right'/'inner'/'block'/'none' | Yes      | The position of the percentage text.                 |
-| height          | String  | '2'     | '1'/'2'/'3'/'4'                | Yes      | The height of the progress bar.                      |
-| radius          | String  | 'full'  | 'full'/'base'/'none'           | Yes      | The style of the progress bar's corners.             |
-| inactive        | Boolean | false   | true/false                     | Yes      | Whether the progress bar is inactive.                |
-| useSlot         | Boolean | false   | true/false                     | Yes      | Whether the percentage text should be a slot.        |
-| overflowPercent | Number  | 10      | 0-100                          | Yes      | The threshold for the percentage text's overflow.    |
-| duration        | String  | '300'   | '150'/'300'/'500'/'700'/'1000' | Yes      | The duration of the animation in milliseconds.       |
-| injClass        | String  | ''      | -                              | Yes      | The class to inject when the progress bar is active. |
-| trackInjClass   | String  | ''      | -                              | Yes      | The class to inject for the progress bar's track.    |
+| Name            | Type                                 | Default   | Required | Description                                                       |
+| --------------- | ------------------------------------ | --------- | -------- | ----------------------------------------------------------------- |
+| percent         | `number`                             | `66`      | N        | Percentage value.                                                 |
+| percentPosition | `'inner'\|'right'\|'block'\|null`    | `'right'` | N        | Position of percentage text.                                      |
+| height          | `'1'\|'2'\|'3'\|'4'`                 | `'2'`     | N        | Height of progress bar.                                           |
+| radius          | `'full'\|'base'\|'none'`             | `'full'`  | N        | Border radius style.                                              |
+| inactive        | `boolean`                            | `false`   | N        | Whether to show in inactive state.                                |
+| overflowPercent | `number`                             | `10`      | N        | Text overflow threshold when percentPosition is set to `'inner'`. |
+| duration        | `'150'\|'300'\|'500'\|'700'\|'1000'` | `'300'`   | N        | Animation transition duration (ms).                               |
+| injClass        | `string`                             | `''`      | N        | Injected class name for active progress bar.                      |
+| trackInjClass   | `string`                             | `''`      | N        | Injected class name for track bar.                                |
 
-## Progress Slots
+## Progress Snippets
 
-| Name | Description                                              |
-| ---- | -------------------------------------------------------- |
-| -    | The content of the percentage text when useSlot is true. |
+| Name     | Type                                                                | Params | Description                                 |
+| -------- | ------------------------------------------------------------------- | ------ | ------------------------------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -      | Renders custom text content when passed in. |
