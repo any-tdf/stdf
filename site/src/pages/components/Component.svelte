@@ -1,5 +1,11 @@
 <script>
-	export let highlightedCode = '';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [highlightedCode]
+	 */
+
+	/** @type {Props} */
+	let { highlightedCode = '' } = $props();
 </script>
 
 <article class={`prose dark:prose-invert max-w-none text-sm`}>
