@@ -1,6 +1,6 @@
 ## Usage
 
-The `Badge` component is usually placed in the upper right corner of the content, so when used conventionally, please pass the main content as the default slot. Since the `Badge` is positioned relative to the main content, it will not affect the layout of the main content.
+The `Badge` component is usually placed in the upper right corner of the content, so when used conventionally, please pass the main content as the default Snippet. Since the `Badge` is positioned relative to the main content, it will not affect the layout of the main content.
 
 However, for some special components, such as `Cell`, the `Badge` may be placed in a specific position within the component. In this case, you can use the `isInner` attribute to position the `Badge` as an inner element, with the placement determined by the component itself. See the example for reference.
 

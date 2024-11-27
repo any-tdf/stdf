@@ -202,7 +202,7 @@
 	clear
 />
 
-<div class="px-4 pt-8 font-bold text-xl">label1 和 label4 使用插槽</div>
+<div class="px-4 pt-8 font-bold text-xl">label1 和 label4 使用 Snippet</div>
 <Input title="验证码">
 	{#snippet label1Child()}
 		<div>

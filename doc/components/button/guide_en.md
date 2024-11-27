@@ -26,7 +26,7 @@ If the injected class does not take effect, please add "!" before the injected c
 
 ## Button group
 
-To use the button group, you can directly put multiple elements in the inner slot, which can be achieved by combining heightOut and heightIn. It should be noted that the click event needs to be bound to the internal independent element at this time. In addition, by setting the group of Props to true, the click effect of the entire button area will not be displayed. Examples are available.
+To use the button group, you can directly put multiple elements in the inner Snippet, which can be achieved by combining heightOut and heightIn. It should be noted that the click event needs to be bound to the internal independent element at this time. In addition, by setting the group of Props to true, the click effect of the entire button area will not be displayed. Examples are available.
 
 ## With icon or loading
 

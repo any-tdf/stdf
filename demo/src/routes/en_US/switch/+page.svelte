@@ -68,7 +68,7 @@
 						</div>
 					{/snippet}
 					{#snippet trueChild()}
-						<div slot="true">
+						<div>
 							<Icon name="ri-sun-line" size={16} top={-1} />
 						</div>
 					{/snippet}

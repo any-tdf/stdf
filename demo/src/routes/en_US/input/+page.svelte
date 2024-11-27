@@ -209,7 +209,7 @@
 	clear
 />
 
-<div class="px-4 pt-8 font-bold text-xl">label1 and label4 Using Slots</div>
+<div class="px-4 pt-8 font-bold text-xl">label1 and label4 Using Snippet</div>
 <Input title="Verification Code">
 	{#snippet label1Child()}
 		<div>

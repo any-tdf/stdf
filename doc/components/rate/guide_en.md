@@ -19,4 +19,4 @@ Control click animation through animation, `'current'` means only the clicked it
 
 ## Special attention
 
-When custom content is needed, it can be achieved by passing in Slots. At this time, **be sure to pass in the width and height of the custom content**.
+When custom content is needed, it can be achieved by passing in Snippet. At this time, **be sure to pass in the width and height of the custom content**.

@@ -30,7 +30,7 @@ When a Snippet is passed, the icon renders using the passed element. Other strin
 
 ## Icon Colors
 
-Without theme prop or when set to false, icons inherit parent text color. When true, icons follow theme colors (including light/dark modes). For custom colors with light/dark mode support, use CSS injection or slot rendering with injClass or slots configured for both modes. See examples.
+Without theme prop or when set to false, icons inherit parent text color. When true, icons follow theme colors (including light/dark modes). For custom colors with light/dark mode support, use CSS injection or Snippet rendering with injClass or Snippet configured for both modes. See examples.
 
 ## Color Priority
 

@@ -51,16 +51,16 @@
 
 ## Input Snippets
 
-| Name        | Type                                                                | Parameters | Description               |
-| ----------- | ------------------------------------------------------------------- | ---------- | ------------------------- |
-| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Title slot content.       |
-| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 1 slot content. |
-| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 2 slot content. |
-| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 3 slot content. |
-| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 1 slot content.     |
-| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 2 slot content.     |
-| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 3 slot content.     |
-| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 4 slot content.     |
-| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 5 slot content.     |
-| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 6 slot content.     |
-| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Tip message slot content. |
+| Name        | Type                                                                | Parameters | Description                  |
+| ----------- | ------------------------------------------------------------------- | ---------- | ---------------------------- |
+| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Title Snippet content.       |
+| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 1 Snippet content. |
+| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 2 Snippet content. |
+| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Data item 3 Snippet content. |
+| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 1 Snippet content.     |
+| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 2 Snippet content.     |
+| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 3 Snippet content.     |
+| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 4 Snippet content.     |
+| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 5 Snippet content.     |
+| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Label 6 Snippet content.     |
+| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Tip message Snippet content. |

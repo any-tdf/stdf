@@ -8,7 +8,7 @@ As a frequently used component in mobile applications, Cell supports many use ca
 
 ## Snippet
 
-Cell component supports three slots: leftChild, rightChild and detailChild. When leftChild is provided, the leftmost content of Cell will be rendered by the leftChild slot, refer to examples for customizing left images; when rightChild is provided, the rightmost content will be rendered by rightChild, refer to examples for customizing right images; when detailChild is provided, the right detail content will be rendered by detailChild, refer to examples for customizing right detail content.
+Cell component supports three Snippet: leftChild, rightChild and detailChild. When leftChild is provided, the leftmost content of Cell will be rendered by the leftChild, refer to examples for customizing left images; when rightChild is provided, the rightmost content will be rendered by rightChild, refer to examples for customizing right images; when detailChild is provided, the right detail content will be rendered by detailChild, refer to examples for customizing right detail content.
 
 ## left & right
 

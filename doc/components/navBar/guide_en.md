@@ -2,7 +2,7 @@
 
 ## Explanation
 
-On mobile devices, the NavBar is generally used to display the current page and to perform routing operations at the top of the page. STDF's NavBar consists of three parts: left, center, and right, and each part supports slot rendering. The class of the outermost element also supports injClass (class injection).
+On mobile devices, the NavBar is generally used to display the current page and to perform routing operations at the top of the page. STDF's NavBar consists of three parts: left, center, and right, and each part supports Snippet rendering. The class of the outermost element also supports injClass (class injection).
 
 ## Extension
 

@@ -94,7 +94,7 @@
 		<Button loading={{ inverse: true, height: '6', width: '6' }} disabledLoading={false}>加载中</Button>
 	</div>
 	<div>
-		<div class="p-4 font-bold">带图标（通过插槽传入）</div>
+		<div class="p-4 font-bold">带图标（通过 Snippet 传入）</div>
 		<Button>
 			<Icon name="ri-share-forward-2-fill" size={18} top={-2} />
 			投掷二向箔
@@ -105,7 +105,7 @@
 		</Button>
 	</div>
 	<div>
-		<div class="p-4 font-bold">加载（通过插槽传入）</div>
+		<div class="p-4 font-bold">加载（通过 Snippet 传入）</div>
 		<Button>
 			<Loading inverse height="6" width="6" />
 		</Button>

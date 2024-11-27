@@ -94,7 +94,7 @@
 		<Button loading={{ inverse: true, height: '6', width: '6' }} disabledLoading={false}>Loading</Button>
 	</div>
 	<div>
-		<div class="p-4 font-bold">With icon (passed through slots)</div>
+		<div class="p-4 font-bold">With icon (passed through Snippet)</div>
 		<Button>
 			<Icon name="ri-share-forward-2-fill" size={18} top={-2} />
 			Throw the two way foil
@@ -105,7 +105,7 @@
 		</Button>
 	</div>
 	<div>
-		<div class="p-4 font-bold">Load (passed through slots)</div>
+		<div class="p-4 font-bold">Load (passed through Snippet)</div>
 		<Button>
 			<Loading inverse height="6" width="6" />
 		</Button>

@@ -8,7 +8,7 @@ Cell 作为移动端使用频率较高的组件，承载的使用场景也比较
 
 ## Snippet
 
-Cell 组件支持 leftChild、rightChild 和 detailChild 三种插槽，当传入 leftChild 时 Cell 最左侧内容会被 leftChild 插槽渲染，可参考示例自定义左侧图片；当传入 rightChild 时 Cell 最右侧内容会被 rightChild 渲染，可参考示例自定义右侧图片；当传入 detailChild 时 Cell 右侧详情内容会被 detailChild 渲染，可参考示例自定义右侧详情内容。
+Cell 组件支持 leftChild、rightChild 和 detailChild 三种 Snippet，当传入 leftChild 时 Cell 最左侧内容会被 leftChild 渲染，可参考示例自定义左侧图片；当传入 rightChild 时 Cell 最右侧内容会被 rightChild 渲染，可参考示例自定义右侧图片；当传入 detailChild 时 Cell 右侧详情内容会被 detailChild 渲染，可参考示例自定义右侧详情内容。
 
 ## left & right
 

@@ -51,16 +51,16 @@
 
 ## Input Snippets
 
-| 名称        | 类型                                                                | 参数 | 说明                |
-| ----------- | ------------------------------------------------------------------- | ---- | ------------------- |
-| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标题插槽内容。      |
-| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 1 插槽内容。 |
-| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 2 插槽内容。 |
-| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 3 插槽内容。 |
-| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 1 插槽内容。   |
-| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 2 插槽内容。   |
-| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 3 插槽内容。   |
-| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 4 插槽内容。   |
-| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 5 插槽内容。   |
-| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 6 插槽内容。   |
-| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 提示信息插槽内容。  |
+| 名称        | 类型                                                                | 参数 | 说明                    |
+| ----------- | ------------------------------------------------------------------- | ---- | ----------------------- |
+| titleChild  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标题 Snippet 内容。     |
+| data1Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 1 Snippet 内容。 |
+| data2Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 2 Snippet 内容。 |
+| data3Child  | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 数据项 3 Snippet 内容。 |
+| label1Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 1 Snippet 内容。   |
+| label2Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 2 Snippet 内容。   |
+| label3Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 3 Snippet 内容。   |
+| label4Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 4 Snippet 内容。   |
+| label5Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 5 Snippet 内容。   |
+| label6Child | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 标签 6 Snippet 内容。   |
+| tipChild    | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 提示信息 Snippet 内容。 |
