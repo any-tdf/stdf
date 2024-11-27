@@ -138,12 +138,12 @@
 				: 'STDF Demo'
 			: menuListArr.filter(item => item.nav === $page.url.pathname.substring(7))[0][isZh ? 'title_zh' : 'title_en'] +
 				(isZh ? '示例' : ' Demo')}
-		left={showLeft ? 'back' : 'none'}
+		left={showLeft ? 'back' : null}
 		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
 		onclickLeft={() => window.history.back()}
 	>
 		{#snippet rightChild()}
-			<div slot="right" class="flex text-center">
+			<div class="flex text-center">
 				{#if isIframe === '0'}
 					<div class="h-12 w-10">
 						<a href="https://github.com/any-tdf/stdf" target="_blank" rel="noreferrer">
