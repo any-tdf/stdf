@@ -49,8 +49,8 @@
 	const getComponentStrFunc = async name => {
 		const rawObj = await import(`../../../../demo/src/routes/${isZh ? 'zh_CN' : 'en_US'}/${name}/+page.svelte?raw`);
 		const componentStr = rawObj.default;
-		// 将 componentStr 中的 from '../../../../../packages/stdf/components' 替换为 from 'stdf'
-		return componentStr.replace('../../../../../packages/stdf/components', 'stdf');
+		// 将 componentStr 中所有的 '../../../../../packages/stdf/components' 替换为 'stdf'
+		return componentStr.replace(/from ['"]\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/packages\/stdf\/components['"]/g, "from 'stdf'");
 	};
 
 	const getDemoHeightFun = () => {
@@ -196,7 +196,7 @@
 						<div>
 							{isZh ? currentNav.title : currentNav.title_en}
 						</div>
-						<a href={QRValue} target="_blank">
+						<a href={QRValue} target="_blank" aria-label={isZh ? '扫码预览' : 'Scan to preview'}>
 							<div class="md:hidden bg-gray-100 dark:bg-gray-700 text-gray-500 rounded h-8 w-8 ml-2 p-1">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 									<path fill="none" d="M0 0h24v24H0z" />
@@ -214,7 +214,7 @@
 				<Tab {currentTab} on:TabClick={tabClickFun} />
 			</div>
 			<div class="my-4 ml-4">
-				<div class="h-px bg-black/10 dark:bg-white/20" />
+				<div class="h-px bg-black/10 dark:bg-white/20"></div>
 			</div>
 			<div>
 				<!-- <div class="relative overflow-hidden" style="width:{titleWidth}px;"> -->
@@ -244,7 +244,7 @@
 											: `https://demo.stdf.design/${isZh ? 'zh_CN' : 'en_US'}/${currentNav.nav}?channel=iframe`}
 										height={demoHeight - 2}
 										width="390"
-									/>
+									></iframe>
 								{:else}
 									<div class="flex justify-center flex-col text-primary dark:text-dark" style="width:390px;height:{demoHeight - 2}px;">
 										<div>

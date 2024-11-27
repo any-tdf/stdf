@@ -63,6 +63,8 @@ const replacePart = (str, findText, replaceText) => {
  * mdTextToHljs('```js\nconsole.log(123)\n```') // <code class="hljs language-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">123</span>)</code>
  */
 export const mdTextToHljs = mdText => {
+	// 将所有 <td><code> 标签替换为 <td><code class="hljs language-typescript">
+	mdText = mdText.replace(/<td><code>/g, '<td><code class="hljs language-typescript">');
 	if (mdText.indexOf('<code class="') > 0) {
 		let apiText = mdText.indexOf('<code class="') > 0 ? htmlFilter(mdText).replace(/<code class="/g, '<code class="hljs ') : mdText;
 		const codeTexts = apiText.match(/<code[\s\S]*?<\/code>/g);
@@ -74,16 +76,18 @@ export const mdTextToHljs = mdText => {
 			const code = codeTexts[t].match(/<code[\s\S]*?>([\s\S]*?)<\/code>/)[1];
 			const highlightedCode = language
 				? // @ts-ignore
-				  hljs.highlight(code, {
+					hljs.highlight(code, {
 						language,
 						ignoreIllegals: true,
-				  }).value
+					}).value
 				: // @ts-ignore
-				  hljs.highlightAuto(code).value;
+					hljs.highlightAuto(code).value;
 			// 将高亮代码替换原代码
 			const newCode = codeTexts[t].replace(code, highlightedCode);
 			apiText = replacePart(apiText, codeTexts[t], newCode);
 		}
+		// 将所有 <td><code class="hljs hljs language-typescript"> 标签替换为 <td><code class="hljs language-typescript">
+		apiText = apiText.replace(/<td><code class="hljs hljs language-typescript">/g, '<td><code class="hljs language-typescript">');
 		return apiText;
 	} else {
 		return mdText;
@@ -287,7 +291,7 @@ const colorPalette = (originColor, i, format) => {
 					h: getNewHue(isLight, index),
 					s: getNewSaturation(isLight, index) < 0 ? 4 : getNewSaturation(isLight, index),
 					v: getNewValue(isLight, index),
-			  });
+				});
 	return getColorString(retColor, format);
 };
 
