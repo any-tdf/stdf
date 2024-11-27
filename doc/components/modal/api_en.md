@@ -1,28 +1,26 @@
 ## Modal Props
 
-| Property    | Type    | Default                           | Available Values            | Required | Description                     |
-| ----------- | ------- | --------------------------------- | --------------------------- | -------- | ------------------------------- |
-| visible     | Boolean | false                             | true / false                | N        | Whether the modal is visible    |
-| title       | String  | modal.title in current language   | -                           | N        | The title of the modal          |
-| titleAlign  | String  | 'center'                          | 'left' / 'center' / 'right' | N        | The alignment of the title      |
-| content     | String  | modal.content in current language | -                           | N        | The content of the modal        |
-| contentSlot | Boolean | false                             | true / false                | N        | Whether the content uses a slot |
-| showIcon    | Boolean | false                             | true / false                | N        | Whether to show the icon        |
-| icon        | Object  | {}                                | Refer to Icon Props         | N        | The param of the icon           |
-| showBtn     | Boolean | true                              | true / false                | N        | Whether to show the button      |
-| btnText     | String  | modal.btnText in current language | -                           | N        | The text on the button          |
-| button      | Object  | {}                                | Refer to Button Props       | N        | The param of the button         |
-| popup       | Object  | {}                                | Refer to Popup Props        | N        | The param of the popup          |
+| Name       | Type                                                          | Default                        | Required | Description                |
+| ---------- | ------------------------------------------------------------- | ------------------------------ | -------- | -------------------------- |
+| visible    | `boolean`                                                     | `false`                        | N        | Whether to show the modal. |
+| title      | `string`                                                      | Current language modal.title   | N        | Title text.                |
+| titleAlign | `'left'\|'center'\|'right'`                                   | `'center'`                     | N        | Title alignment.           |
+| content    | `string`                                                      | Current language modal.content | N        | Content text.              |
+| showIcon   | `boolean`                                                     | `false`                        | N        | Whether to show icon.      |
+| icon       | [`Icon`](https://stdf.design/#/components?nav=dialog&tab=1)   | `{}`                           | N        | Icon props.                |
+| showBtn    | `boolean`                                                     | `true`                         | N        | Whether to show button.    |
+| btnText    | `string`                                                      | Current language modal.btnText | N        | Button text.               |
+| button     | [`Button`](https://stdf.design/#/components?nav=dialog&tab=1) | `{}`                           | N        | Button props.              |
+| popup      | [`Popup`](https://stdf.design/#/components?nav=dialog&tab=1)  | `{}`                           | N        | Popup props.               |
 
 ## Modal Events
 
-| Event Name | Parameters | Description                     |
-| ---------- | ---------- | ------------------------------- |
-| open       | -          | Triggered when the modal opens  |
-| close      | -          | Triggered when the modal closes |
+| Name    | Type         | Parameters | Description                  |
+| ------- | ------------ | ---------- | ---------------------------- |
+| onclose | `() => void` | -          | Triggered when modal closes. |
 
-## Modal Slots
+## Modal Snippets
 
-| Slot Name | Description                                          |
-| --------- | ---------------------------------------------------- |
-| -         | The content of `content` when `contentSlot` is true. |
+| Name         | Type                                                                | Parameters | Description                              |
+| ------------ | ------------------------------------------------------------------- | ---------- | ---------------------------------------- |
+| contentChild | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Render the content when it is passed in. |

@@ -1,28 +1,26 @@
 ## Modal Props
 
-| 属性        | 类型    | 默认值                   | 可选值                  | 必传 | 说明                |
-| ----------- | ------- | ------------------------ | ----------------------- | ---- | ------------------- |
-| visible     | Boolean | false                    | true/false              | N    | 是否显示。          |
-| title       | String  | 当前语言的 modal.title   | -                       | N    | 标题。              |
-| titleAlign  | String  | 'center'                 | 'left'/'center'/'right' | N    | 标题对齐方式。      |
-| content     | String  | 当前语言的 modal.content | -                       | N    | 内容。              |
-| contentSlot | Boolean | false                    | true/false              | N    | 内容是否使用 slot。 |
-| showIcon    | Boolean | false                    | true/false              | N    | 是否显示图标。      |
-| icon        | Object  | {}                       | 参考 Icon Props         | N    | 图标参数。          |
-| showBtn     | Boolean | true                     | true/false              | N    | 是否显示按钮。      |
-| btnText     | String  | 当前语言的 modal.btnText | -                       | N    | 按钮文字。          |
-| button      | Object  | {}                       | 参考 Button Props       | N    | 按钮参数。          |
-| popup       | Object  | {}                       | 参考 Popup Props        | N    | 弹出层参数。        |
+| 名称       | 类型                                                          | 默认值                   | 必传 | 说明           |
+| ---------- | ------------------------------------------------------------- | ------------------------ | ---- | -------------- |
+| visible    | `boolean`                                                     | `false`                  | N    | 是否显示。     |
+| title      | `string`                                                      | 当前语言的 modal.title   | N    | 标题。         |
+| titleAlign | `'left'\|'center'\|'right'`                                   | `'center'`               | N    | 标题对齐方式。 |
+| content    | `string`                                                      | 当前语言的 modal.content | N    | 内容。         |
+| showIcon   | `boolean`                                                     | `false`                  | N    | 是否显示图标。 |
+| icon       | [`Icon`](https://stdf.design/#/components?nav=dialog&tab=1)   | `{}`                     | N    | 图标参数。     |
+| showBtn    | `boolean`                                                     | `true`                   | N    | 是否显示按钮。 |
+| btnText    | `string`                                                      | 当前语言的 modal.btnText | N    | 按钮文字。     |
+| button     | [`Button`](https://stdf.design/#/components?nav=dialog&tab=1) | `{}`                     | N    | 按钮参数。     |
+| popup      | [`Popup`](https://stdf.design/#/components?nav=dialog&tab=1)  | `{}`                     | N    | 弹出层参数。   |
 
 ## Modal Events
 
-| 名称  | 参数 | 描述             |
-| ----- | ---- | ---------------- |
-| open  | -    | 弹框打开时触发。 |
-| close | -    | 弹框关闭时触发。 |
+| 名称    | 类型         | 参数 | 描述             |
+| ------- | ------------ | ---- | ---------------- |
+| onclose | `() => void` | -    | 弹框关闭时触发。 |
 
-## Modal Slots
+## Modal Snippets
 
-| 名称 | 描述                                    |
-| ---- | --------------------------------------- |
-| -    | contentSlot 为 true 时的 content 内容。 |
+| 名称         | 类型                                                                | 参数 | 描述                      |
+| ------------ | ------------------------------------------------------------------- | ---- | ------------------------- |
+| contentChild | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -    | 传入时渲染 content 内容。 |

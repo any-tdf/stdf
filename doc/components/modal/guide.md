@@ -8,9 +8,9 @@ Modal 弹框组件是在 Popup 基础上封装的，通过预先定义一些 Pop
 
 而 Modal 内部又使用了 Icon 和 Button 组件，可以通过传入 Icon 和 Button 的 Props 来实现不同的效果。比如示例中通过设置 Button 的 radius 自定义按钮的圆角风格。
 
-## content
+## contentChild
 
-Modal 的内容可以通过 content 属性传入，当需要显示复杂内容时，可以将 contentSlot 设置为 true，通过 slot 传入内容，此时 content 会失效。
+Modal 的内容可以通过 contentChild 传入，当需要显示复杂内容时，可以通过 contentChild 渲染，此时 content 会失效。
 
 ## 关闭
 

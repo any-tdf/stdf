@@ -8,9 +8,9 @@ The Modal dialog component is based on Popup and is implemented by defining some
 
 Modal also uses the Icon and Button components internally, and different effects can be achieved by passing in the Props of Icon and Button. For example, in the example, the radius of the Button is customized to achieve a custom button style.
 
-## Content
+## ContentChild
 
-The content of the Modal can be passed in through the content property. When complex content needs to be displayed, set contentSlot to true and pass in the content through the slot, at this time content will be invalid.
+The content of the Modal can be passed in through the contentChild property. When complex content needs to be displayed, it can be rendered through contentChild, at this time content will be invalid.
 
 ## Close
 

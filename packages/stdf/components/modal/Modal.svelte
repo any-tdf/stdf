@@ -24,7 +24,6 @@
 		btnText = modalLang.btnText,
 		button = {},
 		contentChild,
-		onopen,
 		onclose,
 	} = $props();
 
@@ -38,16 +37,6 @@
 		visible = false;
 		onclose && onclose();
 	};
-
-	// 监听visible变化并派发事件
-	// Listen to the change of visible and dispatch events
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
 </script>
 
 <Popup
@@ -62,12 +51,10 @@
 	px="8"
 	{...popup}
 >
-	<div class={`px-4 pt-4 ${showBtn ? 'pb-2' : 'pb-4'} text-center space-y-4`}>
-		<div class={`font-bold${titleAlignClass[titleAlign] || titleAlignClass['center']}`}>{title}</div>
+	<div class="px-4 pt-4 {showBtn ? 'pb-2' : 'pb-4'} text-center space-y-4">
+		<div class="font-bold{titleAlignClass[titleAlign] || titleAlignClass['center']}">{title}</div>
 		{#if showIcon}
-			<div>
-				<Icon {...icon} />
-			</div>
+			<div><Icon {...icon} /></div>
 		{/if}
 		<div>
 			{#if contentChild}
@@ -77,9 +64,7 @@
 			{/if}
 		</div>
 		{#if showBtn}
-			<div>
-				<Button size="full" {...button} onclick={closeModalFunc}>{btnText}</Button>
-			</div>
+			<div><Button size="full" {...button} onclick={closeModalFunc}>{btnText}</Button></div>
 		{/if}
 	</div>
 </Popup>
