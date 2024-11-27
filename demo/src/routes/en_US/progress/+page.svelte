@@ -2,12 +2,12 @@
 <script>
 	import { Progress, Button } from '../../../../../packages/stdf/components';
 
-	let percent = 20;
+	let percent = $state(20);
 	const changePercentFun = type => {
 		if (type === '+10') {
-			percent = percent > 100 ? 100 : percent + 10;
+			percent = percent >= 100 ? 100 : percent + 10;
 		} else {
-			percent = percent < 0 ? 0 : percent - 10;
+			percent = percent <= 0 ? 0 : percent - 10;
 		}
 	};
 </script>
@@ -58,10 +58,10 @@
 	<Button heightIn="0" group size="full">
 		<div class="flex w-full">
 			<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80" onclick={() => changePercentFun('-10')}>
-				Progress -10
+				-10
 			</button>
 			<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80" onclick={() => changePercentFun('+10')}>
-				Progress +10
+				+10
 			</button>
 			<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>Reset</button>
 		</div>
