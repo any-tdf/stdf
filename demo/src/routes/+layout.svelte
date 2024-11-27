@@ -160,10 +160,10 @@
 						</a>
 					</div>
 				{/if}
-				<button class="h-12 w-10" onclick={toggleFun}>
+				<button class="h-12 w-10" onclick={toggleFun} aria-label={theme === 'dark' ? '切换到亮色模式' : '切换到暗色模式'}>
 					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme />
 				</button>
-				<button class="h-12 w-10" onclick={switchThemeFunc}>
+				<button class="h-12 w-10" onclick={switchThemeFunc} aria-label="切换主题">
 					<Icon name="ri-palette-line" theme />
 				</button>
 			</div>
