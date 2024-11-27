@@ -56,32 +56,33 @@
 			</div>
 		</div>
 	{/if}
-{/if}
-{#if position === 't'}
-	<Tab {active} {duration} {...tab} onclickTab={clickTabFun} />
-	{#if children}{@render children({ active })}{/if}
-{/if}
-{#if position === 'b'}
-	{#if children}{@render children({ active })}{/if}
-	<Tab {active} {...tab} onclickTab={clickTabFun} />
-{/if}
-{#if position === 'l'}
-	<div class="flex">
-		<div>
-			<Tab {active} {...tab} onclickTab={clickTabFun} layout="v" />
+{:else}
+	{#if position === 't'}
+		<Tab {active} {duration} {...tab} onclickTab={clickTabFun} />
+		{#if children}{@render children({ active })}{/if}
+	{/if}
+	{#if position === 'b'}
+		{#if children}{@render children({ active })}{/if}
+		<Tab {active} {...tab} onclickTab={clickTabFun} />
+	{/if}
+	{#if position === 'l'}
+		<div class="flex">
+			<div>
+				<Tab {active} {...tab} onclickTab={clickTabFun} layout="v" />
+			</div>
+			<div class="grow">
+				{#if children}{@render children({ active })}{/if}
+			</div>
 		</div>
-		<div class="grow">
-			{#if children}{@render children({ active })}{/if}
+	{/if}
+	{#if position === 'r'}
+		<div class="flex">
+			<div class="grow">
+				{#if children}{@render children({ active })}{/if}
+			</div>
+			<div>
+				<Tab {active} {...tab} onclickTab={clickTabFun} layout="v" />
+			</div>
 		</div>
-	</div>
-{/if}
-{#if position === 'r'}
-	<div class="flex">
-		<div class="grow">
-			{#if children}{@render children({ active })}{/if}
-		</div>
-		<div>
-			<Tab {active} {...tab} onclickTab={clickTabFun} layout="v" />
-		</div>
-	</div>
+	{/if}
 {/if}
