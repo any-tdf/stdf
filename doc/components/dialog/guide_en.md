@@ -1,21 +1,21 @@
 ## Usage
 
-Dialog is generally used to display content or steps that need to be explicitly known by the user, and can also perform some simple interactive operations. To avoid accidental touches, the click mask will not close by default. It is more powerful than the Modal component that is generally only used for display.
+Dialog is generally used to display content or steps that users need to be clearly aware of, while also enabling simple interactions. To prevent accidental touches, clicking the mask will not close the dialog by default. It is more powerful than the Modal component which is mainly used for display.
 
 ## Description
 
-Dialog is an encapsulated component based on Popup, which achieves different effects by predefining some of Popup's Props. For example, in the example, a different easing effect was achieved by setting the easeType of Popup.
+The Dialog component is built on top of Popup by pre-defining some Popup Props. Therefore, different effects can be achieved by passing in Popup properties. For example, in the demo, a different easing effect is achieved by setting the easeType of popup.
 
-Inside Dialog, Icon and Button components are used, and different effects can be achieved by passing in the Props of Icon and Button. For example, in the example, the radius of the button was customized by setting the radius of the Button.
+Dialog internally uses Icon and Button components, and different effects can be achieved by passing in Icon and Button Props. For example, in the demo, the button's rounded corner style is customized by setting the Button's radius.
 
-## Content
+## contentChild
 
-The content of the Dialog can be passed in through the content property. When complex content needs to be displayed, the contentSlot can be set to true, and the content can be passed in through the slot. At this time, the content property will be invalid.
+The content of Dialog can be rendered through the contentChild Snippet. When complex content needs to be displayed, it can be achieved through this method.
 
 ## btnRatio
 
-The buttons in the Dialog are of primary and secondary importance, and the size ratio of the main and secondary buttons can be set through btnRatio. For example, when btnRatio is [2:1], the width of the main button is twice that of the secondary button.
+Dialog's buttons have primary and secondary distinctions. The size ratio of primary and secondary buttons can be set through btnRatio. For example, when btnRatio is `[2,1]`, the width of the primary button is twice that of the secondary button.
 
 ## Close
 
-By default, Dialog will not close automatically. It can be closed by clicking the secondary button inside or by changing the visible property outside. Of course, these parameters can be controlled by the Props passed in.
+Dialog will not automatically close by default. By default, clicking the internal secondary button can close it, or it can be closed by changing the external visible prop. Of course, these parameters can be controlled through the passed Props.

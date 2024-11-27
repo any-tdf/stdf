@@ -3,38 +3,40 @@
 	import { Dialog, Cell, Toast, Loading } from '../../../../../packages/stdf/components';
 	import Aphorism from '../../components/Aphorism.svelte';
 
-	let visible1 = false;
-	let visible2 = false;
-	let visible3 = false;
-	let visible4 = false;
-	let visible5 = false;
-	let visible6 = false;
-	let visible7 = false;
-	let visible8 = false;
-	let visible9 = false;
-	let visible10 = false;
-	let visible11 = false;
-	let visible12 = false;
-	let visible13 = false;
-	let visible14 = false;
-	let visible15 = false;
-	let visible16 = false;
-	let visible17 = false;
-	let visible18 = false;
-	let visible19 = false;
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
 
-	let toastVisible = false;
-	let toastVisible2 = false;
-	let toastVisible3 = false;
-	let toastVisible4 = false;
+	let toastVisible = $state(false);
+	let toastVisible2 = $state(false);
+	let toastVisible3 = $state(false);
+	let toastVisible4 = $state(false);
 
-	$: if (visible8) {
-		setTimeout(() => {
-			visible8 = false;
-		}, 3000);
-	}
+	$effect(() => {
+		if (visible8) {
+			setTimeout(() => {
+				visible8 = false;
+			}, 3000);
+		}
+	});
 
-	let loading = false;
+	let loading = $state(false);
 	const somethingFnc = () => {
 		loading = true;
 		setTimeout(() => {
@@ -46,107 +48,121 @@
 </script>
 
 <div class="py-4">
-	<Cell title="Basic usage" on:click={() => (visible1 = true)} />
-	<Dialog bind:visible={visible1} title="Li Xiaoyao" content="Do you confirm that going to Xianling Island?" />
+	<Cell title="Basic Usage" onclick={() => (visible1 = true)} />
+	<Dialog bind:visible={visible1} title="Li Xiaoyao" content="Go to Fairy Island?" />
 
-	<Cell title="Content use slot" on:click={() => (visible2 = true)} />
-	<Dialog bind:visible={visible2} contentSlot>
-		<Aphorism slot="content" num={1} compact />
+	<Cell title="Content with Snippet" onclick={() => (visible2 = true)} />
+	<Dialog bind:visible={visible2}>
+		{#snippet contentChild()}
+			<Aphorism num={1} compact />
+		{/snippet}
 	</Dialog>
 
-	<Cell title="Display the title" on:click={() => (visible3 = true)} />
+	<Cell title="No Title" onclick={() => (visible3 = true)} />
 	<Dialog bind:visible={visible3} title="" />
 
-	<Cell title="Click the mask to close" on:click={() => (visible5 = true)} />
+	<Cell title="Close on Mask Click" onclick={() => (visible5 = true)} />
 	<Dialog bind:visible={visible5} popup={{ maskClosable: true }} />
 
-	<Cell title="Custom icon" on:click={() => (visible6 = true)} />
+	<Cell title="Custom Icon" onclick={() => (visible6 = true)} />
 	<Dialog
 		bind:visible={visible6}
 		content="Please wear a mask!"
 		showIcon
 		icon={{ name: 'ri-surgical-mask-fill', size: 40, injClass: 'text-[#48a1b4]' }}
-		secondaryText="Not carried"
+		secondaryText="No mask"
 		primaryText="OK"
 	/>
 
-	<Cell title="The content uses slot and rolls" on:click={() => (visible4 = true)} />
-	<Dialog bind:visible={visible4} contentSlot>
-		<div slot="content" class="max-h-56 overflow-auto">
-			<Aphorism num={6} compact />
-		</div>
+	<Cell title="Scrollable Content" onclick={() => (visible4 = true)} />
+	<Dialog bind:visible={visible4}>
+		{#snippet contentChild()}
+			<div class="max-h-56 overflow-auto">
+				<Aphorism num={6} compact />
+			</div>
+		{/snippet}
 	</Dialog>
 
-	<Cell title="Another animation effect" on:click={() => (visible11 = true)} />
-	<Dialog bind:visible={visible11} content="Rebound transition" popup={{ easeType: 'backOut' }} />
+	<Cell title="Bounce Animation" onclick={() => (visible11 = true)} />
+	<Dialog bind:visible={visible11} content="Bounce transition" popup={{ easeType: 'backOut' }} />
 
-	<Cell title="Title left" on:click={() => (visible7 = true)} />
-	<Dialog bind:visible={visible7} title="Title left" titleAlign="left" />
+	<Cell title="Left Title" onclick={() => (visible7 = true)} />
+	<Dialog bind:visible={visible7} title="Left Title" titleAlign="left" />
 
-	<Cell title="Automatically close" on:click={() => (visible8 = true)} />
-	<Dialog bind:visible={visible8} content="do not move!I disappeared immediately after 3 seconds!" />
+	<Cell title="Auto Close" onclick={() => (visible8 = true)} />
+	<Dialog bind:visible={visible8} content="Don't move! Closing in 3s!" />
 
-	<Cell title="The main button accounts for a little more" on:click={() => (visible9 = true)} />
+	<Cell title="Primary Button Ratio" onclick={() => (visible9 = true)} />
 	<Dialog bind:visible={visible9} btnRatio={[3, 2]} />
 
-	<Cell title="Primary button position reverse" on:click={() => (visible10 = true)} />
+	<Cell title="Reverse Button Order" onclick={() => (visible10 = true)} />
 	<Dialog bind:visible={visible10} btnReverse />
 
-	<Cell title="The button spacing is larger" on:click={() => (visible19 = true)} />
+	<Cell title="Larger Button Gap" onclick={() => (visible19 = true)} />
 	<Dialog bind:visible={visible19} btnGap="16" />
 
-	<Cell title="The button is pure text" on:click={() => (visible12 = true)} />
+	<Cell title="Text Buttons" onclick={() => (visible12 = true)} />
 	<Dialog bind:visible={visible12} btnStyle="text" />
 
-	<Cell title="There is a division of the button for the button" on:click={() => (visible13 = true)} />
+	<Cell title="Text Buttons with Line" onclick={() => (visible13 = true)} />
 	<Dialog bind:visible={visible13} btnStyle="textLine" />
 
-	<Cell title="Full rounded button" on:click={() => (visible15 = true)} />
+	<Cell title="Rounded Buttons" onclick={() => (visible15 = true)} />
 	<Dialog bind:visible={visible15} primaryButton={{ radius: 'full' }} secondaryButton={{ radius: 'full' }} />
 
-	<Cell title="Monitoring secondary event" on:click={() => (visible14 = true)} />
-	<Dialog bind:visible={visible14} on:secondary={() => (toastVisible = true)} />
-	<Toast bind:visible={toastVisible} message="Click to cancel!" />
+	<Cell title="Secondary Event" onclick={() => (visible14 = true)} />
+	<Dialog bind:visible={visible14} onsecondary={() => (toastVisible = true)} />
+	<Toast bind:visible={toastVisible} message="Cancelled!" />
 
-	<Cell title="Supervision and closing incident" on:click={() => (visible16 = true)} />
-	<Dialog bind:visible={visible16} on:close={() => (toastVisible2 = true)} />
-	<Toast bind:visible={toastVisible2} message="Close Dialog!" />
+	<Cell title="Close Event" onclick={() => (visible16 = true)} />
+	<Dialog bind:visible={visible16} onclose={() => (toastVisible2 = true)} />
+	<Toast bind:visible={toastVisible2} message="Dialog closed!" />
 
-	<Cell title="Main incident" on:click={() => (visible17 = true)} />
-	<Dialog bind:visible={visible17} on:primary={() => (toastVisible3 = true)} />
-	<Toast bind:visible={toastVisible3} message="Click to confirm!" />
+	<Cell title="Primary Event" onclick={() => (visible17 = true)} />
+	<Dialog bind:visible={visible17} onprimary={() => (toastVisible3 = true)} />
+	<Toast bind:visible={toastVisible3} message="Confirmed!" />
 
-	<Cell title="Main events asynchronous execution" on:click={() => (visible18 = true)} />
-	<Dialog bind:visible={visible18} on:primary={somethingFnc} primarySlot title="Ghost" content="Do you have to enter the lock demon tower?">
-		<span slot="primary">
-			{#if loading}
-				<Loading inverse width="12" height="6" type="1_17" />
-			{:else}
-				Enter
-			{/if}
-		</span>
+	<Cell title="Async Primary Event" onclick={() => (visible18 = true)} />
+	<Dialog bind:visible={visible18} onprimary={somethingFnc} title="Ghost" content="Enter the Demon Tower?">
+		{#snippet primaryChild()}
+			<span>
+				{#if loading}
+					<Loading inverse width="12" height="6" type="1_17" />
+				{:else}
+					Enter
+				{/if}
+			</span>
+		{/snippet}
 	</Dialog>
-	<Toast bind:visible={toastVisible4} message="Enter the lock demon tower!he lock demon tower!" />
+	<Toast bind:visible={toastVisible4} message="Entered the tower!" />
 </div>
 
 <!-- Aphorism.svelte -->
 <!-- 
 <script>
-    import aphorisms from '../data/aphorisms'; //Introduce data
+	// 引入数据
+	// import data
+	import aphorisms from '../../data/aphorisms';
 
-    export let num = 0; //Display number
-    export let compact = false; //Whether to compact mode
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [num] - number of items to display
+	 * @property {boolean} [compact] - whether to use compact mode
+	 */
+	/** @type {Props} */
+	let { num = 0, compact = false } = $props();
 
-    //Randomly remove NUM data from Aphorisms
-    const aphorismsList = aphorisms.sort(() => Math.random() - 0.5).slice(0, num);
+	// 从 aphorisms 随机取出 num 条数据
+	// get num items from aphorisms randomly
+	const aphorismsList = aphorisms.sort(() => Math.random() - 0.5).slice(0, num);
 </script>
 
-<div class={`${compact ? '' : 'px-4 py-8 '}divide-y divide-black/5 dark:divide-white/5`}>
-    {#each aphorismsList as item}
-        <div class:py-6={num > 1}>
-            <div class="text-sm text-justify">{item.text}</div>
-            <div class="text-right mt-1" class:italic={item.fromItalic}>{item.from}</div>
-        </div>
-    {/each}
+<div class="{compact ? '' : 'px-4 py-8 '}divide-y divide-black/5 dark:divide-white/5">
+	{#each aphorismsList as item}
+		<div class:py-6={num > 1}>
+			<div class="text-sm text-justify">{item.text}</div>
+			<div class="text-right mt-1" class:italic={item.fromItalic}>{item.from}</div>
+		</div>
+	{/each}
 </div>
 -->

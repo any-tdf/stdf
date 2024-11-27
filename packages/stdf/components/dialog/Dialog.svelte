@@ -13,17 +13,15 @@
 	/** @typedef {import('../../index.d').Dialog} DialogProps */
 	/** @type {DialogProps} */
 	let {
-		visible = false,
+		visible = $bindable(false),
 		title = dialogLang.title,
 		titleAlign = 'center',
 		content = dialogLang.content,
-		isContentChild = false,
 		popup = {},
 		showIcon = false,
 		icon = {},
 		btnStyle = 'button',
 		primaryText = dialogLang.primaryText,
-		isPrimaryChild = false,
 		primaryButton = {},
 		secondaryText = dialogLang.secondaryText,
 		secondaryButton = {},
@@ -34,7 +32,6 @@
 		onsecondary,
 		onprimary,
 		onclose,
-		onopen,
 		contentChild,
 		primaryChild,
 	} = $props();
@@ -46,31 +43,6 @@
 	// 按钮间距
 	// Button spacing
 	const btnGapClass = { '0': '', '1': ' gap-1', '2': ' gap-2', '4': ' gap-4', '8': ' gap-8', '12': ' gap-12', '16': ' gap-16' };
-
-	// 次按钮点击事件
-	// Secondary button click event
-	const secondaryFunc = () => {
-		if (secondaryClose) {
-			visible = false;
-		}
-		onsecondary && onsecondary();
-	};
-
-	// 主按钮点击事件
-	// Primary button click event
-	const primaryFunc = () => {
-		onprimary && onprimary();
-	};
-
-	// 监听visible变化，派发open/close事件
-	// Listen to the change of visible, dispatch open/close events
-	$effect(() => {
-		if (visible) {
-			onopen && onopen();
-		} else {
-			onclose && onclose();
-		}
-	});
 </script>
 
 <Popup
@@ -85,36 +57,37 @@
 	px="4"
 	{...popup}
 >
-	<div class={`px-4 pt-4${btnStyle === 'button' ? ' pb-2' : ''} text-center space-y-4`}>
-		<div class={`font-bold${titleAlignClass[titleAlign] || titleAlignClass['center']}`}>{title}</div>
+	<div class="px-4 pt-4{btnStyle === 'button' ? ' pb-2' : ''} text-center space-y-4">
+		<div class="font-bold{titleAlignClass[titleAlign] || titleAlignClass['center']}">{title}</div>
 		{#if showIcon}
-			<div>
-				<Icon {...icon} />
-			</div>
+			<div><Icon {...icon} /></div>
 		{/if}
 		<div>
-			{#if isContentChild}
+			{#if contentChild}
 				{@render contentChild?.()}
 			{:else}
 				{content}
 			{/if}
 		</div>
 		<div
-			class={`flex w-full${btnGapClass[btnGap] || btnGapClass['2']}${btnReverse ? ' flex-row-reverse' : ''}${
-				btnStyle === 'textLine' ? ' border-t border-black/10 dark:border-white/10' : ''
-			}`}
+			class="flex w-full{btnGapClass[btnGap] || btnGapClass['2']}{btnReverse ? ' flex-row-reverse' : ''}{btnStyle === 'textLine'
+				? ' border-t border-black/10 dark:border-white/10'
+				: ''}"
 		>
-			<div
-				class={`${btnStyle === 'textLine' && !btnReverse ? 'border-r border-black/10 dark:border-white/10' : ''}`}
-				style="flex:{btnRatio[1]}"
-			>
+			<div class={btnStyle === 'textLine' && !btnReverse ? 'border-r border-black/10 dark:border-white/10' : ''} style="flex:{btnRatio[1]}">
 				<Button
 					size="full"
 					fill={btnStyle === 'button' ? 'colorLight' : 'text'}
 					heightIn={btnStyle === 'button' ? '3' : '2'}
 					injClass={btnStyle === 'button' ? '' : 'font-bold'}
 					{...secondaryButton}
-					onclick={secondaryFunc}
+					onclick={() => {
+						if (secondaryClose) {
+							visible = false;
+							onclose && onclose();
+						}
+						onsecondary && onsecondary();
+					}}
 				>
 					{secondaryText}
 				</Button>
@@ -126,14 +99,14 @@
 					heightIn={btnStyle === 'button' ? '3' : '2'}
 					injClass={btnStyle === 'button' ? '' : 'font-bold'}
 					{...primaryButton}
-					onclick={primaryFunc}
+					onclick={() => onprimary && onprimary()}
 				>
-					{#if isPrimaryChild}
+					{#if primaryChild}
 						{@render primaryChild?.()}
 					{:else}
 						{primaryText}
-					{/if}</Button
-				>
+					{/if}
+				</Button>
 			</div>
 		</div>
 	</div>

@@ -8,13 +8,13 @@ Dialog 弹框组件是在 Popup 基础上封装的，通过预先定义一些 Po
 
 而 Dialog 内部又使用了 Icon 和 Button 组件，可以通过传入 Icon 和 Button 的 Props 来实现不同的效果。比如示例中通过设置 Button 的 radius 自定义按钮的圆角风格。
 
-## content
+## contentChild
 
-Dialog 的内容可以通过 content 属性传入，当需要显示复杂内容时，可以将 contentSlot 设置为 true，通过 slot 传入内容，此时 content 会失效。
+Dialog 的内容可以通过 contentChild 这个 Snippet 渲染，当需要显示复杂内容时，可以通过此方式来实现。
 
 ## btnRatio
 
-Dialog 的按钮有主次之分，通过 btnRatio 可以设置主次按钮的大小比例，比如 btnRatio 为 [2:1] 时，主按钮宽度为次按钮的两倍。
+Dialog 的按钮有主次之分，通过 btnRatio 可以设置主次按钮的大小比例，如 btnRatio 为 `[2,1]` 时，主按钮宽度为次按钮的两倍。
 
 ## 关闭
 
