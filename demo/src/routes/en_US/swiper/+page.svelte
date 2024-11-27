@@ -4,20 +4,20 @@
 	import Item from './Item_en.svelte';
 
 	/**
-	 * @typedef {Object} img
-	 * @property {'img'} type
-	 * @property {String} url image url
+	 * @typedef {Object} Img
+	 * @property {'img'} type Type
+	 * @property {String} url Image URL
 	 */
 
 	/**
-	 * @typedef {Object} component
-	 * @property {'component'} type
-	 * @property {Object} component
+	 * @typedef {Object} Component
+	 * @property {'component'} type Type
+	 * @property {Object} component Component
 	 */
 
 	/**
 	 * Data
-	 * @type {Array<img|component>}
+	 * @type {(Img|Component)[]}
 	 * @default []
 	 */
 	const data = [
@@ -27,75 +27,68 @@
 		{ type: 'img', url: '/assets/images/wall_4.jpg' },
 	];
 
-	let indexClick = -1;
-	const clickImgFun = i => {
-		indexClick = i.detail;
-	};
-
-	let indexChange = 0;
-	const changeContainerFun = i => {
-		indexChange = i.detail;
-	};
+	let indexClick = $state(-1);
+	let indexChange = $state(0);
 </script>
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Basic usage</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Basic Usage</div>
 <Swiper {data} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">The initial index is 2</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Initial Index 2</div>
 <Swiper {data} initActive={2} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Interval of 8 seconds</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">8s Interval</div>
 <Swiper {data} interval={8} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Transition 1500 ms</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">1500ms Duration</div>
 <Swiper {data} duration={1500} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Turn off autoplay</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Disable Autoplay</div>
 <Swiper {data} autoplay={false} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">External indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">External Indicator</div>
 <Swiper {data} indicatePosition="out" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Off indicator</div>
-<Swiper {data} indicatePosition="none" />
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Hide Indicator</div>
+<Swiper {data} indicatePosition={null} />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Right-align indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Right Aligned Indicator</div>
 <Swiper {data} indicateAlign="right" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Dot indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Dot Indicator</div>
 <Swiper {data} indicateStyle="point" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Linear indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Line Indicator</div>
 <Swiper {data} indicateStyle="line" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Long line indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Long Line Indicator</div>
 <Swiper {data} indicateStyle="longLine" interval={8} />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper {data} indicateStyle="longLine" interval={8} indicatePosition="out" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Square indicator</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Square Indicator</div>
 <Swiper {data} indicateRadius={false} />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper {data} indicateStyle="point" indicateRadius={false} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	Specifies the color behind the indicator
-	<p class="font-thin text-xs mb-2">injection Class</p>
+	Custom Indicator Background
+	<p class="font-thin text-xs mb-2">Inject Class</p>
 </div>
 <Swiper {data} indicateInjClass="from-black/0 to-extend0/50" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	Specify indicator color
-	<p class="font-thin text-xs mb-2">Remove the background color at the same time</p>
+	Custom Indicator Color
+	<p class="font-thin text-xs mb-2">Remove Background</p>
 </div>
 <Swiper {data} indicateInjClass="bg-none" indicateColor="bg-extend2" indicateActiveColor="bg-extend1" />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Specifies the container aspect ratio</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Custom Aspect Ratio</div>
 <Swiper {data} aspectRatio={[4, 1]} />
 
 <div class="font-bold text-lg mx-4 mt-10">
-	Configure the inside margins of the container
-	<p class="font-thin text-xs mb-2">Also specify indicator color, remove indicator back color, and configure container interior fillet</p>
+	Container Padding
+	<p class="font-thin text-xs mb-2">With Custom Colors and Radius</p>
 </div>
 <Swiper
 	{data}
@@ -108,7 +101,7 @@
 	interval={8}
 	indicateStyle="longLine"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="6"
@@ -121,8 +114,8 @@
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	Add a drop shadow inside the container
-	<p class="font-normal text-xs mb-2">injection Class</p>
+	Inner Shadow
+	<p class="font-normal text-xs mb-2">Inject Class</p>
 </div>
 <Swiper
 	{data}
@@ -136,7 +129,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X and Z offsets</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive Item X, Z Translation</div>
 <Swiper
 	{data}
 	px="16"
@@ -149,7 +142,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	translateX={100}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -162,7 +155,7 @@
 	translateX={-200}
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="12"
@@ -175,7 +168,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive container X, Y, Z axis rotation</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Inactive Item X, Y, Z Rotation</div>
 <Swiper
 	{data}
 	px="4"
@@ -188,7 +181,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -201,7 +194,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -214,7 +207,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -228,7 +221,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -242,7 +235,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -257,7 +250,7 @@
 	duration={2000}
 />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">The container injection Class was not activated</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Custom Inactive Item Style</div>
 <Swiper
 	{data}
 	px="24"
@@ -272,7 +265,7 @@
 	duration={2000}
 	notActiveInjClass="grayscale"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="24"
@@ -288,12 +281,12 @@
 	notActiveInjClass="blur"
 />
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Specified container width</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Custom Container Width</div>
 <div class="flex justify-center">
 	<Swiper {data} containerWidth={(document.body.clientWidth / 4) * 3} />
 </div>
 
-<div class="font-bold text-lg mx-4 mt-10 mb-2">Container content uses components</div>
+<div class="font-bold text-lg mx-4 mt-10 mb-2">Component as Content</div>
 <Swiper
 	data={[
 		{ type: 'component', component: Item },
@@ -302,30 +295,26 @@
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	Listen for change events
-	<p class=" font-normal text-xs mb-2">Currently active index values:{indexChange}</p>
+	onchange Event
+	<p class=" font-normal text-xs mb-2">Current Index: {indexChange}</p>
 </div>
-<Swiper {data} on:change={changeContainerFun} />
+<Swiper {data} onchange={current => (indexChange = current)} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	Listen for click events
-	<p class="font-normal text-xs mb-2">Click on the index value: {indexClick === -1 ? 'Not clicked' : indexClick}</p>
+	onclick Event
+	<p class="font-normal text-xs mb-2">Clicked Index: {indexClick === -1 ? 'None' : indexClick}</p>
 </div>
-<Swiper {data} on:clickimg={clickImgFun} />
+<Swiper {data} onclick={current => (indexClick = current)} />
 
-<!-- Item.svelte -->
-<!-- 
+<!-- Item_en.svelte -->
+<!--
 <script>
-    import { Button, Avatar } from '../../../../../packages/stdf/components';
+	import { Button, Avatar } from 'stdf';
 </script>
 
 <div class="flex flex-col space-y-4 items-center">
-    <div class="text-center">This container uses a single component as its content</div>
-    <div>
-        <Avatar />
-    </div>
-    <div class="w-full">
-        <Button>button</Button>
-    </div>
+	<div class="text-center">This container uses a single component as its content</div>
+	<div><Avatar /></div>
+	<div class="w-full"><Button>button</Button></div>
 </div>
- -->
+-->

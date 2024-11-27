@@ -1,63 +1,63 @@
 ## data
 
-The internal `type` supported by the incoming `data` can be `img` or `component`. For the `img` type, the image URL needs to be passed in, and for the `component` type, a single file component needs to be passed in. Swiper will render the corresponding content according to the `type`.
+The type field in the input data supports 'img' and 'component'. For 'img' type, you need to provide an image URL. For 'component' type, you need to provide a single-file component. The Swiper will render corresponding content based on the type.
 
 ## interval && duration
 
-For ease of writing, note that the interval time is in seconds, and the transition time is in milliseconds, and that the transition time passed in must be less than the interval time.
+For convenience, note that the interval time is in seconds while the transition duration is in milliseconds. Also note that the transition duration must be less than the interval time.
 
 ## indicateStyle
 
-This parameter configures the style of the indicator. When `longLine` is used, the active indicator will represent the interval progress during the time the Swiper stays, please refer to the example.
+This parameter configures the indicator style. When `indicateStyle` is set to `longLine`, the active indicator will show the interval progress during the Swiper's dwell time. Please refer to the examples.
 
 ## indicateInjClass
 
-This parameter can inject CSS class names (not limited to Tailwind CSS) into the indicator region. For example, in the example, the default gradient background with transparency is removed by injecting a class.
+This parameter allows you to inject CSS class names (not limited to Tailwind CSS) into the indicator area. For example, you can remove the default gradient background with transparency as shown in the examples.
 
-If the injected class doesn't work, add an exclamation mark before the class name to force it to take effect. You can refer to the [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).
+If the injected class doesn't take effect, add "!" before the class name. Please refer to [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).
 
 ## aspectRatio && containerWidth && px && py
 
-If `containerWidth` is not passed in or is 0, Swiper will use the page width as the width of the component area by default. The height of this area will be calculated based on `containerWidth` and `aspectRatio`.
+If containerWidth is not provided or set to 0, the Swiper will use the page width as the component area width by default. The height of this area will be calculated using containerWidth and aspectRatio.
 
-Note that `aspectRatio` only determines the aspect ratio of the container, so the aspect ratio of the display area inside each container will only be the same as `aspectRatio` when `px` and `py` are the same.
+Note that aspectRatio only determines the container's aspect ratio. The aspect ratio of the inner display area will match aspectRatio only when px and py are equal.
 
-## Inactive container offset and rotation
+## Inactive Container Offset and Rotation
 
-By setting the offset values in the X and Z directions and the rotation angles around the X, Y, and Z axes, the inactive container can be offset and rotated on the corresponding axes, achieving some special transition effects. Please refer to the example.
+By setting offset values in X and Z directions and rotation angles around X, Y, and Z axes, inactive containers can be offset and rotated along corresponding axes to achieve special transition effects. Please refer to the examples.
 
-Note that the offset value is in pixels (px), while the rotation angle is in degrees (deg).
+Note that offset values are in pixels (px) while rotation angles are in degrees (deg).
 
 ## activeInjClass && notActiveInjClass
 
-By injecting classes into the active and inactive containers, containers in different states can have different styles.
+By injecting classes into active and inactive containers, you can apply different styles to containers in different states.
 
 ## radius && innerInjClass
 
-This is the setting of the rounded corners and injection classes for the internal region of the container. Please refer to the example.
+These parameters control the border radius and class injection for the inner container area. Please refer to the examples.
 
-## clickimg event
+## onclick Event
 
-The click event only works when images are passed in. When components are passed in, the event is determined by the component passed in.
+Click events only work when images are provided. For components, events are determined by the provided component itself.
 
-## Slide Events
+## Swipe Events
 
-When the finger or other touch device finishes sliding within the Swiper container, Swiper determines whether to trigger the slide switch based on the sliding distance and sliding speed. If it is triggered, Swiper will switch to the previous or next container according to the sliding direction.
+When a finger or other touch device finishes sliding within the Swiper container, the Swiper will determine whether to trigger a switch based on the sliding distance and velocity. If triggered, it will switch to the previous or next container according to the sliding direction.
 
-- When the sliding distance is less than a certain threshold, the slide switch is never triggered.
-- When the sliding distance is greater than a certain threshold, the slide switch is always triggered.
-- When the sliding distance is between two thresholds, the slide switch is triggered based on the sliding speed. If the speed is greater than a certain speed coefficient, the slide switch is triggered.
+- When the sliding distance is less than a certain threshold, switching will never be triggered.
+- When the sliding distance is greater than a certain threshold, switching will always be triggered.
+- When the sliding distance is between these two thresholds, switching will be determined by the sliding velocity - if the velocity exceeds a certain coefficient, switching will be triggered.
 
-The thresholds and speed coefficients for the above three cases can be customized using the triggerLong, notTriggerLong, and triggerSpeed. Among them, triggerLong and notTriggerLong are percentages representing the percentage of the sliding distance to the container width, and triggerSpeed is a decimal between 0 and 1 representing the sliding speed coefficient.
+The thresholds and velocity coefficient for these three scenarios can be customized through triggerLong, notTriggerLong, and triggerSpeed parameters. Both triggerLong and notTriggerLong are percentages representing the sliding distance as a percentage of container width; triggerSpeed is a decimal between 0-1 representing the velocity coefficient.
 
 ## lazyplay
 
-Swiper has a series of transition animations when autoplaying. When there are a large number of transition effects on the page, considering device performance and animation frame rate issues, Swiper will enable lazy autoplay by default, which means that the Swiper component **will pause autoplay when it is not within the visible range**. Of course, you can also set this separately.
+When Swiper auto-plays, there are a series of transition animations. Considering device performance and animation frame rate issues when there are many simultaneous transitions on a page, Swiper enables lazy playback by default - meaning the Swiper component **will pause auto-play when not in the viewport**. Of course, you can configure this individually.
 
-The following two images show the performance monitoring comparison of desktop browsers processing a large number of transition animations when there are 30+ Swipers autoplaying on the same page in extreme cases:
+The following two images show performance monitoring comparisons in an extreme case where 30+ Swipers are playing simultaneously on the same page in a desktop browser.
 
-- When lazy autoplay is not enabled and there are 30+ transition animations being performed at the same time:
-  <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="Performance monitoring image when lazy autoplay is not enabled">
+- Performance monitor when lazy playback is disabled, showing 30+ sets of transitions occurring simultaneously.
+  <img src="lazyplay_no.png" style="width: 100%;" alt="lazyplay_no" title="Performance monitor with lazy playback disabled">
 
-- When lazy autoplay is enabled and only 3-4 transition animations are being performed at the same time:
-  <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="Performance monitoring image when lazy autoplay is enabled">
+- Performance monitor when lazy playback is enabled, showing only 3-4 sets of transitions occurring simultaneously.
+  <img src="lazyplay_yes.png" style="width: 100%;" alt="lazyplay_yes" title="Performance monitor with lazy playback enabled">

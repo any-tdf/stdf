@@ -1,6 +1,6 @@
 ## data
 
-传入的数据 data 内部的 type 支持'img'和'component'，其中 img 类型需要传入图片 url，component 类型时传入单文件组件，Swiper
+传入的数据 data 内部的 type 支持 `'img'` 和 `'component'`，其中 `img` 类型需要传入图片 url，`component` 类型时传入单文件组件，Swiper
 内部将会根据 type 渲染对应内容。
 
 ## interval && duration
@@ -9,7 +9,7 @@
 
 ## indicateStyle
 
-此参数配置指示器的样式，其中 longLine 时，激活的指示器会在 Swiper 停留时间内表示间隔进度，请参考示例。
+此参数配置指示器的样式，当 `indicateStyle` 为 `longLine` 时，激活的指示器会在 Swiper 停留时间内表示间隔进度，请参考示例。
 
 ## indicateInjClass
 
@@ -39,7 +39,7 @@ aspectRatio 计算出来。
 
 这是对容器内部区域的圆角设置与注入 Class，请参考示例。
 
-## clickimg 事件
+## onclick 事件
 
 点击事件仅仅在传入图片时生效，传入组件时事件由传入的组件内部决定。
 

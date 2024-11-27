@@ -34,7 +34,7 @@
 		notTriggerLong = 10,
 		triggerSpeed = 0.5,
 		onchange,
-		onclickImg,
+		onclick,
 	} = $props();
 
 	let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
@@ -129,13 +129,11 @@
 			return `${-translateX}px`;
 		}
 	};
-	const translateZFun = (i, active, translateZ, movePercent) => {
-		if (i === active) {
-			return `${0 - Math.abs(translateZ * (isMove ? movePercent : 0))}px`;
-		} else {
-			return `${-translateZ + Math.abs(translateZ * (isMove ? movePercent : 0))}px`;
-		}
-	};
+	const translateZFun = (i, active, translateZ, movePercent) =>
+		i === active
+			? `${0 - Math.abs(translateZ * (isMove ? movePercent : 0))}px`
+			: `${-translateZ + Math.abs(translateZ * (isMove ? movePercent : 0))}px`;
+
 	const rotateXFun = (i, active, rotateX, movePercent) => {
 		if (i === active) {
 			return `${-rotateX * (isMove ? movePercent : 0)}deg`;
@@ -265,7 +263,7 @@
 	const clickImgFun = () => {
 		//派发Swiper容器点击事件，currentIndicate表示点击的容器索引值
 		// dispatch the Swiper container click event, currentIndicate indicates the index value of the clicked container
-		onclickImg && onclickImg(currentIndicate);
+		onclick && onclick(currentIndicate);
 	};
 	//滑动开始
 	// slide start
@@ -408,9 +406,9 @@
 		<!-- Render multiple item through loop dataNew -->
 		{#each dataNew as item, i}
 			<div
-				class={`absolute ${pxObj[px] || ''} ${pyObj[py] || ''} ${translateXTransition ? 'transition-all' : 'transition-none'} ${
-					i === active ? activeInjClass : notActiveInjClass
-				}`}
+				class="absolute {pxObj[px] || ''} {pyObj[py] || ''} {translateXTransition ? 'transition-all' : 'transition-none'} {i === active
+					? activeInjClass
+					: notActiveInjClass}"
 				style="width:{width}px;height:{(width * aspectRatio[1]) / aspectRatio[0]}px;left:{width * (i - active) +
 					moveX}px;transition-duration: {duration}ms;z-index:{zIndexFun(i, active, dataNew)};transform:translateX({translateXFun(
 					i,
@@ -426,15 +424,10 @@
 				{#if item.type === 'img'}
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
 					<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-					<img
-						onclick={clickImgFun}
-						class={`object-cover w-full h-full ${radiusObj[radius] || ''} ${innerInjClass}`}
-						src={item.url}
-						alt=""
-					/>
+					<img onclick={clickImgFun} class="object-cover w-full h-full {radiusObj[radius] || ''} {innerInjClass}" src={item.url} alt="" />
 				{/if}
 				{#if item.type === 'component'}
-					<div class={` w-full h-full ${radiusObj[radius] || ''} ${innerInjClass}`}>
+					<div class="w-full h-full {radiusObj[radius] || ''} {innerInjClass}">
 						<item.component />
 					</div>
 				{/if}
@@ -443,29 +436,27 @@
 		<!-- 轮播指示器(内部) -->
 		<!-- Carousel indicator (inner) -->
 		<div
-			class:hidden={data.length < 2 || indicatePosition === 'out' || indicatePosition === 'none'}
-			class={`absolute bottom-0 flex pt-4 pb-2 px-4 space-x-2 w-full bg-gradient-to-b from-black/0 to-black/40 z-50 ${indicateInjClass} ${
-				indicateAlignObj[indicateAlign] || indicateAlignObj.center
-			}`}
+			class:hidden={data.length < 2 || indicatePosition === 'out' || indicatePosition === null}
+			class="absolute bottom-0 flex pt-4 pb-2 px-4 space-x-2 w-full bg-gradient-to-b from-black/0 to-black/40 z-50 {indicateInjClass} {indicateAlignObj[
+				indicateAlign
+			] || indicateAlignObj.center}"
 		>
 			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each data as item, i}
 				<div
-					class={`${indicateStyleInnerFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} ${
-						indicateRadius && 'rounded-full'
-					} transition-all`}
+					class="{indicateStyleInnerFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
+						'rounded-full'} transition-all"
 					style="transition-duration: {duration}ms;"
 				>
 					{#if indicateStyle === 'longLine'}
 						<div
-							class={`absolute h-1 transition-all ${long ? 'ease-linear' : ''} ${indicateRadius && 'rounded-full'} ${
-								long && currentIndicate === i ? 'w-16' : 'w-1'
-							} ${indicateActiveColor === '' ? 'bg-white' : indicateActiveColor}`}
-							style={`${
-								longTransition
-									? `transition-duration: ${currentIndicate === 0 && once ? interval * 1000 : interval * 1000 - duration}ms`
-									: `transition-duration:${duration}ms`
-							}`}
+							class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius && 'rounded-full'} {long &&
+							currentIndicate === i
+								? 'w-16'
+								: 'w-1'} {indicateActiveColor === '' ? 'bg-white' : indicateActiveColor}"
+							style={longTransition
+								? `transition-duration: ${currentIndicate === 0 && once ? interval * 1000 : interval * 1000 - duration}ms`
+								: `transition-duration:${duration}ms`}
 						></div>
 					{/if}
 				</div>
@@ -475,22 +466,20 @@
 	<!-- 轮播指示器(外部) -->
 	<!-- Carousel indicator (outer) -->
 	<div
-		class:hidden={data.length < 2 || indicatePosition === 'inner' || indicatePosition === 'none'}
-		class={`flex py-3 px-4 space-x-2 w-full ${indicateAlignObj[indicateAlign] || indicateAlignObj.center} ${indicateInjClass}`}
+		class:hidden={data.length < 2 || indicatePosition === 'inner' || indicatePosition === null}
+		class="flex py-3 px-4 space-x-2 w-full {indicateAlignObj[indicateAlign] || indicateAlignObj.center} {indicateInjClass}"
 	>
-		<!-- eslint-disable-next-line no-unused-vars -->
 		{#each data as item, i}
 			<div
-				class={`${indicateStyleOutFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} ${
-					indicateRadius && 'rounded-full'
-				} transition-all`}
+				class="{indicateStyleOutFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
+					'rounded-full'} transition-all"
 				style="transition-duration: {duration}ms;"
 			>
 				{#if indicateStyle === 'longLine'}
 					<div
-						class={`absolute h-1 transition-all ${long ? 'ease-linear' : ''} ${indicateRadius && 'rounded-full'} ${
-							long && currentIndicate === i ? 'w-16' : 'w-1'
-						} ${indicateActiveColor === '' ? 'bg-primary dark:bg-dark' : indicateActiveColor}`}
+						class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius && 'rounded-full'} {long && currentIndicate === i
+							? 'w-16'
+							: 'w-1'} {indicateActiveColor === '' ? 'bg-primary dark:bg-dark' : indicateActiveColor}"
 						style={longTransition
 							? `transition-duration: ${currentIndicate === 0 && once ? interval * 1000 : interval * 1000 - duration}ms;`
 							: `transition-duration:${duration}ms`}

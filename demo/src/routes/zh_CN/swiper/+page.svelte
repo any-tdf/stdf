@@ -4,20 +4,20 @@
 	import Item from './Item.svelte';
 
 	/**
-	 * @typedef {Object} img
+	 * @typedef {Object} Img
 	 * @property {'img'} type 类型
 	 * @property {String} url 图片地址
 	 */
 
 	/**
-	 * @typedef {Object} component
+	 * @typedef {Object} Component
 	 * @property {'component'} type 类型
 	 * @property {Object} component 组件
 	 */
 
 	/**
 	 * 数据
-	 * @type {Array<img|component>}
+	 * @type {(Img|Component)[]}
 	 * @default []
 	 */
 	const data = [
@@ -27,15 +27,8 @@
 		{ type: 'img', url: '/assets/images/wall_4.jpg' },
 	];
 
-	let indexClick = -1;
-	const clickImgFun = i => {
-		indexClick = i.detail;
-	};
-
-	let indexChange = 0;
-	const changeContainerFun = i => {
-		indexChange = i.detail;
-	};
+	let indexClick = $state(-1);
+	let indexChange = $state(0);
 </script>
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">基础用法</div>
@@ -57,7 +50,7 @@
 <Swiper {data} indicatePosition="out" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">关闭指示器</div>
-<Swiper {data} indicatePosition="none" />
+<Swiper {data} indicatePosition={null} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">指示器右对齐</div>
 <Swiper {data} indicateAlign="right" />
@@ -70,12 +63,12 @@
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">长线指示器</div>
 <Swiper {data} indicateStyle="longLine" interval={8} />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper {data} indicateStyle="longLine" interval={8} indicatePosition="out" />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">方形指示器</div>
 <Swiper {data} indicateRadius={false} />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper {data} indicateStyle="point" indicateRadius={false} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
@@ -108,7 +101,7 @@
 	interval={8}
 	indicateStyle="longLine"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="6"
@@ -149,7 +142,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	translateX={100}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -162,7 +155,7 @@
 	translateX={-200}
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="12"
@@ -188,7 +181,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -201,7 +194,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -214,7 +207,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -228,7 +221,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -242,7 +235,7 @@
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 	duration={2000}
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="4"
@@ -272,7 +265,7 @@
 	duration={2000}
 	notActiveInjClass="grayscale"
 />
-<div class="mt-10" />
+<div class="mt-10"></div>
 <Swiper
 	{data}
 	px="24"
@@ -302,28 +295,26 @@
 />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	监听 change 事件
+	监听 onchange 事件
 	<p class=" font-normal text-xs mb-2">当前激活索引值：{indexChange}</p>
 </div>
-<Swiper {data} on:change={changeContainerFun} />
+<Swiper {data} onchange={current => (indexChange = current)} />
 
 <div class="font-bold text-lg mx-4 mt-10 mb-2">
-	监听 click 事件
+	监听 onclick 事件
 	<p class="font-normal text-xs mb-2">点击索引值：{indexClick === -1 ? '未点击' : indexClick}</p>
 </div>
-<Swiper {data} on:clickimg={clickImgFun} />
+<Swiper {data} onclick={current => (indexClick = current)} />
 
 <!-- Item.svelte -->
-<!-- <script>
-    import { Button, Avatar } from '../../../../../packages/stdf/components';
+<!--
+<script>
+	import { Button, Avatar } from 'stdf';
 </script>
 
 <div class="flex flex-col space-y-4 items-center">
-    <div class="text-center">此容器使用单个组件作为内容</div>
-    <div>
-        <Avatar />
-    </div>
-    <div class="w-full">
-        <Button>按 钮</Button>
-    </div>
-</div> -->
+	<div class="text-center">此容器使用单个组件作为内容</div>
+	<div><Avatar /></div>
+	<div class="w-full"><Button>按钮</Button></div>
+</div>
+-->
