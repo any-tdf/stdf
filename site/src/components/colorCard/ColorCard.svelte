@@ -1,6 +1,6 @@
 <script>
 	import Color from 'color';
-	export let colorList = []; //颜色列表
+	let { colorList = [] } = $props();
 
 	// 传入 hsl(222, 100%, 98%) 这种字符，将其中的数字四舍五入取整后返回字符
 	const getHslFunc = str => {
