@@ -22,11 +22,11 @@ transitionParams 具体支持的参数请参考 [svelte/transition](https://svel
 
 ## type
 
-Toast 内部默认为 'success'/'error'/'warning'/'info'/'loading' 五种情况设置了对应的内容，也可以通过 `type` 属性自定义，传 '' 不显示，传入其他 SVG Sprites 名称显示对应的 Icon，请参考示例。
+Toast 内部通过 `type` 属性为 'success'/'error'/'warning'/'info' 四种情况设置了对应的图标，也可以传入 `'loading'` 和 `'icon'` 配合 loading 与 icon 自定义对应的显示内容，传 `null` 不显示。请参考示例。
 
-## useSlot
+## Snippet
 
-默认情况下，Toast 内部使用 message 结合 icon 属性作为提示信息，也可以通过 `useSlot` 属性设置为 true，使用插槽配置任意内容作为提示信息。
+默认情况下，Toast 内部可以通过 `children` 属性传入任意内容作为提示信息。
 
 ## 优化
 

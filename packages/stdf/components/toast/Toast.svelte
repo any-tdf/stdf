@@ -17,14 +17,13 @@
 		transitionParams = {},
 		outDuration = 0,
 		zIndex = 1000,
-		type = '',
+		type = null,
 		mask = {},
 		loading = {},
-		icon = { name: '' },
+		icon = {},
 		clickable = false,
 		dynamicFixed = true,
 		children,
-		onopen,
 		onclose,
 	} = $props();
 
@@ -38,8 +37,6 @@
 					onclose && onclose();
 				}, duration);
 			}
-		} else {
-			onopen && onopen();
 		}
 	});
 
@@ -83,38 +80,33 @@
 </script>
 
 {#if visible}
-	<Mask {visible} {clickable} opacity={0} {...mask} {outDuration} />
+	<Mask {visible} {clickable} opacity="0" {outDuration} {...mask} />
 {/if}
 {#if visible}
 	<div
-		class={`fixed w-screen h-screen inset-0 flex flex-col${positionClass[position] || positionClass['center']}${
-			position === 'center' ? '' : pyClass[py] || pyClass['20']
-		} w-full h-full${clickable ? ' pointer-events-none' : ''}`}
-		style={`z-index:${zIndex};height:${innerHeight}px`}
+		class="fixed w-screen h-screen inset-0 flex flex-col{positionClass[position] || positionClass['center']}{position === 'center'
+			? ''
+			: pyClass[py] || pyClass['20']} w-full h-full${clickable ? ' pointer-events-none' : ''}"
+		style="z-index:{zIndex};height:{innerHeight}px;"
 	>
 		<Transition {visible} {transitionType} {transitionParams} {outDuration}>
 			<div class="flex justify-center px-10">
 				<div
-					class={`inline-block bg-black/90 dark:bg-white/90 text-center p-4${
-						radiusClass[radius] || radiusClass['base']
-					} text-white dark:text-black`}
+					class="inline-block bg-black/90 dark:bg-white/90 text-center p-4{radiusClass[radius] ||
+						radiusClass['base']} text-white dark:text-black"
 				>
 					{#if children}
 						{@render children()}
 					{:else}
-						{#if type !== ''}
+						{#if type !== null}
 							<div class="mb-2">
 								{#if type === 'loading'}
 									<Loading inverse {...loading} />
-								{:else}
-									<Icon
-										name={type === 'success' || type === 'error' || type === 'warning' || type === 'info'
-											? `ri-${typeObj[type]}-line`
-											: type}
-										size={30}
-										{...icon}
-									/>
-								{/if}
+								{:else if type === 'icon'}
+									<Icon size={30} {...icon} />
+								{:else if type === 'success' || type === 'error' || type === 'warning' || type === 'info'}
+									<Icon name={`ri-${typeObj[type]}-line`} size={30} {...icon} />
+								{:else}{/if}
 							</div>
 						{/if}
 						<div>

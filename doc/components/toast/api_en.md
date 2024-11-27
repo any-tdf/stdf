@@ -1,34 +1,32 @@
 ## Toast Props
 
-| Property         | Type    | Default  | Options                                                                     | Required | Description                                                                                                                                             |     |
-| ---------------- | ------- | -------- | --------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| message          | String  | ''       | -                                                                           | N        | The message to display in the notification.                                                                                                             |     |
-| visible          | Boolean | false    | true/false                                                                  | N        | Whether the notification should be visible or hidden.                                                                                                   |     |
-| duration         | Number  | 2000     | -                                                                           | N        | The duration in milliseconds for which the notification should remain visible. A value of 0 means it won't automatically close.                         |     |
-| position         | String  | 'center' | 'center'/'top'/'bottom'                                                     | N        | The position where the notification should be displayed.                                                                                                |     |
-| py               | String  | '20      | '0'/'10'/'20'/'40'/'60'/'80'                                                | N        | The position offset from the top or bottom of the screen when the notification is displayed. This property is ignored when position is set to 'center'. |     |
-| radius           | String  | 'base'   | 'base'/'full'/'none'/'sm'/'md'/'lg'/'xl'/'2xl'                              | N        | The style of the notification's corners.                                                                                                                |     |
-| useSlot          | Boolean | false    | true/false                                                                  | N        | Whether to use a slot.                                                                                                                                  |     |
-| transitionType   | String  | 'scale'  | 'fade'/'fly'/'scale'/'slide'/'blur'/'none'                                  | N        | The type of animation to use.                                                                                                                           |     |
-| transitionParams | Object  | {}       | See [svelte/transition](https://svelte.dev/docs#run-time-svelte-transition) | N        | Animation parameters, with the default duration set to 300ms.                                                                                           |
-| outDuration      | Number  | 0        | -                                                                           | N        | Duration of the exit animation in milliseconds.                                                                                                         |
-| mask             | Object  | {}       | See Mask Props                                                              | N        | Parameters for the mask layer.                                                                                                                          |
-| type             | String  | ''       | ''/'success'/'error'/'warning'/'info'/'loading'/SVG Sprites name            | N        | Type of notification.                                                                                                                                   |
-| loading          | Object  | {}       | See Loading Props                                                           | N        | Parameters for the loading component, only effective when the type is 'loading'.                                                                        |
-| icon             | Object  | {}       | See Icon Props                                                              | N        | Parameters for the icon component, only effective when the type is non-empty and non-'loading'.                                                         |
-| zIndex           | Number  | 1000     | -                                                                           | N        | z-index.                                                                                                                                                |
-| clickable        | Boolean | false    | true/false                                                                  | N        | Whether the notification area is clickable through.                                                                                                     |
-| dynamicFixed     | Boolean | true     | true/false                                                                  | N        | Whether to dynamically fix the position.                                                                                                                |
+| Name             | Type                                                             | Default    | Required | Description                                                                        |     |
+| ---------------- | ---------------------------------------------------------------- | ---------- | -------- | ---------------------------------------------------------------------------------- | :-- |
+| message          | `string`                                                         | `''`       | N        | Toast content.                                                                     |
+| visible          | `boolean`                                                        | `false`    | N        | Whether to show the toast.                                                         |
+| duration         | `number`                                                         | `2000`     | N        | Display duration in ms. Toast won't auto-close if set to 0.                        |
+| position         | `'center'\|'top'\|'bottom'`                                      | `'center'` | N        | Display position.                                                                  |
+| py               | `'0'\|'10'\|'20'\|'40'\|'60'\|'80'`                              | `'20'`     | N        | Distance from top/bottom when position is 'top'/'bottom'. Ignored for 'center'.    |
+| radius           | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`          | `'base'`   | N        | Border radius style.                                                               |
+| transitionType   | `'scale'\|'fly'\|'fade'\|'slide'\|'blur'\|null`                  | `'scale'`  | N        | Animation type.                                                                    |
+| transitionParams | [`Transition`](https://svelte.dev/docs/svelte/svelte-transition) | `{}`       | N        | Animation parameters, default duration is 300.                                     |
+| outDuration      | `number`                                                         | `0`        | N        | Exit animation duration in ms.                                                     |
+| type             | `'success'\|'error'\|'warning'\|'info'\|'loading'\|'icon'\|null` | `null`     | N        | Toast icon type.                                                                   |
+| mask             | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)        | `{}`       | N        | Mask layer parameters.                                                             |
+| loading          | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1)  | `{}`       | N        | Loading component parameters, only works when type is `'loading'`.                 |
+| icon             | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)        | `{}`       | N        | Icon component parameters, only works when type is not `'loading'` and not `null`. |
+| zIndex           | `number`                                                         | `1000`     | N        | z-index value.                                                                     |
+| clickable        | `boolean`                                                        | `false`    | N        | Whether to allow click through.                                                    |
+| dynamicFixed     | `boolean`                                                        | `true`     | N        | Whether to use dynamic fixed positioning.                                          |
 
 ## Toast Events
 
-| Name  | Parameters | Description                         |
-| ----- | ---------- | ----------------------------------- |
-| close | -          | Triggered when the toast is closed. |
-| open  | -          | Triggered when the toast is opened. |
+| Name    | Type         | Parameters | Description                         |
+| ------- | ------------ | ---------- | ----------------------------------- |
+| onclose | `() => void` | -          | Triggered when the toast is closed. |
 
-## Toast Slots
+## Toast Snippets
 
-| Name | Description                                      |
-| ---- | ------------------------------------------------ |
-| -    | The content of the toast when `useSlot` is true. |
+| Name     | Type                                                                | Parameters | Description                        |
+| -------- | ------------------------------------------------------------------- | ---------- | ---------------------------------- |
+| children | [`Snippet`](https://svelte.dev/docs/svelte/snippet#Typing-snippets) | -          | Renders toast content when passed. |

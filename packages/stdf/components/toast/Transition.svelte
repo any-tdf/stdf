@@ -15,23 +15,23 @@
 
 {#if visible}
 	{#if transitionType === 'scale'}
-		<div in:scale|global={{ duration: 300, ...transitionParams }} out:scale={{ ...transitionParams, duration: outDuration }}>
+		<div in:scale|global={{ duration: 300, ...transitionParams }} out:scale|global={{ ...transitionParams, duration: outDuration }}>
 			{@render children?.()}
 		</div>
 	{:else if transitionType === 'fly'}
-		<div in:fly|global={{ duration: 300, ...transitionParams }} out:fly={{ ...transitionParams, duration: outDuration }}>
+		<div in:fly|global={{ duration: 300, ...transitionParams }} out:fly|global={{ ...transitionParams, duration: outDuration }}>
 			{@render children?.()}
 		</div>
 	{:else if transitionType === 'fade'}
-		<div in:fade|global={{ duration: 300, ...transitionParams }} out:fade={{ ...transitionParams, duration: outDuration }}>
+		<div in:fade|global={{ duration: 300, ...transitionParams }} out:fade|global={{ ...transitionParams, duration: outDuration }}>
 			{@render children?.()}
 		</div>
 	{:else if transitionType === 'slide'}
-		<div in:slide|global={{ duration: 300, ...transitionParams }} out:slide={{ ...transitionParams, duration: outDuration }}>
+		<div in:slide|global={{ duration: 300, ...transitionParams }} out:slide|global={{ ...transitionParams, duration: outDuration }}>
 			{@render children?.()}
 		</div>
 	{:else if transitionType === 'blur'}
-		<div in:blur|global={{ duration: 300, ...transitionParams }} out:blur={{ ...transitionParams, duration: outDuration }}>
+		<div in:blur|global={{ duration: 300, ...transitionParams }} out:blur|global={{ ...transitionParams, duration: outDuration }}>
 			{@render children?.()}
 		</div>
 	{:else}
