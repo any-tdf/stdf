@@ -8,8 +8,8 @@ import Button from './button/Button.svelte';
 import Calendar from './calendar/Calendar.svelte';
 import Cell from './cell/Cell.svelte';
 import CellGroup from './cell/CellGroup.svelte';
+import CheckboxItem from './checkbox/CheckboxItem.svelte';
 import Checkbox from './checkbox/Checkbox.svelte';
-import CheckboxGroup from './checkbox/CheckboxGroup.svelte';
 import Dialog from './dialog/Dialog.svelte';
 import Divider from './divider/Divider.svelte';
 import Grid from './grids/Grid.svelte';
@@ -29,8 +29,8 @@ import Placeholder from './placeholder/Placeholder.svelte';
 import Popup from './popup/Popup.svelte';
 import Progress from './progress/Progress.svelte';
 import ProgressLoop from './progressLoop/ProgressLoop.svelte';
+import RadioItem from './radio/RadioItem.svelte';
 import Radio from './radio/Radio.svelte';
-import RadioGroup from './radio/RadioGroup.svelte';
 import Rate from './rate/Rate.svelte';
 import Skeleton from './skeleton/Skeleton.svelte';
 import Slider from './slider/Slider.svelte';
@@ -56,8 +56,8 @@ export {
 	Calendar,
 	Cell,
 	CellGroup,
+	CheckboxItem,
 	Checkbox,
-	CheckboxGroup,
 	Dialog,
 	Divider,
 	Grid,
@@ -77,8 +77,8 @@ export {
 	Popup,
 	Progress,
 	ProgressLoop,
+	RadioItem,
 	Radio,
-	RadioGroup,
 	Rate,
 	Skeleton,
 	Slider,

@@ -15,7 +15,7 @@ export const debounce = (fn, delay = 10) => {
 			clearTimeout(timer);
 		}
 		timer = setTimeout(function () {
-			//模拟触发change事件
+			//模拟触发 change 事件
 			// Simulate triggering change event
 			fn.apply(this, arguments);
 			// 清空计时器
@@ -62,7 +62,7 @@ export const throttleWithRAF = (fn, delay = 16) => {
 		const now = performance.now();
 		const remainingTime = delay - (now - lastExec);
 		if (rafId === null && timeoutId === null) {
-			// 如果没有rafId和timeoutId，说明没有正在进行的动画帧或定时器
+			// 如果没有 rafId 和 timeoutId，说明没有正在进行的动画帧或定时器
 			// If there is no rafId and timeoutId, it means there is no animation frame or timer in progress.
 			rafId = requestAnimationFrame(() => {
 				// 在动画帧开始时执行函数
@@ -117,14 +117,14 @@ export const throttleWithRAF = (fn, delay = 16) => {
  * stepNumberFun(18, 5) // 20
  */
 export const stepNumberFun = (num, step = 1) => {
-	//将step乘10，转换为整数，避免小数计算精度问题
+	//将 step 乘 10，转换为整数，避免小数计算精度问题
 	// Multiply step by 10, convert to integer, avoid decimal calculation precision problem
 	const stepNum = step * 10;
 	return (Math.round((num * 10) / stepNum) * stepNum) / 10;
 };
 
 /**
- * 传入Dom和一段字符串，返回占页面的宽度
+ * 传入 Dom 和一段字符串，返回占页面的宽度
  * Pass in Dom and a string, return the width occupied by the page
  * @param {HTMLElement} dom
  * @param {String} str
@@ -329,7 +329,7 @@ export const getCalendarData = (yearMonth, startSunday) => {
 			}
 		});
 	}
-	// 根据每一天的 startDay和weekStartDay，endDay和weekEndDay，只要有一项是 true，就是月第一天或周第一天，放在 start 和 end 中
+	// 根据每一天的 startDay 和 weekStartDay，endDay 和 weekEndDay，只要有一项是 true，就是月第一天或周第一天，放在 start 和 end 中
 	// According to the startDay and weekStartDay of each day, endDay and weekEndDay, as long as one item is true, it is the first day of the month or the first day of the week, put it in start and end
 	data.forEach(item => {
 		if (item.day !== '') {
@@ -383,7 +383,7 @@ export const getMonthListRange = (startMonthStr, endMonthStr) => {
  * getDateRange('20200501', '20200503') // ['20200501', '20200502', '20200503']
  */
 export const getDateRange = (startDate, endDate, disabledDates) => {
-	// 将 startDate 与 endDate 转化为 YYYY-MM-DD格式
+	// 将 startDate 与 endDate 转化为 YYYY-MM-DD 格式
 	// Convert startDate and endDate to YYYY-MM-DD format
 	const startYear = startDate.slice(0, 4);
 	const startMonth = startDate.slice(4, 6);

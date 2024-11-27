@@ -1,4 +1,4 @@
-import type { Snippet } from 'svelte';
+import type { Snippet, Component } from 'svelte';
 
 type Action = {
 	content: string;
@@ -20,7 +20,6 @@ export type ActionSheet = {
 	align?: 'left' | 'center' | 'right';
 	oncancel?: () => void;
 	onclickAction?: (index: number, action: Action) => void;
-	onopen?: () => void;
 	onclose?: () => void;
 };
 
@@ -45,7 +44,6 @@ export type AsyncPicker = {
 	onprev?: () => void;
 	onconfirm?: (items: any[], indexs: number[]) => void;
 	onnext?: (index: number) => void;
-	onopen?: () => void;
 	onclose?: () => void;
 };
 
@@ -69,9 +67,9 @@ export type Avatars = {
 	lineWidth?: '0' | '1' | '2' | '3' | '4' | '8';
 	reverse?: boolean;
 	max?: number;
-	top?: 'totle' | 'add' | 'none' | Snippet;
+	top?: 'totle' | 'add' | null | Snippet;
 	injClass?: string;
-	onclickGroup?: () => void;
+	onclick?: () => void;
 };
 
 export type Badge = {
@@ -124,13 +122,14 @@ export type Button = {
 	customSize?: boolean;
 	customWidth?: number;
 	customHeight?: number;
-	icon?: Icon;
-	loading?: Loading;
+	icon?: Icon | null;
+	loading?: Loading | null;
 	disabledLoading?: boolean;
 	children?: Snippet;
 	onclick?: () => void;
 };
 
+type InfoDate = { date: string; info: string };
 export type Calendar = {
 	visible?: boolean;
 	startMonth?: string;
@@ -143,7 +142,7 @@ export type Calendar = {
 	monthMark?: boolean;
 	monthMarkSize?: '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
 	height?: number;
-	infoDates?: { date: string; info: string }[];
+	infoDates?: InfoDate[];
 	disabledDates?: string[];
 	radius?: 'none' | 'base' | 'xl' | '2xl';
 	showSelectedDay?: boolean;
@@ -157,21 +156,17 @@ export type Calendar = {
 	outFormat?: string;
 	popup?: Popup;
 	button?: Button;
+	clear?: boolean;
 	onconfirm?: (dates: string[]) => void;
-	onopen?: () => void;
 	onclose?: () => void;
 };
 
-type CellRightSnippet = {
-	type: 'switch' | 'icon';
-	switch?: Switch;
-	icon?: Icon;
-};
+type CellRight = { type: 'switch' | 'icon'; switch?: Switch; icon?: Icon };
 export type Cell = {
 	title?: string;
 	detail?: string;
-	right?: 'none' | 'arrow' | CellRightSnippet | 'child';
-	left?: 'child' | '' | Icon;
+	right?: null | 'arrow' | CellRight;
+	left?: null | Icon;
 	subTitle?: string;
 	info?: string;
 	line?: boolean;
@@ -196,18 +191,25 @@ export type CellGroup = {
 	children?: Snippet;
 };
 
-export type Checkbox = {
+export type CheckboxItem = {
 	name: string;
-	checkeds?: string[];
-	outControl?: boolean;
-	textPosition?: 'l' | 'r' | 't' | 'b';
-	icon?: 'none' | 'default' | Icon;
-	iconChecked?: 'none' | 'default' | Icon;
-	children?: Snippet;
-};
-export type CheckboxGroup = {
+	label?: string;
 	layout?: 'h' | 'v' | 'inline';
+	textPosition?: 'l' | 'r' | 't' | 'b';
+	icon?: null | 'default' | Icon;
+	iconChecked?: null | 'default' | Icon;
+	checked?: boolean;
 	children?: Snippet;
+	onclick?: (name: string) => void;
+};
+export type Checkbox = {
+	data: CheckboxItem[];
+	layout?: 'h' | 'v' | 'inline';
+	checkeds?: string[];
+	textPosition?: 'l' | 'r' | 't' | 'b';
+	icon?: null | 'default' | Icon;
+	iconChecked?: null | 'default' | Icon;
+	checkboxChild?: Snippet<[{ item: CheckboxItem }]>;
 	onchange?: (checkeds: string[]) => void;
 };
 
@@ -216,13 +218,11 @@ export type Dialog = {
 	title?: string;
 	titleAlign?: 'left' | 'center' | 'right';
 	content?: string;
-	isContentChild?: boolean;
 	popup?: Popup;
 	showIcon?: boolean;
 	icon?: Icon;
 	btnStyle?: 'button' | 'text' | 'textLine';
 	primaryText?: string;
-	isPrimaryChild?: boolean;
 	primaryButton?: Button;
 	secondaryText?: string;
 	secondaryButton?: Button;
@@ -233,7 +233,6 @@ export type Dialog = {
 	onsecondary?: () => void;
 	onprimary?: () => void;
 	onclose?: () => void;
-	onopen?: () => void;
 	contentChild?: Snippet;
 	primaryChild?: Snippet;
 };
@@ -264,7 +263,7 @@ export type Grids = {
 };
 
 export type Icon = {
-	name: string;
+	name?: string;
 	size?: number | 'full';
 	theme?: boolean;
 	alpha?: number;
@@ -272,46 +271,35 @@ export type Icon = {
 	top?: number;
 	injClass?: string;
 	children?: Snippet;
+	onclick?: () => void;
 };
 
 type IndexBarItem = {
 	index: string;
 	title: string;
-	child: { text: string }[];
+	child: string[];
 	height?: number;
 };
 export type IndexBar = {
 	data: IndexBarItem[];
 	current?: number;
 	top?: number;
-	height?: number;
+	height: number;
 	radius?: 'none' | 'base' | 'full';
 	scrollAlign?: boolean;
 	titleInjClass?: string;
 	textInjClass?: string;
-	onclickChild?: (index: number, group: IndexBarItem, childIndex: number, child: { text: string }) => void;
+	onclickChild?: (index: number, group: IndexBarItem, childIndex: number, child: string) => void;
 };
 
 export type Input = {
 	title?: string;
-	titlePosition?: 'in' | 'out';
+	titlePosition?: 'in' | 'out' | null;
 	inputPosition?: 'left' | 'right';
 	placeholder?: string;
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
-	label1?: '' | Icon;
-	label2?: '' | string;
-	label3?: '' | Icon;
-	label4?: '' | Icon;
-	label5?: '' | string;
-	label6?: '' | Icon;
-	tip?: string;
-	data1?: '' | string;
-	data2?: '' | string;
-	data3?: '' | string;
-	value?: string;
-	clear?: boolean;
+	radius?: 'none' | 'base' | 'xl' | 'full';
 	inputStyle?: 'block' | 'line';
-	lineTransition?: 'none' | 'center' | 'left';
+	lineTransition?: null | 'center' | 'left';
 	duration?: 'fast' | 'base' | 'slow' | 'slower';
 	autocomplete?: boolean;
 	py?: '0' | '0.5' | '1' | '2' | '3' | '4' | '6';
@@ -323,16 +311,28 @@ export type Input = {
 	textareaMaxlength?: number;
 	rows?: number;
 	autosize?: boolean;
+	label1?: null | Icon;
+	label2?: null | string;
+	label3?: null | Icon;
+	label4?: null | Icon;
+	label5?: null | string;
+	label6?: null | Icon;
+	tip?: string | null;
+	data1?: null | string;
+	data2?: null | string;
+	data3?: null | string;
+	value?: string;
+	clear?: boolean;
 	onfocus?: (value: string) => void;
 	onblur?: (value: string) => void;
 	onchange?: (value: string) => void;
 	onclear?: () => void;
-	onclicklabel1?: () => void;
-	onclicklabel2?: () => void;
-	onclicklabel3?: () => void;
-	onclicklabel4?: () => void;
-	onclicklabel5?: () => void;
-	onclicklabel6?: () => void;
+	onclickLabel1?: () => void;
+	onclickLabel2?: () => void;
+	onclickLabel3?: () => void;
+	onclickLabel4?: () => void;
+	onclickLabel5?: () => void;
+	onclickLabel6?: () => void;
 	onkeydown?: (key: string) => void;
 	titleChild?: Snippet;
 	data1Child?: Snippet;
@@ -360,7 +360,7 @@ export type Loading = {
 
 export type Mask = {
 	visible?: boolean;
-	opacity?: number;
+	opacity?: '0' | '0.1' | '0.2' | '0.3' | '0.4' | '0.5' | '0.6' | '0.7' | '0.8' | '0.9' | '1';
 	clickable?: boolean;
 	inverse?: boolean;
 	backdropBlur?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
@@ -383,19 +383,18 @@ export type Modal = {
 	btnText?: string;
 	button?: Button;
 	contentChild?: Snippet;
-	onopen?: () => void;
 	onclose?: () => void;
 };
 
 export type NavBar = {
 	title?: string;
-	left?: 'back' | 'none' | Icon;
+	left?: 'back' | null | Icon;
 	rights?: Icon[];
 	line?: boolean;
 	injClass?: string;
 	love?: boolean;
 	onclickLeft?: () => void;
-	onclickRight?: (i: number) => void;
+	onclickRight?: (index: number) => void;
 	titleChild?: Snippet;
 	leftChild?: Snippet;
 	rightChild?: Snippet;
@@ -413,6 +412,7 @@ export type NoticeBar = {
 	interval?: number;
 	injClass?: string;
 	leftChild?: Snippet;
+	rightChild?: Snippet;
 	onclickRight?: () => void;
 };
 
@@ -434,14 +434,14 @@ export type NumKeyboard = {
 	doneClass?: string;
 	popup?: Popup;
 	onclick?: (numStr: string, key: string) => void;
-	onopen?: (keyboardHeight: number) => void;
+	onopen?: (height: number) => void;
 	onclose?: () => void;
 };
 
 export type Pagination = {
 	total: number;
-	pageSize: number;
-	current: number;
+	pageSize?: number;
+	current?: number;
 	maxShowPage?: 5 | 7 | 9 | 11;
 	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | 'full';
 	type?: 'border' | 'block' | 'bold';
@@ -457,19 +457,22 @@ export type Pagination = {
 	onpre?: (current: number) => void;
 };
 
-type LabelKey = string;
+type PickerDataChild = {
+	[key: string]: string | PickerDataChild[] | undefined;
+	children?: PickerDataChild[];
+};
 export type PickerDatas = {
-	data: { LabelKey: string }[];
+	data: { [key: string]: string }[];
 	showRow?: 3 | 5 | 7;
 	initIndex?: number;
 	useAnimation?: boolean;
-	labelKey?: LabelKey;
+	labelKey?: string;
 	flex?: number;
 	align?: 'left' | 'center' | 'right';
 };
 export type Picker = {
 	visible?: boolean;
-	datas?: { data: PickerDatas[] }[];
+	datas?: PickerDatas[] | PickerDataChild[];
 	autoScrollToLast?: boolean;
 	cancelText?: string;
 	confirmText?: string;
@@ -479,12 +482,11 @@ export type Picker = {
 	linkageShowRows?: number[];
 	linkageFlexs?: number[];
 	linkageAligns?: ('left' | 'center' | 'right')[];
-	linkageLabelKeys?: LabelKey[];
+	linkageLabelKeys?: string[];
 	linkageChildrenKey?: string;
 	popup?: Popup;
-	onopen?: () => void;
 	onclose?: () => void;
-	onconfirm?: (items: { LabelKey: string }[], indexs: number[]) => void;
+	onconfirm?: (items: { [key: string]: string }[], indexs: number[]) => void;
 	oncancel?: () => void;
 };
 
@@ -518,21 +520,20 @@ export type Popup = {
 	dynamicFixed?: boolean;
 	hideScrollbar?: boolean;
 	children?: Snippet;
-	onopen?: () => void;
 	onclose?: () => void;
 	onclickMask?: () => void;
 };
 
 export type Progress = {
 	percent?: number;
-	percentPosition?: 'inner' | 'right' | 'block' | 'none';
+	percentPosition?: 'inner' | 'right' | 'block' | null;
 	height?: '1' | '2' | '3' | '4';
 	radius?: 'full' | 'base' | 'none';
 	inactive?: boolean;
 	overflowPercent?: number;
+	duration?: '150' | '300' | '500' | '700' | '1000';
 	injClass?: string;
 	trackInjClass?: string;
-	duration?: '150' | '300' | '500' | '700' | '1000';
 	children?: Snippet;
 };
 
@@ -542,23 +543,31 @@ export type ProgressLoop = {
 	butt?: boolean;
 	reverse?: boolean;
 	duration?: '150' | '300' | '500' | '700' | '1000';
-	gradient?: [string, string] | null;
+	gradient?: [string, string];
 	injClass?: string;
 	trackInjClass?: string;
 	children?: Snippet;
 };
 
-export type Radio = {
+export type RadioItem = {
 	name: string;
+	label?: string;
+	layout?: 'v' | 'h' | 'inline';
 	textPosition?: 'l' | 'r' | 't' | 'b';
-	icon?: 'default' | 'none' | Icon;
-	iconChecked?: 'default' | 'none' | Icon;
+	icon?: 'default' | null | Icon;
+	iconChecked?: 'default' | null | Icon;
+	checked?: boolean;
 	children?: Snippet;
+	onclick?: (name: string) => void;
 };
-export type RadioGroup = {
-	value: string;
-	horizontal?: boolean;
-	children?: Snippet;
+export type Radio = {
+	data: RadioItem[];
+	layout?: 'v' | 'h' | 'inline';
+	value?: string;
+	textPosition?: 'l' | 'r' | 't' | 'b';
+	icon?: 'default' | null | Icon;
+	iconChecked?: 'default' | null | Icon;
+	radioChild?: Snippet<[{ item: RadioItem }]>;
 	onchange?: (value: string) => void;
 };
 
@@ -574,7 +583,7 @@ export type Rate = {
 	vertical?: boolean;
 	disabled?: boolean;
 	readonly?: boolean;
-	animation?: 'current' | 'active' | 'none';
+	animation?: 'current' | 'active' | null;
 	children?: Snippet;
 	onclick?: (value: number) => void;
 };
@@ -628,15 +637,20 @@ export type Stepper = {
 	onincrease?: () => void;
 };
 
-type StepsStepBarIcon = { type: 'icon'; icon: Icon };
-type StepsStepBarImage = { type: 'image'; image: string };
-type StepsStepBarStr = { type: 'string'; string: string };
-type StepsStep = { title?: string; desc?: string; bar?: StepsStepBarIcon | StepsStepBarImage | StepsStepBarStr; injComponent?: Snippet };
+type StepsStepBarIcon = { type: 'icon'; content: Icon };
+type StepsStepBarImage = { type: 'image'; content: string };
+type StepsStepBarString = { type: 'string'; content: string };
+type StepsStep = {
+	title?: string;
+	desc?: string;
+	bar?: StepsStepBarIcon | StepsStepBarImage | StepsStepBarString;
+	injComponent?: Component;
+};
 type StepsFinishStep = {
 	title?: string;
 	desc?: string;
-	bar?: StepsStepBarIcon | StepsStepBarImage | StepsStepBarStr;
-	injComponent?: Snippet;
+	bar?: StepsStepBarIcon | StepsStepBarImage | StepsStepBarString;
+	injComponent?: Component;
 };
 type StepsItem = { step: StepsStep; finishStep?: StepsFinishStep; height?: number };
 export type Steps = {
@@ -647,15 +661,16 @@ export type Steps = {
 	vertical?: boolean;
 };
 
-type SwiperItem = { type: 'img'; url: string } | { type: 'component'; component: Snippet };
+type SwiperImg = { type: 'img'; url: string };
+type SwiperComponent = { type: 'component'; component: Component };
 export type Swiper = {
-	data: SwiperItem[];
+	data: (SwiperImg | SwiperComponent)[];
 	interval?: number;
 	duration?: number;
 	autoplay?: boolean;
 	lazyplay?: boolean;
 	initActive?: number;
-	indicatePosition?: 'inner' | 'out' | 'none';
+	indicatePosition?: 'inner' | 'out' | null;
 	indicateAlign?: 'center' | 'right' | 'left';
 	indicateStyle?: 'point' | 'line' | 'pointLine' | 'longLine';
 	indicateRadius?: boolean;
@@ -674,18 +689,18 @@ export type Swiper = {
 	activeInjClass?: string;
 	notActiveInjClass?: string;
 	radius?: 'none' | 'base' | 'xl' | '2xl' | 'full';
-	innerInjClass?: string;
 	triggerLong?: number;
 	notTriggerLong?: number;
 	triggerSpeed?: number;
+	innerInjClass?: string;
 	onchange?: (current: number) => void;
-	onclickImg?: (current: number) => void;
+	onclick?: (current: number) => void;
 };
 
 export type Switch = {
 	active?: boolean;
 	radius?: 'none' | 'base' | 'full';
-	inside?: 'state' | 'loading' | 'child' | [string, string] | '';
+	inside?: 'state' | 'loading' | [string, string] | null;
 	injClass?: string;
 	disabled?: boolean;
 	async?: boolean;
@@ -699,10 +714,10 @@ export type Switch = {
 type TabBarLabel = { text?: string; icon?: Icon; activeIcon?: Icon };
 export type TabBar = {
 	labels: TabBarLabel[];
-	active: number;
-	line: boolean;
-	lineW: number;
-	love: boolean;
+	active?: number;
+	line?: boolean;
+	lineW?: number;
+	love?: boolean;
 	injClass?: string;
 	tabInjClass?: string;
 	activeTabInjClass?: string;
@@ -737,17 +752,28 @@ export type Tabs = {
 	transition?: boolean;
 	active?: number;
 	onchange?: (active: number) => void;
-	children?: Snippet;
+	children?: Snippet<[{ active: number }]>;
 };
 
-type TimePickerItem = {
-	showRow?: 3 | 5 | 7;
-	flex?: number;
-	align?: 'left' | 'center' | 'right';
-};
+type TimePickerItem = { showRow?: 3 | 5 | 7; flex?: number; align?: 'left' | 'center' | 'right' };
+type TimePickerObj = { YYYY: string; MM: string; DD: string; hh: string; mm: string; ss: string };
+type TimePickerType =
+	| 'YYYY'
+	| 'MM'
+	| 'hh'
+	| 'mm'
+	| 'ss'
+	| 'YYYYMM'
+	| 'hhmm'
+	| 'mmss'
+	| 'YYYYMMDD'
+	| 'hhmmss'
+	| 'YYYYMMDDhh'
+	| 'YYYYMMDDhhmm'
+	| 'YYYYMMDDhhmmss';
 export type TimePicker = {
 	visible?: boolean;
-	type?: 'Y' | 'M' | 'h' | 'm' | 's' | 'YM' | 'hm' | 'ms' | 'YMD' | 'hms' | 'YMDh' | 'YMDhm' | 'YMDhms';
+	type?: TimePickerType;
 	yearProps?: TimePickerItem;
 	monthProps?: TimePickerItem;
 	dayProps?: TimePickerItem;
@@ -777,11 +803,10 @@ export type TimePicker = {
 	hourText?: string;
 	minuteText?: string;
 	secondText?: string;
-	outFormat?: 'object' | '' | string;
+	outFormat?: string;
 	popup?: Popup;
 	oncancel?: () => void;
-	onconfirm?: (times: string | object) => void;
-	onopen?: () => void;
+	onconfirm?: (timeStr: string, timeObj: TimePickerObj) => void;
 	onclose?: () => void;
 };
 
@@ -792,18 +817,17 @@ export type Toast = {
 	position?: 'center' | 'top' | 'bottom';
 	py?: '0' | '10' | '20' | '40' | '60' | '80';
 	radius?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-	transitionType?: 'scale' | 'fly' | 'fade' | 'slide' | 'blur' | 'none';
+	transitionType?: 'scale' | 'fly' | 'fade' | 'slide' | 'blur' | null;
 	transitionParams?: object;
 	outDuration?: number;
-	zIndex?: number;
-	type?: 'success' | 'error' | 'warning' | 'info' | 'loading' | '' | string;
+	type?: 'success' | 'error' | 'warning' | 'info' | 'loading' | 'icon' | null;
 	mask?: Mask;
 	loading?: Loading;
 	icon?: Icon;
+	zIndex?: number;
 	clickable?: boolean;
 	dynamicFixed?: boolean;
 	children?: Snippet;
-	onopen?: () => void;
 	onclose?: () => void;
 };
 
