@@ -21,8 +21,7 @@
 </script>
 
 <div
-	class={`${size} m-auto border-2 rounded-full${colorClass()} border-t-transparent border-b-transparent dark:border-t-transparent dark:border-b-transparent animate-spin`}
-	style={`border-color: ${customColor[0]};border-top-color:transparent;border-bottom-color:transparent;;animation-duration: ${
-		1 / speed
-	}s;-webkit-animation-duration: ${1 / speed}s;`}
+	class="{size} m-auto border-2 rounded-full{colorClass()} border-t-transparent border-b-transparent dark:border-t-transparent dark:border-b-transparent animate-spin"
+	style="border-color: {customColor[0]};border-top-color:transparent;border-bottom-color:transparent;animation-duration: {1 /
+		speed}s;-webkit-animation-duration: {1 / speed}s;"
 ></div>

@@ -21,11 +21,11 @@
 </script>
 
 <div
-	class={`${size} m-auto border-2 p-0.5 rounded-full animate-spin${outerBorderClass()}`}
-	style="border-color:{customColor[0]};;animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
+	class="{size} m-auto border-2 p-0.5 rounded-full animate-spin{outerBorderClass()}"
+	style="border-color:{customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 >
 	<div
-		class={`w-full h-full border-2 rounded-full${innerColorClass()}`}
+		class="w-full h-full border-2 rounded-full{innerColorClass()}"
 		style="border-color:{customColor[1] && 'transparent'};border-left-color:{customColor[1]}"
 	></div>
 </div>

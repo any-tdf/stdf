@@ -20,10 +20,10 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative`}>
+<div class="{size} m-auto relative">
 	{#each [0, 1, 2, 3, 4] as i}
 		<div
-			class={`absolute -left-1/2 top-1/4${colorClass()} rounded-full w-4 h-4 opacity-60 loading`}
+			class="absolute -left-1/2 top-1/4{colorClass()} rounded-full w-4 h-4 opacity-60 loading"
 			style="animation-delay: {-0.5 * i}s, {-0.5 * (i + 1)}s;top:calc(5);background: {customColor[0]};animation-duration: {2.5 /
 				speed}s;-webkit-animation-duration: {2.5 / speed}s;"
 		></div>

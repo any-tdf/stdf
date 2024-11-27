@@ -25,10 +25,9 @@
 </script>
 
 <div
-	class={`${size} m-auto border-4 rounded-full loading ${colorClass()}`}
-	style={`border-color: ${customColor[0] + '0D'} ${customColor[0] + 'FF'} ${customColor[0] + '0D'} ${
-		customColor[0] + 'FF'
-	};animation-duration: ${2 / speed}s;-webkit-animation-duration: ${2 / speed}s;`}
+	class="{size} m-auto border-4 rounded-full loading {colorClass()}"
+	style="border-color: {customColor[0] + '0D'} {customColor[0] + 'FF'} {customColor[0] + '0D'} {customColor[0] +
+		'FF'};animation-duration: {2 / speed}s;-webkit-animation-duration: {2 / speed}s;"
 ></div>
 
 <style>

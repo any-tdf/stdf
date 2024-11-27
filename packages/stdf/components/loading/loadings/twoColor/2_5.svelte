@@ -18,7 +18,7 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative loading`} style="animation-duration: {1.2 / speed}s;-webkit-animation-duration: {1.2 / speed}s;">
+<div class="{size} m-auto relative loading" style="animation-duration: {1.2 / speed}s;-webkit-animation-duration: {1.2 / speed}s;">
 	<div
 		class="w-1/2 h-1/2 rounded-tl-full absolute shape1 {bgClass()}"
 		style="background: {customColor[0]};animation-duration: {0.6 / speed}s;-webkit-animation-duration: {0.6 / speed}s;"

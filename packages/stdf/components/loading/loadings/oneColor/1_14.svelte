@@ -27,13 +27,13 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative`}>
+<div class="{size} m-auto relative">
 	<div
-		class={`absolute w-full h-full border-2 !border-r-transparent !border-l-transparent rounded-full${borderClass()} loading1`}
+		class="absolute w-full h-full border-2 !border-r-transparent !border-l-transparent rounded-full{borderClass()} loading1"
 		style="border-color: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 	<div
-		class={`absolute left-1/4 top-1/4 w-1/2 h-1/2 rounded-full${colorClass()} loading2`}
+		class="absolute left-1/4 top-1/4 w-1/2 h-1/2 rounded-full{colorClass()} loading2"
 		style="background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 </div>

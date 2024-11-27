@@ -20,11 +20,11 @@
 	};
 </script>
 
-<div class={`${size} m-auto`}>
+<div class="{size} m-auto">
 	<svg
 		viewBox="0 0 24 24"
-		class={`animate-spin${colorClass()}`}
-		style={`color: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
+		class="animate-spin{colorClass()}"
+		style="color: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	>
 		<circle cx="12" cy="12" r="10" stroke-width="4" fill="none" class="opacity-5" stroke="currentColor" />
 		<circle

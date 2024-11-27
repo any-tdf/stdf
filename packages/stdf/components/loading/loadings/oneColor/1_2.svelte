@@ -25,8 +25,7 @@
 </script>
 
 <div
-	class={`${size} m-auto border-2 rounded-full animate-spin ${colorClass()}`}
-	style={`border-color:${customColor[0] + '0D'};border-left-color:${customColor[0] + 'FF'};animation-duration: ${
-		1 / speed
-	}s;-webkit-animation-duration: ${1 / speed}s;`}
+	class="{size} m-auto border-2 rounded-full animate-spin {colorClass()}"
+	style="border-color:{customColor[0] + '0D'};border-left-color:{customColor[0] + 'FF'};animation-duration: {1 /
+		speed}s;-webkit-animation-duration: {1 / speed}s;"
 ></div>

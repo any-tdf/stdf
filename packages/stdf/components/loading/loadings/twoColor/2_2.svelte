@@ -18,10 +18,9 @@
 </script>
 
 <div
-	class={`${size} m-auto border-4 rounded-full loading ${borderClass()}`}
-	style={`border-color: ${customColor[0] || (inverse ? '' : '')} ${customColor[1] || (inverse ? '' : '')} ${
-		customColor[0] || (inverse ? '' : '')
-	} ${customColor[1] || (inverse ? '' : '')};animation-duration: ${2 / speed}s;-webkit-animation-duration: ${2 / speed}s;`}
+	class="{size} m-auto border-4 rounded-full loading {borderClass()}"
+	style="border-color: {customColor[0] || (inverse ? '' : '')} {customColor[1] || (inverse ? '' : '')} {customColor[0] ||
+		(inverse ? '' : '')} {customColor[1] || (inverse ? '' : '')};animation-duration: {2 / speed}s;-webkit-animation-duration: {2 / speed}s;"
 ></div>
 
 <style>

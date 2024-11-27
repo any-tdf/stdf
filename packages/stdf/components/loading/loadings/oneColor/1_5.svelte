@@ -21,7 +21,7 @@
 </script>
 
 <div
-	class={`${size} m-auto rounded-full${colorClass()}`}
+	class="{size} m-auto rounded-full{colorClass()}"
 	style="background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 ></div>
 

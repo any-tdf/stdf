@@ -20,15 +20,14 @@
 	};
 </script>
 
-<div
-	class=" {size} m-auto relative top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full overflow-hidden"
-	style="height:4px"
->
-	<div class="absolute left-0 w-full h-full opacity-10{colorClass()}" style="background-color: {customColor[0]};"></div>
-	<div
-		class="container w-full h-full rounded-full{colorClass()}"
-		style="background-color: {customColor[0]}; animation-duration: {1.5 / speed}s"
-	></div>
+<div class="{size} flex flex-col justify-center">
+	<div class="{size} m-auto relative rounded-full overflow-hidden" style="height:4px">
+		<div class="absolute w-full h-full opacity-10{colorClass()}" style="background-color: {customColor[0]};"></div>
+		<div
+			class="container w-full h-full rounded-full{colorClass()}"
+			style="background-color: {customColor[0]}; animation-duration: {1.5 / speed}s"
+		></div>
+	</div>
 </div>
 
 <style>

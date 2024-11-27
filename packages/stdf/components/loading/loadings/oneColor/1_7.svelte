@@ -20,13 +20,13 @@
 	};
 </script>
 
-<div class={`${size} m-auto flex items-center`}>
+<div class="{size} m-auto flex items-center">
 	<div
-		class={`flex-1${colorClass()} rounded-full w-1/2 h-1/2 loading1`}
+		class="flex-1{colorClass()} rounded-full w-1/2 h-1/2 loading1"
 		style="background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 	<div
-		class={`flex-1${colorClass()} rounded-full w-1/2 h-1/2 loading2`}
+		class="flex-1{colorClass()} rounded-full w-1/2 h-1/2 loading2"
 		style="background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 </div>

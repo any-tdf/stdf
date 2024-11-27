@@ -20,13 +20,13 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative box-border`}>
+<div class="{size} m-auto relative box-border">
 	<div
-		class={`absolute top-1/2 left-1/2 ${size} m-auto border-2 !border-r-transparent !border-l-transparent rounded-full${colorClass()} loading`}
+		class="absolute top-1/2 left-1/2 {size} m-auto border-2 !border-r-transparent !border-l-transparent rounded-full{colorClass()} loading"
 		style="border-color: {customColor[0]};animation-duration: {1.5 / speed}s;-webkit-animation-duration: {1.5 / speed}s;"
 	></div>
 	<div
-		class={`absolute top-1/2 left-1/2 w-1/2 h-1/2 m-auto border-2 !border-t-transparent !border-b-transparent rounded-full${colorClass()} loading`}
+		class="absolute top-1/2 left-1/2 w-1/2 h-1/2 m-auto border-2 !border-t-transparent !border-b-transparent rounded-full{colorClass()} loading"
 		style="animation-direction: reverse;border-color: {customColor[0]};animation-duration: {1.5 / speed}s;-webkit-animation-duration: {1.5 /
 			speed}s;"
 	></div>

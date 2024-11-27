@@ -11,10 +11,9 @@
 </script>
 
 <div
-	class={`${size} m-auto border-4 rounded-full loading`}
-	style={`border-color: ${customColor[0] || '#DA1414'} ${customColor[1] || '#11BB8D'} ${customColor[2] || '#7356BF'} ${
-		customColor[3] || '#FFC043'
-	};animation-duration: ${2 / speed}s;-webkit-animation-duration: ${2 / speed}s;`}
+	class="{size} m-auto border-4 rounded-full loading"
+	style="border-color: {customColor[0] || '#DA1414'} {customColor[1] || '#11BB8D'} {customColor[2] || '#7356BF'} {customColor[3] ||
+		'#FFC043'};animation-duration: {2 / speed}s;-webkit-animation-duration: {2 / speed}s;"
 ></div>
 
 <style>

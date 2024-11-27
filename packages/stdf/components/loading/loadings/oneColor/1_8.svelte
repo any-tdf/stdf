@@ -21,12 +21,12 @@
 </script>
 
 <div
-	class={`${size} m-auto flex justify-between items-center loading`}
+	class="{size} m-auto flex justify-between items-center loading"
 	style="animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 >
-	<div class={`${colorClass()} rounded-full w-2 h-2`} style="background: {customColor[0]}"></div>
-	<div class={`${colorClass()} rounded-full w-2 h-2`} style="background: {customColor[0]}"></div>
-	<div class={`${colorClass()} rounded-full w-2 h-2`} style="background: {customColor[0]}"></div>
+	<div class="{colorClass()} rounded-full w-2 h-2" style="background: {customColor[0]}"></div>
+	<div class="{colorClass()} rounded-full w-2 h-2" style="background: {customColor[0]}"></div>
+	<div class="{colorClass()} rounded-full w-2 h-2" style="background: {customColor[0]}"></div>
 </div>
 
 <style>

@@ -18,7 +18,7 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative rotate-45`}>
+<div class="{size} m-auto relative rotate-45">
 	<div
 		class="w-1/3 h-1/3 absolute left-0 top-0 shape1 {bgClass()}"
 		style="background: {customColor[0]};animation-duration: {0.5 / speed}s;-webkit-animation-duration: {0.5 / speed}s;"

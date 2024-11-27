@@ -20,13 +20,13 @@
 	};
 </script>
 
-<div class={`relative ${size} m-auto`}>
+<div class="relative {size} m-auto">
 	<div
-		class={`absolute${colorClass()} w-1/3 h-1/3 rounded-full loading1`}
+		class="absolute{colorClass()} w-1/3 h-1/3 rounded-full loading1"
 		style="background: {customColor[0]};animation-duration: {1.5 / speed}s;-webkit-animation-duration: {1.5 / speed}s;"
 	></div>
 	<div
-		class={`absolute${colorClass()} w-1/3 h-1/3 rounded-full loading2`}
+		class="absolute{colorClass()} w-1/3 h-1/3 rounded-full loading2"
 		style="background: {customColor[0]};animation-duration: {1.5 / speed}s;-webkit-animation-duration: {1.5 / speed}s;"
 	></div>
 </div>

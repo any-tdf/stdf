@@ -20,27 +20,27 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative box-border loading`}>
+<div class="{size} m-auto relative box-border loading">
 	<div
-		class={`absolute${colorClass()} rounded-full ball`}
+		class="absolute{colorClass()} rounded-full ball"
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 0.6 / speed : 0.6}s;-webkit-animation-duration: {speed >= 1
 			? 0.6 / speed
 			: 0.6}s;"
 	></div>
 	<div
-		class={`absolute top-0 right-0${colorClass()} steps step1`}
+		class="absolute top-0 right-0{colorClass()} steps step1"
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"
 	></div>
 	<div
-		class={`absolute top-0 right-0${colorClass()} steps step2`}
+		class="absolute top-0 right-0{colorClass()} steps step2"
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"
 	></div>
 	<div
-		class={`absolute top-0 right-0${colorClass()} steps step3`}
+		class="absolute top-0 right-0{colorClass()} steps step3"
 		style="background: {customColor[0]};animation-duration: {speed >= 1 ? 1.8 / speed : 1.8}s;-webkit-animation-duration: {speed >= 1
 			? 1.8 / speed
 			: 1.8}s;"

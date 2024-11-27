@@ -10,7 +10,7 @@
 	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
 </script>
 
-<div class={`${size} m-auto relative loading`} style="animation-duration: {1.6 / speed}s;-webkit-animation-duration: {1.6 / speed}s;">
+<div class="{size} m-auto relative loading" style="animation-duration: {1.6 / speed}s;-webkit-animation-duration: {1.6 / speed}s;">
 	<div
 		class="w-1/3 h-1/3 rounded-full absolute shape1"
 		style="background: {customColor[0] || '#DA1414'};animation-duration: {0.8 / speed}s;-webkit-animation-duration: {0.8 / speed}s;"

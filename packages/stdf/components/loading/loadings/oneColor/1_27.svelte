@@ -36,7 +36,6 @@
 
 <style>
 	.container {
-		/* --uib-speed: 1.5s; */
 		animation: smoothRotate linear infinite;
 	}
 

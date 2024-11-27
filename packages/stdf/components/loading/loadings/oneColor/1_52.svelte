@@ -20,7 +20,7 @@
 	};
 </script>
 
-<div class="{size} m-auto relative w-full h-full">
+<div class="{size} m-auto relative">
 	{#each [[-0.375, 1], [-0.375, 0.8], [-0.3, 0.6], [-0.225, 0.4], [-0.15, 0.2], [-0.075, 0.1]] as item}
 		<div
 			class="line absolute left-0 h-1 w-full rounded-full{colorClass()}"

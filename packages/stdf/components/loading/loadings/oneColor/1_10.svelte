@@ -20,10 +20,10 @@
 	};
 </script>
 
-<div class={`${size} m-auto flex justify-between items-center`}>
+<div class="{size} m-auto flex justify-between items-center">
 	{#each [0, 1, 2] as i}
 		<div
-			class={`${colorClass()} rounded-full w-2 h-2 loading`}
+			class="{colorClass()} rounded-full w-2 h-2 loading"
 			style="animation-delay: {i === 1 ? -0.3 : 0}s;background: {customColor[0]};animation-duration: {1 /
 				speed}s;-webkit-animation-duration: {1 / speed}s;"
 		></div>

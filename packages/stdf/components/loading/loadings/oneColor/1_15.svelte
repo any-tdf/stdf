@@ -20,26 +20,26 @@
 	};
 </script>
 
-<div class={`${size} m-auto relative`}>
+<div class="{size} m-auto relative">
 	<div
-		class={`absolute${colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading1`}
+		class="absolute{colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading1"
 		style={`left:0;background: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
 	></div>
 	<div
-		class={`absolute${colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading2`}
-		style={`left:25%;background: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
+		class="absolute{colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading2"
+		style="left:25%;background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 	<div
-		class={`absolute${colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading3`}
-		style={`left:50%;background: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
+		class="absolute{colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading3"
+		style="left:50%;background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 	<div
-		class={`absolute${colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading4`}
-		style={`left:75%;background: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
+		class="absolute{colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading4"
+		style="left:75%;background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 	<div
-		class={`absolute${colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading5`}
-		style={`left:100%;background: ${customColor[0]};animation-duration: ${1 / speed}s;-webkit-animation-duration: ${1 / speed}s;`}
+		class="absolute{colorClass()} rounded-full w-1/4 h-1/4 top-1/2 loading5"
+		style="left:100%;background: {customColor[0]};animation-duration: {1 / speed}s;-webkit-animation-duration: {1 / speed}s;"
 	></div>
 </div>
 

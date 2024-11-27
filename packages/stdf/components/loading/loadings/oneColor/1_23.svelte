@@ -21,7 +21,6 @@
 </script>
 
 <div class="{size} m-auto relative -translate-x-0.5">
-	<!-- eslint-disable-next-line no-unused-vars -->
 	{#each new Array(12) as item, i}
 		<div
 			class="absolute left-1/2 flex flex-col w-[3px] h-8 gap-5 bg-transparent rounded-full"
