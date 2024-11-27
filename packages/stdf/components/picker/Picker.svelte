@@ -58,56 +58,63 @@
 		datas.length > 0 && newDatasFormatFunc(datas, 0);
 		newDatas = newLinkageData;
 	}
-	// 对 datas 处理，如果没有设置 initIndex 则默认为 0，如果没有设置 showRow 则默认为 5
-	// Process datas, if initIndex is not set, it is default to 0, if showRow is not set, it is default to 5
-	newDatas = newDatas.map((item, index) => {
-		if (!item.initIndex) {
-			item.initIndex = 0;
-		}
-		if (!item.showRow) {
-			item.showRow = 5;
-		}
-		if (!item.lastSelectedIndex) {
-			item.lastSelectedIndex = 0;
-		}
-		if (!item.flex) {
-			item.flex = 1;
-		}
-		if (!item.align) {
-			item.align = 'center';
-		}
-		if (isLinkage) {
-			if (linkageInitIndexs[index]) {
-				item.initIndex = linkageInitIndexs[index];
-			} else {
+	let scrollEndIndexs = [];
+	let lastSelectedIndexs = $state([]);
+	let showRowsArr = [];
+
+	const initFn = () => {
+		// 对 datas 处理，如果没有设置 initIndex 则默认为 0，如果没有设置 showRow 则默认为 5
+		// Process datas, if initIndex is not set, it is default to 0, if showRow is not set, it is default to 5
+		newDatas = newDatas.map((item, index) => {
+			if (!item.initIndex) {
 				item.initIndex = 0;
 			}
-			if (linkageShowRows[index]) {
-				item.showRow = /** @type {3 | 5 | 7} */ (linkageShowRows[index]);
-			}
-			if (linkageFlexs[index]) {
-				item.flex = linkageFlexs[index];
-			}
-			if (linkageAligns[index]) {
-				item.align = linkageAligns[index];
+			if (!item.showRow) {
+				item.showRow = 5;
 			}
 			if (!item.lastSelectedIndex) {
 				item.lastSelectedIndex = 0;
 			}
-		}
-		return item;
-	});
-	// 滚动结束时选中项组成的数组
-	// An array of selected items when scrolling ends
-	let scrollEndIndexs = newDatas.map(item => item.initIndex);
+			if (!item.flex) {
+				item.flex = 1;
+			}
+			if (!item.align) {
+				item.align = 'center';
+			}
+			if (isLinkage) {
+				if (linkageInitIndexs[index]) {
+					item.initIndex = linkageInitIndexs[index];
+				} else {
+					item.initIndex = 0;
+				}
+				if (linkageShowRows[index]) {
+					item.showRow = /** @type {3 | 5 | 7} */ (linkageShowRows[index]);
+				}
+				if (linkageFlexs[index]) {
+					item.flex = linkageFlexs[index];
+				}
+				if (linkageAligns[index]) {
+					item.align = linkageAligns[index];
+				}
+				if (!item.lastSelectedIndex) {
+					item.lastSelectedIndex = 0;
+				}
+			}
+			return item;
+		});
+		// 滚动结束时选中项组成的数组
+		// An array of selected items when scrolling ends
+		scrollEndIndexs = newDatas.map(item => item.initIndex);
 
-	// 上次所有选中项，由上次单列选中项组成的数组，初始值为 datas 中每项的 initIndex
-	// All last selected items, an array of last single column selected items, the initial value is the initIndex of each item in datas
-	let lastSelectedIndexs = $state(newDatas.map(item => item.initIndex));
+		// 上次所有选中项，由上次单列选中项组成的数组，初始值为 datas 中每项的 initIndex
+		// All last selected items, an array of last single column selected items, the initial value is the initIndex of each item in datas
+		lastSelectedIndexs = newDatas.map(item => item.initIndex);
 
-	// 循环 newDatas，将 每项的 showRow 组成一个数组 showRowsArr
-	// Loop newDatas to form an array showRowsArr of each item's showRow
-	const showRowsArr = newDatas.map(item => item.showRow);
+		// 循环 newDatas，将 每项的 showRow 组成一个数组 showRowsArr
+		// Loop newDatas to form an array showRowsArr of each item's showRow
+		showRowsArr = newDatas.map(item => item.showRow);
+	};
+	initFn();
 
 	// 找出 showRowsArr 中最大值
 	// Find the maximum value in showRowsArr
