@@ -2,9 +2,9 @@
 
 进度环 ProgressLoop 的大小由外层容器的宽度决定，组件内部使用了 24＊24 画布大小的 svg 渲染，铺满父容器。而宽度 strokeWidth 理论上支持 0-12 的任意数值，但宽度太大时圆环将会很不美观。
 
-## useSlot
+## Snippet
 
-当 useSlot 为 true，百分比内容不再使用默认百分比文字，而是使用传入的 slot 渲染。
+当传入 children 时，百分比内容不再使用默认百分比文字，而是使用传入的 children 渲染。
 
 ## CSS 注入
 

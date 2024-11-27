@@ -2,18 +2,12 @@
 <script>
 	import { ProgressLoop, Button } from '../../../../../packages/stdf/components';
 
-	let percent = 20;
+	let percent = $state(20);
 	const changePercentFun = type => {
 		if (type === '+10') {
-			percent += 10;
-			if (percent > 100) {
-				percent = 100;
-			}
+			percent = percent >= 100 ? 100 : percent + 10;
 		} else {
-			percent -= 10;
-			if (percent < 0) {
-				percent = 0;
-			}
+			percent = percent <= 0 ? 0 : percent - 10;
 		}
 	};
 </script>
@@ -65,7 +59,7 @@
 <div class="m-4 mt-8 font-bold text-lg">自定义文字</div>
 <div class="flex flex-grow gap-2 m-4">
 	<div class="flex-1">
-		<ProgressLoop useSlot>
+		<ProgressLoop>
 			<div class="text-xs text-center">
 				<div>已完成</div>
 				<div class="text-lg text-primary dark:text-dark">6666</div>
@@ -74,7 +68,7 @@
 		</ProgressLoop>
 	</div>
 	<div class="flex-1">
-		<ProgressLoop useSlot>
+		<ProgressLoop>
 			<div class="text-xs text-center">
 				<div>剩余流量</div>
 				<div class="text-lg text-primary dark:text-dark">66</div>
@@ -83,7 +77,7 @@
 		</ProgressLoop>
 	</div>
 	<div class="flex-1">
-		<ProgressLoop useSlot>
+		<ProgressLoop>
 			<div class="text-xs">完成 2/3</div>
 		</ProgressLoop>
 	</div>
@@ -120,16 +114,14 @@
 </div>
 <div class="mx-4 pb-8">
 	<Button heightIn="0" group size="full">
-		<div class="flex">
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="flex-1 border-r py-2 active:opacity-80" on:click={() => changePercentFun('-10')}>进度 -10</div>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="flex-1 border-r py-2 active:opacity-80" on:click={() => changePercentFun('+10')}>进度 +10</div>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="flex-1 py-2 active:opacity-80" on:click={() => (percent = 20)}>重置</div>
+		<div class="flex w-full">
+			<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80" onclick={() => changePercentFun('-10')}>
+				-10
+			</button>
+			<button class="flex-1 border-r border-white dark:border-black py-2 active:opacity-80" onclick={() => changePercentFun('+10')}>
+				+10
+			</button>
+			<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>重置</button>
 		</div>
 	</Button>
 </div>

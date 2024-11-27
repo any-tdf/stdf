@@ -33,14 +33,14 @@
 </script>
 
 <div class="relative">
-	<svg viewBox="0 0 24 24" class={`-rotate-90${reverse ? ' -scale-y-100' : ''}`}>
+	<svg viewBox="0 0 24 24" class="-rotate-90{reverse ? ' -scale-y-100' : ''}">
 		<circle
 			cx="12"
 			cy="12"
 			{r}
 			stroke-width={strokeWidth}
 			fill="none"
-			class={`stroke-black/5 dark:stroke-white/5${trackInjClass === '' ? '' : ` ${trackInjClass}`}`}
+			class="stroke-black/5 dark:stroke-white/5{trackInjClass === '' ? '' : ` ${trackInjClass}`}"
 		></circle>
 		{#if gradient && gradient.length === 2}
 			<defs>
@@ -55,9 +55,8 @@
 			cy="12"
 			{r}
 			stroke-width={strokeWidth}
-			class={`${!gradient || gradient.length < 2 ? 'stroke-primary dark:stroke-dark ' : ''}transition-all ${
-				durationClass[duration] || durationClass['300']
-			}${injClass === '' ? '' : ` ${injClass}`}`}
+			class="{!gradient || gradient.length < 2 ? 'stroke-primary dark:stroke-dark ' : ''}transition-all {durationClass[duration] ||
+				durationClass['300']}{injClass === '' ? '' : ` ${injClass}`}"
 			fill="none"
 			stroke-dashoffset={circleLen - (percent / 100) * circleLen || 0}
 			stroke-dasharray={circleLen}
