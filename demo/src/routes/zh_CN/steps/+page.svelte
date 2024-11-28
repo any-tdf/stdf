@@ -4,6 +4,8 @@
 	import injCom1 from './injCom1.svelte';
 	import injCom2 from './injCom2.svelte';
 
+	/** @typedef {import('../../../../../packages/stdf/index.d').StepsItem[]} StepsItems */
+
 	const steps = [
 		{ step: { title: '起床' } },
 		{ step: { title: '吃饭' } },
@@ -11,12 +13,13 @@
 		{ step: { title: '打豆豆' } },
 		{ step: { title: '睡觉' } },
 	];
+	/** @type {StepsItems} */
 	const steps1 = [
-		{ step: { title: '起床', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } } },
-		{ step: { title: '吃饭', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } } },
-		{ step: { title: '喝水', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } } },
-		{ step: { title: '打豆豆', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } } } },
-		{ step: { title: '睡觉', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: '起床', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
+		{ step: { title: '吃饭', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: '喝水', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
+		{ step: { title: '打豆豆', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } } },
+		{ step: { title: '睡觉', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
 	const steps2 = [
 		{ step: { title: '起床' }, finishStep: { title: '已起床' } },
@@ -25,26 +28,27 @@
 		{ step: { title: '打豆豆' }, finishStep: { title: '打爽了' } },
 		{ step: { title: '睡觉' }, finishStep: { title: '睡着了' } },
 	];
+	/** @type {StepsItems} */
 	const steps3 = [
 		{
-			step: { title: '起床', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } },
-			finishStep: { title: '已起床', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-fill' } } },
+			step: { title: '起床', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } },
+			finishStep: { title: '已起床', bar: { type: 'icon', content: { name: 'ri-hotel-bed-fill' } } },
 		},
 		{
-			step: { title: '吃饭', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } },
-			finishStep: { title: '吃饱了', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-fill' } } },
+			step: { title: '吃饭', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } },
+			finishStep: { title: '吃饱了', bar: { type: 'icon', content: { name: 'ri-restaurant-2-fill' } } },
 		},
 		{
-			step: { title: '喝水', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } },
-			finishStep: { title: '喝足了', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-fill' } } },
+			step: { title: '喝水', bar: { type: 'icon', content: { name: 'ri-cup-line' } } },
+			finishStep: { title: '喝足了', bar: { type: 'icon', content: { name: 'ri-cup-fill' } } },
 		},
 		{
-			step: { title: '打豆豆', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } } },
-			finishStep: { title: '打爽了', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-fill' } } },
+			step: { title: '打豆豆', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } },
+			finishStep: { title: '打爽了', bar: { type: 'icon', content: { name: 'ri-emotion-sad-fill' } } },
 		},
 		{
-			step: { title: '睡觉', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } },
-			finishStep: { title: '睡着了', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-fill' } } },
+			step: { title: '睡觉', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } },
+			finishStep: { title: '睡着了', bar: { type: 'icon', content: { name: 'ri-zzz-fill' } } },
 		},
 	];
 	const steps4 = [
@@ -59,139 +63,80 @@
 		},
 		{ step: { title: '睡觉', desc: '吃太饱，睡不着。' } },
 	];
+	/** @type {StepsItems} */
 	const steps5 = [
-		{
-			step: { title: '起床', desc: '起床搬砖了！', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } },
-		},
-		{
-			step: {
-				title: '吃饭',
-				desc: '吃吃吃，肥死你。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
-			},
-		},
-		{
-			step: {
-				title: '喝水',
-				desc: '慢慢走路，多多喝水。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
-		},
+		{ step: { title: '起床', desc: '起床搬砖了！', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
+		{ step: { title: '吃饭', desc: '吃吃吃，肥死你。', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: '喝水', desc: '慢慢走路，多多喝水。', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
 		{
 			step: {
 				title: '打豆豆',
 				desc: '吃饭睡觉，打豆豆很爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽爽。顺便验证进度条高度自适应步骤文字高度。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
+				bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } },
 			},
 		},
-		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
+	/** @type {StepsItems} */
 	const steps6 = [
 		{
-			step: { title: '起床', desc: '起床搬砖了！', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } },
-			finishStep: {
-				title: '已起床',
-				desc: '砖已经搬完了！',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-fill' } },
-			},
+			step: { title: '起床', desc: '起床搬砖了！', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } },
+			finishStep: { title: '已起床', desc: '砖已经搬完了！', bar: { type: 'icon', content: { name: 'ri-hotel-bed-fill' } } },
 		},
 		{
-			step: {
-				title: '吃饭',
-				desc: '吃吃吃，肥死你。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
-			},
-			finishStep: {
-				title: '吃饱了',
-				desc: '饭已经全部被吃完了！',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-fill' } },
-			},
+			step: { title: '吃饭', desc: '吃吃吃，肥死你。', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } },
+			finishStep: { title: '吃饱了', desc: '饭已经全部被吃完了！', bar: { type: 'icon', content: { name: 'ri-restaurant-2-fill' } } },
 		},
 		{
-			step: {
-				title: '喝水',
-				desc: '慢慢走路，多多喝水。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
-			finishStep: {
-				title: '喝足了',
-				desc: '水喝太多，从眼睛里溢出来了！',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-fill' } },
-			},
+			step: { title: '喝水', desc: '慢慢走路，多多喝水。', bar: { type: 'icon', content: { name: 'ri-cup-line' } } },
+			finishStep: { title: '喝足了', desc: '水喝太多，从眼睛里溢出来了！', bar: { type: 'icon', content: { name: 'ri-cup-fill' } } },
 		},
 		{
-			step: {
-				title: '打豆豆',
-				desc: '吃饭睡觉，打豆豆。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
-			},
-			finishStep: {
-				title: '打爽了',
-				desc: '豆豆已经被打趴下了。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-fill' } },
-			},
+			step: { title: '打豆豆', desc: '吃饭睡觉，打豆豆。', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } },
+			finishStep: { title: '打爽了', desc: '豆豆已经被打趴下了。', bar: { type: 'icon', content: { name: 'ri-emotion-sad-fill' } } },
 		},
 		{
-			step: {
-				title: '睡觉',
-				desc: '吃太饱，睡不着。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } },
-			},
-			finishStep: {
-				title: '睡着了',
-				desc: '睡着了正在做梦呢！',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-fill' } },
-			},
+			step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } },
+			finishStep: { title: '睡着了', desc: '睡着了正在做梦呢！', bar: { type: 'icon', content: { name: 'ri-zzz-fill' } } },
 		},
 	];
+	/** @type {StepsItems} */
 	const steps7 = [
-		{ step: { title: '起床', desc: '起床搬砖了！', bar: { type: /** @type {"string"} */ ('string'), content: '1' } } },
-		{ step: { title: '吃饭', desc: '吃吃吃，肥死你。', bar: { type: /** @type {"string"} */ ('string'), content: '吃' } } },
-		{ step: { title: '喝水', desc: '慢慢走路，多多喝水。', bar: { type: /** @type {"string"} */ ('string'), content: '3' } } },
-		{
-			step: {
-				title: '打豆豆',
-				desc: '吃饭睡觉，打豆豆。',
-				bar: { type: /** @type {"string"} */ ('string'), content: '5' },
-			},
-		},
-		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: /** @type {"string"} */ ('string'), content: '😴' } } },
+		{ step: { title: '起床', desc: '起床搬砖了！', bar: { type: 'string', content: '1' } } },
+		{ step: { title: '吃饭', desc: '吃吃吃，肥死你。', bar: { type: 'string', content: '吃' } } },
+		{ step: { title: '喝水', desc: '慢慢走路，多多喝水。', bar: { type: 'string', content: '3' } } },
+		{ step: { title: '打豆豆', desc: '吃饭睡觉，打豆豆。', bar: { type: 'string', content: '5' } } },
+		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: 'string', content: '😴' } } },
 	];
+	/** @type {StepsItems} */
 	const steps8 = [
-		{ step: { title: '起床', bar: { type: /** @type {"image"} */ ('image'), content: '/assets/images/avatar_2.png' } } },
-		{ step: { title: '吃饭', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } } },
-		{ step: { title: '喝水', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } } },
-		{ step: { title: '打豆豆', bar: { type: /** @type {"image"} */ ('image'), content: '/assets/images/avatar_1.jpg' } } },
-		{ step: { title: '睡觉', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: '起床', bar: { type: 'image', content: '/assets/images/avatar_2.png' } } },
+		{ step: { title: '吃饭', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: '喝水', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
+		{ step: { title: '打豆豆', bar: { type: 'image', content: '/assets/images/avatar_1.jpg' } } },
+		{ step: { title: '睡觉', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
+	/** @type {StepsItems} */
 	const steps9 = [
-		{
-			step: { title: '起床', desc: '起床搬砖了！', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } },
-		},
+		{ step: { title: '起床', desc: '起床搬砖了！', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
 		{
 			step: {
 				title: '吃饭',
 				desc: '吃吃吃，肥死你。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
+				bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } },
 				injComponent: injCom1,
 			},
 		},
-		{
-			step: {
-				title: '喝水',
-				desc: '慢慢走路，多多喝水。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
-		},
+		{ step: { title: '喝水', desc: '慢慢走路，多多喝水。', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
 		{
 			step: {
 				title: '打豆豆',
 				desc: '吃饭睡觉，打豆豆。',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
+				bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } },
 				injComponent: injCom2,
 			},
 		},
-		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: '睡觉', desc: '吃太饱，睡不着。', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
 
 	let current = $state(1);

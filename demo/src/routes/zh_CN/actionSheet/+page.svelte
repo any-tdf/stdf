@@ -17,26 +17,28 @@
 
 	const actions = [{ content: '选项一' }, { content: '选项二' }, { content: '选项三' }];
 
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @typedef {import('../../../../../packages/stdf/index.d').Action[]} Actions */
+
+	/** @type {Actions} */
 	const actions1 = [
 		{ content: '常规选项' },
 		{ content: '主题选项', style: 'theme' },
 		{ content: '禁用选项', style: 'disabled' },
 		{ content: '警告选项', style: 'danger' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions2 = [
 		{ content: '选项一' },
 		{ content: '选项二', desc: '这里是描述信息' },
 		{ content: '选项三', style: 'danger', desc: '这里是描述信息' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions3 = [
 		{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
 		{ content: '小牛', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
 		{ content: '水人', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions4 = [
 		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
 		{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },

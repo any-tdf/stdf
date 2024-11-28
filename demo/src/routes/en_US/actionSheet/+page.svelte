@@ -17,26 +17,28 @@
 
 	const actions = [{ content: 'Option one' }, { content: 'Option two' }, { content: 'Option three' }];
 
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @typedef {import('../../../../../packages/stdf/index.d').Action[]} Actions */
+
+	/** @type {Actions} */
 	const actions1 = [
 		{ content: 'Normal option' },
 		{ content: 'Theme option', style: 'theme' },
 		{ content: 'Disabled option', style: 'disabled' },
 		{ content: 'Danger option', style: 'danger' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions2 = [
 		{ content: 'Option one' },
 		{ content: 'Option two', desc: 'Here is the description information' },
 		{ content: 'Option three', style: 'danger', desc: 'Here is the description information' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions3 = [
 		{ content: 'Lina', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
 		{ content: 'SB', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
 		{ content: 'Morph', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' },
 	];
-	/** @type {import('../../../../../packages/stdf/index.d').Action[]} */
+	/** @type {Actions} */
 	const actions4 = [
 		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },
 		{ content: 'Google', showImg: true, imgSrc: '/assets/logos/google.png', imgRadius: 'none' },

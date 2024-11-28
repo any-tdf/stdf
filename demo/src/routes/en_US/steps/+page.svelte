@@ -4,6 +4,8 @@
 	import injCom1 from './injCom1_en.svelte';
 	import injCom2 from './injCom2_en.svelte';
 
+	/** @typedef {import('../../../../../packages/stdf/index.d').StepsItem[]} StepsItems */
+
 	const steps = [
 		{ step: { title: 'Get up' } },
 		{ step: { title: 'Eat' } },
@@ -11,12 +13,13 @@
 		{ step: { title: 'Beat beans' } },
 		{ step: { title: 'sleep' } },
 	];
+	/** @type {StepsItems} */
 	const steps1 = [
-		{ step: { title: 'Get up', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } } },
-		{ step: { title: 'Eat', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } } },
-		{ step: { title: 'Drink', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } } },
-		{ step: { title: 'Beat beans', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } } } },
-		{ step: { title: 'sleep', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: 'Get up', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
+		{ step: { title: 'Eat', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: 'Drink', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
+		{ step: { title: 'Beat beans', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } } },
+		{ step: { title: 'sleep', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
 	const steps2 = [
 		{ step: { title: 'Get up' }, finishStep: { title: 'Have got up' } },
@@ -25,26 +28,27 @@
 		{ step: { title: 'Beat beans' }, finishStep: { title: 'Have a good time' } },
 		{ step: { title: 'sleep' }, finishStep: { title: 'Fall asleep' } },
 	];
+	/** @type {StepsItems} */
 	const steps3 = [
 		{
-			step: { title: 'Get up', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } } },
-			finishStep: { title: 'Have got up', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-fill' } } },
+			step: { title: 'Get up', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } },
+			finishStep: { title: 'Have got up', bar: { type: 'icon', content: { name: 'ri-hotel-bed-fill' } } },
 		},
 		{
-			step: { title: 'Eat', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } },
-			finishStep: { title: 'Have had enough', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-fill' } } },
+			step: { title: 'Eat', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } },
+			finishStep: { title: 'Have had enough', bar: { type: 'icon', content: { name: 'ri-restaurant-2-fill' } } },
 		},
 		{
-			step: { title: 'Drink', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } },
-			finishStep: { title: 'Drink up', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-fill' } } },
+			step: { title: 'Drink', bar: { type: 'icon', content: { name: 'ri-cup-line' } } },
+			finishStep: { title: 'Drink up', bar: { type: 'icon', content: { name: 'ri-cup-fill' } } },
 		},
 		{
-			step: { title: 'Beat beans', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } } },
-			finishStep: { title: 'Have a good time', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-fill' } } },
+			step: { title: 'Beat beans', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } },
+			finishStep: { title: 'Have a good time', bar: { type: 'icon', content: { name: 'ri-emotion-sad-fill' } } },
 		},
 		{
-			step: { title: 'sleep', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } },
-			finishStep: { title: 'Fall asleep', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-fill' } } },
+			step: { title: 'sleep', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } },
+			finishStep: { title: 'Fall asleep', bar: { type: 'icon', content: { name: 'ri-zzz-fill' } } },
 		},
 	];
 	const steps4 = [
@@ -59,161 +63,92 @@
 		},
 		{ step: { title: 'sleep', desc: 'Too full to sleep.' } },
 	];
+	/** @type {StepsItems} */
 	const steps5 = [
-		{
-			step: {
-				title: 'Get up',
-				desc: 'Get up and move bricks!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } },
-			},
-		},
-		{
-			step: {
-				title: 'Eat',
-				desc: 'Eat, eat, eat, eat, fat you.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
-			},
-		},
-		{
-			step: {
-				title: 'Drink',
-				desc: 'Walk slowly and drink lots of water.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
-		},
+		{ step: { title: 'Get up', desc: 'Get up and move bricks!', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
+		{ step: { title: 'Eat', desc: 'Eat, eat, eat, eat, fat you.', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: 'Drink', desc: 'Walk slowly and drink lots of water.', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
 		{
 			step: {
 				title: 'Beat beans',
 				desc: "Eat, sleep, play peas It's cool, it's cool, it's cool, it's cool, it's cool. By the way to verify the progress bar height adaptive step text height.",
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
+				bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } },
 			},
 		},
-		{
-			step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } },
-		},
+		{ step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
+	/** @type {StepsItems} */
 	const steps6 = [
 		{
-			step: {
-				title: 'Get up',
-				desc: 'Get up and move bricks!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } },
-			},
-			finishStep: {
-				title: 'Have got up',
-				desc: 'The bricks are gone!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-fill' } },
-			},
+			step: { title: 'Get up', desc: 'Get up and move bricks!', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } },
+			finishStep: { title: 'Have got up', desc: 'The bricks are gone!', bar: { type: 'icon', content: { name: 'ri-hotel-bed-fill' } } },
 		},
 		{
-			step: {
-				title: 'Eat',
-				desc: 'Eat, eat, eat, eat, fat you.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
-			},
+			step: { title: 'Eat', desc: 'Eat, eat, eat, eat, fat you.', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } },
 			finishStep: {
 				title: 'Have had enough',
 				desc: 'The meal has been eaten up!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-fill' } },
+				bar: { type: 'icon', content: { name: 'ri-restaurant-2-fill' } },
 			},
 		},
 		{
-			step: {
-				title: 'Drink',
-				desc: 'Walk slowly and drink lots of water.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
+			step: { title: 'Drink', desc: 'Walk slowly and drink lots of water.', bar: { type: 'icon', content: { name: 'ri-cup-line' } } },
 			finishStep: {
 				title: 'Drink up',
 				desc: 'I drink too much water and it spills out of my eyes!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-fill' } },
+				bar: { type: 'icon', content: { name: 'ri-cup-fill' } },
 			},
 		},
 		{
-			step: {
-				title: 'Beat beans',
-				desc: 'Eat, sleep, play beans.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
-			},
+			step: { title: 'Beat beans', desc: 'Eat, sleep, play beans.', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } },
 			finishStep: {
 				title: 'Have a good time',
 				desc: 'Doudou has been beaten to the ground.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-fill' } },
+				bar: { type: 'icon', content: { name: 'ri-emotion-sad-fill' } },
 			},
 		},
 		{
-			step: {
-				title: 'sleep',
-				desc: 'Too full to sleep.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } },
-			},
-			finishStep: {
-				title: 'Fall asleep',
-				desc: 'Asleep and dreaming!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-fill' } },
-			},
+			step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } },
+			finishStep: { title: 'Fall asleep', desc: 'Asleep and dreaming!', bar: { type: 'icon', content: { name: 'ri-zzz-fill' } } },
 		},
 	];
+	/** @type {StepsItems} */
 	const steps7 = [
-		{ step: { title: 'Get up', desc: 'Get up and move bricks!', bar: { type: /** @type {"string"} */ ('string'), content: '1' } } },
-		{ step: { title: 'Eat', desc: 'Eat, eat, eat, eat, fat you.', bar: { type: /** @type {"string"} */ ('string'), content: 'eat' } } },
-		{
-			step: {
-				title: 'Drink',
-				desc: 'Walk slowly and drink lots of water.',
-				bar: { type: /** @type {"string"} */ ('string'), content: '3' },
-			},
-		},
-		{
-			step: {
-				title: 'Beat beans',
-				desc: 'Eat, sleep, play beans.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
-			},
-		},
-		{ step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: /** @type {"string"} */ ('string'), content: '😴' } } },
+		{ step: { title: 'Get up', desc: 'Get up and move bricks!', bar: { type: 'string', content: '1' } } },
+		{ step: { title: 'Eat', desc: 'Eat, eat, eat, eat, fat you.', bar: { type: 'string', content: 'eat' } } },
+		{ step: { title: 'Drink', desc: 'Walk slowly and drink lots of water.', bar: { type: 'string', content: '3' } } },
+		{ step: { title: 'Beat beans', desc: 'Eat, sleep, play beans.', bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } } } },
+		{ step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: 'string', content: '😴' } } },
 	];
+	/** @type {StepsItems} */
 	const steps8 = [
-		{ step: { title: 'Get up', bar: { type: /** @type {"image"} */ ('image'), content: '/assets/images/avatar_2.png' } } },
-		{ step: { title: 'Eat', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } } } },
-		{ step: { title: 'Drink', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } } } },
-		{ step: { title: 'Beat beans', bar: { type: /** @type {"image"} */ ('image'), content: '/assets/images/avatar_1.jpg' } } },
-		{ step: { title: 'sleep', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } } },
+		{ step: { title: 'Get up', bar: { type: 'image', content: '/assets/images/avatar_2.png' } } },
+		{ step: { title: 'Eat', bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } } } },
+		{ step: { title: 'Drink', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
+		{ step: { title: 'Beat beans', bar: { type: 'image', content: '/assets/images/avatar_1.jpg' } } },
+		{ step: { title: 'sleep', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
+	/** @type {StepsItems} */
 	const steps9 = [
-		{
-			step: {
-				title: 'Get up',
-				desc: 'Get up and move bricks!',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-hotel-bed-line' } },
-			},
-		},
+		{ step: { title: 'Get up', desc: 'Get up and move bricks!', bar: { type: 'icon', content: { name: 'ri-hotel-bed-line' } } } },
 		{
 			step: {
 				title: 'Eat',
 				desc: 'Eat, eat, eat, eat, fat you.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-restaurant-2-line' } },
+				bar: { type: 'icon', content: { name: 'ri-restaurant-2-line' } },
 				injComponent: injCom1,
 			},
 		},
-		{
-			step: {
-				title: 'Drink',
-				desc: 'Walk slowly and drink lots of water.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-cup-line' } },
-			},
-		},
+		{ step: { title: 'Drink', desc: 'Walk slowly and drink lots of water.', bar: { type: 'icon', content: { name: 'ri-cup-line' } } } },
 		{
 			step: {
 				title: 'Beat beans',
 				desc: 'Eat, sleep, play beans.',
-				bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-emotion-sad-line' } },
+				bar: { type: 'icon', content: { name: 'ri-emotion-sad-line' } },
 				injComponent: injCom2,
 			},
 		},
-		{
-			step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: /** @type {"icon"} */ ('icon'), content: { name: 'ri-zzz-line' } } },
-		},
+		{ step: { title: 'sleep', desc: 'Too full to sleep.', bar: { type: 'icon', content: { name: 'ri-zzz-line' } } } },
 	];
 
 	let current = $state(1);
