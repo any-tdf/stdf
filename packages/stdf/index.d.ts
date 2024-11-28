@@ -1,6 +1,6 @@
 import type { Snippet, Component } from 'svelte';
 
-type Action = {
+export type Action = {
 	content: string;
 	style?: 'normal' | 'theme' | 'danger' | 'disabled';
 	desc?: string;
@@ -652,7 +652,7 @@ type StepsFinishStep = {
 	bar?: StepsStepBarIcon | StepsStepBarImage | StepsStepBarString;
 	injComponent?: Component;
 };
-type StepsItem = { step: StepsStep; finishStep?: StepsFinishStep; height?: number };
+export type StepsItem = { step: StepsStep; finishStep?: StepsFinishStep; height?: number };
 export type Steps = {
 	steps: StepsItem[];
 	current?: number;
