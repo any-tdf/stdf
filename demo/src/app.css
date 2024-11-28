@@ -39,12 +39,10 @@
 		--theme-color-extend2: 0, 112, 74;
 	}
 }
-
 @font-face {
 	font-family: 'Trueno';
 	src: url('/fonts/Trueno.otf') format('opentype');
 }
-
 *::-webkit-scrollbar {
 	width: 6px;
 }
