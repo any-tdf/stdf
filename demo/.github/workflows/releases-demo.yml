@@ -41,7 +41,7 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-          bun stdf@next -D
+          bun i stdf@next -D
           bun run build
 
       - name: Setup Pages
