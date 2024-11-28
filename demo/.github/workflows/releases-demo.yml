@@ -32,17 +32,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Pnpm
-        uses: pnpm/action-setup@v4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          version: 9
+          version: 'latest'
 
       - name: Install dependencies and build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-          pnpm i
-          pnpm run build
+          bun stdf@next -D
+          bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

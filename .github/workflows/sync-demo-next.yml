@@ -30,10 +30,10 @@ jobs:
           git checkout next
 
       # 读取 packages/stdf/package.json 中的 version 字段，作为 stdf 的最新版本
-      - name: Get version
-        id: version
-        run: |
-          echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+      # - name: Get version
+      #   id: version
+      #   run: |
+      #     echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
       # 读取 packages/rollup-plugin-stdf-icon/package.json 中的 version 字段，作为 rollup-plugin-stdf-icon 的最新版本
       - name: Get rollup-plugin-stdf-icon version
@@ -41,9 +41,10 @@ jobs:
         run: |
           echo rollup-plugin-stdf-icon-version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
+      # 将 demo/package.json 内的 "svelte" 前面增加一行 "stdf": "^${{ steps.version.outputs.version }}",
+
       # 将 stdf/LICENSE 复制到 stdf/demo 目录下
       # cd 到 stdf/demo 文件内，初始化本地仓库
-      # 将 demo/package.json 内的 "svelte" 前面增加一行 "stdf": "^${{ steps.version.outputs.version }}",
       # 将 demo/package.json 内的 file:../packages/rollup-plugin-stdf-icon 替换为 ^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
       # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf'"
       # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/zh_CN'"  替换为 "'stdf/lang/zh_CN'"
@@ -57,6 +58,9 @@ jobs:
       # 讲 demo/src/data/themes/index.js 内的 "'../../../../packages/stdf/theme'" 替换为 "'stdf/theme'"
       # 将 demo/tailwind.config.js 内的 "'../packages/stdf/**/*.svelte'"  替换为 "./node_modules/stdf/**/*.svelte'"，注意其中特殊符号的转义
       # 将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
+
+      # sed -i 's/"svelte"/"stdf": "^${{ steps.version.outputs.version }}",\n"svelte"/' package.json
+
       - name: Init stdf demo
         run: |
           cp stdf/LICENSE stdf/demo/LICENSE
@@ -64,7 +68,6 @@ jobs:
           git init
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'GitHub Actions'
-          sed -i 's/"svelte"/"stdf": "^${{ steps.version.outputs.version }}",\n"svelte"/' package.json
           sed -i 's/"svelte"/\t\t"svelte"/' package.json
           sed -i 's#file:../packages/rollup-plugin-stdf-icon#^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}#' package.json
           sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+layout.svelte
