@@ -131,16 +131,12 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="child" radius="full" onchange={changeColorFun}>
+						<Switch radius="full" onchange={changeColorFun}>
 							{#snippet falseChild()}
-								<div>
-									<Icon name="ri-paint-brush-line" size={12} />
-								</div>
+								<div><Icon name="ri-paint-brush-line" size={12} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div>
-									<Icon name="ri-paint-brush-fill" size={12} theme />
-								</div>
+								<div><Icon name="ri-paint-brush-fill" size={12} theme /></div>
 							{/snippet}
 						</Switch>
 					</div>
@@ -203,16 +199,12 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="child" radius="full">
+						<Switch radius="full">
 							{#snippet falseChild()}
-								<div>
-									<Icon name="ri-bluetooth-line" size={12} top={-1} />
-								</div>
+								<div><Icon name="ri-bluetooth-line" size={12} top={-1} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div>
-									<Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} />
-								</div>
+								<div><Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} /></div>
 							{/snippet}
 						</Switch>
 					</div>
@@ -271,16 +263,12 @@
 					class="bg-white dark:bg-black p-1 h-full rounded-lg text-xs text-center flex flex-col justify-around shadow dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
-						<Switch inside="child" radius="full">
+						<Switch radius="full">
 							{#snippet falseChild()}
-								<div>
-									<Icon name="ri-wifi-off-line" size={12} />
-								</div>
+								<div><Icon name="ri-wifi-off-line" size={12} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div>
-									<Icon name="ri-wifi-line" size={12} theme />
-								</div>
+								<div><Icon name="ri-wifi-line" size={12} theme /></div>
 							{/snippet}
 						</Switch>
 					</div>
