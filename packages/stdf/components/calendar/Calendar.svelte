@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Button from '../button/Button.svelte';
@@ -12,15 +12,14 @@
 		getCurrentQuarter,
 		getDaysRangeWithToday,
 	} from '../utils';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { CalendarProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const calendarLang = currentLang.calendar;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const calendarLang: LangProps['calendar'] = currentLang.calendar;
 
-	/** @typedef {import('../../index.d').Calendar} CalendarProps */
-	/** @type {CalendarProps} */
 	let {
 		visible = $bindable(false),
 		startMonth = getNowBeforeOrAfterMonth(-6),
@@ -50,7 +49,7 @@
 		clear = true,
 		onconfirm,
 		onclose,
-	} = $props();
+	}: CalendarProps = $props();
 
 	// 圆角风格样式
 	// Rounded style style

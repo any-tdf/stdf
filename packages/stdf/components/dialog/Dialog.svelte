@@ -1,17 +1,16 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Button from '../button/Button.svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { DialogProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const dialogLang = currentLang.dialog;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const dialogLang: LangProps['dialog'] = currentLang.dialog;
 
-	/** @typedef {import('../../index.d').Dialog} DialogProps */
-	/** @type {DialogProps} */
 	let {
 		visible = $bindable(false),
 		title = dialogLang.title,
@@ -34,7 +33,7 @@
 		onclose,
 		contentChild,
 		primaryChild,
-	} = $props();
+	}: DialogProps = $props();
 
 	// 标题对齐方式
 	// Title alignment

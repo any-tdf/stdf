@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { InputProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const inputLang = currentLang.input;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const inputLang: LangProps['input'] = currentLang.input;
 
-	/** @typedef {import('../../index.d').Input} InputProps */
-	/** @type {InputProps} */
 	let {
 		title = '',
 		titlePosition = 'out',
@@ -63,7 +62,7 @@
 		label5Child,
 		label6Child,
 		tipChild,
-	} = $props();
+	}: InputProps = $props();
 
 	// 是否获取焦点
 	// Whether to get focus
@@ -300,7 +299,7 @@
 								oninput={valueChangeFun}
 								oncompositionend={compositionendFun}
 								oncompositionstart={compositionstartFun}
-								{autocomplete}
+								autocomplete={autocomplete === true ? 'on' : 'off'}
 								{disabled}
 								bind:this={textareaDom}
 								onkeydown={keydownFunc}
@@ -319,7 +318,7 @@
 								oninput={valueChangeFun}
 								oncompositionend={compositionendFun}
 								oncompositionstart={compositionstartFun}
-								{autocomplete}
+								autocomplete={autocomplete === true ? 'on' : 'off'}
 								{disabled}
 								onkeydown={keydownFunc}
 							/>

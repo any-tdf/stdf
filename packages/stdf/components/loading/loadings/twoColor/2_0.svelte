@@ -1,14 +1,6 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [inverse]
-	 * @property {string} [size]
-	 * @property {any} [customColor]
-	 * @property {number} [speed]
-	 */
-
-	/** @type {Props} */
-	let { inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
+<script lang="ts">
+	type Props = { inverse?: boolean; size?: string; customColor?: any[]; speed?: number };
+	let { inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) }: Props = $props();
 
 	const outerBorderClass = () => {
 		return inverse ? ' border-white/10 dark:border-black/10' : ' border-black/10 dark:border-white/10';

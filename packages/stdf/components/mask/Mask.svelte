@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import { fade } from 'svelte/transition';
+	import type { MaskProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Mask} MaskProps */
-	/** @type {MaskProps} */
 	let {
 		visible = false,
 		opacity = '0.5',
@@ -14,7 +13,7 @@
 		zIndex = 500,
 		children,
 		onclickMask,
-	} = $props();
+	}: MaskProps = $props();
 
 	//遮罩模糊度样式
 	// Mask blur style

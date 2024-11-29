@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
+	import type { LoadingProps } from '../../types';
 	import {
 		Loading1_0,
 		Loading1_1,
@@ -59,8 +60,6 @@
 	import { Loading2_0, Loading2_1, Loading2_2, Loading2_3, Loading2_4, Loading2_5 } from './loadings/twoColor';
 	import { Loading4_0, Loading4_1, Loading4_2, Loading4_3 } from './loadings/fourColor';
 
-	/** @typedef {import('../../index.d').Loading} LoadingProps */
-	/** @type {LoadingProps} */
 	let {
 		type = '1_0',
 		height = '8',
@@ -70,7 +69,7 @@
 		customColor = [],
 		lazyAnimation = true,
 		speed = $bindable(1),
-	} = $props();
+	}: LoadingProps = $props();
 
 	// loading 元素
 	// loading element

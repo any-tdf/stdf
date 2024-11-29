@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
+	import type { RateProps } from '../../types';
+	import { zh_CN, type LangProps } from '../../lang';
 
-	/** @typedef {import('../../index.d').Rate} RateProps */
-	/** @type {RateProps} */
+	// 当前语言
+	// current language
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const rateLang: LangProps['rate'] = currentLang.rate;
+
 	let {
 		value = $bindable(4),
 		total = 5,
@@ -19,28 +24,24 @@
 		animation = 'current',
 		children,
 		onclick,
-	} = $props();
-
-	// 当前语言
-	// current language
-	const currentLang = getContext('STDF_lang') || 'zh_CN';
+	}: RateProps = $props();
 
 	// 对传入数据进行一些报错或警告处理
 	// some error or warning processing for the incoming data
 	if (value > total) {
-		console.error(currentLang.error1);
+		console.error(rateLang.error1);
 	}
 	if (total % 1 !== 0) {
-		console.error(currentLang.error2);
+		console.error(rateLang.error2);
 	}
 	if (!half && value % 1 !== 0) {
-		console.error(currentLang.error3);
+		console.error(rateLang.error3);
 	}
 	if (half && value % 0.5 !== 0) {
-		console.error(currentLang.error4);
+		console.error(rateLang.error4);
 	}
 	if (width < 20 || height < 20) {
-		console.error(currentLang.error5);
+		console.error(rateLang.error5);
 	}
 
 	// 间距样式

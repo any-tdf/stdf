@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { StepsProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Steps} Steps */
-	/** @type {Steps} */
-	let { steps = [], current = 1, radius = 'base', barBorder = true, vertical = false } = $props();
+	let { steps = [], current = 1, radius = 'base', barBorder = true, vertical = false }: StepsProps = $props();
 
 	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
 	let width = $state(0);

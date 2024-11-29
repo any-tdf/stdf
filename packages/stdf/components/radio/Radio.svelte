@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import RadioItem from './RadioItem.svelte';
+	import type { RadioProps } from '../../types';
 
-	/** @typedef {import('../..').Radio} RadioProps */
-	/** @type {RadioProps} */
 	let {
 		data = [],
 		value = $bindable(''),
@@ -12,7 +11,7 @@
 		iconChecked = 'default',
 		radioChild,
 		onchange,
-	} = $props();
+	}: RadioProps = $props();
 
 	const clickItemFn = name => {
 		value = name;

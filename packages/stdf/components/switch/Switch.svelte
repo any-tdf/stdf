@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import Loading from '../loading/Loading.svelte';
+	import type { SwitchProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Switch} SwitchProps */
-	/** @type {SwitchProps} */
 	let {
 		active = false,
 		radius = 'base',
@@ -15,7 +14,7 @@
 		falseChild,
 		onchange,
 		onclick,
-	} = $props();
+	}: SwitchProps = $props();
 
 	// 是否处于纵向拉长状态  is in the vertical elongation state
 	let isLong = $state(false);

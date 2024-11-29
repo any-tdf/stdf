@@ -1,7 +1,7 @@
-<script>
-	/** @typedef {import('../../index.d').Placeholder} PlaceholderProps */
-	/** @type {PlaceholderProps} */
-	let { py = '4', height = 'full', radius = 'md', shadow = 'none', injClass = '', children } = $props();
+<script lang="ts">
+	import type { PlaceholderProps } from '../../index.d';
+
+	let { py = '4', height = 'full', radius = 'md', shadow = 'none', injClass = '', children }: PlaceholderProps = $props();
 
 	// 上下内边距样式
 	// up down padding style

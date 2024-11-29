@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Tab from './Tab.svelte';
+	import type { TabsProps } from '../../types';
 
-	/** @typedef {import('../../index.d.ts').Tabs} TabsProps */
-	/** @type {TabsProps} */
-	let { tab = {}, duration = 'base', position = 't', active = $bindable(0), transition = true, onchange, children } = $props();
+	let { tab = {}, duration = 'base', position = 't', active = $bindable(0), transition = true, onchange, children }: TabsProps = $props();
 	const clickTabFun = a => {
 		active = a;
 		onchange && onchange(a);

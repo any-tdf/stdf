@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
 	import * as eases from 'svelte/easing';
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
+	import type { PopupProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Popup} PopupProps */
-	/** @type {PopupProps} */
 	let {
 		visible = $bindable(false),
 		size = 40,
@@ -28,7 +27,7 @@
 		children,
 		onclose,
 		onclickMask,
-	} = $props();
+	}: PopupProps = $props();
 
 	// 通过不同位置结合圆角参数，生成不同的 class
 	// Generate different classes by combining different positions and corner parameters

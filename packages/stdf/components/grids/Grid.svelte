@@ -1,7 +1,7 @@
-<script>
-	/** @typedef {import('../../index.d').Grid} GridProps */
-	/** @type {GridProps} */
-	let { col = '1', row = '1', children } = $props();
+<script lang="ts">
+	import type { GridProps } from '../../types';
+
+	let { col = '1', row = '1', children }: GridProps = $props();
 
 	// 根据行数生成样式
 	// Generate styles based on the number of rows

@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
+	import type { NoticeBarProps } from '../../types';
 
-	/** @typedef {import('../../index.d').NoticeBar} NoticeBarProps */
-	/** @type {NoticeBarProps} */
 	let {
 		textList = [],
 		leftIcon = {},
@@ -18,7 +17,7 @@
 		leftChild,
 		rightChild,
 		onclickRight,
-	} = $props();
+	}: NoticeBarProps = $props();
 
 	// 如果 textList 不是数组给出中英文报错
 	// If textList is not an array, give Chinese and English error

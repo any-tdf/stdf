@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
 	import Loading from '../loading/Loading.svelte';
+	import type { ButtonProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Button} ButtonProps */
-	/** @type {ButtonProps} */
 	let {
 		fill = 'base',
 		state = 'theme',
@@ -24,7 +23,7 @@
 		disabledLoading = true,
 		children,
 		onclick,
-	} = $props();
+	}: ButtonProps = $props();
 
 	let innerDisabled = $derived(disabled || (loading && disabledLoading));
 

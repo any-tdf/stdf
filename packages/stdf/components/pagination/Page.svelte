@@ -1,14 +1,8 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [active]
-	 * @property {string} [radius]
-	 * @property {string} [type]
-	 * @property {import('svelte').Snippet} [children]
-	 * @property {() => void} [onclick]
-	 */
-	/** @type {Props} */
-	let { active = false, radius = 'md', type = 'border', children, onclick } = $props();
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	type Props = { active?: boolean; radius?: string; type?: string; children?: Snippet; onclick?: (item: any) => void };
+	let { active = false, radius = 'md', type = 'border', children, onclick }: Props = $props();
 
 	const typeClass = {
 		border: 'border-primary dark:border-dark text-primary dark:text-dark',

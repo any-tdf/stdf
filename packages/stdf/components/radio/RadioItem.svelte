@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { RadioItemProps } from '../../types';
 
-	/** @typedef {import('../..').RadioItem} RadioItemProps */
-	/** @type {RadioItemProps} */
 	let {
 		name = '',
 		textPosition = 'r',
@@ -12,7 +11,7 @@
 		iconChecked = 'default',
 		children,
 		onclick,
-	} = $props();
+	}: RadioItemProps = $props();
 
 	// 点击选项事件
 	// Click option event

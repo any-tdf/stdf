@@ -1,17 +1,16 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Button from '../button/Button.svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { ModalProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const modalLang = currentLang.modal;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const modalLang: LangProps['modal'] = currentLang.modal;
 
-	/** @typedef {import('../../index.d').Modal} ModalProps */
-	/** @type {ModalProps} */
 	let {
 		visible = $bindable(false),
 		title = modalLang.title,
@@ -25,7 +24,7 @@
 		button = {},
 		contentChild,
 		onclose,
-	} = $props();
+	}: ModalProps = $props();
 
 	// 标题对齐方式样式
 	// Title alignment style

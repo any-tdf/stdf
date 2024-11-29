@@ -1,18 +1,17 @@
-<script>
+<script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [visible]
-	 * @property {number} [size]
-	 * @property {any} [transitionParams]
-	 * @property {any} [transitionOutParams]
-	 * @property {string} [position]
-	 * @property {string} [px]
-	 * @property {string} [py]
-	 * @property {import('svelte').Snippet} [children]
-	 */
-	/** @type {Props} */
+	type Props = {
+		visible?: boolean;
+		size?: number;
+		transitionParams?: any;
+		transitionOutParams?: any;
+		position?: string;
+		px?: string;
+		py?: string;
+		children?: Snippet;
+	};
 	let {
 		visible = false,
 		size = 40,
@@ -22,7 +21,7 @@
 		px = '0',
 		py = '0',
 		children,
-	} = $props();
+	}: Props = $props();
 
 	const sizeClass = { bottom: 'w-full', top: 'w-full', left: 'h-full', right: 'h-full', center: 'w-full' };
 	const sizeStyle = {

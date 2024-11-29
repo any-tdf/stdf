@@ -1,11 +1,10 @@
-<script>
+<script lang="ts">
 	import Loading from '../loading/Loading.svelte';
 	import Icon from '../icon/Icon.svelte';
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
+	import type { ToastProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Toast} ToastProps */
-	/** @type {ToastProps} */
 	let {
 		message = '',
 		visible = $bindable(false),
@@ -25,7 +24,7 @@
 		dynamicFixed = true,
 		children,
 		onclose,
-	} = $props();
+	}: ToastProps = $props();
 
 	$effect(() => {
 		if (visible) {

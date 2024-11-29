@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF, debounce, stepNumberFun } from '../utils';
+	import type { SliderProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Slider} SliderProps */
-	/** @type {SliderProps} */
 	let {
 		value = $bindable(40),
 		step = 1,
@@ -20,7 +19,7 @@
 		readonly = false,
 		children,
 		onchange,
-	} = $props();
+	}: SliderProps = $props();
 
 	//滑动条 dom slider dom
 	let lineDom = $state(null);

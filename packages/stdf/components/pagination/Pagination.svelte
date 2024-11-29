@@ -1,19 +1,18 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import Page from './Page.svelte';
 	import SecondPageNext from './SecondPageNext.svelte';
 	import SecondPagePre from './SecondPagePre.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { PaginationProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const commonLang = currentLang.common;
-	const paginationLang = currentLang.pagination;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const commonLang: LangProps['common'] = currentLang.common;
+	const paginationLang: LangProps['pagination'] = currentLang.pagination;
 
-	/** @typedef {import('../../index.d').Pagination} PaginationProps */
-	/** @type {PaginationProps} */
 	let {
 		total = 0,
 		pageSize = 10,
@@ -31,7 +30,7 @@
 		onchange,
 		onnext,
 		onpre,
-	} = $props();
+	}: PaginationProps = $props();
 
 	// 总页数
 	// totalPage

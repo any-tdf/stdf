@@ -1,6 +1,6 @@
-<script>
-	/** @typedef {import('../../index.d').Progress} Progress */
-	/** @type {Progress} */
+<script lang="ts">
+	import type { ProgressProps } from '../../types';
+
 	let {
 		percent = 66,
 		percentPosition = 'right',
@@ -12,7 +12,7 @@
 		injClass = '',
 		trackInjClass = '',
 		children,
-	} = $props();
+	}: ProgressProps = $props();
 
 	// 高度样式
 	// height class

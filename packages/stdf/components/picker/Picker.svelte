@@ -1,16 +1,15 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { PickerProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const pickerLang = currentLang.picker;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const pickerLang: LangProps['picker'] = currentLang.picker;
 
-	/** @typedef {import('../../index.d').Picker} PickerProps */
-	/** @type {PickerProps} */
 	let {
 		visible = $bindable(false),
 		datas = [],
@@ -29,7 +28,7 @@
 		onclose,
 		onconfirm,
 		oncancel,
-	} = $props();
+	}: PickerProps = $props();
 
 	// 内部使用的 datas
 	// Datas used internally

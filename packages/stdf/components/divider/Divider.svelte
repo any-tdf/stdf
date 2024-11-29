@@ -1,7 +1,17 @@
-<script>
-	/** @typedef {import('../../index.d').Divider} DividerProps */
-	/** @type {DividerProps} */
-	let { layout = 'h', px = '0', py = '4', text = '', align = 'center', line = 'solid', mx = '1', weight = '1', injClass = '' } = $props();
+<script lang="ts">
+	import type { DividerProps } from '../../types';
+
+	let {
+		layout = 'h',
+		px = '0',
+		py = '4',
+		text = '',
+		align = 'center',
+		line = 'solid',
+		mx = '1',
+		weight = '1',
+		injClass = '',
+	}: DividerProps = $props();
 
 	// 水平间距样式
 	// Horizontal spacing style

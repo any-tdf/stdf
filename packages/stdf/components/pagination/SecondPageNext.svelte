@@ -1,17 +1,8 @@
-<script>
+<script lang="ts">
 	import Page from './Page.svelte';
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {number} [pageCol]
-	 * @property {any} [Pages]
-	 * @property {number} [maxShowPage]
-	 * @property {string} [radius]
-	 * @property {string} [type]
-	 * @property {(index: number) => void} [onclickItem]
-	 */
-	/** @type {Props} */
-	let { pageCol = 3, Pages = [], maxShowPage = 9, radius = 'md', type = 'bold', onclickItem } = $props();
+	type Props = { pageCol: number; Pages: any[]; maxShowPage: number; radius: string; type: string; onclickItem: (index: number) => void };
+	let { pageCol = 3, Pages = [], maxShowPage = 9, radius = 'md', type = 'bold', onclickItem }: Props = $props();
 </script>
 
 {#if Pages.length > 0}

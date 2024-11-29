@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { CheckboxItemProps } from '../../types';
 
-	/** @typedef {import('../..').CheckboxItem} CheckboxItemProps */
-	/** @type {CheckboxItemProps} */
 	let {
 		name = '',
 		layout = 'v',
@@ -12,7 +11,7 @@
 		iconChecked = 'default',
 		children,
 		onclick,
-	} = $props();
+	}: CheckboxItemProps = $props();
 
 	// 点击选项事件
 	// Click option event

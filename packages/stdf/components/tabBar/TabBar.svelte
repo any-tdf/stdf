@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { TabBarProps } from '../../types';
 
-	/** @typedef {import('../../index.d').TabBar} TabBarProps */
-	/** @type {TabBarProps} */
 	let {
 		labels = [],
 		active = $bindable(0),
@@ -14,7 +13,7 @@
 		activeTabInjClass = '',
 		activeInjClass = '',
 		onchange,
-	} = $props();
+	}: TabBarProps = $props();
 
 	const clickFun = i => {
 		active = i;

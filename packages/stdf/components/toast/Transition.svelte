@@ -1,16 +1,9 @@
-<script>
+<script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { fade, fly, blur, slide, scale } from 'svelte/transition';
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [visible]
-	 * @property {string} [transitionType]
-	 * @property {any} [transitionParams]
-	 * @property {number} [outDuration]
-	 * @property {import('svelte').Snippet} [children]
-	 */
-	/** @type {Props} */
-	let { visible = false, transitionType = 'scale', transitionParams = {}, outDuration = 0, children } = $props();
+	type Props = { visible: boolean; transitionType: string; transitionParams: any; outDuration: number; children: Snippet };
+	let { visible = false, transitionType = 'scale', transitionParams = {}, outDuration = 0, children }: Props = $props();
 </script>
 
 {#if visible}

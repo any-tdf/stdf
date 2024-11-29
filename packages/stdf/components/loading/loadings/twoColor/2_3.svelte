@@ -1,14 +1,6 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [size]
-	 * @property {any} [customColor]
-	 * @property {number} [speed]
-	 * @property {boolean} [inverse]
-	 */
-
-	/** @type {Props} */
-	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1), inverse = false } = $props();
+<script lang="ts">
+	type Props = { size?: string; customColor?: any[]; speed?: number; inverse?: boolean };
+	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1), inverse = false }: Props = $props();
 
 	const bgClass = () => {
 		return inverse ? 'bg-dark dark:bg-primary' : 'bg-primary dark:bg-dark';

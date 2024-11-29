@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
+	import type { SwiperProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Swiper} SwiperProps */
-	/** @type {SwiperProps} */
 	let {
 		data = [],
 		interval = 4,
@@ -35,7 +34,7 @@
 		triggerSpeed = 0.5,
 		onchange,
 		onclick,
-	} = $props();
+	}: SwiperProps = $props();
 
 	let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
 	let active = $state(data.length > 1 ? initActive + 1 : 1); //当前激活的item current active item

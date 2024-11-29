@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Avatar from './Avatar.svelte';
 	import Icon from '../icon/Icon.svelte';
+	import type { AvatarsProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Avatars} AvatarsProps */
-	/** @type {AvatarsProps} */
 	let {
 		data = [],
 		radius = 'full',
@@ -15,7 +14,7 @@
 		top = 'totle',
 		injClass = '',
 		onclick,
-	} = $props();
+	}: AvatarsProps = $props();
 
 	// 圆角风格样式
 	// radius style

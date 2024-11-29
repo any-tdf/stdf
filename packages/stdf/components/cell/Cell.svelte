@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
 	import Switch from '../switch/Switch.svelte';
+	import type { CellProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Cell} CellProps */
-	/** @type {CellProps} */
 	let {
 		title = '',
 		detail = '',
@@ -24,7 +23,7 @@
 		rightChild,
 		detailChild,
 		onclick,
-	} = $props();
+	}: CellProps = $props();
 
 	// 圆角风格样式
 	// Rounded style style

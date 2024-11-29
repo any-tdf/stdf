@@ -1,19 +1,17 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {any} [data] - Data
-	 * @property {3 | 5 | 7} [showRow] - Visible rows
-	 * @property {number} [initIndex] - Default selected item index
-	 * @property {string} [labelKey] - The key corresponding to label in data
-	 * @property {boolean} [autoScrollToLast] - Whether to automatically scroll to the last selected item
-	 * @property {boolean} [useAnimation] - Whether to use animation when automatically scrolling to the selected item (initIndex)
-	 * @property {number} [lastSelectedIndex] - Last selected item index
-	 * @property {'center' | 'left' | 'right'} [align] - Alignment
-	 * @property {(index: number, isTouch: boolean) => void} [onscrollEnd] - Callback function when scrolling ends
-	 */
-	/** @type {Props} */
+	type Props = {
+		data?: any[];
+		showRow?: 3 | 5 | 7;
+		initIndex?: number;
+		labelKey?: string;
+		autoScrollToLast?: boolean;
+		useAnimation?: boolean;
+		lastSelectedIndex?: number;
+		align?: 'center' | 'left' | 'right';
+		onscrollEnd?: (index: number, isTouch: boolean) => void;
+	};
 	let {
 		data = [],
 		showRow = 5,
@@ -24,7 +22,7 @@
 		lastSelectedIndex = 0,
 		align = 'center',
 		onscrollEnd,
-	} = $props();
+	}: Props = $props();
 
 	// 是否触摸
 	// Whether to touch

@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
+	import type { IconProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Icon} IconProps */
-	/** @type {IconProps} */
 	let {
 		name = '',
 		size = 24,
@@ -12,7 +11,7 @@
 		top = 0,
 		injClass = '',
 		children,
-	} = $props();
+	}: IconProps = $props();
 </script>
 
 <i class="relative{theme ? ' text-primary dark:text-dark' : ''} {injClass}" style="top:{top}px;">

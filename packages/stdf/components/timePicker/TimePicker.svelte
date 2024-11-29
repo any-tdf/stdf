@@ -1,17 +1,16 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
 	import { getDayNum } from '../utils';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { TimePickerProps, TimePickerObjProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const timePickerLang = currentLang.timePicker;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const timePickerLang: LangProps['timePicker'] = currentLang.timePicker;
 
-	/** @typedef {import('../../index.d').TimePicker} TimePickerProps */
-	/** @type {TimePickerProps} */
 	let {
 		visible = $bindable(false),
 		type = 'YYYYMMDDhhmmss',
@@ -49,7 +48,7 @@
 		onclose,
 		onconfirm,
 		oncancel,
-	} = $props();
+	}: TimePickerProps = $props();
 
 	// 获取当前时间，取出对应的年月日时分秒，转成字符，月、日、时、分、秒小于 10 的前面补 0
 	// Get the current time, take out the corresponding year, month, day, hour, minute, and second, convert to a character, and add 0 to the front of month, day, hour, minute, and second less than 10
@@ -287,7 +286,7 @@
 	const clickConfirmFunc = () => {
 		visible = false;
 		onclose && onclose();
-		const outData = {};
+		const outData: TimePickerObjProps = { YYYY: '', MM: '', DD: '', hh: '', mm: '', ss: '' };
 		if (typeInner.includes('YYYY')) {
 			outData.YYYY = yearData[yearIndex].label;
 		}

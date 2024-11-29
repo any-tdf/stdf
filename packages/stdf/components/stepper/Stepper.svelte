@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
 	import Loading from '../loading/Loading.svelte';
+	import type { StepperProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Stepper} Stepper */
-	/** @type {Stepper} */
 	let {
 		value = $bindable(10),
 		min = 0,
@@ -24,7 +23,7 @@
 		onchange,
 		ondecrease,
 		onincrease,
-	} = $props();
+	}: StepperProps = $props();
 
 	// 圆角
 	// Round

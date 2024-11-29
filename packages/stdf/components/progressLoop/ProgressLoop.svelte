@@ -1,6 +1,6 @@
-<script>
-	/** @typedef {import('../../index.d').ProgressLoop} ProgressLoop */
-	/** @type {ProgressLoop} */
+<script lang="ts">
+	import type { ProgressLoopProps } from '../../types';
+
 	let {
 		percent = 66,
 		strokeWidth = 2,
@@ -11,7 +11,7 @@
 		injClass = '',
 		trackInjClass = '',
 		children,
-	} = $props();
+	}: ProgressLoopProps = $props();
 
 	// 通过百分比计算半径
 	// calculate radius by percent

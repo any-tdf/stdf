@@ -1,6 +1,5 @@
-<script>
-	/** @typedef {import('../../index.d').Badge} BadgeProps */
-	/** @type {BadgeProps} */
+<script lang="ts">
+	import type { BadgeProps } from '../../types';
 	let {
 		text = '',
 		radius = 'full',
@@ -11,7 +10,7 @@
 		isInner = false,
 		injClass = '',
 		children,
-	} = $props();
+	}: BadgeProps = $props();
 
 	// 圆角风格样式
 	// radius style

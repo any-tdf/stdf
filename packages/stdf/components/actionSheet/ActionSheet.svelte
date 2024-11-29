@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import type { ActionSheetProps } from '../../types';
+	import { zh_CN, type LangProps } from '../../lang';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const actionSheetLang = currentLang.actionSheet;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const actionSheetLang: LangProps['actionSheet'] = currentLang.actionSheet;
 
-	/** @typedef {import('../../index.d').ActionSheet} ActionSheetProps */
-	/** @type {ActionSheetProps} */
 	let {
 		visible = $bindable(false),
 		title = '',
@@ -23,7 +22,7 @@
 		oncancel,
 		onclickAction,
 		onclose,
-	} = $props();
+	}: ActionSheetProps = $props();
 
 	// 静态样式类定义移到组件外部
 	// static style class definition moved to component outside

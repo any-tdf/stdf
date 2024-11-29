@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { SkeletonProps } from '../../types';
 
-	/** @typedef {import('../../index.d').Skeleton} Skeleton */
-	/** @type {Skeleton} */
-	let { type = 'div', width = '6', height = '6', radius = 'base', space = '1', lines = 3, iconRatio = 0.6 } = $props();
+	let { type = 'div', width = '6', height = '6', radius = 'base', space = '1', lines = 3, iconRatio = 0.6 }: SkeletonProps = $props();
 
 	const radiusObj = {
 		none: ' rounded-none',

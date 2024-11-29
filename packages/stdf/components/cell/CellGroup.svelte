@@ -1,7 +1,7 @@
-<script>
-	/** @typedef {import('../../index.d').CellGroup} CellGroupProps */
-	/** @type {CellGroupProps} */
-	let { radius = 'lg', shadow = 'sm', my = '4', mx = '2', children } = $props();
+<script lang="ts">
+	import type { CellGroupProps } from '../../types';
+
+	let { radius = 'lg', shadow = 'sm', my = '4', mx = '2', children }: CellGroupProps = $props();
 
 	const shadowClass = {
 		none: ' shadow-none',

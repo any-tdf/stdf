@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import CheckboxItem from './CheckboxItem.svelte';
+	import type { CheckboxProps } from '../../types';
 
-	/** @typedef {import('../../index.js').Checkbox} CheckboxProps */
-	/** @type {CheckboxProps} */
 	let {
 		data = [],
 		layout = 'v',
@@ -12,7 +11,7 @@
 		iconChecked = 'default',
 		checkboxChild,
 		onchange,
-	} = $props();
+	}: CheckboxProps = $props();
 
 	const clickItemFn = name => {
 		checkeds = checkeds.includes(name) ? checkeds.filter(v => v !== name) : [name, ...checkeds];

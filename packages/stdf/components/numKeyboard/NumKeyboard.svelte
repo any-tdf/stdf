@@ -1,16 +1,15 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Popup from '../popup/Popup.svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { NumKeyboardProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const commonLang = currentLang.common;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const commonLang: LangProps['common'] = currentLang.common;
 
-	/** @typedef {import('../../index.d').NumKeyboard} NumKeyboardProps */
-	/** @type {NumKeyboardProps} */
 	let {
 		type = 'button',
 		visible = $bindable(true),
@@ -31,7 +30,7 @@
 		onclick,
 		onopen,
 		onclose,
-	} = $props();
+	}: NumKeyboardProps = $props();
 
 	// 高度 class
 	// Height class

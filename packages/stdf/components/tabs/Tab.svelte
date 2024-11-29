@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
 	import Icon from '../icon/Icon.svelte';
+	import type { TabProps } from '../../types';
 
-	/** @typedef {import('../../index.d.ts').Tab} TabProps */
-	/** @type {TabProps} */
 	let {
 		labels = [],
 		active = $bindable(0),
@@ -20,7 +19,7 @@
 		showNum = 3,
 		autoScroll = true,
 		onclickTab,
-	} = $props();
+	}: TabProps = $props();
 
 	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
 	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };

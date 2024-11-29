@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF } from '../utils';
+	import type { IndexBarProps } from '../../types';
 
-	/** @typedef {import('../../index.d').IndexBar} IndexBarProps */
-	/** @type {IndexBarProps} */
 	let {
 		data = [],
 		current = $bindable(0),
@@ -15,7 +14,7 @@
 		titleInjClass = '',
 		textInjClass = '',
 		onclickChild,
-	} = $props();
+	}: IndexBarProps = $props();
 
 	// 用于绑定bar的高度
 	// Used to bind the height of the bar

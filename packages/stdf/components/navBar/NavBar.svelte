@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import type { NavBarProps } from '../../types';
+	import { zh_CN, type LangProps } from '../../lang';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const navBarLang = currentLang.navBar;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const navBarLang: LangProps['navBar'] = currentLang.navBar;
 
-	/** @typedef {import('../../index.d').NavBar} NavBarProps */
-	/** @type {NavBarProps} */
 	let {
 		title = navBarLang.title,
 		left = 'back',
@@ -22,7 +21,7 @@
 		titleChild,
 		leftChild,
 		rightChild,
-	} = $props();
+	}: NavBarProps = $props();
 
 	//图标大小
 	//Icon size

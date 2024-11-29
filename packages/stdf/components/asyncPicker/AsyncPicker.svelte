@@ -1,18 +1,17 @@
-<script>
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Popup from '../popup/Popup.svelte';
 	import Loading from '../loading/Loading.svelte';
 	import ScrollRadio from '../scrollRadio/ScrollRadio.svelte';
-	import zh_CN from '../../lang/zh_CN';
+	import type { AsyncPickerProps } from '../../types';
+	import { zh_CN, type LangProps } from '../../lang';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const asyncPickerLang = currentLang.asyncPicker;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const asyncPickerLang: LangProps['asyncPicker'] = currentLang.asyncPicker;
 
-	/** @typedef {import('../../index.d').AsyncPicker} AsyncPickerProps */
-	/** @type {AsyncPickerProps} */
 	let {
 		visible = $bindable(false),
 		data = $bindable([]),
@@ -35,7 +34,7 @@
 		onconfirm,
 		onnext,
 		onclose,
-	} = $props();
+	}: AsyncPickerProps = $props();
 
 	// 用于存储当前选定的所有项和索引
 	// Used to store all selected items and indexes

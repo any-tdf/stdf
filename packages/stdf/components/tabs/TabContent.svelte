@@ -1,7 +1,7 @@
-<script>
-	/** @typedef {import('../../index.d.ts').TabContent} TabContentProps */
-	/** @type {TabContentProps} */
-	let { show = true, children } = $props();
+<script lang="ts">
+	import type { TabContentProps } from '../../types';
+
+	let { show = true, children }: TabContentProps = $props();
 </script>
 
 <div class:hidden={!show} class="flex-1">

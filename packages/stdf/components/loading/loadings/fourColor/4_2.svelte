@@ -1,13 +1,7 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [size]
-	 * @property {any} [customColor]
-	 * @property {number} [speed]
-	 */
+<script lang="ts">
+	type Props = { size?: string; customColor?: string[]; speed?: number };
 
-	/** @type {Props} */
-	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
+	let { size = 'w-8 h-8', customColor = [], speed = $bindable(1) }: Props = $props();
 </script>
 
 <div class="{size} m-auto relative loading" style="animation-duration: {1.6 / speed}s;-webkit-animation-duration: {1.6 / speed}s;">

@@ -1,19 +1,17 @@
-<script>
+<script lang="ts">
 	import { onMount, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF } from '../utils';
-	import zh_CN from '../../lang/zh_CN';
-
 	import Mask from '../mask/Mask.svelte';
 	import Icon from '../icon/Icon.svelte';
+	import { zh_CN, type LangProps } from '../../lang';
+	import type { BottomSheetProps } from '../../types';
 
 	// 当前语言
 	// current language
-	const currentLang = getContext('STDF_lang') || zh_CN;
-	const bottomSheetLang = currentLang.bottomSheet;
+	const currentLang: LangProps = getContext('STDF_lang') || zh_CN;
+	const bottomSheetLang: LangProps['bottomSheet'] = currentLang.bottomSheet;
 
-	/** @typedef {import('../../index.d').BottomSheet} BottomSheetProps */
-	/** @type {BottomSheetProps} */
 	let {
 		visible = $bindable(false),
 		title = bottomSheetLang.title,
@@ -35,7 +33,7 @@
 		onclickMask,
 		onclose,
 		onback,
-	} = $props();
+	}: BottomSheetProps = $props();
 
 	// 固定高度
 	// stay height

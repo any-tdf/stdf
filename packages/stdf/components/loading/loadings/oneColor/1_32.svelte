@@ -1,15 +1,6 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [theme]
-	 * @property {boolean} [inverse]
-	 * @property {string} [size]
-	 * @property {any} [customColor]
-	 * @property {number} [speed]
-	 */
-
-	/** @type {Props} */
-	let { theme = false, inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) } = $props();
+<script lang="ts">
+	type Props = { theme?: boolean; inverse?: boolean; size?: string; customColor?: any[]; speed?: number };
+	let { theme = false, inverse = false, size = 'w-8 h-8', customColor = [], speed = $bindable(1) }: Props = $props();
 
 	const colorClass = () => {
 		if (inverse) {
