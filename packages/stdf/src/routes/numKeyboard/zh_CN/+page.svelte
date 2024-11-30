@@ -1,0 +1,122 @@
+<!-- NumKeyboard Demo -->
+<script lang="ts">
+	import { NumKeyboard, Cell, Toast } from '$lib/index.js';
+	import { Confetti } from 'svelte-confetti';
+
+	let visible1 = $state(false);
+	let visible2 = $state(false);
+	let visible3 = $state(false);
+	let visible4 = $state(false);
+	let visible5 = $state(false);
+	let visible6 = $state(false);
+	let visible7 = $state(false);
+	let visible8 = $state(false);
+	let visible9 = $state(false);
+	let visible10 = $state(false);
+	let visible11 = $state(false);
+	let visible12 = $state(false);
+	let visible13 = $state(false);
+	let visible14 = $state(false);
+	let visible15 = $state(false);
+	let visible16 = $state(false);
+	let visible17 = $state(false);
+	let visible18 = $state(false);
+	let visible19 = $state(false);
+
+	// 演示监听点击事件
+	let visibleToast = $state(false);
+	let key = $state('');
+	const clickFunc = (_: string, k: string) => {
+		key = k;
+		visibleToast = true;
+	};
+
+	// 演示监听开启与关闭事件
+	let loveDom: HTMLElement | null = $state(null);
+	// loveDom 距离窗口底部的距离
+	let loveDomBottom = 0;
+	let value = $state('0');
+	let doneDisabled = $state(true);
+	let top = $state(0);
+	const loveFunc = (numStr: string) => {
+		value = numStr || '0';
+		doneDisabled = numStr !== '5201314';
+	};
+	const openFunc = (height: number) => {
+		// 如果 loveDom 距离窗口底部小于键盘高度，就把 loveDom 向上移动键盘高度
+		loveDomBottom = window.innerHeight - (loveDom?.getBoundingClientRect().bottom || 0);
+		top = loveDomBottom < height ? -(height - loveDomBottom) - 50 : 0;
+	};
+</script>
+
+<Cell title="基础用法" onclick={() => (visible1 = true)} />
+<NumKeyboard bind:visible={visible1} />
+
+<Cell title="不显示完成" onclick={() => (visible2 = true)} />
+<NumKeyboard bind:visible={visible2} done={false} />
+
+<Cell title="显示关闭" onclick={() => (visible3 = true)} />
+<NumKeyboard bind:visible={visible3} close />
+
+<Cell title="显示关闭不显示完成" subTitle="必须隐藏小数点" onclick={() => (visible9 = true)} />
+<NumKeyboard bind:visible={visible9} close dot={false} done={false} />
+
+<Cell title="数字上下反向" onclick={() => (visible4 = true)} />
+<NumKeyboard bind:visible={visible4} reverse />
+
+<Cell title="增高按键高度" onclick={() => (visible5 = true)} />
+<NumKeyboard bind:visible={visible5} height="16" />
+
+<Cell title="增大间距" onclick={() => (visible6 = true)} />
+<NumKeyboard bind:visible={visible6} space="4" p="4" />
+
+<Cell title="不显示小数点" onclick={() => (visible7 = true)} />
+<NumKeyboard bind:visible={visible7} close dot={false} />
+
+<Cell title="不必要的全部不显示" onclick={() => (visible8 = true)} />
+<NumKeyboard bind:visible={visible8} done={false} dot={false} />
+
+<Cell title="块式" onclick={() => (visible10 = true)} />
+<NumKeyboard bind:visible={visible10} type="block" height="14" p="0" />
+
+<Cell title="自定义完成文字" onclick={() => (visible18 = true)} />
+<NumKeyboard bind:visible={visible18} doneText="转账" />
+
+<Cell title="监听点击事件" onclick={() => (visible11 = true)} />
+<NumKeyboard bind:visible={visible11} onclick={clickFunc} />
+<Toast bind:visible={visibleToast} duration={500} message={`点击了 ${key}`}></Toast>
+
+<div
+	class="relative mx-16 rounded-full bg-primary py-3 text-center text-xl text-white backdrop-blur transition-all dark:bg-dark dark:text-black"
+	style="top:{top}px"
+	bind:this={loveDom}
+>
+	{value}
+	{#if value === '5201314'}
+		<span class="absolute left-1/2"><Confetti rounded amount={100} /></span>
+	{/if}
+</div>
+<Cell title="请输入 5201314" onclick={() => (visible12 = true)} />
+<NumKeyboard bind:visible={visible12} bind:doneDisabled onclick={loveFunc} onopen={openFunc} onclose={() => (top = 0)} />
+
+<Cell title="增大按键圆角" onclick={() => (visible13 = true)} />
+<NumKeyboard bind:visible={visible13} radius="2xl" />
+
+<Cell title="完成按键注入 Class" onclick={() => (visible14 = true)} />
+<NumKeyboard bind:visible={visible14} doneClass="!bg-gradient-to-r from-[#9820a8] to-[#d16b98]" />
+
+<Cell title="面板与按键注入 Class" onclick={() => (visible15 = true)} />
+<NumKeyboard
+	bind:visible={visible15}
+	panelClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]"
+	keyClass="!bg-transparent border border-white/40 !text-white"
+/>
+
+<Cell title="自定义过渡动画" subTitle="通过 popup" onclick={() => (visible16 = true)} />
+<NumKeyboard bind:visible={visible16} popup={{ duration: 1000, easeType: 'bounceOut' }} />
+
+<Cell title="激活时背景不透明" subTitle="通过 popup 内的 mask" onclick={() => (visible17 = true)} />
+<NumKeyboard bind:visible={visible17} popup={{ mask: { opacity: '0.4' } }} />
+
+<Cell title="自定义按键字体" subTitle="需要引入并在 tailwind.config.js 中配置" onclick={() => (visible19 = true)} />
+<NumKeyboard bind:visible={visible19} keyClass="font-Trueno" />

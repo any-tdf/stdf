@@ -2,13 +2,14 @@
 	"name": "stdf",
 	"version": "1.0.0-next.2",
 	"description": "Mobile web component library based on Svelte and Tailwind",
-	"main": "./components/index.js",
-	"svelte": "./components/index.js",
-	"scripts": {},
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
 	"license": "MIT",
 	"homepage": "https://stdf.design",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/any-tdf/stdf"
+	},
 	"keywords": [
 		"svelte",
 		"tailwind",
@@ -18,14 +19,60 @@
 		"moblie ui",
 		"web component"
 	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/any-tdf/stdf"
+	"scripts": {
+		"dev": "vite dev",
+		"bui": "vite build",
+		"build": "vite build && npm run package",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "npm run package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
 	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"type": "module",
-	"types": "./index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
 	"peerDependencies": {
 		"svelte": "^5.0.0",
 		"tailwindcss": "^3.0.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.6",
+		"@sveltejs/kit": "^2.8.5",
+		"@sveltejs/package": "^2.3.7",
+		"@sveltejs/vite-plugin-svelte": "^5.0.1",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9.15.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.46.0",
+		"globals": "^15.12.0",
+		"prettier": "^3.4.1",
+		"prettier-plugin-svelte": "^3.3.2",
+		"prettier-plugin-tailwindcss": "^0.6.9",
+		"publint": "^0.2.12",
+		"rollup-plugin-stdf-icon": "^0.0.15",
+		"svelte": "^5.2.10",
+		"svelte-check": "^4.1.0",
+		"svelte-confetti": "^2.2.0",
+		"tailwindcss": "^3.4.15",
+		"typescript": "^5.7.2",
+		"typescript-eslint": "^8.16.0",
+		"vite": "^6.0.1"
 	}
 }
