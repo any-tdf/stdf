@@ -119,7 +119,7 @@
 			// 英文模式去掉 mode 后面的 _en 作为 nav
 			// English mode removes _en after mode as nav
 			const nav = englishMode ? mode.slice(0, -3) : mode;
-			goto(`/${englishMode ? 'en_US' : 'zh_CN'}/${nav}`);
+			goto(`/${nav}/${englishMode ? 'en_US' : 'zh_CN'}`);
 		}
 	});
 
