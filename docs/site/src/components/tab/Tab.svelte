@@ -74,7 +74,7 @@
         // 将nav首字母大写
         const navFirst = nav.slice(0, 1).toUpperCase() + nav.slice(1);
         // main -> next
-        codeValue = `https://github.com/any-tdf/stdf/blob/next/packages/stdf/components/${nav}/${navFirst}.svelte`;
+        codeValue = `https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
         showCode = true;
     };
 </script>
