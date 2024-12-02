@@ -1,4 +1,4 @@
-## 1.0.0-next.4 <font size=1>2024-12-02</font>
+## 1.0.0-next.5 <font size=1>2024-12-02</font>
 
 - Full support for Svelte 5 and TypeScript, including libraries and demos.
 - Rebuilt the library according to Svelte official CLI [sv create](https://svelte.dev/docs/cli/sv-create).
