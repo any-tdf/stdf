@@ -1,7 +1,6 @@
 <script>
-	import { getNowBeforeOrAfterMonth, getCalendarData, getMonthListRange, getDateRange } from '../../../../packages/stdf/components/utils';
-	import zh_CN from '../../../../packages/stdf/lang/zh_CN';
-	import en_US from '../../../../packages/stdf/lang/en_US';
+	import { getNowBeforeOrAfterMonth, getCalendarData, getMonthListRange, getDateRange } from 'stdf/utils';
+	import {zh_CN,en_US}from 'stdf/lang';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 

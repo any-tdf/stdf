@@ -3,7 +3,7 @@ import App from './App.svelte';
 import './app.css';
 import { delParamsUrl } from './utils/index';
 import { switchTheme } from 'stdf/theme';
-import themes from './data/themes';
+import themes from './data/themes/index.js';
 
 const currentTheme = localStorage.getItem('theme_color') || 'STDF';
 // 设置默认主题色

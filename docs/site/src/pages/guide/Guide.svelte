@@ -183,7 +183,7 @@
 					{isZh ? currentNav.title : currentNav.title_en}
 				</div>
 			</div>
-			<div class="h-px bg-black/10 dark:bg-white/20" />
+			<div class="h-px bg-black/10 dark:bg-white/20"></div>
 		{/if}
 		<div class="px-4 pt-4 {currentNav.nav === 'generator' ? 'md:pt-4 md:px-4' : 'md:pt-12 md:px-8'}">
 			<Router routes={guideRoutes} prefix="/guide" />

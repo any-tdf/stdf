@@ -2,8 +2,8 @@
 	import { mdTextToHljs } from '../../utils/index';
 	import { isWideScreenStore } from '../../store';
 
-	import text from '../../../../doc/guide/milestone.md';
-	import text_en from '../../../../doc/guide/milestone_en.md';
+	import text from '../../../../mds/guide/milestone.md';
+	import text_en from '../../../../mds/guide/milestone_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 

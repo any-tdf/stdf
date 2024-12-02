@@ -3,7 +3,7 @@
 	import ColorCard from '../../components/colorCard/ColorCard.svelte';
 	import ModeSwitch from '../../components/modeSwitch/ModeSwitch.svelte';
 	import ThemeSwitch from '../../components/themeSwitch/ThemeSwitch.svelte';
-	import themes from '../../../../demo/src/data/themes';
+	import themes from '../../data/themes';
 	import { currentColorStore, isWideScreenStore } from '../../store';
 	import { generatePalette, generateThemeBlack, generateThemeWhite, colorConvertFunc } from '../../utils';
 

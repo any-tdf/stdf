@@ -3,9 +3,9 @@
 	import { isWideScreenStore } from '../../store';
 
 	// @ts-ignore
-	import iconPluginText from '../../../../packages/rollup-plugin-stdf-icon/README_CN.md';
+	import iconPluginText from '../../../../../packages/rollup-plugin-stdf-icon/README_CN.md';
 	// @ts-ignore
-	import iconPluginText_en from '../../../../packages/rollup-plugin-stdf-icon/README.md';
+	import iconPluginText_en from '../../../../../packages/rollup-plugin-stdf-icon/README.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	const text = mdTextToHljs(

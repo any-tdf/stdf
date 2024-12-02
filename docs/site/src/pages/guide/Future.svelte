@@ -3,9 +3,9 @@
 	import { isWideScreenStore } from '../../store';
 
 	// @ts-ignore
-	import text from '../../../../doc/guide/future.md';
+	import text from '../../../../mds/guide/future.md';
 	// @ts-ignore
-	import text_en from '../../../../doc/guide/future_en.md';
+	import text_en from '../../../../mds/guide/future_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	const hljsText = mdTextToHljs((isZh ? text : text_en).replace(/<a href="/g, '<a target="_blank" href="'));

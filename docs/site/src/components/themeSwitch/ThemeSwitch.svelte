@@ -1,6 +1,6 @@
 <script>
-	import { switchTheme } from '../../../../packages/stdf/theme';
-	import themes from '../../../../demo/src/data/themes';
+	import { switchTheme } from 'stdf/theme';
+	import themes from '../../data/themes';
 	import { currentColorStore } from '../../store';
 
 	// 横排还是竖排

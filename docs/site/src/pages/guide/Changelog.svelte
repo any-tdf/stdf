@@ -3,9 +3,9 @@
 	import { isWideScreenStore } from '../../store';
 
 	// @ts-ignore
-	import text from '../../../../doc/guide/changelog.md';
+	import text from '../../../../mds/guide/changelog.md';
 	// @ts-ignore
-	import text_en from '../../../../doc/guide/changelog_en.md';
+	import text_en from '../../../../mds/guide/changelog_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	//提取字符中以‘[!tag’开头且以‘]’结尾的所有字符串，组成数组，并返回数组

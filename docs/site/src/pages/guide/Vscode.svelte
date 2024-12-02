@@ -2,8 +2,8 @@
 	import { mdTextToHljs } from '../../utils/index';
 	import { isWideScreenStore } from '../../store';
 
-	import text from '../../../../doc/guide/vscode.md';
-	import text_en from '../../../../doc/guide/vscode_en.md';
+	import text from '../../../../mds/guide/vscode.md';
+	import text_en from '../../../../mds/guide/vscode_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	const hljsText = mdTextToHljs((isZh ? text : text_en).replace(/<a href="/g, '<a target="_blank" href="'));

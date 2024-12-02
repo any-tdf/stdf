@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { location, push, querystring } from 'svelte-spa-router';
-	import menuList from '../../../../demo/src/data/menuList';
+	import { menuList } from '../../data/menuList';
 
 	import { isCmdKStore } from '../../store';
 

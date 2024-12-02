@@ -3,9 +3,9 @@
 	import { isWideScreenStore } from '../../store';
 
 	// @ts-ignore
-	import quickStartText from '../../../../doc/guide/quickStart.md';
+	import quickStartText from '../../../../mds/guide/quickStart.md';
 	// @ts-ignore
-	import quickStartText_en from '../../../../doc/guide/quickStart_en.md';
+	import quickStartText_en from '../../../../mds/guide/quickStart_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	const text = groupIconMdPlugin(

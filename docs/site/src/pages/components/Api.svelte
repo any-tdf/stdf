@@ -9,7 +9,8 @@
 	let loading = true;
 	const getMdStrFunc = async nav => {
 		loading = true;
-		const rawObj = await import(`../../../../doc/components/${nav}/api${isZh ? '' : '_en'}.md`);
+		// const rawObj = await import(`../../../../doc/components/${nav}/api${isZh ? '' : '_en'}.md`);
+		const rawObj = await import(`../../../../mds/components/${nav}/api${isZh ? '' : '_en'}.md`);
 		const mdStr = rawObj.default;
 		loading = false;
 		return mdTextToHljs(mdStr.replace(/<a href="/g, '<a target="_blank" href="'));

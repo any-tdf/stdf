@@ -6,7 +6,7 @@
 	import ModeSwitch from '../../components/modeSwitch/ModeSwitch.svelte';
 	// import SwitchSite from '../../components/switch/Index.svelte';
 	import { currentColorStore } from '../../store';
-	import themes from '../../../../demo/src/data/themes';
+	import themes from '../../data/themes';
 	import { generatePalette, generateThemeBlack, generateThemeWhite, colorConvertFunc, throttle, hexToRgb } from '../../utils';
 	import colorList from '../../data/color';
 	import GeneratorPreview from './GeneratorPreview.svelte';

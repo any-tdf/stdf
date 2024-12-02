@@ -1,5 +1,5 @@
 <script>
-	import { Button, Switch, Progress, ProgressLoop, Loading, NoticeBar, Icon, Slider } from '../../../../packages/stdf/components';
+	import { Button, Switch, Progress, ProgressLoop, Loading, NoticeBar, Icon, Slider } from 'stdf';
 	import Calendar from './Calendar.svelte';
 	import { currentThemeStore } from '../../store';
 
