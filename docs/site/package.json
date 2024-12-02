@@ -10,7 +10,7 @@
 		"preview": "vite preview",
 		"bp": "bun run build && bun run preview",
 		"miniglobal": "cleancss -o dist/global.css dist/global.css",
-		"build": "bun run env && vite build && bun run miniglobal"
+		"build": "bun run env && vite build"
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
