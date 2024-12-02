@@ -96,15 +96,7 @@
 				</svg>
 			</div>
 		</a>
-		<a
-			href="https://stdf.design"
-			target="_blank"
-			title={isZh ? '查看 v0.x 版本' : 'View v0.x'}
-			class="text-primary dark:text-dark text-sm"
-			aria-label={isZh ? '查看 v0.x 版本' : 'View v0.x'}
-		>
-			v1.0.0@next
-		</a>
+		<span class="text-primary dark:text-dark text-sm">v1.0.0@next</span>
 	</div>
 	<div>
 		<div class="cursor-pointer p-4 md:hidden">
