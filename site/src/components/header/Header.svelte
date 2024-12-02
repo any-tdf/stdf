@@ -83,17 +83,21 @@
 			{/if}
 		</div>
 	{/if}
-	<a href="#/" class="flex items-center justify-between px-6 py-2">
-		<div class="w-16 h-8 fill-primary flex flex-col justify-center items-center" title={isZh ? '首页' : 'Home'}>
-			<svg viewBox="0 0 90 80">
-				<path
-					class="fill-primary dark:fill-dark"
-					d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
-				/>
-				<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
-			</svg>
-		</div>
-	</a>
+	<!-- main -> next -->
+	<div class="flex items-end">
+		<a href="#/" class="flex items-center justify-between py-2 pl-6" aria-label={isZh ? '首页' : 'Home'}>
+			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center" title={isZh ? '首页' : 'Home'}>
+				<svg viewBox="0 0 90 80">
+					<path
+						class="fill-primary dark:fill-dark"
+						d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
+					/>
+					<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
+				</svg>
+			</div>
+		</a>
+		<span class="text-primary dark:text-dark text-sm">v0.x</span>
+	</div>
 	<div>
 		<div class="cursor-pointer md:hidden p-4">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->

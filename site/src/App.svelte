@@ -45,9 +45,16 @@
 </svelte:head>
 
 <main class="bg-primaryWhite dark:bg-darkBlack text-black dark:text-white relative min-h-screen text-justify antialiased">
-	{#if !isZh && ($location === '' || $location === '/')}
-		<div class="bg-primary text-white dark:bg-dark dark:text-black text-center text-xs py-1 px-2">
-			The english documentation is translated by machine, please help to correct if there is any error, thank you very much!
+	<!-- main -> next -->
+	{#if $location === '' || $location === '/'}
+		<div class="bg-primary dark:bg-dark px-2 py-1 text-center text-xs text-white dark:text-black">
+			{#if isZh}
+				这是 v0.x 文档，v1.0.0@next 请访问 <a href="https://next.stdf.design" class="underline" target="_blank">next.stdf.design</a>
+			{:else}
+				This is the v0.x documentation, please visit <a href="https://next.stdf.design" class="underline" target="_blank">
+					next.stdf.design
+				</a> for v1.0.0@next
+			{/if}
 		</div>
 	{/if}
 	<Header {showLeftNav} showBottonLine={!isHome} on:clickCmdK={headerCmdKFun} />
