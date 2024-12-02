@@ -47,7 +47,7 @@
 	};
 	let ThemeSwitchDom = null;
 	// 监听window点击事件，如果点击的不是 ThemeSwitchDom，则隐藏主题切换
-	window.addEventListener('click', e => {
+	window.addEventListener('click', (e) => {
 		if (ThemeSwitchDom && !ThemeSwitchDom.contains(e.target)) {
 			showThemeSwitchStore.set(false);
 		}
@@ -57,13 +57,13 @@
 <div
 	class={`${
 		showBottonLine ? 'border-b border-black/10 dark:border-white/10 ' : ''
-	}flex items-center justify-between sticky h-14 top-0 backdrop-blur z-[100]`}
+	}flex sticky top-0 z-[100] h-14 items-center justify-between backdrop-blur`}
 	aria-label="Global"
 >
 	{#if showLeftNav}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div class="cursor-pointer md:hidden p-4" on:click={toggleNavFun}>
+		<div class="cursor-pointer p-4 md:hidden" on:click={toggleNavFun}>
 			{#if !$isShowNavStore}
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M21.0001 4.50004L7.50007 4.5L7.50006 6L21.0001 6.00004V4.50004Z" fill="currentColor" />
@@ -83,19 +83,31 @@
 			{/if}
 		</div>
 	{/if}
-	<a href="#/" class="flex items-center justify-between px-6 py-2">
-		<div class="w-16 h-8 fill-primary flex flex-col justify-center items-center" title={isZh ? '首页' : 'Home'}>
-			<svg viewBox="0 0 90 80">
-				<path
-					class="fill-primary dark:fill-dark"
-					d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
-				/>
-				<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
-			</svg>
-		</div>
-	</a>
+	<!-- main -> next -->
+	<div class="flex items-end">
+		<a href="#/" class="flex items-center justify-between py-2 pl-6" aria-label={isZh ? '首页' : 'Home'}>
+			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center" title={isZh ? '首页' : 'Home'}>
+				<svg viewBox="0 0 90 80">
+					<path
+						class="fill-primary dark:fill-dark"
+						d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
+					/>
+					<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
+				</svg>
+			</div>
+		</a>
+		<a
+			href="https://stdf.design"
+			target="_blank"
+			title={isZh ? '查看 v0.x 版本' : 'View v0.x'}
+			class="text-primary dark:text-dark text-sm"
+			aria-label={isZh ? '查看 v0.x 版本' : 'View v0.x'}
+		>
+			v1.0.0@next
+		</a>
+	</div>
 	<div>
-		<div class="cursor-pointer md:hidden p-4">
+		<div class="cursor-pointer p-4 md:hidden">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<div
@@ -125,24 +137,24 @@
 			{#if showNav}
 				<!-- 移动端 -->
 				<div
-					class="flex flex-col absolute top-16 right-2 backdrop-blur bg-white dark:bg-gray-950 text-center rounded border border-black/10 dark:border-white/20 shadow-lg dark:shadow-white/20 p-1 pt-4 space-y-4 font-bold"
+					class="absolute right-2 top-16 flex flex-col space-y-4 rounded border border-black/10 bg-white p-1 pt-4 text-center font-bold shadow-lg backdrop-blur dark:border-white/20 dark:bg-gray-950 dark:shadow-white/20"
 				>
 					<a
 						href="#/guide"
-						class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1"
+						class="rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						class:bg-gray-100={currentRoute === '/guide'}
 						class:dark:bg-gray-500={currentRoute === '/guide'}>{isZh ? '指南' : 'Guide'}</a
 					>
 					<a
 						href="#/components?nav=button&tab=0"
-						class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1"
+						class="rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						class:bg-gray-100={currentRoute === '/components'}
 						class:dark:bg-gray-500={currentRoute === '/components'}>{isZh ? '组件' : 'Components'}</a
 					>
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
 					<button
-						class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1 relative"
+						class="relative rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						on:click={showThemeFunc}
 						bind:this={ThemeSwitchDom}
 					>
@@ -150,7 +162,7 @@
 						{#if $showThemeSwitchStore}
 							<div
 								transition:slide={{ duration: 300, axis: 'y' }}
-								class="absolute top-0 right-4 bg-white dark:bg-black/95 p-4 rounded-lg shadow-lg dark:shadow-white/10"
+								class="absolute right-4 top-0 rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10"
 							>
 								<ModeSwitch />
 								<ThemeSwitch vertical />
@@ -159,14 +171,14 @@
 					</button>
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
-					<div class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1 text-center" on:click={toggleFundFunc}>
+					<div class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700" on:click={toggleFundFunc}>
 						{isZh ? '支持' : 'Support'}
 					</div>
 
 					<!-- 语言切换 -->
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
-					<div class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1 text-center" on:click={toggleLangFunc}>
+					<div class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700" on:click={toggleLangFunc}>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 							<path fill="none" d="M0 0h24v24H0z" />
 							<path
@@ -178,7 +190,7 @@
 					<!-- GitHub -->
 					<a
 						href="https://github.com/any-tdf/stdf"
-						class="rounded hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-1 text-center"
+						class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 						target="_blank"
 					>
 						<svg width="20" height="20" viewBox="0 0 24 24" class="inline-block" xmlns="http://www.w3.org/2000/svg">
@@ -194,9 +206,9 @@
 			{/if}
 		</div>
 		<!--PC 端-->
-		<div class="hidden md:flex items-center px-6 space-x-2 font-bold">
+		<div class="hidden items-center space-x-2 px-6 font-bold md:flex">
 			<button
-				class="rounded px-2 border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 cursor-pointer transition-all flex text-black/40 dark:text-white/40 font-normal text-sm"
+				class="flex cursor-pointer rounded border border-black/10 px-2 text-sm font-normal text-black/40 transition-all hover:border-black/20 dark:border-white/10 dark:text-white/40 dark:hover:border-white/20"
 				style="padding-top: 0.3125rem;padding-bottom: 0.3125rem;"
 				on:click={clickCmdKFun}
 			>
@@ -208,9 +220,9 @@
 						/>
 					</svg>
 				</div>
-				<div class="mr-4 text-xs flex flex-col justify-center">{isZh ? '快速搜索...' : 'Quick search...'}</div>
-				<div class="bg-black/5 dark:bg-white/5 rounded px-1 mr-1 font-bold">{cmdkey}</div>
-				<div class="bg-black/5 dark:bg-white/5 rounded px-1.5 font-bold">K</div>
+				<div class="mr-4 flex flex-col justify-center text-xs">{isZh ? '快速搜索...' : 'Quick search...'}</div>
+				<div class="mr-1 rounded bg-black/5 px-1 font-bold dark:bg-white/5">{cmdkey}</div>
+				<div class="rounded bg-black/5 px-1.5 font-bold dark:bg-white/5">K</div>
 			</button>
 			<a
 				href="#/guide"
@@ -222,14 +234,14 @@
 			</a>
 			<a
 				href="#/components?nav=button&tab=0"
-				class={`rounded px-4 py-1 text-center inline-block transition-all ${
+				class={`inline-block rounded px-4 py-1 text-center transition-all ${
 					currentRoute === '/components' ? 'bg-primary dark:bg-dark text-white dark:text-black' : 'hover:bg-black/5 dark:hover:bg-white/5'
 				}`}
 			>
 				{isZh ? '组件' : 'Components'}
 			</a>
 			<button
-				class="rounded px-4 py-1 text-center cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 transition-all relative"
+				class="relative cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				on:click={showThemeFunc}
 				bind:this={ThemeSwitchDom}
 			>
@@ -237,7 +249,7 @@
 				{#if $showThemeSwitchStore}
 					<div
 						transition:slide={{ duration: 300, axis: 'y' }}
-						class="absolute top-10 left-1/2 bg-white dark:bg-black/95 p-4 rounded-lg -translate-x-1/2 shadow-lg dark:shadow-white/10"
+						class="absolute left-1/2 top-10 -translate-x-1/2 rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10"
 					>
 						<ModeSwitch />
 						<ThemeSwitch vertical />
@@ -245,7 +257,7 @@
 				{/if}
 			</button>
 			<button
-				class="rounded hover:bg-black/5 dark:hover:bg-white/5 px-4 py-1 text-center cursor-pointer transition-all"
+				class="cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				title={isZh ? '支持' : 'Support'}
 				on:click={toggleFundFunc}
 			>
@@ -255,7 +267,7 @@
 			<button
 				on:click={toggleLangFunc}
 				title={isZh ? '切换语言' : 'Switch languages'}
-				class="rounded hover:bg-black/5 dark:hover:bg-white/5 px-4 py-1 text-center cursor-pointer transition-all"
+				class="cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -268,7 +280,7 @@
 			<!-- GitHub -->
 			<a
 				href="https://github.com/any-tdf/stdf"
-				class="rounded hover:bg-black/5 dark:hover:bg-white/5 px-4 py-1 inline-block transition-all"
+				class="inline-block rounded px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				target="_blank"
 				title={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
 			>
