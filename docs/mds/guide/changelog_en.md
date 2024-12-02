@@ -1,3 +1,7 @@
+## 1.0.0-next.6 <font size=1>2024-12-03</font>
+
+- Added multi-language files.
+
 ## 1.0.0-next.5 <font size=1>2024-12-02</font>
 
 - Full support for Svelte 5 and TypeScript, including libraries and demos.
