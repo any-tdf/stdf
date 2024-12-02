@@ -1,3 +1,7 @@
+## Q: Why is it still next version even though Svelte 5 is fully supported?
+
+A: Because Tailwind CSS v4 is just released the Beta version at the current time point, the official version has not been released yet. STDF will wait for Tailwind CSS v4 official release, quickly adapt, and release v1.0.0 official version when ready.
+
 ## Q: Why isn't there a rasterization component?
 
 A: Using CSS Flexbox directly can easily and quickly achieve rasterization layout. There is no need to introduce additional components to achieve rasterization layout. Moreover, using Tailwind CSS to write will be very concise.

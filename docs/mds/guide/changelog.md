@@ -1,3 +1,8 @@
+## 1.0.0-next.4 <font size=1>2024-12-02</font>
+
+- 完整支持 Svelte 5 与 TypeScript，包括库与示例。
+- 按照 Svelte 官方 CLI [sv create](https://svelte.dev/docs/cli/sv-create) 重构库文件。
+
 ## 0.5.3 <font size=1>2024-11-19</font>
 
 - 优化 Icon 组件，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。

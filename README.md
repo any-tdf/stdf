@@ -53,7 +53,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🪜 Comes with a scaffolding tool for quick project creation.
 - 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
 - 🍺 IDE plugin for quickly viewing component APIs.
-- 🔧 Props supports type prompts and detection.
+- 🔧 Supports TypeScript, with complete type prompts for component Props.
 
 # Getting Started
 

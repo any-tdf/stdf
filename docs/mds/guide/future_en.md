@@ -8,6 +8,9 @@
 - [x] Add NumKeyboard component, which is generally used for entering numbers.
 - [x] Added Pagination component.
 - [x] Added Stepper component.
+- [x] Complete support for Svelte 5.
+- [x] Complete support for TypeScript.
+- [ ] Adapt to Tailwind CSS v4.
 
 ---
 

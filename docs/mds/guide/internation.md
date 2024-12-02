@@ -1,6 +1,6 @@
 ## 配置语言包
 
-STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-setcontext) 实现国际化文案配置，默认配置是中文简体。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
+STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs/svelte/context) 实现国际化文案配置，默认配置是中文简体。一般在应用的入口如 `App.svelte` 或 `+layout.svelte` 中配置 Context，例如：
 
 ```svelte
 <!-- App.svelte/+layout.svelte -->
@@ -90,14 +90,14 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs#run-time-svelte-s
 > 多语言文件由机器翻译，如果有不准确的地方，请提交 PR 进行修正。
 
 ## 增加语言包
-
-如果找不到你需要的语言包，欢迎你在 [中文语言包](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/zh_CN.js) 或 [英文语言包](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/en_US.js) 的基础上创建一个新的语言包，并发一个 Pull Request。[语言对照表](http://www.lingoes.net/en/translator/langcode.htm)
+<!-- main -> next -->
+如果找不到你需要的语言包，欢迎你在 [中文语言包](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/zh_CN.ts) 或 [英文语言包](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/en_US.ts) 的基础上创建一个新的语言包，并发一个 Pull Request。[语言对照表](http://www.lingoes.net/en/translator/langcode.htm)
 
 基本步骤如下：
 
 - 请先 fork 一份 [STDF](https://github.com/any-tdf/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
 - 克隆你的仓库至本地。
-- 在 packages/stdf/lang 文件夹中增加语言包。
-- （可选）更新文档，在 doc/guide 文件夹更新 [internation.md](https://github.com/any-tdf/stdf/edit/main/doc/guide/internation.md) 和 [internation_en.md](https://github.com/any-tdf/stdf/edit/main/doc/guide/internation_en.md) 文件，请在语言列表中按照 lang 的字母顺序更新。
+- 在 `packages/stdf/src/lib/lang` 文件夹中增加语言包。
+- （可选）更新文档，在 docs/mds/guide 文件夹更新 [internation.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation.md) 和 [internation_en.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation_en.md) 文件，请在语言列表中按照 lang 的字母顺序更新。
 - 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
 - Pull Request 会在 Review 通过后被合并到主仓库，并发布新版本至 npm。

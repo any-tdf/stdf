@@ -1,3 +1,7 @@
+## 2024-12-02
+
+v1.0.0@next version released, full support for Svelte 5 and TypeScript, including libraries and demos, waiting for Tailwind CSS v4 official release, STDF will quickly adapt, and release v1.0.0 official version when ready.
+
 ## 2023-11-03
 
 Support multi-theme configuration @0.4.0.

@@ -1,3 +1,5 @@
+<!-- main -> next -->
+
 > Tip：All code or commands can be double-clicked to select the word, three clicks to select the line.
 
 ## 😉 Existing works
@@ -9,22 +11,22 @@ Svelte and Tailwind have been configured for direct installation.
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm i stdf -D
+pnpm i stdf@next -D
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm i stdf -D
+npm i stdf@next -D
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun add stdf -D
+bun add stdf@next -D
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn add stdf -D
+yarn add stdf@next -D
 ```
 <!-- ::: -->
 
@@ -48,26 +50,26 @@ You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to qu
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf
+pnpm create stdf@next
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest
+npm create stdf@next
 # or
-npm init stdf@latest
+npm init stdf@next
 # or
-npx create-stdf@latest
+npx create-stdf@next
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf
+bun create stdf@next
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf
+yarn create stdf@next
 ```
 <!-- ::: -->
 

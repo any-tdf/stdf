@@ -8,6 +8,9 @@
 - [x] 新增 NumKeyboard-数字键盘组件，一般用于输入数字。
 - [x] 新增 Pagination-分页组件。
 - [x] 新增 Stepper-步进器组件。
+- [x] 完整支持 Svelte 5。
+- [x] 完整支持 TypeScript。
+- [ ] 适配 Tailwind CSS v4。
 
 ---
 

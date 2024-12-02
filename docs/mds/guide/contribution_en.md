@@ -2,37 +2,40 @@
 
 Thank you for using STDF.
 
-Below are guidelines for submitting feedback or code to STDF. Before submitting an issue or PR to STDF, please take a few minutes to read the following.
+Below are guidelines for submitting feedback or code to STDF. Please take a few minutes to read through this content before submitting an issue or PR to STDF.
 
 ## Issue Guidelines
 
-- When encountering an issue, please first confirm whether the issue has already been recorded in the issue or has been fixed.
-- When submitting an issue, please describe the issue briefly in language and add the environment and replication steps when the issue occurs.
+- When encountering a problem, please first confirm whether this issue has already been recorded or fixed in existing issues.
+- When submitting an issue, please use concise language to describe the problem encountered, and include the environment and steps to reproduce the issue.
 
 ## Local Development
 
-Before local development, please make sure that [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en) or [Bun](https://bun.sh) are installed in your development environment.
+Before starting local development, please ensure your development environment has [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en) or [Bun](https://bun.sh) installed.
 
-Debugging STDF requires an engineering environment. For this purpose, a simple Demo project is provided. STDF itself is not limited by the Node version, and the Demo uses Vite for development, so please ensure that your Node.js version >= 14.18+, refer to the [Vite official website](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Debugging STDF requires a project environment, for which we provide a simple Demo project. STDF itself is not restricted by Node version, but since the Demo uses Vite for development, please ensure your Node.js version is >= 14.18+, refer to [Vite official website](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
-Before submitting a PR after you have made code modifications, please ensure that you have formatted the code and passed the code formatting check. You can install relevant editor plugins or use the command line for code formatting.
+After modifying the code and before submitting a PR, please ensure the code is formatted and passes code format checks. You can install relevant editor plugins or format through the command line.
 
 Recommended installations:
 
-- [pnpm](https://pnpm.io): Package management tool, no need to install when using Bun.
+- [pnpm](https://pnpm.io): Package management tool, not needed when using Bun.
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) or [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte): Svelte development plugin.
-- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/tailwind-css.html): Tailwind CSS development plugin.
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/eslint.html): Code formatting check plugin.
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) or [WebStorm integration](https://www.jetbrains.com/help/webstorm/prettier.html): Code formatting plugin.
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) or [WebStorm Integration](https://www.jetbrains.com/help/webstorm/tailwind-css.html): Tailwind CSS development plugin.
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [WebStorm Integration](https://www.jetbrains.com/help/webstorm/eslint.html): Code format checking plugin.
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) or [WebStorm Integration](https://www.jetbrains.com/help/webstorm/prettier.html): Code formatting plugin.
 
-> Because the rollup-plugin-stdf-icon packages that the demo depends on are locally built, please build this packages first.
+Follow the steps below to quickly start STDF Demo locally.
+<!-- main -> next -->
+> Because the rollup-plugin-stdf-icon package that the Demo depends on is built locally, please build this package first.
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-## 1. Clone the STDF repository and enter
+## 1. Clone the STDF repository and switch to the next branch
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
+git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -41,8 +44,8 @@ pnpm i
 ## Build package
 pnpm build
 
-## 3. Use the Demo project to debug STDF
-cd demo
+## 3. Debug STDF
+cd packages/stdf
 ## Install dependencies
 pnpm i
 ## Start Demo
@@ -51,9 +54,10 @@ pnpm dev
 <!-- :: -->
 <!-- npm -->
 ```sh
-## 1. Clone the STDF repository and enter
+## 1. Clone the STDF repository and switch to the next branch
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
+git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -62,8 +66,8 @@ npm i
 ## Build package
 npm run build
 
-## 3. Use the Demo project to debug STDF
-cd demo
+## 3. 调试 STDF
+cd packages/stdf
 ## Install dependencies
 npm i
 ## Start Demo
@@ -72,9 +76,10 @@ npm run dev
 <!-- :: -->
 <!-- bun -->
 ```sh
-## 1. Clone the STDF repository and enter
+## 1. Clone the STDF repository and switch to the next branch
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
+git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -83,8 +88,8 @@ bun i
 ## Build package
 bun build
 
-## 3. Use the Demo project to debug STDF
-cd demo
+## 3. Debug STDF
+cd packages/stdf
 ## Install dependencies
 bun i
 ## Start Demo
@@ -93,9 +98,10 @@ bun dev
 <!-- :: -->
 <!-- yarn -->
 ```sh
-## 1. Clone the STDF repository and enter
+## 1. Clone the STDF repository and switch to the next branch
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
+git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -104,8 +110,8 @@ yarn
 ## Build package
 yarn build
 
-## 3. Use the Demo project to debug STDF
-cd demo
+## 3. Debug STDF
+cd packages/stdf
 ## Install dependencies
 yarn
 ## Start Demo
@@ -113,35 +119,33 @@ yarn dev
 ```
 <!-- ::: -->
 
-After the startup is successful, you can open `http://localhost:8888` in the browser to view the effect. Please switch the developer tools of the browser to the mobile mode.
+After starting successfully, you can view the effect in the browser by opening `http://localhost:8888`, please switch the developer tools of the browser to the mobile mode.
 
-You can modify the component source code under the `packages/stdf/components` directory and view the modification effect in real-time. Note that both VS Code and WebStorm support directly jumping to the component source code when calling the component.
+You can modify the component source code in the `packages/stdf/src/lib/components` directory and view the modification effect in real time. Note that VS Code and WebStorm both support jumping to the component source code when calling the component.
 
-If you don't want to develop locally, you can choose to use StackBlitz to debug online. Just open [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en) to start online debugging.
+If you don't want to develop locally, you can choose to use StackBlitz for online simple debugging. Simply open [NextSTDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf) to start online debugging.
 
-## Submitting PR
+## Submit PR
 
-If you are submitting a Pull Request on GitHub for the first time, you can read the following two articles to learn:
+If you are submitting your first Pull Request on GitHub, you can read the following two articles to learn:
 
-- [First Contributions](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
-- [How to contribute code elegantly on GitHub](https://segmentfault.com/a/1190000000736629)
+- [First Contribution to Open Source](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
+- [如何优雅地在 GitHub 上贡献代码](https://segmentfault.com/a/1190000000736629)
 
 ### Process
 
-- Please fork a copy of [STDF](https://github.com/any-tdf/stdf) to your own repository. If you have already forked, please synchronize the latest code from the main repository.
+- Please first fork a [STDF](https://github.com/any-tdf/stdf) repository to your own repository, if you have already forked it, please sync the latest code from the main repository.
 - Clone your repository to your local machine.
-- Modify the component source code and verify it in the Demo.
-- 「Optional」Supplement the Chinese and English documentation for this modification, which is located in the `doc/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, and other documents. For modifications to version, please add tags. Please refer to the [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/doc/components/button/version.md?plain=1) for specific details.
-- Go to the root directory of the repository and execute `pnpm i` or `npm i` or `bun i` to install dependencies.
-- Use your editor to format the modified code or execute `pnpm run format` or `npm run format` in the command line to format the code.
-- Execute `pnpm run lint` or `npm run lint` to check the code formatting.
-- Commit the modified content to your repository and then submit a Pull Request to the main repository.
-- The Pull Request will be merged into the main repository after it passes the review and a new version will be released subsequently.
+- Modify the component source code and verify it.
+- (Optional) Supplement the Chinese and English documentation of this modification, the documentation is located in the `docs/mds/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, etc. documents. For the modification of the version, please add the tag, refer to [STDF Version tag](https://github.com/any-tdf/stdf/blob/next/docs/mds/components/button/version.md?plain=1).
+- Go to the `packages/stdf` directory, execute `pnpm i` or `npm i` or `bun i` to install dependencies.
+- Submit the modified content to your repository, then submit a Pull Request to the main repository.
+- Pull Request will be merged into the main repository after being reviewed, and a new version will be released.
 
 ### Notes
 
-When submitting a Pull Request, please note:
+When submitting a Pull Request, please note the following:
 
-- Keep your PR small enough, generally one PR only solves a single component file, solves a single problem, or adds a single function, to facilitate review.
-- When adding or modifying existing components, remember to verify it in the Demo to ensure the stability of the code.
-- Please add a suitable description in the PR. If there is a related issue, please indicate it.
+- Keep your PR small, generally one PR solves a single component file, solves a single problem, or adds a single function, so that it is easier to review.
+- When adding a new component or modifying an existing component, remember to verify it in the Demo to ensure the stability of the code.
+- Please add a suitable description in the PR, if there is an associated Issue, please note it.

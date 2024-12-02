@@ -1,4 +1,4 @@
-> Starting from version 0.4.0, STDF supports switching between multiple themes.
+> Starting from version v0.4.0, STDF supports switching between multiple themes.
 
 ## Light and dark modes
 

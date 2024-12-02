@@ -1,3 +1,5 @@
+<!-- main -> next -->
+
 > Tip：所有代码或命令可以双击选定词，三击选定行。
 
 ## 😉 已有工程
@@ -9,22 +11,22 @@
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm i stdf -D
+pnpm i stdf@next -D
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm i stdf -D
+npm i stdf@next -D
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun add stdf -D
+bun add stdf@next -D
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn add stdf -D
+yarn add stdf@next -D
 ```
 <!-- ::: -->
 
@@ -48,26 +50,26 @@ yarn add stdf -D
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf
+pnpm create stdf@next
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest
+npm create stdf@next
 # 或
-npm init stdf@latest
+npm init stdf@next
 # 或
-npx create-stdf@latest
+npx create-stdf@next
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf
+bun create stdf@next
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf
+yarn create stdf@next
 ```
 <!-- ::: -->
 

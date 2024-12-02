@@ -1,3 +1,8 @@
+## 1.0.0-next.4 <font size=1>2024-12-02</font>
+
+- Full support for Svelte 5 and TypeScript, including libraries and demos.
+- Rebuilt the library according to Svelte official CLI [sv create](https://svelte.dev/docs/cli/sv-create).
+
 ## 0.5.3 <font size=1>2024-11-19</font>
 
 - Optimized Icon component, please see [Icon](https://stdf.design/#/components?nav=icon&tab=4).

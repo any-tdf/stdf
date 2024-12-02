@@ -1,6 +1,6 @@
 ## Configuring Language Pack
 
-The STDF component uses Svelte's [Context](https://svelte.dev/docs#run-time-svelte-setcontext) to implement internationalization configuration of text, with the default configuration being in Simplified Chinese. Usually, the Context is configured in the entry file `App.svelte` or `+layout.svelte`. For example:
+The STDF component uses Svelte's [Context](https://svelte.dev/docs/svelte/context) to implement internationalization configuration of text, with the default configuration being in Simplified Chinese. Usually, the Context is configured in the entry file `App.svelte` or `+layout.svelte`. For example:
 
 ```svelte
 <!-- App.svelte/+layout.svelte -->
@@ -90,14 +90,14 @@ Currently supported languages:
 > The multilingual files are translated by machine. If there are any inaccuracies, please submit a PR for correction.
 
 ## Adding a Language Pack
-
-If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/zh_CN.js) or [English language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/en_US.js) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
+<!-- main -> next -->
+If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/zh_CN.ts) or [English language pack](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/en_US.ts) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
 
 The basic steps are as follows:
 
 - Please fork the [STDF](https://github.com/any-tdf/stdf) code to your own repository. If you have already forked it, please sync the latest code from the main repository.
 - Clone your repository to your local machine.
-- Add language packs in the packages/stdf/lang folder.
-- (Optional) Update the documentation. Update the [internation.md](https://github.com/any-tdf/stdf/edit/main/doc/guide/internation.md) and [internation_en.md](https://github.com/any-tdf/stdf/edit/main/doc/guide/internation_en.md) files in the doc/guide folder. Please update them in alphabetical order according to the lang list.
+- Add language packs in the `packages/stdf/src/lib/lang` folder.
+- (Optional) Update the documentation. Update the [internation.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation.md) and [internation_en.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation_en.md) files in the docs/mds/guide folder. Please update them in alphabetical order according to the lang list.
 - Commit the modifications to your repository and then submit a Pull Request to the main repository.
 - Once the Pull Request is approved during the review process, it will be merged into the main repository and a new version will be released on npm.
