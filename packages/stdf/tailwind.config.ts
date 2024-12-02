@@ -1,5 +1,5 @@
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}', '../packages/stdf/**/*.svelte'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		colors: {
 			// 主题色
