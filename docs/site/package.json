@@ -4,13 +4,13 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"env": "bun run scripts/env.js",
-		"dev": "bun run env && vite",
+		"env": "node scripts/env.js",
+		"dev": "npm run env && vite",
 		"bu": "vite build",
 		"preview": "vite preview",
-		"bp": "bun run build && bun run preview",
+		"bp": "npm run build && npm run preview",
 		"miniglobal": "cleancss -o dist/global.css dist/global.css",
-		"build": "bun run env && vite build && bun run miniglobal"
+		"build": "npm run env && vite build && npm run miniglobal"
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
