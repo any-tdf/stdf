@@ -1,6 +1,5 @@
 <!-- Input Demo -->
 <script lang="ts">
-	import { getContext } from 'svelte';
 	import { Input, Button, Icon, Toast } from '$lib/index.js';
 
 	let value = $state('Initial text');
@@ -8,7 +7,8 @@
 
 	let IdCard = $state('');
 
-	const isIframe = getContext('iframe') === '1'; //Check if it's iframe
+	// Get browser information to determine if it is a mobile device
+	const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
 
 	let placeholderIdCard = $state('');
 	$effect(() => {
@@ -42,7 +42,7 @@
 
 <div class="px-4 pt-8 text-xl font-bold">
 	Different Input Types
-	{#if isIframe}
+	{#if !isMobile}
 		<span class="ml-2 text-xs opacity-50">Please check keyboard types on mobile devices</span>
 	{/if}
 </div>

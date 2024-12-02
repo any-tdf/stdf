@@ -1,6 +1,5 @@
 <!-- Input Demo -->
 <script lang="ts">
-	import { getContext } from 'svelte';
 	import { Input, Button, Icon, Toast } from '$lib/index.js';
 
 	let value = $state('初始文本');
@@ -8,7 +7,8 @@
 
 	let IdCard = $state('');
 
-	const isIframe = getContext('iframe') === '1'; //判断是否是 iframe
+	// 通过获取浏览器信息判断是否是移动设备
+	const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
 
 	let placeholderIdCard = $state('');
 	$effect(() => {
@@ -42,7 +42,7 @@
 
 <div class="px-4 pt-8 text-xl font-bold">
 	不同输入类型
-	{#if isIframe}
+	{#if !isMobile}
 		<span class="ml-2 text-xs opacity-50">请在移动设备查看键盘类型</span>
 	{/if}
 </div>
