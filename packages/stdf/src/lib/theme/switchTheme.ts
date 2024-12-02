@@ -36,7 +36,7 @@ const setPropertyFunc: (name: string, value: string) => void = (name, value) => 
  * import { stdfTheme } from 'stdf/theme';
  * switchTheme(stdfTheme);
  */
-export default (theme: ThemeProps): void => {
+const switchTheme = (theme: ThemeProps): void => {
 	const { color } = theme;
 	for (const [key, value] of Object.entries(color.primary)) {
 		setPropertyFunc(key === 'default' ? '--theme-color-primary' : `--theme-color-primary-${key}`, value);
@@ -60,3 +60,5 @@ export default (theme: ThemeProps): void => {
 		});
 	}
 };
+
+export default switchTheme;

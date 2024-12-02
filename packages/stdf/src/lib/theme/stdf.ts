@@ -1,6 +1,6 @@
 import type { ThemeProps } from './types.js';
 
-const stdfTheme: ThemeProps = {
+const STDFTheme: ThemeProps = {
 	name: 'STDF',
 	color: {
 		primary: {
@@ -47,4 +47,4 @@ const stdfTheme: ThemeProps = {
 	}
 };
 
-export default stdfTheme;
+export default STDFTheme;

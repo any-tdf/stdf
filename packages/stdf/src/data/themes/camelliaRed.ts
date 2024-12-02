@@ -1,4 +1,6 @@
-export default {
+import type { ThemeProps } from '../../lib/theme/types.js';
+
+const CamelliaRed: ThemeProps = {
 	name: 'CamelliaRed',
 	color: {
 		primary: {
@@ -12,7 +14,7 @@ export default {
 			700: '198, 39, 58', // #C6273A
 			800: '157, 21, 41', // #9D1529
 			900: '117, 8, 28', // #75081C
-			950: '77, 0, 17', // #4D0011
+			950: '77, 0, 17' // #4D0011
 		},
 		dark: {
 			50: '254, 250, 255', // #FEFAFF
@@ -25,7 +27,7 @@ export default {
 			700: '164, 88, 210', // #A458D2
 			800: '116, 46, 166', // #742EA6
 			900: '74, 17, 121', // #4A1179
-			950: '40, 0, 77', // #28004D
+			950: '40, 0, 77' // #28004D
 		},
 		primaryBlack: '25, 1, 3', // #190103
 		primaryWhite: '243, 242, 242', // #F3F2F2
@@ -35,12 +37,14 @@ export default {
 			success: '82, 196, 26', // #52c41a
 			warning: '250, 173, 20', // #faad14
 			error: '255, 77, 79', // #ff4d4f
-			info: '22, 119, 255', // #1677ff
+			info: '22, 119, 255' // #1677ff
 		},
 		extend: [
 			{ color: '59, 89, 152', alias: 'Facebook' }, // #3b5998
 			{ color: '237, 28, 22', alias: 'CocaCola' }, // #ed1c16
-			{ color: '0, 104, 181', alias: 'Intel' }, // #0068b5
-		],
-	},
+			{ color: '0, 104, 181', alias: 'Intel' } // #0068b5
+		]
+	}
 };
+
+export default CamelliaRed;

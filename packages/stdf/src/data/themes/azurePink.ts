@@ -1,4 +1,6 @@
-export default {
+import type { ThemeProps } from '../../lib/theme/types.js';
+
+const AzurePink: ThemeProps = {
 	name: 'AzurePink',
 	color: {
 		primary: {
@@ -12,7 +14,7 @@ export default {
 			700: '8, 8, 143', // #08088F
 			800: '9, 5, 121', // #090579
 			900: '8, 2, 99', // #080263
-			950: '8, 0, 77', // #08004D
+			950: '8, 0, 77' // #08004D
 		},
 		dark: {
 			50: '255, 245, 248', // #FFF5F8
@@ -25,7 +27,7 @@ export default {
 			700: '195, 21, 117', // #C31575
 			800: '156, 11, 95', // #9C0B5F
 			900: '116, 4, 73', // #740449
-			950: '77, 0, 50', // #4D0032
+			950: '77, 0, 50' // #4D0032
 		},
 		primaryBlack: '1, 1, 25', // #010119
 		primaryWhite: '242, 242, 243', // #F2F2F3
@@ -35,12 +37,14 @@ export default {
 			success: '43, 164, 23', // #2ba417
 			warning: '227, 115, 24', // #e37318
 			error: '213, 73, 65', // #d54941
-			info: '0, 82, 217', // #0052d9
+			info: '0, 82, 217' // #0052d9
 		},
 		extend: [
 			{ color: '20, 40, 160', alias: 'Samsung' }, // #1428A0
 			{ color: '253, 73, 0', alias: 'Xiaomi' }, // #fd4900
-			{ color: '4, 106, 56', alias: 'OPPO' }, // ##046a38
-		],
-	},
+			{ color: '4, 106, 56', alias: 'OPPO' } // ##046a38
+		]
+	}
 };
+
+export default AzurePink;

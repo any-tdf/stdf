@@ -1,10 +1,10 @@
-import { stdfTheme, type ThemeProps } from '$lib/theme/index.js';
-import chameleonTheme from './chameleon.js';
-import AzurePink from './AzurePink.js';
-import SmartLive from './SmartLive.js';
-import CamelliaRed from './CamelliaRed.js';
-import Nintendo from './Nintendo.js';
-
+import { STDFTheme } from '../../lib/theme/index.js';
+import Chameleon from './chameleon.js';
+import AzurePink from './azurePink.js';
+import SmartLive from './smartLive.js';
+import CamelliaRed from './camelliaRed.js';
+import Nintendo from './nintendo.js';
+import type { ThemeProps } from '../../lib/theme/types.js';
 /**
  * 传入 rgb 格式 255, 255, 255 的颜色值，返回 hex 格式的颜色值
  * Pass in the color value of rgb format 255, 255, 255 and return the color value of hex format
@@ -70,10 +70,10 @@ const rgbToHexFunc = (theme: ThemeProps) => {
 };
 
 export default [
-	{ name_CN: 'STDF', name: stdfTheme.name, theme: rgbToHexFunc(stdfTheme) },
+	{ name_CN: 'STDF', name: STDFTheme.name, theme: rgbToHexFunc(STDFTheme) },
 	{ name_CN: '任天堂', name: Nintendo.name, theme: rgbToHexFunc(Nintendo) },
 	{ name_CN: '蔚蓝粉', name: AzurePink.name, theme: rgbToHexFunc(AzurePink) },
-	{ name_CN: '变色龙', name: chameleonTheme.name, theme: rgbToHexFunc(chameleonTheme) },
+	{ name_CN: '变色龙', name: Chameleon.name, theme: rgbToHexFunc(Chameleon) },
 	{ name_CN: '慧活力', name: SmartLive.name, theme: rgbToHexFunc(SmartLive) },
 	{ name_CN: '山茶红', name: CamelliaRed.name, theme: rgbToHexFunc(CamelliaRed) }
 ];

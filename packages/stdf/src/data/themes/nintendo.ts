@@ -1,4 +1,6 @@
-export default {
+import type { ThemeProps } from '../../lib/theme/types.js';
+
+const Nintendo: ThemeProps = {
 	name: 'Nintendo',
 	color: {
 		primary: {
@@ -12,7 +14,7 @@ export default {
 			700: '192, 0, 22', // #C00016
 			800: '153, 0, 23', // #990017
 			900: '115, 0, 21', // #730015
-			950: '77, 0, 17', // #4D0011
+			950: '77, 0, 17' // #4D0011
 		},
 		dark: {
 			50: '245, 255, 254', // #F5FFFE
@@ -25,7 +27,7 @@ export default {
 			700: '0, 158, 189', // #009EBD
 			800: '0, 121, 152', // #007998
 			900: '0, 87, 114', // #005772
-			950: '0, 56, 77', // #00384D
+			950: '0, 56, 77' // #00384D
 		},
 		primaryBlack: '25, 1, 3', // #190103
 		primaryWhite: '243, 242, 242', // #F3F2F2
@@ -35,12 +37,14 @@ export default {
 			success: '0, 180, 42', // #00b42a
 			warning: '255, 125, 0', // #ff7d00
 			error: '245, 63, 63', // #f53f3f
-			info: '22, 93, 255', // #165dff
+			info: '22, 93, 255' // #165dff
 		},
 		extend: [
 			{ color: '0, 82, 217', alias: 'Tencent' }, // #0052d9
 			{ color: '26, 173, 25', alias: 'WeChat' }, // #1aad19
-			{ color: '243, 112, 33', alias: 'Hermès' }, // #f37021
-		],
-	},
+			{ color: '243, 112, 33', alias: 'Hermès' } // #f37021
+		]
+	}
 };
+
+export default Nintendo;

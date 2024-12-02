@@ -1,4 +1,6 @@
-export default {
+import type { ThemeProps } from '../../lib/theme/types.js';
+
+const Chameleon: ThemeProps = {
 	name: 'Chameleon',
 	color: {
 		primary: {
@@ -12,7 +14,7 @@ export default {
 			700: '1, 141, 73', // #018D49
 			800: '1, 119, 66', // #017742
 			900: '0, 98, 57', // #006239
-			950: '0, 77, 47', // #004D2F
+			950: '0, 77, 47' // #004D2F
 		},
 		dark: {
 			50: '255, 245, 252', // #FFF5FC
@@ -25,7 +27,7 @@ export default {
 			700: '193, 64, 189', // #C140BD
 			800: '154, 34, 154', // #9A229A
 			900: '112, 13, 115', // #700D73
-			950: '71, 0, 77', // #47004D
+			950: '71, 0, 77' // #47004D
 		},
 		primaryBlack: '1, 25, 12', // #01190C
 		primaryWhite: '242, 243, 242', // #F2F3F2
@@ -35,12 +37,14 @@ export default {
 			success: '103, 194, 58', // #67c23a
 			warning: '230, 162, 60', // #e6a23c
 			error: '245, 108, 108', // #f56c6c
-			info: '144, 147, 153', // #909399
+			info: '144, 147, 153' // #909399
 		},
 		extend: [
 			{ color: '56, 189, 248', alias: 'Tailwind' }, // #38bdf8
 			{ color: '194, 12, 12', alias: 'NetEaseCloudMusic' }, // #c20c0c
-			{ color: '65, 95, 255', alias: 'vivo' }, // #415fff
-		],
-	},
+			{ color: '65, 95, 255', alias: 'vivo' } // #415fff
+		]
+	}
 };
+
+export default Chameleon;
