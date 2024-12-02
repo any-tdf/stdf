@@ -46,7 +46,7 @@
 		'/generator': Generator,
 		'/create': Create,
 		'/icon-plugin': IconPlugin,
-		'/': QuickStart,
+		'/': QuickStart
 	};
 
 	let params = new URLSearchParams('?' + $querystring);
@@ -62,16 +62,16 @@
 				{ title: '更新日志', title_en: 'Changelog', nav: 'changelog', doc: 'changelog' },
 				{ title: '常见问题', title_en: 'FAQ', nav: 'faq', doc: 'faq' },
 				{ title: '贡献指南', title_en: 'Contribution Guide', nav: 'contribution', doc: 'contribution' },
-				{ title: '兼容性', title_en: 'Compatibility', nav: 'compatibility', doc: 'compatibility' },
-			],
+				{ title: '兼容性', title_en: 'Compatibility', nav: 'compatibility', doc: 'compatibility' }
+			]
 		},
 		{
 			class: '设计',
 			class_en: 'Design',
 			childs: [
 				{ title: '色彩', title_en: 'Color', nav: 'color' },
-				{ title: 'LOGO', title_en: 'LOGO', nav: 'logo' },
-			],
+				{ title: 'LOGO', title_en: 'LOGO', nav: 'logo' }
+			]
 		},
 		{
 			class: '工具',
@@ -81,8 +81,8 @@
 				{ title: 'IDE 插件', title_en: 'IDE plugin', nav: 'vscode', doc: 'vscode' },
 				{ title: '脚手架', title_en: 'Create cli', nav: 'create' },
 				{ title: '图标插件', title_en: 'Icon plugin', nav: 'icon-plugin' },
-				{ title: '快捷键', title_en: 'Shortcut key', nav: 'shortkey' },
-			],
+				{ title: '快捷键', title_en: 'Shortcut key', nav: 'shortkey' }
+			]
 		},
 		{
 			class: '其他',
@@ -90,9 +90,9 @@
 			childs: [
 				{ title: '关于', title_en: 'About', nav: 'about', doc: 'about' },
 				{ title: '里程碑', title_en: 'Milestone', nav: 'milestone', doc: 'milestone' },
-				{ title: '计划', title_en: 'Future', nav: 'future', doc: 'future' },
-			],
-		},
+				{ title: '计划', title_en: 'Future', nav: 'future', doc: 'future' }
+			]
+		}
 	];
 	//扁平 menuList
 	const flatMenuList = [];
@@ -104,7 +104,7 @@
 	const getMenuHeightFun = () => {
 		menuHeight = document.documentElement.clientHeight - 56;
 	};
-	const menuClickFun = currentMenu => {
+	const menuClickFun = (currentMenu) => {
 		if ($isShowNavStore) {
 			isShowNavStore.set;
 		}
@@ -137,7 +137,7 @@
 			}
 			// 去掉 locationNoGuide 开头的 /
 			const locationNoGuideNoSlash = locationNoGuide.replace('/', '');
-			currentNav = arr.filter(item => item.nav === locationNoGuideNoSlash)[0];
+			currentNav = arr.filter((item) => item.nav === locationNoGuideNoSlash)[0];
 		}
 		return () => {
 			window.removeEventListener('resize', getMenuHeightFun);
@@ -154,14 +154,15 @@
 		}
 	};
 	// 编辑地址处理
-	const editUrlFn = nav => {
+	const editUrlFn = (nav) => {
+		// main -> next
 		if (nav === 'create') {
-			return 'https://github.com/any-tdf/stdf/edit/main/packages/create-stdf/README' + (isZh ? '_CN' : '') + '.md';
+			return 'https://github.com/any-tdf/stdf/edit/next/packages/create-stdf/README' + (isZh ? '_CN' : '') + '.md';
 		}
 		if (nav === 'icon-plugin') {
-			return 'https://github.com/any-tdf/stdf/edit/main/packages/rollup-plugin-stdf-icon/README' + (isZh ? '_CN' : '') + '.md';
+			return 'https://github.com/any-tdf/stdf/edit/next/packages/rollup-plugin-stdf-icon/README' + (isZh ? '_CN' : '') + '.md';
 		}
-		return `https://github.com/any-tdf/stdf/edit/main/doc/guide/${flatMenuList.filter(item => item.nav === nav)[0]?.doc}${
+		return `https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/${flatMenuList.filter((item) => item.nav === nav)[0]?.doc}${
 			isZh ? '' : '_en'
 		}.md`;
 	};
@@ -169,30 +170,30 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 md:left-0 top-14 w-48 overflow-y-scroll transition-all duration-300 z-[100] bg-white dark:bg-black md:bg-transparent dark:md:bg-transparent border-r border-black/10 dark:border-white/20"
+		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
 	>
 		<Menu {menuList} currentNav={currentNav.nav} on:MenuClick={menuClickFun} showNum={false} />
 	</div>
-	<div class="md:pl-48 w-screen">
+	<div class="w-screen md:pl-48">
 		{#if currentNav.nav !== 'generator'}
 			<div class="px-4 py-12 md:px-8 md:py-4">
-				<div class="font-bold text-4xl">
+				<div class="text-4xl font-bold">
 					{isZh ? currentNav.title : currentNav.title_en}
 				</div>
 			</div>
 			<div class="h-px bg-black/10 dark:bg-white/20"></div>
 		{/if}
-		<div class="px-4 pt-4 {currentNav.nav === 'generator' ? 'md:pt-4 md:px-4' : 'md:pt-12 md:px-8'}">
+		<div class="px-4 pt-4 {currentNav.nav === 'generator' ? 'md:px-4 md:pt-4' : 'md:px-8 md:pt-12'}">
 			<Router routes={guideRoutes} prefix="/guide" />
 		</div>
 		{#if currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey' && currentNav.nav != 'generator'}
-			<div class="px-4 md:px-8 pb-8 text-xs flex gap-2">
-				<a href={editUrlFn(currentNav.nav)} class="flex text-primary dark:text-dark w-full" target="_blank">
-					<span class="h-4 w-4 mr-1">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" style="fill: currentColor;">
+			<div class="flex gap-2 px-4 pb-8 text-xs md:px-8">
+				<a href={editUrlFn(currentNav.nav)} class="text-primary dark:text-dark flex w-full" target="_blank">
+					<span class="mr-1 h-4 w-4">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" style="fill: currentColor;">
 							<path
 								d="M12.8995 6.85431L17.1421 11.0969L7.24264 20.9964H3V16.7538L12.8995 6.85431ZM14.3137 5.44009L16.435 3.31877C16.8256 2.92825 17.4587 2.92825 17.8492 3.31877L20.6777 6.1472C21.0682 6.53772 21.0682 7.17089 20.6777 7.56141L18.5563 9.68273L14.3137 5.44009Z"
 							/>
@@ -207,7 +208,7 @@
 
 {#if !$location.includes('generator')}
 	<button
-		class="hidden md:block fixed right-2 bottom-4 z-50 p-1.5 w-8 h-8 rounded-full bg-primary dark:bg-dark text-white dark:text-black shadow-md shadow-primary/50 dark:shadow-dark/50"
+		class="bg-primary dark:bg-dark shadow-primary/50 dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 		on:click={changeFullFunc}
 	>
 		{#if $isWideScreenStore}
@@ -229,28 +230,28 @@
 {/if}
 <!-- 为 code-groups 预先编译 tailwind -->
 <div
-	class="hidden dark:bg-[#202020] border-b-2 peer-checked/tab-0-0:border-primary dark:peer-checked/tab-0-0:border-dark peer-checked/tab-0-0:block
-peer-checked/tab-0-1:border-primary dark:peer-checked/tab-0-1:border-dark peer-checked/tab-0-1:block
-peer-checked/tab-0-2:border-primary dark:peer-checked/tab-0-2:border-dark peer-checked/tab-0-2:block
-peer-checked/tab-0-3:border-primary dark:peer-checked/tab-0-3:border-dark peer-checked/tab-0-3:block
-peer-checked/tab-0-4:border-primary dark:peer-checked/tab-0-4:border-dark peer-checked/tab-0-4:block
-peer-checked/tab-0-5:border-primary dark:peer-checked/tab-0-5:border-dark peer-checked/tab-0-5:block
-peer-checked/tab-1-0:border-primary dark:peer-checked/tab-1-0:border-dark peer-checked/tab-1-0:block
-peer-checked/tab-1-1:border-primary dark:peer-checked/tab-1-1:border-dark peer-checked/tab-1-1:block
-peer-checked/tab-1-2:border-primary dark:peer-checked/tab-1-2:border-dark peer-checked/tab-1-2:block
-peer-checked/tab-1-3:border-primary dark:peer-checked/tab-1-3:border-dark peer-checked/tab-1-3:block
-peer-checked/tab-1-4:border-primary dark:peer-checked/tab-1-4:border-dark peer-checked/tab-1-4:block
-peer-checked/tab-1-5:border-primary dark:peer-checked/tab-1-5:border-dark peer-checked/tab-1-5:block
-peer-checked/tab-2-0:border-primary dark:peer-checked/tab-2-0:border-dark peer-checked/tab-2-0:block
-peer-checked/tab-2-1:border-primary dark:peer-checked/tab-2-1:border-dark peer-checked/tab-2-1:block
-peer-checked/tab-2-2:border-primary dark:peer-checked/tab-2-2:border-dark peer-checked/tab-2-2:block
-peer-checked/tab-2-3:border-primary dark:peer-checked/tab-2-3:border-dark peer-checked/tab-2-3:block
-peer-checked/tab-2-4:border-primary dark:peer-checked/tab-2-4:border-dark peer-checked/tab-2-4:block
-peer-checked/tab-2-5:border-primary dark:peer-checked/tab-2-5:border-dark peer-checked/tab-2-5:block
-peer-checked/tab-3-0:border-primary dark:peer-checked/tab-3-0:border-dark peer-checked/tab-3-0:block
-peer-checked/tab-3-1:border-primary dark:peer-checked/tab-3-1:border-dark peer-checked/tab-3-1:block
-peer-checked/tab-3-2:border-primary dark:peer-checked/tab-3-2:border-dark peer-checked/tab-3-2:block
-peer-checked/tab-3-3:border-primary dark:peer-checked/tab-3-3:border-dark peer-checked/tab-3-3:block
-peer-checked/tab-3-4:border-primary dark:peer-checked/tab-3-4:border-dark peer-checked/tab-3-4:block
-peer-checked/tab-3-5:border-primary dark:peer-checked/tab-3-5:border-dark peer-checked/tab-3-5:block"
+	class="peer-checked/tab-0-0:border-primary dark:peer-checked/tab-0-0:border-dark peer-checked/tab-0-1:border-primary dark:peer-checked/tab-0-1:border-dark peer-checked/tab-0-2:border-primary dark:peer-checked/tab-0-2:border-dark
+peer-checked/tab-0-3:border-primary dark:peer-checked/tab-0-3:border-dark peer-checked/tab-0-4:border-primary
+dark:peer-checked/tab-0-4:border-dark peer-checked/tab-0-5:border-primary dark:peer-checked/tab-0-5:border-dark
+peer-checked/tab-1-0:border-primary dark:peer-checked/tab-1-0:border-dark peer-checked/tab-1-1:border-primary
+dark:peer-checked/tab-1-1:border-dark peer-checked/tab-1-2:border-primary dark:peer-checked/tab-1-2:border-dark
+peer-checked/tab-1-3:border-primary dark:peer-checked/tab-1-3:border-dark peer-checked/tab-1-4:border-primary
+dark:peer-checked/tab-1-4:border-dark peer-checked/tab-1-5:border-primary dark:peer-checked/tab-1-5:border-dark
+peer-checked/tab-2-0:border-primary dark:peer-checked/tab-2-0:border-dark peer-checked/tab-2-1:border-primary
+dark:peer-checked/tab-2-1:border-dark peer-checked/tab-2-2:border-primary dark:peer-checked/tab-2-2:border-dark
+peer-checked/tab-2-3:border-primary dark:peer-checked/tab-2-3:border-dark peer-checked/tab-2-4:border-primary
+dark:peer-checked/tab-2-4:border-dark peer-checked/tab-2-5:border-primary dark:peer-checked/tab-2-5:border-dark
+peer-checked/tab-3-0:border-primary dark:peer-checked/tab-3-0:border-dark peer-checked/tab-3-1:border-primary
+dark:peer-checked/tab-3-1:border-dark peer-checked/tab-3-2:border-primary dark:peer-checked/tab-3-2:border-dark
+peer-checked/tab-3-3:border-primary dark:peer-checked/tab-3-3:border-dark peer-checked/tab-3-4:border-primary
+dark:peer-checked/tab-3-4:border-dark peer-checked/tab-3-5:border-primary dark:peer-checked/tab-3-5:border-dark
+hidden border-b-2 peer-checked/tab-0-0:block
+peer-checked/tab-0-1:block peer-checked/tab-0-2:block peer-checked/tab-0-3:block
+peer-checked/tab-0-4:block peer-checked/tab-0-5:block peer-checked/tab-1-0:block
+peer-checked/tab-1-1:block peer-checked/tab-1-2:block peer-checked/tab-1-3:block
+peer-checked/tab-1-4:block peer-checked/tab-1-5:block peer-checked/tab-2-0:block
+peer-checked/tab-2-1:block peer-checked/tab-2-2:block peer-checked/tab-2-3:block
+peer-checked/tab-2-4:block peer-checked/tab-2-5:block peer-checked/tab-3-0:block
+peer-checked/tab-3-1:block peer-checked/tab-3-2:block peer-checked/tab-3-3:block
+peer-checked/tab-3-4:block peer-checked/tab-3-5:block dark:bg-[#202020]"
 ></div>

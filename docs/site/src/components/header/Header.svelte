@@ -180,8 +180,9 @@
 						</svg>
 					</div>
 					<!-- GitHub -->
+					<!-- main -> next -->
 					<a
-						href="https://github.com/any-tdf/stdf"
+						href="https://github.com/any-tdf/stdf/tree/next"
 						class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 						target="_blank"
 					>
@@ -270,8 +271,9 @@
 				</svg>
 			</button>
 			<!-- GitHub -->
+			<!-- main -> next -->
 			<a
-				href="https://github.com/any-tdf/stdf"
+				href="https://github.com/any-tdf/stdf/tree/next"
 				class="inline-block rounded px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				target="_blank"
 				title={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
