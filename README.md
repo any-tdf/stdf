@@ -26,9 +26,9 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgogICAgPHBhdGgKICAgICAgICBmaWxsPSIjRjBGQ0Q2IgogICAgICAgIGQ9Ik0zMC44NjUgMy40NDhMMjQuMjgyLjI4MWExLjk5IDEuOTkgMCAwIDAtMi4yNzYuMzg1TDkuMzk3IDEyLjE3MUwzLjkwMiA4LjAwNGExLjMzIDEuMzMgMCAwIDAtMS43MDMuMDczTC40MzkgOS42ODFhMS4zMyAxLjMzIDAgMCAwLS4wMDUgMS45NjlMNS4yIDE1Ljk5OUwuNDM0IDIwLjM0OGExLjMzIDEuMzMgMCAwIDAgLjAwNSAxLjk2OWwxLjc2IDEuNjA0YTEuMzMgMS4zMyAwIDAgMCAxLjcwMy4wNzNsNS40OTUtNC4xNzJsMTIuNjE1IDExLjUxYTEuOTgyIDEuOTgyIDAgMCAwIDIuMjcxLjM4NWw2LjU4OS0zLjE3MmExLjk5MyAxLjk5MyAwIDAgMCAxLjEzLTEuODAyVjUuMjQ4YzAtLjc2Ni0uNDQzLTEuNDY5LTEuMTM1LTEuODAyem0tNi44NiAxOS44MThMMTQuNDMyIDE2bDkuNTczLTcuMjY2eiIKICAgIC8+Cjwvc3ZnPgo=&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_CN.md" target="_blank">简体中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/next/README_CN.md" target="_blank">简体中文</a>
     <span> • </span>
-    <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
+    <a href="https://next.stdf.design?lang=en_US" target="_blank">Website</a>
   </h3>
 </div>
 
@@ -62,11 +62,11 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 If you have a project configured with Svelte and Tailwind, install directly.
 
 ```sh
-pnpm i stdf -D
+pnpm i stdf@next -D
 # or
-npm i stdf -D
+npm i stdf@next -D
 # or
-bun i stdf -D
+bun i stdf@next -D
 ```
 
 ## Usage
@@ -109,7 +109,7 @@ Please scan the QR code to access the mobile demo:
 
 # Quick Try
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf?startScript=dev_en).
 
 # Feedback and Communication
 

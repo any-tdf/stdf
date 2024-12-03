@@ -26,9 +26,9 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgogICAgPHBhdGgKICAgICAgICBmaWxsPSIjRjBGQ0Q2IgogICAgICAgIGQ9Ik0zMC44NjUgMy40NDhMMjQuMjgyLjI4MWExLjk5IDEuOTkgMCAwIDAtMi4yNzYuMzg1TDkuMzk3IDEyLjE3MUwzLjkwMiA4LjAwNGExLjMzIDEuMzMgMCAwIDAtMS43MDMuMDczTC40MzkgOS42ODFhMS4zMyAxLjMzIDAgMCAwLS4wMDUgMS45NjlMNS4yIDE1Ljk5OUwuNDM0IDIwLjM0OGExLjMzIDEuMzMgMCAwIDAgLjAwNSAxLjk2OWwxLjc2IDEuNjA0YTEuMzMgMS4zMyAwIDAgMCAxLjcwMy4wNzNsNS40OTUtNC4xNzJsMTIuNjE1IDExLjUxYTEuOTgyIDEuOTgyIDAgMCAwIDIuMjcxLjM4NWw2LjU4OS0zLjE3MmExLjk5MyAxLjk5MyAwIDAgMCAxLjEzLTEuODAyVjUuMjQ4YzAtLjc2Ni0uNDQzLTEuNDY5LTEuMTM1LTEuODAyem0tNi44NiAxOS44MThMMTQuNDMyIDE2bDkuNTczLTcuMjY2eiIKICAgIC8+Cjwvc3ZnPgo=&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
+    <a href="https://github.com/any-tdf/stdf/blob/next/README.md" target="_blank">English</a>
     <span> • </span>
-    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
+    <a href="https://next.stdf.design?lang=zh_CN" target="_blank">网站</a>
   </h3>
 </div>
 
@@ -64,11 +64,11 @@
 已有配置好 Svelte 与 Tailwind 的工程，直接安装。
 
 ```sh
-pnpm i stdf -D
+pnpm i stdf@next -D
 # or
-npm i stdf -D
+npm i stdf@next -D
 # or
-bun i stdf -D
+bun i stdf@next -D
 ```
 
 ## 使用
@@ -111,7 +111,7 @@ bun create stdf
 
 # 快速尝试
 
-可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 快速尝试 STDF。
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf) 快速尝试 STDF。
 
 # 反馈与交流
 
