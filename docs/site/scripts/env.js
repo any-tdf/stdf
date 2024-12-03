@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 //得到标准时区的时间的函数
-const getLocalTime = i => {
+const getLocalTime = (i) => {
 	//参数i为时区值数字，比如北京为东八区则输进8,纽约为西5区输入-5
 	if (typeof i !== 'number') return;
 	var d = new Date();
@@ -19,8 +19,8 @@ let now_en = getLocalTime(-4).toLocaleString('en-US', { hour12: false });
 let now_zh = getLocalTime(+8).toLocaleString('zh-CN', { hour12: false });
 
 // 去掉秒，即去除最后的 ':xx'
-now_en = now_en.slice(0, -3) + '(UTC-04:00)';
-now_zh = now_zh.slice(0, -3) + '(UTC+08:00)';
+now_en = now_en.slice(0, -3) + ' GMT-4';
+now_zh = now_zh.slice(0, -3) + ' GMT+8';
 
 console.log('now_en', now_en);
 console.log('now_zh', now_zh);
