@@ -29,7 +29,7 @@ export const throttle = (func, wait = 100) => {
  * @example
  * htmlFilter('<div>123</div>') // <div>123</div>
  */
-const htmlFilter = text => {
+const htmlFilter = (text) => {
 	// 抽离成可配置的匹配列表
 	const matchList = { '&lt;': '<', '&gt;': '>', '&amp;': '&', '&#34;': '"', '&quot;': '"', '&#39;': "'" };
 	let regStr = '(' + Object.keys(matchList).toString() + ')';
@@ -38,7 +38,7 @@ const htmlFilter = text => {
 	// ↑ 通过匹配将其更新为正则的字符串类型
 	const regExp = new RegExp(regStr, 'g');
 	// ↑ ------- 字符串 转 正则 方法
-	return text.replace(regExp, match => matchList[match]);
+	return text.replace(regExp, (match) => matchList[match]);
 	// ↑ ------ 替换方法 (正则, 当前key => 返回当前被匹配的key值)
 };
 
@@ -62,7 +62,7 @@ const replacePart = (str, findText, replaceText) => {
  * @example
  * mdTextToHljs('```js\nconsole.log(123)\n```') // <code class="hljs language-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">123</span>)</code>
  */
-export const mdTextToHljs = mdText => {
+export const mdTextToHljs = (mdText) => {
 	// 将所有 <td><code> 标签替换为 <td><code class="hljs language-typescript">
 	mdText = mdText.replace(/<td><code>/g, '<td><code class="hljs language-typescript">');
 	if (mdText.indexOf('<code class="') > 0) {
@@ -78,7 +78,7 @@ export const mdTextToHljs = mdText => {
 				? // @ts-ignore
 					hljs.highlight(code, {
 						language,
-						ignoreIllegals: true,
+						ignoreIllegals: true
 					}).value
 				: // @ts-ignore
 					hljs.highlightAuto(code).value;
@@ -100,22 +100,22 @@ export const mdTextToHljs = mdText => {
  * @param {string} md - 解析出来的 md 文档字符
  * @returns {string} - 返回处理后的 md 文档字符
  */
-export const groupIconMdPlugin = md => {
+export const groupIconMdPlugin = (md) => {
 	// 找出自字符中所有的 ::: code-group 与  ::: 之间的字符组成数组
 	const codeGroupStrListAll = md.match(/<!-- :::code-groups -->[\s\S]*?<!-- ::: -->/g);
 	if (!codeGroupStrListAll) {
 		return md;
 	}
-	const codeGroupStrList = codeGroupStrListAll.map(item =>
+	const codeGroupStrList = codeGroupStrListAll.map((item) =>
 		item
 			.replace(/<!-- :::code-groups -->/g, '')
 			.replace(/<!-- ::: -->/g, '')
-			.split('<!-- :: -->'),
+			.split('<!-- :: -->')
 	);
-	const codeGroupList = codeGroupStrList.map(item =>
-		item.map(subItem => {
+	const codeGroupList = codeGroupStrList.map((item) =>
+		item.map((subItem) => {
 			return { tab: subItem.match(/<!-- (.*?) -->/)[1], code: subItem.replace(/<!-- (.*?) -->/, '') };
-		}),
+		})
 	);
 
 	const codeGroupHtmlList = codeGroupList.map((item, index) => {
@@ -127,11 +127,11 @@ export const groupIconMdPlugin = md => {
 			} />
 				<label
 					for="tab-${index + '-' + subIndex}"
-					class="border-b-2 border-transparent peer-checked/tab-${index + '-' + subIndex}:border-primary dark:peer-checked/tab-${
+					class="border-b-2 border-black/10 dark:border-white/10 peer-checked/tab-${index + '-' + subIndex}:border-primary dark:peer-checked/tab-${
 						index + '-' + subIndex
 					}:border-dark transition duration-300 cursor-pointer py-2 px-3 inline-flex items-center gap-1 text-xs"
 				>
-					${codeGroupSvgData.find(icon => icon.name === subItem.tab).svg}${subItem.tab}
+					${codeGroupSvgData.find((icon) => icon.name === subItem.tab).svg}${subItem.tab}
 				</label>
 			`;
 			const code = `<div class="hidden peer-checked/tab-${index + '-' + subIndex}:block w-full">${subItem.code}</div>`;
@@ -139,8 +139,8 @@ export const groupIconMdPlugin = md => {
 		});
 		return `
 			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-[#202020] rounded mb-4">
-				${arr.map(item => item.label).join('')}
-				${arr.map(item => item.code).join('')}
+				${arr.map((item) => item.label).join('')}
+				${arr.map((item) => item.code).join('')}
 			</section>
 			`;
 	});
@@ -171,7 +171,7 @@ export const groupIconMdPlugin = md => {
  * @example
  * delLastParamsUrl('http://www.baidu.com?') // http://www.baidu.com
  */
-const delLastParamsUrl = url => {
+const delLastParamsUrl = (url) => {
 	if (url.lastIndexOf('?') === url.length - 1) {
 		url = url.substring(0, url.length - 1);
 	}
@@ -208,7 +208,7 @@ const formats = ['hex', 'rgb', 'hsl'];
 /**
  * 获取颜色格式
  */
-const getFormat = format => {
+const getFormat = (format) => {
 	if (!format || formats.indexOf(format) < 0) {
 		return 'hex';
 	}
@@ -290,7 +290,7 @@ const colorPalette = (originColor, i, format) => {
 			: Color({
 					h: getNewHue(isLight, index),
 					s: getNewSaturation(isLight, index) < 0 ? 4 : getNewSaturation(isLight, index),
-					v: getNewValue(isLight, index),
+					v: getNewValue(isLight, index)
 				});
 	return getColorString(retColor, format);
 };
@@ -325,7 +325,7 @@ export const generatePalette = (color, options = { list: true, index: 6, format:
  * @example
  * generateThemeBlack('#0B24FB')
  */
-export const generateThemeBlack = color => {
+export const generateThemeBlack = (color) => {
 	// 将 hex 颜色转换成 hsl 格式
 	const colorHsl = Color(color).hsl().round().string();
 	// 将 hsl 格式的颜色值转换成数组
@@ -349,7 +349,7 @@ export const generateThemeBlack = color => {
  * @example
  * generateThemeWhite('#0B24FB')
  */
-export const generateThemeWhite = color => {
+export const generateThemeWhite = (color) => {
 	// 将 hex 颜色转换成 hsl 格式
 	const colorHsl = Color(color).hsl().round().string();
 	// 将 hsl 格式的颜色值转换成数组
@@ -375,7 +375,7 @@ export const generateThemeWhite = color => {
  */
 export const colorConvertFunc = (str = '#000') => {
 	// 传入 hsl(222, 100%, 98%) 这种字符，将其中的数字四舍五入取整后返回字符
-	const getHslFunc = str => {
+	const getHslFunc = (str) => {
 		const arr = str.split(',');
 		const h = Math.round(Number(arr[0].split('(')[1]));
 		const s = Math.round(Number(arr[1].split('%')[0]));
@@ -389,7 +389,7 @@ export const colorConvertFunc = (str = '#000') => {
 		rgb: colorObj.rgb().string(),
 		hsl: getHslFunc(colorObj.hsl().string()),
 		// @ts-ignore
-		rgbStr: colorObj.rgb().color.join(', '),
+		rgbStr: colorObj.rgb().color.join(', ')
 	};
 };
 
@@ -400,7 +400,7 @@ export const colorConvertFunc = (str = '#000') => {
  * @example
  * hexToRgb('#000') // ‘0,0,0’
  */
-export const hexToRgb = str => {
+export const hexToRgb = (str) => {
 	// @ts-ignore
 	return Color(str).rgb().color.join(', ');
 };
