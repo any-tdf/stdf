@@ -6,7 +6,7 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs/svelte/context) �
 <!-- App.svelte/+layout.svelte -->
 <script>
 	import { setContext } from 'svelte'; // 引入 setContext
-	import en_US from 'stdf/lang/en_US'; // 导入语言文件
+	import { en_US } from 'stdf/lang'; // 导入语言文件
 
 	setContext('STDF_lang', en_US); // 设置语言
 </script>
