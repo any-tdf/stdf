@@ -1,4 +1,4 @@
-[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/next/packages/create-stdf/README_CN.md)
 
 # create-stdf
 
