@@ -1,4 +1,4 @@
-STDF's compatibility depends on Svelte and Tailwind CSS.
+> STDF v1.x based on Svelte 5.x and Tailwind CSS 4.x.
 
 ## Svelte
 

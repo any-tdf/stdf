@@ -1,4 +1,4 @@
-取决于 Svelte 和 Tailwind CSS 的兼容性。
+> STDF v1.x 基于 Svelte 5.x 与 Tailwind CSS 4.x 。
 
 ## Svelte
 
