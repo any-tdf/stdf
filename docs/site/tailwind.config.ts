@@ -2,7 +2,7 @@ import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 
 export default {
-	content: ['./src/**/*.{html,svelte}', '../../packages/stdf/**/*.svelte'],
+	content: ['./src/**/*.{html,svelte}', '../../packages/stdf/dist/**/*.svelte'],
 	theme: {
 		colors: {
 			primary: {
