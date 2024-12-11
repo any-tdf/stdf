@@ -9,6 +9,9 @@
 			"types": "./dist/index.d.ts"
 		}
 	},
+	"files": [
+		"dist/**"
+	],
 	"scripts": {
 		"pretest": "npm run build",
 		"build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
