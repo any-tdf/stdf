@@ -1,6 +1,6 @@
 import json from '@rollup/plugin-json';
 import typescript from '@rollup/plugin-typescript';
-import { uglify } from 'rollup-plugin-uglify';
+import terser from '@rollup/plugin-terser';
 import { readFileSync } from 'fs';
 const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
 const external = Object.keys(pkg.dependencies);
@@ -25,6 +25,6 @@ export default {
 			tsconfig: './tsconfig.json'
 		}),
 		json(),
-		uglify()
+		terser()
 	]
 };
