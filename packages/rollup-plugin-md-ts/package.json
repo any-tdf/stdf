@@ -1,8 +1,9 @@
 {
 	"name": "rollup-plugin-md-ts",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "a rollup plugin for markdown files",
 	"type": "module",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"default": "./dist/index.js",

@@ -1,4 +1,4 @@
-[English](https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-md-ts/README.md)
+[English](https://github.com/any-tdf/stdf/blob/next/packages/rollup-plugin-md-ts/README.md)
 
 ## 介绍
 
