@@ -126,7 +126,6 @@
 			}))
 		};
 	});
-	console.log(444, allMonthData);
 
 	// 如果 infoDates 不为空，循环 allMonthData，循环 data，循环 infoDates，如果 infoDates 中的日期和 data 中的日期相同，将 infoDates 中的 info 赋值给 data 中的 info
 	// If infoDates is not empty, loop allMonthData, loop data, loop infoDates, if the date in infoDates is the same as the date in data, assign the info in infoDates to the info in data

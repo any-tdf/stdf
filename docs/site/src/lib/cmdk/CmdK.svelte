@@ -174,7 +174,6 @@
 	$effect(() => {
 		if ($isCmdKStore) {
 			const latelyListStr = localStorage.getItem('latelyList');
-			console.log(8978, latelyListStr);
 
 			latelyList = latelyListStr ? JSON.parse(latelyListStr) : [];
 			isCmdKStore.set(true);
@@ -227,7 +226,7 @@
 					<input
 						bind:this={cmdKInput}
 						bind:value={cmdKValue}
-						class="focus:ring-b w-full caret-primary placeholder:text-black/20 focus:outline-none dark:bg-black dark:caret-dark dark:placeholder:text-white/10"
+						class="focus:ring-b caret-primary dark:caret-dark w-full placeholder:text-black/20 focus:outline-none dark:bg-black dark:placeholder:text-white/10"
 						type="text"
 						placeholder={isZh ? '请输入组件关键字' : 'Please enter the component keyword'}
 					/>
@@ -263,7 +262,7 @@
 						<div class="border-l border-black/10 pl-3 dark:border-white/10">
 							<button
 								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 0
-									? 'border-primary bg-primary text-white dark:border-dark dark:bg-dark dark:text-black'
+									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
 									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
 								class:animate-shake={isDemoShake && index === 0}
 								onclick={() => clickCmdKFun(item, 0)}
@@ -284,7 +283,7 @@
 							</button>
 							<button
 								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 1
-									? 'border-primary bg-primary text-white dark:border-dark dark:bg-dark dark:text-black'
+									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
 									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
 								onclick={() => clickCmdKFun(item, 1)}
 							>
@@ -304,7 +303,7 @@
 							</button>
 							<button
 								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 2
-									? 'border-primary bg-primary text-white dark:border-dark dark:bg-dark dark:text-black'
+									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
 									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
 								class:animate-shake={isGuideShake && index === cmdKList.length - 1}
 								onclick={() => clickCmdKFun(item, 2)}
