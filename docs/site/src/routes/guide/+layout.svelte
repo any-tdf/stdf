@@ -53,6 +53,7 @@
 				{ title: 'IDE 插件', title_en: 'IDE plugin', nav: 'vscode', doc: 'vscode' },
 				{ title: '脚手架', title_en: 'Create cli', nav: 'create' },
 				{ title: '图标插件', title_en: 'Icon plugin', nav: 'icon-plugin' },
+				{ title: 'MD 插件', title_en: 'MD plugin', nav: 'md' },
 				{ title: '快捷键', title_en: 'Shortcut key', nav: 'shortkey' }
 			]
 		},
@@ -124,7 +125,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 dark:border-white/20 dark:bg-black md:left-0 md:bg-transparent dark:md:bg-transparent"
+		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
@@ -145,7 +146,7 @@
 		</div>
 		{#if !$page.url.pathname.includes('generator') && currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey'}
 			<div class="flex gap-2 px-4 pb-8 text-xs md:px-8">
-				<a href={editUrlFn(currentNav.nav)} class="flex w-full text-primary dark:text-dark" target="_blank">
+				<a href={editUrlFn(currentNav.nav)} class="text-primary dark:text-dark flex w-full" target="_blank">
 					<span class="mr-1 h-4 w-4">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" style="fill: currentColor;">
 							<path
@@ -161,7 +162,7 @@
 </div>
 {#if !$page.url.pathname.includes('generator')}
 	<button
-		class="fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full bg-primary p-1.5 text-white shadow-md shadow-primary/50 dark:bg-dark dark:text-black dark:shadow-dark/50 md:block"
+		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 		onclick={changeFullFunc}
 	>
 		{#if $isWideScreenStore}
@@ -183,28 +184,28 @@
 {/if}
 <!-- 为 code-groups 预先编译 tailwind -->
 <div
-	class="hidden border-b-2 border-black/10 peer-checked/tab-0-0:block peer-checked/tab-0-1:block peer-checked/tab-0-2:block
-peer-checked/tab-0-3:block peer-checked/tab-0-4:block peer-checked/tab-0-5:block
-peer-checked/tab-1-0:block peer-checked/tab-1-1:block peer-checked/tab-1-2:block
-peer-checked/tab-1-3:block peer-checked/tab-1-4:block peer-checked/tab-1-5:block
-peer-checked/tab-2-0:block peer-checked/tab-2-1:block peer-checked/tab-2-2:block
-peer-checked/tab-2-3:block peer-checked/tab-2-4:block peer-checked/tab-2-5:block
-peer-checked/tab-3-0:block peer-checked/tab-3-1:block peer-checked/tab-3-2:block
-peer-checked/tab-3-3:block peer-checked/tab-3-4:block peer-checked/tab-3-5:block
-peer-checked/tab-0-0:border-primary peer-checked/tab-0-1:border-primary peer-checked/tab-0-2:border-primary
-peer-checked/tab-0-3:border-primary peer-checked/tab-0-4:border-primary peer-checked/tab-0-5:border-primary
+	class="peer-checked/tab-0-0:border-primary peer-checked/tab-0-1:border-primary peer-checked/tab-0-2:border-primary peer-checked/tab-0-3:border-primary peer-checked/tab-0-4:border-primary peer-checked/tab-0-5:border-primary
 peer-checked/tab-1-0:border-primary peer-checked/tab-1-1:border-primary peer-checked/tab-1-2:border-primary
 peer-checked/tab-1-3:border-primary peer-checked/tab-1-4:border-primary peer-checked/tab-1-5:border-primary
 peer-checked/tab-2-0:border-primary peer-checked/tab-2-1:border-primary peer-checked/tab-2-2:border-primary
 peer-checked/tab-2-3:border-primary peer-checked/tab-2-4:border-primary peer-checked/tab-2-5:border-primary
 peer-checked/tab-3-0:border-primary peer-checked/tab-3-1:border-primary peer-checked/tab-3-2:border-primary
-peer-checked/tab-3-3:border-primary peer-checked/tab-3-4:border-primary peer-checked/tab-3-5:border-primary dark:border-white/10
-dark:bg-[#202020] dark:peer-checked/tab-0-0:border-dark dark:peer-checked/tab-0-1:border-dark
-dark:peer-checked/tab-0-2:border-dark dark:peer-checked/tab-0-3:border-dark dark:peer-checked/tab-0-4:border-dark
-dark:peer-checked/tab-0-5:border-dark dark:peer-checked/tab-1-0:border-dark dark:peer-checked/tab-1-1:border-dark
-dark:peer-checked/tab-1-2:border-dark dark:peer-checked/tab-1-3:border-dark dark:peer-checked/tab-1-4:border-dark
-dark:peer-checked/tab-1-5:border-dark dark:peer-checked/tab-2-0:border-dark dark:peer-checked/tab-2-1:border-dark
-dark:peer-checked/tab-2-2:border-dark dark:peer-checked/tab-2-3:border-dark dark:peer-checked/tab-2-4:border-dark
-dark:peer-checked/tab-2-5:border-dark dark:peer-checked/tab-3-0:border-dark dark:peer-checked/tab-3-1:border-dark
-dark:peer-checked/tab-3-2:border-dark dark:peer-checked/tab-3-3:border-dark dark:peer-checked/tab-3-4:border-dark dark:peer-checked/tab-3-5:border-dark"
+peer-checked/tab-3-3:border-primary peer-checked/tab-3-4:border-primary peer-checked/tab-3-5:border-primary
+dark:peer-checked/tab-0-0:border-dark dark:peer-checked/tab-0-1:border-dark dark:peer-checked/tab-0-2:border-dark
+dark:peer-checked/tab-0-3:border-dark dark:peer-checked/tab-0-4:border-dark dark:peer-checked/tab-0-5:border-dark
+dark:peer-checked/tab-1-0:border-dark dark:peer-checked/tab-1-1:border-dark dark:peer-checked/tab-1-2:border-dark
+dark:peer-checked/tab-1-3:border-dark dark:peer-checked/tab-1-4:border-dark dark:peer-checked/tab-1-5:border-dark
+dark:peer-checked/tab-2-0:border-dark dark:peer-checked/tab-2-1:border-dark dark:peer-checked/tab-2-2:border-dark
+dark:peer-checked/tab-2-3:border-dark dark:peer-checked/tab-2-4:border-dark dark:peer-checked/tab-2-5:border-dark
+dark:peer-checked/tab-3-0:border-dark dark:peer-checked/tab-3-1:border-dark dark:peer-checked/tab-3-2:border-dark
+dark:peer-checked/tab-3-3:border-dark dark:peer-checked/tab-3-4:border-dark dark:peer-checked/tab-3-5:border-dark
+hidden border-b-2 border-black/10 peer-checked/tab-0-0:block
+peer-checked/tab-0-1:block peer-checked/tab-0-2:block peer-checked/tab-0-3:block
+peer-checked/tab-0-4:block peer-checked/tab-0-5:block peer-checked/tab-1-0:block
+peer-checked/tab-1-1:block peer-checked/tab-1-2:block peer-checked/tab-1-3:block
+peer-checked/tab-1-4:block peer-checked/tab-1-5:block peer-checked/tab-2-0:block
+peer-checked/tab-2-1:block peer-checked/tab-2-2:block peer-checked/tab-2-3:block
+peer-checked/tab-2-4:block peer-checked/tab-2-5:block peer-checked/tab-3-0:block
+peer-checked/tab-3-1:block peer-checked/tab-3-2:block peer-checked/tab-3-3:block
+peer-checked/tab-3-4:block peer-checked/tab-3-5:block dark:border-white/10 dark:bg-[#202020]"
 ></div>

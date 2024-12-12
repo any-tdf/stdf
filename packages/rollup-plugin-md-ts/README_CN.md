@@ -16,7 +16,7 @@ STDF 新站点 <https://next.stdf.design> 使用了此插件。
 | include  | `string[]`      | `['**/*.md']`      | 要包含的 Markdown 文件路径。                                                 |
 | exclude  | `string[]`      | `[]`               | 要排除的 Markdown 文件路径。                                                 |
 
-其中 include 和 exclude 是相对与项目根目录（一般就是 vite.config.js 或 vite.config.ts 所在目录）的相对路径。
+其中 include 和 exclude 是相对项目根目录（一般就是 vite.config.js 或 vite.config.ts 所在目录）的相对路径。
 
 ## 安装
 
