@@ -98,7 +98,7 @@
 				isShowIframe = false;
 				setTimeout(() => {
 					isShowIframe = true;
-				}, 100);
+				}, 10);
 				currentTab--;
 				params.set('tab', currentTab.toString());
 				goto(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
@@ -109,7 +109,7 @@
 				isShowIframe = false;
 				setTimeout(() => {
 					isShowIframe = true;
-				}, 100);
+				}, 10);
 				currentTab++;
 				params.set('tab', currentTab.toString());
 				goto(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
@@ -194,7 +194,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 dark:border-white/20 dark:bg-black md:left-0 md:bg-transparent dark:md:bg-transparent"
+		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{navBarHeight + 'px'}"
@@ -212,7 +212,7 @@
 							{isZh ? currentNav?.title : currentNav?.title_en}
 						</div>
 						<a href={QRValue} target="_blank" aria-label={isZh ? '扫码预览' : 'Scan to preview'}>
-							<div class="ml-2 h-8 w-8 rounded bg-gray-100 p-1 text-gray-500 dark:bg-gray-700 md:hidden">
+							<div class="ml-2 h-8 w-8 rounded bg-gray-100 p-1 text-gray-500 md:hidden dark:bg-gray-700">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 									<path fill="none" d="M0 0h24v24H0z" />
 									<path
@@ -246,7 +246,7 @@
 							<Component {highlightedCode} />
 						</div>
 						<div
-							class="ml-2 hidden w-[392px] shrink-0 grow-0 border border-black/10 dark:border-white/10 md:block"
+							class="ml-2 hidden w-[392px] shrink-0 grow-0 border border-black/10 md:block dark:border-white/10"
 							style="height:{demoHeight}px"
 						>
 							{#if currentNav?.nav}
@@ -262,7 +262,7 @@
 										width="390"
 									></iframe>
 								{:else}
-									<div class="flex flex-col justify-center text-primary dark:text-dark" style="width:390px;height:{demoHeight - 2}px;">
+									<div class="text-primary dark:text-dark flex flex-col justify-center" style="width:390px;height:{demoHeight - 2}px;">
 										<div>
 											<svg class="mx-auto my-1 h-10 w-10 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
 												<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
