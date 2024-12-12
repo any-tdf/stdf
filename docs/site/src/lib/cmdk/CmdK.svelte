@@ -1,30 +1,36 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { menuList, type MenuList, type MenuListChild } from '../../data/menuList';
 	import { page } from '$app/stores';
-
-	import { isCmdKStore } from '../../store';
 	import { goto } from '$app/navigation';
+	import { isCmdKStore } from '../../store';
 
-	let menuChildList: MenuListChild[] = $state([]); //展开的菜单列表
+	//数组二级组成新数组
+	const ArrChildFun = (arr: MenuList[]) => {
+		let newArr = [];
+		for (let e = 0; e < arr.length; e++) {
+			newArr.push(...arr[e].childs);
+		}
+		return newArr;
+	};
+
+	const menuChildList: MenuListChild[] = ArrChildFun(menuList); //展开的菜单列表，全部
+	const isZh = localStorage.getItem('lang') === 'zh_CN';
+	const params = new URLSearchParams('?');
+
 	let cmdKValue = $state(''); //cmd+k 搜索框的值
 	let currentIndex = $state(0); //当前选中的索引
 	let currentTab: number = $state(0); //当前选中的 tab
 	let cmdFocus = $state(false); //cmd+k 搜索框是否获取焦点
 	let cmdKInput: HTMLInputElement | null = $state(null); //cmd+k 搜索框的 dom
-	let latelyList: MenuListChild[] = $state([]); //最近使用的列表
+	let latelyList: MenuListChild[] = $state(localStorage.getItem('latelyList') ? JSON.parse(localStorage.getItem('latelyList') || '') : []); //最近使用的列表
 	let isDemoShake = $state(false); //是否显示 demo 抖动动画
 	let isGuideShake = $state(false); //是否显示 guide 抖动动画
-
-	const isZh = localStorage.getItem('lang') === 'zh_CN';
-
-	const params = new URLSearchParams('?');
-
 	let cmdKList = $derived(
 		cmdKValue === '' ? latelyList : menuChildList.filter((item: any) => item.alias.indexOf(cmdKValue.toLowerCase()) > -1)
 	); //cmd+k 搜索框的列表
 	let currentMenu = $derived(cmdKList[currentIndex]); //当前选中的菜单
+
 	//cmd+k 搜索框的事件
 	const cmdKFun = (e: KeyboardEvent) => {
 		// 判断是 Windows 还是 Mac，cmd+k 在 Windows 下是 ctrl+k，监听 e.ctrlKey，Mac 监听 metaKey
@@ -106,64 +112,79 @@
 		}
 		//显示 cmd+k 搜索框时，按下回车键触发事件
 		if ($isCmdKStore && e.key === 'Enter') {
+			const nav = currentMenu.nav;
+			const tab = currentTab;
 			//将当前选中的菜单添加到最近使用的列表中，并存储到 localStorage 中，最多存储 3 条
 			if (latelyList.length > 0 && latelyList[0]?.nav) {
-				let index = latelyList.findIndex((item) => item.alias === currentMenu.alias);
+				let index = latelyList.findIndex((item) => item.nav === nav);
 				if (index > -1) {
-					latelyList.splice(index, 1);
-				}
-				latelyList.unshift(currentMenu);
-				if (latelyList.length > 3) {
-					latelyList.pop();
+					// latelyList 中包含 currentMenu 时，将 currentMenu 移动到最前面
+					const newLatelyList = latelyList.filter((item) => item.nav !== nav);
+					newLatelyList.unshift(currentMenu);
+					latelyList = newLatelyList;
+				} else {
+					// 如果 latelyList 中不包含 currentMenu，则将 currentMenu 添加到最前面
+					latelyList.unshift(currentMenu);
 				}
 			} else {
 				latelyList.push(currentMenu);
 			}
+			// 如果 latelyList 长度大于 3，则删除最后一个元素
+			if (latelyList.length > 3) {
+				latelyList.pop();
+			}
 			if (latelyList.length > 0 && latelyList[0]?.nav) {
-				// 去重
-				latelyList = Array.from(new Set(latelyList));
 				localStorage.setItem('latelyList', JSON.stringify(latelyList));
 			}
-
 			isCmdKStore.set(false);
 			cmdFocus = false;
 			cmdKValue = '';
-			params.set('nav', currentMenu.nav);
-			params.set('tab', currentTab.toString());
-			goto(`/components?nav=${currentMenu.nav}&tab=${currentTab}`);
+			params.set('nav', nav);
+			params.set('tab', tab.toString());
+			goto(`/components?nav=${nav}&tab=${tab}`);
 			if ($page.url.pathname.includes('/components')) {
 				setTimeout(() => {
 					window.location.reload();
-				}, 0);
+				}, 10);
 			}
 		}
 	};
 	//点击搜索框的事件
 	const clickCmdKFun = (item: MenuListChild, index: number) => {
-		//将当前选中的菜单添加到最近使用的列表中，并存储到 localStorage 中，最多存储 5 条
-		if (latelyList.length === 0) {
-			latelyList.push(item);
-		} else {
-			let index = latelyList.findIndex((item) => item.alias === item.alias);
+		const nav = item.nav;
+		const tab = index;
+		//将当前选中的菜单添加到最近使用的列表中，并存储到 localStorage 中，最多存储 3 条
+		if (latelyList.length > 0 && latelyList[0]?.nav) {
+			let index = latelyList.findIndex((item) => item.nav === nav);
 			if (index > -1) {
-				latelyList.splice(index, 1);
+				// latelyList 中包含 item 时，将 item 移动到最前面
+				const newLatelyList = latelyList.filter((item) => item.nav !== nav);
+				newLatelyList.unshift(item);
+				latelyList = newLatelyList;
+			} else {
+				// 如果 latelyList 中不包含 item，则将 item 添加到最前面
+				latelyList.unshift(item);
 			}
-			latelyList.unshift(item);
-			if (latelyList.length > 3) {
-				latelyList.pop();
-			}
+		} else {
+			latelyList.push(item);
 		}
-		localStorage.setItem('latelyList', JSON.stringify(latelyList));
-
+		// 如果 latelyList 长度大于 3，则删除最后一个元素
+		if (latelyList.length > 3) {
+			latelyList.pop();
+		}
+		if (latelyList.length > 0 && latelyList[0]?.nav) {
+			localStorage.setItem('latelyList', JSON.stringify(latelyList));
+		}
 		isCmdKStore.set(false);
 		cmdFocus = false;
 		cmdKValue = '';
-		params.set('nav', item.nav);
-		params.set('tab', index.toString());
-		if ($page.url.pathname === '/components') {
+		params.set('nav', nav);
+		params.set('tab', tab.toString());
+		goto(`/components?nav=${nav}&tab=${tab}`);
+		if ($page.url.pathname.includes('/components')) {
 			setTimeout(() => {
 				window.location.reload();
-			}, 0);
+			}, 10);
 		}
 	};
 	//关闭 cmd+k 搜索框
@@ -173,9 +194,8 @@
 	};
 	$effect(() => {
 		if ($isCmdKStore) {
-			const latelyListStr = localStorage.getItem('latelyList');
-
-			latelyList = latelyListStr ? JSON.parse(latelyListStr) : [];
+			// const latelyListStr = localStorage.getItem('latelyList');
+			// latelyList = latelyListStr ? JSON.parse(latelyListStr) : [];
 			isCmdKStore.set(true);
 			cmdFocus = true;
 			currentIndex = 0;
@@ -184,17 +204,6 @@
 				cmdKInput?.focus();
 			}, 0);
 		}
-	});
-	//数组二级组成新数组
-	const ArrChildFun = (arr: MenuList[]) => {
-		let newArr = [];
-		for (let e = 0; e < arr.length; e++) {
-			newArr.push(...arr[e].childs);
-		}
-		return newArr;
-	};
-	onMount(() => {
-		menuChildList = ArrChildFun(menuList);
 	});
 </script>
 
@@ -257,20 +266,26 @@
 					{/if}
 				{/if}
 				{#each cmdKList as item, index}
-					<div>
-						<div class="mt-4 py-2 text-lg font-bold">{isZh ? item?.title : item?.title_en}</div>
-						<div class="border-l border-black/10 pl-3 dark:border-white/10">
+					<div class="flex items-center">
+						<div
+							class="w-78 mr-2 transition-all {index === currentIndex
+								? 'text-primary dark:text-dark text-xl font-bold'
+								: 'text-lg text-black dark:text-white'}"
+						>
+							{isZh ? item?.title : item?.title_en}
+						</div>
+						<div class="w-full dark:border-white/10">
 							<button
-								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 0
-									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
-									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
+								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 0
+									? 'border-primary dark:border-dark text-primary dark:text-dark'
+									: 'text-balck border-transparent dark:text-white'}"
 								class:animate-shake={isDemoShake && index === 0}
 								onclick={() => clickCmdKFun(item, 0)}
 							>
 								<div>{isZh ? '示例' : 'Demo'}</div>
 								<div>
 									<svg
-										class={index === currentIndex && currentTab === 0 ? 'fill-white dark:fill-black' : 'fill-gray-500'}
+										class={index === currentIndex && currentTab === 0 ? 'fill-primary dark:fill-dark' : 'fill-gray-500'}
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										width="24"
@@ -282,15 +297,15 @@
 								</div>
 							</button>
 							<button
-								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 1
-									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
-									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
+								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 1
+									? 'border-primary dark:border-dark text-primary dark:text-dark'
+									: 'text-balck border-transparent dark:text-white'}"
 								onclick={() => clickCmdKFun(item, 1)}
 							>
 								<div>API</div>
 								<div>
 									<svg
-										class={index === currentIndex && currentTab === 1 ? 'fill-white dark:fill-black' : 'fill-gray-500'}
+										class={index === currentIndex && currentTab === 1 ? 'fill-primary dark:fill-dark' : 'fill-gray-500'}
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										width="24"
@@ -302,16 +317,16 @@
 								</div>
 							</button>
 							<button
-								class="my-2 flex w-full cursor-pointer justify-between rounded border py-2 pl-4 {index === currentIndex && currentTab === 2
-									? 'border-primary bg-primary dark:border-dark dark:bg-dark text-white dark:text-black'
-									: 'text-balck border-primary-50 dark:border-dark-950 dark:text-white'}"
+								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 2
+									? 'border-primary dark:border-dark text-primary dark:text-dark'
+									: 'text-balck border-transparent dark:text-white'}"
 								class:animate-shake={isGuideShake && index === cmdKList.length - 1}
 								onclick={() => clickCmdKFun(item, 2)}
 							>
 								<div>{isZh ? '指南' : 'Guide'}</div>
 								<div>
 									<svg
-										class={index === currentIndex && currentTab === 2 ? 'fill-white dark:fill-black' : 'fill-gray-500'}
+										class={index === currentIndex && currentTab === 2 ? 'fill-primary dark:fill-dark' : 'fill-gray-500'}
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 24 24"
 										width="24"

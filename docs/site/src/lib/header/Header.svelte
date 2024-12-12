@@ -82,7 +82,7 @@
 	<!-- main -> next -->
 	<div class="flex items-end">
 		<a href="/" class="flex items-center justify-between py-2 pl-6" aria-label={isZh ? '首页' : 'Home'}>
-			<div class="flex h-8 w-16 flex-col items-center justify-center fill-primary" title={isZh ? '首页' : 'Home'}>
+			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center" title={isZh ? '首页' : 'Home'}>
 				<svg viewBox="0 0 90 80">
 					<path
 						class="fill-primary dark:fill-dark"
@@ -92,7 +92,7 @@
 				</svg>
 			</div>
 		</a>
-		<span class="text-sm text-primary dark:text-dark">v1.0.0@next</span>
+		<span class="text-primary dark:text-dark text-sm">v1.0.0@next</span>
 	</div>
 	<div>
 		<div class="cursor-pointer p-4 md:hidden">
@@ -211,7 +211,7 @@
 			<a
 				href="/guide"
 				class="rounded px-4 py-1 transition-all {currentRoute === '/guide'
-					? 'bg-primary text-white dark:bg-dark dark:text-black'
+					? 'bg-primary dark:bg-dark text-white dark:text-black'
 					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
 			>
 				{isZh ? '指南' : 'Guide'}
@@ -219,24 +219,26 @@
 			<a
 				href="/components?nav=button&tab=0"
 				class="inline-block rounded px-4 py-1 text-center transition-all {currentRoute === '/components'
-					? 'bg-primary text-white dark:bg-dark dark:text-black'
+					? 'bg-primary dark:bg-dark text-white dark:text-black'
 					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
 			>
 				{isZh ? '组件' : 'Components'}
 			</a>
 			<button
 				class="relative cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
-				onclick={showThemeFunc}
+				onmouseover={() => showThemeSwitchStore.set(true)}
+				onfocus={() => showThemeSwitchStore.set(true)}
+				onblur={() => showThemeSwitchStore.set(false)}
+				onmouseout={() => showThemeSwitchStore.set(false)}
 				bind:this={ThemeSwitchDom}
 			>
 				{isZh ? '主题' : 'Theme'}
 				{#if $showThemeSwitchStore}
-					<div
-						transition:slide={{ duration: 300, axis: 'y' }}
-						class="absolute left-1/2 top-10 -translate-x-1/2 rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10"
-					>
-						<ModeSwitch />
-						<ThemeSwitch vertical />
+					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute left-1/2 top-8 -translate-x-1/2 pt-2">
+						<div class="rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10">
+							<ModeSwitch />
+							<ThemeSwitch vertical />
+						</div>
 					</div>
 				{/if}
 			</button>
