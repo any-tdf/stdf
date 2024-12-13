@@ -29,9 +29,21 @@ jobs:
               run: |
                   git checkout next
 
+            # 读取 packages/rollup-plugin-stdf-icon 中的 package.json 文件，获取 version 的值
+            - name: Read Icon version
+              run: |
+                  version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep -E '"version":' | awk -F'"' '{print $4}')
+                  echo "version: $version"
+
+            # 初始化 stdf demo 仓库
+            # 将 stdf/LICENSE 复制到 stdf/packages/stdf/LICENSE
+            # 将 stdf/README.md 复制到 stdf/packages/stdf/README.md
+            # 将上一步获取的 version 字段前面增加 ^ 号，将 packages/stdf/package.json 中的 file:../rollup-plugin-stdf-icon 替换为 ^version
             - name: Init stdf demo
               run: |
                   cp stdf/LICENSE stdf/packages/stdf/LICENSE
+                  cp stdf/README.md stdf/packages/stdf/README.md
+                  sed -i "s|file:../rollup-plugin-stdf-icon|^${version}|g" stdf/packages/stdf/package.json
                   cd stdf/packages/stdf
                   git init
                   git config --global user.name 'GitHub Actions'
