@@ -72,14 +72,14 @@ Note: **The parameter should be an array** representing the configuration for mu
 
 In general, the use of symbols is to combine a series of small, single-color SVG files into one symbol. This allows for easy modification of attributes such as color, size, and opacity when using SVG in a project. Therefore, when default configuring rollup-plugin-stdf-icon, the color attributes of the SVG files themselves are removed. If you need to use multi-color SVG files and want to preserve the colors in the generated symbol, you just need to set the `simple` parameter to `false`.
 
-# Configuration
+# Array Configuration
 
-| Parameter | Default          | Description                                                                                                   |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
-| inFile    | 'src/lib/symbol' | The folder where all the SVG files to be merged are located.                                                  |
-| outFile   | 'static/fonts'   | The output path for the merged SVG symbol file.                                                               |
-| fileName  | ''               | The filename of the merged SVG symbol file (if not passed, the last folder name of `inFile` will be used).    |
-| simple    | true             | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
+| Parameter | Type   | Default          | Description                                                                                                   |
+| --------- | ------ | ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| inFile    | `string` | `'src/lib/symbol'` | The folder where all the SVG files to be merged are located.                                                  |
+| outFile   | `string` | `'static/fonts'`   | The output path for the merged SVG symbol file.                                                               |
+| fileName  | `string` | `''`               | The filename of the merged SVG symbol file (if not passed, the last folder name of `inFile` will be used).    |
+| simple    | `boolean` | `true`             | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
 
 # License
 
