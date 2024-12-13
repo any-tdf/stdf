@@ -1,108 +1,51 @@
-/.idea
-/.vscode
-
-bun.lockb
+.idea
+.vscode
 
 .DS_Store
-/node_modules
+node_modules
+bun.lockb
 pnpm-lock.yaml
-/backup
+package-lock.json
+
+dist
+build
+.svelte-kit
+
 /blog
 
-/demo-backup
-/demo.zip
-/demo-backup.zip
-
-# 忽略 demo 相关文件 ignore demo related files
-/demo/node_modules
-/demo/dist
-/demo/dist-ssr
-/demo/*.local
-/demo/.vscode
-/demo/deploy.js
-/demo/Refresh.py
-/demo/RefreshAndPredload.log
-/demo/pnpm-lock.yaml
-/demo/public/fonts
-/demo/.svelte-kit
-/demo/build
-/demo/static/fonts/symbol.svg
-/demo/npm-lock.yaml
-/demo/package-lock.json
-
 # 忽略全部 site 相关文件
-/site/scripts/add.txt
-/site/scripts/cdn-all.txt
-/site/scripts/cdn-modify.txt
-/site/scripts/compare.js
-/site/scripts/delete.txt
-/site/scripts/deploy.js
-/site/scripts/Refresh.py
-/site/node_modules
-/site/dist
-/site/dist-old
-/site/dist-ssr
-/site/*.local
-/site/bun.lockb
-/site/deploy.js
-/site/cdn-list.txt
-/site/Refresh.py
-/site/RefreshAndPredload.log
-/site/pnpm-lock.yaml
-/site/package-backup.json
-/site/public-backup
-/site/.env
-/site/package-lock.json
+/docs/site/scripts/add.txt
+/docs/site/scripts/cdn-all.txt
+/docs/site/scripts/cdn-modify.txt
+/docs/site/scripts/compare.js
+/docs/site/scripts/delete.txt
+/docs/site/scripts/deploy.js
+/docs/site/scripts/Refresh.py
+/docs/site/dist-old
+/docs/site/.env
+/docs/site/public-backup/
 
-
-# 忽略 packages 中 stdf 本地构建的文件 ignore the files built by stdf in packages
-/packages/stdf/pnpm-lock.yaml
-/packages/stdf/node_modules
-/packages/stdf/dist
-
-# 忽略 packages 中 create-stdf 本地构建的文件 ignore the files built by create-stdf in packages
-/packages/create-stdf/pnpm-lock.yaml
-/packages/create-stdf/node_modules
-/packages/create-stdf/dist
+/docs/site1
 
 # 忽略 packages 中 create-stdf 模板中的 node_modules ignore node_modules in create-stdf templates
-/packages/create-stdf/templates/vite-tailwind/node_modules
-/packages/create-stdf/templates/vite-tailwind/pnpm-lock.yaml
 /packages/create-stdf/templates/vite-tailwind/public/fonts
-/packages/create-stdf/templates/vite-tailwind/dist
 
-/packages/create-stdf/templates/vite-uno/node_modules
-/packages/create-stdf/templates/vite-uno/pnpm-lock.yaml
 /packages/create-stdf/templates/vite-uno/public/fonts
-/packages/create-stdf/templates/vite-uno/dist
 
-/packages/create-stdf/templates/sveltekit-tailwind/node_modules
-/packages/create-stdf/templates/sveltekit-tailwind/pnpm-lock.yaml
 /packages/create-stdf/templates/sveltekit-tailwind/static/fonts
 /packages/create-stdf/templates/sveltekit-tailwind/static/symbols
-/packages/create-stdf/templates/sveltekit-tailwind/.svelte-kit
 
-/packages/create-stdf/templates/sveltekit-uno/node_modules
-/packages/create-stdf/templates/sveltekit-uno/pnpm-lock.yaml
 /packages/create-stdf/templates/sveltekit-uno/static/fonts
 /packages/create-stdf/templates/sveltekit-uno/static/symbols
-/packages/create-stdf/templates/sveltekit-uno/.svelte-kit
 
 # 忽略 packages 中 rollup-plugin-stdf-icon 本地构建的文件 ignore the files built by rollup-plugin-stdf-icon in packages
-/packages/rollup-plugin-stdf-icon/pnpm-lock.yaml
-/packages/rollup-plugin-stdf-icon/node_modules
-/packages/rollup-plugin-stdf-icon/dist
 /packages/rollup-plugin-stdf-icon/test/symbol.svg
 
 # 忽略 packages 中 vscode-extension 本地构建的文件 ignore the files built by vscode-extension in packages
-/packages/vscode-extension/pnpm-lock.yaml
-/packages/vscode-extension/node_modules
-/packages/vscode-extension/.vscode
 /packages/vscode-extension/.vscodeignore
 /packages/vscode-extension/LICENSE
 /packages/vscode-extension/src/doc
 /packages/vscode-extension/src/menuList.js
-/packages/vscode-extension/src/package.json
 
 
 
