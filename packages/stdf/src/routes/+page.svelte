@@ -24,8 +24,9 @@
 		<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
 	</svg>
 </div>
-<a href="https://stdf.design" target="_blank" rel="noreferrer">
-	<div class="text-center text-lg underline">stdf.design</div>
+<!-- main -> next -->
+<a href="https://next.stdf.design" target="_blank" rel="noreferrer">
+	<div class="text-center text-lg underline">next.stdf.design</div>
 </a>
 <div class="flex flex-col py-4">
 	<div>
@@ -48,7 +49,7 @@
 		{/each}
 	</div>
 	<div class="p-4">{isZh ? '当前组件总数：' : 'Current number of components: '}{menuListArr.length}</div>
-	<div class="flex justify-around p-4 text-xs text-primary underline dark:text-dark">
+	<div class="text-primary dark:text-dark flex justify-around p-4 text-xs underline">
 		<button on:click={changeLangFunc} class="text-primary dark:text-dark">{isZh ? 'English' : '简体中文'}</button>
 	</div>
 </div>
