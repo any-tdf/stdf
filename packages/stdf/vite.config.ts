@@ -4,16 +4,5 @@ import svgSprite from 'rollup-plugin-stdf-icon';
 
 export default defineConfig({
 	plugins: [sveltekit(), svgSprite([{ inFile: 'src/assets/svgs', outFile: 'static/fonts', fileName: 'symbol' }])],
-	server: { hmr: true, host: '0.0.0.0', port: 8888 },
-	build: {
-		rollupOptions: {
-			output: {
-				manualChunks: (id: string) => {
-					if (id.includes('node_modules')) {
-						return 'vendor/index';
-					}
-				}
-			}
-		}
-	}
+	server: { hmr: true, host: '0.0.0.0', port: 8888 }
 });
