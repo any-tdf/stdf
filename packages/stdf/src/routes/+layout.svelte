@@ -131,7 +131,6 @@
 	};
 </script>
 
-{$page.url.pathname}
 <div class="sticky top-0 z-[100]">
 	<NavBar
 		title={$page.url.pathname === '/'
