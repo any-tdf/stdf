@@ -6,7 +6,6 @@ export default defineConfig({
 	plugins: [sveltekit(), svgSprite([{ inFile: 'src/assets/svgs', outFile: 'static/fonts', fileName: 'symbol' }])],
 	server: { hmr: true, host: '0.0.0.0', port: 8888 },
 	build: {
-		assetsDir: 'build',
 		rollupOptions: {
 			output: {
 				manualChunks: (id: string) => {
