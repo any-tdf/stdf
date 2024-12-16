@@ -1,6 +1,7 @@
 ## 1.0.0-next.7 <font size=1>2024-12-16</font>
 
 - Enhanced NavBar component, please see [NavBar](https://next.stdf.design/components?nav=navBar&tab=4).
+- Fixed Cell component, please see [Cell](https://next.stdf.design/components?nav=cell&tab=4).
 
 ## 1.0.0-next.6 <font size=1>2024-12-03</font>
 

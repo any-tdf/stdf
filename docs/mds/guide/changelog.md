@@ -1,6 +1,7 @@
 ## 1.0.0-next.7 <font size=1>2024-12-16</font>
 
 - 增强 NavBar 组件，详见 [NavBar](https://next.stdf.design/components?nav=navBar&tab=4)。
+- 修复 Cell 组件，详见 [Cell](https://next.stdf.design/components?nav=cell&tab=4)。
 
 ## 1.0.0-next.6 <font size=1>2024-12-03</font>
 
