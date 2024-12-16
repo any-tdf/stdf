@@ -16,6 +16,7 @@
 <div class="flex flex-col space-y-8 py-8">
 	<NavBar title="基础用法" />
 	<NavBar title="右侧使用 Icon" rights={icons1} />
+	<NavBar title="标题居中" titleAlign="center" rights={[{ name: 'ri-command-line' }]} />
 	<NavBar title="点击左侧" onclickLeft={() => (visible1 = true)} />
 	<Toast bind:visible={visible1} message="点击了左侧！" />
 	<NavBar
@@ -43,7 +44,7 @@
 		{/snippet}
 		{#snippet rightChild()}
 			<div>
-				<button class="h-12 w-12 cursor-pointer text-center text-primary dark:text-dark" onclick={() => (visible3 = true)}>Hello</button>
+				<button class="text-primary dark:text-dark h-12 w-12 cursor-pointer text-center" onclick={() => (visible3 = true)}>Hello</button>
 			</div>
 		{/snippet}
 	</NavBar>

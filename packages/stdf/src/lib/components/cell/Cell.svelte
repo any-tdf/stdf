@@ -88,14 +88,14 @@
 </script>
 
 <div
-	class="bg-white px-4 dark:bg-gray-800{clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} {myClass[my] ||
+	class="bg-white px-3 dark:bg-gray-800{clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} {myClass[my] ||
 		myClass['4']}{mxClass[mx] || mxClass['2']}{radiusObj[radius] || radiusObj['lg']} {shadowClass[shadow] || shadowClass['sm']}{love
 		? ' text-xl'
 		: ''} {injClass}"
 >
 	<button
 		onclick={setClickFun}
-		class="flex w-full justify-between gap-4 py-4{line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}"
+		class="flex w-full items-center justify-between gap-4 py-4{line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}"
 	>
 		<div class="flex items-center justify-between">
 			{#if leftChild}
@@ -110,7 +110,7 @@
 				<div class="text-xs text-gray-500 dark:text-gray-400">{subTitle}</div>
 			</div>
 		</div>
-		<div class="flex items-center justify-between">
+		<div class="11 flex items-center justify-between">
 			<div class="flex flex-col {info === '' ? 'justify-center' : 'justify-between'} text-right">
 				{#if detailChild}
 					{@render detailChild?.()}

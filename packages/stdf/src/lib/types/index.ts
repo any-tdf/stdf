@@ -388,6 +388,7 @@ export type ModalProps = {
 
 export type NavBarProps = {
 	title?: string;
+	titleAlign?: 'left' | 'center' | 'right';
 	left?: 'back' | null | IconProps;
 	rights?: IconProps[];
 	line?: boolean;

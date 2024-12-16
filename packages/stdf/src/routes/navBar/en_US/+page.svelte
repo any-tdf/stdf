@@ -16,6 +16,7 @@
 <div class="flex flex-col space-y-8 py-8">
 	<NavBar title="Basic usage" />
 	<NavBar title="Use Icon on the right side" rights={icons1} />
+	<NavBar title="Title centered" titleAlign="center" rights={[{ name: 'ri-command-line' }]} />
 	<NavBar title="Click on the left" onclickLeft={() => (visible1 = true)} />
 	<Toast bind:visible={visible1} message="Clicked on the left!" />
 	<NavBar
@@ -43,7 +44,7 @@
 		{/snippet}
 		{#snippet rightChild()}
 			<div>
-				<button class="h-12 w-12 cursor-pointer text-center text-primary dark:text-dark" onclick={() => (visible3 = true)}>Hello</button>
+				<button class="text-primary dark:text-dark h-12 w-12 cursor-pointer text-center" onclick={() => (visible3 = true)}>Hello</button>
 			</div>
 		{/snippet}
 	</NavBar>

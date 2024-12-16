@@ -11,6 +11,7 @@
 
 	let {
 		title = navBarLang.title,
+		titleAlign = 'left',
 		left = 'back',
 		rights = [],
 		line = true,
@@ -26,6 +27,10 @@
 	//图标大小
 	//Icon size
 	const iconSize = love ? 30 : 24;
+
+	// 标题对齐方式
+	// Title alignment
+	const titleAlignClass = { left: 'text-left', center: 'text-center', right: 'text-right' };
 </script>
 
 <div
@@ -50,7 +55,7 @@
 		{#if titleChild}
 			{@render titleChild()}
 		{:else}
-			{title}
+			<div class={titleAlignClass[titleAlign] || titleAlignClass['left']}>{title}</div>
 		{/if}
 	</div>
 	<div class="flex">

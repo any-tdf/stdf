@@ -1,13 +1,14 @@
 ## NavBar Props
 
-| 名称     | 类型                                                                      | 默认值                  | 必传 | 说明                                                       |
-| -------- | ------------------------------------------------------------------------- | ----------------------- | ---- | ---------------------------------------------------------- |
-| title    | `string`                                                                  | 当前语言的 navBar.title | N    | 标题。                                                     |
-| left     | `'back'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'back'`                | N    | 左侧内容，`'back'` 返回图标，`null` 无内容，否则渲染图标。 |
-| rights   | [`Icon[]`](https://stdf.design/#/components?nav=icon&tab=1)               | `[]`                    | N    | 右侧内容，Icon Props 组成的数组，建议不超过三个。          |
-| line     | `boolean`                                                                 | `true`                  | N    | 是否显示底部分割线。                                       |
-| injClass | `string`                                                                  | `''`                    | N    | 注入 CSS 名称。                                            |
-| love     | `boolean`                                                                 | `false`                 | N    | 是否开启关爱版。                                           |
+| 名称       | 类型                                                                      | 默认值                  | 必传 | 说明                                                       |
+| ---------- | ------------------------------------------------------------------------- | ----------------------- | ---- | ---------------------------------------------------------- |
+| title      | `string`                                                                  | 当前语言的 navBar.title | N    | 标题。                                                     |
+| titleAlign | `'left'\|'center'\|'right'`                                               | `'left'`                | N    | 标题对齐方式。                                             |
+| left       | `'back'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'back'`                | N    | 左侧内容，`'back'` 返回图标，`null` 无内容，否则渲染图标。 |
+| rights     | [`Icon[]`](https://stdf.design/#/components?nav=icon&tab=1)               | `[]`                    | N    | 右侧内容，Icon Props 组成的数组，建议不超过三个。          |
+| line       | `boolean`                                                                 | `true`                  | N    | 是否显示底部分割线。                                       |
+| injClass   | `string`                                                                  | `''`                    | N    | 注入 CSS 名称。                                            |
+| love       | `boolean`                                                                 | `false`                 | N    | 是否开启关爱版。                                           |
 
 ## NavBar Events
 
