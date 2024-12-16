@@ -31,6 +31,14 @@ jobs:
                   cp README.md packages/stdf/README.md
                   cp LICENSE packages/stdf/LICENSE
 
+            # 打包 packages/rollup-plugin-stdf-icon 并构建
+            - name: Build rollup-plugin-stdf-icon
+              run: |
+                  cd packages/rollup-plugin-stdf-icon
+                  npm install
+                  npm run build
+                  cd ../../
+
             # cd packages/stdf 目录下
             # 发布 stdf 到 npm
             - name: Publish
