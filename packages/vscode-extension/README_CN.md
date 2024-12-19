@@ -1,8 +1,10 @@
-[English](https://github.com/any-tdf/stdf/blob/main/packages/vscode-extension/README.md)
+[English](https://github.com/any-tdf/stdf/blob/next/packages/vscode-extension/README.md)
+
+> STDF next 请切换到预览版插件。
 
 # 介绍
 
-一个 VS Code 插件，用于在使用 [STDF](https://stdf.design) 开发时提供一些便利。
+一个 VS Code 插件，用于在使用 [STDF](https://next.stdf.design) 开发时提供一些便利。
 
 # 安装
 

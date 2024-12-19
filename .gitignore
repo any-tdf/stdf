@@ -44,7 +44,7 @@ build
 # 忽略 packages 中 vscode-extension 本地构建的文件 ignore the files built by vscode-extension in packages
 /packages/vscode-extension/.vscodeignore
 /packages/vscode-extension/LICENSE
-/packages/vscode-extension/src/doc
+/packages/vscode-extension/src/docs
 /packages/vscode-extension/src/menuList.js
 
 

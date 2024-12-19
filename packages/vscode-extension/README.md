@@ -1,5 +1,7 @@
 [简体中文](https://github.com/any-tdf/stdf/blob/main/packages/vscode-extension/README_CN.md)
 
+> Please switch to the preview version plugin for STDF next.
+
 # Introduction
 
 A VS Code extension that provides convenience when developing with [STDF](https://stdf.design).
