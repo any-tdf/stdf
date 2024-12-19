@@ -53,8 +53,8 @@
 	</div>
 	<div>
 		<div class="p-4 font-bold">不同高度</div>
-		<Button heightOut="0">外部高度为0</Button>
-		<Button heightIn="0">内部高度为0</Button>
+		<Button heightOut="0">外部高度为 0</Button>
+		<Button heightIn="0">内部高度为 0</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">固定大小</div>

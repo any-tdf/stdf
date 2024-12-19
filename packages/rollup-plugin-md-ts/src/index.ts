@@ -24,7 +24,7 @@ export default function md(options: MDOptions = {}) {
 			// 检查文件是否匹配 include/exclude 配置
 			if (!filter(id)) return null;
 
-			// 使用 marked 解析 markdown,如果没有配置 marked 则返回原始内容
+			// 使用 marked 解析 markdown，如果没有配置 marked 则返回原始内容
 			const data = options.marked ? marked.parse(md, options.marked) : md;
 			return {
 				// 导出解析后的内容为默认导出

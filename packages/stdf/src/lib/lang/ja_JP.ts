@@ -32,7 +32,7 @@ const ja_JP: LangProps = {
 		title: 'タイトル'
 	},
 	pagination: {
-		defaultOnlyOnePage: '1ページのみ'
+		defaultOnlyOnePage: '1 ページのみ'
 	},
 	picker: {
 		defaultTitle: '選んでください',
@@ -68,7 +68,7 @@ const ja_JP: LangProps = {
 	calendar: {
 		weekTextList: ['月', '火', '水', '木', '金', '土', '日'],
 		weekSundayStartTextList: ['日', '月', '火', '水', '木', '金', '土'],
-		monthTextList: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+		monthTextList: ['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月'],
 		confirmText: '確認',
 		selectedText: '選択済み',
 		dayText: '日',

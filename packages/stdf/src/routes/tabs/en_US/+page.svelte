@@ -134,7 +134,7 @@
 			<TabContent>I am a train</TabContent>
 			<TabContent>I am a car</TabContent>
 		</Tabs>
-		<div class="mt-4">At present Tabs activated active：{changeActive}</div>
+		<div class="mt-4">At present Tabs activated active: {changeActive}</div>
 		<Divider />
 
 		<div class="px-4 font-bold">Overflow mode</div>
@@ -213,7 +213,7 @@
 	<div class="my-8 px-4 text-xl font-bold">Use alone Tab</div>
 	<div class="my-4">
 		<Tab {labels} {active} onclickTab={clicktabFun} />
-		<div class="mt-4">At present Tab clickable active：{active}</div>
+		<div class="mt-4">At present Tab clickable active:{active}</div>
 	</div>
 	<Divider />
 </div>

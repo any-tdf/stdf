@@ -173,7 +173,7 @@
 							{#if currentDevice === 'iOS'}
 								A15 Bionic
 							{:else if currentDevice === 'Android'}
-								骁龙8 Gen1
+								骁龙 8 Gen1
 							{:else if currentDevice === 'Windows'}
 								AMD YES
 							{:else if currentDevice === 'macOS'}

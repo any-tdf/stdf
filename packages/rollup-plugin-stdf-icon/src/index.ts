@@ -37,7 +37,7 @@ export default function svgSprite(datas: StdfIconOptions[] = []) {
 // 处理一个文件夹内的文件
 // Process files in a folder
 function handleFile(inFile: string, outFile: string, fileName: string, simple = true) {
-    // 如果 outFile 不存在, 则创建
+    // 如果 outFile 不存在，则创建
     // If outFile does not exist, create it
     if (!fs.existsSync(outFile)) {
         fs.mkdirSync(outFile);
@@ -53,7 +53,7 @@ function handleFile(inFile: string, outFile: string, fileName: string, simple = 
 
     svgs.forEach((svg: string) => {
         if (!svg.endsWith('.svg')) {
-            // 读取 svg 文件内容, 如果文件不是 svg 文件, 则给出提示并跳过
+            // 读取 svg 文件内容，如果文件不是 svg 文件，则给出提示并跳过
             // Read the contents of the svg file, if the file is not an svg file, give a prompt and skip
             console.warn(`[rollup-plugin-stdf-icon]: ⏭️  ${inFile}/${svg} is not a svg file, skip it!`);
         } else {

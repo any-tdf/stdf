@@ -188,14 +188,14 @@
 	title="标题"
 	placeholder="请输入文本"
 	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-	label2="标签2"
+	label2="标签 2"
 	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
 	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
-	label5="标签5"
+	label5="标签 5"
 	label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
-	data1="数据项1"
-	data2="数据项2"
-	data3="数据项3"
+	data1="数据项 1"
+	data2="数据项 2"
+	data3="数据项 3"
 	tip="提示信息"
 	clear
 />

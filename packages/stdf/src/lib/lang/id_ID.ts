@@ -2,7 +2,7 @@ import type { LangProps } from './index.js';
 
 const id_ID: LangProps = {
 	common: {
-		slotEmpty: 'Isi slot kosong！',
+		slotEmpty: 'Isi slot kosong!',
 		loading: 'Sedang memuat...',
 		noData: 'Tidak ada data',
 		noMoreData: 'Tidak ada lagi data',
