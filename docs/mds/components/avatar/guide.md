@@ -1,4 +1,4 @@
-> Avatar 使用了图标 ri-user-3-line 和 ri-user-add-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+> Avatar 使用了图标 ri-user-3-line 和 ri-user-add-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
 
 ## 内容说明
 

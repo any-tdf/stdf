@@ -1,4 +1,4 @@
-> Input 使用了图标 ri-close-circle-fill ，请确保项目的 symbol.svg 文件中包含此图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+> Input 使用了图标 ri-close-circle-fill，请确保项目的 symbol.svg 文件中包含此图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
 
 ## title 与 placeholder
 
@@ -24,7 +24,7 @@ Input 组件的所有可配置项位置如下图所示。
 
 一般 label1、label3、label4、label6 用 Icon Props，label2 与 label5 用文字。
 
-当然，如果这些配置项不能满足需求，它们也都支持使用 Snippet渲染，请参考示例。
+当然，如果这些配置项不能满足需求，它们也都支持使用 Snippet 渲染，请参考示例。
 
 ## textarea
 

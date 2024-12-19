@@ -1,4 +1,4 @@
-> Stepper uses the icon ri-subtract-line、ri-add-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Stepper uses the icon ri-subtract-line, ri-add-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
 
 ## Usage scenarios
 

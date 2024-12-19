@@ -22,7 +22,7 @@ Tab 组件可以单独使用，通过绑定的 onclickTab 事件，传递出当�
 
 ### 线性风格
 
-当 Tab props 的 lineType 为 true 时， Tab 会使用线性风格，但若布局方式为 v（垂直）则线性风格不会生效。
+当 Tab props 的 lineType 为 true 时，Tab 会使用线性风格，但若布局方式为 v（垂直）则线性风格不会生效。
 
 ### 溢出模式
 

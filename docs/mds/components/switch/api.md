@@ -14,8 +14,8 @@
 
 | 名称     | 类型                        | 参数                    | 描述                  |
 | -------- | --------------------------- | ----------------------- | --------------------- |
-| onclick  | `() => void`                | -                       | 点击触发 。           |
-| onchange | `(active: boolean) => void` | active - 当前开关状态。 | 开关状态变化时触发 。 |
+| onclick  | `() => void`                | -                       | 点击触发。           |
+| onchange | `(active: boolean) => void` | active - 当前开关状态。 | 开关状态变化时触发。 |
 
 ## Switch Snippets
 

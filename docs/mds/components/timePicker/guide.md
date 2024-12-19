@@ -39,7 +39,7 @@ TimePicker 组件通过传入的 type 参数来决定选择的时间类型，由
 
 ## outFormat
 
-默认情况下，TimePicker 组件的 outFormat 由传入的 type 按照 【年月日之间用 - 连接，时分秒之间用 : 连接，两者之间用空格连接】的规则生成，比如转入 `'YYYYMMDD'` 对应 `YYYY-MM-DD`，`'YYYYMMDDhh'` 对应 `YYYY-MM-DD hh`，`'hhmmss'` 对应 `hh:mm:ss` 等。当然也可以自定义输出格式。具体使用请参考示例。
+默认情况下，TimePicker 组件的 outFormat 由传入的 type 按照【年月日之间用 - 连接，时分秒之间用 : 连接，两者之间用空格连接】的规则生成，比如转入 `'YYYYMMDD'` 对应 `YYYY-MM-DD`，`'YYYYMMDDhh'` 对应 `YYYY-MM-DD hh`，`'hhmmss'` 对应 `hh:mm:ss` 等。当然也可以自定义输出格式。具体使用请参考示例。
 
 需要注意的是，onconfirm 返回的第二个参数是选择的时间对象，方便开发者自行处理。
 

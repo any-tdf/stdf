@@ -29,7 +29,7 @@ BottomSheet 作为底部浮窗，就只能从底部弹出。「浮」体现在�
 
 ## 间距
 
-当弹出层位置是 top、bottom、center 时，弹出层的宽度会占据整个视窗宽度，此时若需要弹出层的左右两侧有间距，则可通过 px 这个 Props 来设置。当弹出层位置是 left、right 时，弹出层的高度会占据整个视窗高度，此时若需要弹出层的上下两侧有间距，则可以通过 py 来设置。 请参考示例。
+当弹出层位置是 top、bottom、center 时，弹出层的宽度会占据整个视窗宽度，此时若需要弹出层的左右两侧有间距，则可通过 px 这个 Props 来设置。当弹出层位置是 left、right 时，弹出层的高度会占据整个视窗高度，此时若需要弹出层的上下两侧有间距，则可以通过 py 来设置。请参考示例。
 
 ## transitionDistance
 
@@ -45,7 +45,7 @@ BottomSheet 作为底部浮窗，就只能从底部弹出。「浮」体现在�
 
 ## 事件
 
-弹出层默认点击遮罩会关闭，若不需要此功能，可以设置 maskClosable 为 false 。另外支持通过 onclose 来监听弹出层退出事件，而 onclickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
+弹出层默认点击遮罩会关闭，若不需要此功能，可以设置 maskClosable 为 false。另外支持通过 onclose 来监听弹出层退出事件，而 onclickMask 事件则是点击遮罩层时触发，即使 maskClosable 为 false 也会触发。
 
 ## 优化
 

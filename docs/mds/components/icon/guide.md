@@ -20,7 +20,7 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 
 **如果使用这些组件，请确保项目的 symbol.svg 中包含了对应图标。**
 
-具体请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+具体请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
 
 可到 `node_modules/stdf/assets/svg_base/` 查看这些图标的 SVG 源文件。
 

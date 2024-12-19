@@ -67,7 +67,7 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs/svelte/context) �
 | 荷兰语（比利时）     | nl_BE  |
 | 荷兰语               | nl_NL  |
 | 波兰语               | pl_PL  |
-| 葡萄牙语(巴西)       | pt_BR  |
+| 葡萄牙语 (巴西)       | pt_BR  |
 | 葡萄牙语             | pt_PT  |
 | 罗马尼亚语           | ro_RO  |
 | 俄罗斯语             | ru_RU  |
@@ -80,7 +80,7 @@ STDF 组件使用 Svelte 的 [Context](https://svelte.dev/docs/svelte/context) �
 | 泰语                 | th_TH  |
 | 土耳其语             | tr_TR  |
 | 土库曼               | tk_TK  |
-| 乌尔都语(巴基斯坦)   | ur_PK  |
+| 乌尔都语 (巴基斯坦)   | ur_PK  |
 | 乌克兰语             | uk_UA  |
 | 越南语               | vi_VN  |
 | 简体中文             | zh_CN  |

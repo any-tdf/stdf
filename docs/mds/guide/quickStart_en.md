@@ -1,6 +1,6 @@
 <!-- main -> next -->
 
-> Tip：All code or commands can be double-clicked to select the word, three clicks to select the line.
+> Tip: All code or commands can be double-clicked to select the word, three clicks to select the line.
 
 ## 😉 Existing works
 

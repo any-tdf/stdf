@@ -127,7 +127,7 @@ yarn dev
 
 ## 提交 PR
 
-如果你是第一次在 GitHub 上提 Pull Request ，可以阅读下面这两篇文章来学习：
+如果你是第一次在 GitHub 上提 Pull Request，可以阅读下面这两篇文章来学习：
 
 - [第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
 - [如何优雅地在 GitHub 上贡献代码](https://segmentfault.com/a/1190000000736629)

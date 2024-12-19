@@ -1,4 +1,4 @@
-> Skeleton 使用了图标 ri-image-fill、ri-movie-2-fill、ri-code-box-fill、ri-qr-code-fill、ri-barcode-fill，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+> Skeleton 使用了图标 ri-image-fill、ri-movie-2-fill、ri-code-box-fill、ri-qr-code-fill、ri-barcode-fill，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
 
 ## 说明
 

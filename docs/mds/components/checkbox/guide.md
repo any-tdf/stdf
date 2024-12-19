@@ -1,4 +1,4 @@
-> Checkbox 使用了图标 ri-checkbox-fill 和 ri-checkbox-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南-图标](https://stdf.design/#/guide/icon)。
+> Checkbox 使用了图标 ri-checkbox-fill 和 ri-checkbox-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
 
 ## 说明
 
