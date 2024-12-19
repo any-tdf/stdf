@@ -45,9 +45,9 @@
 				return '👎';
 		}
 	};
-	//替换Markdown中的标签
+	//替换 Markdown 中的标签
 	const mdTextToHljsFun = (string: string) => {
-		//替换tag
+		//替换 tag
 		const tagList = getTags(string);
 		if (tagList) {
 			tagList.forEach((item) => {
@@ -57,7 +57,7 @@
 				string = string.replace(item, span);
 			});
 		}
-		//替换issue
+		//替换 issue
 		const issueList = getIssues(string);
 		if (issueList) {
 			issueList.forEach((item) => {
@@ -70,7 +70,7 @@
 				string = string.replace(item, span);
 			});
 		}
-		//替换contribute
+		//替换 contribute
 		const contributeList = getContributes(string);
 		if (contributeList) {
 			contributeList.forEach((item) => {

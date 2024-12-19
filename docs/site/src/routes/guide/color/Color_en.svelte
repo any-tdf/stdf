@@ -53,7 +53,7 @@
 			}
 			const colorArr: { n: number; hex: string; rgb: string; hsl: string }[] = [];
 			colorList.forEach((item, index) => {
-				// 第 0 项和最后一项的 key 为 50 和 950 ，其他项为 100-900，颜色有 hex、rgb、hsl 三种格式，注意 hsl 保留整数
+				// 第 0 项和最后一项的 key 为 50 和 950，其他项为 100-900，颜色有 hex、rgb、hsl 三种格式，注意 hsl 保留整数
 				let colorObj: { n: number; hex: string; rgb: string; hsl: string } = {
 					n: 0,
 					hex: '',

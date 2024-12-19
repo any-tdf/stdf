@@ -2,12 +2,12 @@ import fs from 'node:fs';
 
 //得到标准时区的时间的函数
 const getLocalTime = (i) => {
-	//参数i为时区值数字，比如北京为东八区则输进8,纽约为西5区输入-5
+	//参数 i 为时区值数字，比如北京为东八区则输进 8，纽约为西 5 区输入 -5
 	if (typeof i !== 'number') return;
 	var d = new Date();
-	//得到1970年一月一日到现在的秒数
+	//得到 1970 年一月一日到现在的秒数
 	var len = d.getTime();
-	//本地时间与GMT时间的时间偏移差
+	//本地时间与 GMT 时间的时间偏移差
 	var offset = d.getTimezoneOffset() * 60000;
 	//得到现在的格林尼治时间
 	var utcTime = len + offset;

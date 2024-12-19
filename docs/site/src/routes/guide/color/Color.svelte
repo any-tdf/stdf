@@ -48,12 +48,12 @@
 		// 传入数组，按照 Tailwind 规则生成颜色列表
 		const createTWColorFunc = (colorList: string[]) => {
 			if (colorList.length !== 11) {
-				console.error('颜色列表长度必须为11');
+				console.error('颜色列表长度必须为 11');
 				return;
 			}
 			const colorArr: { n: number; hex: string; rgb: string; hsl: string }[] = [];
 			colorList.forEach((item, index) => {
-				// 第 0 项和最后一项的 key 为 50 和 950 ，其他项为 100-900，颜色有 hex、rgb、hsl 三种格式，注意 hsl 保留整数
+				// 第 0 项和最后一项的 key 为 50 和 950，其他项为 100-900，颜色有 hex、rgb、hsl 三种格式，注意 hsl 保留整数
 				let colorObj: { n: number; hex: string; rgb: string; hsl: string } = {
 					n: 0,
 					hex: '',

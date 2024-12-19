@@ -92,7 +92,7 @@
 		if ($isCmdKStore) {
 			return;
 		}
-		//左右箭头切换Tab
+		//左右箭头切换 Tab
 		if (event.code === 'ArrowLeft') {
 			if (currentTab > 0) {
 				isShowIframe = false;

@@ -69,7 +69,7 @@
 	let codeValue = $state('');
 	const showCodeFunc = () => {
 		const nav = $page.url.searchParams.get('nav');
-		// 将nav首字母大写
+		// 将 nav 首字母大写
 		const navFirst = nav ? nav.slice(0, 1).toUpperCase() + nav.slice(1) : '';
 		// main -> next
 		codeValue = `https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
