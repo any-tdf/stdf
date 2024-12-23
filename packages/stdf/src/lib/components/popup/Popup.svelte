@@ -239,15 +239,12 @@
 			transitionParams={transitionParamsFun()}
 			transitionOutParams={transitionOutParamsFun()}
 		>
-			<button
+			<div
 				class="w-full h-full{transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} {radiusFun()} overflow-y-auto"
 				class:popup-container={hideScrollbar}
-				onclick={(e) => {
-					e.stopPropagation();
-				}}
 			>
 				{@render children?.()}
-			</button>
+			</div>
 		</Transition>
 	</div>
 {/if}

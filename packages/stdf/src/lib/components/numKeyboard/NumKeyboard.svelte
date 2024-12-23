@@ -12,6 +12,7 @@
 
 	let {
 		type = 'button',
+		value = $bindable(''),
 		visible = $bindable(true),
 		height = '12',
 		space = '2',
@@ -23,6 +24,7 @@
 		doneText = commonLang.done,
 		doneDisabled = $bindable(false),
 		radius = 'base',
+		clear = false,
 		panelClass = '',
 		keyClass = '',
 		doneClass = '',
@@ -104,39 +106,35 @@
 		}
 	};
 
-	// 输入的数字字符
-	// Input number character
-	let numStr = '';
-
 	// 点击按键事件
 	// Click the button event
-	const clickFunc = (key: string | number) => {
+	const clickFunc = (key: string) => {
 		// 当 key 不是 close 或 done 时，拼接字符串，是删除时，删除最后一个字符
 		// When key is not close or done, splice the string, delete the last character when it is deleted
 		if (key !== 'close' && key !== 'done') {
 			if (key === 'delete') {
-				numStr = numStr.slice(0, numStr.length - 1);
+				value = value.slice(0, value.length - 1);
 			} else {
-				numStr += key;
+				value += key;
 			}
 		}
-		// 如果 key 是数字处理为字符串
-		// If key is a number, process it as a string
-		const keyStr = typeof key === 'number' ? key.toString() : key;
-		// close 和 done 事件都回关闭
+		// close 和 done 事件都会关闭
 		// Both close and done events will be closed
-		if (keyStr === 'close' || (keyStr === 'done' && !doneDisabled)) {
+		if (key === 'close' || (key === 'done' && !doneDisabled)) {
 			visible = false;
 		}
 		// 派发事件，传递出两个参数，输入的数字字符串和本次点击的类型
 		// Dispatch events, pass out two parameters, the input number string and the type of this click
-		onclick?.(numStr, keyStr);
+		onclick?.(key);
 	};
 
 	// 激活与关闭键盘事件
 	// Activate and close the keyboard event
 	$effect(() => {
 		if (visible) {
+			if (clear) {
+				value = '';
+			}
 			onopen?.(keyboardHeight());
 		} else {
 			onclose?.();
@@ -150,7 +148,7 @@
 			'p-2'}{panelClass ? ' ' + panelClass : ''}"
 	>
 		<div class="grid {type === 'button' ? gapClass[space] || 'gap-2' : 'gap-px'} {done ? 'grid-cols-4' : 'grid-cols-3'}">
-			{#each reverse ? [7, 8, 9] : [1, 2, 3] as item}
+			{#each reverse ? ['7', '8', '9'] : ['1', '2', '3'] as item}
 				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if done}
@@ -158,7 +156,7 @@
 					<Icon name="ri-delete-back-2-line" size={Number(height) * 2} />
 				</button>
 			{/if}
-			{#each [4, 5, 6] as item}
+			{#each ['4', '5', '6'] as item}
 				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if done}
@@ -171,7 +169,7 @@
 					{doneText}
 				</button>
 			{/if}
-			{#each reverse ? [1, 2, 3] : [7, 8, 9] as item}
+			{#each reverse ? ['1', '2', '3'] : ['7', '8', '9'] as item}
 				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
 			{/each}
 			{#if dot}

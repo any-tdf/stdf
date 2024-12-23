@@ -1,3 +1,7 @@
+## 1.0.0-next.9 <font size=1>2024-12-23</font>
+
+- Enhanced NumKeyboard component, please see [NumKeyboard](https://next.stdf.design/components?nav=numKeyboard&tab=4).
+
 ## 1.0.0-next.8 <font size=1>2024-12-16</font>
 
 - Enhanced NavBar component, please see [NavBar](https://next.stdf.design/components?nav=navBar&tab=4).

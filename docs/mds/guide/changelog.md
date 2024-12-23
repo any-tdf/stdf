@@ -1,3 +1,7 @@
+## 1.0.0-next.9 <font size=1>2024-12-23</font>
+
+- 增强 NumKeyboard 组件，详见 [NumKeyboard](https://next.stdf.design/components?nav=numKeyboard&tab=4)。
+
 ## 1.0.0-next.8 <font size=1>2024-12-16</font>
 
 - 增强 NavBar 组件，详见 [NavBar](https://next.stdf.design/components?nav=navBar&tab=4)。

@@ -418,6 +418,7 @@ export type NoticeBarProps = {
 };
 
 export type NumKeyboardProps = {
+	value?: string;
 	type?: 'button' | 'block';
 	visible?: boolean;
 	height?: '8' | '10' | '12' | '14' | '16' | '20';
@@ -430,11 +431,12 @@ export type NumKeyboardProps = {
 	doneText?: string;
 	doneDisabled?: boolean;
 	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	clear?: boolean;
 	panelClass?: string;
 	keyClass?: string;
 	doneClass?: string;
 	popup?: PopupProps;
-	onclick?: (numStr: string, key: string) => void;
+	onclick?: (key: string) => void;
 	onopen?: (height: number) => void;
 	onclose?: () => void;
 };

@@ -22,11 +22,13 @@
 	let visible17 = $state(false);
 	let visible18 = $state(false);
 	let visible19 = $state(false);
+	let visible20 = $state(false);
+	let visible21 = $state(false);
 
 	// 演示监听点击事件
 	let visibleToast = $state(false);
 	let key = $state('');
-	const clickFunc = (_: string, k: string) => {
+	const clickFunc = (k: string) => {
 		key = k;
 		visibleToast = true;
 	};
@@ -35,22 +37,29 @@
 	let loveDom: HTMLElement | null = $state(null);
 	// loveDom 距离窗口底部的距离
 	let loveDomBottom = 0;
-	let value = $state('0');
-	let doneDisabled = $state(true);
+	let value = $state('');
 	let top = $state(0);
-	const loveFunc = (numStr: string) => {
-		value = numStr || '0';
-		doneDisabled = numStr !== '5201314';
-	};
 	const openFunc = (height: number) => {
 		// 如果 loveDom 距离窗口底部小于键盘高度，就把 loveDom 向上移动键盘高度
 		loveDomBottom = window.innerHeight - (loveDom?.getBoundingClientRect().bottom || 0);
 		top = loveDomBottom < height ? -(height - loveDomBottom) - 50 : 0;
 	};
+
+	let value21 = $state('');
+	// 演示清空内容
+	let valueClear = $state('');
 </script>
 
 <Cell title="基础用法" onclick={() => (visible1 = true)} />
 <NumKeyboard bind:visible={visible1} />
+
+<div class="px-4">输入了: {value21}</div>
+<Cell title="获取内容" onclick={() => (visible21 = true)} />
+<NumKeyboard bind:visible={visible21} bind:value={value21} />
+
+<div class="px-4">输入了: {valueClear}</div>
+<Cell title="打开时清空内容" onclick={() => (visible20 = true)} />
+<NumKeyboard bind:visible={visible20} bind:value={valueClear} clear />
 
 <Cell title="不显示完成" onclick={() => (visible2 = true)} />
 <NumKeyboard bind:visible={visible2} done={false} />
@@ -87,7 +96,7 @@
 <Toast bind:visible={visibleToast} duration={500} message={`点击了 ${key}`}></Toast>
 
 <div
-	class="relative mx-16 rounded-full bg-primary py-3 text-center text-xl text-white backdrop-blur transition-all dark:bg-dark dark:text-black"
+	class="bg-primary dark:bg-dark shadow-primary/30 dark:shadow-dark/30 relative mx-16 h-10 rounded-full text-center text-xl leading-10 text-white shadow-lg transition-all dark:text-black"
 	style="top:{top}px"
 	bind:this={loveDom}
 >
@@ -97,7 +106,7 @@
 	{/if}
 </div>
 <Cell title="请输入 5201314" onclick={() => (visible12 = true)} />
-<NumKeyboard bind:visible={visible12} bind:doneDisabled onclick={loveFunc} onopen={openFunc} onclose={() => (top = 0)} />
+<NumKeyboard bind:visible={visible12} doneDisabled={value !== '5201314'} bind:value onopen={openFunc} onclose={() => (top = 0)} />
 
 <Cell title="增大按键圆角" onclick={() => (visible13 = true)} />
 <NumKeyboard bind:visible={visible13} radius="2xl" />
