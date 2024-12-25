@@ -123,7 +123,10 @@
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
 	// 赞助人员
-	const thinkGithub = [{ name: 'yuedanlabs', amount: 10 }];
+	const thinkGithub = [
+		{ name: 'yuedanlabs', amount: 10 },
+		{ name: 'sbscan', amount: 100 }
+	];
 
 	const bottomInfo = [
 		{
@@ -296,7 +299,7 @@
 						show3D = false;
 						localStorage.setItem('show3D', '0');
 					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-500 group-hover:scale-100 dark:bg-white/10 dark:text-white/90 md:block"
+					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-500 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
 				>
 					{isZh ? '隐藏 3D LOGO' : 'Hidden 3D LOGO'}
 				</button>
@@ -311,7 +314,7 @@
 						show3D = true;
 						localStorage.setItem('show3D', '1');
 					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-300 group-hover:scale-100 dark:bg-white/10 dark:text-white/90 md:block"
+					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-300 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
 				>
 					{isZh ? '显示 3D LOGO' : 'Show 3D LOGO'}
 				</button>
@@ -319,7 +322,7 @@
 		{/if}
 		<div class="flex basis-2/5 flex-col justify-center py-16 text-center md:py-20">
 			<div class="relative mb-20 mt-16 hidden h-20 flex-col items-center justify-center md:flex md:h-28">
-				<div class="absolute animate-dynamicsBg rounded-full opacity-50 blur-xl md:opacity-100 md:blur-3xl">
+				<div class="animate-dynamicsBg absolute rounded-full opacity-50 blur-xl md:opacity-100 md:blur-3xl">
 					<svg viewBox="0 0 100 100">
 						<path
 							fill-rule="evenodd"
@@ -350,7 +353,7 @@
 						/>
 						<path
 							style="stroke-dasharray: 400;stroke-dashoffset: 400;"
-							class="fill-dark stroke-dark stroke-1 text-dark group-hover:animate-path dark:fill-primary dark:stroke-primary dark:text-primary"
+							class="fill-dark stroke-dark text-dark group-hover:animate-path dark:fill-primary dark:stroke-primary dark:text-primary stroke-1"
 							d="M20 30V0L0 50H20V80L40 30H20Z"
 						/>
 					</svg>
@@ -362,7 +365,7 @@
 					基于
 					<a
 						href="https://svelte.dev"
-						class="underline decoration-svelte underline-offset-2 transition-all hover:text-svelte"
+						class="decoration-svelte hover:text-svelte underline underline-offset-2 transition-all"
 						target="_blank"
 						title={isZh ? '打开 Svelte 官方站点' : 'Open Svelte official website'}
 					>
@@ -371,7 +374,7 @@
 					与
 					<a
 						href="https://tailwindcss.com/"
-						class="underline decoration-tailwind underline-offset-2 transition-all hover:text-tailwind"
+						class="decoration-tailwind hover:text-tailwind underline underline-offset-2 transition-all"
 						target="_blank"
 						title={isZh ? '打开 Tailwind CSS 官方站点' : 'Open Tailwind CSS official website'}
 					>
@@ -384,7 +387,7 @@
 					library based on
 					<a
 						href="https://svelte.dev"
-						class="underline decoration-svelte underline-offset-2 transition-all hover:text-svelte"
+						class="decoration-svelte hover:text-svelte underline underline-offset-2 transition-all"
 						target="_blank"
 					>
 						Svelte
@@ -392,7 +395,7 @@
 					and
 					<a
 						href="https://tailwindcss.com/"
-						class="underline decoration-tailwind underline-offset-2 transition-all hover:text-tailwind"
+						class="decoration-tailwind hover:text-tailwind underline underline-offset-2 transition-all"
 						target="_blank"
 					>
 						Tailwind
@@ -402,7 +405,7 @@
 			<div class="mb-8 mt-8 flex justify-center gap-4 space-x-8 md:mb-10 md:mt-16">
 				<a
 					href="/guide"
-					class="group relative rounded bg-primary px-6 py-2 text-white transition-all hover:bg-primary/80 dark:bg-dark dark:text-black hover:dark:bg-dark/80"
+					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded px-6 py-2 text-white transition-all dark:text-black"
 				>
 					{isZh ? '开始使用' : 'Get Started'}
 					<span class="absolute left-1/2 top-0 hidden group-hover:block">
@@ -414,7 +417,7 @@
 					href="/"
 					onmouseleave={() => (showQr = false)}
 					onmouseenter={mouseenterFun}
-					class="relative hidden rounded border border-solid border-primary px-6 py-2 transition-all dark:border-dark md:block"
+					class="border-primary dark:border-dark relative hidden rounded border border-solid px-6 py-2 transition-all md:block"
 				>
 					{isZh ? '扫码示例' : 'QR Demo'}
 					{#if showQr}
@@ -442,7 +445,7 @@
 				<a
 					href={'https://next-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"
-					class="block rounded border border-solid border-primary px-6 py-2 transition-all dark:border-dark md:hidden"
+					class="border-primary dark:border-dark block rounded border border-solid px-6 py-2 transition-all md:hidden"
 				>
 					{isZh ? '查看示例' : 'Examples'}
 				</a>
@@ -452,7 +455,7 @@
 	<div class="flex flex-wrap justify-around gap-8 px-8 xl:flex-nowrap">
 		{#each descList as desc}
 			<div
-				class="intersection group flex w-full flex-col items-center space-y-5 overflow-hidden rounded-xl border-black/5 pb-8 transition-all duration-300 ease-out dark:border-white/5 dark:hover:shadow-white/5 sm:w-2/3 md:w-80 lg:w-96"
+				class="intersection group flex w-full flex-col items-center space-y-5 overflow-hidden rounded-xl border-black/5 pb-8 transition-all duration-300 ease-out sm:w-2/3 md:w-80 lg:w-96 dark:border-white/5 dark:hover:shadow-white/5"
 			>
 				<div class="overflow-hidden">
 					<img
@@ -487,12 +490,12 @@
 						class="intersection border-px group relative overflow-hidden rounded-lg border border-black/5 p-0.5 transition-all ease-out dark:border-white/5"
 					>
 						<div
-							class="absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] bg-primary group-hover:block {$currentThemeStore === 'dark'
+							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
 								? 'animate-spin-line-dark'
 								: 'animate-spin-line'}"
 						></div>
-						<div class="relative h-full w-full rounded-lg bg-primaryWhite px-8 py-10 dark:bg-darkBlack">
-							<div class="h-8 w-8 flex-none text-primary transition-all ease-out group-hover:scale-90 dark:text-dark">
+						<div class="bg-primaryWhite dark:bg-darkBlack relative h-full w-full rounded-lg px-8 py-10">
+							<div class="text-primary dark:text-dark h-8 w-8 flex-none transition-all ease-out group-hover:scale-90">
 								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
 									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
 								</svg>
@@ -513,12 +516,12 @@
 						class="intersection border-px group relative overflow-hidden rounded-lg border border-black/5 p-0.5 transition-all ease-out dark:border-white/5"
 					>
 						<div
-							class="absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] bg-primary group-hover:block {$currentThemeStore === 'dark'
+							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
 								? 'animate-spin-line-dark'
 								: 'animate-spin-line'}"
 						></div>
-						<div class="relative h-full w-full rounded-lg bg-primaryWhite px-8 py-10 dark:bg-darkBlack">
-							<div class="h-8 w-8 flex-none text-primary transition-all ease-out group-hover:scale-90 dark:text-dark">
+						<div class="bg-primaryWhite dark:bg-darkBlack relative h-full w-full rounded-lg px-8 py-10">
+							<div class="text-primary dark:text-dark h-8 w-8 flex-none transition-all ease-out group-hover:scale-90">
 								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
 									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
 								</svg>
@@ -579,7 +582,7 @@
 		</div>
 	</div>
 </div>
-<div class="grid grid-cols-2 gap-10 bg-white px-4 pb-16 pt-20 text-center dark:bg-black md:grid-cols-4 md:px-10">
+<div class="grid grid-cols-2 gap-10 bg-white px-4 pb-16 pt-20 text-center md:grid-cols-4 md:px-10 dark:bg-black">
 	{#each bottomInfo as item}
 		<div>
 			<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
@@ -594,7 +597,7 @@
 
 <div class="border-t border-black/10 bg-white py-4 text-center text-xs dark:border-white/10 dark:bg-black">
 	<div class="mb-3 text-sm" title={isZh ? '如果页面卡顿，请关闭 3D 模型。' : 'If the page is stuck, please turn off the 3D model.'}>
-		<button class="cursor-pointer text-primary dark:text-dark" onclick={change3DFunc}>
+		<button class="text-primary dark:text-dark cursor-pointer" onclick={change3DFunc}>
 			{show3D ? (isZh ? '隐藏' : 'Hidden') : isZh ? '显示' : 'Show'}
 			3D LOGO
 		</button>
