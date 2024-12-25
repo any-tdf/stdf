@@ -3,56 +3,55 @@ description: Submit a request for a new feature
 title: '[Feature]: '
 labels: ['enhancement']
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thank you for taking the time to fill out this feature request! If you have a new idea or are unsure if it can be implemented, please make sure:
+    - type: markdown
+      attributes:
+          value: |
+              Thank you for taking the time to fill out this feature request! If you have a new idea or are unsure if it can be implemented, please make sure:
 
-        - You have checked the latest version of the code and confirmed that the feature does not exist.
-        - You have checked the open and closed issues to see if the feature you want to add has been described.
-        - If there is a similar feature request in the issues list, please provide additional information in the corresponding issue.
-        - Your description of the new feature is concise and clear, not just from your own perspective.
+              - You have checked the latest version of the code and confirmed that the feature does not exist.
+              - You have checked the open and closed issues to see if the feature you want to add has been described.
+              - If there is a similar feature request in the issues list, please provide additional information in the corresponding issue.
+              - Your description of the new feature is concise and clear, not just from your own perspective.
 
-  - type: dropdown
-    id: module
-    attributes:
-      label: Module
-      description: Which module does this new feature belong to?
-      options:
-        - stdf (STDF component)
-        - create (create-stdf scaffolding)
-        - vscode (STDF VS Code plugin)
-        - icon (rollup-plugin-stdf-icon plugin)
-        - site (STDF website)
-        - demo (STDF demo)
-        - doc (STDF documentation, including components && guide)
-        - other (other)
-    validations:
-      required: true
+    - type: dropdown
+      id: module
+      attributes:
+          label: Module
+          description: Which module does this new feature belong to?
+          options:
+              - stdf (STDF component)
+              - create (create-stdf scaffolding)
+              - vscode (STDF VS Code plugin)
+              - icon (rollup-plugin-stdf-icon plugin)
+              - demo (STDF demo)
+              - doc (STDF site and documentation)
+              - other (other)
+      validations:
+          required: true
 
-  - type: textarea
-    id: description
-    attributes:
-      label: Feature Description
-      description: Please describe the new feature clearly and concisely.
-      placeholder: When...
-    validations:
-      required: true
+    - type: textarea
+      id: description
+      attributes:
+          label: Feature Description
+          description: Please describe the new feature clearly and concisely.
+          placeholder: When...
+      validations:
+          required: true
 
-  - type: textarea
-    id: example
-    attributes:
-      label: Example
-      description: You can provide some similar implementations in other projects to help others understand your idea.
-      placeholder: In...
-    validations:
-      required: false
+    - type: textarea
+      id: example
+      attributes:
+          label: Example
+          description: You can provide some similar implementations in other projects to help others understand your idea.
+          placeholder: In...
+      validations:
+          required: false
 
-  - type: textarea
-    id: idea
-    attributes:
-      label: Your Idea
-      description: If you have any implementation ideas or thoughts about the new feature, you can describe them here.
-      placeholder: I think...
-    validations:
-      required: false
+    - type: textarea
+      id: idea
+      attributes:
+          label: Your Idea
+          description: If you have any implementation ideas or thoughts about the new feature, you can describe them here.
+          placeholder: I think...
+      validations:
+          required: false
