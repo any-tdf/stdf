@@ -250,6 +250,14 @@
 	 */
 	export let autosize = false;
 
+	/**
+	 * 是否允许负数
+	 * Whether to allow negative numbers
+	 * @type {boolean}
+	 * @default false
+	 */
+	export let negative = false;
+
 	// 是否获取焦点
 	// Whether to get focus
 	let focus = false;
@@ -371,7 +379,7 @@
 				if (type === 'decimal' || type === 'number') {
 					// 数字
 					// Number
-					value = e.target.value.replace(/[^\d^.]+/g, '');
+					value = e.target.value.replace(negative ? /[^\d^.\-]+/g : /[^\d^.]+/g, '');
 					// value = e.target.value.replace(/[^\d^\.]+/g, '');
 				} else if (type === 'numeric') {
 					// 整数
