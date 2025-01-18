@@ -12,7 +12,7 @@
 | lineTransition    | String             | 'none'        | 'none'/'center'/'left'                                                                        | No       | The position of linear transition.                            |
 | duration          | String             | 'base'        | 'fast'/'base'/'slow'/'slower'                                                                 | No       | The transition duration.                                      |
 | value             | String             | ''            | -                                                                                             | No       | The value of the input field.                                 |
-| type              | String             | 'text'        | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'/'password'/'number'/'textarea' | No       | The type of the input field.                                  |
+| type              | String             | 'text'        | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'/'password'/'number'/'textarea'/'negative' | No       | The type of the input field.                                  |
 | inputmode         | String             | ''            | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'                                | No       | The data type to be entered.                                  |
 | state             | String             | 'theme'       | 'theme'/'success'/'warning'/'error'/'info'                                                    | No       | The state of the input field.                                 |
 | maxlength         | Number             | 24            | -                                                                                             | No       | The maximum number of characters allowed.                     |
@@ -32,6 +32,7 @@
 | data1             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 1.                                  |
 | data2             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 2.                                  |
 | data3             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 3.                                  |
+| negative          | Boolean            | false         | true/false                                                                                    | No       | Whether or not to allow negative numbers.                     |
 
 ## Input Events
 

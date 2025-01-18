@@ -58,6 +58,7 @@
 <Input title="Url" type="url" />
 <Input title="Search" type="search" />
 <Input title="Text (not using virtual keyboard)" type="none" />
+<Input title="Number (allowing negative numbers)" type="number" negative />
 
 <div class="px-4 pt-8 font-bold text-xl">Linear style</div>
 <Input title="text" inputStyle="line" />

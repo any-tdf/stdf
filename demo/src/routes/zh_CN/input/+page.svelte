@@ -53,6 +53,7 @@
 <Input title="数字（任意）" type="number" />
 <Input title="数字（整数）" type="numeric" />
 <Input title="数字（允许小数点）" type="decimal" />
+<Input title="数字（允许负数）" type="number" negative />
 <Input title="邮箱" type="email" />
 <Input title="电话号码" type="tel" />
 <Input title="链接地址" type="url" />

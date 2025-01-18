@@ -12,7 +12,7 @@
 | lineTransition    | String             | 'none'  | 'none'/'center'/'left'                                                                        | N    | 线性过渡位置。                  |
 | duration          | String             | 'base'  | 'fast'/'base'/'slow'/'slower'                                                                 | N    | 过渡时间。                      |
 | value             | String             | ''      | -                                                                                             | N    | 输入框值。                      |
-| type              | String             | 'text'  | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'/'password'/'number'/'textarea' | N    | 输入框类型。                    |
+| type              | String             | 'text'  | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'/'password'/'number'/'textarea'/'negative' | N    | 输入框类型。                    |
 | inputmode         | String             | ''      | 'text'/'decimal'/'email'/'none'/'numeric'/'search'/'tel'/'url'                                | N    | 指定输入的数据类型。            |
 | state             | String             | 'theme' | 'theme'/'success'/'warning'/'error'/'info'                                                    | N    | 状态。                          |
 | maxlength         | Number             | 24      | -                                                                                             | N    | 最多可输入文本长度。            |
@@ -32,6 +32,7 @@
 | data1             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 1 内容。                 |
 | data2             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 2 内容。                 |
 | data3             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 3 内容。                 |
+| negative          | Boolean            | false   | true/false                                                                                    | N    | 是否允许负数。                  |
 
 ## Input Events
 
