@@ -1,4 +1,4 @@
-[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/vscode-extension/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/next/packages/vscode-extension/README_CN.md)
 
 > Please switch to the preview version plugin for STDF next.
 
