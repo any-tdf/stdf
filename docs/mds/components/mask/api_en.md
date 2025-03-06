@@ -8,7 +8,7 @@
 | outDuration  | `number`                                                             | `0`      | N        | Duration of the hide animation in ms.        |
 | inverse      | `boolean`                                                            | `false`  | N        | Whether to invert the mask background color. |
 | clickable    | `boolean`                                                            | `false`  | N        | Whether the mask is click-through.           |
-| backdropBlur | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'`               | `'none'` | N        | Backdrop blur level.                         |
+| backdropBlur | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'`               | `'none'` | N        | Backdrop blur level.                         |
 | zIndex       | `number`                                                             | `500`    | N        | z-index value.                               |
 
 ## Mask Events

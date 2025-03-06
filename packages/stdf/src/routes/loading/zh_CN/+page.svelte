@@ -53,7 +53,7 @@
 							<div class="mt-8 text-center text-xs">{'1_' + i}</div>
 						</div>
 						<div
-							class="flex w-full flex-col items-center border border-white/5 bg-darkBlack py-6 text-white dark:border-black/5 dark:bg-darkWhite dark:text-black"
+							class="bg-darkBlack dark:bg-darkWhite flex w-full flex-col items-center border border-white/5 py-6 text-white dark:border-black/5 dark:text-black"
 						>
 							<div class="h-8 w-8">
 								<Loading type={'1_' + i} inverse bind:speed />
@@ -61,7 +61,7 @@
 							<div class="mt-8 text-center text-xs">{'1_' + i}</div>
 						</div>
 						<div
-							class="flex w-full flex-col items-center border border-white/5 bg-darkBlack py-6 text-white dark:border-black/5 dark:bg-darkWhite dark:text-black"
+							class="bg-darkBlack dark:bg-darkWhite flex w-full flex-col items-center border border-white/5 py-6 text-white dark:border-black/5 dark:text-black"
 						>
 							<div class="h-8 w-8">
 								<Loading type={'1_' + i} theme inverse bind:speed />
@@ -96,7 +96,7 @@
 							<div class="mt-8 text-center text-xs">{'2_' + i}</div>
 						</div>
 						<div
-							class="flex w-full flex-col items-center border border-white/5 bg-darkBlack py-6 text-white dark:border-black/5 dark:bg-darkWhite dark:text-black"
+							class="bg-darkBlack dark:bg-darkWhite flex w-full flex-col items-center border border-white/5 py-6 text-white dark:border-black/5 dark:text-black"
 						>
 							<div class="h-8 w-8">
 								<Loading type={'2_' + i} inverse bind:speed />
@@ -142,7 +142,7 @@
 	</Tabs>
 </div>
 <!-- 固定在底部的按钮组，控制速度 -->
-<div class="sticky bottom-0 left-0 z-10 flex w-full justify-between gap-3 bg-white/60 px-2 backdrop-blur dark:bg-black/60">
+<div class="sticky bottom-0 left-0 z-10 flex w-full justify-between gap-3 bg-white/60 px-2 backdrop-blur-sm dark:bg-black/60">
 	{#each speedBtns as item}
 		<div class="flex-1">
 			<Button fill={speed === item ? 'base' : 'lineTheme'} size="full" injClass="text-xs px-2" onclick={() => (speed = item)}>

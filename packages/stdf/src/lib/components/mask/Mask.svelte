@@ -19,8 +19,8 @@
 	// Mask blur style
 	const backdropBlurClass = {
 		none: '',
+		xs: ' backdrop-blur-xs',
 		sm: ' backdrop-blur-sm',
-		base: ' backdrop-blur',
 		md: ' backdrop-blur-md',
 		lg: ' backdrop-blur-lg',
 		xl: ' backdrop-blur-xl',

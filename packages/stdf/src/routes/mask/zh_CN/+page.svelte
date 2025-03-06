@@ -38,7 +38,7 @@
 	<Mask visible={visible5} inverse onclickMask={() => (visible5 = false)} />
 
 	<Cell title="模糊遮罩" onclick={() => (visible6 = true)} />
-	<Mask visible={visible6} backdropBlur="sm" opacity="0" onclickMask={() => (visible6 = false)} />
+	<Mask visible={visible6} backdropBlur="xs" opacity="0" onclickMask={() => (visible6 = false)} />
 
 	<Cell title="加大模糊度" onclick={() => (visible7 = true)} />
 	<Mask visible={visible7} backdropBlur="xl" opacity="0" onclickMask={() => (visible7 = false)} />

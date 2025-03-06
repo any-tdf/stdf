@@ -140,7 +140,7 @@
 			: menuListArr.filter((item) => item.nav === $page.url.pathname.split('/')[1])[0][isZh ? 'title_zh' : 'title_en'] +
 				(isZh ? '示例' : ' Demo')}
 		left={showLeft ? 'back' : null}
-		injClass="bg-white/60 dark:bg-black/60 backdrop-blur"
+		injClass="bg-white/60 dark:bg-black/60 backdrop-blur-sm"
 		onclickLeft={() => window.history.back()}
 	>
 		{#snippet rightChild()}

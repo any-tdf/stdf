@@ -8,7 +8,7 @@
 | outDuration  | `number`                                                             | `0`      | N    | 消失动画过渡时长，单位：ms。 |
 | inverse      | `boolean`                                                            | `false`  | N    | 遮罩背景是否反色。           |
 | clickable    | `boolean`                                                            | `false`  | N    | 遮罩是否可点击穿透。         |
-| backdropBlur | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'`               | `'none'` | N    | 背景模糊度。                 |
+| backdropBlur | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'`               | `'none'` | N    | 背景模糊度。                 |
 | zIndex       | `number`                                                             | `500`    | N    | z-index。                    |
 
 ## Mask Events

@@ -86,5 +86,5 @@
 	</div>
 </div>
 <div class="fixed bottom-0 w-full">
-	<TabBar labels={labels4} injClass="bg-white/50 dark:bg-black/50 backdrop-blur" />
+	<TabBar labels={labels4} injClass="bg-white/50 dark:bg-black/50 backdrop-blur-sm" />
 </div>

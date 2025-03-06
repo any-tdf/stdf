@@ -97,7 +97,7 @@
 	<Toast bind:visible={visible11} mask={{ inverse: true, opacity: '0.5' }} message="反色遮罩" />
 
 	<Cell title="遮罩模糊" onclick={() => (visible12 = true)} />
-	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'base' }} message="遮罩下层内容模糊" />
+	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'sm' }} message="遮罩下层内容模糊" />
 
 	<Cell title="过渡较快" onclick={() => (visible13 = true)} />
 	<Toast bind:visible={visible13} transitionParams={{ duration: 150 }} message="过渡时间为 150ms" />
@@ -160,7 +160,7 @@
 	<Toast bind:visible={visible26} radius="xl" message="加大了圆角" />
 </div>
 
-<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur dark:bg-black/50">
+<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
 	<div class="flex-1">
 		<Button fill="lineTheme" onclick={() => (visible5 = false)}>手动关闭</Button>
 	</div>

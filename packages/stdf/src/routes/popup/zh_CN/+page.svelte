@@ -64,7 +64,7 @@
 	<Popup bind:visible={visible9} size={80} position="left" />
 
 	<Cell title="遮罩完全透明且模糊" onclick={() => (visible12 = true)} />
-	<Popup bind:visible={visible12} position="center" radiusPosition="all" radius="xl" px="8" mask={{ opacity: '0', backdropBlur: 'base' }} />
+	<Popup bind:visible={visible12} position="center" radiusPosition="all" radius="xl" px="8" mask={{ opacity: '0', backdropBlur: 'sm' }} />
 
 	<Cell title="点击遮罩不会关闭" onclick={() => (visible13 = true)} />
 	<Popup bind:visible={visible13} maskClosable={false}>
@@ -80,7 +80,7 @@
 			<div class="m-auto w-1/2">
 				<img class="w-full object-cover" src="/assets/images/airpods-pro2.png" alt="" />
 			</div>
-			<div class="flex justify-around py-6 text-primary dark:text-dark">
+			<div class="text-primary dark:text-dark flex justify-around py-6">
 				<div>设置</div>
 				<div>音乐</div>
 			</div>
@@ -89,7 +89,7 @@
 
 	<Cell title="左侧位置自动大小" onclick={() => (visible20 = true)} />
 	<Popup bind:visible={visible20} size={0} position="left" py="48" radiusPosition="right" radius="2xl" transitionDistance={80}>
-		<div class="flex h-full flex-col justify-around text-primary dark:text-dark">
+		<div class="text-primary dark:text-dark flex h-full flex-col justify-around">
 			<button class="p-6" onclick={() => (visible20 = false)}>首页</button>
 			<button class="p-6" onclick={() => (visible20 = false)}>设置</button>
 			<button class="p-6" onclick={() => (visible20 = false)}>关于</button>

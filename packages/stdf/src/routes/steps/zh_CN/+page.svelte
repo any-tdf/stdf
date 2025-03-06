@@ -210,7 +210,7 @@
 <div class="mb-4 mt-8 px-4 text-lg font-bold">内容区域注入元素</div>
 <Steps steps={steps9} {current} vertical />
 
-<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur dark:bg-black/50">
+<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
 	<div class="flex-1">
 		<Button fill="lineTheme" disabled={current === 1} onclick={() => current > 1 && current--}>上一步</Button>
 	</div>

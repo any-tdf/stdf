@@ -105,7 +105,7 @@
 	<Toast bind:visible={visible11} mask={{ inverse: true, opacity: '0.5' }} message="Reverse color mask" />
 
 	<Cell title="Mask blur" onclick={() => (visible12 = true)} />
-	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'base' }} message="The content below the mask is blurry" />
+	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'sm' }} message="The content below the mask is blurry" />
 
 	<Cell title="Faster transition" onclick={() => (visible13 = true)} />
 	<Toast bind:visible={visible13} transitionParams={{ duration: 150 }} message="The transition time is 150ms" />
@@ -168,7 +168,7 @@
 	<Toast bind:visible={visible26} radius="xl" message="Rounded corners were added" />
 </div>
 
-<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur dark:bg-black/50">
+<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
 	<div class="flex-1">
 		<Button fill="lineTheme" onclick={() => (visible5 = false)}>Manual shutdown</Button>
 	</div>

@@ -107,7 +107,7 @@
 		</div>
 	{/each}
 	{#if loading}
-		<div class="absolute inset-0 flex h-full w-full flex-col justify-center gap-8 text-center backdrop-blur">
+		<div class="absolute inset-0 flex h-full w-full flex-col justify-center gap-8 text-center backdrop-blur-sm">
 			<div>Querying the {currentPage} page data...</div>
 			<Loading />
 		</div>

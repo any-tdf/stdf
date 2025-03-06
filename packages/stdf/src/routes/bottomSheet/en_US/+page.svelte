@@ -78,7 +78,7 @@
 	</BottomSheet>
 
 	<Cell title="Mask completely transparent and blurry" onclick={() => (visible7 = true)} />
-	<BottomSheet bind:visible={visible7} mask={{ opacity: '0', backdropBlur: 'base' }}>
+	<BottomSheet bind:visible={visible7} mask={{ opacity: '0', backdropBlur: 'sm' }}>
 		<Aphorism num={2} />
 	</BottomSheet>
 

@@ -363,7 +363,7 @@ export type MaskProps = {
 	opacity?: '0' | '0.1' | '0.2' | '0.3' | '0.4' | '0.5' | '0.6' | '0.7' | '0.8' | '0.9' | '1';
 	clickable?: boolean;
 	inverse?: boolean;
-	backdropBlur?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+	backdropBlur?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 	duration?: number;
 	outDuration?: number;
 	zIndex?: number;
