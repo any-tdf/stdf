@@ -292,7 +292,7 @@
 								{rows}
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class="w-full bg-transparent font-semibold focus:outline-none {inputPosition === 'left'
+								class="focus:outline-hidden w-full bg-transparent font-semibold {inputPosition === 'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
@@ -311,7 +311,7 @@
 								use:typeAction
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class="w-full whitespace-normal bg-transparent font-semibold focus:outline-none {inputPosition === 'left'
+								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold {inputPosition === 'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
