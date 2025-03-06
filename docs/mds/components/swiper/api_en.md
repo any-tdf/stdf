@@ -26,7 +26,7 @@
 | rotateZ             | `number`                                         | `0`           | N        | Inactive container Z-axis rotation.             |
 | activeInjClass      | `string`                                         | `''`          | N        | Active container injected class.                |
 | notActiveInjClass   | `string`                                         | `''`          | N        | Inactive container injected class.              |
-| radius              | `'none'\|'base'\|'xl'\|'2xl'\|'full'`            | `'none'`      | N        | Container inner area border radius.             |
+| radius              | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`              | `'none'`      | N        | Container inner area border radius.             |
 | triggerLong         | `number`                                         | `30`          | N        | Slide distance percentage that always triggers. |
 | notTriggerLong      | `number`                                         | `10`          | N        | Slide distance percentage that never triggers.  |
 | triggerSpeed        | `number`                                         | `0.5`         | N        | Slide speed coefficient that triggers.          |
@@ -42,11 +42,11 @@
 ## SwiperImg
 
 ```javascript
-type SwiperImg = { type: 'img'; url: string };
+type SwiperImg = { type: 'img', url: string };
 ```
 
 ## SwiperComponent
 
 ```javascript
-type SwiperComponent = { type: 'component'; component: Component };
+type SwiperComponent = { type: 'component', component: Component };
 ```

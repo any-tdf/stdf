@@ -23,7 +23,7 @@
 		close = false,
 		doneText = commonLang.done,
 		doneDisabled = $bindable(false),
-		radius = 'base',
+		radius = 'sm',
 		clear = false,
 		panelClass = '',
 		keyClass = '',
@@ -54,7 +54,7 @@
 	// radius class
 	const radiusClass = {
 		none: 'rounded-none',
-		base: 'rounded',
+		sm: 'rounded-sm',
 		md: 'rounded-md',
 		lg: 'rounded-lg',
 		xl: 'rounded-xl',
@@ -76,7 +76,7 @@
 	// Button type class
 	const buttonClass = `flex flex-col justify-center items-center shadow-xs font-bold active:scale-95 transition-all duration-100 ${
 		heightClass[height] || 'h-12'
-	} ${fontSizeClass[height] || 'text-base'} ${radiusClass[radius] || 'rounded'}${keyClass ? ' ' + keyClass : ''}`;
+	} ${fontSizeClass[height] || 'text-base'} ${radiusClass[radius] || 'rounded-sm'}${keyClass ? ' ' + keyClass : ''}`;
 
 	// 块式 class
 	// Block type class

@@ -1,12 +1,12 @@
 ## Steps Props
 
-| Name      | Type                           | Default  | Required | Description                                       |
-| --------- | ------------------------------ | -------- | -------- | ------------------------------------------------- |
-| steps     | `StepsItem[]`                  | `[]`     | Y        | Array composed of step Props or finishStep Props. |
-| current   | `number`                       | `1`      | N        | Current step number.                              |
-| radius    | `'none'\|'base'\|'xl'\|'full'` | `'base'` | N        | Border radius style.                              |
-| barBorder | `boolean`                      | `true`   | N        | Whether the icon has a border.                    |
-| vertical  | `boolean`                      | `false`  | N        | Whether to use vertical layout.                   |
+| Name      | Type                         | Default | Required | Description                                       |
+| --------- | ---------------------------- | ------- | -------- | ------------------------------------------------- |
+| steps     | `StepsItem[]`                | `[]`    | Y        | Array composed of step Props or finishStep Props. |
+| current   | `number`                     | `1`     | N        | Current step number.                              |
+| radius    | `'none'\|'sm'\|'xl'\|'full'` | `'sm'`  | N        | Border radius style.                              |
+| barBorder | `boolean`                    | `true`  | N        | Whether the icon has a border.                    |
+| vertical  | `boolean`                    | `false` | N        | Whether to use vertical layout.                   |
 
 ## StepsItem Props
 

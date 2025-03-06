@@ -16,7 +16,7 @@
 	// radius style
 	const radiusObj = {
 		full: ' rounded-full',
-		base: ' rounded',
+		sm: ' rounded-sm',
 		none: ' rounded-none',
 		leftLeaf: ' rounded-full rounded-br-none',
 		rightLeaf: ' rounded-full rounded-bl-none'

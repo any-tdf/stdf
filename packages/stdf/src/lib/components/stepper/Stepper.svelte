@@ -11,7 +11,7 @@
 		vertical = false,
 		numberHighlight = false,
 		theme = true,
-		radius = 'base',
+		radius = 'sm',
 		decimal = 0,
 		async = false,
 		asyncLoading = false,
@@ -27,7 +27,7 @@
 
 	// 圆角
 	// Round
-	const roundObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
+	const roundObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', full: 'rounded-full' };
 
 	// 减少
 	// Decrease
@@ -55,14 +55,14 @@
 </script>
 
 <div
-	class="inline-flex items-center bg-gray-100 dark:bg-gray-800 {roundObj[radius] || 'rounded'} {padding
+	class="inline-flex items-center bg-gray-100 dark:bg-gray-800 {roundObj[radius] || 'rounded-sm'} {padding
 		? 'p-1'
 		: 'p-0'} overflow-hidden {injClassOut} {vertical ? 'flex-col-reverse' : 'flex-row'}"
 >
 	<button
 		onclick={decreaseFn}
 		class="{vertical ? 'w-full' : 'w-9'} h-9 {roundObj[radius] ||
-			'rounded'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
+			'rounded-sm'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
 			? ''
 			: theme
 				? ' bg-primary/5 dark:bg-dark/10'
@@ -76,12 +76,12 @@
 	</button>
 
 	{#if async && asyncLoading}
-		<div class="h-9 px-2 {roundObj[radius] || 'rounded'} flex flex-col items-center justify-center">
+		<div class="h-9 px-2 {roundObj[radius] || 'rounded-sm'} flex flex-col items-center justify-center">
 			<Loading width="6" height="6" {...loading} />
 		</div>
 	{:else}
 		<div
-			class="h-9 px-4 {roundObj[radius] || 'rounded'} flex flex-col items-center {injClassNum} justify-center{numberHighlight
+			class="h-9 px-4 {roundObj[radius] || 'rounded-sm'} flex flex-col items-center {injClassNum} justify-center{numberHighlight
 				? theme
 					? ' bg-primary/5 text-primary dark:bg-dark/10 dark:text-dark'
 					: ' bg-white dark:bg-black'
@@ -94,7 +94,7 @@
 	<button
 		onclick={increaseFn}
 		class="{vertical ? 'w-full' : 'w-9'} h-9 {roundObj[radius] ||
-			'rounded'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
+			'rounded-sm'} flex flex-col items-center {injClassBtn} justify-center{numberHighlight
 			? ''
 			: theme
 				? ' bg-primary/5 dark:bg-dark/10'

@@ -28,5 +28,5 @@
 | style     | `'normal'\|'theme'\|'danger'\|'disabled'` | `'normal'` | N        | Option style.          |
 | desc      | `string`                                  | `''`       | N        | Option description.    |
 | showImg   | `boolean`                                 | `false`    | N        | Whether to show image. |
-| imgRadius | `'none'\|'base'\|'full'\|'lg'`            | `'full'`   | N        | Image border radius.   |
+| imgRadius | `'none'\|'sm'\|'full'\|'lg'`              | `'full'`   | N        | Image border radius.   |
 | imgSrc    | `string`                                  | `''`       | N        | Image source URL.      |

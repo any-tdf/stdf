@@ -23,7 +23,7 @@
 	// radius style
 	const radiusObj = {
 		none: ' rounded-none',
-		base: ' rounded',
+		sm: ' rounded-sm',
 		md: ' rounded-md',
 		xl: ' rounded-xl',
 		'2xl': ' rounded-2xl',
@@ -50,7 +50,7 @@
 
 <div
 	class="flex flex-col justify-center bg-black/5 dark:bg-white/5 text-center{heightObj[height as keyof typeof heightObj] ||
-		heightObj.full}{pyObj[py as keyof typeof pyObj] || pyObj['4']}{radiusObj[radius as keyof typeof radiusObj] || radiusObj.base}{shadowObj[
+		heightObj.full}{pyObj[py as keyof typeof pyObj] || pyObj['4']}{radiusObj[radius as keyof typeof radiusObj] || radiusObj.md}{shadowObj[
 		shadow as keyof typeof shadowObj
 	] || shadowObj.none}{injClass === '' ? '' : ` ${injClass}`}"
 >

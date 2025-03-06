@@ -6,7 +6,7 @@
 | alt      | `string`                                                  | `''`     | N    | 替换文本，建议单字。 |
 | icon     | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `{}`     | N    | 替换图标。           |
 | altSize  | `'xs'\|'sm'\|'md'\|'lg'\|'xl'`                            | `'md'`   | N    | 替换文本大小。       |
-| radius   | `'none'\|'base'\|'xl'\|'2xl'\|'3xl'\|'full'`              | `'base'` | N    | 圆角风格。           |
+| radius   | `'none'\|'sm'\|'xl'\|'2xl'\|'3xl'\|'full'`                | `'sm'`   | N    | 圆角风格。           |
 | size     | `'xs'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'`             | `'md'`   | N    | 头像框大小。         |
 | imgSize  | `'s'\|'m'\|'l'`                                           | `'l'`    | N    | 头像图片大小。       |
 | line     | `'none'\|'solid'\|'dashed'\|'dotted'`                     | `'none'` | N    | 边框风格。           |

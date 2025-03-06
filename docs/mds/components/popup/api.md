@@ -14,7 +14,7 @@
 | mask               | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)                          | `{}`         | N    | 遮罩层参数。                                                                                 |
 | maskClosable       | `boolean`                                                                          | `true`       | N    | 点击遮罩层是否关闭。                                                                         |
 | radiusPosition     | `'all'\|'top'\|'bottom'\|'left'\|'right'`                                          | `'top'`      | N    | 圆角位置。                                                                                   |
-| radius             | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                           | `'none'`     | N    | 圆角大小。                                                                                   |
+| radius             | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                             | `'none'`     | N    | 圆角大小。                                                                                   |
 | transitionDistance | `number`                                                                           | `0`          | N    | 动画距离，当弹出层大小由内部元素决定时生效。                                                 |
 | transparent        | `boolean`                                                                          | `false`      | N    | 背景是否透明。                                                                               |
 | allowBodyScroll    | `boolean`                                                                          | `true`       | N    | 弹出层显示时是否允许 body 滚动。                                                             |
@@ -39,35 +39,35 @@
 
 ```javascript
 type SvelteEasing =
-	| 'backIn'
-	| 'backInOut'
-	| 'backOut'
-	| 'bounceIn'
-	| 'bounceInOut'
-	| 'bounceOut'
-	| 'circIn'
-	| 'circInOut'
-	| 'circOut'
-	| 'cubicIn'
-	| 'cubicInOut'
-	| 'cubicOut'
-	| 'elasticIn'
-	| 'elasticInOut'
-	| 'elasticOut'
-	| 'expoIn'
-	| 'expoInOut'
-	| 'expoOut'
-	| 'linear'
-	| 'quadIn'
-	| 'quadInOut'
-	| 'quadOut'
-	| 'quartIn'
-	| 'quartInOut'
-	| 'quartOut'
-	| 'quintIn'
-	| 'quintInOut'
-	| 'quintOut'
-	| 'sineIn'
-	| 'sineInOut'
-	| 'sineOut';
+    | 'backIn'
+    | 'backInOut'
+    | 'backOut'
+    | 'bounceIn'
+    | 'bounceInOut'
+    | 'bounceOut'
+    | 'circIn'
+    | 'circInOut'
+    | 'circOut'
+    | 'cubicIn'
+    | 'cubicInOut'
+    | 'cubicOut'
+    | 'elasticIn'
+    | 'elasticInOut'
+    | 'elasticOut'
+    | 'expoIn'
+    | 'expoInOut'
+    | 'expoOut'
+    | 'linear'
+    | 'quadIn'
+    | 'quadInOut'
+    | 'quadOut'
+    | 'quartIn'
+    | 'quartInOut'
+    | 'quartOut'
+    | 'quintIn'
+    | 'quintInOut'
+    | 'quintOut'
+    | 'sineIn'
+    | 'sineInOut'
+    | 'sineOut';
 ```

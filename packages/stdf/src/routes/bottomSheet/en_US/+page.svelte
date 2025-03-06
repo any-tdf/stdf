@@ -113,7 +113,7 @@
 	</BottomSheet>
 
 	<Cell title="Different rounded style" onclick={() => (visible12 = true)} />
-	<BottomSheet bind:visible={visible12} radius="base" showBackIcon>
+	<BottomSheet bind:visible={visible12} radius="middle" showBackIcon>
 		<Aphorism num={2} />
 	</BottomSheet>
 

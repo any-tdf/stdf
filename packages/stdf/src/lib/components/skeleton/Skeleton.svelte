@@ -2,11 +2,11 @@
 	import Icon from '../icon/Icon.svelte';
 	import type { SkeletonProps } from '../../types/index.js';
 
-	let { type = 'div', width = '6', height = '6', radius = 'base', space = '1', lines = 3, iconRatio = 0.6 }: SkeletonProps = $props();
+	let { type = 'div', width = '6', height = '6', radius = 'sm', space = '1', lines = 3, iconRatio = 0.6 }: SkeletonProps = $props();
 
 	const radiusObj = {
 		none: ' rounded-none',
-		base: ' rounded',
+		sm: ' rounded-sm',
 		md: ' rounded-md',
 		xl: ' rounded-xl',
 		'2xl': ' rounded-2xl',
@@ -67,13 +67,13 @@
 			{/each}
 			<div
 				class="bg-black/20 dark:bg-white/20 {randomArr[Math.floor(Math.random() * randomArr.length)]}{heightObj[height] ||
-					heightObj['6']}{radiusObj[radius] || radiusObj.base}"
+					heightObj['6']}{radiusObj[radius] || radiusObj.sm}"
 			></div>
 		</div>
 	{:else}
 		<div
 			class="bg-black/20 dark:bg-white/20{widthObj[width] || widthObj.full}{heightObj[height] || heightObj['6']}{radiusObj[radius] ||
-				radiusObj.base} flex flex-col justify-center"
+				radiusObj.sm} flex flex-col justify-center"
 		>
 			{#if type === 'img' || type === 'video' || type === 'code' || type === 'qrcode' || type === 'barcode'}
 				<div class="m-auto" style="width:{iconRatio * 100 + '%'}">

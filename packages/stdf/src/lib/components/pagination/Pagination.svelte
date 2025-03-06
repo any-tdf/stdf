@@ -186,14 +186,21 @@
 
 	// 圆角样式
 	// radius class
-	const radiusClass = { base: 'rounded', md: 'rounded-md', lg: 'rounded-lg', xl: 'rounded-xl', full: 'rounded-full', none: 'rounded-none' };
+	const radiusClass = {
+		sm: 'rounded-sm',
+		md: 'rounded-md',
+		lg: 'rounded-lg',
+		xl: 'rounded-xl',
+		full: 'rounded-full',
+		none: 'rounded-none'
+	};
 </script>
 
 <div class="relative flex justify-between bg-white py-1 text-center text-sm dark:bg-black {injClass}">
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current > 1
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.base} active:scale-75"
+			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} active:scale-75"
 		onclick={preFunc}
 	>
 		<Icon name="ri-arrow-left-s-line" size={18} />
@@ -215,7 +222,7 @@
 			<button
 				class="flex-1 border py-2 {showPreOmitPage
 					? typeClass[type] || typeClass.border
-					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
+					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.md}"
 				onclick={() => !continuous && clickPreEllipsisFunc()}
 			>
 				{#if type === 'bold' && showPreOmitPage}
@@ -257,7 +264,7 @@
 			<button
 				class="flex-1 border py-2 {showNextOmitPage
 					? typeClass[type] || typeClass.border
-					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.base}"
+					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.md}"
 				onclick={() => !continuous && clickNextEllipsisFunc()}
 			>
 				{#if type === 'bold' && showNextOmitPage}
@@ -272,7 +279,7 @@
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current < totalPage
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.base} active:scale-75"
+			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} active:scale-75"
 		onclick={nextFunc}
 	>
 		<Icon name="ri-arrow-right-s-line" size={20} />

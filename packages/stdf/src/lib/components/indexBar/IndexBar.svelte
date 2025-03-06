@@ -9,7 +9,7 @@
 		current = $bindable(0),
 		top = 0,
 		height = 100,
-		radius = 'base',
+		radius = 'middle',
 		scrollAlign = true,
 		titleInjClass = '',
 		textInjClass = '',
@@ -48,7 +48,7 @@
 
 	// 圆角风格样式
 	// Rounded style style
-	const radiusObj = { none: 'rounded-none', base: 'rounded', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', middle: 'rounded-sm', full: 'rounded-full' };
 
 	onMount(() => {
 		if (bodyDom) {
@@ -134,7 +134,7 @@
 <div bind:this={bodyDom} class="overflow-y-auto {scrollAlign && 'snap-y'}" onscroll={scrollBody} style="height:{height}px;">
 	{#each data as group, index}
 		<div class="snap-start px-4 pt-8" bind:clientHeight={group.height}>
-			<div class="text-sm text-primary dark:text-dark {titleInjClass}">{group.title}</div>
+			<div class="text-primary dark:text-dark text-sm {titleInjClass}">{group.title}</div>
 			{#each group.child as child, childIndex}
 				<button class="w-full py-2 text-left {textInjClass}" onclick={() => onclickChild && onclickChild(index, group, childIndex, child)}>
 					{child}
@@ -152,23 +152,23 @@
 	bind:this={barDom}
 	class="fixed right-5 flex w-7 cursor-move touch-none select-none flex-col justify-around bg-black/5 p-1 dark:bg-white/5 {radiusObj[
 		radius
-	] || radiusObj.base}"
+	] || radiusObj.middle}"
 	style="top:{top + (height - barHeight) / 2}px;min-height:{height / 4}px;"
 >
 	{#each data as group, i}
 		<div class="relative flex flex-1 flex-col justify-center">
 			<div
 				class="h-5 w-5 text-center text-xs leading-5 transition-all {current === i
-					? 'bg-primary text-white dark:bg-dark dark:text-black'
-					: 'text-gray-600 dark:text-gray-400'} {radiusObj[radius] || radiusObj.base}"
+					? 'bg-primary dark:bg-dark text-white dark:text-black'
+					: 'text-gray-600 dark:text-gray-400'} {radiusObj[radius] || radiusObj.middle}"
 			>
 				{group.index}
 			</div>
 			{#if currentTouch === i}
 				<div
-					class="absolute -left-24 top-1/2 h-14 w-14 -translate-y-2/4 border border-primary text-center text-3xl leading-[3.5rem] text-primary dark:border-dark dark:text-dark {radiusObj[
+					class="border-primary text-primary dark:border-dark dark:text-dark absolute -left-24 top-1/2 h-14 w-14 -translate-y-2/4 border text-center text-3xl leading-[3.5rem] {radiusObj[
 						radius
-					] || radiusObj.base}"
+					] || radiusObj.middle}"
 					transition:fly={{ x: 38, duration: 300 }}
 				>
 					{group.index}

@@ -14,7 +14,7 @@
 | close        | `boolean`                                                   | `false`                        | N        | Whether to show close button.       |
 | doneText     | `string`                                                    | Current language's common.done | N        | Done button text.                   |
 | doneDisabled | `boolean`                                                   | `false`                        | N        | Whether to disable done button.     |
-| radius       | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`    | `'base'`                       | N        | Key border radius.                  |
+| radius       | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`      | `'sm'`                         | N        | Key border radius.                  |
 | clear        | `boolean`                                                   | `false`                        | N        | Whether to clear content when open. |
 | panelClass   | `string`                                                    | `''`                           | N        | Inject class for keyboard panel.    |
 | keyClass     | `string`                                                    | `''`                           | N        | Inject class for keys.              |

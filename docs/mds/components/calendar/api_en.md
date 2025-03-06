@@ -15,7 +15,7 @@
 | height          | `number`                                                      | `50`                                       | N        | Display height as percentage of page height.                                   |
 | infoDates       | `InfoDate[]`                                                  | `[]`                                       | N        | Dates that need to display information.                                        |
 | disabledDates   | `string[]`                                                    | `[]`                                       | N        | Disabled dates.                                                                |
-| radius          | `'none'\|'base'\|'xl'\|'2xl'`                                 | `'xl'`                                     | N        | Border radius style for selected dates.                                        |
+| radius          | `'none'\|'sm'\|'xl'\|'2xl'`                                   | `'xl'`                                     | N        | Border radius style for selected dates.                                        |
 | showSelectedDay | `boolean`                                                     | `true`                                     | N        | Whether to show selected days count in confirm button for multiple/range mode. |
 | confirmText     | `string`                                                      | Current language calendarLang.confirmText  | N        | Confirm button text.                                                           |
 | selectedText    | `string`                                                      | Current language calendarLang.selectedText | N        | Part of confirm button text when showSelectedDay is true.                      |

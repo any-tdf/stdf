@@ -20,7 +20,7 @@
 
 	// 圆角样式
 	// radius class
-	const radiusClass = { full: ' rounded-full', base: ' rounded', none: ' rounded-none' };
+	const radiusClass = { full: ' rounded-full', middle: ' rounded-sm', none: ' rounded-none' };
 
 	// 动画时间样式
 	// duration class

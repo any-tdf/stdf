@@ -27,7 +27,7 @@
 | labels            | `TabLabel[]`                                          | `[]`     | Y        | Tab content group.                               |
 | active            | `number`                                              | `0`      | N        | Active tab index.                                |
 | lineType          | `boolean`                                             | `false`  | N        | Whether to use line style.                       |
-| radius            | `'none'\|'base'\|'xl'\|'full'`                        | `'base'` | N        | Border radius style.                             |
+| radius            | `'none'\|'sm'\|'xl'\|'full'`                          | `'sm'`   | N        | Border radius style.                             |
 | mx                | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'\|'12'\|'16'\|'20'` | `'2'`    | N        | Horizontal margin.                               |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                    | `'base'` | N        | Transition animation duration.                   |
 | layout            | `'h'\|'v'`                                            | `'h'`    | N        | Horizontal or vertical layout.                   |

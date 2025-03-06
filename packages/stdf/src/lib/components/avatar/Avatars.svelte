@@ -20,7 +20,7 @@
 	// radius style
 	const radiusObj = {
 		none: 'rounded-none',
-		base: 'rounded',
+		sm: 'rounded-sm',
 		xl: 'rounded-xl',
 		'2xl': 'rounded-2xl',
 		'3xl': 'rounded-3xl',
@@ -68,21 +68,21 @@
 	{#if reverse}
 		<div
 			class="relative {lineWidthClass[lineWidth] || lineWidthClass[2]} ring-primaryWhite dark:ring-darkBlack {radiusObj[radius] ||
-				radiusObj.base} {injClass}"
+				radiusObj.sm} {injClass}"
 			style="z-index:{dataInner.length}"
 		>
 			{#if top === 'totle'}
 				<div
 					class="bg-primary-200 dark:bg-dark-200 text-primary-950 dark:text-dark-950 flex flex-col justify-center overflow-hidden text-center {radiusObj[
 						radius
-					] || radiusObj.base} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
+					] || radiusObj.sm} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
 				>
 					+{data.length}
 				</div>
 			{:else if top === 'add'}
 				<div
 					class="bg-primary-200 dark:bg-dark-200 flex flex-col justify-center overflow-hidden text-center {radiusObj[radius] ||
-						radiusObj.base} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
+						radiusObj.sm} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>
@@ -94,7 +94,7 @@
 	{#each dataInner as item, i}
 		<div
 			class="relative {lineWidthClass[lineWidth] || lineWidthClass[2]} ring-primaryWhite dark:ring-darkBlack {radiusObj[radius] ||
-				radiusObj.base} {injClass}"
+				radiusObj.sm} {injClass}"
 			style="transform: translateX({-compact * 10 * i - (reverse ? 50 : 0)}%);z-index:{reverse ? dataInner.length - 1 - i : i}"
 		>
 			<Avatar {radius} {size} {...item} />
@@ -103,21 +103,21 @@
 	{#if !reverse}
 		<div
 			class="relative {lineWidthClass[lineWidth] || lineWidthClass[2]} ring-primaryWhite dark:ring-darkBlack {radiusObj[radius] ||
-				radiusObj.base} {injClass}"
+				radiusObj.sm} {injClass}"
 			style="transform: translateX(-{compact * 10 * dataInner.length}%);z-index:{dataInner.length}"
 		>
 			{#if top === 'totle'}
 				<div
 					class="bg-primary-200 dark:bg-dark-200 text-primary-950 dark:text-dark-950 flex flex-col justify-center overflow-hidden text-center {radiusObj[
 						radius
-					] || radiusObj.base} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
+					] || radiusObj.sm} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
 				>
 					+{data.length}
 				</div>
 			{:else if top === 'add'}
 				<div
 					class="bg-primary-200 dark:bg-dark-200 flex flex-col justify-center overflow-hidden text-center {radiusObj[radius] ||
-						radiusObj.base} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
+						radiusObj.sm} {sizeObj[size] || sizeObj.md} {textSizeObj[size] || textSizeObj.base}"
 				>
 					<Icon name="ri-user-add-line" injClass="text-primary-950 dark:text-dark-950" />
 				</div>

@@ -53,7 +53,7 @@
 
 	// 圆角风格样式
 	// Rounded style style
-	const radiusClass = { base: 'rounded', xl: 'rounded-xl', '2xl': 'rounded-2xl', none: 'rounded-none' };
+	const radiusClass = { sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', none: 'rounded-none' };
 
 	// 月份水印文字大小样式
 	// Month watermark text size style
@@ -306,7 +306,7 @@
 				<div class="calendar-container flex flex-nowrap gap-4 overflow-x-auto px-4 pb-1 pt-2">
 					{#each quickSelects as item}
 						<button
-							class="flex-none rounded bg-white px-2 py-1 text-xs shadow-sm dark:bg-black dark:shadow-white/10"
+							class="flex-none rounded-sm bg-white px-2 py-1 text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 							class:!bg-primary={isQuickSelect && quickSelectItem === item}
 							class:text-white={isQuickSelect && quickSelectItem === item}
 							class:dark:!bg-dark={isQuickSelect && quickSelectItem === item}
@@ -384,13 +384,13 @@
 									mode === 'range' &&
 									(selectedDateStr.indexOf(`${item.year}${item.month}${day.text}`) === selectedDateStr.length - 8 || day.end)}
 								class:!rounded-none={radius === 'none' && mode !== 'range'}
-								class:!rounded-l={radius === 'base' &&
+								class:!rounded-l-sm={radius === 'sm' &&
 									mode === 'range' &&
 									(selectedDateStr.indexOf(`${item.year}${item.month}${day.text}`) === 0 || day.start)}
-								class:!rounded-r={radius === 'base' &&
+								class:!rounded-r-sm={radius === 'sm' &&
 									mode === 'range' &&
 									(selectedDateStr.indexOf(`${item.year}${item.month}${day.text}`) === selectedDateStr.length - 8 || day.end)}
-								class:!rounded={radius === 'base' && mode !== 'range'}
+								class:!rounded-sm={radius === 'sn' && mode !== 'range'}
 							>
 								<div
 									class="{radiusClass[radius] || 'rounded-xl'} relative flex h-full w-full flex-col justify-center {day.info

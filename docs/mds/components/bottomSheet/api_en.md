@@ -16,7 +16,7 @@
 | stayHeightList  | `number[]`                                                | `[10, 50, 90]`                 | N        | Fixed height list.                                                     |
 | stayHeightIndex | `number`                                                  | `1`                            | N        | Initial fixed height index.                                            |
 | closeHeight     | `number`                                                  | `0`                            | N        | Auto close when position is lower than this height after sliding ends. |
-| radius          | `'none'\|'base'\|'full'`                                  | `'full'`                       | N        | Border radius style.                                                   |
+| radius          | `'none'\|'middle'\|'full'`                                | `'full'`                       | N        | Border radius style.                                                   |
 
 ## BottomSheet Events
 

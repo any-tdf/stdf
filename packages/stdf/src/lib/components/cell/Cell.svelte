@@ -29,7 +29,7 @@
 	// Rounded style style
 	const radiusObj = {
 		none: ' rounded-none',
-		base: ' rounded',
+		sm: ' rounded-sm',
 		md: ' rounded-md',
 		lg: ' rounded-lg',
 		xl: ' rounded-xl',

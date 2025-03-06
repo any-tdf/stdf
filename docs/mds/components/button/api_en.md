@@ -4,7 +4,7 @@
 | --------------- | ----------------------------------------------------------------------------- | --------- | -------- | ------------------------------------------------ |
 | fill            | `'base'\|'line'\|'lineLight'\|'lineTheme'\|'text'\|'textTheme'\|'colorLight'` | `'base'`  | N        | Fill mode.                                       |
 | state           | `'theme'\|'success'\|'warning'\|'error'\|'info'`                              | `'theme'` | N        | Status color, theme means following theme color. |
-| radius          | `'none'\|'base'\|'xl'\|'2xl'\|'full'`                                         | `'base'`  | N        | Border radius style.                             |
+| radius          | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`                                           | `'sm'`    | N        | Border radius style.                             |
 | size            | `'full'\|'big'\|'md'\|'sm'\|'auto'`                                           | `'big'`   | N        | Size.                                            |
 | line            | `'solid'\|'dashed'\|'dotted'`                                                 | `'solid'` | N        | Border style.                                    |
 | heightOut       | `'0'\|'1'\|'2'\|'3'\|'4'`                                                     | `'2'`     | N        | Button outer height.                             |

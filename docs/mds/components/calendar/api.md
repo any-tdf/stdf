@@ -15,7 +15,7 @@
 | height          | `number`                                                      | `50`                                 | N    | 显示高度占页面高度百分比。                   |
 | infoDates       | `InfoDate[]`                                                  | `[]`                                 | N    | 需要显示信息的日期。                         |
 | disabledDates   | `string[]`                                                    | `[]`                                 | N    | 不可选的日期。                               |
-| radius          | `'none'\|'base'\|'xl'\|'2xl'`                                 | `'xl'`                               | N    | 选定日期的圆角风格。                         |
+| radius          | `'none'\|'sm'\|'xl'\|'2xl'`                                   | `'xl'`                               | N    | 选定日期的圆角风格。                         |
 | showSelectedDay | `boolean`                                                     | `true`                               | N    | 多选和范围选择时确定按钮是否显示已选天数。   |
 | confirmText     | `string`                                                      | 当前语言的 calendarLang.confirmText  | N    | 确定按钮文案。                               |
 | selectedText    | `string`                                                      | 当前语言的 calendarLang.selectedText | N    | showSelectedDay 为 true 时确定按钮部分文案。 |

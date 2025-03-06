@@ -177,7 +177,7 @@
 	<Checkbox layout="h" data={dota}>
 		{#snippet checkboxChild({ item })}
 			<button
-				class="rounded border px-5 py-0.5 text-sm {checkedsCustom.includes(item.name)
+				class="rounded-sm border px-5 py-0.5 text-sm {checkedsCustom.includes(item.name)
 					? 'bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark'
 					: 'border-gray-200 bg-gray-100 dark:border-gray-500 dark:bg-gray-600'}"
 				onclick={() => {
@@ -197,7 +197,7 @@
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
-					class="mb-1 h-12 w-12 overflow-hidden rounded {imgCheckeds.includes(item.name) ? 'ring-2 ring-primary dark:ring-dark' : ''}"
+					class="mb-1 h-12 w-12 overflow-hidden rounded-sm {imgCheckeds.includes(item.name) ? 'ring-primary dark:ring-dark ring-2' : ''}"
 					onclick={() => {
 						dotaImgsFun(item.name);
 					}}
@@ -229,7 +229,7 @@
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div
-				class="m-1 rounded border px-2 py-0.5 text-sm {checkInlines.includes(item.name)
+				class="m-1 rounded-sm border px-2 py-0.5 text-sm {checkInlines.includes(item.name)
 					? 'bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark'
 					: 'border-gray-200 bg-gray-100 dark:border-gray-500 dark:bg-gray-600'}"
 				onclick={() => {

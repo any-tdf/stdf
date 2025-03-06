@@ -7,7 +7,7 @@
 | duration         | `number`                                                         | `2000`     | N        | Display duration in ms. Toast won't auto-close if set to 0.                        |
 | position         | `'center'\|'top'\|'bottom'`                                      | `'center'` | N        | Display position.                                                                  |
 | py               | `'0'\|'10'\|'20'\|'40'\|'60'\|'80'`                              | `'20'`     | N        | Distance from top/bottom when position is 'top'/'bottom'. Ignored for 'center'.    |
-| radius           | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`          | `'base'`   | N        | Border radius style.                                                               |
+| radius           | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`            | `'sm'`     | N        | Border radius style.                                                               |
 | transitionType   | `'scale'\|'fly'\|'fade'\|'slide'\|'blur'\|null`                  | `'scale'`  | N        | Animation type.                                                                    |
 | transitionParams | [`Transition`](https://svelte.dev/docs/svelte/svelte-transition) | `{}`       | N        | Animation parameters, default duration is 300.                                     |
 | outDuration      | `number`                                                         | `0`        | N        | Exit animation duration in ms.                                                     |

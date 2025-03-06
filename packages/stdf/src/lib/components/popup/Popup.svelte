@@ -34,7 +34,7 @@
 	const radiusFun = () => {
 		const radioMap = {
 			none: 'rounded-none',
-			base: 'rounded',
+			sm: 'rounded-sm',
 			md: 'rounded-md',
 			lg: 'rounded-lg',
 			xl: 'rounded-xl',
@@ -44,7 +44,7 @@
 		};
 		const radiusTopMap = {
 			none: 'rounded-t-none',
-			base: 'rounded-t',
+			sm: 'rounded-t-sm',
 			md: 'rounded-t-md',
 			lg: 'rounded-t-lg',
 			xl: 'rounded-t-xl',
@@ -54,7 +54,7 @@
 		};
 		const radiusBottomMap = {
 			none: 'rounded-b-none',
-			base: 'rounded-b',
+			sm: 'rounded-b-sm',
 			md: 'rounded-b-md',
 			lg: 'rounded-b-lg',
 			xl: 'rounded-b-xl',
@@ -64,7 +64,7 @@
 		};
 		const radiusLeftMap = {
 			none: 'rounded-l-none',
-			base: 'rounded-l',
+			sm: 'rounded-l-sm',
 			md: 'rounded-l-md',
 			lg: 'rounded-l-lg',
 			xl: 'rounded-l-xl',
@@ -74,7 +74,7 @@
 		};
 		const radiusRightMap = {
 			none: 'rounded-r-none',
-			base: 'rounded-r',
+			sm: 'rounded-r-sm',
 			md: 'rounded-r-md',
 			lg: 'rounded-r-lg',
 			xl: 'rounded-r-xl',

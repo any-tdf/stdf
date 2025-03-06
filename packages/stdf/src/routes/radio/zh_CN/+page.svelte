@@ -100,7 +100,7 @@
 	<Radio layout="h" data={dota}>
 		{#snippet radioChild({ item })}
 			<button
-				class="rounded border px-5 py-0.5 text-sm {checkedsCustom === item.name
+				class="rounded-sm border px-5 py-0.5 text-sm {checkedsCustom === item.name
 					? 'bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark'
 					: 'border-gray-200 bg-gray-100 dark:border-gray-500 dark:bg-gray-600'}"
 				onclick={() => (checkedsCustom = item.name)}
@@ -118,7 +118,7 @@
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<div
-					class="mb-1 h-12 w-12 overflow-hidden rounded {imgChecked === item.name ? 'ring-2 ring-primary dark:ring-dark' : ''}"
+					class="mb-1 h-12 w-12 overflow-hidden rounded-sm {imgChecked === item.name ? 'ring-primary dark:ring-dark ring-2' : ''}"
 					onclick={() => (imgChecked = item.name)}
 				>
 					<img class="h-full w-full object-cover" src={`/assets/images/dota_${item.name}.png`} alt="" />
@@ -147,7 +147,7 @@
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<div
-				class="m-1 rounded border px-2 py-0.5 text-sm {checkInline === item.name
+				class="m-1 rounded-sm border px-2 py-0.5 text-sm {checkInline === item.name
 					? 'bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark'
 					: 'border-gray-200 bg-gray-100 dark:border-gray-500 dark:bg-gray-600'}"
 				onclick={() => (checkInline = item.name)}

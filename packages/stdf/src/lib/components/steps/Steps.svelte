@@ -2,9 +2,9 @@
 	import Icon from '../icon/Icon.svelte';
 	import type { StepsProps } from '../../types/index.js';
 
-	let { steps = [], current = 1, radius = 'base', barBorder = true, vertical = false }: StepsProps = $props();
+	let { steps = [], current = 1, radius = 'sm', barBorder = true, vertical = false }: StepsProps = $props();
 
-	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', full: 'rounded-full' };
 	let width = $state(0);
 
 	let heightList = $state<number[]>([]);
@@ -28,8 +28,9 @@
 								? 'border-primary dark:border-dark text-primary dark:text-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] ||
-								radiusObj.base} {!barBorder ? '!border-transparent' : ''}"
+									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] || radiusObj.sm} {!barBorder
+								? '!border-transparent'
+								: ''}"
 							style="top:12px"
 						>
 							{#if item.step?.bar?.type === 'icon' || item.finishStep?.bar?.type === 'icon'}
@@ -76,7 +77,7 @@
 								? 'border-primary dark:border-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.base}"
+									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.sm}"
 							style="top:16px"
 						></div>
 					</div>
@@ -125,8 +126,9 @@
 								? 'border-primary dark:border-dark text-primary dark:text-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] ||
-								radiusObj.base} {!barBorder ? '!border-transparent' : ''}"
+									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] || radiusObj.sm} {!barBorder
+								? '!border-transparent'
+								: ''}"
 							style="left:calc(50% - 15px)"
 						>
 							{#if item.step?.bar?.type === 'icon' || item.finishStep?.bar?.type === 'icon'}
@@ -176,7 +178,7 @@
 								? 'border-primary dark:border-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.base}"
+									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.sm}"
 							style="left:calc(50% - 5px)"
 						></div>
 					</div>

@@ -1,15 +1,15 @@
 ## IndexBar Props
 
-| 名称          | 类型                     | 默认值   | 必传 | 说明                             |
-| ------------- | ------------------------ | -------- | ---- | -------------------------------- |
-| data          | `IndexBarItem[]`         | `[]`     | Y    | 索引数据组成的数组。             |
-| current       | `number`                 | `0`      | N    | 当前激活的索引值。               |
-| top           | `number`                 | `0`      | N    | 索引内容区域距离文档顶部的距离。 |
-| height        | `number`                 | `100`    | Y    | 索引内容区域高度。               |
-| radius        | `'none'\|'base'\|'full'` | `'base'` | N    | 圆角风格。                       |
-| scrollAlign   | `boolean`                | `true`   | N    | 是否开启滚动自动对齐。           |
-| titleInjClass | `string`                 | `''`     | N    | 索引组标题注入 CSS。             |
-| textInjClass  | `string`                 | `''`     | N    | 索引项文本注入 CSS。             |
+| 名称          | 类型                       | 默认值     | 必传 | 说明                             |
+| ------------- | -------------------------- | ---------- | ---- | -------------------------------- |
+| data          | `IndexBarItem[]`           | `[]`       | Y    | 索引数据组成的数组。             |
+| current       | `number`                   | `0`        | N    | 当前激活的索引值。               |
+| top           | `number`                   | `0`        | N    | 索引内容区域距离文档顶部的距离。 |
+| height        | `number`                   | `100`      | Y    | 索引内容区域高度。               |
+| radius        | `'none'\|'middle'\|'full'` | `'middle'` | N    | 圆角风格。                       |
+| scrollAlign   | `boolean`                  | `true`     | N    | 是否开启滚动自动对齐。           |
+| titleInjClass | `string`                   | `''`       | N    | 索引组标题注入 CSS。             |
+| textInjClass  | `string`                   | `''`       | N    | 索引项文本注入 CSS。             |
 
 ## IndexBar Events
 

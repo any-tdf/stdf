@@ -35,22 +35,22 @@
 			<div class="whitespace-nowrap">{isZh ? item.name_CN : item.name}</div>
 			<div class="flex justify-between gap-2">
 				<!-- theme  -->
-				<div class="flex overflow-hidden rounded-sm">
-					<div class="w-6 bg-primary" style="background-color: {bgFunc(item.theme.color.primary.default)};"></div>
-					<div class="w-6 bg-dark" style="background-color: {bgFunc(item.theme.color.dark.default)};"></div>
+				<div class="rounded-xs flex overflow-hidden">
+					<div class="bg-primary w-6" style="background-color: {bgFunc(item.theme.color.primary.default)};"></div>
+					<div class="bg-dark w-6" style="background-color: {bgFunc(item.theme.color.dark.default)};"></div>
 				</div>
 				<div class="flex flex-col justify-between gap-1">
 					<!-- Functional -->
 					<div class="flex gap-0.5">
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.success)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.warning)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.error)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.info)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.success)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.warning)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.error)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.info)};"></div>
 					</div>
 					<!-- Extended -->
 					<div class="flex gap-0.5">
 						{#each item.theme.color?.extend ?? [] as child}
-							<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(child.color)};"></div>
+							<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(child.color)};"></div>
 						{/each}
 					</div>
 				</div>

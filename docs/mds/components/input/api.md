@@ -6,7 +6,7 @@
 | titlePosition     | `'in'\|'out'\|null`                                                                                       | `'out'`   | N    | 标题位置。                      |
 | inputPosition     | `'left'\|'right'`                                                                                         | `'left'`  | N    | 输入框文字位置。                |
 | placeholder       | `string`                                                                                                  | `''`      | N    | 输入框提示文本。                |
-| radius            | `'none'\|'base'\|'xl'\|'full'`                                                                            | `'base'`  | N    | 圆角风格。                      |
+| radius            | `'none'\|'sm'\|'xl'\|'full'`                                                                              | `'sm'`    | N    | 圆角风格。                      |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N    | 输入框风格。                    |
 | lineTransition    | `string`                                                                                                  | `'none'`  | N    | 线性过渡位置。                  |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N    | 过渡时间。                      |

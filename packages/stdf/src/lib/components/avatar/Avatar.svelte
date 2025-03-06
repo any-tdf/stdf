@@ -7,7 +7,7 @@
 		alt = '',
 		icon = {},
 		altSize = 'md',
-		radius = 'base',
+		radius = 'sm',
 		size = 'base',
 		imgSize = 'l',
 		line = 'none',
@@ -19,7 +19,7 @@
 	// radius style
 	const radiusObj = {
 		none: 'rounded-none',
-		base: 'rounded',
+		sm: 'rounded-sm',
 		xl: 'rounded-xl',
 		'2xl': 'rounded-2xl',
 		'3xl': 'rounded-3xl',
@@ -68,7 +68,7 @@
 
 <button
 	class="bg-primary-200 dark:bg-dark-200 flex justify-center overflow-hidden relative{lineObj[line] || ''} {sizeObj[size] ||
-		sizeObj.md} {radiusObj[radius] || radiusObj.base} {injClass}"
+		sizeObj.md} {radiusObj[radius] || radiusObj.sm} {injClass}"
 	onclick={() => onclick && onclick()}
 >
 	{#if image === '' && alt === ''}

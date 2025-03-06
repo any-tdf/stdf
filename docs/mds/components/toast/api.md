@@ -7,7 +7,7 @@
 | duration         | `number`                                                         | `2000`     | N    | 显示时长，为 0 时提示不会自动关闭，单位：ms。                         |
 | position         | `'center'\|'top'\|'bottom'`                                      | `'center'` | N    | 显示位置。                                                            |
 | py               | `'0'\|'10'\|'20'\|'40'\|'60'\|'80'`                              | `'20'`     | N    | 顶部和底部显示时距离顶部或底部的距离，position 为 'center' 时不生效。 |
-| radius           | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`          | `'base'`   | N    | 圆角风格。                                                            |
+| radius           | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`            | `'sm'`     | N    | 圆角风格。                                                            |
 | transitionType   | `'scale'\|'fly'\|'fade'\|'slide'\|'blur'\|null`                  | `'scale'`  | N    | 动画类型。                                                            |
 | transitionParams | [`Transition`](https://svelte.dev/docs/svelte/svelte-transition) | `{}`       | N    | 动画参数，其中 duration 默认 300。                                    |
 | outDuration      | `number`                                                         | `0`        | N    | 退出动画时间，单位：ms。                                              |

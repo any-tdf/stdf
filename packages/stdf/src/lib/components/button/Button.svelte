@@ -6,7 +6,7 @@
 	let {
 		fill = 'base',
 		state = 'theme',
-		radius = 'base',
+		radius = 'sm',
 		size = 'big',
 		line = 'solid',
 		injClass = '',
@@ -29,23 +29,11 @@
 
 	// 状态样式
 	// State style
-	const stateObj = {
-		theme: 'bg-primary dark:bg-dark',
-		success: 'bg-success',
-		warning: 'bg-warning',
-		error: 'bg-error',
-		info: 'bg-info'
-	};
+	const stateObj = { theme: 'bg-primary dark:bg-dark', success: 'bg-success', warning: 'bg-warning', error: 'bg-error', info: 'bg-info' };
 
 	// 圆角风格样式
 	// Corner style style
-	const radiusObj = {
-		none: 'rounded-none',
-		base: 'rounded',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		full: 'rounded-full'
-	};
+	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 
 	// 填充模式样式
 	// Fill mode style
@@ -94,7 +82,7 @@
 		class="inline-flex items-center justify-center gap-1 truncate {!group && !innerDisabled ? 'active:opacity-80' : ''} {heightInObj[
 			heightIn
 		] || heightInObj['3']} {sizeObj[size] || sizeObj.big} {textColor} {lineObj[line] || lineObj.solid} {radiusObj[radius] ||
-			radiusObj.base} {fill === 'base' && (stateObj[state] || stateObj.theme)} {fillObj[fill] || fillObj.base} {injClass} {innerDisabled
+			radiusObj.sm} {fill === 'base' && (stateObj[state] || stateObj.theme)} {fillObj[fill] || fillObj.base} {injClass} {innerDisabled
 			? 'cursor-not-allowed opacity-50'
 			: ''}"
 		disabled={innerDisabled}

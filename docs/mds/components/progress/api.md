@@ -5,7 +5,7 @@
 | percent         | `number`                             | `66`      | N    | 百分比。                                          |
 | percentPosition | `'inner'\|'right'\|'block'\|null`    | `'right'` | N    | 百分比位置。                                      |
 | height          | `'1'\|'2'\|'3'\|'4'`                 | `'2'`     | N    | 高度。                                            |
-| radius          | `'full'\|'base'\|'none'`             | `'full'`  | N    | 圆角风格。                                        |
+| radius          | `'full'\|'middle'\|'none'`           | `'full'`  | N    | 圆角风格。                                        |
 | inactive        | `boolean`                            | `false`   | N    | 是否置灰。                                        |
 | overflowPercent | `number`                             | `10`      | N    | percentPosition 为 `'inner'` 时，文字溢出的阀值。 |
 | duration        | `'150'\|'300'\|'500'\|'700'\|'1000'` | `'300'`   | N    | 动画过度时间（ms）。                              |

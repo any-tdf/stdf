@@ -34,7 +34,7 @@
 			danger: ' text-error ',
 			disabled: ' text-black/20 dark:text-white/20 '
 		},
-		imgRadius: { none: 'rounded-none', base: 'rounded', full: 'rounded-full', lg: 'rounded-lg' },
+		imgRadius: { none: 'rounded-none', sm: 'rounded-sm', full: 'rounded-full', lg: 'rounded-lg' },
 		align: { left: 'justify-start pl-4', center: 'justify-center', right: 'justify-end pr-4' }
 	};
 

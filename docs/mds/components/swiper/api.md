@@ -20,13 +20,13 @@
 | px                  | `'0'\|'1'\|'2'\|'4'\|'6'\|'8'\|'12'\|'16'\|'24'` | `'0'`         | N    | 容器横向内边距。             |
 | py                  | `'0'\|'1'\|'2'\|'4'\|'6'\|'8'\|'12'`             | `'0'`         | N    | 容器纵向内边距。             |
 | translateX          | `number`                                         | `0`           | N    | 未激活容器 X 方向偏移值。    |
-| translateZ          | `number`                                         | `0`           | N    | 未激活容器 Z 方向偏移值。   |
+| translateZ          | `number`                                         | `0`           | N    | 未激活容器 Z 方向偏移值。    |
 | rotateX             | `number`                                         | `0`           | N    | 未激活容器 X 轴旋转值。      |
 | rotateY             | `number`                                         | `0`           | N    | 未激活容器 Y 轴旋转值。      |
 | rotateZ             | `number`                                         | `0`           | N    | 未激活容器 Z 轴旋转值。      |
 | activeInjClass      | `string`                                         | `''`          | N    | 激活容器注入 Class。         |
 | notActiveInjClass   | `string`                                         | `''`          | N    | 未激活容器注入 Class。       |
-| radius              | `'none'\|'base'\|'xl'\|'2xl'\|'full'`            | `'none'`      | N    | 容器内部区域圆角。           |
+| radius              | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`              | `'none'`      | N    | 容器内部区域圆角。           |
 | triggerLong         | `number`                                         | `30`          | N    | 始终触发的滑动距离百分比。   |
 | notTriggerLong      | `number`                                         | `10`          | N    | 始终不触发的滑动距离百分比。 |
 | triggerSpeed        | `number`                                         | `0.5`         | N    | 触发的滑动速度系数。         |
@@ -42,11 +42,11 @@
 ## SwiperImg
 
 ```javascript
-type SwiperImg = { type: 'img'; url: string };
+type SwiperImg = { type: 'img', url: string };
 ```
 
 ## SwiperComponent
 
 ```javascript
-type SwiperComponent = { type: 'component'; component: Component };
+type SwiperComponent = { type: 'component', component: Component };
 ```

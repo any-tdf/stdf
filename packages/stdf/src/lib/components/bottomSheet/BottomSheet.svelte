@@ -115,15 +115,11 @@
 
 	// 窗口圆角风格
 	// window radius style
-	const windowRadiusClass = {
-		none: ' rounded-none',
-		base: ' rounded-t-lg',
-		full: ' rounded-t-2xl'
-	};
+	const windowRadiusClass = { none: ' rounded-none', middle: ' rounded-t-lg', full: ' rounded-t-2xl' };
 
 	// 图标圆角风格
 	// icon radius style
-	const iconRadiusClass = { none: ' rounded-none', base: ' rounded', full: ' rounded-full' };
+	const iconRadiusClass = { none: ' rounded-none', middle: ' rounded-sm', full: ' rounded-full' };
 
 	// 滑动开始
 	// start sliding
@@ -300,7 +296,7 @@
 							<Icon name="ri-arrow-down-s-line" alpha={0.4} size={16} top={-1} />
 						</button>
 					{:else}
-						<button class="cursor-pointer font-bold text-primary dark:text-dark" onclick={closeFunc}>{closeContent}</button>
+						<button class="text-primary dark:text-dark cursor-pointer font-bold" onclick={closeFunc}>{closeContent}</button>
 					{/if}
 				</div>
 			</div>

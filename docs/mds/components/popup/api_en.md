@@ -14,7 +14,7 @@
 | mask               | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)                          | `{}`         | N        | Mask layer parameters.                                                                                          |
 | maskClosable       | `boolean`                                                                          | `true`       | N        | Whether clicking mask layer closes popup.                                                                       |
 | radiusPosition     | `'all'\|'top'\|'bottom'\|'left'\|'right'`                                          | `'top'`      | N        | Border radius position.                                                                                         |
-| radius             | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                           | `'none'`     | N        | Border radius size.                                                                                             |
+| radius             | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                             | `'none'`     | N        | Border radius size.                                                                                             |
 | transitionDistance | `number`                                                                           | `0`          | N        | Animation distance when popup size is determined by inner elements.                                             |
 | transparent        | `boolean`                                                                          | `false`      | N        | Whether background is transparent.                                                                              |
 | allowBodyScroll    | `boolean`                                                                          | `true`       | N        | Whether to allow body scrolling when popup is shown.                                                            |
@@ -39,35 +39,35 @@
 
 ```javascript
 type SvelteEasing =
-	| 'backIn'
-	| 'backInOut'
-	| 'backOut'
-	| 'bounceIn'
-	| 'bounceInOut'
-	| 'bounceOut'
-	| 'circIn'
-	| 'circInOut'
-	| 'circOut'
-	| 'cubicIn'
-	| 'cubicInOut'
-	| 'cubicOut'
-	| 'elasticIn'
-	| 'elasticInOut'
-	| 'elasticOut'
-	| 'expoIn'
-	| 'expoInOut'
-	| 'expoOut'
-	| 'linear'
-	| 'quadIn'
-	| 'quadInOut'
-	| 'quadOut'
-	| 'quartIn'
-	| 'quartInOut'
-	| 'quartOut'
-	| 'quintIn'
-	| 'quintInOut'
-	| 'quintOut'
-	| 'sineIn'
-	| 'sineInOut'
-	| 'sineOut';
+    | 'backIn'
+    | 'backInOut'
+    | 'backOut'
+    | 'bounceIn'
+    | 'bounceInOut'
+    | 'bounceOut'
+    | 'circIn'
+    | 'circInOut'
+    | 'circOut'
+    | 'cubicIn'
+    | 'cubicInOut'
+    | 'cubicOut'
+    | 'elasticIn'
+    | 'elasticInOut'
+    | 'elasticOut'
+    | 'expoIn'
+    | 'expoInOut'
+    | 'expoOut'
+    | 'linear'
+    | 'quadIn'
+    | 'quadInOut'
+    | 'quadOut'
+    | 'quartIn'
+    | 'quartInOut'
+    | 'quartOut'
+    | 'quintIn'
+    | 'quintInOut'
+    | 'quintOut'
+    | 'sineIn'
+    | 'sineInOut'
+    | 'sineOut';
 ```

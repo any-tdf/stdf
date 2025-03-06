@@ -11,7 +11,7 @@
 		duration = 2000,
 		position = 'center',
 		py = '0',
-		radius = 'base',
+		radius = 'sm',
 		transitionType = 'scale',
 		transitionParams = {},
 		outDuration = 0,
@@ -43,10 +43,10 @@
 	const positionClass = { center: ' justify-center', top: ' justify-start', bottom: ' justify-end' };
 	const pyClass = { '0': ' py-0', '10': ' py-10', '20': ' py-20', '40': ' py-40', '60': ' py-60', '80': ' py-80' };
 	const radiusClass = {
-		base: ' rounded',
+		sm: ' rounded-sm',
 		full: ' rounded-full',
 		none: ' rounded-none',
-		sm: ' rounded-sm',
+		xs: ' rounded-xs',
 		md: ' rounded-md',
 		lg: ' rounded-lg',
 		xl: ' rounded-xl',
@@ -92,7 +92,7 @@
 			<div class="flex justify-center px-10">
 				<div
 					class="inline-block bg-black/90 text-center dark:bg-white/90 p-4{radiusClass[radius] ||
-						radiusClass['base']} text-white dark:text-black"
+						radiusClass.sm} text-white dark:text-black"
 				>
 					{#if children}
 						{@render children()}

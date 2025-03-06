@@ -5,7 +5,7 @@ export type ActionProps = {
 	style?: 'normal' | 'theme' | 'danger' | 'disabled';
 	desc?: string;
 	showImg?: boolean;
-	imgRadius?: 'none' | 'base' | 'full' | 'lg';
+	imgRadius?: 'none' | 'sm' | 'full' | 'lg';
 	imgSrc?: string;
 };
 export type ActionSheetProps = {
@@ -52,7 +52,7 @@ export type AvatarProps = {
 	alt?: string;
 	icon?: IconProps;
 	altSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-	radius?: 'none' | 'base' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | '2xl' | '3xl' | 'full';
 	size?: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
 	imgSize?: 's' | 'm' | 'l';
 	line?: 'none' | 'solid' | 'dashed' | 'dotted';
@@ -61,7 +61,7 @@ export type AvatarProps = {
 };
 export type AvatarsProps = {
 	data: AvatarProps[];
-	radius?: 'none' | 'base' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | '2xl' | '3xl' | 'full';
 	size?: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
 	compact?: number;
 	lineWidth?: '0' | '1' | '2' | '3' | '4' | '8';
@@ -74,7 +74,7 @@ export type AvatarsProps = {
 
 export type BadgeProps = {
 	text?: string;
-	radius?: 'full' | 'base' | 'none' | 'leaf';
+	radius?: 'full' | 'sm' | 'none' | 'leaf';
 	isLeft?: boolean;
 	isShow?: boolean;
 	offsetY?: number;
@@ -99,7 +99,7 @@ export type BottomSheetProps = {
 	stayHeightList?: number[];
 	stayHeightIndex?: number;
 	closeHeight?: number;
-	radius?: 'none' | 'base' | 'full';
+	radius?: 'none' | 'middle' | 'full';
 	children?: Snippet;
 	onheightChange?: (height: number) => void;
 	onclickMask?: () => void;
@@ -110,7 +110,7 @@ export type BottomSheetProps = {
 export type ButtonProps = {
 	fill?: 'base' | 'line' | 'lineLight' | 'lineTheme' | 'text' | 'textTheme' | 'colorLight';
 	state?: 'theme' | 'success' | 'warning' | 'error' | 'info';
-	radius?: 'none' | 'base' | 'xl' | '2xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | '2xl' | 'full';
 	size?: 'full' | 'big' | 'md' | 'sm' | 'auto';
 	line?: 'solid' | 'dashed' | 'dotted';
 	injClass?: string;
@@ -144,7 +144,7 @@ export type CalendarProps = {
 	height?: number;
 	infoDates?: InfoDateProps[];
 	disabledDates?: string[];
-	radius?: 'none' | 'base' | 'xl' | '2xl';
+	radius?: 'none' | 'sm' | 'xl' | '2xl';
 	showSelectedDay?: boolean;
 	confirmText?: string;
 	selectedText?: string;
@@ -172,7 +172,7 @@ export type CellProps = {
 	line?: boolean;
 	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 	switchActive?: boolean;
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
@@ -184,7 +184,7 @@ export type CellProps = {
 	onclick?: () => void;
 };
 export type CellGroupProps = {
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
@@ -285,7 +285,7 @@ export type IndexBarProps = {
 	current?: number;
 	top?: number;
 	height: number;
-	radius?: 'none' | 'base' | 'full';
+	radius?: 'none' | 'middle' | 'full';
 	scrollAlign?: boolean;
 	titleInjClass?: string;
 	textInjClass?: string;
@@ -297,7 +297,7 @@ export type InputProps = {
 	titlePosition?: 'in' | 'out' | null;
 	inputPosition?: 'left' | 'right';
 	placeholder?: string;
-	radius?: 'none' | 'base' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | 'full';
 	inputStyle?: 'block' | 'line';
 	lineTransition?: null | 'center' | 'left';
 	duration?: 'fast' | 'base' | 'slow' | 'slower';
@@ -430,7 +430,7 @@ export type NumKeyboardProps = {
 	close?: boolean;
 	doneText?: string;
 	doneDisabled?: boolean;
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
 	clear?: boolean;
 	panelClass?: string;
 	keyClass?: string;
@@ -446,7 +446,7 @@ export type PaginationProps = {
 	pageSize?: number;
 	current?: number;
 	maxShowPage?: 5 | 7 | 9 | 11;
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 	type?: 'border' | 'block' | 'bold';
 	pageCol?: number;
 	showNextOmitPage?: boolean;
@@ -498,7 +498,7 @@ export type PickerProps = {
 export type PlaceholderProps = {
 	py?: '0' | '1' | '2' | '3' | '4';
 	height?: 'full' | '1' | '2' | '4' | '8' | '16' | '24' | '32' | '48' | '64' | '96';
-	radius?: 'none' | 'base' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
 	children?: Snippet;
@@ -517,7 +517,7 @@ export type PopupProps = {
 	mask?: MaskProps;
 	maskClosable?: boolean;
 	radiusPosition?: 'all' | 'top' | 'bottom' | 'left' | 'right';
-	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
 	transitionDistance?: number;
 	transparent?: boolean;
 	allowBodyScroll?: boolean;
@@ -533,7 +533,7 @@ export type ProgressProps = {
 	percent?: number;
 	percentPosition?: 'inner' | 'right' | 'block' | null;
 	height?: '1' | '2' | '3' | '4';
-	radius?: 'full' | 'base' | 'none';
+	radius?: 'full' | 'middle' | 'none';
 	inactive?: boolean;
 	overflowPercent?: number;
 	duration?: '150' | '300' | '500' | '700' | '1000';
@@ -597,7 +597,7 @@ export type SkeletonProps = {
 	type?: 'div' | 'p' | 'img' | 'video' | 'code' | 'qrcode' | 'barcode';
 	width?: 'full' | '2' | '4' | '6' | '8' | '12' | '16' | '24' | '32' | '48' | '64' | '96';
 	height?: '1' | '2' | '4' | '6' | '8' | '12' | '16' | '24' | '32' | '48' | '64' | '96';
-	radius?: 'none' | 'base' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: 'none' | 'sm' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
 	space?: '0.5' | '1' | '2' | '4' | '8';
 	lines?: number;
 	iconRatio?: number;
@@ -613,7 +613,7 @@ export type SliderProps = {
 	startValue?: number;
 	endValue?: number;
 	showTip?: 'always' | 'touch' | 'never';
-	radius?: 'none' | 'base' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | 'full';
 	lineBlock?: boolean;
 	disabled?: boolean;
 	readonly?: boolean;
@@ -629,7 +629,7 @@ export type StepperProps = {
 	vertical?: boolean;
 	numberHighlight?: boolean;
 	theme?: boolean;
-	radius?: 'none' | 'base' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | 'full';
 	decimal?: number;
 	async?: boolean;
 	asyncLoading?: boolean;
@@ -666,7 +666,7 @@ export type StepsItemProps = {
 export type StepsProps = {
 	steps: StepsItemProps[];
 	current?: number;
-	radius?: 'none' | 'base' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | 'full';
 	barBorder?: boolean;
 	vertical?: boolean;
 };
@@ -698,7 +698,7 @@ export type SwiperProps = {
 	rotateZ?: number;
 	activeInjClass?: string;
 	notActiveInjClass?: string;
-	radius?: 'none' | 'base' | 'xl' | '2xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | '2xl' | 'full';
 	triggerLong?: number;
 	notTriggerLong?: number;
 	triggerSpeed?: number;
@@ -709,7 +709,7 @@ export type SwiperProps = {
 
 export type SwitchProps = {
 	active?: boolean;
-	radius?: 'none' | 'base' | 'full';
+	radius?: 'none' | 'middle' | 'full';
 	inside?: 'state' | 'loading' | [string, string] | null;
 	injClass?: string;
 	disabled?: boolean;
@@ -741,7 +741,7 @@ export type TabProps = {
 	labels?: TabLabelProps[];
 	active?: number;
 	lineType?: boolean;
-	radius?: 'none' | 'base' | 'xl' | 'full';
+	radius?: 'none' | 'sm' | 'xl' | 'full';
 	duration?: 'fast' | 'base' | 'slow' | 'slower';
 	layout?: 'h' | 'v';
 	love?: boolean;
@@ -837,7 +837,7 @@ export type ToastProps = {
 	duration?: number;
 	position?: 'center' | 'top' | 'bottom';
 	py?: '0' | '10' | '20' | '40' | '60' | '80';
-	radius?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 	transitionType?: 'scale' | 'fly' | 'fade' | 'slide' | 'blur' | null;
 	transitionParams?: object;
 	outDuration?: number;

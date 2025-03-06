@@ -54,7 +54,7 @@
 
 	//是否按下 is down
 	let isDown = false;
-	const radiusObj = { none: ' rounded-none', base: ' rounded', xl: ' rounded-xl', full: ' rounded-full' };
+	const radiusObj = { none: ' rounded-none', sm: ' rounded-sm', xl: ' rounded-xl', full: ' rounded-full' };
 
 	const touchLineStart = (e: PointerEvent) => {
 		if (disabled || readonly) {
@@ -197,15 +197,15 @@
 		<div class="pointer-events-none absolute flex h-7 w-full flex-col justify-center">
 			<div
 				class="{lineBlock
-					? 'h-6 w-6 border border-primary bg-white dark:border-dark dark:bg-black'
-					: 'h-5 w-5 bg-primary ring-4 ring-primary/10 dark:bg-dark dark:ring-dark/10'}{radiusObj[radius] || radiusObj['full']}"
+					? 'border-primary dark:border-dark h-6 w-6 border bg-white dark:bg-black'
+					: 'bg-primary ring-primary/10 dark:bg-dark dark:ring-dark/10 h-5 w-5 ring-4'}{radiusObj[radius] || radiusObj['full']}"
 				style="transform: translateX(calc({currentStartX}px - 50%));"
 			>
 				{#if showTip === 'always' || (currentMove === 'start' && showTip !== 'never')}
 					<div
 						class="absolute -top-9 bg-black/90 py-1 text-xs text-white dark:bg-white dark:text-black px-2{radius === 'none'
 							? ' rounded-none'
-							: ' rounded'}"
+							: ' rounded-sm'}"
 						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}
@@ -222,8 +222,8 @@
 		<div class="pointer-events-none absolute flex h-7 w-full flex-col justify-center">
 			<div
 				class="{lineBlock
-					? 'h-6 w-6 border border-primary bg-white dark:border-dark dark:bg-black'
-					: 'h-5 w-5 bg-primary ring-4 ring-primary/10 dark:bg-dark dark:ring-dark/10'}{radiusObj[radius] || radiusObj['full']}"
+					? 'border-primary dark:border-dark h-6 w-6 border bg-white dark:bg-black'
+					: 'bg-primary ring-primary/10 dark:bg-dark dark:ring-dark/10 h-5 w-5 ring-4'}{radiusObj[radius] || radiusObj['full']}"
 				style="transform: translateX(calc({currentEndX}px - 50%));"
 				bind:this={blockDom}
 			>
@@ -231,7 +231,7 @@
 					<div
 						class="absolute -top-9 bg-black/90 py-1 text-xs text-white dark:bg-white dark:text-black px-2{radius === 'none'
 							? ' rounded-none'
-							: ' rounded'}"
+							: ' rounded-sm'}"
 						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}
@@ -249,15 +249,15 @@
 		<div class="pointer-events-none absolute flex h-7 w-full flex-col justify-center">
 			<div
 				class="{lineBlock
-					? 'h-6 w-6 border border-primary bg-white dark:border-dark dark:bg-black'
-					: 'h-5 w-5 bg-primary ring-4 ring-primary/10 dark:bg-dark dark:ring-dark/10'}{radiusObj[radius] || radiusObj['full']}"
+					? 'border-primary dark:border-dark h-6 w-6 border bg-white dark:bg-black'
+					: 'bg-primary ring-primary/10 dark:bg-dark dark:ring-dark/10 h-5 w-5 ring-4'}{radiusObj[radius] || radiusObj['full']}"
 				style="transform: translateX(calc({currentX}px - 50%));"
 			>
 				{#if showTip === 'always' || (currentMove === 'one' && showTip !== 'never')}
 					<div
 						class="absolute -top-9 bg-black/90 py-1 text-xs text-white dark:bg-white dark:text-black px-2{radius === 'none'
 							? ' rounded-none'
-							: ' rounded'}"
+							: ' rounded-sm'}"
 						style="left: 50%;transform: translateX(-50%);"
 						in:fly={{ y: 8, duration: 500 }}
 						out:fly={{ y: 8, duration: 300 }}

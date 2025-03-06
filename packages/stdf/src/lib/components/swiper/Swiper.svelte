@@ -64,7 +64,7 @@
 	const indicateAlignObj = { left: 'justify-start', center: 'justify-center', right: 'justify-end' };
 	const pxObj = { '0': '', '1': 'px-1', '2': 'px-2', '4': 'px-4', '6': 'px-6', '8': 'px-8', '12': 'px-12', '16': 'px-16', '24': 'px-24' };
 	const pyObj = { '0': '', '1': 'py-1', '2': 'py-2', '4': 'py-4', '6': 'py-6', '8': 'py-8', '12': 'py-12' };
-	const radiusObj = { none: 'rounded-none', base: 'rounded-base', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 	//根据 indicateStyle 和是否激活生成不同样式的 indicate
 	//generate different style indicate according to indicateStyle and isActive
 	const indicateStyleInnerFun = (indicateStyle: string, isActive: boolean, indicateColor: string, indicateActiveColor: string) => {

@@ -4,7 +4,7 @@
 
 	let {
 		active = false,
-		radius = 'base',
+		radius = 'middle',
 		inside = null,
 		injClass = '',
 		disabled = false,
@@ -18,7 +18,7 @@
 
 	// 是否处于纵向拉长状态  is in the vertical elongation state
 	let isLong = $state(false);
-	const radiusObj = { none: 'rounded-none', base: 'rounded', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', middle: 'rounded-sm', full: 'rounded-full' };
 	const setChangeFun = () => {
 		if (!disabled) {
 			if (!async) {
@@ -41,14 +41,14 @@
 
 <button
 	onclick={setChangeFun}
-	class="relative flex h-6 w-12 justify-around transition-all duration-500 active:opacity-80 {radiusObj[radius] || radiusObj.base} {active
+	class="relative flex h-6 w-12 justify-around transition-all duration-500 active:opacity-80 {radiusObj[radius] || radiusObj.middle} {active
 		? `bg-primary dark:bg-dark ${injClass}`
 		: 'bg-black/10 dark:bg-white/20'} {disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}"
 >
 	<div
 		class="absolute top-0.5 h-5 w-5 bg-white text-center text-xs leading-5 text-black/80 transition-all duration-300 dark:bg-black dark:text-white/90 {radiusObj[
 			radius
-		] || radiusObj.base}"
+		] || radiusObj.middle}"
 		style="left:{active ? '1.625rem' : '0.125rem'};transform:{isLong ? 'scaleX(1.3)' : 'scaleX(1)'}"
 	>
 		{#if inside === 'state'}

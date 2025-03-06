@@ -28,5 +28,5 @@
 | style     | `'normal'\|'theme'\|'danger'\|'disabled'` | `'normal'` | N    | 选项样式。     |
 | desc      | `string`                                  | `''`       | N    | 选项描述。     |
 | showImg   | `boolean`                                 | `false`    | N    | 是否显示图片。 |
-| imgRadius | `'none'\|'base'\|'full'\|'lg'`            | `'full'`   | N    | 图片圆角。     |
+| imgRadius | `'none'\|'sm'\|'full'\|'lg'`              | `'full'`   | N    | 图片圆角。     |
 | imgSrc    | `string`                                  | `''`       | N    | 图片地址。     |

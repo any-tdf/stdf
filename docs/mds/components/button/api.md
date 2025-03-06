@@ -4,7 +4,7 @@
 | --------------- | ----------------------------------------------------------------------------- | --------- | ---- | ------------------------------ |
 | fill            | `'base'\|'line'\|'lineLight'\|'lineTheme'\|'text'\|'textTheme'\|'colorLight'` | `'base'`  | N    | 填充模式。                     |
 | state           | `'theme'\|'success'\|'warning'\|'error'\|'info'`                              | `'theme'` | N    | 状态色，theme 表示跟随主题色。 |
-| radius          | `'none'\|'base'\|'xl'\|'2xl'\|'full'`                                         | `'base'`  | N    | 圆角风格。                     |
+| radius          | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`                                           | `'sm'`    | N    | 圆角风格。                     |
 | size            | `'full'\|'big'\|'md'\|'sm'\|'auto'`                                           | `'big'`   | N    | 尺寸。                         |
 | line            | `'solid'\|'dashed'\|'dotted'`                                                 | `'solid'` | N    | 边框风格。                     |
 | heightOut       | `'0'\|'1'\|'2'\|'3'\|'4'`                                                     | `'2'`     | N    | 按钮外部高度。                 |

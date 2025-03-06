@@ -6,7 +6,7 @@
 		labels = [],
 		active = $bindable(0),
 		lineType = false,
-		radius = 'base',
+		radius = 'sm',
 		duration = 'base',
 		layout = 'h',
 		love = false,
@@ -21,7 +21,7 @@
 		onclickTab
 	}: TabProps = $props();
 
-	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', full: 'rounded-full' };
 	const durationObj = { fast: 'duration-150', base: 'duration-300', slow: 'duration-500', slower: 'duration-1000' };
 	const mxClass = {
 		'0': 'mx-0',
@@ -78,14 +78,14 @@
 		bind:clientHeight={ofTabH}
 		bind:this={ofDom}
 		class="{lineType ? '' : 'bg-black/5 dark:bg-white/10'} no-scrollbar relative overflow-auto scroll-smooth p-0.5 {radiusObj[radius] ||
-			radiusObj.base} {mxClass[mx] || mxClass['2']} {injClass}"
+			radiusObj.sm} {mxClass[mx] || mxClass['2']} {injClass}"
 	>
 		{#if lineType}
 			<div class="absolute bottom-0 h-0.5 w-full bg-black/5 dark:bg-white/5" style="width: {itemW * labels.length}px"></div>
 		{/if}
 		<div
 			class="{lineType ? '' : 'dark:shadow-xs shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[duration] ||
-				durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType
+				durationObj.base} {radiusObj[radius] || radiusObj.sm} {lineType
 				? 'bg-primary dark:bg-dark bottom-0'
 				: 'bg-white dark:bg-gray-950'} {activeInjClass}"
 			style="width: {ofActiveW}px;height: {lineType ? 2 : ofActiveH}px;left: {ofActiveLeft}px;"
@@ -95,7 +95,7 @@
 				<button
 					class="flex shrink-0 justify-center overflow-hidden py-1 font-medium {love ? 'text-lg' : 'text-sm'} leading-6 {radiusObj[
 						radius
-					] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
+					] || radiusObj.sm} {tabInjClass} {i === active ? activeTabInjClass : ''}"
 					style="width: {itemW}px"
 					onclick={() => clickTabFun(i)}
 				>
@@ -115,7 +115,7 @@
 	<div
 		bind:clientWidth={tabW}
 		bind:clientHeight={tabH}
-		class="{lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/10'} relative p-0.5 {radiusObj[radius] || radiusObj.base} {mxClass[
+		class="{lineType && layout !== 'v' ? '' : 'bg-black/5 dark:bg-white/10'} relative p-0.5 {radiusObj[radius] || radiusObj.sm} {mxClass[
 			mx
 		] || mxClass['2']} {injClass}"
 	>
@@ -125,7 +125,7 @@
 		<div
 			class="{lineType && layout !== 'v' ? '' : 'dark:shadow-xs shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[
 				duration
-			] || durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType && layout !== 'v'
+			] || durationObj.base} {radiusObj[radius] || radiusObj.sm} {lineType && layout !== 'v'
 				? 'bg-primary dark:bg-dark bottom-0'
 				: 'bg-white dark:bg-gray-950'} {activeInjClass}"
 			style="width: {activeW}px;height: {lineType && layout !== 'v' ? 2 : activeH}px;left: {activeLeft}px;top: {activeTop}px"
@@ -135,7 +135,7 @@
 				<button
 					class="flex flex-1 justify-center {layout === 'h' ? 'py-1' : 'py-2'} overflow-hidden font-medium {love
 						? 'text-lg'
-						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.base} {tabInjClass} {i === active ? activeTabInjClass : ''}"
+						: 'text-sm'} leading-6 {radiusObj[radius] || radiusObj.sm} {tabInjClass} {i === active ? activeTabInjClass : ''}"
 					onclick={() => clickTabFun(i)}
 				>
 					{#if label.icon}

@@ -14,7 +14,7 @@
 		titlePosition = 'out',
 		inputPosition = 'left',
 		placeholder = '',
-		radius = 'base',
+		radius = 'sm',
 		label1 = null,
 		label2 = null,
 		label3 = null,
@@ -105,12 +105,12 @@
 
 	// 圆角风格样式
 	// Corner style style
-	const radiusObj = { none: 'rounded-none', base: 'rounded', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
+	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
 
 	// 输入框风格样式
 	// Input box style style
 	const inputStyleObj = {
-		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.base,
+		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.sm,
 		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
 	};
 
@@ -127,7 +127,7 @@
 	// 根据是否获取焦点判断输入框样式
 	// Determine the input box style according to whether to get focus
 	const inputStyleFocusObj = $derived({
-		block: 'px-2 ring-2 bg-transparent ' + stateObj[inputState] || stateObj.theme + radiusObj[radius] || radiusObj.base,
+		block: 'px-2 ring-2 bg-transparent ' + stateObj[inputState] || stateObj.theme + radiusObj[radius] || radiusObj.sm,
 		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
 	});
 
@@ -256,7 +256,7 @@
 			class="relative my-0.5 flex items-center space-x-1 whitespace-nowrap text-sm transition-all {durationObj[duration] ||
 				durationObj.base} {titlePosition === 'in' ? 'py-1' : 'py-3'} {focus
 				? inputStyleFocusObj[inputStyle] || inputStyleFocusObj.block
-				: inputStyleObj[inputStyle] || inputStyleObj.block} {inputStyle === 'block' ? radiusObj[radius] || radiusObj.base : ''}"
+				: inputStyleObj[inputStyle] || inputStyleObj.block} {inputStyle === 'block' ? radiusObj[radius] || radiusObj.sm : ''}"
 		>
 			{#if label1Child}
 				{@render label1Child?.()}
