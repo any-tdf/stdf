@@ -18,7 +18,7 @@
 </div>
 
 <div class="m-4 mt-8 text-lg font-bold">不同宽度</div>
-<div class="mx-4 flex flex-grow gap-4">
+<div class="mx-4 flex grow gap-4">
 	<div class="flex-1">
 		<ProgressLoop strokeWidth={0.5} />
 	</div>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="m-4 mt-8 text-lg font-bold">自定义颜色</div>
-<div class="m-4 flex flex-grow gap-2">
+<div class="m-4 flex grow gap-2">
 	<div class="flex-1">
 		<ProgressLoop injClass="stroke-success dark:stroke-error" />
 	</div>
@@ -57,12 +57,12 @@
 </div>
 
 <div class="m-4 mt-8 text-lg font-bold">自定义文字</div>
-<div class="m-4 flex flex-grow gap-2">
+<div class="m-4 flex grow gap-2">
 	<div class="flex-1">
 		<ProgressLoop>
 			<div class="text-center text-xs">
 				<div>已完成</div>
-				<div class="text-lg text-primary dark:text-dark">6666</div>
+				<div class="text-primary dark:text-dark text-lg">6666</div>
 				<div>步</div>
 			</div>
 		</ProgressLoop>
@@ -71,7 +71,7 @@
 		<ProgressLoop>
 			<div class="text-center text-xs">
 				<div>剩余流量</div>
-				<div class="text-lg text-primary dark:text-dark">66</div>
+				<div class="text-primary dark:text-dark text-lg">66</div>
 				<div>GB</div>
 			</div>
 		</ProgressLoop>
@@ -83,8 +83,9 @@
 	</div>
 </div>
 
-<div class="m-4 mt-8 text-lg font-bold">过渡效果</div>
-<div class="m-4 flex flex-grow gap-2">
+<div class="m-4 mb-1 mt-8 text-lg font-bold">过渡效果</div>
+<div class="mx-4 text-xs">不同端点、圆环宽度、方向、过渡时间、颜色</div>
+<div class="m-4 flex grow gap-2">
 	<div class="flex-1">
 		<ProgressLoop {percent} />
 	</div>
@@ -98,7 +99,7 @@
 		<ProgressLoop {percent} reverse />
 	</div>
 </div>
-<div class="m-4 flex flex-grow gap-2">
+<div class="m-4 flex grow gap-2">
 	<div class="flex-1">
 		<ProgressLoop {percent} duration="150" />
 	</div>

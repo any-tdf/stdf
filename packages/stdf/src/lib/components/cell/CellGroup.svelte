@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { CellGroupProps } from '../../types/index.js';
 
-	let { radius = 'lg', shadow = 'sm', my = '4', mx = '2', children }: CellGroupProps = $props();
+	let { radius = 'lg', shadow = 'xs', my = '4', mx = '2', children }: CellGroupProps = $props();
 
 	const shadowClass = {
 		none: ' shadow-none',
+		xs: ' shadow-xs dark:shadow-white/5',
 		sm: ' shadow-sm dark:shadow-white/5',
-		base: ' shadow dark:shadow-white/10',
 		md: ' shadow-md dark:shadow-white/10',
 		lg: ' shadow-lg dark:shadow-white/10',
 		xl: ' shadow-xl dark:shadow-white/10',
@@ -26,7 +26,7 @@
 </script>
 
 <div
-	class="bg-white dark:bg-black overflow-hidden{shadowClass[shadow] || shadowClass['sm']}{radiusClass[radius] || radiusClass['lg']}{myClass[
+	class="bg-white dark:bg-black overflow-hidden{shadowClass[shadow] || shadowClass['xs']}{radiusClass[radius] || radiusClass['lg']}{myClass[
 		my
 	] || myClass['4']}{mxClass[mx] || mxClass['2']}"
 >

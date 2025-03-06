@@ -84,7 +84,7 @@
 			<div class="absolute bottom-0 h-0.5 w-full bg-black/5 dark:bg-white/5" style="width: {itemW * labels.length}px"></div>
 		{/if}
 		<div
-			class="{lineType ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[duration] ||
+			class="{lineType ? '' : 'dark:shadow-xs shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[duration] ||
 				durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType
 				? 'bg-primary dark:bg-dark bottom-0'
 				: 'bg-white dark:bg-gray-950'} {activeInjClass}"
@@ -123,7 +123,7 @@
 			<div class="absolute bottom-0 h-0.5 w-full bg-black/5 dark:bg-white/5" style="width: {tabW - 4}px"></div>
 		{/if}
 		<div
-			class="{lineType && layout !== 'v' ? '' : 'shadow dark:shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[
+			class="{lineType && layout !== 'v' ? '' : 'dark:shadow-xs shadow-sm dark:shadow-white/10'} absolute transition-all {durationObj[
 				duration
 			] || durationObj.base} {radiusObj[radius] || radiusObj.base} {lineType && layout !== 'v'
 				? 'bg-primary dark:bg-dark bottom-0'

@@ -13,7 +13,7 @@
 | mx           | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`                               | `'2'`     | N    | 左右间距。             |
 | radius       | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`                 | `'lg'`    | N    | 圆角风格。             |
 | switchActive | `boolean`                                                         | `false`   | N    | 开关状态。             |
-| shadow       | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'sm'`    | N    | 阴影风格。             |
+| shadow       | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'xs'`    | N    | 阴影风格。             |
 | injClass     | `string`                                                          | `''`      | N    | 注入 CSS 名称。        |
 | love         | `boolean`                                                         | `false`   | N    | 是否开启关爱版。       |
 | clickAll     | `boolean`                                                         | `true`    | N    | 是否点击整行触发事件。 |
@@ -39,7 +39,7 @@
 | my     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'4'`  | N    | 上下间距。 |
 | mx     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'2'`  | N    | 左右间距。 |
 | radius | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'lg'` | N    | 圆角风格。 |
-| shadow | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'`   | `'sm'` | N    | 阴影风格。 |
+| shadow | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`     | `'xs'` | N    | 阴影风格。 |
 
 ## CellGroup Snippets
 

@@ -13,7 +13,7 @@
 | mx           | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`                               | `'2'`     | N        | Horizontal margin.           |
 | radius       | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`                 | `'lg'`    | N        | Border radius style.         |
 | switchActive | `boolean`                                                         | `false`   | N        | Switch state.                |
-| shadow       | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'sm'`    | N        | Shadow style.                |
+| shadow       | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'xs'`    | N        | Shadow style.                |
 | injClass     | `string`                                                          | `''`      | N        | Inject CSS class name.       |
 | love         | `boolean`                                                         | `false`   | N        | Enable care version.         |
 | clickAll     | `boolean`                                                         | `true`    | N        | Click entire row to trigger. |
@@ -39,7 +39,7 @@
 | my     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'4'`   | N        | Vertical margin.   |
 | mx     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'2'`   | N        | Horizontal margin. |
 | radius | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'lg'`  | N        | Border radius.     |
-| shadow | `'none'\|'sm'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'`   | `'sm'`  | N        | Shadow style.      |
+| shadow | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`     | `'xs'`  | N        | Shadow style.      |
 
 ## CellGroup Snippets
 

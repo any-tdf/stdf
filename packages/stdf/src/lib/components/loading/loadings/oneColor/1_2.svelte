@@ -6,12 +6,12 @@
 	const colorClass = () => {
 		if (inverse) {
 			return theme
-				? ' border-opacity-5 dark:border-opacity-5 border-dark border-l-dark/[1] dark:border-primary dark:border-l-primary/[1]'
-				: ' border-opacity-5 dark:border-opacity-5 border-white border-l-white/[1] dark:border-black dark:border-l-black/[1]';
+				? ' border-dark/5 border-l-dark/[1] dark:border-primary/5 dark:border-l-primary/[1]'
+				: ' border-white/5 border-l-white/[1] dark:border-black/5 dark:border-l-black/[1]';
 		} else {
 			return theme
-				? ' border-opacity-5 dark:border-opacity-5 border-primary border-l-primary/[1] dark:border-dark dark:border-l-dark/[1]'
-				: ' border-opacity-5 dark:border-opacity-5 border-black border-l-black/[1] dark:border-white dark:border-l-white/[1]';
+				? ' border-primary/5 border-l-primary/[1] dark:border-dark/5 dark:border-l-dark/[1]'
+				: ' border-black/5 border-l-black/[1] dark:border-white/5 dark:border-l-white/[1]';
 		}
 	};
 </script>

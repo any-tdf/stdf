@@ -5,7 +5,7 @@
 | py       | `'0'\|'1'\|'2'\|'3'\|'4'`                                        | `'4'`    | N    | 上下内边距。    |
 | height   | `'full'\|'1'\|'2'\|'4'\|'8'\|'16'\|'24'\|'32'\|'48'\|'64'\|'96'` | `'full'` | N    | 高度。          |
 | radius   | `'none'\|'base'\|'md'\|'xl'\|'2xl'\|'3xl'\|'full'`               | `'md'`   | N    | 圆角风格。      |
-| shadow   | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                          | `'none'` | N    | 阴影风格。      |
+| shadow   | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'none'` | N    | 阴影风格。      |
 | injClass | `string`                                                         | `''`     | N    | 注入 CSS 名称。 |
 
 ## Placeholder Snippets

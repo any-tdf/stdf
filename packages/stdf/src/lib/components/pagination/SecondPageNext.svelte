@@ -14,7 +14,7 @@
 
 {#if Pages.length > 0}
 	<div
-		class="second-page-contents absolute -top-3 grid max-h-[7.25rem] -translate-y-full translate-x-1/2 gap-y-2 divide-x overflow-y-auto rounded-lg bg-white p-1 shadow dark:bg-black dark:shadow-white/10"
+		class="second-page-contents absolute -top-3 grid max-h-[7.25rem] -translate-y-full translate-x-1/2 gap-y-2 divide-x overflow-y-auto rounded-lg bg-white p-1 shadow-sm dark:bg-black dark:shadow-white/10"
 		style="width: calc({(pageCol / (maxShowPage + 2)) * 100}% + 8px);right:{(2.5 / (maxShowPage + 2)) *
 			100}%;grid-template-columns: repeat({pageCol}, minmax(0, 1fr));"
 	>

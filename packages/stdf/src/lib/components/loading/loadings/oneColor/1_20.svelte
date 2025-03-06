@@ -5,12 +5,12 @@
 	const colorClass = () => {
 		if (inverse) {
 			return theme
-				? ' border-opacity-5 dark:border-opacity-5 border-dark border-l-dark/[1] dark:border-primary dark:border-l-primary/[1] border-r-dark/[1] dark:border-r-primary/[1]'
-				: ' border-opacity-5 dark:border-opacity-5 border-white border-l-white/[1] dark:border-black dark:border-l-black/[1] border-r-white/[1] dark:border-r-black/[1]';
+				? ' border-dark/5 border-l-dark/[1] dark:border-primary/5 dark:border-l-primary/[1] border-r-dark/[1] dark:border-r-primary/[1]'
+				: ' border-white/5 border-l-white/[1] dark:border-black/5 dark:border-l-black/[1] border-r-white/[1] dark:border-r-black/[1]';
 		} else {
 			return theme
-				? ' border-opacity-5 dark:border-opacity-5 border-primary dark:border-dark border-l-primary/[1] dark:border-l-dark/[1] border-r-primary/[1] dark:border-r-dark/[1]'
-				: ' border-opacity-5 dark:border-opacity-5 border-black dark:border-white border-l-black/[1] dark:border-l-white/[1] border-r-black/[1] dark:border-r-white/[1]';
+				? ' border-primary/5 dark:border-dark/5 border-l-primary/[1] dark:border-l-dark/[1] border-r-primary/[1] dark:border-r-dark/[1]'
+				: ' border-black/5 dark:border-white/5 border-l-black/[1] dark:border-l-white/[1] border-r-black/[1] dark:border-r-white/[1]';
 		}
 	};
 </script>

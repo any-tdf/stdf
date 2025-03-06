@@ -15,7 +15,7 @@
 		mx = '2',
 		radius = 'lg',
 		switchActive = $bindable(false),
-		shadow = 'sm',
+		shadow = 'xs',
 		injClass = '',
 		love = false,
 		clickAll = true,
@@ -41,8 +41,8 @@
 	// Shadow style style
 	const shadowClass = {
 		none: ' shadow-none',
+		xs: ' shadow-xs dark:shadow-white/5',
 		sm: ' shadow-sm dark:shadow-white/5',
-		base: ' shadow dark:shadow-white/10',
 		md: ' shadow-md dark:shadow-white/10',
 		lg: ' shadow-lg dark:shadow-white/10',
 		xl: ' shadow-xl dark:shadow-white/10',
@@ -89,7 +89,7 @@
 
 <div
 	class="bg-white px-3 dark:bg-gray-800{clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} {myClass[my] ||
-		myClass['4']}{mxClass[mx] || mxClass['2']}{radiusObj[radius] || radiusObj['lg']} {shadowClass[shadow] || shadowClass['sm']}{love
+		myClass['4']}{mxClass[mx] || mxClass['2']}{radiusObj[radius] || radiusObj['lg']} {shadowClass[shadow] || shadowClass['xs']}{love
 		? ' text-xl'
 		: ''} {injClass}"
 >

@@ -112,11 +112,11 @@
 
 <div class="mt-8 px-4 font-bold">场景示例 6﹡5</div>
 <div class="pb-8 pt-2">
-	<div class="mx-2 rounded-xl p-2 shadow transition duration-300{colorCss}">
+	<div class="mx-2 rounded-xl p-2 shadow-sm transition duration-300{colorCss}">
 		<Grids cols="5" mx="0" my="0">
 			<Grid row="3">
 				<div
-					class="flex h-full flex-col justify-between rounded-lg bg-white p-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col justify-between rounded-lg bg-white p-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div>{weekDay}</div>
 					<div class="text-4xl">{day}</div>
@@ -125,14 +125,14 @@
 			</Grid>
 			<Grid row="2">
 				<div
-					class="flex h-full flex-col justify-center rounded-lg bg-white p-1 text-center text-xl font-bold shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col justify-center rounded-lg bg-white p-1 text-center text-xl font-bold shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					{time}
 				</div>
 			</Grid>
 			<Grid row="2">
 				<div
-					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch radius="full" onchange={changeColorFun}>
@@ -149,12 +149,16 @@
 			</Grid>
 
 			<Grid row="2" col="2">
-				<div class="flex h-full flex-col justify-center rounded-lg bg-white text-center text-xs shadow dark:bg-black dark:shadow-white/10">
+				<div
+					class="flex h-full flex-col justify-center rounded-lg bg-white text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
+				>
 					<Button fill="lineTheme" radius="full" onclick={changeDeviceFun}>切换设备</Button>
 				</div>
 			</Grid>
 			<Grid row="2" col="2">
-				<div class="flex h-full justify-around rounded-lg bg-white p-1 py-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10">
+				<div
+					class="flex h-full justify-around rounded-lg bg-white p-1 py-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
+				>
 					<div class="flex flex-col justify-center">
 						{#if currentDevice === 'iOS'}
 							<Icon name="ri-apple-fill" size={30} />
@@ -200,7 +204,7 @@
 			</Grid>
 			<Grid row="2">
 				<div
-					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch radius="full">
@@ -217,7 +221,7 @@
 			</Grid>
 			<Grid row="4">
 				<div
-					class="flex h-full flex-col items-center justify-around rounded-lg bg-white text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col items-center justify-around rounded-lg bg-white text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div class="w-1/2 overflow-hidden">
 						<img class="block dark:hidden" src="/assets/stdf_512px.png" alt="" />
@@ -227,7 +231,9 @@
 				</div>
 			</Grid>
 			<Grid row="3">
-				<div class="flex h-full flex-col justify-around rounded-lg bg-white text-center text-xs shadow dark:bg-black dark:shadow-white/10">
+				<div
+					class="flex h-full flex-col justify-around rounded-lg bg-white text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
+				>
 					<div>92%</div>
 					<div class="animate-pulse">
 						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-extend1" />
@@ -236,7 +242,9 @@
 				</div>
 			</Grid>
 			<Grid row="2">
-				<div class="flex h-full flex-col justify-center rounded-lg bg-white text-center text-xs shadow dark:bg-black dark:shadow-white/10">
+				<div
+					class="flex h-full flex-col justify-center rounded-lg bg-white text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
+				>
 					{#if currentDevice === 'iOS'}
 						<Icon name="ri-smartphone-line" size={30} />
 					{:else if currentDevice === 'Android'}
@@ -252,7 +260,7 @@
 			</Grid>
 			<Grid row="2">
 				<div
-					class="flex h-full flex-col items-center justify-around rounded-lg bg-white py-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col items-center justify-around rounded-lg bg-white py-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div>
 						<Icon name="ri-sun-line" size={20} />
@@ -264,7 +272,7 @@
 			</Grid>
 			<Grid row="2">
 				<div
-					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow dark:bg-black dark:shadow-white/10"
+					class="flex h-full flex-col justify-around rounded-lg bg-white p-1 text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
 					<div class="flex justify-center">
 						<Switch radius="full">

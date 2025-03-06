@@ -306,7 +306,7 @@
 				<div class="calendar-container flex flex-nowrap gap-4 overflow-x-auto px-4 pb-1 pt-2">
 					{#each quickSelects as item}
 						<button
-							class="flex-none rounded bg-white px-2 py-1 text-xs shadow dark:bg-black dark:shadow-white/10"
+							class="flex-none rounded bg-white px-2 py-1 text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 							class:!bg-primary={isQuickSelect && quickSelectItem === item}
 							class:text-white={isQuickSelect && quickSelectItem === item}
 							class:dark:!bg-dark={isQuickSelect && quickSelectItem === item}

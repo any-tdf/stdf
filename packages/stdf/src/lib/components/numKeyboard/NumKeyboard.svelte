@@ -74,7 +74,7 @@
 
 	// 按钮式 class
 	// Button type class
-	const buttonClass = `flex flex-col justify-center items-center shadow-sm font-bold active:scale-95 transition-all duration-100 ${
+	const buttonClass = `flex flex-col justify-center items-center shadow-xs font-bold active:scale-95 transition-all duration-100 ${
 		heightClass[height] || 'h-12'
 	} ${fontSizeClass[height] || 'text-base'} ${radiusClass[radius] || 'rounded'}${keyClass ? ' ' + keyClass : ''}`;
 

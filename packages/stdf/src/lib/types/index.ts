@@ -174,7 +174,7 @@ export type CellProps = {
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 	switchActive?: boolean;
-	shadow?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
+	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
 	love?: boolean;
 	clickAll?: boolean;
@@ -185,7 +185,7 @@ export type CellProps = {
 };
 export type CellGroupProps = {
 	radius?: 'none' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-	shadow?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
+	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	children?: Snippet;
@@ -499,7 +499,7 @@ export type PlaceholderProps = {
 	py?: '0' | '1' | '2' | '3' | '4';
 	height?: 'full' | '1' | '2' | '4' | '8' | '16' | '24' | '32' | '48' | '64' | '96';
 	radius?: 'none' | 'base' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
-	shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
 	children?: Snippet;
 };
