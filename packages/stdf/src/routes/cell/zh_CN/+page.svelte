@@ -11,7 +11,7 @@
 		<Cell title="右侧有详情" detail="归零者" />
 		<Cell title="详情使用 Snippet">
 			{#snippet detailChild()}
-				<span class="text-xs text-primary dark:text-dark">我是 Snippet</span>
+				<span class="text-primary dark:text-dark text-xs">我是 Snippet</span>
 			{/snippet}
 		</Cell>
 		<Cell title="右侧无箭头" right={null} />
@@ -100,7 +100,7 @@
 	<div>
 		<Cell title="左右无间距" mx="0" radius="none" />
 		<Cell title="无圆角" radius="none" />
-		<Cell title="基础圆角" radius="base" />
+		<Cell title="基础圆角" radius="sm" />
 		<Cell title="中等圆角" radius="md" />
 		<Cell title="大圆角" radius="lg" />
 		<Cell title="加大圆角" radius="xl" />

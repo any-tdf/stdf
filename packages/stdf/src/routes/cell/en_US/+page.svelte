@@ -11,7 +11,7 @@
 		<Cell title="With Detail" detail="Zeroing" />
 		<Cell title="Detail with Snippet">
 			{#snippet detailChild()}
-				<span class="text-xs text-primary dark:text-dark">I'm Snippet</span>
+				<span class="text-primary dark:text-dark text-xs">I'm Snippet</span>
 			{/snippet}
 		</Cell>
 		<Cell title="No Arrow" right={null} />
@@ -104,7 +104,7 @@
 	<div>
 		<Cell title="No Margin" mx="0" radius="none" />
 		<Cell title="No Radius" radius="none" />
-		<Cell title="Base Radius" radius="base" />
+		<Cell title="Base Radius" radius="sm" />
 		<Cell title="Medium Radius" radius="md" />
 		<Cell title="Large Radius" radius="lg" />
 		<Cell title="XL Radius" radius="xl" />

@@ -16,9 +16,9 @@
 
 	<div class="mx-4 mt-8 text-lg font-bold">Different rounded corners</div>
 	<div class="flex justify-around p-4">
-		<Badge radius="base"><Avatar /></Badge>
+		<Badge radius="sm"><Avatar /></Badge>
 		<Badge text="24" radius="none"><Avatar /></Badge>
-		<Badge text="24" radius="base"><Avatar /></Badge>
+		<Badge text="24" radius="sm"><Avatar /></Badge>
 		<Badge text="Hot" radius="leaf"><Avatar /></Badge>
 	</div>
 
@@ -50,7 +50,7 @@
 	</Cell>
 	<Cell title="Match no radius corner Cell" radius="none">
 		{#snippet detailChild()}
-			<Badge text="new version" radius="base" isInner />
+			<Badge text="new version" radius="sm" isInner />
 		{/snippet}
 	</Cell>
 	<Cell title="Match full radius Cell" radius="full">
@@ -63,7 +63,7 @@
 	<div class="flex justify-around p-4">
 		<Badge {isShow}><Avatar /></Badge>
 		<Badge text="24" {isShow}><Avatar /></Badge>
-		<Badge text="24" radius="base" {isShow}><Avatar /></Badge>
+		<Badge text="24" radius="sm" {isShow}><Avatar /></Badge>
 		<Badge text="Hot" radius="leaf" {isShow}><Avatar /></Badge>
 	</div>
 	<Cell title={!isShow ? 'Hidden' : 'Show'}>
@@ -77,7 +77,7 @@
 	<div class="flex justify-around p-4">
 		<Badge text="Theme" injClass="!bg-primary dark:!bg-dark text-white dark:text-black"><Avatar /></Badge>
 		<Badge text="New" injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]"><Avatar /></Badge>
-		<Badge radius="base" injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]"><Avatar image="/assets/images/avatar_1.jpg" /></Badge>
+		<Badge radius="sm" injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]"><Avatar image="/assets/images/avatar_1.jpg" /></Badge>
 		<Badge offsetX={9} offsetY={9} injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]">
 			<Avatar radius="full" image="/assets/images/avatar_1.jpg" />
 		</Badge>

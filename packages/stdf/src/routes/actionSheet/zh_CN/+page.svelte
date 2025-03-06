@@ -30,9 +30,9 @@
 		{ content: '选项三', style: 'danger', desc: '这里是描述信息' }
 	];
 	const actions3: ActionProps[] = [
-		{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'base' },
-		{ content: '小牛', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'base' },
-		{ content: '水人', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'base' }
+		{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'sm' },
+		{ content: '小牛', showImg: true, imgSrc: '/assets/images/dota_小牛.png', imgRadius: 'sm' },
+		{ content: '水人', showImg: true, imgSrc: '/assets/images/dota_水人.png', imgRadius: 'sm' }
 	];
 	const actions4: ActionProps[] = [
 		{ content: 'Apple', showImg: true, imgSrc: '/assets/logos/apple.png', imgRadius: 'none' },

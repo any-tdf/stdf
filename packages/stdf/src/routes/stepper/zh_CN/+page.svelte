@@ -60,7 +60,7 @@
 <div class="mx-4 mt-8 text-lg font-bold">不同圆角</div>
 <div class="flex flex-wrap gap-2 px-4 py-4">
 	<div><Stepper radius="none" /></div>
-	<div><Stepper radius="base" /></div>
+	<div><Stepper radius="sm" /></div>
 	<div><Stepper radius="xl" /></div>
 	<div><Stepper radius="full" /></div>
 	<div><Stepper radius="full" numberHighlight /></div>

@@ -60,17 +60,17 @@
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">Different border radius</div>
 <div class="px-6 py-4">
-	<Slider radius="base" />
+	<Slider radius="sm" />
 </div>
 <div class="px-6 py-4">
 	<Slider radius="none" />
 </div>
 <div class="px-6 py-4">
-	<Slider radius="base" isRange />
+	<Slider radius="sm" isRange />
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">Outlined slider</div>
 <div class="px-6 py-4">
-	<Slider lineBlock radius="base" />
+	<Slider lineBlock radius="sm" />
 </div>
 <div class="px-6 py-4">
 	<Slider lineBlock isRange />

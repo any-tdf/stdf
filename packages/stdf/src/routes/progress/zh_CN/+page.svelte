@@ -35,9 +35,9 @@
 	<div class="m-4 mt-8 text-lg font-bold">不同圆角风格</div>
 	<div class="flex flex-col space-y-4">
 		<Progress radius="none" />
-		<Progress radius="base" />
+		<Progress radius="middle" />
 		<Progress radius="none" percentPosition="block" />
-		<Progress radius="base" percentPosition="block" />
+		<Progress radius="middle" percentPosition="block" />
 		<Progress percentPosition="block" />
 	</div>
 

@@ -107,12 +107,12 @@
 	/**
 	 * @type {'base' | 'full' | 'none'}
 	 */
-	let radius: 'base' | 'full' | 'none' = $state('base');
+	let radius: 'middle' | 'full' | 'none' = $state('middle');
 	let dataFlag = $state(0);
 	let scrollAlign = $state(true);
 	let injClassList: string[] = $state([]);
 	const changeRadiusFun = () => {
-		radius = radius === 'base' ? 'full' : radius === 'full' ? 'none' : 'base';
+		radius = radius === 'middle' ? 'full' : radius === 'full' ? 'none' : 'middle';
 	};
 	const changeListFun = () => {
 		dataFlag = dataFlag === 0 ? 1 : dataFlag === 1 ? 2 : 0;
