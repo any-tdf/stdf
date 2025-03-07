@@ -127,5 +127,5 @@
 <Cell title="激活时背景不透明" subTitle="通过 popup 内的 mask" onclick={() => (visible17 = true)} />
 <NumKeyboard bind:visible={visible17} popup={{ mask: { opacity: '0.4' } }} />
 
-<Cell title="自定义按键字体" subTitle="需要引入并在 tailwind.config.js 中配置" onclick={() => (visible19 = true)} />
+<Cell title="自定义按键字体" subTitle="需要 CSS 加载字体并在 @theme 中配置" onclick={() => (visible19 = true)} />
 <NumKeyboard bind:visible={visible19} keyClass="font-Trueno" />

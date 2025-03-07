@@ -127,5 +127,5 @@
 <Cell title="Opaque Background When Active" subTitle="Via popup mask" onclick={() => (visible17 = true)} />
 <NumKeyboard bind:visible={visible17} popup={{ mask: { opacity: '0.4' } }} />
 
-<Cell title="Custom Key Font" subTitle="Need to import and configure in tailwind.config.js" onclick={() => (visible19 = true)} />
+<Cell title="Custom Key Font" subTitle="Need to load font in CSS and configure in @theme" onclick={() => (visible19 = true)} />
 <NumKeyboard bind:visible={visible19} keyClass="font-Trueno" />

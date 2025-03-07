@@ -36,9 +36,11 @@
 	--color-extend0: oklch(0.7028 0.1492 235.06);
 	--color-extend1: oklch(0.7021 0.1938 38.14);
 	--color-extend2: oklch(0.4815 0.10687 161.2119);
+
+	--font-Trueno: 'Trueno', Trueno;
 }
 @font-face {
-	font-family: 'Trueno';
+	font-family: Trueno;
 	src: url('/fonts/Trueno.otf') format('opentype');
 }
 *::-webkit-scrollbar {
