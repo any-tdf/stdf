@@ -37,6 +37,21 @@
 	--color-extend1: oklch(0.7021 0.1938 38.14);
 	--color-extend2: oklch(0.4815 0.10687 161.2119);
 
+	--color-black: oklch(0 0 0);
+	--color-white: oklch(1 0 0);
+	--color-gray-50: oklch(0.9612 0 0);
+	--color-gray-100: oklch(0.9249 0 0);
+	--color-gray-200: oklch(0.8452 0 0);
+	--color-gray-300: oklch(0.7668 0 0);
+	--color-gray-400: oklch(0.683 0 0);
+	--color-gray-500: oklch(0.5999 0 0);
+	--color-gray-600: oklch(0.5103 0 0);
+	--color-gray-700: oklch(0.4202 0 0);
+	--color-gray-800: oklch(0.3211 0 0);
+	--color-gray-900: oklch(0.2178 0 0);
+	--color-gray-950: oklch(0.1591 0 0);
+	--color-transparent: transparent;
+
 	--font-Trueno: 'Trueno', Trueno;
 }
 @font-face {
