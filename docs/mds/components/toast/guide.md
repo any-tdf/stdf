@@ -22,7 +22,7 @@ transitionParams 具体支持的参数请参考 [svelte/transition](https://svel
 
 ## type
 
-Toast 内部通过 `type` 属性为 'success'/'error'/'warning'/'info' 四种情况设置了对应的图标，也可以传入 `'loading'` 和 `'icon'` 配合 loading 与 icon 自定义对应的显示内容，传 `null` 不显示。请参考示例。
+Toast 内部通过 `type` 属性为 `'success'|'error'|'warning'|'info'` 四种情况设置了对应的图标，图标颜色跟随[颜色系统](https://stdf.design/guide/color)中的功能色，也可以传入 `'loading'` 和 `'icon'` 配合 loading 与 icon 自定义对应的显示内容，传 `null` 不显示。请参考示例。
 
 ## Snippet
 

@@ -52,6 +52,7 @@
 		xl: ' rounded-xl',
 		'2xl': ' rounded-2xl'
 	};
+	const typeColor = { success: 'text-success', error: 'text-error', warning: 'text-warning', info: 'text-info' };
 
 	//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -104,7 +105,7 @@
 								{:else if type === 'icon'}
 									<Icon size={30} {...icon} />
 								{:else if type === 'success' || type === 'error' || type === 'warning' || type === 'info'}
-									<Icon name={`ri-${typeObj[type]}-line`} size={30} {...icon} />
+									<Icon name={`ri-${typeObj[type]}-line`} injClass={typeColor[type]} size={30} {...icon} />
 								{:else}{/if}
 							</div>
 						{/if}
