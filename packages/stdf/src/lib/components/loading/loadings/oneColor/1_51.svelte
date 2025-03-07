@@ -14,7 +14,7 @@
 <div class="{size} relative m-auto">
 	{#each [0, -0.25, -0.5, -0.75] as item}
 		<div
-			class="dot absolute left-0 top-0 h-full w-full scale-0 rounded-full opacity-0{colorClass()}"
+			class="dot absolute left-0 top-0 h-full w-full rounded-full{colorClass()}"
 			style="background-color: {customColor[0]};animation-duration: {2 / speed}s;animation-delay: {(2 / speed) * item}s"
 		></div>
 	{/each}

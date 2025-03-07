@@ -11,7 +11,7 @@
 	};
 </script>
 
-<div class="{size} container relative m-auto flex rotate-45 flex-col" style="animation-duration: {3.5 / speed}s;">
+<div class="{size} container relative m-auto flex flex-col" style="animation-duration: {3.5 / speed}s;">
 	<div
 		class="isolation absolute flex h-[13.92px] w-[13.92px] items-center justify-center overflow-hidden"
 		style="top: 8.25%; left: 8.25%; border-radius: 50% 50% calc(32px / 15);"
