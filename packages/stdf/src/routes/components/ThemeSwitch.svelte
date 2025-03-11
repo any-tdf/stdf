@@ -13,11 +13,10 @@
 		currentColor = item.name;
 		switchTheme(item.theme);
 	};
-	const bgFunc = (str: string) => (str.charAt(0) === '#' ? str : `rgb(${str})`);
 </script>
 
 <div class="my-4 flex flex-col flex-wrap gap-2">
-	{#each themes as item}
+	{#each themes as item (item.name)}
 		<button
 			class="flex items-center justify-between gap-2 border p-2 {currentColor === item.name
 				? 'border-primary dark:border-dark'
@@ -36,21 +35,21 @@
 			<div class="flex justify-between gap-2">
 				<!-- theme  -->
 				<div class="rounded-xs flex overflow-hidden">
-					<div class="bg-primary w-6" style="background-color: {bgFunc(item.theme.color.primary.default)};"></div>
-					<div class="bg-dark w-6" style="background-color: {bgFunc(item.theme.color.dark.default)};"></div>
+					<div class="bg-primary w-6" style="background-color: {item.theme.color.primary.default};"></div>
+					<div class="bg-dark w-6" style="background-color: {item.theme.color.dark.default};"></div>
 				</div>
 				<div class="flex flex-col justify-between gap-1">
 					<!-- Functional -->
 					<div class="flex gap-0.5">
-						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.success)};"></div>
-						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.warning)};"></div>
-						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.error)};"></div>
-						<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(item.theme.color.functional.info)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.success};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.warning};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.error};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.info};"></div>
 					</div>
 					<!-- Extended -->
 					<div class="flex gap-0.5">
-						{#each item.theme.color?.extend ?? [] as child}
-							<div class="rounded-xs h-3 w-3" style="background-color: {bgFunc(child.color)};"></div>
+						{#each item.theme.color?.extend ?? [] as child (child.alias)}
+							<div class="rounded-xs h-3 w-3" style="background-color: {child.color};"></div>
 						{/each}
 					</div>
 				</div>
