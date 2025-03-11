@@ -24,9 +24,8 @@
 		<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
 	</svg>
 </div>
-<!-- main -> next -->
-<a href="https://next.stdf.design" target="_blank" rel="noreferrer">
-	<div class="text-center text-lg underline">next.stdf.design</div>
+<a href="https://stdf.design" target="_blank" rel="noreferrer">
+	<div class="text-center text-lg underline">stdf.design</div>
 </a>
 <div class="flex flex-col py-4">
 	<div>

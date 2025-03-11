@@ -152,9 +152,8 @@
 						</a>
 					</div>
 					<div class="h-12 w-10">
-						<!-- main -> next -->
 						<a
-							href={`https://next.stdf.design${$page.url.pathname === '/' ? '' : `/components?nav=${$page.url.pathname.split('/')[1]}&tab=0`}`}
+							href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/components?nav=${$page.url.pathname.split('/')[1]}&tab=0`}`}
 							target="_blank"
 							rel="noreferrer"
 						>
