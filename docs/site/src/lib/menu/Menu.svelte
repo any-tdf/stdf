@@ -27,9 +27,9 @@
 						// e.self();
 						setClick(child);
 					}}
-					class="box-content border-l-2 py-2 pl-2 text-left text-sm transition-all hover:font-bold {child.nav === currentNav
-						? 'border-primary font-bold text-primary dark:border-dark dark:text-dark'
-						: ''}"
+					class="box-content cursor-pointer border-l-2 py-2 pl-2 text-left text-sm transition-all hover:font-bold {child.nav === currentNav
+						? 'border-primary text-primary dark:border-dark dark:text-dark font-bold'
+						: 'border-black/10 dark:border-white/20'}"
 				>
 					{isZh ? child.title : child.title_en}
 				</button>

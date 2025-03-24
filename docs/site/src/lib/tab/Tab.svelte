@@ -46,7 +46,7 @@
 			text: QRValue,
 			isSpace: false
 		});
-		const color = $currentThemeStore === 'dark' ? 'rgb(var(--theme-color-dark))' : 'rgb(var(--theme-color-primary))';
+		const color = $currentThemeStore === 'dark' ? 'var(--color-dark)' : 'var(--color-primary)';
 		A_a1Svg = rendererLine(qrcode, {
 			posType: 2,
 			otherColor: color,
@@ -77,11 +77,11 @@
 	};
 </script>
 
-<div class="relative top-14 w-82 md:w-102">
-	<div class="relative rounded bg-gray-100 p-1 dark:bg-gray-700">
+<div class="w-82 md:w-102 relative top-14">
+	<div class="relative rounded-sm bg-gray-100 p-1 dark:bg-gray-700">
 		<!--滑块-->
 		<div
-			class="absolute top-1 h-10 w-16 rounded bg-white shadow-md transition-all duration-300 dark:bg-black dark:shadow-white/10 md:w-20"
+			class="absolute top-1 h-10 w-16 rounded-sm bg-white shadow-md transition-all duration-300 md:w-20 dark:bg-black dark:shadow-white/10"
 			class:left-1={currentTab === 0}
 			class:left-17={currentTab === 1}
 			class:md:left-21={currentTab === 1}
@@ -97,7 +97,7 @@
 			<button
 				onmouseleave={() => (showQr = false)}
 				onmouseenter={mouseenterFun}
-				class="absolute left-106 top-0 hidden h-12 w-12 rounded bg-gray-100 p-3 dark:bg-gray-700 md:block"
+				class="left-106 absolute top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -107,7 +107,7 @@
 				</svg>
 				{#if showQr}
 					<div
-						class="absolute left-0 top-14 z-50 hidden w-60 rounded bg-black p-6 shadow-lg dark:block"
+						class="absolute left-0 top-14 z-50 hidden w-60 rounded-sm bg-black p-6 shadow-lg dark:block"
 						transition:fade={{ duration: 200 }}
 					>
 						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -116,7 +116,7 @@
 				{/if}
 				{#if showQr}
 					<div
-						class="absolute left-0 top-14 z-50 block w-60 rounded bg-white p-6 shadow-lg dark:hidden"
+						class="absolute left-0 top-14 z-50 block w-60 rounded-sm bg-white p-6 shadow-lg dark:hidden"
 						transition:fade={{ duration: 200 }}
 					>
 						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -130,14 +130,14 @@
 			<button
 				onmouseleave={() => (showStackblitz = false)}
 				onmouseenter={showStackblitzFunc}
-				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded bg-gray-100 p-3 dark:bg-gray-700 md:block"
+				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg viewBox="0 0 28 28" height="24">
 					<path fill="#3275e7" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z" />
 				</svg>
 				{#if showStackblitz}
 					<div
-						class="absolute left-0 top-14 z-50 h-12 w-44 rounded bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '在 StackBlitz 中打开' : 'Open in StackBlitz'}
@@ -150,7 +150,7 @@
 			<button
 				onmouseleave={() => (showCode = false)}
 				onmouseenter={showCodeFunc}
-				class="absolute left-[30.5rem] top-0 hidden h-12 w-12 rounded bg-gray-100 p-3 dark:bg-gray-700 md:block"
+				class="absolute left-[30.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path
@@ -161,7 +161,7 @@
 					<div
 						class="{isZh
 							? 'w-28'
-							: 'w-52'} absolute left-0 top-14 z-50 h-12 rounded bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+							: 'w-52'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '组件源码' : 'Component source code'}
@@ -171,7 +171,7 @@
 		</a>
 		<div class="relative flex">
 			{#each tabList as item, index}
-				<button onclick={() => changeIndexFun(index)} class="w-16 cursor-pointer rounded py-2 text-center md:w-20">
+				<button onclick={() => changeIndexFun(index)} class="w-16 cursor-pointer rounded-sm py-2 text-center md:w-20">
 					{isZh ? item.zh : item.en}
 				</button>
 			{/each}

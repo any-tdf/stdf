@@ -1,41 +1,217 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
-@layer base {
-	:root {
-		--theme-color-primary-50: 245, 248, 255;
-		--theme-color-primary-100: 232, 238, 255;
-		--theme-color-primary-200: 187, 203, 254;
-		--theme-color-primary-300: 143, 165, 253;
-		--theme-color-primary-400: 99, 124, 253;
-		--theme-color-primary-500: 55, 81, 252;
-		--theme-color-primary: 11, 36, 251;
-		--theme-color-primary-700: 7, 20, 207;
-		--theme-color-primary-800: 4, 9, 164;
-		--theme-color-primary-900: 1, 1, 120;
-		--theme-color-primary-950: 3, 0, 77;
-		--theme-color-dark-50: 255, 254, 245;
-		--theme-color-dark-100: 255, 251, 232;
-		--theme-color-dark-200: 255, 244, 199;
-		--theme-color-dark-300: 255, 234, 166;
-		--theme-color-dark-400: 255, 222, 133;
-		--theme-color-dark-500: 255, 209, 100;
-		--theme-color-dark: 255, 192, 67;
-		--theme-color-dark-700: 210, 148, 41;
-		--theme-color-dark-800: 166, 108, 22;
-		--theme-color-dark-900: 121, 72, 8;
-		--theme-color-dark-950: 77, 41, 0;
-		--theme-color-primaryBlack: 1, 3, 25;
-		--theme-color-primaryWhite: 242, 242, 243;
-		--theme-color-darkBlack: 25, 17, 1;
-		--theme-color-darkWhite: 243, 242, 242;
-		--theme-color-functional-success: 17, 187, 141;
-		--theme-color-functional-warning: 185, 80, 0;
-		--theme-color-functional-error: 218, 20, 20;
-		--theme-color-functional-info: 46, 90, 172;
-		--theme-color-extend0: 0, 172, 238;
-		--theme-color-extend1: 255, 105, 55;
-		--theme-color-extend2: 0, 112, 74;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--color-primary-50: oklch(0.979 0.01 267.36);
+	--color-primary-100: oklch(0.95 0.024 270.343);
+	--color-primary-200: oklch(0.847 0.074 271.188);
+	--color-primary-300: oklch(0.741 0.13 272.232);
+	--color-primary-400: oklch(0.634 0.193 271.595);
+	--color-primary-500: oklch(0.536 0.252 268.66);
+	--color-primary: oklch(0.467 0.296 264.886);
+	--color-primary-700: oklch(0.397 0.26 264.877);
+	--color-primary-800: oklch(0.331 0.221 264.833);
+	--color-primary-900: oklch(0.26 0.178 264.428);
+	--color-primary-950: oklch(0.192 0.13 266.64);
+
+	--color-dark-50: oklch(0.995 0.012 101.474);
+	--color-dark-100: oklch(0.986 0.025 97.107);
+	--color-dark-200: oklch(0.965 0.059 95.884);
+	--color-dark-300: oklch(0.938 0.089 92.952);
+	--color-dark-400: oklch(0.91 0.114 89.711);
+	--color-dark-500: oklch(0.88 0.136 86.375);
+	--color-dark: oklch(0.845 0.153 80.597);
+	--color-dark-700: oklch(0.71 0.137 75.734);
+	--color-dark-800: oklch(0.58 0.118 70.166);
+	--color-dark-900: oklch(0.449 0.097 65.209);
+	--color-dark-950: oklch(0.321 0.074 62.379);
+
+	--color-primaryBlack: oklch(0.116 0.054 267.087);
+	--color-primaryWhite: oklch(0.961 0.001 286.375);
+	--color-darkBlack: oklch(0.183 0.035 86.634);
+	--color-darkWhite: oklch(0.962 0.001 17.178);
+
+	--color-success: oklch(0.704 0.142 167.084);
+	--color-warning: oklch(0.558 0.154 47.186);
+	--color-error: oklch(0.564 0.223 28.46);
+	--color-info: oklch(0.482 0.14 261.518);
+
+	--color-extend0: oklch(0.703 0.149 235.059);
+	--color-Twitter: oklch(0.703 0.149 235.059);
+	--color-extend1: oklch(0.702 0.194 38.137);
+	--color-Svelte: oklch(0.702 0.194 38.137);
+	--color-extend2: oklch(0.482 0.107 161.212);
+	--color-Starbucks: oklch(0.482 0.107 161.212);
+
+	--color-black: oklch(0 0 0);
+	--color-white: oklch(1 0 0);
+	--color-gray-50: oklch(0.961 0 0);
+	--color-gray-100: oklch(0.925 0 0);
+	--color-gray-200: oklch(0.845 0 0);
+	--color-gray-300: oklch(0.767 0 0);
+	--color-gray-400: oklch(0.683 0 0);
+	--color-gray-500: oklch(0.6 0 0);
+	--color-gray-600: oklch(0.51 0 0);
+	--color-gray-700: oklch(0.42 0 0);
+	--color-gray-800: oklch(0.321 0 0);
+	--color-gray-900: oklch(0.218 0 0);
+	--color-gray-950: oklch(0.159 0 0);
+	--color-transparent: transparent;
+
+	--color-bug1: oklch(0.579 0.214 27.172);
+	--color-bug2: oklch(0.749 0.162 66.986);
+	--color-bug3: oklch(0.912 0.192 103.116);
+	--color-bug4: oklch(0.779 0.141 229.596);
+	--color-tailwind: oklch(0.746 0.16 232.661);
+	--color-svelte: oklch(0.702 0.194 38.137);
+
+	--animate-shake: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	@keyframes shake {
+		10%,
+		90% {
+			transform: translate3d(-1px, 0, 0);
+		}
+		20%,
+		80% {
+			transform: translate3d(2px, 0, 0);
+		}
+		30%,
+		50%,
+		70% {
+			transform: translate3d(-4px, 0, 0);
+		}
+		40%,
+		60% {
+			transform: translate3d(4px, 0, 0);
+		}
 	}
+
+	--animate-lightning: lightning 3s linear infinite;
+	@keyframes lightning {
+		0% {
+			opacity: 0;
+		}
+		10% {
+			opacity: 1;
+		}
+		20% {
+			opacity: 0;
+		}
+		30% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	--animate-path: path 3s linear infinite;
+	@keyframes path {
+		0% {
+			stroke-dashoffset: 400;
+			fill: transparent;
+		}
+		31% {
+			stroke-dashoffset: 0;
+			fill: transparent;
+		}
+		32% {
+			stroke-dashoffset: 0;
+			fill: currentColor;
+			opacity: 1;
+		}
+		33% {
+			opacity: 0;
+		}
+		35% {
+			opacity: 1;
+		}
+		37% {
+			opacity: 0;
+		}
+		39% {
+			opacity: 1;
+		}
+		41% {
+			opacity: 0;
+		}
+		43% {
+			opacity: 1;
+		}
+		44% {
+			stroke-dashoffset: 0;
+			fill: currentColor;
+		}
+		99% {
+			stroke-dashoffset: 0;
+			fill: currentColor;
+		}
+		100% {
+			stroke-dashoffset: 400;
+			fill: transparent;
+		}
+	}
+
+	--animate-dynamicsBg:dynamicsBg 8s linear infinite;
+	@keyframes dynamicsBg {
+		0% {
+			transform: rotate(360deg);
+			height: 14rem;
+			width: 14rem;
+		}
+		50% {
+			height: 7rem;
+			width: 7rem;
+		}
+		100% {
+			transform: rotate(0deg);
+			height: 14rem;
+			width: 14rem;
+		}
+	}
+
+	--animate-cloudMove: cloudMove 40s linear infinite;
+	@keyframes cloudMove {
+		0% {
+			transform: translateX(20%) translateY(-20%);
+		}
+		50% {
+			transform: translateX(-100%) translateY(-20%);
+		}
+		100% {
+			transform: translateX(20%) translateY(-20%);
+		}
+	}
+
+	--animate-starTwinkle: starTwinkle 8s linear infinite;
+	--animate-starTwinkle2: starTwinkle 3s linear infinite;
+	--animate-starTwinkle3: starTwinkle 6s linear infinite;
+	--animate-starTwinkle4: starTwinkle 4s linear infinite;
+	@keyframes starTwinkle {
+		0% {
+			opacity: 1;
+		}
+		40% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+		60% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+}
+
+@source "../../packages/stdf/dist/**/*.svelte";
+
+pre {
+	background-color: transparent;
+	padding: 0;
 }

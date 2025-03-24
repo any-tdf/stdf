@@ -191,6 +191,8 @@ peer-checked/tab-2-0:border-primary peer-checked/tab-2-1:border-primary peer-che
 peer-checked/tab-2-3:border-primary peer-checked/tab-2-4:border-primary peer-checked/tab-2-5:border-primary
 peer-checked/tab-3-0:border-primary peer-checked/tab-3-1:border-primary peer-checked/tab-3-2:border-primary
 peer-checked/tab-3-3:border-primary peer-checked/tab-3-4:border-primary peer-checked/tab-3-5:border-primary
+peer-checked/tab-4-0:border-primary peer-checked/tab-4-1:border-primary peer-checked/tab-4-2:border-primary
+peer-checked/tab-4-3:border-primary peer-checked/tab-4-4:border-primary peer-checked/tab-4-5:border-primary
 dark:peer-checked/tab-0-0:border-dark dark:peer-checked/tab-0-1:border-dark dark:peer-checked/tab-0-2:border-dark
 dark:peer-checked/tab-0-3:border-dark dark:peer-checked/tab-0-4:border-dark dark:peer-checked/tab-0-5:border-dark
 dark:peer-checked/tab-1-0:border-dark dark:peer-checked/tab-1-1:border-dark dark:peer-checked/tab-1-2:border-dark
@@ -199,6 +201,8 @@ dark:peer-checked/tab-2-0:border-dark dark:peer-checked/tab-2-1:border-dark dark
 dark:peer-checked/tab-2-3:border-dark dark:peer-checked/tab-2-4:border-dark dark:peer-checked/tab-2-5:border-dark
 dark:peer-checked/tab-3-0:border-dark dark:peer-checked/tab-3-1:border-dark dark:peer-checked/tab-3-2:border-dark
 dark:peer-checked/tab-3-3:border-dark dark:peer-checked/tab-3-4:border-dark dark:peer-checked/tab-3-5:border-dark
+dark:peer-checked/tab-4-0:border-dark dark:peer-checked/tab-4-1:border-dark dark:peer-checked/tab-4-2:border-dark
+dark:peer-checked/tab-4-3:border-dark dark:peer-checked/tab-4-4:border-dark dark:peer-checked/tab-4-5:border-dark
 hidden border-b-2 border-black/10 peer-checked/tab-0-0:block
 peer-checked/tab-0-1:block peer-checked/tab-0-2:block peer-checked/tab-0-3:block
 peer-checked/tab-0-4:block peer-checked/tab-0-5:block peer-checked/tab-1-0:block
@@ -207,5 +211,7 @@ peer-checked/tab-1-4:block peer-checked/tab-1-5:block peer-checked/tab-2-0:block
 peer-checked/tab-2-1:block peer-checked/tab-2-2:block peer-checked/tab-2-3:block
 peer-checked/tab-2-4:block peer-checked/tab-2-5:block peer-checked/tab-3-0:block
 peer-checked/tab-3-1:block peer-checked/tab-3-2:block peer-checked/tab-3-3:block
-peer-checked/tab-3-4:block peer-checked/tab-3-5:block dark:border-white/10 dark:bg-[#202020]"
+peer-checked/tab-3-4:block peer-checked/tab-3-5:block peer-checked/tab-4-0:block
+peer-checked/tab-4-1:block peer-checked/tab-4-2:block peer-checked/tab-4-3:block
+peer-checked/tab-4-4:block peer-checked/tab-4-5:block dark:border-white/10 dark:bg-[#202020]"
 ></div>

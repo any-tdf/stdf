@@ -1,8 +1,8 @@
-> STDF v1.x 基于 Svelte 5.x 与 Tailwind CSS 4.x。
+> STDF v1.x 基于 Svelte v5 与 Tailwind CSS v4。
 
 ## Svelte
 
-市面上能看到的浏览器版本基本都已经支持了 Svelte 3，旧版的 IE 浏览器需要 Polyfills，不过移动端没有 IE，况且微软也已经放弃了 IE，所以这里不做讨论。
+市面上能看到的浏览器版本基本都已经支持了 Svelte v5，旧版的 IE 浏览器需要 Polyfills，不过移动端没有 IE，况且微软也已经放弃了 IE，所以这里不做讨论。
 
 ## Tailwind CSS
 

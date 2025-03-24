@@ -32,9 +32,6 @@
 			darkMeta.setAttribute('content', safariDark);
 		}
 	};
-	const bgFunc = (str: string) => {
-		return str.charAt(0) === '#' ? str : `rgb(${str})`;
-	};
 </script>
 
 <div class="flex {vertical ? 'flex-col' : 'flex-row'} my-4 flex-wrap gap-2">
@@ -56,22 +53,22 @@
 			<div class="whitespace-nowrap">{isZh ? item.name_CN : item.name}</div>
 			<div class="flex justify-between gap-2">
 				<!-- theme  -->
-				<div class="flex overflow-hidden rounded-sm">
-					<div class="bg-primary w-6" style="background-color: {bgFunc(item.theme.color.primary.default)};"></div>
-					<div class="bg-dark w-6" style="background-color: {bgFunc(item.theme.color.dark.default)};"></div>
+				<div class="rounded-xs flex overflow-hidden">
+					<div class="bg-primary w-6" style="background-color: {item.theme.color.primary.default};"></div>
+					<div class="bg-dark w-6" style="background-color: {item.theme.color.dark.default};"></div>
 				</div>
 				<div class="flex flex-col justify-between gap-1">
 					<!-- Functional -->
 					<div class="flex gap-0.5">
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.success)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.warning)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.error)};"></div>
-						<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(item.theme.color.functional.info)};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.success};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.warning};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.error};"></div>
+						<div class="rounded-xs h-3 w-3" style="background-color: {item.theme.color.functional.info};"></div>
 					</div>
 					<!-- Extended -->
 					<div class="flex justify-between gap-0.5">
 						{#each item.theme.color.extend as child}
-							<div class="h-3 w-3 rounded-sm" style="background-color: {bgFunc(child.color)};"></div>
+							<div class="rounded-xs h-3 w-3" style="background-color: {child.color};"></div>
 						{/each}
 					</div>
 				</div>
@@ -82,7 +79,7 @@
 		<a
 			href="/guide/generator"
 			target="_blank"
-			class="text-primary hover:border-primary dark:text-dark dark:hover:border-dark group flex items-center justify-center gap-2 rounded border border-gray-100 py-2 transition-all duration-300 dark:border-gray-700"
+			class="text-primary hover:border-primary dark:text-dark dark:hover:border-dark group flex items-center justify-center gap-2 rounded-sm border border-gray-100 py-2 transition-all duration-300 dark:border-gray-700"
 		>
 			<svg class="h-5 w-5 transition-all duration-300 group-hover:scale-95" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<path

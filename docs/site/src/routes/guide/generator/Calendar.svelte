@@ -59,7 +59,7 @@
 	// 圆角风格样式
 	// Rounded style style
 	const radiusClass = {
-		base: 'rounded',
+		sm: 'rounded-sm',
 		xl: 'rounded-xl',
 		'2xl': 'rounded-2xl',
 		none: 'rounded-none'
@@ -268,13 +268,13 @@
 								mode === 'range' &&
 								(selectedDateStr.indexOf(`${item.year}${item.month}${i.text}`) === selectedDateStr.length - 8 || i.end)}
 							class:!rounded-none={radius === 'none' && mode !== 'range'}
-							class:!rounded-l={radius === 'base' &&
+							class:!rounded-l-sm={radius === 'sm' &&
 								mode === 'range' &&
 								(selectedDateStr.indexOf(`${item.year}${item.month}${i.text}`) === 0 || i.start)}
-							class:!rounded-r={radius === 'base' &&
+							class:!rounded-r-sm={radius === 'sm' &&
 								mode === 'range' &&
 								(selectedDateStr.indexOf(`${item.year}${item.month}${i.text}`) === selectedDateStr.length - 8 || i.end)}
-							class:!rounded={radius === 'base' && mode !== 'range'}
+							class:!rounded-sm={radius === 'sm' && mode !== 'range'}
 						>
 							<div
 								class="{radiusClass[radius as keyof typeof radiusClass] ||

@@ -1,4 +1,5 @@
 <script lang="ts">
+	let { useViewTransition = true } = $props();
 	import darkMode from './darkMode';
 	import { themeStore, sysThemeStore, currentThemeStore } from '../../store';
 	let isClick = $state(false);
@@ -15,17 +16,17 @@
 			themeStore.set('dark');
 			currentThemeStore.set('dark');
 			localStorage.setItem('theme', 'dark');
-			darkMode(true, e);
+			darkMode(true, e, useViewTransition);
 		} else if ($themeStore === 'dark') {
 			// 切换到 auto
 			themeStore.set('auto');
 			localStorage.setItem('theme', 'auto');
 			if ($sysThemeStore === 'dark') {
 				// 系统是暗模式
-				darkMode(true, e);
+				darkMode(true, e, useViewTransition);
 				currentThemeStore.set('dark');
 			} else {
-				darkMode(false, e);
+				darkMode(false, e, useViewTransition);
 				currentThemeStore.set('light');
 			}
 		} else {
@@ -33,7 +34,7 @@
 			themeStore.set('light');
 			currentThemeStore.set('light');
 			localStorage.setItem('theme', 'light');
-			darkMode(false, e);
+			darkMode(false, e, useViewTransition);
 		}
 	};
 	//auto 时，监听系统主题
@@ -56,7 +57,7 @@
 </script>
 
 <button
-	class="mx-auto flex w-28 cursor-pointer justify-between rounded bg-black/5 p-0.5 text-center dark:bg-white/10"
+	class="mx-auto flex w-28 cursor-pointer justify-between rounded-sm bg-black/5 p-0.5 text-center dark:bg-white/10"
 	title={isZh
 		? `${$themeStore === 'light' ? '亮模式' : $themeStore === 'dark' ? '暗模式' : '跟随系统'}`
 		: `${$themeStore === 'light' ? 'Light' : $themeStore === 'dark' ? 'Dark' : 'System'}`}
@@ -67,7 +68,7 @@
 >
 	<div
 		class:scale-75={isClick}
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded{$themeStore === 'light' ? ' bg-white/80 shadow-sm' : ''}"
+		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'light' ? ' shadow-xs bg-white/80' : ''}"
 		style="color:{$sysThemeStore === 'dark'
 			? $themeStore === 'light'
 				? '#ff3f2e'
@@ -119,7 +120,7 @@
 	</div>
 	<div
 		class:scale-75={isClick}
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded{$themeStore === 'dark' ? ' bg-black/50 shadow-sm' : ''}"
+		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'dark' ? ' shadow-xs bg-black/50' : ''}"
 		style="color:{$sysThemeStore === 'light'
 			? $themeStore === 'auto'
 				? '#cecece'
@@ -140,10 +141,10 @@
 		</svg>
 	</div>
 	<div
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded{$themeStore === 'auto' && $sysThemeStore === 'light'
+		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'auto' && $sysThemeStore === 'light'
 			? ' bg-white/80'
 			: ''}{$themeStore === 'auto' && $sysThemeStore === 'dark' ? ' bg-black/50' : ''}{$themeStore === 'auto' && $sysThemeStore === 'light'
-			? ' shadow-sm'
+			? ' shadow-xs'
 			: ''}"
 		style="color:{$themeStore === 'light'
 			? '#cecece'

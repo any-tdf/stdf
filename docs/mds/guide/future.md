@@ -10,7 +10,7 @@
 - [x] 新增 Stepper-步进器组件。
 - [x] 完整支持 Svelte 5。
 - [x] 完整支持 TypeScript。
-- [ ] 适配 Tailwind CSS v4。
+- [x] 适配 Tailwind CSS v4。
 
 ---
 

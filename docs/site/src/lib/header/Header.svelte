@@ -56,7 +56,7 @@
 <div
 	class="{showBottonLine
 		? 'border-b border-black/10 dark:border-white/10 '
-		: ''}flex sticky top-0 z-[100] h-14 items-center justify-between backdrop-blur"
+		: ''}flex sticky top-0 z-[100] h-14 items-center justify-between backdrop-blur-sm"
 >
 	{#if showLeftNav}
 		<button class="cursor-pointer p-4 md:hidden" onclick={toggleNavFun}>
@@ -119,22 +119,22 @@
 			{#if showNav}
 				<!-- 移动端 -->
 				<div
-					class="absolute right-2 top-16 flex flex-col space-y-4 rounded border border-black/10 bg-white p-1 pt-4 text-center font-bold shadow-lg backdrop-blur dark:border-white/20 dark:bg-gray-950 dark:shadow-white/20"
+					class="absolute right-2 top-16 flex flex-col space-y-4 rounded-sm border border-black/10 bg-white p-1 pt-4 text-center font-bold shadow-lg backdrop-blur-sm dark:border-white/20 dark:bg-gray-950 dark:shadow-white/20"
 				>
 					<a
 						href="/guide"
-						class="rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						class:bg-gray-100={currentRoute === '/guide'}
 						class:dark:bg-gray-500={currentRoute === '/guide'}>{isZh ? '指南' : 'Guide'}</a
 					>
 					<a
 						href="/components?nav=button&tab=0"
-						class="rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						class:bg-gray-100={currentRoute === '/components'}
 						class:dark:bg-gray-500={currentRoute === '/components'}>{isZh ? '组件' : 'Components'}</a
 					>
 					<button
-						class="relative rounded px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="relative rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 						onclick={showThemeFunc}
 						bind:this={ThemeSwitchDom}
 					>
@@ -144,19 +144,19 @@
 								transition:slide={{ duration: 300, axis: 'y' }}
 								class="absolute right-4 top-0 rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10"
 							>
-								<ModeSwitch />
+								<ModeSwitch useViewTransition={false} />
 								<ThemeSwitch vertical />
 							</div>
 						{/if}
 					</button>
-					<button class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700" onclick={toggleFundFunc}>
+					<button class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700" onclick={toggleFundFunc}>
 						{isZh ? '支持' : 'Support'}
 					</button>
 
 					<!-- 语言切换 -->
 					<button
 						aria-label={isZh ? '切换语言' : 'Switch Language'}
-						class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 						onclick={toggleLangFunc}
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
@@ -171,7 +171,7 @@
 					<!-- main -> next -->
 					<a
 						href="https://github.com/any-tdf/stdf/tree/next"
-						class="rounded px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 						target="_blank"
 						aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
 					>
@@ -190,7 +190,7 @@
 		<!--PC 端-->
 		<div class="hidden items-center space-x-2 px-6 font-bold md:flex">
 			<button
-				class="flex cursor-pointer rounded border border-black/10 px-2 text-sm font-normal text-black/40 transition-all hover:border-black/20 dark:border-white/10 dark:text-white/40 dark:hover:border-white/20"
+				class="flex cursor-pointer rounded-sm border border-black/10 px-2 text-sm font-normal text-black/40 transition-all hover:border-black/20 dark:border-white/10 dark:text-white/40 dark:hover:border-white/20"
 				style="padding-top: 0.3125rem;padding-bottom: 0.3125rem;"
 				onclick={clickCmdKFun}
 			>
@@ -205,12 +205,12 @@
 				<div class="mr-4 flex flex-col justify-center text-xs">
 					{isZh ? '快速搜索...' : 'Quick search...'}
 				</div>
-				<div class="mr-1 rounded bg-black/5 px-1 font-bold dark:bg-white/5">{cmdkey}</div>
-				<div class="rounded bg-black/5 px-1.5 font-bold dark:bg-white/5">K</div>
+				<div class="mr-1 rounded-sm bg-black/5 px-1 font-bold dark:bg-white/5">{cmdkey}</div>
+				<div class="rounded-sm bg-black/5 px-1.5 font-bold dark:bg-white/5">K</div>
 			</button>
 			<a
 				href="/guide"
-				class="rounded px-4 py-1 transition-all {currentRoute === '/guide'
+				class="rounded-sm px-4 py-1 transition-all {currentRoute === '/guide'
 					? 'bg-primary dark:bg-dark text-white dark:text-black'
 					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
 			>
@@ -218,14 +218,14 @@
 			</a>
 			<a
 				href="/components?nav=button&tab=0"
-				class="inline-block rounded px-4 py-1 text-center transition-all {currentRoute === '/components'
+				class="inline-block rounded-sm px-4 py-1 text-center transition-all {currentRoute === '/components'
 					? 'bg-primary dark:bg-dark text-white dark:text-black'
 					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
 			>
 				{isZh ? '组件' : 'Components'}
 			</a>
 			<button
-				class="relative cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="relative rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				onmouseover={() => showThemeSwitchStore.set(true)}
 				onfocus={() => showThemeSwitchStore.set(true)}
 				onblur={() => showThemeSwitchStore.set(false)}
@@ -236,14 +236,14 @@
 				{#if $showThemeSwitchStore}
 					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute left-1/2 top-8 -translate-x-1/2 pt-2">
 						<div class="rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10">
-							<ModeSwitch />
+							<ModeSwitch useViewTransition={false} />
 							<ThemeSwitch vertical />
 						</div>
 					</div>
 				{/if}
 			</button>
 			<button
-				class="cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="cursor-pointer rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				title={isZh ? '支持' : 'Support'}
 				onclick={toggleFundFunc}
 			>
@@ -254,7 +254,7 @@
 				onclick={toggleLangFunc}
 				title={isZh ? '切换语言' : 'Switch languages'}
 				aria-label={isZh ? '切换语言' : 'Switch languages'}
-				class="cursor-pointer rounded px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="cursor-pointer rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -268,7 +268,7 @@
 			<!-- main -> next -->
 			<a
 				href="https://github.com/any-tdf/stdf/tree/next"
-				class="inline-block rounded px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="inline-block rounded-sm px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				target="_blank"
 				aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
 				title={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}

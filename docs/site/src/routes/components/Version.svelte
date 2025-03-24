@@ -106,7 +106,7 @@
 		: 'Note: 👊, ✊, and 👎 represent three levels of severity for bugs, with 👊 being the most severe and 👎 the least severe. 👏 means optimization, and 💪 means new feature. The avatar after the description represents the proposer or contributor of the item. We thank them for their contributions. '}
 </div>
 <article
-	class="prose max-w-none overflow-x-auto pb-12 dark:prose-invert prose-table:break-all prose-td:whitespace-nowrap md:prose-td:whitespace-normal"
+	class="prose dark:prose-invert prose-table:break-all prose-td:whitespace-nowrap md:prose-td:whitespace-normal max-w-none overflow-x-auto pb-12"
 >
 	{#if loading}
 		{isZh ? '请等待...' : 'Please wait...'}
@@ -118,7 +118,7 @@
 	<!-- main -> next -->
 	<a
 		href={'https://github.com/any-tdf/stdf/edit/next/docs/mds/components/' + guide + '/version' + (isZh ? '' : '_en') + '.md'}
-		class="flex text-primary dark:text-dark"
+		class="text-primary dark:text-dark flex"
 		target="_blank"
 	>
 		<span class="mr-1 h-4 w-4">

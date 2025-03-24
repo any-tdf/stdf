@@ -254,7 +254,7 @@
 			text: 'https://next-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
 			isSpace: false
 		});
-		const color = $currentThemeStore === 'dark' ? 'rgb(var(--theme-color-dark))' : 'rgb(var(--theme-color-primary))';
+		const color = $currentThemeStore === 'dark' ? 'var(--color-dark)' : 'var(--color-primary)';
 		A_a1Svg = rendererLine(qrcode, { posType: 2, otherColor: color, posColor: color });
 		showQr = true;
 	};
@@ -299,7 +299,7 @@
 						show3D = false;
 						localStorage.setItem('show3D', '0');
 					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-500 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
+					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded-sm bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-500 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
 				>
 					{isZh ? '隐藏 3D LOGO' : 'Hidden 3D LOGO'}
 				</button>
@@ -314,7 +314,7 @@
 						show3D = true;
 						localStorage.setItem('show3D', '1');
 					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-300 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
+					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded-sm bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-300 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
 				>
 					{isZh ? '显示 3D LOGO' : 'Show 3D LOGO'}
 				</button>
@@ -405,7 +405,7 @@
 			<div class="mb-8 mt-8 flex justify-center gap-4 space-x-8 md:mb-10 md:mt-16">
 				<a
 					href="/guide"
-					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded px-6 py-2 text-white transition-all dark:text-black"
+					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-6 py-2 text-white transition-all dark:text-black"
 				>
 					{isZh ? '开始使用' : 'Get Started'}
 					<span class="absolute left-1/2 top-0 hidden group-hover:block">
@@ -417,7 +417,7 @@
 					href="/"
 					onmouseleave={() => (showQr = false)}
 					onmouseenter={mouseenterFun}
-					class="border-primary dark:border-dark relative hidden rounded border border-solid px-6 py-2 transition-all md:block"
+					class="border-primary dark:border-dark relative hidden rounded-sm border border-solid px-6 py-2 transition-all md:block"
 				>
 					{isZh ? '扫码示例' : 'QR Demo'}
 					{#if showQr}
@@ -445,7 +445,7 @@
 				<a
 					href={'https://next-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"
-					class="border-primary dark:border-dark block rounded border border-solid px-6 py-2 transition-all md:hidden"
+					class="border-primary dark:border-dark block rounded-sm border border-solid px-6 py-2 transition-all md:hidden"
 				>
 					{isZh ? '查看示例' : 'Examples'}
 				</a>

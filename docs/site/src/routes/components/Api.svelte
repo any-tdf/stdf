@@ -24,7 +24,7 @@
 </script>
 
 <article
-	class="prose max-w-none overflow-x-auto pb-12 dark:prose-invert prose-table:break-all prose-td:whitespace-nowrap md:prose-td:whitespace-normal"
+	class="prose dark:prose-invert prose-table:break-all prose-td:whitespace-nowrap md:prose-td:whitespace-normal max-w-none overflow-x-auto pb-12"
 >
 	{#if loading}
 		{isZh ? '请等待...' : 'Please wait...'}
@@ -37,7 +37,7 @@
 	<a
 		href={'https://github.com/any-tdf/stdf/edit/next/docs/mds/components/' + api + '/api' + (isZh ? '' : '_en') + '.md'}
 		target="_blank"
-		class="flex text-primary dark:text-dark"
+		class="text-primary dark:text-dark flex"
 	>
 		<span class="mr-1 h-4 w-4">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" style="fill: currentColor;">

@@ -1,4 +1,5 @@
 import Color from 'color';
+import { oklch, parse, formatHex } from 'culori';
 import codeGroupSvgData from './code-group-svg-data';
 import hljs from 'highlight.js';
 // @ts-expect-error - highlightjs-svelte 缺少类型定义
@@ -104,7 +105,7 @@ export const mdTextToHljs = (mdText: string) => {
 };
 
 /**
- * 传入解析出来的 md 文档字符，找到其中  ::: code-group ���  ::: 之间的代码块，并将其分组，实现代码块的 tab 分组显示，
+ * 传入解析出来的 md 文档字符，找到其中  ::: code-group 与  ::: 之间的代码块，并将其分组，实现代码块的 tab 分组显示，
  * 其中 label 标签中的内容为 tab 标签的标题，并在文字前面增加一个 icon 标签，icon 标签的 class 内容为 iconfont 的类名
  * @param {string} md - 解析出来的 md 文档字符
  * @returns {string} - 返回处理后的 md 文档字符
@@ -150,7 +151,7 @@ export const groupIconMdPlugin = (md: string) => {
 			arr.push({ label, code });
 		});
 		return `
-			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-[#202020] rounded mb-4">
+			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-[#202020] rounded-sm mb-4">
 				${arr.map((item) => item.label).join('')}
 				${arr.map((item) => item.code).join('')}
 			</section>
@@ -214,9 +215,49 @@ export const delParamsUrl = (url: string, name: string) => {
 	}
 };
 
+/**
+ * 传入 hex 格式的颜色值，将其转换成 oklch 格式，oklch(l c h),其中 lch 为 0-1 之间的值，保留三位小数
+ * @param {string} str - 颜色值
+ * @returns {string} - 返回 oklch 格式的颜色值
+ * @example
+ * getOklchFunc('#000') // 'oklch(0 0 0)'
+ */
+export const getOklchFunc = (str: string) => {
+	const l = oklch(parse(str))?.l || 0;
+	const c = oklch(parse(str))?.c || 0;
+	const h = oklch(parse(str))?.h || 0;
+	return `oklch(${parseFloat(l.toFixed(3))} ${parseFloat(c.toFixed(3))} ${parseFloat(h.toFixed(3))})`;
+};
+
+/**
+ * 传入 oklch 格式色值，将其转为成 hex 格式
+ * @param {string} str - 颜色值
+ * @returns {string} - 返回 hex 格式的颜色值
+ * @example
+ * getHexFunc('oklch(0 0 0)') // '#000000'
+ */
+export const getHexFunc = (oklchString: string) => {
+	// 解析字符串，提取 l, c, h 值
+	const match = oklchString.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
+	if (match) {
+		const [_, l, c, h] = match.map(Number); // 转换为数字
+		// 创建 OKLCH 对象
+		const oklchColor = { mode: 'oklch' as const, l, c, h };
+		// 转换为 HEX
+		const hexColor = formatHex(oklchColor);
+		return hexColor;
+	} else {
+		return oklchString;
+	}
+};
+
 const formats = ['hex', 'rgb', 'hsl'];
 /**
  * 获取颜色格式
+ * @param {string} format - 颜色格式
+ * @returns {string} - 返回颜色格式
+ * @example
+ * getFormat('hex') // hex
  */
 const getFormat = (format: string) => {
 	if (!format || formats.indexOf(format) < 0) {
@@ -250,7 +291,7 @@ const getColorString = (color: Color, format: string) => {
  * @returns {string} - 返回颜色字符串
  */
 const colorPalette = (originColor: string, i: number, format: string) => {
-	const color = Color(originColor);
+	const color = Color(originColor.indexOf('#') > -1 ? originColor : getHexFunc(originColor));
 	const h = color.hue();
 	const s = color.saturationv();
 	const v = color.value();
@@ -338,13 +379,18 @@ export const generatePalette = (
 /**
  * 根据给定颜色计算出主题黑
  * @param {string} color - 颜色值 hex 格式
- * @return {object} - 返回两项主题黑，包含 hex、rgb、hsl 三种格式的颜色值
+ * @return {object} - 返回两项主题黑，包含 hex、rgb、hsl、oklch 四种格式的颜色值
  * @example
  * generateThemeBlack('#0B24FB')
  */
 export const generateThemeBlack = (color: string) => {
 	// 将 hex 颜色转换成 hsl 格式
-	const colorHsl = Color(color).hsl().round().string();
+	const colorHsl = Color(color.indexOf('#') > -1 ? color : getHexFunc(color))
+		.hsl()
+		.round()
+		.string();
+	
+
 	// 将 hsl 格式的颜色值转换成数组
 	const colorHslArr = colorHsl.split(',');
 	// 将 colorHslArr 的 s 和 l 值分别改为 95% 和 5% 生成主题黑
@@ -355,20 +401,25 @@ export const generateThemeBlack = (color: string) => {
 	// 将 hsl 格式的颜色值转换成 hex 格式和 rgb 格式
 	const blackHex = Color(blackHsl).hex();
 	const blackRgb = Color(blackHsl).rgb().round().string();
-	// 返回主题黑
-	return { hex: blackHex, rgb: blackRgb, hsl: blackHsl };
+	// 将 hex 格式转换成 oklch 格式
+	const colorOklch = getOklchFunc(blackHex);
+	// 返回颜色值
+	return { hex: blackHex, rgb: blackRgb, hsl: blackHsl, oklch: colorOklch };
 };
 
 /**
  * 根据给定颜色计算出主题白
  * @param {string} color - 颜色值 hex 格式
- * @return {object} - 返回两项主题白，包含 hex��rgb、hsl 三种格式的颜色值
+ * @return {object} - 返回两项主题白，包含 hex、rgb、hsl 三种格式的颜色值
  * @example
  * generateThemeWhite('#0B24FB')
  */
 export const generateThemeWhite = (color: string) => {
 	// 将 hex 颜色转换成 hsl 格式
-	const colorHsl = Color(color).hsl().round().string();
+	const colorHsl = Color(color.indexOf('#') > -1 ? color : getHexFunc(color))
+		.hsl()
+		.round()
+		.string();
 	// 将 hsl 格式的颜色值转换成数组
 	const colorHslArr = colorHsl.split(',');
 	// 将 colorHslArr 的 s 和 l 值分别改为 95% 和 5% 生成主题黑
@@ -380,15 +431,15 @@ export const generateThemeWhite = (color: string) => {
 	const whiteHex = Color(whiteHsl).hex();
 	const whiteRgb = Color(whiteHsl).rgb().round().string();
 	// 返回主题白
-	return { hex: whiteHex, rgb: whiteRgb, hsl: whiteHsl };
+	return { hex: whiteHex, rgb: whiteRgb, hsl: whiteHsl, oklch: getOklchFunc(whiteHex) };
 };
 
 /**
  * 颜色转换函数
  * @param {string} str - 颜色值
- * @returns {object} - 返回 hex、rgb、hsl 三种格式的颜色值
+ * @returns {object} - 返回 hex、rgb、hsl、oklch 四种格式的颜色值
  * @example
- * colorConvertFunc('#000') // {hex: '#000000', rgb: 'rgb(0,0,0)', hsl: {h: 0, s: 0, l: 0}}
+ * colorConvertFunc('#000') // {hex: '#000000', rgb: 'rgb(0,0,0)', hsl: {h: 0, s: 0, l: 0}, oklch: 'oklch(0 0 0)'}
  */
 export const colorConvertFunc = (str: string = '#000') => {
 	// 传入 hsl(222, 100%, 98%) 这种字符，将其中的数字四舍五入取整后返回字符
@@ -400,12 +451,14 @@ export const colorConvertFunc = (str: string = '#000') => {
 		return `hsl(${h}, ${s}%, ${l}%)`;
 	};
 
-	const colorObj = Color(str);
+	const colorObj = Color(str.indexOf('#') > -1 ? str : getHexFunc(str));
+
 	return {
 		hex: colorObj.hex(),
 		rgb: colorObj.rgb().string(),
 		hsl: getHslFunc(colorObj.hsl().string()),
-		rgbStr: colorObj.rgb().array().join(', ')
+		rgbStr: colorObj.rgb().array().join(', '),
+		oklch: getOklchFunc(colorObj.hex())
 	};
 };
 
@@ -414,8 +467,40 @@ export const colorConvertFunc = (str: string = '#000') => {
  * @param {string} str - 颜色值
  * @returns {string} - 返回 rgb 格式的颜色值
  * @example
- * hexToRgb('#000') // ‘0,0,0’
+ * hexToRgb('#000') // '0,0,0'
  */
 export const hexToRgb = (str: string) => {
 	return Color(str).rgb().array().join(', ');
+};
+
+/**
+ * 将传入的对象转为数组，且 default 在第 6 项
+ * @param {object} obj - 需要转换的对象
+ * @returns {array} - 返回转换后的数组
+ * @example
+ * colorObjToArr({ 50: '#50', 100: '#100', 200: '#200', 300: '#300', 400: '#400', 500: '#500', 700: '#700', 800: '#800', 900: '#900', default: '#000' })
+ * [{key: '50', value: '#50'}, {key: '100', value: '#100'}, {key: '200', value: '#200'}, {key: '300', value: '#300'}, {key: '400', value: '#400'}, {key: '500', value: '#500'},{key: 'default', value: '#000'},{key: '700', value: '#700'},{key: '800', value: '#800'},{key: '900', value: '#900'}]
+ */
+export const colorObjToArr = (obj: Record<string, string>) => {
+	// 将 obj 转为数组
+	const arr = Object.entries(obj).map(([key, value]) => ({ key, value }));
+	// 将最后一项移动到第 6 项
+	const lastItem = arr.pop();
+	if (lastItem) {
+		arr.splice(6, 0, lastItem);
+	}
+	return arr;
+};
+
+/**
+ * 传入 oklch 格式的颜色值与透明度，返回带透明度的 oklch 格式
+ * @param {string} str - 颜色值
+ * @param {number} opacity - 透明度
+ * @returns {string} - 返回带透明度的 oklch 格式
+ * @example
+ * getOklchOpacity('oklch(0.5 0.5 0)', 0.5) // 'oklch(0.5 0.5 0 / 0.5)'
+ */
+export const getOklchOpacity = (str: string, opacity: number) => {
+	// 将最后一个 ) 替换为 【/ 透明度】
+	return str.replace(/\)$/, ` / ${opacity})`);
 };

@@ -212,7 +212,7 @@
 							{isZh ? currentNav?.title : currentNav?.title_en}
 						</div>
 						<a href={QRValue} target="_blank" aria-label={isZh ? '扫码预览' : 'Scan to preview'}>
-							<div class="ml-2 h-8 w-8 rounded bg-gray-100 p-1 text-gray-500 md:hidden dark:bg-gray-700">
+							<div class="ml-2 h-8 w-8 rounded-sm bg-gray-100 p-1 text-gray-500 md:hidden dark:bg-gray-700">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 									<path fill="none" d="M0 0h24v24H0z" />
 									<path
@@ -242,7 +242,7 @@
 						class="mt-2 flex flex-1 justify-around py-4 md:pl-8 md:pr-4"
 						style="width:{titleWidth}px;"
 					>
-						<div class="bg-codeLight dark:bg-codeDark grow overflow-y-scroll rounded" style="height:{demoHeight}px;">
+						<div class="bg-codeLight dark:bg-codeDark grow overflow-y-scroll rounded-sm" style="height:{demoHeight}px;">
 							<Component {highlightedCode} />
 						</div>
 						<div
@@ -298,7 +298,7 @@
 						<div
 							in:fly={{ y: 100, duration: 500 }}
 							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded p-4 md:px-8 md:py-4 `}
+							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
 							style="width:{titleWidth}px;"
 						>
 							<Guide guide={currentNav?.nav} />
@@ -311,7 +311,7 @@
 						<div
 							in:fly={{ y: 100, duration: 500 }}
 							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded p-4 md:px-8 md:py-4 `}
+							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
 							style="width:{titleWidth}px;"
 						>
 							<FAQ guide={currentNav?.nav} />
@@ -324,7 +324,7 @@
 						<div
 							in:fly={{ y: 100, duration: 500 }}
 							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded p-4 md:px-8 md:py-4 `}
+							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
 							style="width:{titleWidth}px;"
 						>
 							<Version guide={currentNav?.nav} />

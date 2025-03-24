@@ -213,7 +213,7 @@
 {#if $isCmdKStore}
 	<div
 		transition:fade={{ duration: 50 }}
-		class="fixed left-0 top-0 flex h-screen w-screen flex-col bg-black/20 pt-20 text-left backdrop-blur"
+		class="fixed left-0 top-0 flex h-screen w-screen flex-col bg-black/20 pt-20 text-left backdrop-blur-sm"
 		style="z-index: 10000"
 		onclick={closeCmdKFun}
 	>
@@ -235,12 +235,12 @@
 					<input
 						bind:this={cmdKInput}
 						bind:value={cmdKValue}
-						class="focus:ring-b caret-primary dark:caret-dark w-full placeholder:text-black/20 focus:outline-none dark:bg-black dark:placeholder:text-white/10"
+						class="focus:ring-b caret-primary dark:caret-dark focus:outline-hidden w-full placeholder:text-black/20 dark:bg-black dark:placeholder:text-white/10"
 						type="text"
 						placeholder={isZh ? '请输入组件关键字' : 'Please enter the component keyword'}
 					/>
 				</div>
-				<div class="rounded border border-black/10 px-2 py-1 text-xs font-bold dark:border-white/10">ESC</div>
+				<div class="rounded-sm border border-black/10 px-2 py-1 text-xs font-bold dark:border-white/10">ESC</div>
 			</div>
 			<div class="overflow-y-auto px-6 pb-6" style="max-height: {(document.documentElement.clientHeight * 3) / 4}px">
 				{#if cmdKValue === ''}
@@ -276,7 +276,8 @@
 						</div>
 						<div class="w-full dark:border-white/10">
 							<button
-								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 0
+								class="my-1 flex w-full cursor-pointer justify-between rounded-sm border py-1 pl-2 {index === currentIndex &&
+								currentTab === 0
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: 'text-balck border-transparent dark:text-white'}"
 								class:animate-shake={isDemoShake && index === 0}
@@ -297,7 +298,8 @@
 								</div>
 							</button>
 							<button
-								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 1
+								class="my-1 flex w-full cursor-pointer justify-between rounded-sm border py-1 pl-2 {index === currentIndex &&
+								currentTab === 1
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: 'text-balck border-transparent dark:text-white'}"
 								onclick={() => clickCmdKFun(item, 1)}
@@ -317,7 +319,8 @@
 								</div>
 							</button>
 							<button
-								class="my-1 flex w-full cursor-pointer justify-between rounded border py-1 pl-2 {index === currentIndex && currentTab === 2
+								class="my-1 flex w-full cursor-pointer justify-between rounded-sm border py-1 pl-2 {index === currentIndex &&
+								currentTab === 2
 									? 'border-primary dark:border-dark text-primary dark:text-dark'
 									: 'text-balck border-transparent dark:text-white'}"
 								class:animate-shake={isGuideShake && index === cmdKList.length - 1}

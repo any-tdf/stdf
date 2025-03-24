@@ -1,8 +1,8 @@
-> STDF v1.x based on Svelte 5.x and Tailwind CSS 4.x.
+> STDF v1.x based on Svelte v5 and Tailwind CSS v4.
 
 ## Svelte
 
-Most modern browsers on the market already support Svelte 3. Old versions of Internet Explorer may require polyfills, but since mobile devices generally do not use IE and Microsoft has also abandoned IE, we won't discuss it here.
+Most modern browsers on the market already support Svelte v5. Old versions of Internet Explorer may require polyfills, but since mobile devices generally do not use IE and Microsoft has also abandoned IE, we won't discuss it here.
 
 ## Tailwind CSS
 

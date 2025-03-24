@@ -41,7 +41,7 @@
 </script>
 
 <article
-	class="prose pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark pb-12 {$isWideScreenStore
 		? 'max-w-full'
 		: 'max-w-5xl'}"
 >
@@ -57,7 +57,7 @@
 	<a
 		href={'https://github.com/any-tdf/stdf/edit/next/docs/mds/components/' + guide + '/guide' + (isZh ? '' : '_en') + '.md'}
 		target="_blank"
-		class="flex text-primary dark:text-dark"
+		class="text-primary dark:text-dark flex"
 	>
 		<span class="mr-1 h-4 w-4">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" style="fill: currentColor;">
@@ -71,7 +71,7 @@
 </div>
 
 <button
-	class="fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full bg-primary p-1.5 text-white shadow-md shadow-primary/50 dark:bg-dark dark:text-black dark:shadow-dark/50 md:block"
+	class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 	onclick={changeFullFunc}
 >
 	{#if $isWideScreenStore}
