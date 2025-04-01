@@ -4,7 +4,7 @@
 
 ### 安装
 
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
+**🔔注意：在安装之前，请先提示配置好 [Svelte](https://svelte.yayujs.com/docs/kit/creating-a-project) 和 [Tailwind](https://www.tailwindcss.cn/docs/installation) 的工程后，再进行安装！！**
 
 <!-- :::code-groups -->
 <!-- pnpm -->
