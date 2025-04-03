@@ -4,6 +4,7 @@
 .DS_Store
 node_modules
 bun.lockb
+bun.lock
 pnpm-lock.yaml
 package-lock.json
 
@@ -28,12 +29,20 @@ build
 /docs/site1
 
 # 忽略 packages 中 create-stdf 模板中的 node_modules ignore node_modules in create-stdf templates
+/packages/create-stdf/templates/sktt/static/fonts
+/packages/create-stdf/templates/sktt/static/symbols
+
+/packages/create-stdf/templates/skut/static/fonts
+/packages/create-stdf/templates/skut/static/symbols
+
+/packages/create-stdf/templates/skt/static/fonts
+/packages/create-stdf/templates/skt/static/symbols
+
 /packages/create-stdf/templates/vite-tailwind/public/fonts
 
 /packages/create-stdf/templates/vite-uno/public/fonts
 
 /packages/create-stdf/templates/sveltekit-tailwind/static/fonts
-/packages/create-stdf/templates/sveltekit-tailwind/static/symbols
 
 /packages/create-stdf/templates/sveltekit-uno/static/fonts
 /packages/create-stdf/templates/sveltekit-uno/static/symbols
