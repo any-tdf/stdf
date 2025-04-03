@@ -61,14 +61,19 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 // 模板列表
 // Template list
 const templateOptions = [
-	{ value: 'skt', label: 'SvelteKit + Tailwind', template: 'sveltekit-tailwind', finish: true },
-	{ value: 'vt', label: 'Vite + Tailwind', template: 'vite-tailwind', finish: true },
-	{ value: 'vu', label: 'Vite + UnoCSS', template: 'vite-uno', finish: true },
-	{ value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sveltekit-uno', finish: true },
-	{ value: 'vtt', label: 'Vite + Tailwind + TypeScript', template: 'vite-tailwind-typescript', finish: false },
-	{ value: 'vut', label: 'Vite + UnoCSS + TypeScript', template: 'vite-uno-typescript', finish: false },
-	{ value: 'sktt', label: 'SvelteKit + Tailwind + TypeScript', template: 'sveltekit-tailwind-typescript', finish: false },
-	{ value: 'skut', label: 'SvelteKit + UnoCSS + TypeScript', template: 'sveltekit-uno-typescript', finish: false },
+	{ value: 'sktt', label: 'SvelteKit + Tailwind + TypeScript', template: 'sktt', finish: true },
+	{ value: 'skt', label: 'SvelteKit + Tailwind', template: 'skt', finish: true },
+	{ value: 'skut', label: 'SvelteKit + UnoCSS + TypeScript', template: 'skut', finish: false },
+	{ value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sku', finish: false },
+];
+
+// 包管理工具列表
+// Package management tool list
+const packageManagerOptions = [
+	{ value: 'npm', label: 'NPM', install: 'npm i', dev: 'npm run dev' },
+	{ value: 'bun', label: 'Bun', install: 'bun i', dev: 'bun dev' },
+	{ value: 'pnpm', label: 'PNPM', install: 'pnpm i', dev: 'pnpm dev' },
+	{ value: 'yarn', label: 'Yarn', install: 'yarn', dev: 'yarn run dev' },
 ];
 
 // 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 skt
@@ -105,7 +110,10 @@ else if (argvProjectName && argvTemplate) {
 		// Select a template
 		let template = await p.select({
 			message: bold(lang.psat),
-			options: templateOptions,
+			options: templateOptions.map(item => ({
+				...item,
+				label: item.finish ? item.label : `(${lang.hnay}) ${item.label}`,
+			})),
 		});
 
 		if (p.isCancel(template)) {
@@ -124,19 +132,11 @@ else if (argvProjectName && argvTemplate) {
 			p.intro(red(templateOptions.find(item => item.value === template).label + ' ' + lang.hnay + ' ' + lang.pca));
 			template = await p.select({
 				message: bold(lang.psat),
-				options: templateOptions,
+				options: templateOptions.map(item => ({
+					...item,
+					label: item.finish ? item.label : `(${lang.hnay}) ${item.label}`,
+				})),
 			});
-		}
-
-		// 是否启用类型检查
-		// Whether to enable type checking
-		const isTypeCheck = await p.confirm({
-			message: bold(lang.wtetcfjsf),
-		});
-
-		if (p.isCancel(isTypeCheck)) {
-			p.cancel(red('⛔ ') + lang.oc);
-			process.exit(0);
 		}
 
 		// 输入项目名称
@@ -163,17 +163,29 @@ else if (argvProjectName && argvTemplate) {
 			process.exit(0);
 		}
 
+		// 使用什么包管理工具 npm / pnpm / yarn / bun / deno
+		// What package management tool to use npm / pnpm / yarn / bun / deno
+		const packageManager = await p.select({
+			message: bold(lang.pm),
+			options: packageManagerOptions,
+		});
+
+		if (p.isCancel(packageManager)) {
+			p.cancel(red('⛔ ') + lang.oc);
+			process.exit(0);
+		}
+
 		// 根据 template 的值，复制对应目录下的所有文件到当前目录
 		// According to the value of template, copy all files under the corresponding directory to the current directory
 		templateOptions.forEach(async item => {
 			if (item.value === template) {
-				createFunc(projectName, item, isTypeCheck);
+				createFunc(projectName, item, packageManager);
 			}
 		});
 	})();
 }
 
-function createFunc(projectName, item, isTypeCheck = true) {
+function createFunc(projectName, item, packageManager) {
 	// 如果 projectName 是数字，转为字符串
 	// If projectName is a number, convert it to a string
 	if (typeof projectName === 'number') {
@@ -199,14 +211,6 @@ function createFunc(projectName, item, isTypeCheck = true) {
 		.then(() => {
 			spinner.stop();
 			p.outro(`${projectName} - ${lang.pcsucc} 🎉`);
-
-			// 如果 isTypeCheck 为 true，将 common 目录下的 jsconfig.json 文件复制到项目目录下
-			// If isTypeCheck is true, copy the jsconfig.json file under the common directory to the project directory
-			if (isTypeCheck) {
-				// @ts-ignore
-				const commonPath = path.resolve(fileURLToPath(import.meta.url), '../..', 'common');
-				fs.copySync(path.join(commonPath, '/jsconfig.json'), path.join(projectDir, 'jsconfig.json'));
-			}
 
 			// 读取 package.json 文件
 			// Read the package.json file
@@ -263,16 +267,17 @@ function createFunc(projectName, item, isTypeCheck = true) {
 			console.log(
 				`👉 ${bold(lang.tgs)}
 
-    ${blue(`cd ${projectName}`)}
-    ${blue('pnpm i / npm i / yarn / bun i')}
-    ${blue('npm dev / bun dev')}
-    `,
+    ${blue(`1. cd ${projectName}`)}
+    ${blue(`2. git init && git add -A && git commit -m "Initial commit"`)}
+    ${blue(`3. ${packageManagerOptions.find(item => item.value === packageManager).install}`)}
+    ${blue(`4. ${packageManagerOptions.find(item => item.value === packageManager).dev}`)}
+    `
 			);
 			// 显示配置主题色
 			// Display configuration theme color
 			console.log(
 				`🎨 ${grey(isHasUno ? lang.pcyt_vu : lang.pcyt_vt)}
-    `,
+    `
 			);
 		})
 		.catch(err => {

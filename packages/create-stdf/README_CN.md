@@ -6,11 +6,14 @@
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest
 # 或
@@ -18,96 +21,113 @@ npm init stdf@latest
 # 或
 npx create-stdf@latest
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf
 ```
+
 <!-- ::: -->
 
 ...然后按照提示进行操作。
 
-你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit + Tailwind + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
+你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit + Tailwind + TypeScript + STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf my-app
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest my-app
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf my-app
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf my-app
 ```
+
 <!-- ::: -->
 
-如果要使用 **Vite + UnoCSS + Svelte + STDF** 模板，请运行：
+如果要使用 **SvelteKit + Tailwind + STDF** 模板，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
-pnpm create stdf my-app --template vu
+pnpm create stdf my-app --template skt
 # 或
-pnpm create stdf my-app -t vu
+pnpm create stdf my-app -t skt
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
-npm create stdf@latest my-app --template vu
+npm create stdf@latest my-app --template skt
 # 或
-npm create stdf@latest my-app -t vu
+npm create stdf@latest my-app -t skt
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
-bun create stdf my-app -template vu
+bun create stdf my-app --template skt
 # 或
-bun create stdf my-app -t vu
+bun create stdf my-app -t skt
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
-yarn create stdf my-app --template vu
+yarn create stdf my-app --template skt
 # 或
-yarn create stdf my-app -t vu
+yarn create stdf my-app -t skt
 ```
+
 <!-- ::: -->
 
 模板预设包括：
 
-| 简写 | 模板                                         | 描述     |
-| ---- | -------------------------------------------- | -------- |
-| skt  | SvelteKit + Tailwind + STDF                  | 默认     |
-| vt   | Vite + Tailwind + Svelte + STDF              | -        |
-| vu   | Vite + UnoCSS + Svelte + STDF                | -        |
-| sku  | SvelteKit + UnoCSS + STDF                    | -        |
-| vtt  | Vite + Tailwind + TypeScript + Svelte + STDF | 尚未适配 |
-| vut  | Vite + UnoCSS + TypeScript + Svelte + STDF   | 尚未适配 |
-| sktt | SvelteKit + Tailwind + TypeScript + STDF     | 尚未适配 |
-| skut | SvelteKit + UnoCSS + TypeScript + STDF       | 尚未适配 |
+| 简写 | 模板                                     | 描述     |
+| ---- | ---------------------------------------- | -------- |
+| sktt | SvelteKit + Tailwind + TypeScript + STDF | 默认     |
+| skt  | SvelteKit + Tailwind + STDF              | -        |
+| skut | SvelteKit + UnoCSS + TypeScript + STDF   | 尚未适配 |
+| sku  | SvelteKit + UnoCSS + STDF                | 尚未适配 |
 
 # 命令选项
 
-| 命令            | 类型   | 默认  | 描述                                                                                 |
-| --------------- | ------ | ----- | ------------------------------------------------------------------------------------ |
-| -               | string | -     | 项目名称，可以直接输入。                                                             |
-| -t / --template | string | vt    | 要使用的模板。可用的模板有：`vt`、`vu`、`skt`、`sku`、`vtt`、`vut`、`sktt`、`skut`。 |
-| -l / --language | string | en_US | 提示语言。                                                                           |
+| 命令            | 类型   | 默认  | 描述                                                       |
+| --------------- | ------ | ----- | ---------------------------------------------------------- |
+| -               | string | -     | 项目名称，可以直接输入。                                   |
+| -t / --template | string | sktt  | 要使用的模板。可用的模板有：`skt`、`sku`、`sktt`、`skut`。 |
+| -l / --language | string | en_US | 提示语言。                                                 |
 
 # 支持的语言
 
@@ -128,24 +148,32 @@ yarn create stdf my-app -t vu
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf my-app -l zh_CN
 ```
+
 <!-- ::: -->
 
 # 许可证

@@ -6,11 +6,14 @@ A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest
 # or
@@ -18,96 +21,113 @@ npm init stdf@latest
 # or
 npx create-stdf@latest
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf
 ```
+
 <!-- ::: -->
 
 ...and follow the prompts.
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit + Tailwind + STDF** template, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit + Tailwind + TypeScript + STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf my-app
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest my-app
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf my-app
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf my-app
 ```
+
 <!-- ::: -->
 
-If you want to use the **Vite + UnoCSS + Svelte + STDF** template, run:
+If you want to use the **SvelteKit + Tailwind + STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
-pnpm create stdf my-app --template vu
+pnpm create stdf my-app --template skt
 # or
-pnpm create stdf my-app -t vu
+pnpm create stdf my-app -t skt
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
-npm create stdf@latest my-app --template vu
+npm create stdf@latest my-app --template skt
 # or
-npm create stdf@latest my-app -t vu
+npm create stdf@latest my-app -t skt
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
-bun create stdf my-app -template vu
+bun create stdf my-app --template skt
 # or
-bun create stdf my-app -t vu
+bun create stdf my-app -t skt
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
-yarn create stdf my-app --template vu
+yarn create stdf my-app --template skt
 # or
-yarn create stdf my-app -t vu
+yarn create stdf my-app -t skt
 ```
+
 <!-- ::: -->
 
 Template presets include:
 
-| abbreviation | template                                     | description         |
-| ------------ | -------------------------------------------- | ------------------- |
-| skt          | SvelteKit + Tailwind + STDF                  | default             |
-| vt           | Vite + Tailwind + Svelte + STDF              | -                   |
-| vu           | Vite + UnoCSS + Svelte + STDF                | -                   |
-| sku          | SvelteKit + UnoCSS + STDF                    | -                   |
-| vtt          | Vite + Tailwind + TypeScript + Svelte + STDF | Has not adapted yet |
-| vut          | Vite + UnoCSS + TypeScript + Svelte + STDF   | Has not adapted yet |
-| sktt         | SvelteKit + Tailwind + TypeScript + STDF     | Has not adapted yet |
-| skut         | SvelteKit + UnoCSS + TypeScript + STDF       | Has not adapted yet |
+| Abbreviation | Template                                 | Description     |
+| ------------ | ---------------------------------------- | --------------- |
+| sktt         | SvelteKit + Tailwind + TypeScript + STDF | Default         |
+| skt          | SvelteKit + Tailwind + STDF              | -               |
+| skut         | SvelteKit + UnoCSS + TypeScript + STDF   | Not adapted yet |
+| sku          | SvelteKit + UnoCSS + STDF                | Not adapted yet |
 
 # Options
 
-| Option          | Type   | Default | Description                                                                                           |
-| --------------- | ------ | ------- | ----------------------------------------------------------------------------------------------------- |
-| -               | string | -       | The name of the project, you can direct input.                                                        |
-| -t / --template | string | vt      | The template to use. Available templates are: `vt`, `vu`, `skt`, `sku`, `vtt`, `vut`, `sktt`, `skut`. |
-| -l / --language | string | en_US   | The language of the prompts.                                                                          |
+| Option          | Type   | Default | Description                                                                 |
+| --------------- | ------ | ------- | --------------------------------------------------------------------------- |
+| -               | string | -       | The name of the project, you can direct input.                              |
+| -t / --template | string | sktt    | The template to use. Available templates are: `skt`, `sku`, `sktt`, `skut`. |
+| -l / --language | string | en_US   | The language of the prompts.                                                |
 
 # Supported Languages
 
@@ -128,24 +148,32 @@ For example:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
+
 ```sh
 pnpm create stdf my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- npm -->
+
 ```sh
 npm create stdf@latest my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- bun -->
+
 ```sh
 bun create stdf my-app -l zh_CN
 ```
+
 <!-- :: -->
 <!-- yarn -->
+
 ```sh
 yarn create stdf my-app -l zh_CN
 ```
+
 <!-- ::: -->
 
 # License
