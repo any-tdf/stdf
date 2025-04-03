@@ -7,6 +7,7 @@
 	import '../app.css';
 	import { menuList, type MenuListChild } from '../data/menuList.js';
 	import ThemeSwitch from './components/ThemeSwitch.svelte';
+	import { darkMode } from '$lib/theme/index.js';
 
 	let { children } = $props();
 
@@ -41,16 +42,16 @@
 	let showLeft = $derived(!(isIframe === '1' || $page.url.pathname === '/' || isComponentMode));
 
 	let theme = $state(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
-	// 设置主题
-	// Set theme
-	if (localStorage.getItem('theme') === 'dark') {
-		document.documentElement.classList.add('dark');
-	} else if (localStorage.getItem('theme') === 'light') {
-		document.documentElement.classList.remove('dark');
-	} else {
-		document.documentElement.classList.remove('dark');
-	}
 
+	// 设置亮暗模式
+	// Set light and dark mode
+	if (localStorage.getItem('theme') === 'dark') {
+		darkMode();
+	} else if (localStorage.getItem('theme') === 'light') {
+		darkMode(false);
+	} else {
+		darkMode(false);
+	}
 	//手动切换亮暗模式
 	// manually switch light and dark mode
 	const toggleFun = () => {
@@ -59,13 +60,13 @@
 			// switch to light
 			theme = 'light';
 			localStorage.setItem('theme', 'light');
-			document.documentElement.classList.remove('dark');
+			darkMode(false);
 		} else {
 			// 切换到 dark
 			// switch to dark
 			theme = 'dark';
 			localStorage.setItem('theme', 'dark');
-			document.documentElement.classList.add('dark');
+			darkMode();
 		}
 	};
 

@@ -41,7 +41,7 @@ const Chameleon: ThemeProps = {
 		},
 		extend: [
 			{
-				color: 'oklch(0.754 0.139 232.661)', // #38bdf8 hsl(198, 93%, 60%)
+				color: 'oklch(0.746 0.16 232.661)', // #00bcff hsl(194, 100%, 44%)
 				alias: 'Tailwind'
 			},
 			{
