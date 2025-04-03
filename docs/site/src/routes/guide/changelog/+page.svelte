@@ -64,7 +64,7 @@
 </script>
 
 <article
-	class="prose pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark pb-12 text-xs {$isWideScreenStore
 		? 'max-w-full'
 		: 'max-w-5xl'}"
 >

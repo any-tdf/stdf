@@ -303,7 +303,7 @@ const colorPalette = (originColor: string, i: number, format: string) => {
 	const maxValue = 100;
 	const minValue = 30;
 
-	function getNewHue(isLight: boolean, i: number) {
+	const getNewHue = (isLight: boolean, i: number) => {
 		let hue;
 		if (h >= 60 && h <= 240) {
 			hue = isLight ? h - hueStep * i : h + hueStep * i;
@@ -316,22 +316,21 @@ const colorPalette = (originColor: string, i: number, format: string) => {
 			hue -= 360;
 		}
 		return Math.round(hue);
-	}
+	};
 
-	function getNewSaturation(isLight: boolean, i: number) {
+	const getNewSaturation = (isLight: boolean, i: number) => {
 		let newSaturation;
-
 		if (isLight) {
 			newSaturation = s <= minSaturationStep ? s : s - ((s - minSaturationStep) / 5) * i;
 		} else {
 			newSaturation = s + ((maxSaturationStep - s) / 4) * i;
 		}
 		return newSaturation;
-	}
+	};
 
-	function getNewValue(isLight: boolean, i: number) {
+	const getNewValue = (isLight: boolean, i: number) => {
 		return isLight ? v + ((maxValue - v) / 5) * i : v <= minValue ? v : v - ((v - minValue) / 4) * i;
-	}
+	};
 
 	const isLight = i < 6;
 	const index = isLight ? 6 - i : i - 6;
@@ -343,6 +342,7 @@ const colorPalette = (originColor: string, i: number, format: string) => {
 					s: getNewSaturation(isLight, index) < 0 ? 4 : getNewSaturation(isLight, index),
 					v: getNewValue(isLight, index)
 				});
+
 	return getColorString(retColor, format);
 };
 
@@ -389,7 +389,6 @@ export const generateThemeBlack = (color: string) => {
 		.hsl()
 		.round()
 		.string();
-	
 
 	// 将 hsl 格式的颜色值转换成数组
 	const colorHslArr = colorHsl.split(',');

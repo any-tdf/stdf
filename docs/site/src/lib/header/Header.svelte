@@ -53,11 +53,7 @@
 	});
 </script>
 
-<div
-	class="{showBottonLine
-		? 'border-b border-black/10 dark:border-white/10 '
-		: ''}flex sticky top-0 z-[100] h-14 items-center justify-between backdrop-blur-sm"
->
+<div class="sticky top-0 z-[100] flex h-14 items-center justify-between border-b border-black/5 backdrop-blur-sm dark:border-white/10">
 	{#if showLeftNav}
 		<button class="cursor-pointer p-4 md:hidden" onclick={toggleNavFun}>
 			{#if !$isShowNavStore}

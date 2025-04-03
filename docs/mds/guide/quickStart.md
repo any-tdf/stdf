@@ -1,45 +1,5 @@
-<!-- main -> next -->
 
 > Tip：所有代码或命令可以双击选定词，三击选定行。
-
-## 😉 已有工程
-
-### 安装
-
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
-
-<!-- :::code-groups -->
-<!-- pnpm -->
-```sh
-pnpm i stdf@next -D
-```
-<!-- :: -->
-<!-- npm -->
-```sh
-npm i stdf@next -D
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun add stdf@next -D
-```
-<!-- :: -->
-<!-- yarn -->
-```sh
-yarn add stdf@next -D
-```
-<!-- ::: -->
-
-### 在 Svelte 中使用
-
-```svelte
-<!-- Button Demo -->
-<script>
-	import { Button } from 'stdf';
-</script>
-
-<Button>默认</Button>
-```
 
 ## 😓 无工程
 
@@ -50,26 +10,26 @@ yarn add stdf@next -D
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf@next
+pnpm create stdf
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@next
+npm create stdf
 # 或
-npm init stdf@next
+npm init stdf
 # 或
-npx create-stdf@next
+npx create-stdf
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf@next
+bun create stdf
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf@next
+yarn create stdf
 ```
 <!-- ::: -->
 
@@ -103,98 +63,158 @@ yarn create vite
 
 参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite#svelte) 配置 Tailwind CSS。
 
-1. 安装 Tailwind CSS 和其他依赖，然后生成 `tailwind.config.js` 和 `postcss.config.js` 文件。
+1. 安装 Tailwind CSS 与 Vite 插件。
 
+<!-- :::code-groups -->
+<!-- pnpm -->
 ```sh
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+pnpm i tailwindcss @tailwindcss/vite -D
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i tailwindcss @tailwindcss/vite -D
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add tailwindcss @tailwindcss/vite -D
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add tailwindcss @tailwindcss/vite -D
+```
+<!-- ::: -->
+
+2. 在项目的入口 CSS 文件中引入 Tailwind CSS，设置暗黑模式，添加初始颜色变量。以下为 STDF 默认主题色，请根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/guide/color)。
+
+```css
+/* app.css */
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+	/* 主题色 */
+	--color-primary-50: oklch(0.979 0.01 267.36);
+	--color-primary-100: oklch(0.95 0.024 270.343);
+	--color-primary-200: oklch(0.847 0.074 271.188);
+	--color-primary-300: oklch(0.741 0.13 272.232);
+	--color-primary-400: oklch(0.634 0.193 271.595);
+	--color-primary-500: oklch(0.536 0.252 268.66);
+	--color-primary: oklch(0.467 0.296 264.886);
+	--color-primary-700: oklch(0.397 0.26 264.877);
+	--color-primary-800: oklch(0.331 0.221 264.833);
+	--color-primary-900: oklch(0.26 0.178 264.428);
+	--color-primary-950: oklch(0.192 0.13 266.64);
+
+	--color-dark-50: oklch(0.995 0.012 101.474);
+	--color-dark-100: oklch(0.986 0.025 97.107);
+	--color-dark-200: oklch(0.965 0.059 95.884);
+	--color-dark-300: oklch(0.938 0.089 92.952);
+	--color-dark-400: oklch(0.91 0.114 89.711);
+	--color-dark-500: oklch(0.88 0.136 86.375);
+	--color-dark: oklch(0.845 0.153 80.597);
+	--color-dark-700: oklch(0.71 0.137 75.734);
+	--color-dark-800: oklch(0.58 0.118 70.166);
+	--color-dark-900: oklch(0.449 0.097 65.209);
+	--color-dark-950: oklch(0.321 0.074 62.379);
+
+	--color-primaryBlack: oklch(0.116 0.054 267.087);
+	--color-primaryWhite: oklch(0.961 0.001 286.375);
+	--color-darkBlack: oklch(0.183 0.035 86.634);
+	--color-darkWhite: oklch(0.962 0.001 17.178);
+
+	/* 功能色 */
+	--color-success: oklch(0.704 0.142 167.084);
+	--color-warning: oklch(0.558 0.154 47.186);
+	--color-error: oklch(0.564 0.223 28.46);
+	--color-info: oklch(0.482 0.14 261.518);
+
+	/* 扩展色 */
+	--color-extend0: oklch(0.703 0.149 235.059);
+	--color-Twitter: oklch(0.703 0.149 235.059);
+	--color-extend1: oklch(0.702 0.194 38.137);
+	--color-Svelte: oklch(0.702 0.194 38.137);
+	--color-extend2: oklch(0.482 0.107 161.212);
+	--color-Starbucks: oklch(0.482 0.107 161.212);
+
+	/* 中性色 */
+	--color-black: oklch(0 0 0);
+	--color-white: oklch(1 0 0);
+	--color-gray-50: oklch(0.961 0 0);
+	--color-gray-100: oklch(0.925 0 0);
+	--color-gray-200: oklch(0.845 0 0);
+	--color-gray-300: oklch(0.767 0 0);
+	--color-gray-400: oklch(0.683 0 0);
+	--color-gray-500: oklch(0.6 0 0);
+	--color-gray-600: oklch(0.51 0 0);
+	--color-gray-700: oklch(0.42 0 0);
+	--color-gray-800: oklch(0.321 0 0);
+	--color-gray-900: oklch(0.218 0 0);
+	--color-gray-950: oklch(0.159 0 0);
+	--color-transparent: transparent;
+}
 ```
 
-2. 在 `tailwind.config.js` 文件内添加模板文件。注意 content 内添加`./node_modules/stdf/**/*.svelte`，这是 STDF 的组件位置。其中 theme 的 colors 可以根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/#/guide/color)。
+3. 启动项目。
 
-注意：Tailwind 配置文件中的 content 即表示所有可能用到 Tailwind 的文件，请不要遗漏。darkMode 请设置为 'class'，这是为了配合 STDF 的暗黑模式。
-
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-	// ...
-	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/stdf/**/*.svelte'],
-	theme: {
-		colors: {
-			// 主题色
-			primary: {
-				50: 'rgba(var(--theme-color-primary-50), <alpha-value>)',
-				100: 'rgba(var(--theme-color-primary-100), <alpha-value>)',
-				200: 'rgba(var(--theme-color-primary-200), <alpha-value>)',
-				300: 'rgba(var(--theme-color-primary-300), <alpha-value>)',
-				400: 'rgba(var(--theme-color-primary-400), <alpha-value>)',
-				500: 'rgba(var(--theme-color-primary-500), <alpha-value>)',
-				DEFAULT: 'rgba(var(--theme-color-primary), <alpha-value>)',
-				700: 'rgba(var(--theme-color-primary-700), <alpha-value>)',
-				800: 'rgba(var(--theme-color-primary-800), <alpha-value>)',
-				900: 'rgba(var(--theme-color-primary-900), <alpha-value>)',
-				950: 'rgba(var(--theme-color-primary-950), <alpha-value>)',
-			},
-			dark: {
-				50: 'rgba(var(--theme-color-dark-50), <alpha-value>)',
-				100: 'rgba(var(--theme-color-dark-100), <alpha-value>)',
-				200: 'rgba(var(--theme-color-dark-200), <alpha-value>)',
-				300: 'rgba(var(--theme-color-dark-300), <alpha-value>)',
-				400: 'rgba(var(--theme-color-dark-400), <alpha-value>)',
-				500: 'rgba(var(--theme-color-dark-500), <alpha-value>)',
-				DEFAULT: 'rgba(var(--theme-color-dark), <alpha-value>)',
-				700: 'rgba(var(--theme-color-dark-700), <alpha-value>)',
-				800: 'rgba(var(--theme-color-dark-800), <alpha-value>)',
-				900: 'rgba(var(--theme-color-dark-900), <alpha-value>)',
-				950: 'rgba(var(--theme-color-dark-950), <alpha-value>)',
-			},
-			primaryBlack: 'rgba(var(--theme-color-primaryBlack), <alpha-value>)',
-			primaryWhite: 'rgba(var(--theme-color-primaryWhite), <alpha-value>)',
-			darkBlack: 'rgba(var(--theme-color-darkBlack), <alpha-value>)',
-			darkWhite: 'rgba(var(--theme-color-darkWhite), <alpha-value>)',
-
-			// 功能色
-			success: 'rgba(var(--theme-color-functional-success), <alpha-value>)',
-			warning: 'rgba(var(--theme-color-functional-warning), <alpha-value>)',
-			error: 'rgba(var(--theme-color-functional-error), <alpha-value>)',
-			info: 'rgba(var(--theme-color-functional-info), <alpha-value>)',
-
-			// 扩展色
-			extend0: 'rgba(var(--theme-color-extend0), <alpha-value>)',
-			extend1: 'rgba(var(--theme-color-extend1), <alpha-value>)',
-			extend2: 'rgba(var(--theme-color-extend2), <alpha-value>)',
-
-			// 中性色
-			black: '#000000',
-			white: '#ffffff',
-			gray: {
-				50: '#f2f2f2',
-				100: '#e6e6e6',
-				200: '#cccccc',
-				300: '#b3b3b3',
-				400: '#999999',
-				500: '#808080',
-				600: '#666666',
-				700: '#4D4D4D',
-				800: '#333333',
-				900: '#1A1A1A',
-				950: '#0D0D0D',
-			},
-			transparent: 'transparent',
-		},
-		// ...
-	},
-	darkMode: 'class',
-	// ...
-};
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm dev
 ```
-
-3. 将 Tailwind CSS 添加到入口 CSS 文件中，如 `./src/index.css`，并在入口文件 main.js 中引入这个 CSS 文件。
-
-4. 启动项目。
-
+<!-- :: -->
+<!-- npm -->
 ```sh
 npm run dev
-# or
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun dev
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn dev
+```
+<!-- ::: -->
+
+## 😉 已有工程
+
+### 安装
+
+已有配置好 Svelte 与 Tailwind 的工程，直接安装。
+
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm i stdf -D
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i stdf -D
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun add stdf -D
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add stdf -D
+```
+<!-- ::: -->
+
+### 在 Svelte 中使用
+
+```svelte
+<!-- Button Demo -->
+<script>
+	import { Button } from 'stdf';
+</script>
+
+<Button>默认</Button>
 ```
