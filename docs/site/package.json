@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"env": "npm run scripts/env.js",
+		"env": "node scripts/env.js",
 		"dev": "npm run env && vite dev",
 		"bu": "vite build",
 		"preview": "vite preview",
