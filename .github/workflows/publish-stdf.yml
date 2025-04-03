@@ -5,7 +5,7 @@ name: PUBLISH STDF
 on:
     push:
         branches:
-            - mian
+            - main
         paths:
             - 'packages/stdf/package.json'
 
