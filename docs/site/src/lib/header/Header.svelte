@@ -88,7 +88,7 @@
 				</svg>
 			</div>
 		</a>
-		<span class="text-primary dark:text-dark text-sm">v1.0.0@next</span>
+		<span class="text-primary dark:text-dark text-sm">v1.0.0</span>
 	</div>
 	<div>
 		<div class="cursor-pointer p-4 md:hidden">
@@ -166,7 +166,7 @@
 					<!-- GitHub -->
 					<!-- main -> next -->
 					<a
-						href="https://github.com/any-tdf/stdf/tree/next"
+						href="https://github.com/any-tdf/stdf"
 						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 						target="_blank"
 						aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
@@ -263,7 +263,7 @@
 			<!-- GitHub -->
 			<!-- main -> next -->
 			<a
-				href="https://github.com/any-tdf/stdf/tree/next"
+				href="https://github.com/any-tdf/stdf"
 				class="inline-block rounded-sm px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
 				target="_blank"
 				aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
