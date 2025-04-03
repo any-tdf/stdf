@@ -1,55 +1,55 @@
 
 ## 1.0.0 <font size=1>2025-04-03</font>
 
-- 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript，包括库、示例、create-stdf。
+- 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript，包括库、示例、create-stdf、站点。
 - 按照 Svelte 官方 CLI [sv create](https://svelte.dev/docs/cli/sv-create) 重构库文件。
 - 增强 NavBar 组件，详见 [NavBar](https://stdf.design/components?nav=navBar&tab=4)。
 - 修复 Cell 组件，详见 [Cell](https://stdf.design/components?nav=cell&tab=4)。
 - 增强 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/components?nav=numKeyboard&tab=4)。
-- 重写部分组件，如 Checkbox、
-- 文档组件 API 增加类型提示。
+- 重写 Checkbox、Radio 等组件，修改部分组件 API，升级时请注意检查。
+- 文档组件 API 增加类型。
 - 跟随 Tailwind CSS v4，文档站点、主题生成器、组件库等颜色系统统一使用 oklch，参考 [Tailwind CSS](https://tailwindcss.com/docs/colors)。
 
 ## 0.5.3 <font size=1>2024-11-19</font>
 
-- 优化 Icon 组件，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。
+- 优化 Icon 组件，详见 [Icon](https://stdf.design/components?nav=icon&tab=4)。
 
 ## 0.5.2 <font size=1>2024-10-02</font>
 
-- 优化 Button 组件，详见 [Button](https://stdf.design/#/components?nav=button&tab=4)。
+- 优化 Button 组件，详见 [Button](https://stdf.design/components?nav=button&tab=4)。
 
 ## 0.5.1 <font size=1>2024-10-02</font>
 
-- 增强 Button 组件，详见 [Button](https://stdf.design/#/components?nav=button&tab=4)。
-- 优化 BottomSheet 组件，详见 [BottomSheet](https://stdf.design/#/components?nav=bottomSheet&tab=4)。
-- 优化 IndexBar 组件，详见 [IndexBar](https://stdf.design/#/components?nav=indexBar&tab=4)。
-- 修复 Avatar 组件，详见 [Avatar](https://stdf.design/#/components?nav=avatar&tab=4)。
+- 增强 Button 组件，详见 [Button](https://stdf.design/components?nav=button&tab=4)。
+- 优化 BottomSheet 组件，详见 [BottomSheet](https://stdf.design/components?nav=bottomSheet&tab=4)。
+- 优化 IndexBar 组件，详见 [IndexBar](https://stdf.design/components?nav=indexBar&tab=4)。
+- 修复 Avatar 组件，详见 [Avatar](https://stdf.design/components?nav=avatar&tab=4)。
 
 ## 0.5.0 <font size=1>2024-09-09</font>
 
-- 新增 Stepper 组件，详见 [Stepper](https://stdf.design/#/components?nav=stepper&tab=0)。
+- 新增 Stepper 组件，详见 [Stepper](https://stdf.design/components?nav=stepper&tab=0)。
 
 ## 0.4.7 <font size=1>2024-08-12</font>
 
-- 修复 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
-- 优化 Loading 组件，详见 [Loading](https://stdf.design/#/components?nav=loading&tab=4)。
-- 优化 Slider 组件，详见 [Slider](https://stdf.design/#/components?nav=slider&tab=4)。
+- 修复 Pagination 组件，详见 [Pagination](https://stdf.design/components?nav=pagination&tab=4)。
+- 优化 Loading 组件，详见 [Loading](https://stdf.design/components?nav=loading&tab=4)。
+- 优化 Slider 组件，详见 [Slider](https://stdf.design/components?nav=slider&tab=4)。
 
 ## 0.4.6 <font size=1>2024-03-31</font>
 
-- 新增 Loading 类型，详见 [Loading](https://stdf.design/#/components?nav=loading&tab=4)。
+- 新增 Loading 类型，详见 [Loading](https://stdf.design/components?nav=loading&tab=4)。
 
 ## 0.4.5 <font size=1>2024-03-28</font>
 
-- 修复 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
+- 修复 Pagination 组件，详见 [Pagination](https://stdf.design/components?nav=pagination&tab=4)。
 
 ## 0.4.4 <font size=1>2023-12-13</font>
 
-- 增强 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。
+- 增强 Tabs 组件，详见 [Tabs](https://stdf.design/components?nav=tabs&tab=4)。
 
 ## 0.4.3 <font size=1>2023-12-11</font>
 
-- 修改 Tabs 组件，详见 [Tabs](https://stdf.design/#/components?nav=tabs&tab=4)。
+- 修改 Tabs 组件，详见 [Tabs](https://stdf.design/components?nav=tabs&tab=4)。
 
 ## 0.4.2 <font size=1>2023-11-21</font>
 
@@ -61,31 +61,31 @@
 
 ## 0.4.0 <font size=1>2023-11-03</font>
 
-- 新增支持多主题配置，请参考 [主题配置](https://stdf.design/#/guide/theme)、[色彩](https://stdf.design/#/guide/color)、[主题生成器](https://stdf.design/#/guide/generator)。
-- 按照 Tailwind 命名规则统一将灰色由 `gray5` 改为 `gray-500` 写法，请注意升级后更改写法。详见 [色彩](https://stdf.design/#/guide/color)。
-- Avatar 组件新增头像组用法，详见 [Avatar](https://stdf.design/#/components?nav=avatar&tab=4)。
+- 新增支持多主题配置，请参考 [主题配置](https://stdf.design/guide/theme)、[色彩](https://stdf.design/guide/color)、[主题生成器](https://stdf.design/guide/generator)。
+- 按照 Tailwind 命名规则统一将灰色由 `gray5` 改为 `gray-500` 写法，请注意升级后更改写法。详见 [色彩](https://stdf.design/guide/color)。
+- Avatar 组件新增头像组用法，详见 [Avatar](https://stdf.design/components?nav=avatar&tab=4)。
 
 ## 0.3.2 <font size=1>2023-10-11</font>
 
-- 修复 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。
+- 修复 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
 
 ## 0.3.1 <font size=1>2023-10-11</font>
 
-- 增强 Input 组件，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。
+- 增强 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
 
 ## 0.3.0 <font size=1>2023-09-20</font>
 
-- 新增 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/#/components?nav=numKeyboard&tab=0)。
+- 新增 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/components?nav=numKeyboard&tab=0)。
 
 ## 0.2.11 <font size=1>2023-09-15</font>
 
-- 修复 Cell，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。
-- 修复 Icon，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。
-- 修复 Skeleton，详见 [Skeleton](https://stdf.design/#/components?nav=skeleton&tab=4)。
+- 修复 Cell，详见 [Cell](https://stdf.design/components?nav=cell&tab=4)。
+- 修复 Icon，详见 [Icon](https://stdf.design/components?nav=icon&tab=4)。
+- 修复 Skeleton，详见 [Skeleton](https://stdf.design/components?nav=skeleton&tab=4)。
 
 ## 0.2.10 <font size=1>2023-09-11</font>
 
-- 增强 Cell 组件，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。
+- 增强 Cell 组件，详见 [Cell](https://stdf.design/components?nav=cell&tab=4)。
 
 ## 0.2.9 <font size=1>2023-08-31</font>
 
@@ -96,7 +96,7 @@
 - 删除部分组件无用代码。
 - 格式化组件代码，方便后续其他参与成员统一代码风格。
 - 考虑到组件代码本身体积也不大，还是决定直接将组件源码放入 NPM 包中，方便用户直接查看源码，避免了需要去 GitHub 上查看源码的麻烦。
-- 多语言引入路径改回 `stdf/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide/internation)。
+- 多语言引入路径改回 `stdf/lang/xx_XX`，详见 [国际化](https://stdf.design/guide/internation)。
 
 ## 0.2.7 <font size=1>2023-08-26</font>
 
@@ -104,14 +104,14 @@
 
 ## 0.2.5 <font size=1>2023-08-16</font>
 
-- Icon 修改 path 默认值，详见 [Icon](https://stdf.design/#/components?nav=icon&tab=4)。
+- Icon 修改 path 默认值，详见 [Icon](https://stdf.design/components?nav=icon&tab=4)。
 - 新增了 `rollup-plugin-stdf-icon` 插件，将指定文件夹内的所有 SVG 组合为 SVG symbol，详见 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，方便 STDF 的 Icon 组件使用。
 - 配合 `rollup-plugin-stdf-icon` 更新 `create-stdf`。
 
 ## 0.2.4 <font size=1>2023-08-14</font>
 
 - 0.2.2 ~ 0.2.4 优化文件结构，精简 NPM 包体积。抵制 `node_modules` 体积膨胀和依赖黑洞，从我做起！
-- 多语言引入路径由 `stdf/lang/xx_XX` 改为 `stdf/dist/lang/xx_XX`，详见 [国际化](https://stdf.design/#/guide/internation)。
+- 多语言引入路径由 `stdf/lang/xx_XX` 改为 `stdf/dist/lang/xx_XX`，详见 [国际化](https://stdf.design/guide/internation)。
 
 ## 0.2.1 <font size=1>2023-07-26</font>
 
@@ -120,7 +120,7 @@
 ## 0.2.0 <font size=1>2023-07-23</font>
 
 - 适配 Svelte 4 同时也兼容 Svelte 3。目前仅需适配一项，即升级部分组件过渡动画，参考 Svelte 4 migration guide - [Transitions are local by default](https://svelte.dev/docs/v4-migration-guide#transitions-are-local-by-default)。
-- 增强 Swiper 组件，详见 [Swiper](https://stdf.design/#/components?nav=swiper&tab=4)。
+- 增强 Swiper 组件，详见 [Swiper](https://stdf.design/components?nav=swiper&tab=4)。
 
 ## 0.1.5 <font size=1>2023-07-19</font>
 
@@ -132,11 +132,11 @@
 
 ## 0.1.3 <font size=1>2023-07-16</font>
 
-- Pagination 新增 Props。详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
+- Pagination 新增 Props。详见 [Pagination](https://stdf.design/components?nav=pagination&tab=4)。
 
 ## 0.1.2 <font size=1>2023-07-11</font>
 
-- Pagination 细节优化。详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=4)。
+- Pagination 细节优化。详见 [Pagination](https://stdf.design/components?nav=pagination&tab=4)。
 
 ## 0.1.1 <font size=1>2023-07-10</font>
 
@@ -144,7 +144,7 @@
 
 ## 0.1.0 <font size=1>2023-07-10</font>
 
-- 新增 Pagination 组件，详见 [Pagination](https://stdf.design/#/components?nav=pagination&tab=0)。
+- 新增 Pagination 组件，详见 [Pagination](https://stdf.design/components?nav=pagination&tab=0)。
 
 ## 0.0.27 <font size=1>2023-06-29</font>
 
@@ -152,11 +152,11 @@
 
 ## 0.0.11 <font size=1>2023-06-19</font>
 
-- 优化 Input，详见 [Input](https://stdf.design/#/components?nav=input&tab=4)。
+- 优化 Input，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
 
 ## 0.0.10 <font size=1>2023-06-17</font>
 
-- 优化 Cell，详见 [Cell](https://stdf.design/#/components?nav=cell&tab=4)。
+- 优化 Cell，详见 [Cell](https://stdf.design/components?nav=cell&tab=4)。
 
 ## 0.0.9
 
@@ -164,7 +164,7 @@
 
 ## 0.0.8
 
-- 修复 Calendar，详见 [Calendar](https://stdf.design/#/components?nav=calendar&tab=4)。
+- 修复 Calendar，详见 [Calendar](https://stdf.design/components?nav=calendar&tab=4)。
 
 ## 0.0.7
 
@@ -173,7 +173,7 @@
 
 ## 0.0.6
 
-- 新增 Loading 类型，详见 [Loading](https://stdf.design/#/components?nav=loading&tab=4)。
+- 新增 Loading 类型，详见 [Loading](https://stdf.design/components?nav=loading&tab=4)。
 
 ## 0.0.1 <font size=1>2023-04-27</font>
 
