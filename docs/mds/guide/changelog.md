@@ -1,20 +1,14 @@
-## 1.0.0-next.9 <font size=1>2024-12-23</font>
 
-- 增强 NumKeyboard 组件，详见 [NumKeyboard](https://next.stdf.design/components?nav=numKeyboard&tab=4)。
+## 1.0.0 <font size=1>2025-04-03</font>
 
-## 1.0.0-next.8 <font size=1>2024-12-16</font>
-
-- 增强 NavBar 组件，详见 [NavBar](https://next.stdf.design/components?nav=navBar&tab=4)。
-- 修复 Cell 组件，详见 [Cell](https://next.stdf.design/components?nav=cell&tab=4)。
-
-## 1.0.0-next.6 <font size=1>2024-12-03</font>
-
-- 新增多语言文件。
-
-## 1.0.0-next.5 <font size=1>2024-12-02</font>
-
-- 完整支持 Svelte 5 与 TypeScript，包括库与示例。
+- 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript，包括库、示例、create-stdf。
 - 按照 Svelte 官方 CLI [sv create](https://svelte.dev/docs/cli/sv-create) 重构库文件。
+- 增强 NavBar 组件，详见 [NavBar](https://stdf.design/components?nav=navBar&tab=4)。
+- 修复 Cell 组件，详见 [Cell](https://stdf.design/components?nav=cell&tab=4)。
+- 增强 NumKeyboard 组件，详见 [NumKeyboard](https://stdf.design/components?nav=numKeyboard&tab=4)。
+- 重写部分组件，如 Checkbox、
+- 文档组件 API 增加类型提示。
+- 跟随 Tailwind CSS v4，文档站点、主题生成器、组件库等颜色系统统一使用 oklch，参考 [Tailwind CSS](https://tailwindcss.com/docs/colors)。
 
 ## 0.5.3 <font size=1>2024-11-19</font>
 
