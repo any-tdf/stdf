@@ -39,9 +39,12 @@ jobs:
             - name: Install clean-css-cli
               run: npm install clean-css-cli -g
 
-            - name: Build stdf and rollup-plugin-md-ts
+            - name: Build rollup-plugin-stdf-icon and stdf and rollup-plugin-md-ts
               run: |
-                  cd packages/stdf
+                  cd packages/rollup-plugin-stdf-icon
+                  npm i
+                  npm run build
+                  cd ../stdf
                   npm i
                   npm run package
                   cd ../rollup-plugin-md-ts
