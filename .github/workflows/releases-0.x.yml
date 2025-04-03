@@ -1,11 +1,11 @@
-# 当分支 next 有 push 事件，并且此次 push 包含了 packages/stdf/package.json 文件时，执行以下任务
+# 当分支 0.x 有 push 事件，并且此次 push 包含了 packages/stdf/package.json 文件时，执行以下任务
 
-name: RELEASES NEXT
+name: RELEASES 0.x
 
 on:
     push:
         branches:
-            - next
+            - 0.x
         paths:
             - 'packages/stdf/package.json'
 
@@ -23,17 +23,17 @@ jobs:
               run: |
                   echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 2. 读取 docs/mds/guide/changelog.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
+            # 2. 读取 doc/guide/changelog.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
             - name: Get md_version
               id: md_version
               run: |
-                  echo md_version=$(cat docs/mds/guide/changelog.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+                  echo md_version=$(cat doc/guide/changelog.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 3. 读取 docs/mds/guide/changelog_en.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
+            # 3. 读取 doc/guide/changelog_en.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
             - name: Get md_version_en
               id: md_version_en
               run: |
-                  echo md_version_en=$(cat docs/mds/guide/changelog_en.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+                  echo md_version_en=$(cat doc/guide/changelog_en.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
             # 4. 比较 Get version 与 Get md_version 和 Get md_version_en 三者的输出内容，如果不相同则此次不需要发布 Release，退出
             - name: Check version
@@ -47,20 +47,20 @@ jobs:
                       exit 78
                   fi
 
-            # 5. 读取 docs/mds/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格
+            # 5. 读取 doc/guide/changelog.md 中前两个二级标题之间的内容，包含换行和空格
             - name: Get changelog
               id: changelog
               run: |
                   echo 'changelog<<EOF' >> $GITHUB_OUTPUT
-                  sed -n '1,/##/{/##/!p;}' docs/mds/guide/changelog.md | sed '/^$/d' >> $GITHUB_OUTPUT
+                  sed -n '1,/##/{/##/!p;}' doc/guide/changelog.md | sed '/^$/d' >> $GITHUB_OUTPUT
                   echo 'EOF' >> $GITHUB_OUTPUT
 
-            # 6. 读取 docs/mds/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包含换行和空格
+            # 6. 读取 doc/guide/changelog_en.md 中第一个二级标题与第二个二级标题之间的内容，包含换行和空格
             - name: Get changelog_en
               id: changelog_en
               run: |
                   echo 'changelog_en<<EOF' >> $GITHUB_OUTPUT
-                  sed -n '1,/##/{/##/!p;}' docs/mds/guide/changelog_en.md | sed '/^$/d' >> $GITHUB_OUTPUT
+                  sed -n '1,/##/{/##/!p;}' doc/guide/changelog_en.md | sed '/^$/d' >> $GITHUB_OUTPUT
                   echo 'EOF' >> $GITHUB_OUTPUT
 
             # 7. 作为 latest release 发布本次 Release，body 为 changelog 和 changelog_en 的合并内容，中间使用 --- 分隔

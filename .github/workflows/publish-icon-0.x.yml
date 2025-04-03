@@ -1,11 +1,11 @@
-# 当分支 main 有 push 事件并且此次 push 包含了 packages/rollup-plugin-stdf-icon/package.json 文件时，执行以下任务
+# 当分支 0.x 有 push 事件并且此次 push 包含了 packages/rollup-plugin-stdf-icon/package.json 文件时，执行以下任务
 
-name: PUBLISH ICON
+name: PUBLISH ICON 0.x
 
 on:
     push:
         branches:
-            - main
+            - 0.x
         paths:
             - 'packages/rollup-plugin-stdf-icon/package.json'
 

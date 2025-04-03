@@ -1,83 +1,58 @@
-# 当分支 main 有 push 事件，并且此次 push 包含了 demo 目录下的文件时触发，使用 GitHub Actions 执行
+# 当分支 main 分支有 push 事件，并且此次 push 包含了 packages/stdf 目录下的文件时触发，使用 GitHub Actions 执行
 
 name: SYNC DEMO
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'demo/**'
+    push:
+        branches:
+            - main
+        paths:
+            - 'packages/stdf/**'
 
 jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    sync:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      # clone 仓库 github.com/any-tdf/stdf
-      - name: Clone stdf
-        uses: actions/checkout@v4
-        with:
-          repository: any-tdf/stdf
-          token: ${{ secrets.STDF_GITHUB_TOKEN }}
-          path: stdf
+            # clone 仓库 github.com/any-tdf/stdf
+            - name: Clone stdf
+              uses: actions/checkout@v4
+              with:
+                  repository: any-tdf/stdf
+                  token: ${{ secrets.STDF_GITHUB_TOKEN }}
+                  path: stdf
 
-      # 读取 packages/stdf/package.json 中的 version 字段，作为 stdf 的最新版本
-      - name: Get version
-        id: version
-        run: |
-          echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+            # 读取 packages/rollup-plugin-stdf-icon 中的 package.json 文件，获取 version 的值并存储到 version 变量中
+            - name: Read Icon version
+              run: |
+                  version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep -E '"version":' | awk -F'"' '{print $4}')
+                  echo "version: $version"
+                  echo "version=${version}" >> $GITHUB_ENV
+            # 初始化 stdf demo 仓库
+            # 将 stdf/LICENSE 复制到 stdf/packages/stdf/LICENSE
+            # 将 stdf/README.md 复制到 stdf/packages/stdf/README.md
+            # 将上一步获取的 version 字段前面增加 ^ 号，将 packages/stdf/package.json 中的 file:../rollup-plugin-stdf-icon 替换为 ^version
+            - name: Init stdf demo
+              run: |
+                  cp stdf/LICENSE stdf/packages/stdf/LICENSE
+                  cp stdf/README.md stdf/packages/stdf/README.md
+                  sed -i "s|file:../rollup-plugin-stdf-icon|^${version}|g" stdf/packages/stdf/package.json
+                  cd stdf/packages/stdf
+                  git init
+                  git config --global user.name 'GitHub Actions'
+                  git config --global user.email 'GitHub Actions'
 
-      # 读取 packages/rollup-plugin-stdf-icon/package.json 中的 version 字段，作为 rollup-plugin-stdf-icon 的最新版本
-      - name: Get rollup-plugin-stdf-icon version
-        id: rollup-plugin-stdf-icon-version
-        run: |
-          echo rollup-plugin-stdf-icon-version=$(cat packages/rollup-plugin-stdf-icon/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
+                  git add .
+                  git commit -m "Github Actions auto commit: update demo from stdf."
 
-      # 将 stdf/LICENSE 复制到 stdf/demo 目录下
-      # cd 到 stdf/demo 文件内，初始化本地仓库
-      # 将 demo/package.json 内的 "svelte" 前面增加一行 "stdf": "^${{ steps.version.outputs.version }}",
-      # 将 demo/package.json 内的 file:../packages/rollup-plugin-stdf-icon 替换为 ^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}
-      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf'"
-      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/zh_CN'"  替换为 "'stdf/lang/zh_CN'"
-      # 将 demo/src/routes/+layout.svelte 内的 "'../../../packages/stdf/lang/en_US'"  替换为 "'stdf/lang/en_US'"
-      # 将 demo/src/routes/+page.svelte 内的 "'../../../packages/stdf/components'"  替换为 "'stdf/lang/en_US'"
-      # 将 demo/src/routes/en_US/**/*.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
-      # 将 demo/src/routes/zh_CN/**/*.svelte 内的 "'../../../../../packages/stdf/components'"  替换为 "'stdf'"
-      # 将 demo/src/routes/components/ThemeSwitch.svelte 内的 "'../../../../packages/stdf/theme'" 替换为 "'stdf/theme'"
-      # 讲 demo/src/data/themes/index.js 内的 "'../../../../packages/stdf/theme'" 替换为 "'stdf/theme'"
-      # 将 demo/tailwind.config.js 内的 "'../packages/stdf/**/*.svelte'"  替换为 "./node_modules/stdf/**/*.svelte'"，注意其中特殊符号的转义
-      # 将 demo 目录下的所有文件提交到本地仓库，提交信息为 Github Actions auto commit: update demo from stdf.
-      - name: Init stdf demo
-        run: |
-          cp stdf/LICENSE stdf/demo/LICENSE
-          cd stdf/demo
-          git init
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'GitHub Actions'
-          sed -i 's/"svelte"/"stdf": "^${{ steps.version.outputs.version }}",\n"svelte"/' package.json
-          sed -i 's/"svelte"/\t\t"svelte"/' package.json
-          sed -i 's#file:../packages/rollup-plugin-stdf-icon#^${{ steps.rollup-plugin-stdf-icon-version.outputs.rollup-plugin-stdf-icon-version }}#' package.json
-          sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+layout.svelte
-          sed -i 's#../../../packages/stdf/lang/zh_CN#stdf/lang/zh_CN#' src/routes/+layout.svelte
-          sed -i 's#../../../packages/stdf/lang/en_US#stdf/lang/en_US#' src/routes/+layout.svelte
-          sed -i 's#../../../packages/stdf/components#stdf#' src/routes/+page.svelte
-          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/en_US/**/*.svelte
-          sed -i 's#../../../../../packages/stdf/components#stdf#' src/routes/zh_CN/**/*.svelte
-          sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/routes/components/ThemeSwitch.svelte
-          sed -i 's#../../../../packages/stdf/theme#stdf/theme#' src/data/themes/index.js
-          sed -i 's|'\''../packages/stdf/\*\*/\*.svelte'\''|'\''.\/node_modules\/stdf\/\*\*\/\*.svelte'\''|g' tailwind.config.js
-          git add .
-          git commit -m "Github Actions auto commit: update demo from stdf."
-
-      # 将修改内容推送到 git@github.com:any-tdf/demo-stdf.git 的 main 分支
-      - name: Push to demo-stdf
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.STDF_GITHUB_TOKEN }}
-          branch: main
-          force: true
-          directory: stdf/demo
-          repository: any-tdf/demo-stdf
+            # 将修改内容推送到 git@github.com:any-tdf/demo-stdf.git 的 main 分支
+            - name: Push to demo-stdf
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.STDF_GITHUB_TOKEN }}
+                  branch: main
+                  force: true
+                  directory: stdf/packages/stdf
+                  repository: any-tdf/demo-stdf

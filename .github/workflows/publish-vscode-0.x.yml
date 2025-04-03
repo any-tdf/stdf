@@ -1,11 +1,11 @@
-# 当分支 next 有 push 事件并且此次 push 包含了 packages/vscode-extension/package.json 文件时，执行以下任务
+# 当分支 0.x 有 push 事件并且此次 push 包含了 packages/vscode-extension/package.json 文件时，执行以下任务
 
-name: PUBLISH VSCODE NEXT
+name: PUBLISH VSCODE 0.x
 
 on:
     push:
         branches:
-            - next
+            - 0.x
         paths:
             - 'packages/vscode-extension/package.json'
 
