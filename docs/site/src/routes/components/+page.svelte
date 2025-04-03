@@ -257,7 +257,7 @@
 										id="iframe-id"
 										src={import.meta.env.DEV
 											? `http://localhost:8888/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe`
-											: `https://next-demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe`}
+											: `https://demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe`}
 										height={demoHeight - 2}
 										width="390"
 									></iframe>

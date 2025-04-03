@@ -89,10 +89,9 @@
 	{#if $page.url.pathname === '' || $page.url.pathname === '/'}
 		<div class="bg-primary dark:bg-dark px-2 py-1 text-center text-xs text-white dark:text-black">
 			{#if isZh}
-				这是 v1.0.0@next 文档，v0.x 请访问 <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a>
+				这是 v1.0.0 文档，v0.x 请访问 <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a>
 			{:else}
-				This is the v1.0.0@next documentation, please visit <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a> for
-				v0.x
+				This is the v1.0.0 documentation, please visit <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a> for v0.x
 			{/if}
 		</div>
 	{/if}
