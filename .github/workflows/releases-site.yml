@@ -32,12 +32,12 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Set up Node
-              uses: actions/setup-node@v4
+            - name: Set up Bun
+              uses: oven-sh/setup-bun@v2
               with:
-                  node-version: 20.x
+                  bun-version: 'latest'
             - name: Install clean-css-cli
-              run: npm install clean-css-cli -g
+              run: bun i clean-css-cli -g
 
             - name: Build rollup-plugin-stdf-icon and stdf and rollup-plugin-md-ts
               run: |
@@ -56,14 +56,14 @@ jobs:
               run: |
                   cd docs/site
                   npm i
-                  npm run build
+                  npm run all
             - name: Setup Pages
               uses: actions/configure-pages@v4
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  # Upload dist folder
-                  path: './docs/site/dist'
+                  # Upload build folder
+                  path: './docs/site/build'
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
