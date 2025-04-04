@@ -5,7 +5,7 @@
 
 ### Install
 
-Svelte and Tailwind have been configured for direct installation.
+> 🔔Note: Before installation, please configure the [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) projects in advance before installing!
 
 <!-- :::code-groups -->
 <!-- pnpm -->
