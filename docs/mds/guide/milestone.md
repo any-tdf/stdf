@@ -1,6 +1,6 @@
-## 2024-12-02
+## 2025-04-07
 
-v1.0.0@next 版本发布，完整支持 Svelte 5 与 TypeScript，包括库与示例，待 Tailwind CSS v4 正式发布，STDF 将迅速适配，适时发布 v1.0.0 正式版。
+v1 版本发布，完整支持 Svelte 5、Tailwind CSS v4 与 TypeScript。
 
 ## 2023-11-03
 

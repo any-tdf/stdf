@@ -1,4 +1,4 @@
-## 1.0.0
+## 1.0.3
 
 - [!tag|A|0|]Add `clear` property, keep the selected date when closed.
 

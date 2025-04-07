@@ -1,4 +1,4 @@
-## 1.0.0
+## 1.0.3
 
 - [!tag|B|3|]Fix the problem that the right arrow is not vertically centered.
 - [!tag|O|0|]Reduce the distance between the left and right sides.

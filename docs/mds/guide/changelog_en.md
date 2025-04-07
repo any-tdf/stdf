@@ -1,4 +1,4 @@
-## 1.0.0 <font size=1>2025-04-03</font>
+## 1.0.3 <font size=1>2025-04-07</font>
 
 - Full support for Svelte v5, Tailwind CSS v4, and TypeScript, including libraries, demos, create-stdf, and site.
 - Rebuilt the library according to Svelte official CLI [sv create](https://svelte.dev/docs/cli/sv-create).

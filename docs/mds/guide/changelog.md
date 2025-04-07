@@ -1,5 +1,5 @@
 
-## 1.0.0 <font size=1>2025-04-03</font>
+## 1.0.3 <font size=1>2025-04-07</font>
 
 - 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript，包括库、示例、create-stdf、站点。
 - 按照 Svelte 官方 CLI [sv create](https://svelte.dev/docs/cli/sv-create) 重构库文件。
