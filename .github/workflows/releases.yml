@@ -23,13 +23,13 @@ jobs:
               run: |
                   echo version=$(cat packages/stdf/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 2. 读取 docs/mds/guide/changelog.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
+            # 2. 读取 docs/mds/guide/changelog.md 的第一行内容中‘##’与‘<font’之间的内容，再去除空格
             - name: Get md_version
               id: md_version
               run: |
                   echo md_version=$(cat docs/mds/guide/changelog.md | head -1 | sed 's/## //g' | sed 's/<font.*>//g' | tr -d '[[:space:]]') >> $GITHUB_OUTPUT
 
-            # 3. 读取 docs/mds/guide/changelog_en.md 的第一行内容中 ‘##’ 与 ‘<font’ 之间的内容，再去除空格
+            # 3. 读取 docs/mds/guide/changelog_en.md 的第一行内容中‘##’与‘<font’之间的内容，再去除空格
             - name: Get md_version_en
               id: md_version_en
               run: |
