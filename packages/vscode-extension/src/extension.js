@@ -57,7 +57,7 @@ async function activate() {
 					// Combine the current STDF version and the latest version
 					const versionContent = `STDF ${isZh ? '当前' : 'Current'}：${currentVersion} &nbsp; ${
 						isZh ? '最新' : 'Latest'
-					}：${latestVersion} &nbsp; [${isZh ? '查看更新日志' : 'See changelog'}](https://next.stdf.design/guide/changelog)`;
+					}：${latestVersion} &nbsp; [${isZh ? '查看更新日志' : 'See changelog'}](https://stdf.design/guide/changelog)`;
 
 					// 获取对应组件的 api.md 文件的路径
 					// Get the path of the api.md file of the corresponding component
