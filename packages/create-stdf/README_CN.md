@@ -6,14 +6,11 @@
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest
 # 或
@@ -21,21 +18,16 @@ npm init stdf@latest
 # 或
 npx create-stdf@latest
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf
 ```
-
 <!-- ::: -->
 
 ...然后按照提示进行操作。
@@ -44,72 +36,56 @@ yarn create stdf
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app
 ```
-
 <!-- ::: -->
 
 如果要使用 **SvelteKit + Tailwind + STDF** 模板，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app --template skt
 # 或
 pnpm create stdf my-app -t skt
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app --template skt
 # 或
 npm create stdf@latest my-app -t skt
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app --template skt
 # 或
 bun create stdf my-app -t skt
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app --template skt
 # 或
 yarn create stdf my-app -t skt
 ```
-
 <!-- ::: -->
 
 模板预设包括：
@@ -148,32 +124,24 @@ yarn create stdf my-app -t skt
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app -l zh_CN
 ```
-
 <!-- ::: -->
 
 # 许可证

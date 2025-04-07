@@ -6,14 +6,11 @@ A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest
 # or
@@ -21,21 +18,16 @@ npm init stdf@latest
 # or
 npx create-stdf@latest
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf
 ```
-
 <!-- ::: -->
 
 ...and follow the prompts.
@@ -44,72 +36,56 @@ You can also directly specify the project name and the template you want to use 
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app
 ```
-
 <!-- ::: -->
 
 If you want to use the **SvelteKit + Tailwind + STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app --template skt
 # or
 pnpm create stdf my-app -t skt
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app --template skt
 # or
 npm create stdf@latest my-app -t skt
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app --template skt
 # or
 bun create stdf my-app -t skt
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app --template skt
 # or
 yarn create stdf my-app -t skt
 ```
-
 <!-- ::: -->
 
 Template presets include:
@@ -148,32 +124,24 @@ For example:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
-
 ```sh
 pnpm create stdf my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- npm -->
-
 ```sh
 npm create stdf@latest my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- bun -->
-
 ```sh
 bun create stdf my-app -l zh_CN
 ```
-
 <!-- :: -->
 <!-- yarn -->
-
 ```sh
 yarn create stdf my-app -l zh_CN
 ```
-
 <!-- ::: -->
 
 # License
