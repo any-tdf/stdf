@@ -29,10 +29,10 @@
 	},
 	"keywords": [
 		"svelte",
+		"sveltekit",
 		"tailwind",
 		"unocss",
 		"typescript",
-		"sveltekit",
 		"stdf",
 		"cli",
 		"mobile",
