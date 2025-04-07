@@ -31,5 +31,4 @@ jobs:
                   npm run files
                   npm install
                   npm install -g @vscode/vsce
-                  npm run package
-                  vsce publish ${{ secrets.VSCE_TOKEN }}
+                  vsce publish -p ${{ secrets.VSCE_TOKEN }}
