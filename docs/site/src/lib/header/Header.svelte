@@ -88,7 +88,7 @@
 				</svg>
 			</div>
 		</a>
-		<span class="text-primary dark:text-dark text-sm">v1.0.0</span>
+		<span class="text-primary dark:text-dark text-sm">v1</span>
 	</div>
 	<div>
 		<div class="cursor-pointer p-4 md:hidden">
