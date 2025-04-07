@@ -1,8 +1,6 @@
 # 将 Demo 静态内容部署到 GitHub Pages 的简易工作流程
 name: RELEASES DEMO
 
-name: Deploy to GitHub Pages
-
 on:
   push:
     branches: 'main'
