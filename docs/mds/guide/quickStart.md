@@ -1,11 +1,7 @@
 
 > Tip：所有代码或命令可以双击选定词，三击选定行。
 
-## 😓 无工程
-
-### 使用 create-stdf
-
-可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。
+## 1. [create-stdf](https://www.npmjs.com/package/create-stdf)（推荐）
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -33,37 +29,37 @@ yarn create stdf
 ```
 <!-- ::: -->
 
-### 自行搭建工程
+## 2. 自行搭建
 
-此处用 Vite 示例创建工程，参考 [Vite 文档](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)。
+2.1 使用 [Svelte CLI](https://svelte.dev/docs/cli/sv-create) 创建工程
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create vite
+pnpm dlx sv create
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create vite@latest
+npx sv create
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create vite
+bunx sv create
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create vite
+yarn dlx sv create
 ```
 <!-- ::: -->
 
-按照提示操作创建工程。
+按照提示创建工程。
+
+2.2 安装 Tailwind CSS 与 Vite 插件。
 
 参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite#svelte) 配置 Tailwind CSS。
-
-1. 安装 Tailwind CSS 与 Vite 插件。
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -87,7 +83,9 @@ yarn add tailwindcss @tailwindcss/vite -D
 ```
 <!-- ::: -->
 
-2. 在项目的入口 CSS 文件中引入 Tailwind CSS，设置暗黑模式，添加初始颜色变量。以下为 STDF 默认主题色，请根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/guide/color)。
+2.3 在项目的入口 CSS 文件中引入 Tailwind CSS，设置暗黑模式，添加初始颜色变量，**使用 `@source` 指令指定 Tailwind 自动检测 STDF 组件**。
+
+以下为 STDF 默认主题色，请根据自己的需要进行修改。可参考 [STDF 指南 - 色彩](/guide/color)。
 
 ```css
 /* app.css */
@@ -154,9 +152,10 @@ yarn add tailwindcss @tailwindcss/vite -D
 	--color-gray-950: oklch(0.159 0 0);
 	--color-transparent: transparent;
 }
+@source "../node_modules/stdf/**/*.svelte";
 ```
 
-3. 启动项目。
+2.4 启动项目。
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -179,42 +178,3 @@ bun dev
 yarn dev
 ```
 <!-- ::: -->
-
-## 😉 已有工程
-
-### 安装
-
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
-
-<!-- :::code-groups -->
-<!-- pnpm -->
-```sh
-pnpm i stdf -D
-```
-<!-- :: -->
-<!-- npm -->
-```sh
-npm i stdf -D
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun add stdf -D
-```
-<!-- :: -->
-<!-- yarn -->
-```sh
-yarn add stdf -D
-```
-<!-- ::: -->
-
-### 在 Svelte 中使用
-
-```svelte
-<!-- Button Demo -->
-<script>
-	import { Button } from 'stdf';
-</script>
-
-<Button>默认</Button>
-```

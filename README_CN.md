@@ -37,6 +37,7 @@
 基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
 
 > **S**imple • **T**hin • **D**esign • **F**ast
+
 > 简 单 • 轻 量 • 设 计 • 快 速
 
 # 特性

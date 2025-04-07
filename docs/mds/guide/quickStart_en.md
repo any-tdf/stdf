@@ -1,50 +1,7 @@
 
 > Tip: All code or commands can be double-clicked to select the word, three clicks to select the line.
 
-## 😉 Existing works
-
-### Install
-
-Svelte and Tailwind have been configured for direct installation.
-
-<!-- :::code-groups -->
-<!-- pnpm -->
-```sh
-pnpm i stdf -D
-```
-<!-- :: -->
-<!-- npm -->
-```sh
-npm i stdf -D
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun add stdf -D
-```
-<!-- :: -->
-<!-- yarn -->
-```sh
-yarn add stdf -D
-```
-<!-- ::: -->
-
-### Used in Svelte
-
-```svelte
-<!-- Button Demo -->
-<script>
-	import { Button } from 'stdf';
-</script>
-
-<Button>Default</Button>
-```
-
-## 😓 No works
-
-### Use create-stdf
-
-You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
+## 1. [create-stdf](https://www.npmjs.com/package/create-stdf) (Recommended)
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -72,37 +29,37 @@ yarn create stdf
 ```
 <!-- ::: -->
 
-### Build your own project
+## 2. Self-built
 
-Use the Vite example to create the project here. See [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+2.1 Use the [Svelte CLI](https://svelte.dev/docs/cli/sv-create) to create the project.
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create vite
+pnpm dlx sv create
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create vite@latest
+npx sv create
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create vite
+bunx sv create
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create vite
+yarn dlx sv create
 ```
 <!-- ::: -->
 
-Follow the prompts to create a project.
+Follow the prompts to create the project.
 
-Reference [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite#svelte) to configure Tailwind CSS.
+2.2 Install Tailwind CSS and Vite plugins.
 
-1. Install Tailwind CSS and Vite plugin.
+Refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite#svelte) to configure Tailwind CSS.
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -122,18 +79,20 @@ bun i tailwindcss @tailwindcss/vite -D
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn i tailwindcss @tailwindcss/vite -D
+yarn add tailwindcss @tailwindcss/vite -D
 ```
 <!-- ::: -->
 
-2. Import Tailwind CSS in the project entry CSS file, set the dark mode, and add the initial color variable. The following is the default theme color of STDF, please modify it according to your needs. See [STDF Guide - Color](/guide/color).
+2.3 In the project's entry CSS file, import Tailwind CSS, set the dark mode, add the initial color variables, and **use the `@source` directive to specify that Tailwind CSS automatically detects STDF components**.
+
+The following are the default theme colors of STDF, please modify them according to your needs. For more information, refer to [STDF Guide - Color](/guide/color).
 
 ```css
 /* app.css */
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-	/* Theme color */
+	/* Theme Colors */
 	--color-primary-50: oklch(0.979 0.01 267.36);
 	--color-primary-100: oklch(0.95 0.024 270.343);
 	--color-primary-200: oklch(0.847 0.074 271.188);
@@ -163,13 +122,13 @@ yarn i tailwindcss @tailwindcss/vite -D
 	--color-darkBlack: oklch(0.183 0.035 86.634);
 	--color-darkWhite: oklch(0.962 0.001 17.178);
 
-	/* Functional color */
+	/* Functional Colors */
 	--color-success: oklch(0.704 0.142 167.084);
 	--color-warning: oklch(0.558 0.154 47.186);
 	--color-error: oklch(0.564 0.223 28.46);
 	--color-info: oklch(0.482 0.14 261.518);
 
-	/* Extended color */
+	/* Extended Colors */
 	--color-extend0: oklch(0.703 0.149 235.059);
 	--color-Twitter: oklch(0.703 0.149 235.059);
 	--color-extend1: oklch(0.702 0.194 38.137);
@@ -177,7 +136,7 @@ yarn i tailwindcss @tailwindcss/vite -D
 	--color-extend2: oklch(0.482 0.107 161.212);
 	--color-Starbucks: oklch(0.482 0.107 161.212);
 
-	/* Neutral color */
+	/* Neutral Colors */
 	--color-black: oklch(0 0 0);
 	--color-white: oklch(1 0 0);
 	--color-gray-50: oklch(0.961 0 0);
@@ -193,9 +152,10 @@ yarn i tailwindcss @tailwindcss/vite -D
 	--color-gray-950: oklch(0.159 0 0);
 	--color-transparent: transparent;
 }
+@source "../node_modules/stdf/**/*.svelte";
 ```
 
-3. Start the project.
+2.4 Start the project.
 
 <!-- :::code-groups -->
 <!-- pnpm -->
