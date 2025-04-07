@@ -1,5 +1,9 @@
 > No change log version, it means that it is just updated with the STDF version and the plug-in itself is not updated.
 
+## 0.0.30
+
+- Support STDF v1.x.
+
 ## 0.0.28
 
 - Support STDF next.
