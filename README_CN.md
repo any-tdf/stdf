@@ -26,9 +26,9 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgogICAgPHBhdGgKICAgICAgICBmaWxsPSIjRjBGQ0Q2IgogICAgICAgIGQ9Ik0zMC44NjUgMy40NDhMMjQuMjgyLjI4MWExLjk5IDEuOTkgMCAwIDAtMi4yNzYuMzg1TDkuMzk3IDEyLjE3MUwzLjkwMiA4LjAwNGExLjMzIDEuMzMgMCAwIDAtMS43MDMuMDczTC40MzkgOS42ODFhMS4zMyAxLjMzIDAgMCAwLS4wMDUgMS45NjlMNS4yIDE1Ljk5OUwuNDM0IDIwLjM0OGExLjMzIDEuMzMgMCAwIDAgLjAwNSAxLjk2OWwxLjc2IDEuNjA0YTEuMzMgMS4zMyAwIDAgMCAxLjcwMy4wNzNsNS40OTUtNC4xNzJsMTIuNjE1IDExLjUxYTEuOTgyIDEuOTgyIDAgMCAwIDIuMjcxLjM4NWw2LjU4OS0zLjE3MmExLjk5MyAxLjk5MyAwIDAgMCAxLjEzLTEuODAyVjUuMjQ4YzAtLjc2Ni0uNDQzLTEuNDY5LTEuMTM1LTEuODAyem0tNi44NiAxOS44MThMMTQuNDMyIDE2bDkuNTczLTcuMjY2eiIKICAgIC8+Cjwvc3ZnPgo=&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/next/README.md" target="_blank">English</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
     <span> • </span>
-    <a href="https://next.stdf.design?lang=zh_CN" target="_blank">网站</a>
+    <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
   </h3>
 </div>
 
@@ -37,14 +37,13 @@
 基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
 
 > **S**imple • **T**hin • **D**esign • **F**ast
-
 > 简 单 • 轻 量 • 设 计 • 快 速
 
 # 特性
 
+- 🔥 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript。
 - 🚀 无运行时，无虚拟 DOM，线上运行更快。
 - 🧰 API 丰富，轻松配置出符合需求的组件样式。
-- ✍ 基于 Svelte 与 Tailwind，编码迅速轻松。
 - 🍭 支持暗模式与多主题配置。
 - 📖 提供丰富的中英文文档和组件示例。
 - 🌍 支持国际化，已内置 60+ 种语言包。
@@ -55,52 +54,36 @@
 - 🪜 配套脚手架，快速创建工程。
 - 🔗 配套 SVG 合并插件，快速合并 SVG。
 - 🍺 配套 IDE 插件，快速查看组件 API。
-- 🔧 支持 TypeScript，组件 Props 有完整的类型提示。
 
 # 快速上手
 
-## 安装
-
-已有配置好 Svelte 与 Tailwind 的工程，直接安装。
-
-```sh
-pnpm i stdf@next -D
-# or
-npm i stdf@next -D
-# or
-bun i stdf@next -D
-```
-
-## 使用
-
-```xml
-<!-- Button Demo -->
-<script>
-import { Button } from 'stdf';
-</script>
-
-<Button>默认</Button>
-```
-
-## 😓 无工程？创建工程
-
-可以尝试使用 [create-stdf](https://www.npmjs.com/package/create-stdf) 快速创建工程。
-
+<!-- :::code-groups -->
+<!-- pnpm -->
 ```sh
 pnpm create stdf
-# or
-npm create stdf@latest
-# or
-npm init stdf@latest
-# or
-npx create-stdf@latest
-# or
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm create stdf
+# 或
+npm init stdf
+# 或
+npx create-stdf
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf
+```
+<!-- ::: -->
 
-或者自行创建 Vite 工程，并配置 Tailwind CSS 和 STDF 使用到的配置。参考 [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite#svelte) & [STDF](https://stdf.design/#/guide)。
-
-# 预览
+# 预览 Demo
 
 扫描二维码访问移动端 Demo：
 
@@ -111,7 +94,7 @@ bun create stdf
 
 # 快速尝试
 
-可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf) 快速尝试 STDF。
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 快速尝试 STDF。
 
 # 反馈与交流
 

@@ -26,9 +26,9 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgogICAgPHBhdGgKICAgICAgICBmaWxsPSIjRjBGQ0Q2IgogICAgICAgIGQ9Ik0zMC44NjUgMy40NDhMMjQuMjgyLjI4MWExLjk5IDEuOTkgMCAwIDAtMi4yNzYuMzg1TDkuMzk3IDEyLjE3MUwzLjkwMiA4LjAwNGExLjMzIDEuMzMgMCAwIDAtMS43MDMuMDczTC40MzkgOS42ODFhMS4zMyAxLjMzIDAgMCAwLS4wMDUgMS45NjlMNS4yIDE1Ljk5OUwuNDM0IDIwLjM0OGExLjMzIDEuMzMgMCAwIDAgLjAwNSAxLjk2OWwxLjc2IDEuNjA0YTEuMzMgMS4zMyAwIDAgMCAxLjcwMy4wNzNsNS40OTUtNC4xNzJsMTIuNjE1IDExLjUxYTEuOTgyIDEuOTgyIDAgMCAwIDIuMjcxLjM4NWw2LjU4OS0zLjE3MmExLjk5MyAxLjk5MyAwIDAgMCAxLjEzLTEuODAyVjUuMjQ4YzAtLjc2Ni0uNDQzLTEuNDY5LTEuMTM1LTEuODAyem0tNi44NiAxOS44MThMMTQuNDMyIDE2bDkuNTczLTcuMjY2eiIKICAgIC8+Cjwvc3ZnPgo=&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/next/README_CN.md" target="_blank">简体中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/README_CN.md" target="_blank">简体中文</a>
     <span> • </span>
-    <a href="https://next.stdf.design?lang=en_US" target="_blank">Website</a>
+    <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
   </h3>
 </div>
 
@@ -40,9 +40,9 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 
 # Features
 
+- 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
 - 🚀 No runtime, no virtual DOM, runs faster online.
 - 🧰 Rich API, easily configure component styles that meet your needs.
-- ✍ Based on Svelte and Tailwind, coding is quick and easy.
 - 🍭 Supports dark mode and multiple theme configuration.
 - 📖 Provides extensive Chinese and English documentation and component examples.
 - 🌍 Supports internationalization, with 60+ built-in language packages.
@@ -53,52 +53,36 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🪜 Comes with a scaffolding tool for quick project creation.
 - 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
 - 🍺 IDE plugin for quickly viewing component APIs.
-- 🔧 Supports TypeScript, with complete type prompts for component Props.
 
 # Getting Started
 
-## Installation
-
-If you have a project configured with Svelte and Tailwind, install directly.
-
-```sh
-pnpm i stdf@next -D
-# or
-npm i stdf@next -D
-# or
-bun i stdf@next -D
-```
-
-## Usage
-
-```xml
-<!-- Button Demo -->
-<script>
-import { Button } from 'stdf';
-</script>
-
-<Button>Default</Button>
-```
-
-## 😓 No project? Create one
-
-You can try using [create-stdf](https://www.npmjs.com/package/create-stdf) to quickly create a project.
-
+<!-- :::code-groups -->
+<!-- pnpm -->
 ```sh
 pnpm create stdf
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm create stdf
 # or
-npm create stdf@latest
+npm init stdf
 # or
-npm init stdf@latest
-# or
-npx create-stdf@latest
-# or
+npx create-stdf
+```
+<!-- :: -->
+<!-- bun -->
+```sh
 bun create stdf
 ```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn create stdf
+```
+<!-- ::: -->
 
-Alternatively, you can create a Vite project and configure it to use Tailwind CSS and the configurations used by STDF. Refer to [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) & [Tailwind CSS](https://tailwindcss.com/docs/guides/vite#svelte) & [STDF](https://stdf.design/#/guide) for more information.
-
-# Preview
+# Preview Demo
 
 Please scan the QR code to access the mobile demo:
 
@@ -109,7 +93,7 @@ Please scan the QR code to access the mobile demo:
 
 # Quick Try
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf?startScript=dev_en).
+You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
 
 # Feedback and Communication
 
