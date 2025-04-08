@@ -1,4 +1,4 @@
-[English](https://github.com/any-tdf/stdf/blob/next/packages/rollup-plugin-md-ts/README.md)
+[English](https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-md-ts/README.md)
 
 ## 介绍
 
@@ -6,7 +6,7 @@
 
 实现思路参考 [rollup-plugin-md](https://github.com/xiaofuzi/rollup-plugin-md) ，增加了 TypeScript 并兼容 Vite 的插件类型。
 
-STDF 新站点 <https://next.stdf.design> 使用了此插件。
+STDF 文档站点 <https://stdf.design> 使用了此插件。
 
 ## 参数
 

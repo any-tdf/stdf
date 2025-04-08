@@ -1,4 +1,4 @@
-[简体中文](https://github.com/any-tdf/stdf/blob/next/packages/rollup-plugin-md-ts/README_CN.md)
+[简体中文](https://github.com/any-tdf/stdf/blob/main/packages/rollup-plugin-md-ts/README_CN.md)
 
 ## Introduction
 
@@ -6,7 +6,7 @@ This is a Rollup/Vite plugin that converts Markdown files to HTML strings, based
 
 The implementation idea is based on [rollup-plugin-md](https://github.com/xiaofuzi/rollup-plugin-md), adding TypeScript and compatible with Vite's plugin type.
 
-The STDF new site <https://next.stdf.design> uses this plugin.
+The STDF doc site <https://stdf.design> uses this plugin.
 
 ## Parameters
 
