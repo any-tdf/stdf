@@ -26,26 +26,12 @@ build
 /docs/site/.env
 /docs/site/public-backup/
 
-/docs/site1
-
 # 忽略 packages 中 create-stdf 模板中的 node_modules ignore node_modules in create-stdf templates
 /packages/create-stdf/templates/sktt/static/fonts
 /packages/create-stdf/templates/sktt/static/symbols
 
-/packages/create-stdf/templates/skut/static/fonts
-/packages/create-stdf/templates/skut/static/symbols
-
 /packages/create-stdf/templates/skt/static/fonts
 /packages/create-stdf/templates/skt/static/symbols
-
-/packages/create-stdf/templates/vite-tailwind/public/fonts
-
-/packages/create-stdf/templates/vite-uno/public/fonts
-
-/packages/create-stdf/templates/sveltekit-tailwind/static/fonts
-
-/packages/create-stdf/templates/sveltekit-uno/static/fonts
-/packages/create-stdf/templates/sveltekit-uno/static/symbols
 
 # 忽略 packages 中 rollup-plugin-stdf-icon 本地构建的文件 ignore the files built by rollup-plugin-stdf-icon in packages
 /packages/rollup-plugin-stdf-icon/test/symbol.svg
