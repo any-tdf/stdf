@@ -26,16 +26,15 @@
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 或者 [WebStorm 集成](https://www.jetbrains.com/help/webstorm/prettier.html)：代码格式化插件。
 
 按照下面的步骤操作，即可在本地快速启动 STDF Demo。
-<!-- main -> next -->
+
 > 由于 Demo 依赖的 rollup-plugin-stdf-icon 包是本地构建的，所以请先构建一下这个包。
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-## 1. 克隆 STDF 仓库并进入，切换到 next 分支
+## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
@@ -54,10 +53,9 @@ pnpm dev
 <!-- :: -->
 <!-- npm -->
 ```sh
-## 1. 克隆 STDF 仓库并进入，切换到 next 分支
+## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
@@ -76,17 +74,16 @@ npm run dev
 <!-- :: -->
 <!-- bun -->
 ```sh
-## 1. 克隆 STDF 仓库并进入，切换到 next 分支
+## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
 ## 安装依赖
 bun i
 ## 构建包
-bun build
+bun run build
 
 ## 3. 调试 STDF
 cd packages/stdf
@@ -98,10 +95,9 @@ bun dev
 <!-- :: -->
 <!-- yarn -->
 ```sh
-## 1. 克隆 STDF 仓库并进入，切换到 next 分支
+## 1. 克隆 STDF 仓库并进入
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. 构建 rollup-plugin-stdf-icon 包
 cd packages/rollup-plugin-stdf-icon
@@ -123,7 +119,7 @@ yarn dev
 
 可对 `packages/stdf/src/lib/components` 目录下组件源码进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
 
-如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [NextSTDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf) 即可开始在线调试。
+如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 即可开始在线调试。
 
 ## 提交 PR
 
@@ -137,7 +133,7 @@ yarn dev
 - 请先 fork 一份 [STDF](https://github.com/any-tdf/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
 - 克隆你的仓库至本地。
 - 修改组件源码并验证通过。
-- 「可选」补充此次修改的中英文档中，文档位于 `docs/mds/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/next/docs/mds/components/button/version.md?plain=1)。
+- 「可选」补充此次修改的中英文档中，文档位于 `docs/mds/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/docs/mds/components/button/version.md?plain=1)。
 - 到仓库 `packages/stdf` 目录，执行 `pnpm i` 或 `npm i` 或 `bun i` 安装依赖。
 - 提交修改内容至你的仓库，然后提 Pull Request 到主仓库。
 - Pull Request 会在 Review 通过后被合并到主仓库，后续发布新版。

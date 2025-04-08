@@ -26,16 +26,15 @@ Recommended installations:
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) or [WebStorm Integration](https://www.jetbrains.com/help/webstorm/prettier.html): Code formatting plugin.
 
 Follow the steps below to quickly start STDF Demo locally.
-<!-- main -> next -->
+
 > Because the rollup-plugin-stdf-icon package that the Demo depends on is built locally, please build this package first.
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-## 1. Clone the STDF repository and switch to the next branch
+## 1. Clone the STDF repository
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -54,10 +53,9 @@ pnpm dev
 <!-- :: -->
 <!-- npm -->
 ```sh
-## 1. Clone the STDF repository and switch to the next branch
+## 1. Clone the STDF repository
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -66,7 +64,7 @@ npm i
 ## Build package
 npm run build
 
-## 3. 调试 STDF
+## 3. Debug STDF
 cd packages/stdf
 ## Install dependencies
 npm i
@@ -76,17 +74,16 @@ npm run dev
 <!-- :: -->
 <!-- bun -->
 ```sh
-## 1. Clone the STDF repository and switch to the next branch
+## 1. Clone the STDF repository
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
 ## Install dependencies
 bun i
 ## Build package
-bun build
+bun run build
 
 ## 3. Debug STDF
 cd packages/stdf
@@ -98,10 +95,9 @@ bun dev
 <!-- :: -->
 <!-- yarn -->
 ```sh
-## 1. Clone the STDF repository and switch to the next branch
+## 1. Clone the STDF repository
 git clone git@github.com:any-tdf/stdf.git
 cd stdf
-git checkout next
 
 ## 2. Build the rollup-plugin-stdf-icon package
 cd packages/rollup-plugin-stdf-icon
@@ -123,7 +119,7 @@ After starting successfully, you can view the effect in the browser by opening `
 
 You can modify the component source code in the `packages/stdf/src/lib/components` directory and view the modification effect in real time. Note that VS Code and WebStorm both support jumping to the component source code when calling the component.
 
-If you don't want to develop locally, you can choose to use StackBlitz for online simple debugging. Simply open [NextSTDF Demo](https://stackblitz.com/github/any-tdf/next-demo-stdf) to start online debugging.
+If you don't want to develop locally, you can choose to use StackBlitz for online simple debugging. Simply open [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) to start online debugging.
 
 ## Submit PR
 
@@ -137,7 +133,7 @@ If you are submitting your first Pull Request on GitHub, you can read the follow
 - Please first fork a [STDF](https://github.com/any-tdf/stdf) repository to your own repository, if you have already forked it, please sync the latest code from the main repository.
 - Clone your repository to your local machine.
 - Modify the component source code and verify it.
-- (Optional) Supplement the Chinese and English documentation of this modification, the documentation is located in the `docs/mds/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, etc. documents. For the modification of the version, please add the tag, refer to [STDF Version tag](https://github.com/any-tdf/stdf/blob/next/docs/mds/components/button/version.md?plain=1).
+- (Optional) Supplement the Chinese and English documentation of this modification, the documentation is located in the `docs/mds/components` directory. Depending on the specific modification content, you may need to modify the api, FAQ, guide, version, etc. documents. For the modification of the version, please add the tag, refer to [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/docs/mds/components/button/version.md?plain=1).
 - Go to the `packages/stdf` directory, execute `pnpm i` or `npm i` or `bun i` to install dependencies.
 - Submit the modified content to your repository, then submit a Pull Request to the main repository.
 - Pull Request will be merged into the main repository after being reviewed, and a new version will be released.

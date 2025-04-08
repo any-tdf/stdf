@@ -55,8 +55,6 @@ yarn dlx sv create
 ```
 <!-- ::: -->
 
-按照提示创建工程。
-
 2.2 安装 Tailwind CSS 与 Vite 插件。
 
 参考 [Tailwind CSS 文档](https://tailwindcss.com/docs/guides/vite#svelte) 配置 Tailwind CSS。

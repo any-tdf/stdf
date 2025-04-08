@@ -5,8 +5,6 @@
 使用 Tailwind CSS 的暗模式配置，请在项目入口 CSS 文件中做如下 `@custom-variant` 配置，参考 [Dark Mode](https://tailwindcss.com/docs/dark-mode)。
 
 ```css
-@import 'tailwindcss';
-
 @custom-variant dark (&:where(.dark, .dark *))
 ```
 

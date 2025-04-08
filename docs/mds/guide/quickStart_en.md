@@ -55,8 +55,6 @@ yarn dlx sv create
 ```
 <!-- ::: -->
 
-Follow the prompts to create the project.
-
 2.2 Install Tailwind CSS and Vite plugins.
 
 Refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite#svelte) to configure Tailwind CSS.

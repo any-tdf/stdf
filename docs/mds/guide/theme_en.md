@@ -5,8 +5,6 @@
 Use the Tailwind CSS dark mode configuration, please make the following `@custom-variant` configuration in the project entry CSS file, reference [Dark Mode](https://tailwindcss.com/docs/dark-mode).
 
 ```css
-@import 'tailwindcss';
-
 @custom-variant dark (&:where(.dark, .dark *))
 ```
 

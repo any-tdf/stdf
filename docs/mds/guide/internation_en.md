@@ -90,14 +90,14 @@ Currently supported languages:
 > The multilingual files are translated by machine. If there are any inaccuracies, please submit a PR for correction.
 
 ## Adding a Language Pack
-<!-- main -> next -->
-If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/zh_CN.ts) or [English language pack](https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/lang/en_US.ts) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
+
+If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/lang/zh_CN.ts) or [English language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/lang/en_US.ts) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
 
 The basic steps are as follows:
 
 - Please fork the [STDF](https://github.com/any-tdf/stdf) code to your own repository. If you have already forked it, please sync the latest code from the main repository.
 - Clone your repository to your local machine.
 - Add language packs in the `packages/stdf/src/lib/lang` folder.
-- (Optional) Update the documentation. Update the [internation.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation.md) and [internation_en.md](https://github.com/any-tdf/stdf/edit/next/docs/mds/guide/internation_en.md) files in the docs/mds/guide folder. Please update them in alphabetical order according to the lang list.
+- (Optional) Update the documentation. Update the [internation.md](https://github.com/any-tdf/stdf/edit/main/docs/mds/guide/internation.md) and [internation_en.md](https://github.com/any-tdf/stdf/edit/main/docs/mds/guide/internation_en.md) files in the docs/mds/guide folder. Please update them in alphabetical order according to the lang list.
 - Commit the modifications to your repository and then submit a Pull Request to the main repository.
 - Once the Pull Request is approved during the review process, it will be merged into the main repository and a new version will be released on npm.
