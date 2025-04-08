@@ -157,6 +157,12 @@
 					_blank: true
 				},
 				{
+					title: 'rollup-plugin-md-ts',
+					title_en: 'rollup-plugin-md-ts',
+					link: 'https://www.npmjs.com/package/rollup-plugin-md-ts',
+					_blank: true
+				},
+				{
 					title: 'STDF for VS Code',
 					title_en: 'STDF for VS Code',
 					link: 'https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension',
@@ -584,9 +590,11 @@
 	{#each bottomInfo as item}
 		<div>
 			<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
-			<div class="flex flex-col gap-1">
+			<div class="flex flex-col gap-2">
 				{#each item.list as i}
-					<a href={i.link} target={i._blank ? '_blank' : '_self'} title={i.link} class="text-sm">{isZh ? i.title : i.title_en}</a>
+					<a href={i.link} target={i._blank ? '_blank' : '_self'} title={i.link} class="text-sm hover:underline"
+						>{isZh ? i.title : i.title_en}</a
+					>
 				{/each}
 			</div>
 		</div>

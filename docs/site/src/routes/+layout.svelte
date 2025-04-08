@@ -7,6 +7,7 @@
 	import { page } from '$app/stores';
 	import { isCmdKStore, isShowFundStore } from '../store.js';
 	import '../app.css';
+	import { delParamsUrl } from '../utils/index.js';
 
 	let { children } = $props();
 
@@ -78,6 +79,18 @@
 		}
 	}
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
+
+	// 根据 params 判断当前 URL 是否含有 fund 参数，如果有则显示赞赏弹窗
+	const urlFund = window.location.href.split('?')[1];
+	const urlParams = new URLSearchParams(urlFund);
+	const isFund = urlParams.has('fund');
+	if (isFund) {
+		isShowFundStore.set(true);
+		// 去除 URL 中的 fund 参数
+		setTimeout(() => {
+			window.history.replaceState({}, '', delParamsUrl(window.location.href, 'fund'));
+		}, 10);
+	}
 </script>
 
 <svelte:head>
