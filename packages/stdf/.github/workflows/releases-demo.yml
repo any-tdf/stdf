@@ -12,19 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20.x
+          bun-version: 'latest'
 
       - name: Install dependencies
-        run: npm install
+        run: bun i
 
       - name: build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: '/demo-stdf'
         run: |
-          npm run build
+          bun run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
