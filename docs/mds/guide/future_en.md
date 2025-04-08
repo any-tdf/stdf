@@ -16,7 +16,6 @@
 
 ## Improvements 👏
 
-- [x] Improve source code type annotations according to JSDoc rules, constrain Props, and facilitate IDE prompts.
 - [ ] Increased the number of animation effects in the Skeleton screen component.
 
 ---
