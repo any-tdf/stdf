@@ -30,7 +30,7 @@
 | 名称    | 类型                                                      | 默认值 | 必传 | 说明                       |
 | ------- | --------------------------------------------------------- | ------ | ---- | -------------------------- |
 | type    | `'icon'`                                                  | `{}`   | Y    | 步骤区域内容为图标时使用。 |
-| content | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `-`    | Y    | 图标参数。                 |
+| content | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | `-`    | Y    | 图标参数。                 |
 
 ## StepsStepBarImage Props
 

@@ -3,7 +3,7 @@
 | Name      | Type                                                              | Default   | Required | Description                                   |
 | --------- | ----------------------------------------------------------------- | --------- | -------- | --------------------------------------------- |
 | textList  | `string[]`                                                        | `[]`      | Y        | Array of announcement contents.               |
-| leftIcon  | `null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=0) | `{}`      | N        | Left content.                                 |
+| leftIcon  | `null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=0) | `{}`      | N        | Left content.                                 |
 | rightIcon | `'close'`\|`'arrow'`\|`null`                                      | `'close'` | N        | Right content.                                |
 | fontSize  | `'xs'\|'sm'\|'base'\|'lg'`                                        | `'sm'`    | N        | Font size of the announcement.                |
 | space     | `number`                                                          | `100`     | N        | Space between announcements in px.            |

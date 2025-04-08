@@ -14,7 +14,7 @@ Each step's Props supports passing in finishStep, which has the same format as s
 
 ## Step Bar Area
 
-The step bar area can accept three types of content: when type is `'string'`, it will directly display characters (single character recommended); when type is `'image'`, it will display an image, accepting relative or absolute image paths which will be converted to img tag src attribute internally; when type is `'icon'`, it will display an icon rendered according to the passed [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).
+The step bar area can accept three types of content: when type is `'string'`, it will directly display characters (single character recommended); when type is `'image'`, it will display an image, accepting relative or absolute image paths which will be converted to img tag src attribute internally; when type is `'icon'`, it will display an icon rendered according to the passed [Icon Props](https://stdf.design/components?nav=icon&tab=1).
 
 ## injComponent
 

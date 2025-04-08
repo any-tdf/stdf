@@ -6,14 +6,14 @@
 | title           | `string`                                                      | 当前语言的 dialog.title         | N    | 标题。                 |
 | titleAlign      | `'left'\|'center'\|'right'`                                   | `'center'`                      | N    | 标题对齐方式。         |
 | content         | `string`                                                      | 当前语言的 dialog.content       | N    | 内容。                 |
-| popup           | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1)   | `{}`                            | N    | 弹出层参数。           |
+| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1)   | `{}`                            | N    | 弹出层参数。           |
 | showIcon        | `boolean`                                                     | `false`                         | N    | 是否显示图标。         |
-| icon            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)     | `{}`                            | N    | 图标参数。             |
+| icon            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)     | `{}`                            | N    | 图标参数。             |
 | btnStyle        | `'button'\|'text'\|'textLine'`                                | `'button'`                      | N    | 按钮样式。             |
 | primaryText     | `string`                                                      | 当前语言的 dialog.primaryText   | N    | 主按钮文字。           |
-| primaryButton   | [`Button`](https://stdf.design/#/components?nav=button&tab=1) | `{}`                            | N    | 主按钮参数。           |
+| primaryButton   | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                            | N    | 主按钮参数。           |
 | secondaryText   | `string`                                                      | 当前语言的 dialog.secondaryText | N    | 次按钮文字。           |
-| secondaryButton | [`Button`](https://stdf.design/#/components?nav=button&tab=1) | `{}`                            | N    | 次按钮参数。           |
+| secondaryButton | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                            | N    | 次按钮参数。           |
 | btnRatio        | `[number,number]`                                             | `[1, 1]`                        | N    | 主次按钮大小比例。     |
 | btnReverse      | `boolean`                                                     | `false`                         | N    | 主次按钮位置是否反转。 |
 | secondaryClose  | `boolean`                                                     | `true`                          | N    | 次按钮是否关闭弹窗。   |

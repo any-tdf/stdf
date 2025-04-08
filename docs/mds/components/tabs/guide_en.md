@@ -18,7 +18,7 @@ The Tab component can be used independently, passing out the index value of the 
 
 ### labels
 
-This parameter determines the tab content inside Tab, supporting free combination of icons and text. The data type is an array of objects, with internal objects consisting of text and icon, while icon is rendered using the Icon component. For specific parameters, please refer to [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).
+This parameter determines the tab content inside Tab, supporting free combination of icons and text. The data type is an array of objects, with internal objects consisting of text and icon, while icon is rendered using the Icon component. For specific parameters, please refer to [Icon Props](https://stdf.design/components?nav=icon&tab=1).
 
 ### Line Style
 

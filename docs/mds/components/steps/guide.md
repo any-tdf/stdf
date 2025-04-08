@@ -14,7 +14,7 @@ Steps 默认为横向布局，由于移动端横向显示内容有限，横向�
 
 ## 步骤栏区域
 
-步骤栏区域 bar 可以传入三种情况，type 为 `'string'` 将直接显示字符，建议单个字符；type 为 `'image'` 将显示图片，可以传入图片的相对路径或绝对路径，组件内部将其转换为 img 标签的 src 属性；type 为 `'icon'` 将显示图标，根据传入的 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1) 进行渲染。
+步骤栏区域 bar 可以传入三种情况，type 为 `'string'` 将直接显示字符，建议单个字符；type 为 `'image'` 将显示图片，可以传入图片的相对路径或绝对路径，组件内部将其转换为 img 标签的 src 属性；type 为 `'icon'` 将显示图标，根据传入的 [Icon Props](https://stdf.design/components?nav=icon&tab=1) 进行渲染。
 
 ## injComponent
 

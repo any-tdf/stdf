@@ -8,7 +8,7 @@
 | injClass | `string`                                                        | `''`       | N    | 注入 CSS 名称。                                 |
 | disabled | `boolean`                                                       | `false`    | N    | 是否禁用。                                      |
 | async    | `boolean`                                                       | `false`    | N    | 是否异步。                                      |
-| loading  | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`       | N    | 加载组件参数，仅 inside 为 `'loading'` 时生效。 |
+| loading  | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`       | N    | 加载组件参数，仅 inside 为 `'loading'` 时生效。 |
 
 ## Switch Events
 

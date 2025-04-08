@@ -20,12 +20,12 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N    | textarea 时最多可输入文本长度。 |
 | rows              | `number`                                                                                                  | `2`       | N    | textarea 时行数。               |
 | autosize          | `boolean`                                                                                                 | `false`   | N    | textarea 时是否自动调整高度。   |
-| label1            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 1 内容。                   |
+| label1            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 1 内容。                   |
 | label2            | `string\|null`                                                                                            | `null`    | N    | 标签 2 内容。                   |
-| label3            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 3 内容。                   |
-| label4            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 4 内容。                   |
+| label3            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 3 内容。                   |
+| label4            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 4 内容。                   |
 | label5            | `string\|null`                                                                                            | `null`    | N    | 标签 5 内容。                   |
-| label6            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 6 内容。                   |
+| label6            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 6 内容。                   |
 | tip               | `string\|null`                                                                                            | `null`    | N    | 提示信息内容。                  |
 | data1             | `string\|null`                                                                                            | `null`    | N    | 数据项 1 内容。                 |
 | data2             | `string\|null`                                                                                            | `null`    | N    | 数据项 2 内容。                 |

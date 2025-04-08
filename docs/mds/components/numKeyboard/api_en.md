@@ -19,7 +19,7 @@
 | panelClass   | `string`                                                    | `''`                           | N        | Inject class for keyboard panel.    |
 | keyClass     | `string`                                                    | `''`                           | N        | Inject class for keys.              |
 | doneClass    | `string`                                                    | `''`                           | N        | Inject class for done button.       |
-| popup        | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                           | N        | Popup parameters.                   |
+| popup        | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                           | N        | Popup parameters.                   |
 
 ## NumKeyboard Events
 

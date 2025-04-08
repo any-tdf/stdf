@@ -18,7 +18,7 @@ Tab 组件可以单独使用，通过绑定的 onclickTab 事件，传递出当�
 
 ### labels
 
-此参数决定了 Tab 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon 组成，而 icon 使用 Icon 组件渲染，具体参数请参考 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。
+此参数决定了 Tab 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon 组成，而 icon 使用 Icon 组件渲染，具体参数请参考 [Icon Props](https://stdf.design/components?nav=icon&tab=1)。
 
 ### 线性风格
 

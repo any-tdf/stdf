@@ -15,7 +15,7 @@
 | linkageAligns      | `('left'\|'center'\|'right')[]`                             | `[]`                             | N    | 多级联动时，设置每列的对齐方式。           |
 | linkageLabelKeys   | `string[]`                                                  | `[]`                             | N    | 多级联动时，自定义每列 label 的 Key。      |
 | linkageChildrenKey | `string`                                                    | `'children'`                     | N    | 多级联动时，自定义上下级 children 的 key。 |
-| popup              | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                             | N    | 弹出层参数。                               |
+| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                             | N    | 弹出层参数。                               |
 
 ## Picker Events
 

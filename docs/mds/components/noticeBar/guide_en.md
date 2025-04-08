@@ -1,4 +1,4 @@
-> NoticeBar uses icons ri-volume-down-line and ri-close-line. Please ensure these icons are included in your project's symbol.svg file. For more details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> NoticeBar uses icons ri-volume-down-line and ri-close-line. Please ensure these icons are included in your project's symbol.svg file. For more details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Description
 

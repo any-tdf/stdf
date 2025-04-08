@@ -1,4 +1,4 @@
-> Avatar uses icons ri-user-3-line and ri-user-add-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Avatar uses icons ri-user-3-line and ri-user-add-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Content Description
 

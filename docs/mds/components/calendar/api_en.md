@@ -25,8 +25,8 @@
 | highlightToday  | `boolean`                                                     | `true`                                     | N        | Whether to highlight today.                                                    |
 | useAnimation    | `boolean`                                                     | `true`                                     | N        | Whether to use animation when auto-scrolling to specified month.               |
 | outFormat       | `string`                                                      | `'YMD'`                                    | N        | Output date format.                                                            |
-| popup           | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1)   | `{}`                                       | N        | Popup parameters.                                                              |
-| button          | [`Button`](https://stdf.design/#/components?nav=button&tab=1) | `{}`                                       | N        | Confirm button parameters.                                                     |
+| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1)   | `{}`                                       | N        | Popup parameters.                                                              |
+| button          | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                                       | N        | Confirm button parameters.                                                     |
 | clear           | `boolean`                                                     | `true`                                     | N        | Whether to clear selected dates when closing.                                  |
 
 ## Calendar Events

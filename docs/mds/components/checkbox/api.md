@@ -6,8 +6,8 @@
 | layout       | `'h'\|'v'\|'inline'`                                                         | `'v'`       | N    | 排列方式。                   |
 | checkeds     | `string[]`                                                                   | `[]`        | N    | 选中的选项标识符组成的数组。 |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N    | 选项文本区域位置。           |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。     |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。       |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。     |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。       |
 
 ## Checkbox Events
 
@@ -29,8 +29,8 @@
 | label        | `string`                                                                     | `''`        | N    | 选项文本，主要用于显示。 |
 | layout       | `'h'\|'v'\|'inline'`                                                         | `'v'`       | N    | 排列方式。               |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N    | 选项文本区域位置。       |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。 |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。   |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。 |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。   |
 | checked      | `boolean`                                                                    | `false`     | N    | 是否选中。               |
 
 ## CheckboxItem Events

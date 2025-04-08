@@ -10,7 +10,7 @@
 | showDivider     | `boolean`                                                 | `true`                       | N    | 是否显示分割线。                   |
 | duration        | `number`                                                  | `450`                        | N    | 过渡动画出现时间，单位：ms。       |
 | outDuration     | `number`                                                  | `240`                        | N    | 过渡动画退出时间，单位：ms。       |
-| mask            | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1) | `{}`                         | N    | 遮罩层参数。                       |
+| mask            | [`Mask`](https://stdf.design/components?nav=mask&tab=1) | `{}`                         | N    | 遮罩层参数。                       |
 | maskClosable    | `boolean`                                                 | `false`                      | N    | 点击遮罩层是否关闭。               |
 | zIndex          | `number`                                                  | `600`                        | N    | z-index。                          |
 | stayHeightList  | `number[]`                                                | `[10, 50, 90]`               | N    | 固定高度列表。                     |

@@ -1,4 +1,4 @@
-> Toast 使用了图标 ri-checkbox-circle-line、ri-close-circle-line、ri-error-warning-line、ri-information-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
+> Toast 使用了图标 ri-checkbox-circle-line、ri-close-circle-line、ri-error-warning-line、ri-information-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
 
 ## 显示位置
 

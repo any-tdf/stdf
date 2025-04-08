@@ -20,12 +20,12 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N        | Maximum text length for textarea. |
 | rows              | `number`                                                                                                  | `2`       | N        | Number of rows for textarea.      |
 | autosize          | `boolean`                                                                                                 | `false`   | N        | Auto adjust height for textarea.  |
-| label1            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 1 content.                  |
+| label1            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 1 content.                  |
 | label2            | `string\|null`                                                                                            | `null`    | N        | Label 2 content.                  |
-| label3            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 3 content.                  |
-| label4            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 4 content.                  |
+| label3            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 3 content.                  |
+| label4            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 4 content.                  |
 | label5            | `string\|null`                                                                                            | `null`    | N        | Label 5 content.                  |
-| label6            | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 6 content.                  |
+| label6            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 6 content.                  |
 | tip               | `string\|null`                                                                                            | `null`    | N        | Tip message content.              |
 | data1             | `string\|null`                                                                                            | `null`    | N        | Data item 1 content.              |
 | data2             | `string\|null`                                                                                            | `null`    | N        | Data item 2 content.              |

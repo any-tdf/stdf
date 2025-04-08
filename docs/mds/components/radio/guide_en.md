@@ -1,4 +1,4 @@
-> Radio uses icons ri-radio-button-line and ri-checkbox-blank-circle-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Radio uses icons ri-radio-button-line and ri-checkbox-blank-circle-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Description
 

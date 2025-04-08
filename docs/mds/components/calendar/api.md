@@ -25,8 +25,8 @@
 | highlightToday  | `boolean`                                                     | `true`                               | N    | 是否高亮今天。                               |
 | useAnimation    | `boolean`                                                     | `true`                               | N    | 自动滚动到指定月份时是否使用动画。           |
 | outFormat       | `string`                                                      | `'YMD'`                              | N    | 返回日期数据格式。                           |
-| popup           | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1)   | `{}`                                 | N    | 弹出层参数。                                 |
-| button          | [`Button`](https://stdf.design/#/components?nav=button&tab=1) | `{}`                                 | N    | 确定按钮参数。                               |
+| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1)   | `{}`                                 | N    | 弹出层参数。                                 |
+| button          | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                                 | N    | 确定按钮参数。                               |
 | clear           | `boolean`                                                     | `true`                               | N    | 关闭时是否清空已选日期。                     |
 
 ## Calendar Events

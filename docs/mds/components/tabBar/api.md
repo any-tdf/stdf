@@ -17,8 +17,8 @@
 | 名称       | 类型                                                      | 默认值 | 必传 | 说明               |
 | ---------- | --------------------------------------------------------- | ------ | ---- | ------------------ |
 | text       | `string`                                                  | `''`   | N    | 选项卡文字。       |
-| icon       | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | -      | N    | 选项卡图标。       |
-| activeIcon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | -      | N    | 激活的选项卡图标。 |
+| icon       | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | -      | N    | 选项卡图标。       |
+| activeIcon | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | -      | N    | 激活的选项卡图标。 |
 
 ## TabBar Events
 

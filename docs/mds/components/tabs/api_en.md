@@ -51,7 +51,7 @@
 | Name | Type                                                      | Default | Required | Description |
 | ---- | --------------------------------------------------------- | ------- | -------- | ----------- |
 | text | `string`                                                  | `''`    | N        | Label text. |
-| icon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `{}`    | N        | Label icon. |
+| icon | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | `{}`    | N        | Label icon. |
 
 ## TabContent Props
 

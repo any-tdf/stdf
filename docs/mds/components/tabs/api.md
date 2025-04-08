@@ -51,7 +51,7 @@
 | 名称 | 类型                                                      | 默认值 | 必传 | 说明       |
 | ---- | --------------------------------------------------------- | ------ | ---- | ---------- |
 | text | `string`                                                  | `''`   | N    | 标签文本。 |
-| icon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `{}`   | N    | 标签图标。 |
+| icon | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | `{}`   | N    | 标签图标。 |
 
 ## TabContent Props
 

@@ -1,4 +1,4 @@
-> NavBar uses the icon ri-arrow-left-s-line, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> NavBar uses the icon ri-arrow-left-s-line, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Explanation
 

@@ -16,8 +16,8 @@
 | prevText     | `string`                                                        | 当前语言的 picker.defaultPrev     | N    | 上一级文本。                 |
 | showSelected | `boolean`                                                       | `false`                           | N    | 是否显示已选项。             |
 | selectedText | `string`                                                        | 当前语言的 picker.defaultSelected | N    | 已选文本。                   |
-| popup        | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1)     | `{}`                              | N    | 弹出层参数。                 |
-| loading      | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`                              | N    | 加载数据时 Loading 参数。    |
+| popup        | [`Popup`](https://stdf.design/components?nav=popup&tab=1)     | `{}`                              | N    | 弹出层参数。                 |
+| loading      | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`                              | N    | 加载数据时 Loading 参数。    |
 
 ## AsyncPicker Events
 

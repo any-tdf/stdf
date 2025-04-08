@@ -1,4 +1,4 @@
-> Input uses the icon ri-close-circle-fill. Please ensure this icon is included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Input uses the icon ri-close-circle-fill. Please ensure this icon is included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## title and placeholder
 

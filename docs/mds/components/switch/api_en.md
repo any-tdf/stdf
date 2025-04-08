@@ -8,7 +8,7 @@
 | injClass | `string`                                                        | `''`       | N        | Injected CSS class name.                                                 |
 | disabled | `boolean`                                                       | `false`    | N        | Whether the switch is disabled.                                          |
 | async    | `boolean`                                                       | `false`    | N        | Whether the switch is asynchronous.                                      |
-| loading  | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`       | N        | Loading component parameters, only effective when inside is `'loading'`. |
+| loading  | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`       | N        | Loading component parameters, only effective when inside is `'loading'`. |
 
 ## Switch Events
 

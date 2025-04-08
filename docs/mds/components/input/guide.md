@@ -1,4 +1,4 @@
-> Input 使用了图标 ri-close-circle-fill，请确保项目的 symbol.svg 文件中包含此图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/#/guide/icon)。
+> Input 使用了图标 ri-close-circle-fill，请确保项目的 symbol.svg 文件中包含此图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
 
 ## title 与 placeholder
 

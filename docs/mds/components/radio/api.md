@@ -6,8 +6,8 @@
 | layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N    | 排列方式。               |
 | value        | `string`                                                                     | `''`        | N    | 选中的 value。           |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N    | 选项内容区域位置。       |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。 |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。   |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。 |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。   |
 
 ## Radio Events
 
@@ -29,8 +29,8 @@
 | label        | `string`                                                                     | `''`        | N    | 选项内容。                          |
 | layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N    | 排列方式。                          |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N    | 选项内容区域位置。                  |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。            |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。              |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 未选中选项图标区域内容。            |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N    | 选中选项图标区域内容。              |
 | checked      | `boolean`                                                                    | `false`     | N    | 是否选中。                          |
 
 ## RadioItem Events

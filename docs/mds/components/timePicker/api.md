@@ -34,7 +34,7 @@
 | minuteText  | `string`                                                    | 当前语言的 timePicker.defaultMinute  | N    | 分钟列提示文本。   |
 | secondText  | `string`                                                    | 当前语言的 timePicker.defaultSecond  | N    | 秒钟列提示文本。   |
 | outFormat   | `string`                                                    | `''`                                 | N    | 返回数据格式。     |
-| popup       | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                                 | N    | 弹出层参数。       |
+| popup       | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                 | N    | 弹出层参数。       |
 
 ## TimePicker Events
 

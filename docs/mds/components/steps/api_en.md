@@ -30,7 +30,7 @@
 | Name    | Type                                                      | Default | Required | Description                             |
 | ------- | --------------------------------------------------------- | ------- | -------- | --------------------------------------- |
 | type    | `'icon'`                                                  | `{}`    | Y        | Used when step area content is an icon. |
-| content | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `-`     | Y        | Icon parameters.                        |
+| content | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | `-`     | Y        | Icon parameters.                        |
 
 ## StepsStepBarImage Props
 

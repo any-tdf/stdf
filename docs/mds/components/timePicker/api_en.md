@@ -34,7 +34,7 @@
 | minuteText  | `string`                                                    | Current language timePicker.defaultMinute  | N        | Minute column tip text.     |
 | secondText  | `string`                                                    | Current language timePicker.defaultSecond  | N        | Second column tip text.     |
 | outFormat   | `string`                                                    | `''`                                       | N        | Output data format.         |
-| popup       | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                                       | N        | Popup parameters.           |
+| popup       | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                       | N        | Popup parameters.           |
 
 ## TimePicker Events
 

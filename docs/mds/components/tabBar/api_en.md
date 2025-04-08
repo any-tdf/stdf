@@ -17,8 +17,8 @@
 | Name       | Type                                                      | Default | Required | Description      |
 | ---------- | --------------------------------------------------------- | ------- | -------- | ---------------- |
 | text       | `string`                                                  | `''`    | N        | Tab text.        |
-| icon       | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | -       | N        | Tab icon.        |
-| activeIcon | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | -       | N        | Active tab icon. |
+| icon       | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | -       | N        | Tab icon.        |
+| activeIcon | [`Icon`](https://stdf.design/components?nav=icon&tab=1) | -       | N        | Active tab icon. |
 
 ## TabBar Events
 

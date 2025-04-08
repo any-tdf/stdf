@@ -6,8 +6,8 @@
 | layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                           |
 | value        | `string`                                                                     | `''`        | N        | Selected value.                        |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option content area.       |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
 
 ## Radio Events
 
@@ -29,8 +29,8 @@
 | label        | `string`                                                                     | `''`        | N        | Option content.                               |
 | layout       | `'v'\|'h'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                                  |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option content area.              |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area.        |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.          |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area.        |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.          |
 | checked      | `boolean`                                                                    | `false`     | N        | Whether checked.                              |
 
 ## RadioItem Events

@@ -4,7 +4,7 @@
 | ------------ | ----------------------------------------------------------------- | --------- | ---- | ---------------------- |
 | title        | `string`                                                          | `''`      | N    | 标题。                 |
 | detail       | `string`                                                          | `''`      | N    | 右侧详情。             |
-| left         | `null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `null`    | N    | 最左侧内容。           |
+| left         | `null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `null`    | N    | 最左侧内容。           |
 | right        | `null\|'arrow'\|CellRight`                                        | `'arrow'` | N    | 最右侧内容。           |
 | subTitle     | `string`                                                          | `''`      | N    | 左侧次级标题。         |
 | info         | `string`                                                          | `''`      | N    | 右侧次级信息。         |

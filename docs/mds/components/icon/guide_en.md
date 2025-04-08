@@ -20,7 +20,7 @@ Some STDF components use icons from [Remix Icon](https://remixicon.com) ([GitHub
 
 **When using these components, ensure your project's symbol.svg includes the corresponding icons.**
 
-For details, refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+For details, refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 You can find SVG source files in `node_modules/stdf/assets/svg_base/`.
 

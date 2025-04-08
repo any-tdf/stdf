@@ -7,11 +7,11 @@
 | titleAlign | `'left'\|'center'\|'right'`                                   | `'center'`               | N    | 标题对齐方式。 |
 | content    | `string`                                                      | 当前语言的 modal.content | N    | 内容。         |
 | showIcon   | `boolean`                                                     | `false`                  | N    | 是否显示图标。 |
-| icon       | [`Icon`](https://stdf.design/#/components?nav=dialog&tab=1)   | `{}`                     | N    | 图标参数。     |
+| icon       | [`Icon`](https://stdf.design/components?nav=dialog&tab=1)   | `{}`                     | N    | 图标参数。     |
 | showBtn    | `boolean`                                                     | `true`                   | N    | 是否显示按钮。 |
 | btnText    | `string`                                                      | 当前语言的 modal.btnText | N    | 按钮文字。     |
-| button     | [`Button`](https://stdf.design/#/components?nav=dialog&tab=1) | `{}`                     | N    | 按钮参数。     |
-| popup      | [`Popup`](https://stdf.design/#/components?nav=dialog&tab=1)  | `{}`                     | N    | 弹出层参数。   |
+| button     | [`Button`](https://stdf.design/components?nav=dialog&tab=1) | `{}`                     | N    | 按钮参数。     |
+| popup      | [`Popup`](https://stdf.design/components?nav=dialog&tab=1)  | `{}`                     | N    | 弹出层参数。   |
 
 ## Modal Events
 

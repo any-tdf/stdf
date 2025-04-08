@@ -1,4 +1,4 @@
-[简体中文](https://stdf.design/#/guide/contribution?lang=zh_CN)
+[简体中文](https://stdf.design/guide/contribution?lang=zh_CN)
 
 ## Introduction
 

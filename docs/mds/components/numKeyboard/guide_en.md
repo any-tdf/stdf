@@ -1,4 +1,4 @@
-> NumKeyboard uses the icons ri-delete-back-2-line and ri-skip-down-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> NumKeyboard uses the icons ri-delete-back-2-line and ri-skip-down-line, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Description
 

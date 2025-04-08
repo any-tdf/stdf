@@ -10,7 +10,7 @@
 | showDivider     | `boolean`                                                 | `true`                         | N        | Whether to show divider.                                               |
 | duration        | `number`                                                  | `450`                          | N        | Transition animation appear time, unit: ms.                            |
 | outDuration     | `number`                                                  | `240`                          | N        | Transition animation exit time, unit: ms.                              |
-| mask            | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1) | `{}`                           | N        | Mask parameters.                                                       |
+| mask            | [`Mask`](https://stdf.design/components?nav=mask&tab=1) | `{}`                           | N        | Mask parameters.                                                       |
 | maskClosable    | `boolean`                                                 | `false`                        | N        | Whether to close when clicking mask.                                   |
 | zIndex          | `number`                                                  | `600`                          | N        | z-index.                                                               |
 | stayHeightList  | `number[]`                                                | `[10, 50, 90]`                 | N        | Fixed height list.                                                     |

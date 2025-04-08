@@ -19,7 +19,7 @@
 | panelClass   | `string`                                                    | `''`                   | N    | 键盘面板注入 Class。 |
 | keyClass     | `string`                                                    | `''`                   | N    | 按键注入 Class。     |
 | doneClass    | `string`                                                    | `''`                   | N    | 完成按键注入 Class。 |
-| popup        | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                   | N    | 弹出层参数。         |
+| popup        | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                   | N    | 弹出层参数。         |
 
 ## NumKeyboard Events
 

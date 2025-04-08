@@ -13,7 +13,7 @@
 | decimal         | `number`                                                        | `0`     | N        | Number of decimal places for displayed value.      |
 | async           | `boolean`                                                       | `false` | N        | Whether in async state.                            |
 | asyncLoading    | `boolean`                                                       | `false` | N        | Whether to show internal Loading in async state.   |
-| loading         | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`    | N        | Loading parameters in async state.                 |
+| loading         | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`    | N        | Loading parameters in async state.                 |
 | padding         | `boolean`                                                       | `true`  | N        | Whether to have external padding.                  |
 | injClassOut     | `string`                                                        | `''`    | N        | Injected class for the outer container.            |
 | injClassBtn     | `string`                                                        | `''`    | N        | Injected class for the button area.                |

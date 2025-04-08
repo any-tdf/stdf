@@ -1,4 +1,4 @@
-> Rate uses the icon ri-star-fill, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/#/guide/icon).
+> Rate uses the icon ri-star-fill, please ensure that the symbol.svg file in your project includes this icon. For details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
 
 ## Notes on value and total
 

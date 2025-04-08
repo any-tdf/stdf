@@ -16,8 +16,8 @@
 | prevText     | `string`                                                        | Current language picker.defaultPrev     | N        | Previous level text.                                      |
 | showSelected | `boolean`                                                       | `false`                                 | N        | Whether to show selected items.                           |
 | selectedText | `string`                                                        | Current language picker.defaultSelected | N        | Selected text.                                            |
-| popup        | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1)     | `{}`                                    | N        | Popup parameters.                                         |
-| loading      | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`                                    | N        | Loading parameters when loading data.                     |
+| popup        | [`Popup`](https://stdf.design/components?nav=popup&tab=1)     | `{}`                                    | N        | Popup parameters.                                         |
+| loading      | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`                                    | N        | Loading parameters when loading data.                     |
 
 ## AsyncPicker Events
 

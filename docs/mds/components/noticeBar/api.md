@@ -3,7 +3,7 @@
 | 名称      | 类型                                                              | 默认值    | 必传 | 说明                          |
 | --------- | ----------------------------------------------------------------- | --------- | ---- | ----------------------------- |
 | textList  | `string[]`                                                        | `[]`      | Y    | 通告内容组成的数组。          |
-| leftIcon  | `null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=0) | `{}`      | N    | 左侧内容。                    |
+| leftIcon  | `null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=0) | `{}`      | N    | 左侧内容。                    |
 | rightIcon | `'close'`\|`'arrow'`\|`null`                                      | `'close'` | N    | 右侧内容。                    |
 | fontSize  | `'xs'\|'sm'\|'base'\|'lg'`                                        | `'sm'`    | N    | 通告字体大小。                |
 | space     | `number`                                                          | `100`     | N    | 通告间距，单位是 px。         |

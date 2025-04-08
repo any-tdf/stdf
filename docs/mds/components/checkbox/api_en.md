@@ -6,8 +6,8 @@
 | layout       | `'h'\|'v'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                           |
 | checkeds     | `string[]`                                                                   | `[]`        | N        | Array of selected option identifiers.  |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option text area.          |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
 
 ## Checkbox Events
 
@@ -29,8 +29,8 @@
 | label        | `string`                                                                     | `''`        | N        | Option text, mainly for display.       |
 | layout       | `'h'\|'v'\|'inline'`                                                         | `'v'`       | N        | Layout mode.                           |
 | textPosition | `'l'\|'r'\|'t'\|'b'`                                                         | `'r'`       | N        | Position of option text area.          |
-| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
-| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/#/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
+| icon         | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of unchecked option icon area. |
+| iconChecked  | `'default'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=1) | `'default'` | N        | Content of checked option icon area.   |
 | checked      | `boolean`                                                                    | `false`     | N        | Whether checked.                       |
 
 ## CheckboxItem Events

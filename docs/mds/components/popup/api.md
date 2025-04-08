@@ -11,7 +11,7 @@
 | easeOutType        | [`SvelteEasing`](https://svelte.dev/docs#run-time-svelte-easing)                   | `'cubicOut'` | N    | 退出动画，共 31 个值，参考 [svelte/easing](https://svelte.dev/docs#run-time-svelte-easing)。 |
 | px                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'20'`                   | `'0'`        | N    | 左右间距。                                                                                   |
 | py                 | `'0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'8'\|'10'\|'12'\|'16'\|'24'\|'32'\|'48'\|'64'` | `'0'`        | N    | 上下间距。                                                                                   |
-| mask               | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)                          | `{}`         | N    | 遮罩层参数。                                                                                 |
+| mask               | [`Mask`](https://stdf.design/components?nav=mask&tab=1)                          | `{}`         | N    | 遮罩层参数。                                                                                 |
 | maskClosable       | `boolean`                                                                          | `true`       | N    | 点击遮罩层是否关闭。                                                                         |
 | radiusPosition     | `'all'\|'top'\|'bottom'\|'left'\|'right'`                                          | `'top'`      | N    | 圆角位置。                                                                                   |
 | radius             | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'full'`                             | `'none'`     | N    | 圆角大小。                                                                                   |

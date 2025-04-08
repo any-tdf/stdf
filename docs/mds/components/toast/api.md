@@ -12,9 +12,9 @@
 | transitionParams | [`Transition`](https://svelte.dev/docs/svelte/svelte-transition) | `{}`       | N    | 动画参数，其中 duration 默认 300。                                    |
 | outDuration      | `number`                                                         | `0`        | N    | 退出动画时间，单位：ms。                                              |
 | type             | `'success'\|'error'\|'warning'\|'info'\|'loading'\|'icon'\|null` | `null`     | N    | 提示图标类型。                                                        |
-| mask             | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)        | `{}`       | N    | 遮罩层参数。                                                          |
-| loading          | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1)  | `{}`       | N    | 加载组件参数，仅 type 为 `'loading'` 时生效。                         |
-| icon             | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)        | `{}`       | N    | 图标组件参数，仅 type 为非 `'loading'` 且非 `null` 时生效。           |
+| mask             | [`Mask`](https://stdf.design/components?nav=mask&tab=1)        | `{}`       | N    | 遮罩层参数。                                                          |
+| loading          | [`Loading`](https://stdf.design/components?nav=loading&tab=1)  | `{}`       | N    | 加载组件参数，仅 type 为 `'loading'` 时生效。                         |
+| icon             | [`Icon`](https://stdf.design/components?nav=icon&tab=1)        | `{}`       | N    | 图标组件参数，仅 type 为非 `'loading'` 且非 `null` 时生效。           |
 | zIndex           | `number`                                                         | `1000`     | N    | z-index。                                                             |
 | clickable        | `boolean`                                                        | `false`    | N    | 是否允许点击穿透。                                                    |
 | dynamicFixed     | `boolean`                                                        | `true`     | N    | 是否动态固定。                                                        |

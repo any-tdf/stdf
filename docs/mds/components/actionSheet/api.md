@@ -6,7 +6,7 @@
 | title          | `string`                                                    | `''`                              | N    | 标题。                              |
 | titleAlign     | `'left'\|'center'\|'right'`                                 | `'center'`                        | N    | 标题对齐方式。                      |
 | actions        | `Action[]`                                                  | `[]`                              | N    | 菜单选项，Action Props 组成的数组。 |
-| popup          | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                              | N    | 弹出层参数。                        |
+| popup          | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                              | N    | 弹出层参数。                        |
 | showCancel     | `boolean`                                                   | `false`                           | N    | 是否显示取消选项。                  |
 | cancelText     | `string`                                                    | 当前语言的 actionSheet.cancelText | N    | 取消选项文本。                      |
 | actionClosable | `boolean`                                                   | `true`                            | N    | 点击选项是否关闭。                  |

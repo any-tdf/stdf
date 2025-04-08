@@ -13,7 +13,7 @@
 | decimal         | `number`                                                        | `0`     | N    | 对内部显示数字保留小数位数。       |
 | async           | `boolean`                                                       | `false` | N    | 是否异步状态。                     |
 | asyncLoading    | `boolean`                                                       | `false` | N    | 异步状态时，是否显示内部 Loading。 |
-| loading         | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1) | `{}`    | N    | 异步状态时，Loading 参数。         |
+| loading         | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`    | N    | 异步状态时，Loading 参数。         |
 | padding         | `boolean`                                                       | `true`  | N    | 外部有无 padding。                 |
 | injClassOut     | `string`                                                        | `''`    | N    | 外部注入的类。                     |
 | injClassBtn     | `string`                                                        | `''`    | N    | 按钮区域注入的类。                 |

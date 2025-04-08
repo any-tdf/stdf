@@ -15,7 +15,7 @@
 | linkageAligns      | `('left'\|'center'\|'right')[]`                             | `[]`                                   | N        | Alignment of each column in linkage mode.                  |
 | linkageLabelKeys   | `string[]`                                                  | `[]`                                   | N        | Custom label keys for each column in linkage mode.         |
 | linkageChildrenKey | `string`                                                    | `'children'`                           | N        | Custom children key for parent-child data in linkage mode. |
-| popup              | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                                   | N        | Popup parameters.                                          |
+| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                   | N        | Popup parameters.                                          |
 
 ## Picker Events
 

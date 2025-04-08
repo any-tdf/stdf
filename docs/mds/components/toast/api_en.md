@@ -12,9 +12,9 @@
 | transitionParams | [`Transition`](https://svelte.dev/docs/svelte/svelte-transition) | `{}`       | N        | Animation parameters, default duration is 300.                                     |
 | outDuration      | `number`                                                         | `0`        | N        | Exit animation duration in ms.                                                     |
 | type             | `'success'\|'error'\|'warning'\|'info'\|'loading'\|'icon'\|null` | `null`     | N        | Toast icon type.                                                                   |
-| mask             | [`Mask`](https://stdf.design/#/components?nav=mask&tab=1)        | `{}`       | N        | Mask layer parameters.                                                             |
-| loading          | [`Loading`](https://stdf.design/#/components?nav=loading&tab=1)  | `{}`       | N        | Loading component parameters, only works when type is `'loading'`.                 |
-| icon             | [`Icon`](https://stdf.design/#/components?nav=icon&tab=1)        | `{}`       | N        | Icon component parameters, only works when type is not `'loading'` and not `null`. |
+| mask             | [`Mask`](https://stdf.design/components?nav=mask&tab=1)        | `{}`       | N        | Mask layer parameters.                                                             |
+| loading          | [`Loading`](https://stdf.design/components?nav=loading&tab=1)  | `{}`       | N        | Loading component parameters, only works when type is `'loading'`.                 |
+| icon             | [`Icon`](https://stdf.design/components?nav=icon&tab=1)        | `{}`       | N        | Icon component parameters, only works when type is not `'loading'` and not `null`. |
 | zIndex           | `number`                                                         | `1000`     | N        | z-index value.                                                                     |
 | clickable        | `boolean`                                                        | `false`    | N        | Whether to allow click through.                                                    |
 | dynamicFixed     | `boolean`                                                        | `true`     | N        | Whether to use dynamic fixed positioning.                                          |

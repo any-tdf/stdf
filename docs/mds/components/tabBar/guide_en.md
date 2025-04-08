@@ -4,7 +4,7 @@ TabBar passes the index value of the currently active tab through the bound onch
 
 ## labels
 
-This parameter determines the content of tabs inside the TabBar, supporting free combination of icons and text. The data type is an array of objects, where each object consists of text, icon and activeIcon. The icon and activeIcon are rendered using the Icon component, where activeIcon represents the Icon when TabBar is active. For specific parameters, please refer to [Icon Props](https://stdf.design/#/components?nav=icon&tab=1).
+This parameter determines the content of tabs inside the TabBar, supporting free combination of icons and text. The data type is an array of objects, where each object consists of text, icon and activeIcon. The icon and activeIcon are rendered using the Icon component, where activeIcon represents the Icon when TabBar is active. For specific parameters, please refer to [Icon Props](https://stdf.design/components?nav=icon&tab=1).
 
 ## Bottom Line
 

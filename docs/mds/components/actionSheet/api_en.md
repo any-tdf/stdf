@@ -6,7 +6,7 @@
 | title          | `string`                                                    | `''`                                    | N        | Title text.                                  |
 | titleAlign     | `'left'\|'center'\|'right'`                                 | `'center'`                              | N        | Title alignment.                             |
 | actions        | `Action[]`                                                  | `[]`                                    | N        | Menu options array composed of Action Props. |
-| popup          | [`Popup`](https://stdf.design/#/components?nav=popup&tab=1) | `{}`                                    | N        | Popup layer parameters.                      |
+| popup          | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                    | N        | Popup layer parameters.                      |
 | showCancel     | `boolean`                                                   | `false`                                 | N        | Whether to show cancel button.               |
 | cancelText     | `string`                                                    | Current language actionSheet.cancelText | N        | Cancel button text.                          |
 | actionClosable | `boolean`                                                   | `true`                                  | N        | Whether to close when clicking an option.    |

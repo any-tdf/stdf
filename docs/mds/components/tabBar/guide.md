@@ -4,7 +4,7 @@ TabBar 通过绑定的 onchange 事件，传递出当前激活选项卡的索引
 
 ## labels
 
-此参数决定了 TabBar 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon、activeIcon 搭配组成。icon 和 activeIcon 使用 Icon 组件渲染，其中 activeIcon 表示 TabBar 激活时的 Icon。具体参数请参考 [Icon Props](https://stdf.design/#/components?nav=icon&tab=1)。
+此参数决定了 TabBar 内部的选项卡内容，支持图标与文字自由搭配。数据类型为对象数组，内部对象由 text 和 icon、activeIcon 搭配组成。icon 和 activeIcon 使用 Icon 组件渲染，其中 activeIcon 表示 TabBar 激活时的 Icon。具体参数请参考 [Icon Props](https://stdf.design/components?nav=icon&tab=1)。
 
 ## 底部线条
 
