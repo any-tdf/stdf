@@ -1,4 +1,4 @@
-[English](https://github.com/any-tdf/stdf/blob/next/packages/create-stdf/README.md)
+[English](https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README.md)
 
 # create-stdf
 
