@@ -2,7 +2,7 @@
 
 # Introduction
 
-This is a Rollup plugin that combines all SVG files in specified folders (supports multiple) into a single [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol) for use in [STDF](https://stdf.design) projects. It is compatible with Vite and can be used in Vue or React projects created with Vite.
+This is a Rollup plugin that combines all SVG files in specified folders (supports multiple) into a single [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol) for use in [STDF](https://stdf.design) projects. It is compatible with Vite and can be used in other projects created with Vite.
 
 For more information about the STDF Icon component, please refer to the [Icon Guide](https://stdf.design/components?nav=icon&tab=2).
 

@@ -1,6 +1,6 @@
 ## 2025-04-07
 
-v1 版本发布，完整支持 Svelte 5、Tailwind CSS v4 与 TypeScript。
+v1 版本发布，完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript。
 
 ## 2023-11-03
 

@@ -2,7 +2,7 @@
 
 # 介绍
 
-一个 Rolup 插件，将指定文件夹（支持多个）内的所有 SVG 组合为一个 [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)，以在 [STDF](https://stdf.design) 项目中使用。兼容 Vite，也可用于 Vite 创建的 Vue 或 React 项目。
+一个 Rolup 插件，将指定文件夹（支持多个）内的所有 SVG 组合为一个 [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)，以在 [STDF](https://stdf.design) 项目中使用。兼容 Vite，也可用于 Vite 创建的其他项目。
 
 关于 STDF 的 Icon 组件，请参考 [Icon 指南](https://stdf.design/components?nav=icon&tab=2)。
 

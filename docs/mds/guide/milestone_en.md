@@ -1,6 +1,6 @@
 ## 2025-04-07
 
-v1 version released, full support for Svelte 5, Tailwind CSS v4, and TypeScript.
+v1 version released, full support for Svelte v5, Tailwind CSS v4, and TypeScript.
 
 ## 2023-11-03
 
