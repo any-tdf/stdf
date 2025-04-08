@@ -111,8 +111,7 @@
 	};
 	// 编辑地址处理
 	const editUrlFn = (nav: string) => {
-		// main -> next
-		const baseUrl = 'https://github.com/any-tdf/stdf/edit/next/';
+		const baseUrl = 'https://github.com/any-tdf/stdf/edit/main/';
 		if (nav === 'create') {
 			return baseUrl + 'packages/create-stdf/README' + (isZh ? '_CN' : '') + '.md';
 		}

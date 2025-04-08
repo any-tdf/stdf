@@ -85,7 +85,6 @@
 </svelte:head>
 
 <main class="bg-primaryWhite dark:bg-darkBlack relative min-h-screen text-justify text-black antialiased dark:text-white">
-	<!-- main -> next -->
 	{#if $page.url.pathname === '' || $page.url.pathname === '/'}
 		<div class="bg-primary dark:bg-dark px-2 py-1 text-center text-xs text-white dark:text-black">
 			{#if isZh}

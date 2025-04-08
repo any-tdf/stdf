@@ -250,8 +250,7 @@
 		 * @param {String} [options.posColor] 定位点颜色
 		 */
 		const qrcode = encodeData({
-			// main -> next
-			text: 'https://next-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
+			text: 'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
 			isSpace: false
 		});
 		const color = $currentThemeStore === 'dark' ? 'var(--color-dark)' : 'var(--color-primary)';
@@ -441,7 +440,6 @@
 						</div>
 					{/if}
 				</a>
-				<!-- main -> next -->
 				<a
 					href={'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"

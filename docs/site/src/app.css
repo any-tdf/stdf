@@ -1,9 +1,6 @@
-@import 'tailwindcss';
-
+@import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-
 @plugin "@tailwindcss/typography";
-
 @theme {
 	--color-primary-50: oklch(0.979 0.01 267.36);
 	--color-primary-100: oklch(0.95 0.024 270.343);
@@ -155,7 +152,7 @@
 		}
 	}
 
-	--animate-dynamicsBg:dynamicsBg 8s linear infinite;
+	--animate-dynamicsBg: dynamicsBg 8s linear infinite;
 	@keyframes dynamicsBg {
 		0% {
 			transform: rotate(360deg);
@@ -208,9 +205,7 @@
 		}
 	}
 }
-
 @source "../../../packages/stdf/dist/**/*.svelte";
-
 pre {
 	background-color: transparent;
 	padding: 0;

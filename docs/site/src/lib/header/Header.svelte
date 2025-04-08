@@ -75,7 +75,7 @@
 			{/if}
 		</button>
 	{/if}
-	<!-- main -> next -->
+
 	<div class="flex items-end">
 		<a href="/" class="flex items-center justify-between py-2 pl-6" aria-label={isZh ? '首页' : 'Home'}>
 			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center" title={isZh ? '首页' : 'Home'}>
@@ -164,7 +164,6 @@
 						</svg>
 					</button>
 					<!-- GitHub -->
-					<!-- main -> next -->
 					<a
 						href="https://github.com/any-tdf/stdf"
 						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -261,7 +260,6 @@
 				</svg>
 			</button>
 			<!-- GitHub -->
-			<!-- main -> next -->
 			<a
 				href="https://github.com/any-tdf/stdf"
 				class="inline-block rounded-sm px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"

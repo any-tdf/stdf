@@ -53,7 +53,6 @@
 </article>
 
 <div class="flex gap-2 pb-8 text-xs">
-	<!-- main -> next -->
 	<a
 		href={'https://github.com/any-tdf/stdf/edit/main/docs/mds/components/' + guide + '/guide' + (isZh ? '' : '_en') + '.md'}
 		target="_blank"

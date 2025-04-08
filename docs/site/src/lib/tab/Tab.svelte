@@ -26,8 +26,7 @@
 	const mouseenterFun = () => {
 		const params = new URLSearchParams('?' + $page.url.searchParams);
 		QRValue =
-			// main -> next
-			(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://next-demo.stdf.design/') +
+			(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://demo.stdf.design/') +
 			params.get('nav') +
 			(isZh ? '/zh_CN' : '/en_US');
 		showQr = true;
@@ -58,8 +57,7 @@
 	let stackblitzValue = $state('');
 	const showStackblitzFunc = () => {
 		const nav = $page.url.searchParams.get('nav');
-		// main -> next
-		stackblitzValue = `https://stackblitz.com/github/any-tdf/next-demo-stdf?file=src%2Froutes%2F${
+		stackblitzValue = `https://stackblitz.com/github/any-tdf/demo-stdf?file=src%2Froutes%2F${
 			isZh ? 'zh_CN' : 'en_US'
 		}%2F${nav}%2F%2Bpage.svelte&startScript=${nav}${isZh ? '' : '_en'}`;
 		showStackblitz = true;
@@ -71,8 +69,7 @@
 		const nav = $page.url.searchParams.get('nav');
 		// 将 nav 首字母大写
 		const navFirst = nav ? nav.slice(0, 1).toUpperCase() + nav.slice(1) : '';
-		// main -> next
-		codeValue = `https://github.com/any-tdf/stdf/blob/next/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
+		codeValue = `https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
 		showCode = true;
 	};
 </script>

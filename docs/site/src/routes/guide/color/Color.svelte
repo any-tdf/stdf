@@ -296,8 +296,8 @@
 	<h3>{isZh ? '主题黑白色' : 'Theme Black and White'}</h3>
 	<p>
 		{isZh
-			? '通常情况下，设计中应避免大面积使用纯黑色【#000000】，使用接近纯黑的颜色。同时 STDF 会根据算法计算出两个接近纯黑但是带有主题色的黑色，方便设计搭配。同样也会计算出两个接近纯白但是带有主题色的白色。一般可用于多套主题搭配时的文字颜色，亮暗背景颜色等场景。'
-			: 'In most cases, designers should avoid using pure black [000000] on a large scale, and use a color close to pure black. At the same time, STDF will calculate two black colors close to pure black but with a theme color for design搭配。Similarly, it will calculate two white colors close to pure white but with a theme color. Generally, it can be used in the text color of multiple theme combinations, the light and dark background color, etc.'}
+			? '通常情况下，设计中应避免大面积使用纯黑色 oklch(0 0 0)，使用接近纯黑的颜色。同时 STDF 会根据算法计算出两个接近纯黑但是带有主题色的黑色，方便设计搭配。同样也会计算出两个接近纯白但是带有主题色的白色。一般可用于多套主题搭配时的文字颜色，亮暗背景颜色等场景。'
+			: 'In most cases, designers should avoid using pure black oklch(0 0 0) on a large scale, and use a color close to pure black. At the same time, STDF will calculate two black colors close to pure black but with a theme color for design. Similarly, it will calculate two white colors close to pure white but with a theme color. Generally, it can be used in the text color of multiple theme combinations, the light and dark background color, etc.'}
 	</p>
 	<div class="flex-wrap justify-around space-y-4 md:flex md:space-x-4 md:space-y-0">
 		{#each [themeBlack?.primary, themeBlack?.dark, themeWhite?.primary, themeWhite?.dark] as item, i}

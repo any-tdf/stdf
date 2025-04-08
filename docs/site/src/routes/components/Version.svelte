@@ -115,7 +115,6 @@
 	{/if}
 </article>
 <div class="flex gap-2 pb-8 text-xs">
-	<!-- main -> next -->
 	<a
 		href={'https://github.com/any-tdf/stdf/edit/main/docs/mds/components/' + guide + '/version' + (isZh ? '' : '_en') + '.md'}
 		class="text-primary dark:text-dark flex"

@@ -182,9 +182,8 @@
 		params.set('tab', currentTab.toString());
 		goto(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
 	};
-	// main -> next
 	let QRValue = $derived(
-		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://next-demo.stdf.design/') +
+		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://demo.stdf.design/') +
 			currentNav?.nav +
 			(isZh ? '/zh_CN' : '/en_US')
 	);
@@ -251,7 +250,6 @@
 						>
 							{#if currentNav?.nav}
 								{#if isShowIframe}
-									<!-- main -> next -->
 									<iframe
 										title="Demo"
 										id="iframe-id"
