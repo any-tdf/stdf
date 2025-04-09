@@ -170,7 +170,7 @@
 		push(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
 	};
 	$: QRValue =
-		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://demo.stdf.design/') +
+		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://0-demo.stdf.design/') +
 		(isZh ? 'zh_CN/' : 'en_US/') +
 		currentNav.nav;
 </script>
@@ -241,7 +241,7 @@
 										id="iframe-id"
 										src={import.meta.env.DEV
 											? `http://localhost:8888/${isZh ? 'zh_CN' : 'en_US'}/${currentNav.nav}?channel=iframe`
-											: `https://demo.stdf.design/${isZh ? 'zh_CN' : 'en_US'}/${currentNav.nav}?channel=iframe`}
+											: `https://0-demo.stdf.design/${isZh ? 'zh_CN' : 'en_US'}/${currentNav.nav}?channel=iframe`}
 										height={demoHeight - 2}
 										width="390"
 									/>

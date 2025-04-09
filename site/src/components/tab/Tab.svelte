@@ -28,7 +28,7 @@
 		const params = new URLSearchParams('?' + $querystring);
 		QRValue =
 			// @ts-ignore
-			(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://demo.stdf.design/') +
+			(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://0-demo.stdf.design/') +
 			(isZh ? 'zh_CN/' : 'en_US/') +
 			params.get('nav');
 		showQr = true;

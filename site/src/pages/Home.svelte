@@ -237,7 +237,7 @@
 		 * @param {String} [options.posColor] 定位点颜色
 		 */
 		const qrcode = encodeData({
-			text: 'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
+			text: 'https://0-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
 			isSpace: false,
 		});
 		const color = $currentThemeStore === 'dark' ? 'rgb(var(--theme-color-dark))' : 'rgb(var(--theme-color-primary))';
@@ -412,7 +412,6 @@
 							out:fade={{ duration: 0 }}
 						>
 							<span>{@html A_a1Svg}</span>
-							<!-- <QrCode value="https://demo.stdf.design/#/" size={200} color="#fff" background="#23262B" /> -->
 						</div>
 						<div
 							class="w-52 rounded-lg absolute z-10 top-0 left-full bg-black -translate-y-1/3 border border-white/5 translate-x-2 p-2 shadow-lg hidden dark:block"
@@ -420,12 +419,11 @@
 							out:fade={{ duration: 0 }}
 						>
 							<span>{@html A_a1Svg}</span>
-							<!-- <QrCode value="https://demo.stdf.design/#/" size={200} color="#fff" background="#24262b" /> -->
 						</div>
 					{/if}
 				</a>
 				<a
-					href={'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
+					href={'https://0-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"
 					class="border-solid border border-primary dark:border-dark py-2 px-6 rounded transition-all block md:hidden"
 				>
