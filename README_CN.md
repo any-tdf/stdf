@@ -17,7 +17,7 @@
 
   <h1>STDF</h1>
 
-![](https://img.shields.io/badge/-Svelte-%23d43008?logo=svelte&logoColor=ffffff)
+![](https://img.shields.io/badge/-Svelte-%23ff3e00?logo=svelte&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Tailwind-%2300a6f4?logo=tailwindcss&logoColor=ffffff)
 ![](https://img.shields.io/badge/-TypeScript-%233178c6?logo=typescript&logoColor=ffffff)
 
