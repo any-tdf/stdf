@@ -51,6 +51,8 @@
 			showThemeSwitchStore.set(false);
 		}
 	});
+
+	let showVersion = $state(false);
 </script>
 
 <div class="sticky top-0 z-[100] flex h-14 items-center justify-between border-b border-black/5 backdrop-blur-sm dark:border-white/10">
@@ -88,7 +90,35 @@
 				</svg>
 			</div>
 		</a>
-		<span class="text-primary dark:text-dark text-sm">v1</span>
+		<!-- 下拉选项，选择版本 -->
+		{#if $page.url.pathname === '' || $page.url.pathname === '/'}
+			<div class="relative bottom-1">
+				<button class="flex rounded bg-black/5 py-0.5 pl-2 pr-4 text-sm dark:bg-white/20" onclick={() => (showVersion = !showVersion)}>
+					v1
+					<span class="absolute bottom-0.5 left-5 w-4 text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+						</svg>
+					</span>
+				</button>
+				{#if showVersion}
+					<div class="absolute left-0 top-8 w-12 rounded-md bg-white p-1 text-xs shadow-md dark:bg-black dark:shadow-white/10">
+						<a href="/" class="relative flex rounded py-0.5 pl-2 hover:bg-black/5 dark:hover:bg-white/20"
+							>v1
+							<span class="absolute bottom-0.5 left-4 ml-2 w-3">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+									></path>
+								</svg>
+							</span>
+						</a>
+						<a href="https://0.stdf.design" target="_blank" class="mt-2 block rounded px-2 py-0.5 hover:bg-black/5 dark:hover:bg-white/20">
+							v0
+						</a>
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</div>
 	<div>
 		<div class="cursor-pointer p-4 md:hidden">

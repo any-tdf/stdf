@@ -98,15 +98,6 @@
 </svelte:head>
 
 <main class="bg-primaryWhite dark:bg-darkBlack relative min-h-screen text-justify text-black antialiased dark:text-white">
-	{#if $page.url.pathname === '' || $page.url.pathname === '/'}
-		<div class="bg-primary dark:bg-dark px-2 py-1 text-center text-xs text-white dark:text-black">
-			{#if isZh}
-				这是 v1 文档，v0 请访问 <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a>
-			{:else}
-				This is the v1 documentation, please visit <a href="https://stdf.design" class="underline" target="_blank">stdf.design</a> for v0.x
-			{/if}
-		</div>
-	{/if}
 	<Header {showLeftNav} showBottonLine={!isHome} onclickCmdK={headerCmdKFun} />
 	<!-- <Router {routes} /> -->
 	{@render children()}
