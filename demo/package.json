@@ -1,5 +1,5 @@
 {
-	"name": "demo-stdf",
+	"name": "0-demo-stdf",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
