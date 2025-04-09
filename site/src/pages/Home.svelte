@@ -179,7 +179,7 @@
 				{ title: '关于', title_en: 'About', link: '#/guide/about', _blank: false },
 				{ title: '常见问题', title_en: 'FAQ', link: '#/guide/faq', _blank: false },
 				{ title: '更新日志', title_en: 'Changelog', link: '#/guide/changelog', _blank: false },
-				{ title: '开源许可', title_en: 'License', link: 'https://github.com/any-tdf/stdf/blob/main/LICENSE', _blank: true },
+				{ title: '开源许可', title_en: 'License', link: 'https://github.com/any-tdf/stdf/blob/0.x/LICENSE', _blank: true },
 			],
 		},
 		{

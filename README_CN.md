@@ -8,7 +8,7 @@
 [![Public VS Code Extension Status](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml)
 [![Releases Site](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml)
-[![Releases Demo](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml/badge.svg)](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml)
+[![Releases Demo](https://github.com/any-tdf/0.x-demo-stdf/actions/workflows/releases-demo.yml/badge.svg)](https://github.com/any-tdf/0.x-demo-stdf/actions/workflows/releases-demo.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
@@ -26,7 +26,7 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
+    <a href="https://github.com/any-tdf/stdf/blob/0.x/README.md" target="_blank">English</a>
     <span> • </span>
     <a href="https://stdf.design?lang=zh_CN" target="_blank">网站</a>
   </h3>
@@ -111,7 +111,7 @@ bun create stdf
 
 # 快速尝试
 
-可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 快速尝试 STDF。
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/0.x-demo-stdf) 快速尝试 STDF。
 
 # 反馈与交流
 
@@ -136,7 +136,7 @@ bun create stdf
 
 # 开源协议
 
-本项目基于 [MIT](https://github.com/any-tdf/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
+本项目基于 [MIT](https://github.com/any-tdf/stdf/blob/0.x/LICENSE) 协议，请自由地享受和参与开源。
 
 # Star 历史
 

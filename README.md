@@ -8,7 +8,7 @@
 [![Public VS Code Extension Status](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-vscode.yml)
 [![Sync Gitee Status](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/sync-gitee.yml)
 [![Releases Site](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/releases-site.yml)
-[![Releases Demo](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml/badge.svg)](https://github.com/any-tdf/demo-stdf/actions/workflows/releases-demo.yml)
+[![Releases Demo](https://github.com/any-tdf/0.x-demo-stdf/actions/workflows/releases-demo.yml/badge.svg)](https://github.com/any-tdf/0.x-demo-stdf/actions/workflows/releases-demo.yml)
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
@@ -26,7 +26,7 @@
 [![Visual Studio Marketplace Version (including pre-releases)](https://img.shields.io/visual-studio-marketplace/v/STDF.stdf-vscode-extension?logo=visualstudiocode&label=extension&style=for-the-badge&color=c7f292&logoColor=F0FCD6&labelColor=0E1901)](https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension)
 
   <h3>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_CN.md" target="_blank">简体中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/0.x/README_CN.md" target="_blank">简体中文</a>
     <span> • </span>
     <a href="https://stdf.design?lang=en_US" target="_blank">Website</a>
   </h3>
@@ -109,7 +109,7 @@ Please scan the QR code to access the mobile demo:
 
 # Quick Try
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/0.x-demo-stdf?startScript=dev_en).
 
 # Feedback and Communication
 
@@ -134,7 +134,7 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
 
 # License
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/0.x/LICENSE). Feel free to enjoy and contribute to this open-source project.
 
 # Star History
 

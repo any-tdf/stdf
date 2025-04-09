@@ -119,13 +119,13 @@ yarn dev
 
 可对 `packages/stdf/components` 目录下组件源码进行修改并实时查看修改效果。注意，VS Code 与 WebStorm 都支持在调用组件时直接跳转到组件源码。
 
-如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 即可开始在线调试。
+如果不想本地开发，可以选择使用 StackBlitz 在线简单调试。直接打开 [STDF Demo](https://stackblitz.com/github/any-tdf/0.x-demo-stdf) 即可开始在线调试。
 
 ## 提交 PR
 
 如果你是第一次在 GitHub 上提 Pull Request ，可以阅读下面这两篇文章来学习：
 
-- [第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md)
+- [第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/0.x/translations/README.zh-cn.md)
 - [如何优雅地在 GitHub 上贡献代码](https://segmentfault.com/a/1190000000736629)
 
 ### 流程
@@ -133,7 +133,7 @@ yarn dev
 - 请先 fork 一份 [STDF](https://github.com/any-tdf/stdf) 代码到自己的仓库，如果已经 fork 过，请同步主仓库的最新代码。
 - 克隆你的仓库至本地。
 - 修改组件源码并在 Demo 中验证通过。
-- 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/main/doc/components/button/version.md?plain=1)。
+- 「可选」补充此次修改的中英文档中，文档位于 `doc/components` 目录下。根据具体修改内容可能需要修改 api、FAQ、guide、version 等文档。对 version 的修改请增加 tag，具体参考 [STDF Version tag](https://github.com/any-tdf/stdf/blob/0.x/doc/components/button/version.md?plain=1)。
 - 到仓库根目录，执行 `pnpm i` 或 `npm i` 或 `bun i` 安装依赖。
 - 利用编辑器格式化你修改过的代码，或者执行 `pnpm run format` 或 `npm run format` 命令行格式化代码。
 - 执行 `pnpm run lint` 或 `npm run lint` 检查代码格式。

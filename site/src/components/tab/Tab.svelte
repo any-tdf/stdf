@@ -59,7 +59,7 @@
 	let stackblitzValue = '';
 	const showStackblitzFunc = () => {
 		const nav = $querystring.split('&')[0].split('=')[1];
-		stackblitzValue = `https://stackblitz.com/github/any-tdf/demo-stdf?file=src%2Froutes%2F${
+		stackblitzValue = `https://stackblitz.com/github/any-tdf/0.x-demo-stdf?file=src%2Froutes%2F${
 			isZh ? 'zh_CN' : 'en_US'
 		}%2F${nav}%2F%2Bpage.svelte&startScript=${nav}${isZh ? '' : '_en'}`;
 		showStackblitz = true;
@@ -71,7 +71,7 @@
 		const nav = $querystring.split('&')[0].split('=')[1];
 		// 将nav首字母大写
 		const navFirst = nav.slice(0, 1).toUpperCase() + nav.slice(1);
-		codeValue = `https://github.com/any-tdf/stdf/blob/main/packages/stdf/components/${nav}/${navFirst}.svelte`;
+		codeValue = `https://github.com/any-tdf/stdf/blob/0.x/packages/stdf/components/${nav}/${navFirst}.svelte`;
 		showCode = true;
 	};
 </script>

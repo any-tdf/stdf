@@ -91,7 +91,7 @@ Currently supported languages:
 
 ## Adding a Language Pack
 
-If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/zh_CN.js) or [English language pack](https://github.com/any-tdf/stdf/blob/main/packages/stdf/lang/en_US.js) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
+If you cannot find the language pack you need, you are welcome to create a new language pack based on the [Chinese language pack](https://github.com/any-tdf/stdf/blob/0.x/packages/stdf/lang/zh_CN.js) or [English language pack](https://github.com/any-tdf/stdf/blob/0.x/packages/stdf/lang/en_US.js) and submit it as a Pull Request. [Language code table](http://www.lingoes.net/en/translator/langcode.htm)
 
 The basic steps are as follows:
 
