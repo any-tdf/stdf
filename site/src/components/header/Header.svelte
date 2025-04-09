@@ -98,7 +98,7 @@
 			</div>
 		</a>
 		<!-- 下拉选项，选择版本 -->
-		{#if window.location.pathname === '' || window.location.pathname === '/'}
+		{#if window.location.hash === '' || window.location.hash === '/' || window.location.hash === '#/'}
 			<div class="relative bottom-1">
 				<button class="flex rounded bg-black/5 py-0.5 pl-2 pr-4 text-sm dark:bg-white/20" on:click={() => (showVersion = !showVersion)}>
 					v0
