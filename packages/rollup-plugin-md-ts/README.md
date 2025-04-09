@@ -12,7 +12,7 @@ The STDF doc site <https://stdf.design> uses this plugin.
 
 | Parameter | Type | Default | Description                                                                           |
 | --------- | ---- | -------- | ------------------------------------------------------------------------------ |
-| marked    | `MarkedOptions` | `{}`   | [marked](https://github.com/markedjs/marked) 的配置。                       |
+| marked    | `MarkedOptions` | `{}`   | [marked](https://github.com/markedjs/marked) options.                       |
 | include  | `string[]`      | `['**/*.md']`      | The path of the Markdown file to include.                                                 |
 | exclude  | `string[]`      | `[]`               | The path of the Markdown file to exclude.                                                 |
 
