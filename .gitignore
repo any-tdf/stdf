@@ -3,6 +3,12 @@
 
 bun.lockb
 
+node_modules
+.svelte-kit
+build
+bun.lock
+dist
+
 .DS_Store
 /node_modules
 pnpm-lock.yaml
