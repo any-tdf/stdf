@@ -153,7 +153,17 @@ The following are the default theme colors of STDF, please modify them according
 @source "../node_modules/stdf/**/*.svelte";
 ```
 
-2.4 Start the project.
+2.4 Import and use components in Svelte files.
+
+```svelte
+<script lang="ts">
+	import { Button } from 'stdf';
+</script>
+
+<Button>Click me</Button>
+```
+
+2.5 Start the project.
 
 <!-- :::code-groups -->
 <!-- pnpm -->

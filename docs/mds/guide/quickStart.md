@@ -153,7 +153,17 @@ yarn add tailwindcss @tailwindcss/vite -D
 @source "../node_modules/stdf/**/*.svelte";
 ```
 
-2.4 启动项目。
+2.4 在 Svelte 文件中引入并使用。
+
+```svelte
+<script lang="ts">
+	import { Button } from 'stdf';
+</script>
+
+<Button>点击我</Button>
+```
+
+2.5 启动项目。
 
 <!-- :::code-groups -->
 <!-- pnpm -->
