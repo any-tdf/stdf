@@ -14,7 +14,12 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
-  <h1>S T D F</h1>
+
+  <h1>STDF</h1>
+
+![](https://img.shields.io/badge/-Svelte-%23d43008?logo=svelte&logoColor=ffffff)
+![](https://img.shields.io/badge/-Tailwind-%2300a6f4?logo=tailwindcss&logoColor=ffffff)
+![](https://img.shields.io/badge/-TypeScript-%233178c6?logo=typescript&logoColor=ffffff)
 
 [![npm](https://img.shields.io/npm/v/stdf?logo=npm&label=stdf&style=for-the-badge&color=aeb5f4&logoColor=DCE4FD&labelColor=010319)](https://www.npmjs.com/package/stdf)
 [![GitHub stars](https://img.shields.io/github/stars/any-tdf/stdf?logo=github&label=star&style=for-the-badge&color=A1DAD7&logoColor=D9F8F2&labelColor=011918)](https://github.com/any-tdf/stdf)
