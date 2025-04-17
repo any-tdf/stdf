@@ -58,8 +58,8 @@
 	const showStackblitzFunc = () => {
 		const nav = $page.url.searchParams.get('nav');
 		stackblitzValue = `https://stackblitz.com/github/any-tdf/demo-stdf?file=src%2Froutes%2F${
-			isZh ? 'zh_CN' : 'en_US'
-		}%2F${nav}%2F%2Bpage.svelte&startScript=${nav}${isZh ? '' : '_en'}`;
+			nav
+		}%2F${isZh ? 'zh_CN' : 'en_US'}%2F%2Bpage.svelte&startScript=${nav}${isZh ? '' : '_en'}`;
 		showStackblitz = true;
 	};
 
