@@ -21,6 +21,7 @@
 		icon = null,
 		loading = null,
 		disabledLoading = true,
+		type = 'button',
 		children,
 		onclick
 	}: ButtonProps = $props();
@@ -87,6 +88,7 @@
 			: ''}"
 		disabled={innerDisabled}
 		style={customSize ? `width:${customWidth}px;height:${customHeight}px;padding:0;` : ''}
+		{type}
 	>
 		{#if loading}
 			<Loading {...loading} />
