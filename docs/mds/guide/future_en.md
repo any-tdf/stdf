@@ -11,6 +11,7 @@
 - [x] Complete support for Svelte 5.
 - [x] Complete support for TypeScript.
 - [x] Adapt to Tailwind CSS v4.
+- [ ] Theme configuration supports rounded corners, spacing, fonts, etc.
 
 ---
 

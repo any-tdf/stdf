@@ -11,6 +11,7 @@
 - [x] 完整支持 Svelte 5。
 - [x] 完整支持 TypeScript。
 - [x] 适配 Tailwind CSS v4。
+- [ ] 主题配置支持圆角、间距、字体等。
 
 ---
 
