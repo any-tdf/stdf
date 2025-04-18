@@ -125,6 +125,7 @@ export type ButtonProps = {
 	icon?: IconProps | null;
 	loading?: LoadingProps | null;
 	disabledLoading?: boolean;
+	type?: 'submit' | 'reset' | 'button';
 	children?: Snippet;
 	onclick?: () => void;
 };
