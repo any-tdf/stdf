@@ -19,7 +19,7 @@
 | icon            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`               | `null`    | N        | Icon props.                                      |
 | loading         | [`Loading`](https://stdf.design/components?nav=loading&tab=1)\|`null`         | `null`    | N        | Loading props.                                   |
 | disabledLoading | `boolean`                                                                     | `false`   | N        | Whether to disable when loading.                 |
-| type            | `'button'\|'reset'\|'submit'\|'menu'`                                                 | `button`  | N        | The default behavior of the button               |
+| type            | `'button'\|'reset'\|'submit'`                                                 | `button`  | N        | The default behavior of the button               |
 
 ## Button Events
 

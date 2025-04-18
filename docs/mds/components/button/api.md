@@ -19,7 +19,7 @@
 | icon            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`             | `null`    | N    | 图标参数。                     |
 | loading         | [`Loading`](https://stdf.design/components?nav=loading&tab=1)\|`null`       | `null`    | N    | 加载参数。                     |
 | disabledLoading | `boolean`                                                                     | `false`   | N    | 加载时是否禁用。               |
-| type            | `'button'\|'reset'\|'submit'\|'menu'`                                                | `button`  | N        | button 的类型。               |
+| type            | `'button'\|'reset'\|'submit'`                                                | `button`  | N        | button 的类型。               |
 
 ## Button Events
 
