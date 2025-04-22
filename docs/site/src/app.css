@@ -65,6 +65,7 @@
 	--color-tailwind: oklch(0.746 0.16 232.661);
 	--color-svelte: oklch(0.702 0.194 38.137);
 
+	/* 抖动动效 */
 	--animate-shake: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 	@keyframes shake {
 		10%,
@@ -86,6 +87,7 @@
 		}
 	}
 
+	/* 闪电动效 */
 	--animate-lightning: lightning 3s linear infinite;
 	@keyframes lightning {
 		0% {
@@ -105,6 +107,7 @@
 		}
 	}
 
+	/* 路径动效 */
 	--animate-path: path 3s linear infinite;
 	@keyframes path {
 		0% {
@@ -152,6 +155,7 @@
 		}
 	}
 
+	/* 动态背景动效 */
 	--animate-dynamicsBg: dynamicsBg 8s linear infinite;
 	@keyframes dynamicsBg {
 		0% {
@@ -170,6 +174,7 @@
 		}
 	}
 
+	/* 云朵移动动效 */
 	--animate-cloudMove: cloudMove 40s linear infinite;
 	@keyframes cloudMove {
 		0% {
@@ -183,6 +188,7 @@
 		}
 	}
 
+	/* 星星闪烁动效 */
 	--animate-starTwinkle: starTwinkle 8s linear infinite;
 	--animate-starTwinkle2: starTwinkle 3s linear infinite;
 	--animate-starTwinkle3: starTwinkle 6s linear infinite;
@@ -204,9 +210,322 @@
 			opacity: 1;
 		}
 	}
+
+	/* 元素上下慢慢循环移动动效 */
+	--animate-elementUpDownMove1: elementUpDownMove 12s linear infinite;
+	--animate-elementUpDownMove2: elementUpDownMove 10s linear infinite -12s;
+	--animate-elementUpDownMove3: elementUpDownMove 12s linear infinite -14s;
+	--animate-elementUpDownMove4: elementUpDownMove 8s linear infinite -10s;
+	--animate-elementUpDownMove5: elementUpDownMove 10s linear infinite -8s;
+	--animate-elementUpDownMove6: elementUpDownMove 12s linear infinite -6s;
+	@keyframes elementUpDownMove {
+		0% {
+			transform: translateY(-20px);
+		}
+		50% {
+			transform: translateY(20px);
+		}
+		100% {
+			transform: translateY(-20px);
+		}
+	}
 }
 @source "../../../packages/stdf/dist/**/*.svelte";
 pre {
 	background-color: transparent;
 	padding: 0;
 }
+
+*::-webkit-scrollbar {
+	width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	background-color: rgba(133, 133, 133, 0.5);
+}
+
+*::-webkit-scrollbar-track {
+	background-color: rgba(133, 133, 133, 0.2);
+}
+
+html {
+	overflow-x: hidden;
+	overflow-y: overlay;
+	/*scrollbar-gutter: stable;*/
+	/* scrollbar-gutter: stable both-edges; */
+	-webkit-tap-highlight-color: transparent;
+}
+* {
+	scrollbar-width: thin;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+	content: '' !important;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+	content: '' !important;
+}
+
+.prose :where(code):not(:where([class~='not-prose'] *)) {
+	padding-left: 4px;
+	padding-right: 4px;
+	border-radius: 2px;
+	background: #e4e4e4 !important;
+}
+
+.dark .dark\:prose-invert :where(code):not(:where([class~='not-prose'] *)) {
+	background: #202020 !important;
+}
+
+/*!
+  Theme: GitHub Light
+*/
+.prose pre code.hljs {
+	background: #e4e4e4 !important;
+}
+
+.prose pre code.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 1em;
+}
+
+.prose code.hljs {
+	padding: 3px 5px;
+}
+
+.prose .hljs {
+	/* background: #ebebeb !important; */
+	color: #434f54;
+}
+
+.prose .hljs-subst {
+	color: #434f54;
+}
+
+.prose .hljs-attribute,
+.prose .hljs-doctag,
+.prose .hljs-keyword,
+.prose .hljs-name,
+.prose .hljs-selector-tag {
+	/* color: #00979d; */
+	/* color: #0B24FB; */
+	/* color: #ff3e00; */
+	color: #af10a7;
+}
+
+.prose .hljs-addition,
+.prose .hljs-built_in,
+.prose .hljs-bullet,
+.prose .hljs-code,
+.prose .hljs-literal {
+	color: #d35400;
+}
+
+.prose .hljs-link,
+.prose .hljs-regexp,
+.prose .hljs-selector-attr,
+.prose .hljs-selector-pseudo,
+.prose .hljs-symbol,
+.prose .hljs-template-variable,
+.prose .hljs-variable {
+	/* color: #00979d; */
+	color: #0b24fb;
+	/* font-weight: bold; */
+	/* color: #8a3ce2; */
+}
+
+.prose .hljs-deletion,
+.prose .hljs-quote,
+.prose .hljs-selector-class,
+.prose .hljs-selector-id,
+.prose .hljs-string,
+.prose .hljs-template-tag,
+.prose .hljs-type {
+	/* color: #005c5f; */
+	color: rgb(56, 189, 248);
+}
+
+.prose .hljs-comment {
+	color: rgba(149, 165, 166, 0.8);
+}
+
+.prose .hljs-meta .hljs-keyword {
+	color: #728e00;
+}
+
+.prose .hljs-meta {
+	color: #434f54;
+}
+
+.prose .hljs-emphasis {
+	font-style: italic;
+}
+
+.prose .hljs-strong {
+	font-weight: 700;
+}
+
+.prose .hljs-function {
+	color: #728e00;
+}
+
+.prose .hljs-section,
+.prose .hljs-title {
+	/* color: #800; */
+	color: #0b24fb;
+	font-weight: 700;
+}
+
+.prose .hljs-number {
+	color: #8a7b52;
+}
+
+.dark .dark\:prose-invert pre code.hljs {
+	background: #202020 !important;
+}
+
+.dark .dark\:prose-invert pre code.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 1em;
+}
+
+.dark .dark\:prose-invert code.hljs {
+	padding: 3px 5px;
+}
+
+/*!
+  Theme: GitHub Dark
+*/
+.dark .dark\:prose-invert .hljs {
+	color: #c9d1d9;
+	/* background: #0d1117; */
+}
+
+.dark .dark\:prose-invert .hljs-doctag,
+.dark .dark\:prose-invert .hljs-keyword,
+.dark .dark\:prose-invert .hljs-meta .hljs-keyword,
+.dark .dark\:prose-invert .hljs-template-tag,
+.dark .dark\:prose-invert .hljs-template-variable,
+.dark .dark\:prose-invert .hljs-type,
+.dark .dark\:prose-invert .hljs-variable.language_ {
+	/* color: #ff7b72; */
+	color: #ffc043;
+}
+
+.dark .dark\:prose-invert .hljs-title,
+.dark .dark\:prose-invert .hljs-title.class_,
+.dark .dark\:prose-invert .hljs-title.class_.inherited__,
+.dark .dark\:prose-invert .hljs-title.function_ {
+	color: #d2a8ff;
+}
+
+.dark .dark\:prose-invert .hljs-attr,
+.dark .dark\:prose-invert .hljs-attribute,
+.dark .dark\:prose-invert .hljs-literal,
+.dark .dark\:prose-invert .hljs-meta,
+.dark .dark\:prose-invert .hljs-number,
+.dark .dark\:prose-invert .hljs-operator,
+.dark .dark\:prose-invert .hljs-selector-attr,
+.dark .dark\:prose-invert .hljs-selector-class,
+.dark .dark\:prose-invert .hljs-selector-id,
+.dark .dark\:prose-invert .hljs-variable {
+	color: #79c0ff;
+}
+
+.dark .dark\:prose-invert .hljs-meta .hljs-string,
+.dark .dark\:prose-invert .hljs-regexp,
+.dark .dark\:prose-invert .hljs-string {
+	color: #a5d6ff;
+}
+
+.dark .dark\:prose-invert .hljs-built_in,
+.dark .dark\:prose-invert .hljs-symbol {
+	color: #ffa657;
+}
+
+.dark .dark\:prose-invert .hljs-code,
+.dark .dark\:prose-invert .hljs-comment,
+.dark .dark\:prose-invert .hljs-formula {
+	color: #8b949e;
+}
+
+.dark .dark\:prose-invert .hljs-name,
+.dark .dark\:prose-invert .hljs-quote,
+.dark .dark\:prose-invert .hljs-selector-pseudo,
+.dark .dark\:prose-invert .hljs-selector-tag {
+	color: #7ee787;
+}
+
+.dark .dark\:prose-invert .hljs-subst {
+	color: #c9d1d9;
+}
+
+.dark .dark\:prose-invert .hljs-section {
+	color: #1f6feb;
+	font-weight: 700;
+}
+
+.dark .dark\:prose-invert .hljs-bullet {
+	color: #f2cc60;
+}
+
+.dark .dark\:prose-invert .hljs-emphasis {
+	color: #c9d1d9;
+	font-style: italic;
+}
+
+.dark .dark\:prose-invert .hljs-strong {
+	color: #c9d1d9;
+	font-weight: 700;
+}
+
+.dark .dark\:prose-invert .hljs-addition {
+	color: #aff5b4;
+	background-color: #033a16;
+}
+
+.dark .dark\:prose-invert .hljs-deletion {
+	color: #ffdcd7;
+	background-color: #67060c;
+}
+
+@font-face {
+	font-family: 'JetBrainsMono';
+	src: url('./assets/fonts/JetBrainsMono-Regular.woff2');
+}
+
+code {
+	font-family: 'JetBrainsMono' !important;
+}
+
+/* 模拟设计软件的透明层 */
+.transparent-background {
+	background-image: linear-gradient(45deg, #666 25%, transparent 25%, transparent 75%, #666 75%),
+		linear-gradient(45deg, #666 25%, transparent 25%, transparent 75%, #666 75%);
+	background-position:
+		0 0,
+		10px 10px;
+	background-size: 20px 20px;
+}
+
+@keyframes clip {
+	from {
+		clip-path: circle(0% at var(--x) var(--y));
+	}
+	to {
+		clip-path: circle(100% at var(--x) var(--y));
+	}
+}
+
+::view-transition-old(root) {
+	animation: none;
+}
+::view-transition-new(root) {
+	mix-blend-mode: normal;
+	animation: clip 0.6s ease-in;
+}
+

@@ -500,6 +500,6 @@ export const colorObjToArr = (obj: Record<string, string>) => {
  * getOklchOpacity('oklch(0.5 0.5 0)', 0.5) // 'oklch(0.5 0.5 0 / 0.5)'
  */
 export const getOklchOpacity = (str: string, opacity: number) => {
-	// 将最后一个 ) 替换为 【/ 透明度】
+	// 将最后一个 ) 替换为【/ 透明度】
 	return str.replace(/\)$/, ` / ${opacity})`);
 };
