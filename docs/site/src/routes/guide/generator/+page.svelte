@@ -27,7 +27,7 @@
 	const initTheme = themes.find((item) => item.name === $currentColorStore) as ThemeItem;
 
 	const setPropertyFunc = (name: string, value: string) => {
-		const rgbStr = hexToRgb(value);
+		const rgbStr = value.startsWith('oklch') ? value : hexToRgb(value);
 		document.documentElement.style.setProperty(name, rgbStr);
 	};
 	// 使用 extendList 返回 extendListStr
@@ -285,16 +285,16 @@ ${extendListStr2}
 		themeWhite = { primary: primaryColorW, dark: darkColorW };
 		stateColor = currentColorObj.color.functional;
 
-		primaryColorList.forEach((item, i) => {
-			setPropertyFunc(i === 6 ? '--theme-color-primary' : `--theme-color-primary-${i === 0 ? '50' : i === 10 ? '950' : i + '00'}`, item);
+		primaryColors.forEach((item) => {
+			setPropertyFunc(item.n === 600 ? '--color-primary' : `--color-primary-${item.n}`, item.oklch);
 		});
-		darkColorList.forEach((item, i) => {
-			setPropertyFunc(i === 6 ? '--theme-color-dark' : `--theme-color-dark-${i === 0 ? '50' : i === 10 ? '950' : i + '00'}`, item);
+		darkColors.forEach((item) => {
+			setPropertyFunc(item.n === 600 ? '--color-dark' : `--color-dark-${item.n}`, item.oklch);
 		});
-		setPropertyFunc('--theme-color-primaryBlack', primaryColorB.hex);
-		setPropertyFunc('--theme-color-primaryWhite', primaryColorW.hex);
-		setPropertyFunc('--theme-color-darkBlack', darkColorB.hex);
-		setPropertyFunc('--theme-color-darkWhite', darkColorW.hex);
+		setPropertyFunc('--color-primaryBlack', primaryColorB.oklch);
+		setPropertyFunc('--color-primaryWhite', primaryColorW.oklch);
+		setPropertyFunc('--color-darkBlack', darkColorB.oklch);
+		setPropertyFunc('--color-darkWhite', darkColorW.oklch);
 	};
 	const changeFunc = (type = 'primary', e: null | Event, value: string) => {
 		const colorValue = e ? (e.target as HTMLInputElement).value : value;
@@ -325,7 +325,7 @@ ${extendListStr2}
 				}
 			});
 		} else {
-			setPropertyFunc(`--theme-color-functional-${type}`, colorValue);
+			setPropertyFunc(`--color-functional-${type}`, item?.color);
 			(functionalObj as unknown as Record<string, string>)[type] = colorValue;
 		}
 		currentColorObj = {
@@ -384,8 +384,6 @@ ${extendListStr2}
 		];
 		name = `${randomDarkColor.name}/${randomLightColor.name}`;
 		// 根据随机颜色生成主题
-		console.log(111, randomDarkColor);
-
 		changeFunc('primary', null, randomDarkColor.hex);
 		changeFunc('dark', null, randomLightColor.hex);
 		// 获取当前 extendList 的长度
@@ -693,13 +691,13 @@ ${extendListStr2}
 			<div class="flex w-full justify-between pb-2">
 				<div>
 					<button
-						class="bg-primary dark:bg-dark rounded-sm px-4 py-2 text-xs text-white hover:opacity-90 dark:text-black"
+						class="bg-primary dark:bg-dark cursor-pointer rounded-sm px-4 py-2 text-xs text-white hover:opacity-90 dark:text-black"
 						onclick={randomFunc}
 					>
 						{isZh ? '随机主题' : 'Random theme'}
 					</button>
 					<button
-						class="border-primary dark:border-dark ml-2 rounded-sm border px-4 py-2 text-xs text-black hover:opacity-90 dark:text-white"
+						class="border-primary dark:border-dark ml-2 cursor-pointer rounded-sm border px-4 py-2 text-xs text-black hover:opacity-90 dark:text-white"
 						onclick={resetFunc}
 					>
 						{isZh ? '重置' : 'Reset'}

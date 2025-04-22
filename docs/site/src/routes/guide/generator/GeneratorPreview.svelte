@@ -34,22 +34,22 @@
 			}
 
 			.cls-5 {
-				fill: rgb(var(--theme-color-primary-500));
+				fill: var(--color-primary-500);
 				/* fill: #d35f5f; */
 			}
 
 			.cls-5-dark {
-				fill: rgb(var(--theme-color-dark-500));
+				fill: var(--color-dark-500);
 				/* fill: #d35f5f; */
 			}
 
 			.cls-6 {
-				fill: rgb(var(--theme-color-primary-700));
+				fill: var(--color-primary-700);
 				/* fill: #841818; */
 			}
 
 			.cls-6-dark {
-				fill: rgb(var(--theme-color-dark-800));
+				fill: var(--color-dark-800);
 				/* fill: #841818; */
 			}
 
@@ -172,14 +172,8 @@
 		</style>
 		<!-- 背景 -->
 		<linearGradient id="linear-gradient" x1="307" y1="369.32" x2="307" y2="23.88" gradientUnits="userSpaceOnUse">
-			<stop
-				offset="0"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-400)' : 'var(--theme-color-primary-50)'})"
-			/>
-			<stop
-				offset="1"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-800)' : 'var(--theme-color-primary-500)'})"
-			/>
+			<stop offset="0" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-400)' : 'var(--color-primary-50)'} />
+			<stop offset="1" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-800)' : 'var(--color-primary-500)'} />
 		</linearGradient>
 		<!-- 山 0 -->
 		<linearGradient id="linear-gradient-2" x1="375" y1="390.15" x2="375" y2="207.5" xlink:href="#linear-gradient" />
@@ -200,37 +194,22 @@
 		<linearGradient id="linear-gradient-5" x1="304.08" y1="357.53" x2="589.55" y2="357.53" gradientUnits="userSpaceOnUse">
 			<stop
 				offset="0"
-				stop-color="rgba({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-900), 0.1)' : 'var(--theme-color-primary-900), 0.1'})"
+				stop-color="rgba({$currentThemeStore === 'dark' ? 'var(--color-dark-900), 0.1)' : 'var(--color-primary-900), 0.1'})"
 			/>
-			<stop
-				offset="1"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-900)' : 'var(--theme-color-primary-900)'})"
-			/>
+			<stop offset="1" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-900)' : 'var(--color-primary-900)'} />
 		</linearGradient>
 		<!-- 小树 -->
 		<linearGradient id="linear-gradient-6" x1="615.64" y1="385.54" x2="615.64" y2="337.77" gradientUnits="userSpaceOnUse">
-			<stop
-				offset="0"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-700)' : 'var(--theme-color-primary-700)'})"
-			/>
-			<stop
-				offset="1"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-500)' : 'var(--theme-color-primary-500)'})"
-			/>
+			<stop offset="0" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-700)' : 'var(--color-primary-700)'} />
+			<stop offset="1" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-500)' : 'var(--color-primary-500)'} />
 		</linearGradient>
 		<linearGradient id="linear-gradient-7" x1="645.03" y1="386.28" x2="645.03" y2="344.39" xlink:href="#linear-gradient-6" />
 		<linearGradient id="linear-gradient-8" x1="530.63" y1="385.84" x2="530.63" y2="340.47" xlink:href="#linear-gradient-6" />
 		<linearGradient id="linear-gradient-9" x1="395.26" y1="388.24" x2="395.26" y2="353.31" xlink:href="#linear-gradient-6" />
 		<!-- 大树 -->
 		<linearGradient id="linear-gradient-10" x1="89.92" y1="448.19" x2="226.82" y2="254.6" gradientUnits="userSpaceOnUse">
-			<stop
-				offset="0"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-darkBlack)' : 'var(--theme-color-primaryBlack)'})"
-			/>
-			<stop
-				offset="1"
-				stop-color="rgb({$currentThemeStore === 'dark' ? 'var(--theme-color-dark-800)' : 'var(--theme-color-primary-800)'})"
-			/>
+			<stop offset="0" stop-color={$currentThemeStore === 'dark' ? 'var(--color-darkBlack)' : 'var(--color-primaryBlack)'} />
+			<stop offset="1" stop-color={$currentThemeStore === 'dark' ? 'var(--color-dark-800)' : 'var(--color-primary-800)'} />
 		</linearGradient>
 		<linearGradient id="linear-gradient-11" x1="141.89" y1="484.94" x2="278.79" y2="291.35" xlink:href="#linear-gradient-10" />
 		<!-- 云 -->
@@ -551,22 +530,22 @@
 		<circle class="cls-moon-light hidden dark:block" cx="353.5" cy="241.44" r="179" transform="translate(-135.18 262.55) rotate(-45)" />
 		<!-- star -->
 		<path
-			class="hidden animate-starTwinkle dark:block"
+			class="animate-starTwinkle hidden dark:block"
 			d="M102 27.5C102 34.0667 105.441 39.5384 110 40.75C105.441 41.9616 102 47.4333 102 54C102 47.4333 98.5591 41.9616 94 40.75C98.5591 39.5384 102 34.0667 102 27.5Z"
 			fill="#fff"
 		/>
 		<path
-			class="hidden animate-starTwinkle2 dark:block"
+			class="animate-starTwinkle2 hidden dark:block"
 			d="M555 21.4444C555 27.2815 558.011 32.1452 562 33.2222C558.011 34.2992 555 39.1629 555 45C555 39.1629 551.989 34.2992 548 33.2222C551.989 32.1452 555 27.2815 555 21.4444Z"
 			fill="#fff"
 		/>
 		<path
-			class="hidden animate-starTwinkle3 dark:block"
+			class="animate-starTwinkle3 hidden dark:block"
 			d="M366 27.3333C366 31.7112 368.151 35.3589 371 36.1667C368.151 36.9744 366 40.6222 366 45C366 40.6222 363.849 36.9744 361 36.1667C363.849 35.3589 366 31.7112 366 27.3333Z"
 			fill="#fff"
 		/>
 		<path
-			class="hidden animate-starTwinkle4 dark:block"
+			class="animate-starTwinkle4 hidden dark:block"
 			d="M534 94.3333C534 98.7112 536.151 102.359 539 103.167C536.151 103.974 534 107.622 534 112C534 107.622 531.849 103.974 529 103.167C531.849 102.359 534 98.7112 534 94.3333Z"
 			fill="#fff"
 		/>
