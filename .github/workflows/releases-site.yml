@@ -38,24 +38,24 @@ jobs:
               with:
                   bun-version: 'latest'
 
-            - name: Build rollup-plugin-stdf-icon and stdf and rollup-plugin-md-ts
+            - name: Build rollup-plugin-stdf-icon & stdf & rollup-plugin-md-ts
               run: |
                   cd packages/rollup-plugin-stdf-icon
-                  npm i
-                  npm run build
+                  bun i
+                  bun run build
                   cd ../stdf
-                  npm i
-                  npm run package
+                  bun i
+                  bun run package
                   cd ../rollup-plugin-md-ts
-                  npm i
-                  npm run build
+                  bun i
+                  bun run build
                   cd ../../
 
             - name: Install dependencies and build
               run: |
                   cd docs/site
-                  npm i
-                  npm run build
+                  bun i
+                  bun run build
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
