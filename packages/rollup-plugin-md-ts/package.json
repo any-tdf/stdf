@@ -1,6 +1,6 @@
 {
 	"name": "rollup-plugin-md-ts",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "a rollup plugin for markdown files",
 	"type": "module",
 	"types": "./dist/index.d.ts",
@@ -23,7 +23,9 @@
 		"plugin",
 		"md",
 		"markdown",
-		"typescript"
+		"typescript",
+		"vite",
+		"STDF"
 	],
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
