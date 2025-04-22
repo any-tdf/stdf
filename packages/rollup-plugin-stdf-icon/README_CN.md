@@ -78,7 +78,7 @@ export default defineConfig({
 | -------- | ------ | ---------------- | ------------------------------------------------------------------------------ |
 | inFile   | `string` | `'src/lib/symbol'` | 将要被合并的所有 SVG 文件所在的文件夹。                                        |
 | outFile  | `string` | `'static/fonts'`   | 合并后的 SVG symbol 文件的输出路径。                                           |
-| fileName | `string` | `''`               | 合并后的 SVG symbol 文件的文件名（如果不传则取 inFile 的最后一个文件夹名称）。 |
+| fileName | `string` | `'symbol'`               | 合并后的 SVG symbol 文件的文件名（如果不传则取 inFile 的最后一个文件夹名称）。 |
 | simple   | `boolean` | `true`             | 是否使用简单模式，简单模式会将 svg 自带的颜色去除。                            |
 
 # 许可证

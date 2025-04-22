@@ -78,7 +78,7 @@ In general, the use of symbols is to combine a series of small, single-color SVG
 | --------- | ------ | ---------------- | ------------------------------------------------------------------------------------------------------------- |
 | inFile    | `string` | `'src/lib/symbol'` | The folder where all the SVG files to be merged are located.                                                  |
 | outFile   | `string` | `'static/fonts'`   | The output path for the merged SVG symbol file.                                                               |
-| fileName  | `string` | `''`               | The filename of the merged SVG symbol file (if not passed, the last folder name of `inFile` will be used).    |
+| fileName  | `string` | `'symbol'`               | The filename of the merged SVG symbol file (if not passed, the last folder name of `inFile` will be used).    |
 | simple    | `boolean` | `true`             | Whether to use the simple mode, the simple mode will remove the color attributes of the SVG files themselves. |
 
 # License

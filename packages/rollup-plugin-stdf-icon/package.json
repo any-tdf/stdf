@@ -1,6 +1,6 @@
 {
 	"name": "rollup-plugin-stdf-icon",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A Rollup plugin that combines a series of svg into one symbol for use in the STDF project",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
