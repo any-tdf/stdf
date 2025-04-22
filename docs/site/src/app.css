@@ -231,6 +231,7 @@
 	}
 }
 @source "../../../packages/stdf/dist/**/*.svelte";
+
 pre {
 	background-color: transparent;
 	padding: 0;
@@ -495,7 +496,7 @@ html {
 
 @font-face {
 	font-family: 'JetBrainsMono';
-	src: url('./assets/fonts/JetBrainsMono-Regular.woff2');
+	src: url('/assets/fonts/JetBrainsMono-Regular.woff2');
 }
 
 code {
