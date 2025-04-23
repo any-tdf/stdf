@@ -467,7 +467,7 @@
 				</div>
 			</div>
 			<div class="text-6xl md:text-8xl">STDF</div>
-			<div class="mb-10 mt-4 px-4 text-gray-700 md:mb-0 md:text-lg">
+			<div class="md:text-md mb-10 mt-4 px-4 text-gray-700 md:mb-0 dark:text-gray-300">
 				{#if isZh}
 					基于
 					<a

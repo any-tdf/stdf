@@ -281,12 +281,7 @@
 				{#if currentTab === 1}
 					<!-- api -->
 					{#if menuChange}
-						<div
-							in:fly={{ y: 100, duration: 500 }}
-							out:fly={{ y: 100, duration: 100 }}
-							class={` left-full mt-4 flex-1 p-4 md:px-8 md:py-4`}
-							style="width:{titleWidth}px;"
-						>
+						<div class={` left-full mt-4 flex-1 p-4 md:px-8 md:py-4`} style="width:{titleWidth}px;">
 							<Api api={currentNav?.nav} />
 						</div>
 					{/if}
@@ -294,12 +289,7 @@
 				{#if currentTab === 2}
 					<!-- 指南 -->
 					{#if menuChange}
-						<div
-							in:fly={{ y: 100, duration: 500 }}
-							out:fly={{ y: 100, duration: 100 }}
-							class="mx-auto mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4"
-							style="width:{titleWidth}px;"
-						>
+						<div class="mx-auto mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4" style="width:{titleWidth}px;">
 							<Guide guide={currentNav?.nav} />
 						</div>
 					{/if}
@@ -307,12 +297,7 @@
 				{#if currentTab === 3}
 					<!-- FAQ -->
 					{#if menuChange}
-						<div
-							in:fly={{ y: 100, duration: 500 }}
-							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
-							style="width:{titleWidth}px;"
-						>
+						<div class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `} style="width:{titleWidth}px;">
 							<FAQ guide={currentNav?.nav} />
 						</div>
 					{/if}
@@ -320,12 +305,7 @@
 				{#if currentTab === 4}
 					<!-- Version -->
 					{#if menuChange}
-						<div
-							in:fly={{ y: 100, duration: 500 }}
-							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
-							style="width:{titleWidth}px;"
-						>
+						<div class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `} style="width:{titleWidth}px;">
 							<Version guide={currentNav?.nav} />
 						</div>
 					{/if}
