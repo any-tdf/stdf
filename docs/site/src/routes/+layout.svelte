@@ -100,7 +100,9 @@
 <main class="bg-primaryWhite dark:bg-darkBlack relative min-h-screen text-justify text-black antialiased dark:text-white">
 	<Header {showLeftNav} showBottonLine={!isHome} onclickCmdK={headerCmdKFun} />
 	<!-- <Router {routes} /> -->
+	<!-- <div class="mx-auto max-w-[1536px]"> -->
 	{@render children()}
+	<!-- </div> -->
 
 	<CmdK />
 	<!-- 赞赏 -->

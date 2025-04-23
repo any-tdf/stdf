@@ -118,9 +118,9 @@
 </script>
 
 <article
-	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark pb-12 {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark mx-auto pb-8 {$isWideScreenStore
 		? 'max-w-full'
-		: 'max-w-5xl'}"
+		: 'max-w-7xl'}"
 >
 	<blockquote>
 		{isZh

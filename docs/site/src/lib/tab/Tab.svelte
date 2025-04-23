@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { currentThemeStore } from '../../store';
+	import { currentThemeStore, isWideScreenStore } from '../../store';
 	// @ts-expect-error - beautify-qrcode 缺少类型定义
 	import { encodeData, rendererLine } from 'beautify-qrcode';
 	import { page } from '$app/stores';
@@ -72,6 +72,17 @@
 		codeValue = `https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
 		showCode = true;
 	};
+	let showFull = $state(false);
+	// 全屏
+	const changeFullFunc = () => {
+		if ($isWideScreenStore) {
+			isWideScreenStore.set(false);
+			localStorage.setItem('isFull', 'notFull');
+		} else {
+			isWideScreenStore.set(true);
+			localStorage.setItem('isFull', 'full');
+		}
+	};
 </script>
 
 <div class="w-82 md:w-102 relative top-14">
@@ -122,26 +133,7 @@
 				{/if}
 			</button>
 		</a>
-		<!--StackBlitz-->
-		<a href={stackblitzValue} target="_blank">
-			<button
-				onmouseleave={() => (showStackblitz = false)}
-				onmouseenter={showStackblitzFunc}
-				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
-			>
-				<svg viewBox="0 0 28 28" height="24">
-					<path fill="#3275e7" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z" />
-				</svg>
-				{#if showStackblitz}
-					<div
-						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
-						transition:fade={{ duration: 200 }}
-					>
-						{isZh ? '在 StackBlitz 中打开' : 'Open in StackBlitz'}
-					</div>
-				{/if}
-			</button>
-		</a>
+
 		<!--组件源码-->
 		<a href={codeValue} target="_blank">
 			<button
@@ -166,6 +158,61 @@
 				{/if}
 			</button>
 		</a>
+		<!--StackBlitz-->
+		<a href={stackblitzValue} target="_blank">
+			<button
+				onmouseleave={() => (showStackblitz = false)}
+				onmouseenter={showStackblitzFunc}
+				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+			>
+				<svg viewBox="0 0 28 28" height="24">
+					<path fill="#3275e7" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z" />
+				</svg>
+				{#if showStackblitz}
+					<div
+						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						transition:fade={{ duration: 200 }}
+					>
+						{isZh ? '在 StackBlitz 中打开' : 'Open in StackBlitz'}
+					</div>
+				{/if}
+			</button>
+		</a>
+		<!-- 宽屏 -->
+		<button
+			onclick={changeFullFunc}
+			onmouseleave={() => (showFull = false)}
+			onmouseenter={() => (showFull = true)}
+			onfocus={() => (showFull = true)}
+			onblur={() => (showFull = false)}
+			class="absolute left-[38.5rem] top-0 hidden h-12 w-12 cursor-pointer rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+		>
+			{#if $isWideScreenStore}
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20ZM11 5H5V19H11V15H13V19H19V5H13V9H11V5ZM15 9L18 12L15 15V13H9V15L6 12L9 9V11H15V9Z"
+						fill="currentColor"
+					></path>
+				</svg>
+			{:else}
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20ZM11 5H5V10.999H7V9L10 12L7 15V13H5V19H11V17H13V19H19V13H17V15L14 12L17 9V10.999H19V5H13V7H11V5ZM13 13V15H11V13H13ZM13 9V11H11V9H13Z"
+						fill="currentColor"
+					></path>
+				</svg>
+			{/if}
+			{#if showFull}
+				<div
+					class="{isZh
+						? 'w-20'
+						: 'w-32'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+					transition:fade={{ duration: 200 }}
+				>
+					{isZh ? '宽屏' : 'Full screen'}
+				</div>
+			{/if}
+		</button>
 		<div class="relative flex">
 			{#each tabList as item, index}
 				<button onclick={() => changeIndexFun(index)} class="w-16 cursor-pointer rounded-sm py-2 text-center md:w-20">

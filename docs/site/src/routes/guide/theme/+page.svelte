@@ -10,9 +10,9 @@
 </script>
 
 <article
-	class="prose pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark mx-auto pb-12 {$isWideScreenStore
 		? 'max-w-full'
-		: 'max-w-5xl'}"
+		: 'max-w-7xl'}"
 >
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html text}

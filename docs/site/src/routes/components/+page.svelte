@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { isShowNavStore, isCmdKStore } from '../../store';
+	import { isShowNavStore, isCmdKStore, isWideScreenStore } from '../../store';
 	import { menuList, type MenuList } from '../../data/menuList';
 	import { page } from '$app/stores';
 	import hljs from 'highlight.js';
@@ -165,10 +165,7 @@
 			params.set('nav', currentMenu.nav);
 			goto(`/components?nav=${currentMenu.nav}&tab=${params.get('tab') ? params.get('tab') : '0'}`);
 			const componentStr = await getComponentStrFunc(currentMenu.nav);
-			highlightedCode = hljs.highlight(componentStr, {
-				language: 'svelte',
-				ignoreIllegals: true
-			}).value;
+			highlightedCode = hljs.highlight(componentStr, { language: 'svelte', ignoreIllegals: true }).value;
 			menuChange = true;
 		}, 10);
 	};
@@ -193,7 +190,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
+		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{navBarHeight + 'px'}"
@@ -201,7 +198,11 @@
 		<Menu {menuList} currentNav={currentNav?.nav} onclickMenu={menuClickFun} />
 	</div>
 	{#if visible}
-		<div class="flex w-full flex-col md:pl-48" in:fly={{ x: 100, duration: 500 }} out:fly={{ x: 100, duration: 100 }}>
+		<div
+			class="mx-auto flex w-full flex-col md:pl-48 {$isWideScreenStore ? 'max-w-full' : 'max-w-[1472px]'}"
+			in:fly={{ x: 100, duration: 500 }}
+			out:fly={{ x: 100, duration: 100 }}
+		>
 			<div class="relative z-20 px-4 pt-4 md:flex md:space-x-4 md:px-8" bind:this={titleDom}>
 				{#if loading}
 					{isZh ? '请等待...' : 'Please wait...'}
@@ -230,7 +231,7 @@
 				<Tab {currentTab} onclickTab={tabClickFun} />
 			</div>
 			<div class="my-4 ml-4">
-				<div class="h-px bg-black/10 dark:bg-white/20"></div>
+				<!-- <div class="h-px bg-black/10 dark:bg-white/20"></div> -->
 			</div>
 			<div>
 				<!-- 示例 -->
@@ -296,7 +297,7 @@
 						<div
 							in:fly={{ y: 100, duration: 500 }}
 							out:fly={{ y: 100, duration: 100 }}
-							class={`mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4 `}
+							class="mx-auto mt-4 flex-1 rounded-sm p-4 md:px-8 md:py-4"
 							style="width:{titleWidth}px;"
 						>
 							<Guide guide={currentNav?.nav} />

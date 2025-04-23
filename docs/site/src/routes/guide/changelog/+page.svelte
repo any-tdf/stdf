@@ -2,7 +2,9 @@
 	import { mdTextToHljs } from '../../../utils/index';
 	import { isWideScreenStore } from '../../../store';
 
+	// @ts-ignore
 	import text from '../../../../../mds/guide/changelog.md';
+	// @ts-ignore
 	import text_en from '../../../../../mds/guide/changelog_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
@@ -64,9 +66,9 @@
 </script>
 
 <article
-	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark pb-12 text-xs {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark mx-auto pb-8 text-xs {$isWideScreenStore
 		? 'max-w-full'
-		: 'max-w-5xl'}"
+		: 'max-w-7xl'}"
 >
 	<p class="mb-4 text-xs text-black/40 dark:text-white/30">
 		{isZh

@@ -26,7 +26,7 @@
 >
 	<div
 		in:fly={{ y: -400 }}
-		class="mx-auto w-full rounded-xl bg-white p-4 shadow-lg dark:bg-gray-950 md:w-[800px] md:p-8"
+		class="mx-auto w-full rounded-xl bg-white p-4 shadow-lg md:w-[800px] md:p-8 dark:bg-gray-950"
 		onclick={(e: Event) => e.stopPropagation()}
 	>
 		<div class="flex justify-between">
@@ -41,11 +41,11 @@
 			<div class="mt-2 text-xs text-gray-500 md:mt-8">
 				<p>
 					{isZh
-						? 'STDF 是一个免费开源、使用简单但很用心的组件库，在组件设计与开发、配套工具的提供、文档站点运营等方面投入了大量的时间、物力和精力。如果 STDF 确实给您带去了方便，希望您不吝啬您的喜爱之情支持 STDF 的工作，给一个 star 或打赏，非常感谢！'
-						: 'STDF is a free and open source, easy to use but very attentive component library, which has invested a lot of time, material and energy in component design and development, supporting tool provision, document site operation, etc. If STDF does bring you convenience, I hope you will not hesitate to support STDF work with your love, give a star or reward, thank you very much!'}
+						? 'STDF 是一个免费、开源、简单易用且精心打造的组件库。我们在组件设计开发、工具配套、文档建设等方面倾注了大量心血。如果 STDF 为您带来了便利，希望您能给个 star 或打赏以示支持，感谢您的厚爱！'
+						: 'STDF is a free, open-source, easy-to-use, and carefully crafted component library. We have devoted tremendous effort to component design, development tools, and documentation. If STDF has helped you, please consider showing your support with a star or donation. Thank you for your love!'}
 				</p>
 				<p class="text-md mt-2 font-bold">
-					{isZh ? '无论如何，STDF 都会出于热爱并继续努力！' : 'In any case, STDF will continue to work hard out of love!'}
+					{isZh ? '无论如何，STDF 都将怀着热爱继续前行！' : 'No matter what, STDF will keep moving forward with love!'}
 				</p>
 			</div>
 		{/if}
@@ -53,7 +53,7 @@
 			<!-- coffee -->
 			{#if isDeskDevice || (!showWeChatPay && !showAlipayPay)}
 				<div
-					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 dark:border-white/10 md:relative md:w-40 md:py-12"
+					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 md:relative md:w-40 md:py-12 dark:border-white/10"
 				>
 					<div class="mx-auto h-8 w-6">
 						<img class="h-full w-full object-cover" src="/assets/fund/coffee.svg" alt="coffee" />
@@ -65,7 +65,7 @@
 						</div>
 					</a>
 					<a
-						class="absolute inset-1 hidden h-[95%] w-[95%] bg-white px-1 py-12 opacity-0 transition-all duration-500 group-hover:opacity-95 dark:bg-gray-950 md:block"
+						class="absolute inset-1 hidden h-[95%] w-[95%] bg-white px-1 py-12 opacity-0 transition-all duration-500 group-hover:opacity-95 md:block dark:bg-gray-950"
 						href="https://www.buymeacoffee.com/dufu1991"
 						target="_blank"
 					>
@@ -79,7 +79,7 @@
 			<!-- paypal -->
 			{#if isDeskDevice || (!showWeChatPay && !showAlipayPay)}
 				<div
-					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 dark:border-white/10 md:relative md:w-40 md:py-12"
+					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 md:relative md:w-40 md:py-12 dark:border-white/10"
 				>
 					<div class="mx-auto h-8 w-8">
 						<img class="h-full w-full object-cover" src="/assets/fund/paypal.svg" alt="paypal" />
@@ -91,7 +91,7 @@
 						</div>
 					</a>
 					<a
-						class="absolute inset-1 hidden h-[95%] w-[95%] bg-white px-1 py-12 opacity-0 transition-all duration-500 group-hover:opacity-95 dark:bg-gray-950 md:block"
+						class="absolute inset-1 hidden h-[95%] w-[95%] bg-white px-1 py-12 opacity-0 transition-all duration-500 group-hover:opacity-95 md:block dark:bg-gray-950"
 						href="https://paypal.me/dufu1991"
 						target="_blank"
 					>
@@ -105,7 +105,7 @@
 			<!-- wechat -->
 			{#if isDeskDevice || !showAlipayPay}
 				<div
-					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 dark:border-white/10 md:relative md:w-40 md:py-12"
+					class="group flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 md:relative md:w-40 md:py-12 dark:border-white/10"
 				>
 					<div class="mx-auto h-8 w-10" class:hidden={showWeChatPay}>
 						<img class="h-full w-full object-cover" src="/assets/fund/wechat_pay.svg" alt="wechat" />
@@ -136,7 +136,7 @@
 						onclick={() => {
 							showWeChatPay = !showWeChatPay;
 						}}
-						class="absolute inset-1 hidden h-[95%] w-[95%] cursor-pointer bg-white px-1 opacity-0 transition-all duration-500 group-hover:opacity-95 dark:bg-gray-950 md:block"
+						class="absolute inset-1 hidden h-[95%] w-[95%] cursor-pointer bg-white px-1 opacity-0 transition-all duration-500 group-hover:opacity-95 md:block dark:bg-gray-950"
 						class:opacity-95={showWeChatPay}
 					>
 						{#if showWeChatPay}
@@ -160,7 +160,7 @@
 			<!-- alipay -->
 			{#if isDeskDevice || !showWeChatPay}
 				<div
-					class="group mx-auto flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 dark:border-white/10 md:relative md:w-40 md:py-12"
+					class="group mx-auto flex w-full flex-col justify-center rounded-lg border border-black/10 py-1 md:relative md:w-40 md:py-12 dark:border-white/10"
 				>
 					<div class="mx-auto h-8 w-8" class:hidden={showAlipayPay}>
 						<img class="h-full w-full object-cover" src="/assets/fund/alipay.svg" alt="alipay" />
@@ -191,7 +191,7 @@
 						onclick={() => {
 							showAlipayPay = !showAlipayPay;
 						}}
-						class="absolute inset-1 hidden h-[95%] w-[95%] cursor-pointer bg-white px-1 opacity-0 transition-all duration-500 group-hover:opacity-95 dark:bg-gray-950 md:block"
+						class="absolute inset-1 hidden h-[95%] w-[95%] cursor-pointer bg-white px-1 opacity-0 transition-all duration-500 group-hover:opacity-95 md:block dark:bg-gray-950"
 						class:opacity-95={showAlipayPay}
 					>
 						{#if showAlipayPay}
@@ -215,8 +215,8 @@
 		</div>
 		<div class="mt-4 text-xs text-gray-500 md:mt-8">
 			{isZh
-				? '如果愿意的话，捐赠留言请注明 GitHub 或其他社交账号或相关链接地址，STDF 将在仓库与站点展示并感谢您们！'
-				: 'If you are willing, please leave a message for donation with your GitHub or other social account or related link address. STDF will display and thank you in the warehouse and website!'}
+				? '欢迎在捐赠留言中附上您的 GitHub 或其他社交账号链接，STDF 将在项目仓库和官网中展示感谢！'
+				: 'Feel free to include your GitHub or other social media links in the donation message. STDF will gratefully acknowledge your support on our repository and website!'}
 		</div>
 	</div>
 </div>

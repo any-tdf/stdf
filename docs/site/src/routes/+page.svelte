@@ -1,126 +1,304 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	// import { link } from 'svelte-spa-router';
 	import { fade } from 'svelte/transition';
 	import { Confetti } from 'svelte-confetti';
 	import { currentThemeStore, currentColorStore } from '../store';
+	// @ts-ignore
 	import { encodeData, rendererLine } from 'beautify-qrcode';
+	import { Tab, Loading, Switch, Avatar, Pagination, Input, Rate, Icon, NoticeBar, Slider, Swiper, Button } from 'stdf';
+	import type { SwiperImgProps, SwiperProps } from 'stdf/types';
+	import { menuList, type MenuList } from '../data/menuList';
+	import themes from '../data/themes/index.js';
+	import { switchTheme } from 'stdf/theme';
+
+	const isZh = localStorage.getItem('lang') === 'zh_CN';
+
+	// 随机生成 1_0 到 1_53 这种字符串
+	const randomNum = Math.floor(Math.random() * 53) + 1;
+	const randomNumStr = `1_${randomNum}`;
+	const swiperData: SwiperImgProps[] = [
+		{ type: 'img', url: '/assets/images/home/wall_1.jpg' },
+		{ type: 'img', url: '/assets/images/home/wall_2.jpg' },
+		{ type: 'img', url: '/assets/images/home/wall_3.jpg' },
+		{ type: 'img', url: '/assets/images/home/wall_4.jpg' }
+	];
+	const swiperOptions: SwiperProps[] = [
+		{
+			data: swiperData,
+			containerWidth: 390,
+			px: '6',
+			py: '6',
+			indicateInjClass: 'bg-none',
+			indicateColor: 'bg-black/5 dark:bg-white/10',
+			indicateActiveColor: 'bg-primary dark:bg-dark',
+			radius: 'xl',
+			indicateStyle: 'longLine'
+		},
+		{
+			data: swiperData,
+			containerWidth: 390,
+			px: '16',
+			py: '6',
+			indicateInjClass: 'bg-none',
+			indicateColor: 'bg-primary dark:bg-dark',
+			indicateActiveColor: 'bg-primary dark:bg-dark',
+			radius: 'xl',
+			aspectRatio: [3, 1],
+			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20',
+			translateX: 100
+		},
+		{
+			data: swiperData,
+			containerWidth: 390,
+			px: '4',
+			py: '8',
+			indicateInjClass: 'bg-none',
+			indicateColor: 'bg-primary dark:bg-dark',
+			indicateActiveColor: 'bg-primary dark:bg-dark',
+			radius: 'xl',
+			rotateY: 90,
+			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20'
+		},
+		{
+			data: swiperData,
+			containerWidth: 390,
+			px: '24',
+			py: '8',
+			indicateInjClass: 'bg-none',
+			indicateColor: 'bg-primary dark:bg-dark',
+			indicateActiveColor: 'bg-primary dark:bg-dark',
+			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20',
+			radius: 'xl',
+			aspectRatio: [3, 1],
+			translateX: 160,
+			notActiveInjClass: 'grayscale'
+		},
+		{
+			data: swiperData,
+			indicateStyle: 'longLine',
+			containerWidth: 390,
+			px: '12',
+			py: '8',
+			indicateInjClass: 'bg-none',
+			indicateColor: 'bg-black/5 dark:bg-white/10',
+			indicateActiveColor: 'bg-primary dark:bg-dark',
+			radius: 'xl',
+			translateZ: 600,
+			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20'
+		}
+	];
+	const swiperOption = swiperOptions[Math.floor(Math.random() * swiperOptions.length)];
+	//数组二级组成新数组
+	const ArrChildFun = (arr: MenuList[]) => {
+		const newArr = [];
+		for (let e = 0; e < arr.length; e++) {
+			newArr.push(...arr[e].childs);
+		}
+		return newArr;
+	};
+	const menuChildList = ArrChildFun(menuList);
+	// 从 menuChildList 中随机取 3 个
+	const randomMenuChildList = menuChildList.sort(() => Math.random() - 0.5).slice(0, 3);
+	const textList = randomMenuChildList.map((item, index) => {
+		return `${index + 1}. ${isZh ? item.tip : item.tip_en}`;
+	});
+	const labels = randomMenuChildList.map((item) => {
+		return { text: isZh ? item.title_zh : item.title_en };
+	});
+	// Avatar radius 随机 'none'|'sm'|'xl'|'2xl'|'3xl'|'full'
+	const avatarRadiusList = ['none', 'sm', 'xl', '2xl', '3xl', 'full'] as const;
+	const avatarRadius = avatarRadiusList[Math.floor(Math.random() * avatarRadiusList.length)];
+	const avatarImgs = ['/assets/images/home/wall_3.jpg', '/assets/images/home/avatar_1.jpg', null];
+	const avatar = avatarImgs[Math.floor(Math.random() * avatarImgs.length)];
+	// Switch radius 随机 'none'|'middle'|'full' ，inside 随机 'state'|'loading'|null
+	const switchRadiusList = ['none', 'middle', 'full'];
+	const switchRadius = switchRadiusList[Math.floor(Math.random() * switchRadiusList.length)] as 'none' | 'middle' | 'full';
+	const switchInsideList = ['state', 'loading', null];
+	const switchInside = switchInsideList[Math.floor(Math.random() * switchInsideList.length)] as 'state' | 'loading' | null;
+	// Slider 随机 0-100
+	const sliderValue = Math.floor(Math.random() * 100);
+	// slider radius 随机 'none'|'full'|'sm'|'xl'
+	const sliderRadiusList = ['none', 'full', 'sm', 'xl'];
+	const sliderRadius = sliderRadiusList[Math.floor(Math.random() * sliderRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
+	// 列举 20 个与评分相关的 emoji 表情
+	const emojiList1 = ['love', 'default'];
+	const emojiList2 = ['👍', '👋', '👏', '🌺', '🏆', '🎯', '💯', '🎳', '🎖️'];
+	// 随机出一个 emoji，emojiList1 的概率为 0.5，emojiList2 的概率为 0.5
+	const emoji =
+		Math.random() > 0.5
+			? emojiList1[Math.floor(Math.random() * emojiList1.length)]
+			: emojiList2[Math.floor(Math.random() * emojiList2.length)];
+	// Tab radius 随机 'none'|'full'|'sm'|'xl'
+	const tabRadiusList = ['none', 'full', 'sm', 'xl'];
+	const tabRadius = tabRadiusList[Math.floor(Math.random() * tabRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
+	// lineType 随机 true 或 false
+	const lineType = Math.random() > 0.5;
+	// Pagination 随机总条数 50 - 200 和当前页，保证当前页在 1 - 总条数/10 之间
+	const paginationTotal = Math.floor(Math.random() * 150) + 50;
+	const paginationCurrent = Math.floor(Math.random() * (paginationTotal / 10)) + 1;
+	// paginationType 随机 'block'|'bold'|'border'
+	const paginationTypeList = ['block', 'bold', 'border'];
+	const paginationType = paginationTypeList[Math.floor(Math.random() * paginationTypeList.length)] as 'block' | 'bold' | 'border';
+	const paginationRadiusList = ['none', 'sm', 'md', 'lg', 'xl', 'full'];
+	const paginationRadius = paginationRadiusList[Math.floor(Math.random() * paginationRadiusList.length)] as
+		| 'none'
+		| 'sm'
+		| 'md'
+		| 'lg'
+		| 'xl'
+		| 'full';
+	const injPaginationRadiusList = {
+		none: 'rounded-none',
+		sm: 'rounded-sm',
+		md: 'rounded-md',
+		lg: 'rounded-lg',
+		xl: 'rounded-xl',
+		full: 'rounded-full'
+	};
+	const injPaginationRadius = injPaginationRadiusList[paginationRadius];
+	// 随机主题
+	const randomThemeFunc = () => {
+		const item = themes[Math.floor(Math.random() * themes.length)];
+		currentColorStore.set(item.name);
+		localStorage.setItem('theme_color', item.name);
+		const theme = item.theme;
+
+		switchTheme(theme);
+		// 修改 HTML 的 meta name="theme-color" 属性，适配 Safari 的 tab 背景色，需要设置 light 和 dark 两种颜色
+		const safariLight = theme.color.primaryWhite;
+		const safariDark = theme.color.darkBlack;
+		// 查找 meta 标签，name="theme-color" 且 media="(prefers-color-scheme: light)"
+		const lightMeta = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: light)"]');
+		// 查找 meta 标签，name="theme-color" 且 media="(prefers-color-scheme: dark)"
+		const darkMeta = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]');
+		// 如果找到了，就修改它的 content 属性
+		if (lightMeta) {
+			lightMeta.setAttribute('content', safariLight);
+		}
+		if (darkMeta) {
+			darkMeta.setAttribute('content', safariDark);
+		}
+	};
+	// randomMenuChildList 随机出一个
+	const inputList = randomMenuChildList[Math.floor(Math.random() * randomMenuChildList.length)];
+	const inputTitle = isZh ? inputList.title_zh : inputList.title_en;
+	let inputValue = $state(isZh ? inputList.tip : inputList.tip_en);
+	const inputRadiusList = ['none', 'full', 'sm', 'xl'];
+	const inputRadius = inputRadiusList[Math.floor(Math.random() * inputRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
+	const inputStyleList = ['line', 'block'];
+	const inputStyle = inputStyleList[Math.floor(Math.random() * inputStyleList.length)] as 'line' | 'block';
+	let showInputConfetti = $derived(inputValue === inputTitle);
+	// 当 inputValue === inputTitle 时，显示 confetti
+	const inputFun = (v: string) => {
+		inputValue = v;
+	};
 
 	const descList = [
 		{
 			title: 'Simple',
-			titleZh: '简 单',
-			desc: '使用 Svelte 语法编码简洁迅速。组件源码逻辑清晰、简单易懂、中英注释详细，查看源码、修改逻辑也可以得心应手。',
-			descEn:
-				'Coding with Svelte syntax is simple and fast. The component source code logic is clear, simple and easy to understand, and the English and Chinese comments are detailed. You can also get used to it by viewing the source code and modifying the logic yourself.',
-			icon: '/assets/images/3D-simple.png',
-			iconDark: '/assets/images/3D-simple-dark.png',
+			titleZh: '简单',
+			desc: '代码清晰，文档完善，易于使用。',
+			descEn: 'Clear code, complete docs, easy to use.',
+			icon: '/assets/images/home/s.jpeg',
 			shwTip: false
 		},
 		{
 			title: 'Thin',
-			titleZh: '轻 量',
-			desc: '源码体积小巧，无三方依赖。基于 Svelte 与 Tailwind 编译出的代码在体积上也优势明显，这在移动端显得尤为重要。',
-			descEn:
-				'The source code is small and has no third-party dependencies. The code compiled based on Svelte and Tailwind also has obvious advantages in terms of volume, which is particularly important in mobile terminals.',
-			icon: '/assets/images/3D-thin.png',
-			iconDark: '/assets/images/3D-thin-dark.png',
+			titleZh: '轻量',
+			desc: '体积小，无依赖，适合移动端。',
+			descEn: 'Small size, no deps, for mobile.',
+			icon: '/assets/images/home/t.jpeg',
 			shwTip: true
 		},
 		{
 			title: 'Design',
-			titleZh: '设 计',
-			desc: '针对移动设备优化设计与交互，使用友好、高效、灵活。支持通过简单配置定制颜色系统、圆角风格、亮暗模式等。',
-			descEn:
-				'Optimized design and interaction for mobile devices, user-friendly, efficient, and flexible. Support customizing color system, corner style, light and dark mode, etc. through simple configuration.',
-			icon: '/assets/images/3D-design.png',
-			iconDark: '/assets/images/3D-design-dark.png',
+			titleZh: '设计',
+			desc: '优化移动端设计交互，支持主题配置。',
+			descEn: 'Better mobile design & themes.',
+			icon: '/assets/images/home/d.jpeg',
 			shwTip: false
 		},
 		{
 			title: 'Fast',
-			titleZh: '快 速',
-			desc: '无运行时，无虚拟 DOM，无烦杂的 CSS 代码，状态管理简单轻快。编码过程、编译处理、线上运行全都快起来了。',
-			descEn:
-				'No runtime, no virtual DOM, no cumbersome CSS code, simple and fast state management. The coding process, compilation processing, and online running are all faster.',
-			icon: '/assets/images/3D-fast.png',
-			iconDark: '/assets/images/3D-fast-dark.png',
+			titleZh: '快速',
+			desc: '脚手架快速开发，无虚拟 DOM，性能卓越。',
+			descEn: 'Quick dev with CLI, no vDOM, high performance.',
+			icon: '/assets/images/home/f.jpeg',
 			shwTip: false
 		}
 	];
 	const dominant = {
-		title: '💪 优势 & 目标',
-		title_en: '💪 Advantages & Goals',
+		title: '优势 & 目标',
+		title_en: 'Advantages & Goals',
 		data: [
 			{
 				icon: 'svelte',
-				p: '补充 Svelte 生态，让开发者可以更快速更舒服地开发出高质量的应用。',
-				p_en: 'Supplement the Svelte ecosystem so that developers can develop high-quality applications faster and more comfortably.'
+				p: '丰富 Svelte 生态，助力开发者更高效地构建优质应用。',
+				p_en: 'Enrich the Svelte ecosystem to help developers build quality applications more efficiently.'
 			},
 			{
 				icon: 'css3-line',
-				p: '避免写繁琐的 CSS 代码，让开发者专注于业务逻辑，提高开发效率。',
-				p_en: 'Avoid writing tedious CSS code, allowing developers to focus on business logic and improve development efficiency.'
+				p: '简化 CSS 开发，让开发者专注业务逻辑，提升开发效率。',
+				p_en: 'Simplify CSS development so developers can focus on business logic and improve productivity.'
 			},
 			{
 				icon: 'contrast-2-line',
-				p: '支持暗黑模式与主题配置，方便开发者直接适配，让应用更加现代化。',
-				p_en: 'Supports dark mode and theme configuration, making it easy for developers to adapt directly and make applications more modern.'
+				p: '内置暗黑模式与主题配置，轻松打造现代化应用界面。',
+				p_en: 'Built-in dark mode and theme configuration for easily creating modern application interfaces.'
 			},
 			{
 				icon: 'paint-brush-line',
-				p: '普适性较强。移动端组件库多用于 C 端，对比 B 端更加需要注重 UI 的灵活性。',
-				p_en: 'It has strong versatility. Mobile component libraries are mostly used in C-end scenarios where UI flexibility is more important than B-end.'
+				p: '高度通用性。作为面向 C 端的移动组件库，特别注重 UI 的灵活性。',
+				p_en: 'Highly versatile. As a C-end mobile component library, it particularly emphasizes UI flexibility.'
 			},
 			{
 				icon: 'clockwise-line',
-				p: '注重交互与体验。适当的过渡动画与合理的交互设计，希望给你更好的用户体验。',
-				p_en: 'Emphasis on interaction and experience. Appropriate transition animations and reasonable interaction design hope to give you a better user experience.'
+				p: '精心设计的交互体验。合理的动画过渡与交互设计，带来出色的用户体验。',
+				p_en: 'Carefully designed interactions. Thoughtful animations and interaction design for excellent user experience.'
 			},
 			{
 				icon: 'article-line',
-				p: '站点文档、示例、源码注释都支持中英双语，且不再中英混杂，一目了然。',
-				p_en: 'Site documentation, examples, and source code comments all support bilingual Chinese and English, making it clear at a glance.'
+				p: '完整的中英双语支持。文档、示例和源码注释清晰分离，一目了然。',
+				p_en: 'Complete bilingual support. Documentation, examples and code comments are clearly separated in both languages.'
 			},
 			{
 				icon: 'file-copy-2-line',
-				p: '示例代码丰富，方便直接复制使用，配备脚手架、插件等工具，对开发者友好。',
-				p_en: 'The example code is extensive and convenient for direct copying and usage. It is equipped with scaffolding, plugins, etc. making it developer-friendly.'
+				p: '丰富的示例代码与开发工具，包含脚手架和插件，助力快速开发。',
+				p_en: 'Rich example code and development tools, including scaffolding and plugins, to aid rapid development.'
 			},
 			{
 				icon: 'planet-line',
-				p: '组件支持国际化（目前 60+ 语言），让应用轻松实现多语言支持。',
-				p_en: 'Component supports internationalization (currently 60+ languages), making it easy for applications to achieve multilingual support.'
+				p: '强大的国际化能力，支持 60+ 种语言，轻松实现多语言应用。',
+				p_en: 'Powerful internationalization with 60+ languages support for easily creating multilingual applications.'
 			}
 		]
 	};
 	const ugly = {
-		title: '🔔 提前警告',
-		title_en: '🔔 Early Warning',
+		title: '提前警告',
+		title_en: 'Early Warning',
 		data: [
 			{
 				icon: 'medal-line',
-				p: 'STDF 不体现任何「价值观」，更加不能为您「赋能」，只希望能给您更好的开发体验，很简单很朴实。',
-				p_en: 'STDF does not reflect any "values", and cannot "empower" you. We only hope to provide you with a better development experience, which is simple and straightforward.'
+				p: 'STDF 不追求高大上的概念，只专注于为您提供简单实用的开发工具。',
+				p_en: 'STDF focuses solely on providing practical development tools, without any fancy concepts.'
 			},
 			{
 				icon: 'service-line',
-				p: 'Svelte 生态相对 Vue 和 React 还很薄弱，如果您有兴趣，请积极参与和丰富 Svelte 生态。',
-				p_en: 'The Svelte ecosystem is still relatively weak compared to Vue and React. If you are interested, please actively participate in and enrich the Svelte ecosystem.'
+				p: 'Svelte 生态仍在发展中，欢迎您加入我们一起建设更好的 Svelte 社区。',
+				p_en: 'The Svelte ecosystem is still growing. We welcome you to join us in building a better Svelte community.'
 			},
 			{
 				icon: 'bard-line',
-				p: 'STDF 也适用于 Svelte 生态的其他工程，比如 SvelteKit 等，使用前请确保知晓它们的基础原理。',
-				p_en: 'STDF also applies to other projects in the Svelte ecosystem, such as SvelteKit, etc. When using them, please ensure that you understand their basic principles.'
+				p: 'STDF 可能使用到 Vite、SvelteKit 等生态，建议先了解这些项目的核心概念。',
+				p_en: 'STDF may use Vite, SvelteKit, etc. We recommend understanding their core concepts first.'
 			},
 			{
 				icon: 'git-close-pull-request-line',
-				p: 'STDF 也适用于 Tailwind CSS 的类库，如 UnoCSS 等，使用它们请确保您知晓它们的基础原理。',
-				p_en: 'STDF also applies to class libraries of Tailwind CSS, such as UnoCSS, etc. When using them, please ensure that you understand their basic principles.'
+				p: 'STDF 支持 UnoCSS 等 Tailwind CSS 类库，使用前请先掌握相关基础知识。',
+				p_en: 'STDF supports Tailwind CSS-like libraries such as UnoCSS. Please master the basics before using them.'
 			}
 		]
 	};
-	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
 	// 赞助人员
 	const thinkGithub = [
@@ -144,12 +322,7 @@
 			title: '工具',
 			title_en: 'Tools',
 			list: [
-				{
-					title: 'create-stdf',
-					title_en: 'create-stdf',
-					link: 'https://www.npmjs.com/package/create-stdf',
-					_blank: true
-				},
+				{ title: 'create-stdf', title_en: 'create-stdf', link: 'https://www.npmjs.com/package/create-stdf', _blank: true },
 				{
 					title: 'rollup-plugin-stdf-icon',
 					title_en: 'rollup-plugin-stdf-icon',
@@ -177,57 +350,29 @@
 				{ title: '关于', title_en: 'About', link: '/guide/about', _blank: false },
 				{ title: '常见问题', title_en: 'FAQ', link: '/guide/faq', _blank: false },
 				{ title: '更新日志', title_en: 'Changelog', link: '/guide/changelog', _blank: false },
-				{
-					title: '开源许可',
-					title_en: 'License',
-					link: 'https://github.com/any-tdf/stdf/blob/main/LICENSE',
-					_blank: true
-				}
+				{ title: '开源许可', title_en: 'License', link: 'https://github.com/any-tdf/stdf/blob/main/LICENSE', _blank: true }
 			]
 		},
 		{
 			title: '社区',
 			title_en: 'Community',
 			list: [
-				// { title: 'GitHub', title_en: 'GitHub', link: 'https://github.com/any-tdf/stdf' },
 				{
 					title: 'QQ 群',
 					title_en: 'QQ Group',
 					link: 'https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686',
 					_blank: true
 				},
-				// { title: '钉钉群', title_en: 'DingTalk Group', link: '', _blank: true },
-				{
-					title: 'Discord',
-					title_en: 'Discord',
-					link: 'https://discord.gg/DMkHu8GGre',
-					_blank: true
-				},
-				{
-					title: 'QQ 频道',
-					title_en: 'QQ Discord',
-					link: 'https://pd.qq.com/s/fdd8incyr',
-					_blank: true
-				},
-				{
-					title: 'Discussions',
-					title_en: 'Discussions',
-					link: 'https://github.com/any-tdf/stdf/discussions',
-					_blank: true
-				}
+				{ title: 'Discord', title_en: 'Discord', link: 'https://discord.gg/DMkHu8GGre', _blank: true },
+				{ title: 'QQ 频道', title_en: 'QQ Discord', link: 'https://pd.qq.com/s/fdd8incyr', _blank: true },
+				{ title: 'Discussions', title_en: 'Discussions', link: 'https://github.com/any-tdf/stdf/discussions', _blank: true }
 			]
 		}
 	];
 	let showQr = $state(false);
-	let show3D = $state(!(localStorage.getItem('show3D') === '0'));
-
-	const change3DFunc = () => {
-		show3D = !show3D;
-		localStorage.setItem('show3D', show3D ? '1' : '0');
-	};
 
 	const io = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-		entries.forEach((item) => {
+		for (const item of entries) {
 			// isIntersecting 是一个 Boolean 值，判断目标元素当前是否可见
 			if (item.isIntersecting) {
 				const target = item.target as HTMLElement;
@@ -240,7 +385,7 @@
 				// item.target.style.opacity = 0;
 				// item.target.style.transform = 'translateY(200px)';
 			}
-		});
+		}
 	});
 	let A_a1Svg = $state();
 	const mouseenterFun = () => {
@@ -256,75 +401,32 @@
 		 * @param {String} [options.posColor] 定位点颜色
 		 */
 		const qrcode = encodeData({
-			text: 'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US'),
+			text: `https://demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`,
 			isSpace: false
 		});
 		const color = $currentThemeStore === 'dark' ? 'var(--color-dark)' : 'var(--color-primary)';
 		A_a1Svg = rendererLine(qrcode, { posType: 2, otherColor: color, posColor: color });
 		showQr = true;
 	};
+
 	onMount(() => {
 		const intersectionList = document.querySelectorAll('.intersection');
-		intersectionList.forEach((item) => {
+		for (const item of intersectionList) {
 			// 开始时 opacity 为 0，不可见，transform 为 translateY(200px)
 			const target = item as HTMLElement;
 			target.style.opacity = '0';
 			target.style.transform = 'translateY(200px)';
 			target.style.transitionDuration = '1s';
 			io.observe(item);
-		});
-	});
-	const unsubscribe = currentColorStore.subscribe(() => {
-		show3D = false;
-		setTimeout(() => {
-			show3D = localStorage.getItem('show3D') === '1';
-		}, 0);
-	});
-	onDestroy(() => {
-		unsubscribe();
+		}
 	});
 </script>
 
-<div class="mx-auto max-w-[2000px]">
-	<div class="flex-row-reverse justify-center lg:flex">
-		{#if show3D}
-			<div class="group relative mt-10 basis-1/2 overflow-hidden md:mt-0">
-				<spline-viewer
-					class="aspect-[4/3] scale-110 md:aspect-auto md:scale-100"
-					url="/assets/3d/scene.splinecode"
-					background={$currentThemeStore === 'dark'
-						? `rgb(${getComputedStyle(document.documentElement).getPropertyValue('--theme-color-darkBlack')})`
-						: `rgb(${getComputedStyle(document.documentElement).getPropertyValue('--theme-color-primaryWhite')})`}
-				></spline-viewer>
-				<!-- background="rgb(242, 242, 243)" -->
-				<!-- background={backgroundColor} -->
-				<!-- background="rgb(255, 0, 0)" -->
-				<button
-					onclick={() => {
-						show3D = false;
-						localStorage.setItem('show3D', '0');
-					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded-sm bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-500 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
-				>
-					{isZh ? '隐藏 3D LOGO' : 'Hidden 3D LOGO'}
-				</button>
-			</div>
-		{:else}
-			<!-- 图片 -->
-			<div class="group relative mt-10 flex basis-1/2 flex-col justify-center overflow-hidden md:mt-0">
-				<img src="/assets/3d/dark.png" alt="" class="hidden w-full object-cover dark:block" />
-				<img src="/assets/3d/light.png" alt="" class="block w-full object-cover dark:hidden" />
-				<button
-					onclick={() => {
-						show3D = true;
-						localStorage.setItem('show3D', '1');
-					}}
-					class="absolute left-10 top-10 hidden scale-0 cursor-pointer rounded-sm bg-black/5 px-2 py-1 text-xs text-black/80 transition-all duration-300 group-hover:scale-100 md:block dark:bg-white/10 dark:text-white/90"
-				>
-					{isZh ? '显示 3D LOGO' : 'Show 3D LOGO'}
-				</button>
-			</div>
-		{/if}
+<!-- <div style="width: 100%; height: 100vh; background: #f0f0f0"> -->
+<!-- </div> -->
+
+<div class="mx-auto max-w-[1536px]">
+	<div class="justify-center lg:flex">
 		<div class="flex basis-2/5 flex-col justify-center py-16 text-center md:py-20">
 			<div class="relative mb-20 mt-16 hidden h-20 flex-col items-center justify-center md:flex md:h-28">
 				<div class="animate-dynamicsBg absolute rounded-full opacity-50 blur-xl md:opacity-100 md:blur-3xl">
@@ -364,8 +466,8 @@
 					</svg>
 				</div>
 			</div>
-			<div class="text-5xl font-medium md:text-8xl">S T D F</div>
-			<div class="mt-4 px-4 md:text-xl">
+			<div class="text-6xl md:text-8xl">STDF</div>
+			<div class="mb-10 mt-4 px-4 text-gray-700 md:mb-0 md:text-lg">
 				{#if isZh}
 					基于
 					<a
@@ -455,29 +557,95 @@
 				</a>
 			</div>
 		</div>
+		<div class="group relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
+			<div class="animate-elementUpDownMove1 -translate-x-18 absolute inset-1/2 size-20 -translate-y-12">
+				{#if avatar}
+					<Avatar size="md" radius={avatarRadius} image={avatar} injClass="shadow-lg dark:shadow-white/10" />
+				{:else}
+					<Avatar size="md" radius={avatarRadius} injClass="shadow-lg dark:shadow-white/10" />
+				{/if}
+			</div>
+			<div class="animate-elementUpDownMove1 absolute inset-1/2 -translate-x-96 -translate-y-40">
+				<Loading type={randomNumStr} theme />
+			</div>
+			<div class="animate-elementUpDownMove3 absolute inset-1/2 -translate-y-48 translate-x-52">
+				<Switch radius={switchRadius} inside={switchInside} active />
+			</div>
+			<div class="animate-elementUpDownMove6 -translate-y-42 absolute inset-1/2 w-96 -translate-x-72">
+				<Tab {labels} radius={tabRadius} {lineType} />
+			</div>
+			<div
+				class="animate-elementUpDownMove5 w-84 absolute inset-1/2 h-24 translate-x-20 translate-y-6 rounded-lg bg-white px-2 shadow-lg dark:bg-black/80 dark:shadow-white/10"
+			>
+				<Input
+					title={inputTitle}
+					value={inputValue}
+					{inputStyle}
+					placeholder={isZh ? `请输入${inputTitle}` : `Input ${inputTitle}`}
+					radius={inputRadius}
+					lineTransition="left"
+					clear
+					onchange={inputFun}
+				/>
+				<span class="absolute left-0 top-1/2 {showInputConfetti ? 'block' : 'hidden'}">
+					<Confetti infinite rounded x={[-0.5, 0.5]} y={[-0.5, 0.5]} />
+				</span>
+			</div>
+			<div class="animate-elementUpDownMove6 absolute inset-1/2 w-96 translate-x-2 translate-y-48">
+				<Pagination
+					total={paginationTotal}
+					type={paginationType}
+					current={paginationCurrent}
+					radius={paginationRadius}
+					injClass="{injPaginationRadius} shadow-lg dark:shadow-white/10"
+				/>
+			</div>
+			<div class="animate-elementUpDownMove4 absolute inset-1/2 w-64 -translate-x-80 -translate-y-8">
+				{#if emoji === 'default'}
+					<Rate />
+				{:else}
+					<Rate half opacity="0.2" value={3.5}>
+						{#if emoji === 'love'}
+							<Icon name="ri-heart-3-fill" injClass="text-[red]" />
+						{:else}
+							<div class="text-xl">{emoji}</div>
+						{/if}
+					</Rate>
+				{/if}
+			</div>
+			<div
+				class="animate-elementUpDownMove3 h-15 absolute inset-1/2 w-96 -translate-x-96 -translate-y-72 rounded-lg bg-white p-3 shadow-lg dark:bg-black/80 dark:shadow-white/10"
+			>
+				<NoticeBar vertical {textList}></NoticeBar>
+			</div>
+			<div class="animate-elementUpDownMove1 absolute inset-1/2 w-64 -translate-y-20 translate-x-32">
+				<Slider value={sliderValue} showTip="always" radius={sliderRadius} />
+			</div>
+			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-[390px] translate-y-16 overflow-hidden">
+				<Swiper {...swiperOption} />
+			</div>
+			<div class="animate-elementUpDownMove1 -translate-y-74 absolute inset-1/2 w-64 translate-x-32">
+				<Button heightIn="2" onclick={randomThemeFunc}>
+					{isZh ? '随机主题' : 'Random Theme'}
+				</Button>
+			</div>
+		</div>
 	</div>
-	<div class="flex flex-wrap justify-around gap-8 px-8 xl:flex-nowrap">
+	<div class="mt-16 flex flex-wrap justify-around gap-12 px-8 xl:flex-nowrap">
 		{#each descList as desc}
 			<div
-				class="intersection group flex w-full flex-col items-center space-y-5 overflow-hidden rounded-xl border-black/5 pb-8 transition-all duration-300 ease-out sm:w-2/3 md:w-80 lg:w-96 dark:border-white/5 dark:hover:shadow-white/5"
+				class="intersection shadow-primary/10 dark:shadow-dark/20 group flex w-full flex-col space-y-5 overflow-hidden rounded-2xl shadow-xl transition-all duration-300 sm:w-2/3 md:w-80 lg:w-96"
 			>
-				<div class="overflow-hidden">
-					<img
-						class="block scale-100 object-cover transition-all duration-500 group-hover:scale-[1.6] dark:hidden"
-						src={desc.icon}
-						alt=""
-					/>
-					<img
-						class="hidden scale-100 object-cover transition-all duration-500 group-hover:scale-[1.6] dark:block"
-						src={desc.iconDark}
-						alt=""
-					/>
-				</div>
-				{#if isZh}
-					<div class="py-4 text-3xl font-medium">{isZh ? desc.titleZh : desc.title}</div>
-				{/if}
-				<div class="text-sm text-black/70 dark:text-white/60 {isZh ? 'text-justify' : 'pt-10 text-left'}">
-					{isZh ? desc.desc : desc.descEn}
+				<div class="relative w-full">
+					<img class="aspect-5/3 h-full w-full object-cover transition-all duration-500 group-hover:scale-125" src={desc.icon} alt="" />
+					<div
+						class="text-shadow-lg bg-primary/10 dark:bg-dark/10 absolute bottom-1.5 left-0 right-0 mx-1.5 flex flex-col justify-center rounded-2xl border border-white/20 px-3 py-1.5 text-white backdrop-blur-sm"
+					>
+						<div class="mb-0.5 text-3xl font-bold transition-all duration-500 group-hover:translate-x-4">{desc.title}</div>
+						<div class="text-xs font-bold transition-all duration-500">
+							{isZh ? desc.desc : desc.descEn}
+						</div>
+					</div>
 				</div>
 			</div>
 		{/each}
@@ -491,15 +659,15 @@
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
 				{#each dominant.data as item}
 					<div
-						class="intersection border-px group relative overflow-hidden rounded-lg border border-black/5 p-0.5 transition-all ease-out dark:border-white/5"
+						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/20 group relative overflow-hidden rounded-xl border p-0.5 shadow-lg"
 					>
 						<div
 							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
 								? 'animate-spin-line-dark'
 								: 'animate-spin-line'}"
 						></div>
-						<div class="bg-primaryWhite dark:bg-darkBlack relative h-full w-full rounded-lg px-8 py-10">
-							<div class="text-primary dark:text-dark h-8 w-8 flex-none transition-all ease-out group-hover:scale-90">
+						<div class="bg-primaryWhite dark:bg-darkBlack relative rounded-lg p-4">
+							<div class="text-primary dark:text-dark size-6 flex-none transition-all ease-out group-hover:scale-110">
 								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
 									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
 								</svg>
@@ -517,15 +685,15 @@
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
 				{#each ugly.data as item}
 					<div
-						class="intersection border-px group relative overflow-hidden rounded-lg border border-black/5 p-0.5 transition-all ease-out dark:border-white/5"
+						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/20 group relative overflow-hidden rounded-xl border p-0.5 shadow-lg"
 					>
 						<div
 							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
 								? 'animate-spin-line-dark'
 								: 'animate-spin-line'}"
 						></div>
-						<div class="bg-primaryWhite dark:bg-darkBlack relative h-full w-full rounded-lg px-8 py-10">
-							<div class="text-primary dark:text-dark h-8 w-8 flex-none transition-all ease-out group-hover:scale-90">
+						<div class="bg-primaryWhite dark:bg-darkBlack relative rounded-lg p-4">
+							<div class="text-primary dark:text-dark size-6 flex-none transition-all ease-out group-hover:scale-110">
 								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
 									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
 								</svg>
@@ -586,28 +754,24 @@
 		</div>
 	</div>
 </div>
-<div class="grid grid-cols-2 gap-10 bg-white px-4 pb-16 pt-20 text-center md:grid-cols-4 md:px-10 dark:bg-black">
-	{#each bottomInfo as item}
-		<div>
-			<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
-			<div class="flex flex-col gap-2">
-				{#each item.list as i}
-					<a href={i.link} target={i._blank ? '_blank' : '_self'} title={i.link} class="text-sm hover:underline"
-						>{isZh ? i.title : i.title_en}</a
-					>
-				{/each}
+<div class="bg-white dark:bg-black">
+	<div class="mx-auto grid max-w-[1536px] grid-cols-2 gap-10 pb-16 pt-20 text-left md:grid-cols-4 md:px-10">
+		{#each bottomInfo as item}
+			<div>
+				<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
+				<div class="flex flex-col gap-2">
+					{#each item.list as i}
+						<a href={i.link} target={i._blank ? '_blank' : '_self'} title={i.link} class="text-sm hover:underline">
+							{isZh ? i.title : i.title_en}
+						</a>
+					{/each}
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </div>
 
 <div class="border-t border-black/10 bg-white py-4 text-center text-xs dark:border-white/10 dark:bg-black">
-	<div class="mb-3 text-sm" title={isZh ? '如果页面卡顿，请关闭 3D 模型。' : 'If the page is stuck, please turn off the 3D model.'}>
-		<button class="text-primary dark:text-dark cursor-pointer" onclick={change3DFunc}>
-			{show3D ? (isZh ? '隐藏' : 'Hidden') : isZh ? '显示' : 'Show'}
-			3D LOGO
-		</button>
-	</div>
 	<div class="flex justify-center gap-1">
 		<div>STDF DESIGN • MADE BY DUFU</div>
 		<div>
@@ -626,10 +790,10 @@
 	}
 	.animate-spin-line {
 		animation: spin-line 6s linear infinite;
-		background: conic-gradient(transparent 50deg, rgba(var(--theme-color-primary), 0.4) 80deg, transparent 90deg);
+		background: conic-gradient(transparent 50deg, rgba(var(--color-primary), 0.4) 80deg, transparent 90deg);
 	}
 	.animate-spin-line-dark {
 		animation: spin-line 6s linear infinite;
-		background: conic-gradient(transparent 50deg, rgba(var(--theme-color-dark), 0.6) 80deg, transparent 90deg);
+		background: conic-gradient(transparent 50deg, rgba(var(--color-dark), 0.6) 80deg, transparent 90deg);
 	}
 </style>

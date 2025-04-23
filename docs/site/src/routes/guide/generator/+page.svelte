@@ -485,7 +485,7 @@ ${extendListStr2}
 			<div class="text-left">{isZh ? '主题名称' : 'Theme name'}</div>
 			<div class="flex-1">
 				<input
-					class="focus:outline-primary dark:focus:outline-dark rounded-xs focus:outline-hidden w-full bg-transparent px-1 py-1 text-sm outline outline-black/10 dark:outline-white/20"
+					class="focus:outline-primary dark:focus:outline-dark rounded-xs w-full bg-transparent px-1 py-1 text-xs outline outline-black/10 dark:outline-white/20"
 					type="text"
 					bind:value={name}
 					placeholder={isZh ? '请输入主题名称' : 'Please enter theme name'}
@@ -544,7 +544,7 @@ ${extendListStr2}
 							</div>
 							<div class="flex px-0.5">
 								<input
-									class="focus:outline-primary dark:focus:outline-dark rounded-xs focus:outline-hidden h-6 w-full bg-transparent px-1 py-1 text-xs outline outline-black/10 dark:outline-white/20"
+									class="focus:outline-primary dark:focus:outline-dark rounded-xs h-6 w-full bg-transparent px-1 py-1 text-xs outline outline-black/10 dark:outline-white/20"
 									type="text"
 									bind:value={item.alias}
 									placeholder={isZh ? `请输入 extend${i} 别名` : `Please enter extend${i} alias`}
@@ -691,13 +691,13 @@ ${extendListStr2}
 			<div class="flex w-full justify-between pb-2">
 				<div>
 					<button
-						class="bg-primary dark:bg-dark cursor-pointer rounded-sm px-4 py-2 text-xs text-white hover:opacity-90 dark:text-black"
+						class="bg-primary dark:bg-dark cursor-pointer rounded-sm px-4 py-1.5 text-xs text-white hover:opacity-90 dark:text-black"
 						onclick={randomFunc}
 					>
 						{isZh ? '随机主题' : 'Random theme'}
 					</button>
 					<button
-						class="border-primary dark:border-dark ml-2 cursor-pointer rounded-sm border px-4 py-2 text-xs text-black hover:opacity-90 dark:text-white"
+						class="border-primary dark:border-dark ml-2 cursor-pointer rounded-sm border px-4 py-1.5 text-xs text-black hover:opacity-90 dark:text-white"
 						onclick={resetFunc}
 					>
 						{isZh ? '重置' : 'Reset'}

@@ -24,18 +24,6 @@
 	const clickCmdKFun = () => {
 		onclickCmdK?.();
 	};
-	// 切换语言
-	const toggleLangFunc = () => {
-		// 获取当前页面地址
-		const currentUrl = window.location.href;
-		// url 是否包含参数 ?
-		const hasQuery = currentUrl.includes('?');
-		// 刷新 url，如果当前语言为中文，则跳转至英文，反之亦然，拼接 currentUrl + ?lang=${isZh?'en_US':'zh_CN'}
-		window.location.href = `${currentUrl}${hasQuery ? '&' : '?'}lang=${isZh ? 'en_US' : 'zh_CN'}`;
-		setTimeout(() => {
-			window.location.reload();
-		}, 300);
-	};
 	// 切换支持
 	const toggleFundFunc = () => {
 		isShowFundStore.set(true);
@@ -53,9 +41,37 @@
 	});
 
 	let showVersion = $state(false);
+	let versionBtnRef: HTMLButtonElement | null = $state(null);
+
+	const switchLangFunc = () => {
+		console.log(43, window.location.href);
+		const isHaveParams = window.location.href.includes('?');
+		console.log(45, isHaveParams);
+		// 如果有参数，则增加 &lang=xxx，否则增加 ?lang=xxx
+		const newUrl = isHaveParams
+			? window.location.href + '&lang=' + (isZh ? 'en_US' : 'zh_CN')
+			: window.location.href + '?lang=' + (isZh ? 'en_US' : 'zh_CN');
+		console.log(47, newUrl);
+		window.location.href = newUrl;
+	};
+	// 判断当前 url 是否包含参数
+	// console.log(33, $page.url.search);
+
+	// 如果 $page.url.href 有 ?lang=xxx 或者 &lang=xxx 则删除这些字符
+	// const newUrl = $page.url.href.replace(/\?lang=.*|&lang=.*|#.*$/, '');
+
+	// const urlLang = newUrl + (isHaveParams ? '&lang=' + (isZh ? 'en_US' : 'zh_CN') : '?lang=' + (isZh ? 'en_US' : 'zh_CN'));
 </script>
 
-<div class="sticky top-0 z-[100] flex h-14 items-center justify-between border-b border-black/5 backdrop-blur-sm dark:border-white/10">
+<svelte:document
+	on:click={(e) => {
+		if (versionBtnRef && !versionBtnRef.contains(e.target as Node)) {
+			showVersion = false;
+		}
+	}}
+/>
+
+<div class="sticky top-0 z-[100] flex h-14 items-center justify-between border-black/5 backdrop-blur-sm dark:border-white/10">
 	{#if showLeftNav}
 		<button class="cursor-pointer p-4 md:hidden" onclick={toggleNavFun}>
 			{#if !$isShowNavStore}
@@ -79,8 +95,8 @@
 	{/if}
 
 	<div class="flex items-end">
-		<a href="/" class="flex items-center justify-between py-2 pl-6" aria-label={isZh ? '首页' : 'Home'}>
-			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center" title={isZh ? '首页' : 'Home'}>
+		<a href="/" class="flex items-center justify-between py-2 md:pl-6" aria-label={isZh ? '首页' : 'Home'}>
+			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center">
 				<svg viewBox="0 0 90 80">
 					<path
 						class="fill-primary dark:fill-dark"
@@ -93,7 +109,11 @@
 		<!-- 下拉选项，选择版本 -->
 		{#if $page.url.pathname === '' || $page.url.pathname === '/'}
 			<div class="relative bottom-1">
-				<button class="flex rounded bg-black/5 py-0.5 pl-2 pr-4 text-sm dark:bg-white/20" onclick={() => (showVersion = !showVersion)}>
+				<button
+					bind:this={versionBtnRef}
+					class="flex cursor-pointer rounded bg-black/5 py-0.5 pl-2 pr-4 text-sm dark:bg-white/20"
+					onclick={() => (showVersion = !showVersion)}
+				>
 					v1
 					<span class="absolute bottom-0.5 left-5 w-4 text-gray-500">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -181,9 +201,9 @@
 
 					<!-- 语言切换 -->
 					<button
-						aria-label={isZh ? '切换语言' : 'Switch Language'}
-						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
-						onclick={toggleLangFunc}
+						onclick={switchLangFunc}
+						aria-label={isZh ? '跳转英文站点' : 'Jump to Chinese Site'}
+						class="cursor-pointer rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 							<path fill="none" d="M0 0h24v24H0z" />
@@ -215,71 +235,61 @@
 		<!--PC 端-->
 		<div class="hidden items-center space-x-2 px-6 font-bold md:flex">
 			<button
-				class="flex cursor-pointer rounded-sm border border-black/10 px-2 text-sm font-normal text-black/40 transition-all hover:border-black/20 dark:border-white/10 dark:text-white/40 dark:hover:border-white/20"
-				style="padding-top: 0.3125rem;padding-bottom: 0.3125rem;"
+				class="flex cursor-pointer rounded-sm border border-black/10 p-0.5 text-xs font-normal text-black/40 transition-all hover:border-black/20 dark:border-white/10 dark:text-white/40 dark:hover:border-white/20"
 				onclick={clickCmdKFun}
 			>
-				<div class="mr-1.5 flex flex-col justify-center">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="fill: currentColor;">
+				<div class="mr-1 flex flex-col justify-center">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" style="fill: currentColor;">
 						<path fill="none" d="M0 0h24v24H0z" />
 						<path
 							d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z"
 						/>
 					</svg>
 				</div>
-				<div class="mr-4 flex flex-col justify-center text-xs">
-					{isZh ? '快速搜索...' : 'Quick search...'}
+				<div class="mr-2 flex flex-col justify-center">
+					{isZh ? '搜索...' : 'Search...'}
 				</div>
-				<div class="mr-1 rounded-sm bg-black/5 px-1 font-bold dark:bg-white/5">{cmdkey}</div>
-				<div class="rounded-sm bg-black/5 px-1.5 font-bold dark:bg-white/5">K</div>
+				<div class="rounded-sm bg-black/5 px-1 dark:bg-white/5">{cmdkey} K</div>
 			</button>
 			<a
-				href="/guide"
-				class="rounded-sm px-4 py-1 transition-all {currentRoute === '/guide'
-					? 'bg-primary dark:bg-dark text-white dark:text-black'
-					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
+				href={currentRoute.includes('/guide') ? 'javascript:void(0)' : '/guide'}
+				class="px-2 py-1{currentRoute.includes('/guide') ? ' text-primary dark:text-dark' : ''}"
 			>
 				{isZh ? '指南' : 'Guide'}
 			</a>
 			<a
-				href="/components?nav=button&tab=0"
-				class="inline-block rounded-sm px-4 py-1 text-center transition-all {currentRoute === '/components'
-					? 'bg-primary dark:bg-dark text-white dark:text-black'
-					: 'hover:bg-black/5 dark:hover:bg-white/5'}"
+				href={currentRoute.includes('/components') ? 'javascript:void(0)' : '/components?nav=button&tab=0'}
+				class="inline-block px-2 py-1 text-center{currentRoute.includes('/components')
+					? ' text-primary dark:text-dark pointer-events-none'
+					: ''}"
 			>
 				{isZh ? '组件' : 'Components'}
 			</a>
+			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
 			<button
-				class="relative rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="relative px-2 py-1 text-center"
 				onmouseover={() => showThemeSwitchStore.set(true)}
-				onfocus={() => showThemeSwitchStore.set(true)}
-				onblur={() => showThemeSwitchStore.set(false)}
 				onmouseout={() => showThemeSwitchStore.set(false)}
 				bind:this={ThemeSwitchDom}
 			>
 				{isZh ? '主题' : 'Theme'}
 				{#if $showThemeSwitchStore}
 					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute left-1/2 top-8 -translate-x-1/2 pt-2">
-						<div class="rounded-lg bg-white p-4 shadow-lg dark:bg-black/95 dark:shadow-white/10">
+						<div class="rounded-md bg-white px-3 pb-1 pt-2 shadow-lg dark:bg-black/95 dark:shadow-white/10">
 							<ModeSwitch useViewTransition={false} />
 							<ThemeSwitch vertical />
 						</div>
 					</div>
 				{/if}
 			</button>
-			<button
-				class="cursor-pointer rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
-				title={isZh ? '支持' : 'Support'}
-				onclick={toggleFundFunc}
-			>
+			<button class="cursor-pointer px-2 py-1 text-center" onclick={toggleFundFunc}>
 				{isZh ? '支持' : 'Support'}
 			</button>
 			<!-- 语言切换 -->
 			<button
-				onclick={toggleLangFunc}
-				title={isZh ? '切换语言' : 'Switch languages'}
-				aria-label={isZh ? '切换语言' : 'Switch languages'}
-				class="cursor-pointer rounded-sm px-4 py-1 text-center transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				onclick={switchLangFunc}
+				class="cursor-pointer px-2 py-1 text-center"
+				aria-label={isZh ? '跳转英文站点' : 'Jump to Chinese Site'}
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -292,10 +302,9 @@
 			<!-- GitHub -->
 			<a
 				href="https://github.com/any-tdf/stdf"
-				class="inline-block rounded-sm px-4 py-1 transition-all hover:bg-black/5 dark:hover:bg-white/5"
+				class="inline-block px-2 py-1"
 				target="_blank"
 				aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
-				title={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
 			>
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block">
 					<path

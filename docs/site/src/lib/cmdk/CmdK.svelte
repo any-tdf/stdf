@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly, fade } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 	import { menuList, type MenuList, type MenuListChild } from '../../data/menuList';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
@@ -212,14 +212,15 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 {#if $isCmdKStore}
 	<div
-		transition:fade={{ duration: 50 }}
+		transition:fade
 		class="fixed left-0 top-0 flex h-screen w-screen flex-col bg-black/20 pt-20 text-left backdrop-blur-sm"
 		style="z-index: 10000"
 		onclick={closeCmdKFun}
 	>
 		<div
-			in:fly={{ y: 100, duration: 300, delay: 50 }}
-			class="mx-auto w-1/2 rounded-xl bg-white shadow-lg dark:bg-black"
+			in:scale={{ duration: 300, delay: 100 }}
+			out:scale={{ duration: 300 }}
+			class="mx-auto rounded-xl bg-white shadow-lg dark:bg-black"
 			onclick={(e: Event) => e.stopPropagation()}
 		>
 			<div class="flex items-center border-b border-black/10 px-4 py-3 text-sm text-gray-500 dark:border-white/10">
@@ -235,7 +236,7 @@
 					<input
 						bind:this={cmdKInput}
 						bind:value={cmdKValue}
-						class="focus:ring-b caret-primary dark:caret-dark focus:outline-hidden w-full placeholder:text-black/20 dark:bg-black dark:placeholder:text-white/10"
+						class="focus:ring-b caret-primary dark:caret-dark focus:outline-hidden w-full placeholder:text-black/20 dark:bg-black dark:placeholder:text-white/30"
 						type="text"
 						placeholder={isZh ? '请输入组件关键字' : 'Please enter the component keyword'}
 					/>
@@ -268,7 +269,7 @@
 				{#each cmdKList as item, index}
 					<div class="flex items-center">
 						<div
-							class="w-78 mr-2 transition-all {index === currentIndex
+							class="w-lg mr-2 transition-all {index === currentIndex
 								? 'text-primary dark:text-dark text-xl font-bold'
 								: 'text-lg text-black dark:text-white'}"
 						>
@@ -346,7 +347,7 @@
 			</div>
 			<div class="flex gap-4 border-t border-black/10 px-4 py-2 text-xs opacity-60 dark:border-white/10">
 				<div class="flex gap-1">
-					<div class="h-4 w-4">
+					<div class="rounded-xs flex size-4 flex-col items-center justify-center bg-black/10 p-0.5 dark:bg-white/30">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-black dark:fill-white">
 							<path
 								d="M19.0003 13.9999L19.0004 5.00003L17.0004 5L17.0003 11.9999L6.82845 12L10.7782 8.05027L9.36396 6.63606L3 13L9.36396 19.364L10.7782 17.9498L6.8284 14L19.0003 13.9999Z"
@@ -356,27 +357,27 @@
 					{isZh ? '选择' : 'Select'}
 				</div>
 				<div class="flex gap-1">
-					<div class="h-4 w-4">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-black dark:fill-white"
-							><path
+					<div class="rounded-xs flex size-4 flex-col items-center justify-center bg-black/10 p-0.5 dark:bg-white/30">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-black dark:fill-white">
+							<path
 								d="M12.9999 16.1716L18.3638 10.8076L19.778 12.2218L11.9999 20L4.22168 12.2218L5.63589 10.8076L10.9999 16.1716V4H12.9999V16.1716Z"
-							/></svg
-						>
+							/>
+						</svg>
 					</div>
 					{isZh ? '向下' : 'Down'}
 				</div>
 				<div class="flex gap-1">
-					<div class="h-4 w-4">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-black dark:fill-white"
-							><path
+					<div class="rounded-xs flex size-4 flex-col items-center justify-center bg-black/10 p-0.5 dark:bg-white/30">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-black dark:fill-white">
+							<path
 								d="M12.9999 7.82843V20H10.9999V7.82843L5.63589 13.1924L4.22168 11.7782L11.9999 4L19.778 11.7782L18.3638 13.1924L12.9999 7.82843Z"
-							/></svg
-						>
+							/>
+						</svg>
 					</div>
 					{isZh ? '向上' : 'Up'}
 				</div>
 				<div class="flex gap-1">
-					<div class="h-4">ESC</div>
+					<div class="rounded-xs bg-black/10 px-1 text-xs dark:bg-white/30">Esc</div>
 					{isZh ? '关闭' : 'Close'}
 				</div>
 			</div>

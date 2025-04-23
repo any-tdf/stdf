@@ -57,18 +57,15 @@
 </script>
 
 <button
-	class="mx-auto flex w-28 cursor-pointer justify-between rounded-sm bg-black/5 p-0.5 text-center dark:bg-white/10"
-	title={isZh
-		? `${$themeStore === 'light' ? '亮模式' : $themeStore === 'dark' ? '暗模式' : '跟随系统'}`
-		: `${$themeStore === 'light' ? 'Light' : $themeStore === 'dark' ? 'Dark' : 'System'}`}
-	onclick={toggleFun}
+	class="mx-auto flex cursor-pointer justify-between rounded-sm bg-black/5 p-0.5 text-center dark:bg-white/10"
 	aria-label={isZh
 		? `${$themeStore === 'light' ? '亮模式' : $themeStore === 'dark' ? '暗模式' : '跟随系统'}`
 		: `${$themeStore === 'light' ? 'Light' : $themeStore === 'dark' ? 'Dark' : 'System'}`}
+	onclick={toggleFun}
 >
 	<div
 		class:scale-75={isClick}
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'light' ? ' shadow-xs bg-white/80' : ''}"
+		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'light' ? ' shadow-xs bg-white/80' : ''}"
 		style="color:{$sysThemeStore === 'dark'
 			? $themeStore === 'light'
 				? '#ff3f2e'
@@ -120,7 +117,7 @@
 	</div>
 	<div
 		class:scale-75={isClick}
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'dark' ? ' shadow-xs bg-black/50' : ''}"
+		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'dark' ? ' shadow-xs bg-black/50' : ''}"
 		style="color:{$sysThemeStore === 'light'
 			? $themeStore === 'auto'
 				? '#cecece'
@@ -141,7 +138,7 @@
 		</svg>
 	</div>
 	<div
-		class="min-h-full p-0.5 px-2 transition-all duration-150 rounded-sm{$themeStore === 'auto' && $sysThemeStore === 'light'
+		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'auto' && $sysThemeStore === 'light'
 			? ' bg-white/80'
 			: ''}{$themeStore === 'auto' && $sysThemeStore === 'dark' ? ' bg-black/50' : ''}{$themeStore === 'auto' && $sysThemeStore === 'light'
 			? ' shadow-xs'

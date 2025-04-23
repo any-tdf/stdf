@@ -5,9 +5,9 @@
 </script>
 
 <article
-	class="prose hidden pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark md:block {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark mx-auto hidden pb-8 md:block {$isWideScreenStore
 		? 'max-w-full'
-		: 'max-w-5xl'}"
+		: 'max-w-7xl'}"
 >
 	{#if isZh}
 		<h2>全站</h2>
@@ -35,7 +35,7 @@
 	{/if}
 </article>
 
-<article class="prose block max-w-5xl pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark md:hidden">
+<article class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark block max-w-5xl pb-12 md:hidden">
 	{#if isZh}
 		<p>快捷键仅用于桌面端。</p>
 	{:else}

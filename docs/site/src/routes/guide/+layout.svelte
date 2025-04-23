@@ -124,7 +124,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-r border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
+		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
@@ -132,19 +132,19 @@
 		<Menu {menuList} currentNav={currentNav.nav} onclickMenu={menuClickFun} showNum={false} />
 	</div>
 	<div class="w-screen md:pl-48">
-		{#if !$page.url.pathname.includes('generator')}
+		<!-- {#if !$page.url.pathname.includes('generator')}
 			<div class="px-4 py-12 md:px-8 md:py-4">
 				<div class="text-4xl font-bold">
 					{isZh ? currentNav.title : currentNav.title_en}
 				</div>
 			</div>
 			<div class="h-px bg-black/10 dark:bg-white/20"></div>
-		{/if}
+		{/if} -->
 		<div class="px-4 pt-4 {$page.url.pathname.includes('generator') ? 'md:px-4 md:pt-4' : 'md:px-8 md:pt-12'}">
 			{@render children()}
 		</div>
 		{#if !$page.url.pathname.includes('generator') && currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey'}
-			<div class="flex gap-2 px-4 pb-8 text-xs md:px-8">
+			<div class="mx-auto flex gap-2 px-4 pb-8 text-xs {$isWideScreenStore ? 'max-w-full md:px-8' : 'max-w-7xl md:px-0'}">
 				<a href={editUrlFn(currentNav.nav)} class="text-primary dark:text-dark flex w-full" target="_blank">
 					<span class="mr-1 h-4 w-4">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" style="fill: currentColor;">
@@ -161,7 +161,7 @@
 </div>
 {#if !$page.url.pathname.includes('generator')}
 	<button
-		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
+		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 cursor-pointer rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 		onclick={changeFullFunc}
 	>
 		{#if $isWideScreenStore}

@@ -19,7 +19,7 @@
 		<div class="text-xs">
 			{isZh ? menu.class : menu.class_en}{showNum ? `（${menu.childs.length}）` : ''}
 		</div>
-		<div class="my-2 ml-1 flex flex-col pr-0">
+		<div class="my-2 ml-1 flex flex-col gap-3 border-l-2 border-black/10 pr-0 dark:border-white/20">
 			{#each menu.childs as child}
 				<button
 					onclick={(e: MouseEvent) => {
@@ -27,9 +27,10 @@
 						// e.self();
 						setClick(child);
 					}}
-					class="box-content cursor-pointer border-l-2 py-2 pl-2 text-left text-sm transition-all hover:font-bold {child.nav === currentNav
+					class="box-content -translate-x-0.5 cursor-pointer border-l-2 py-0.5 pl-2 text-left text-sm transition-all hover:font-bold {child.nav ===
+					currentNav
 						? 'border-primary text-primary dark:border-dark dark:text-dark font-bold'
-						: 'border-black/10 dark:border-white/20'}"
+						: 'border-transparent'}"
 				>
 					{isZh ? child.title : child.title_en}
 				</button>
