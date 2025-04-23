@@ -74,4 +74,4 @@ There are already many plugins that can implement similar functions, such as [vi
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE).

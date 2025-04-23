@@ -25,6 +25,7 @@ build
 /docs/site/dist-old
 /docs/site/.env
 /docs/site/public-backup/
+/docs/site/static/fonts/symbol.svg
 
 # 忽略 packages 中 create-stdf 模板中的 node_modules ignore node_modules in create-stdf templates
 /packages/create-stdf/templates/sktt/static/fonts

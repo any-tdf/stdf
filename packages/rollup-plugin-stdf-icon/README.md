@@ -83,4 +83,4 @@ In general, the use of symbols is to combine a series of small, single-color SVG
 
 # License
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to use and contribute to this open-source project.
+This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE).
