@@ -9,6 +9,9 @@
 	import ThemeSwitch from './components/ThemeSwitch.svelte';
 	import { darkMode } from '$lib/theme/index.js';
 
+	import { switchTheme } from '$lib/theme/index.js';
+	import themes from '../data/themes/index.js';
+
 	let { children } = $props();
 
 	// 循环 menuList，将所有元素的 childs 组成一个数组
@@ -30,6 +33,30 @@
 	// 设置 iframe
 	// setting iframe
 	setContext('iframe', isIframe);
+
+	let lang = 'zh_CN';
+
+	if (isIframe === '1') {
+		// 获取 url 中的 theme 和 darkMode 和 lang
+		// get theme, darkMode and lang from url
+		const urlTheme = urlParams.get('theme');
+		const urlDarkMode = urlParams.get('darkMode');
+		const currentTheme = themes.find((item) => item.name === urlTheme);
+		if (currentTheme) {
+			switchTheme(currentTheme.theme);
+		}
+		if (urlDarkMode === 'dark') {
+			darkMode();
+			localStorage.setItem('theme', 'dark');
+		} else if (urlDarkMode === 'light') {
+			darkMode(false);
+			localStorage.setItem('theme', 'light');
+		}
+		const urlLang = urlParams.get('lang');
+		if (urlLang) {
+			lang = urlLang;
+		}
+	}
 
 	// 环境变量
 	// environment variables
@@ -73,7 +100,7 @@
 	// 判断 mode 是否是 English 模式
 	// Determine whether mode is English mode
 	const englishMode = mode.slice(-3) === '_en' || mode === 'english';
-	let lang = 'zh_CN';
+
 	if (englishMode) {
 		// 固定为英文
 		// Fixed to English
