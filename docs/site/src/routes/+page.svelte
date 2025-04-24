@@ -233,43 +233,43 @@
 		data: [
 			{
 				icon: 'svelte',
-				p: '丰富 Svelte 生态，助力开发者更高效地构建优质应用。',
-				p_en: 'Enrich the Svelte ecosystem to help developers build quality applications more efficiently.'
+				p: '丰富 Svelte 生态，为开发者提供高效、优质的组件库。',
+				p_en: 'Enrich the Svelte ecosystem by providing efficient, high-quality component library.'
 			},
 			{
 				icon: 'css3-line',
-				p: '简化 CSS 开发，让开发者专注业务逻辑，提升开发效率。',
-				p_en: 'Simplify CSS development so developers can focus on business logic and improve productivity.'
+				p: '简化 CSS 开发流程，让开发者专注业务逻辑实现。',
+				p_en: 'Streamline CSS development so developers can focus on business logic implementation.'
 			},
 			{
 				icon: 'contrast-2-line',
-				p: '内置暗黑模式与主题配置，轻松打造现代化应用界面。',
-				p_en: 'Built-in dark mode and theme configuration for easily creating modern application interfaces.'
+				p: '内置暗黑模式与主题系统，轻松构建现代化界面。',
+				p_en: 'Built-in dark mode and theming system for easily creating modern interfaces.'
 			},
 			{
 				icon: 'paint-brush-line',
-				p: '高度通用性。作为面向 C 端的移动组件库，特别注重 UI 的灵活性。',
-				p_en: 'Highly versatile. As a C-end mobile component library, it particularly emphasizes UI flexibility.'
+				p: '面向移动端的通用组件库，提供灵活的 UI 定制能力。',
+				p_en: 'A versatile mobile component library with flexible UI customization capabilities.'
 			},
 			{
 				icon: 'clockwise-line',
-				p: '精心设计的交互体验。合理的动画过渡与交互设计，带来出色的用户体验。',
-				p_en: 'Carefully designed interactions. Thoughtful animations and interaction design for excellent user experience.'
+				p: '精心设计的交互体验，流畅的动画过渡，带来极致用户体验。',
+				p_en: 'Carefully crafted interactions with smooth animations for ultimate user experience.'
 			},
 			{
 				icon: 'article-line',
-				p: '完整的中英双语支持。文档、示例和源码注释清晰分离，一目了然。',
-				p_en: 'Complete bilingual support. Documentation, examples and code comments are clearly separated in both languages.'
+				p: '完整的中英文支持，文档、示例和注释清晰完整。',
+				p_en: 'Full Chinese and English support with clear documentation, examples and comments.'
 			},
 			{
 				icon: 'file-copy-2-line',
-				p: '丰富的示例代码与开发工具，包含脚手架和插件，助力快速开发。',
-				p_en: 'Rich example code and development tools, including scaffolding and plugins, to aid rapid development.'
+				p: '提供完善的脚手架和插件，助力开发者高效开发。',
+				p_en: 'Provides comprehensive scaffolding and plugins for efficient development.'
 			},
 			{
 				icon: 'planet-line',
-				p: '强大的国际化能力，支持 60+ 种语言，轻松实现多语言应用。',
-				p_en: 'Powerful internationalization with 60+ languages support for easily creating multilingual applications.'
+				p: '强大的国际化支持，内置 60+ 语言包，快速实现多语言应用。',
+				p_en: 'Powerful i18n with 60+ built-in language packs for quick multilingual implementation.'
 			}
 		]
 	};
@@ -409,6 +409,7 @@
 		showQr = true;
 	};
 
+	let showConfetti = $state(false);
 	onMount(() => {
 		const intersectionList = document.querySelectorAll('.intersection');
 		for (const item of intersectionList) {
@@ -512,6 +513,8 @@
 			<div class="mb-8 mt-8 flex justify-center gap-4 space-x-8 md:mb-10 md:mt-16">
 				<a
 					href="/guide"
+					onmouseenter={() => (showConfetti = true)}
+					onmouseleave={() => (showConfetti = false)}
 					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-6 py-2 text-white transition-all dark:text-black"
 				>
 					<div class="group flex items-center gap-1">
@@ -533,37 +536,35 @@
 								/>
 							</svg>
 						</div>
-						<span class="absolute left-1/2 top-0 hidden group-hover:block">
-							<Confetti infinite rounded />
-						</span>
+						{#if showConfetti}
+							<span class="absolute left-1/2 top-0">
+								<Confetti rounded />
+							</span>
+						{/if}
 					</div>
 				</a>
-				<!-- use:link -->
 				<a
-					href="/"
+					href={`https://demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`}
+					target="_blank"
 					onmouseleave={() => (showQr = false)}
 					onmouseenter={mouseenterFun}
 					class="border-primary dark:border-dark relative hidden rounded-sm border border-solid px-6 py-2 transition-all md:block"
 				>
-					{isZh ? '扫码示例' : 'QR Demo'}
+					{isZh ? '示例' : 'Demo'}
 					{#if showQr}
 						<div
 							class="absolute left-full top-0 z-10 block w-52 -translate-y-1/3 translate-x-2 rounded-lg border border-black/5 p-2 shadow-lg dark:hidden"
 							in:fade={{ duration: 300 }}
 							out:fade={{ duration: 0 }}
 						>
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							<span>{@html A_a1Svg}</span>
-							<!-- <QrCode value="https://demo.stdf.design/#/" size={200} color="#fff" background="#23262B" /> -->
 						</div>
 						<div
 							class="absolute left-full top-0 z-10 hidden w-52 -translate-y-1/3 translate-x-2 rounded-lg border border-white/5 bg-black p-2 shadow-lg dark:block"
 							in:fade={{ duration: 300 }}
 							out:fade={{ duration: 0 }}
 						>
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							<span>{@html A_a1Svg}</span>
-							<!-- <QrCode value="https://demo.stdf.design/#/" size={200} color="#fff" background="#24262b" /> -->
 						</div>
 					{/if}
 				</a>
@@ -572,7 +573,7 @@
 					target="_blank"
 					class="border-primary dark:border-dark block rounded-sm border border-solid px-6 py-2 transition-all md:hidden"
 				>
-					{isZh ? '查看示例' : 'Examples'}
+					{isZh ? '示例' : 'Demo'}
 				</a>
 			</div>
 		</div>
@@ -683,62 +684,42 @@
 
 	<div class="px-4 pb-10 md:px-12 md:pb-20" class:text-left={!isZh}>
 		<div class="mt-40">
-			<div class="intersection my-10 text-center text-2xl font-bold transition-all ease-out md:my-20 md:text-4xl">
+			<div class="intersection my-10 text-center text-2xl font-bold md:my-20 md:text-4xl">
 				{isZh ? dominant.title : dominant.title_en}
 			</div>
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
 				{#each dominant.data as item}
 					<div
-						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/20 group relative overflow-hidden rounded-xl border p-0.5 shadow-lg"
+						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/10 group rounded-xl border p-4 shadow-lg"
 					>
-						<div
-							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
-								? 'animate-spin-line-dark'
-								: 'animate-spin-line'}"
-						></div>
-						<div class="bg-primaryWhite dark:bg-darkBlack relative rounded-lg p-4">
-							<div class="text-primary dark:text-dark size-6 flex-none transition-all ease-out group-hover:scale-110">
-								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
-									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
-								</svg>
-							</div>
-							<p class="mt-6 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
+						<div class="text-primary dark:text-dark size-6 transition-all duration-300 group-hover:scale-110">
+							<svg class="fill-current" viewBox="0 0 24 24">
+								<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
+							</svg>
 						</div>
+						<p class="mt-4 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
 					</div>
 				{/each}
 			</div>
 		</div>
 		<div class="mt-32 md:mt-48">
-			<div class="intersection my-10 text-center text-2xl font-bold transition-all ease-out md:my-20 md:text-4xl">
+			<div class="intersection my-10 text-center text-2xl font-bold md:my-20 md:text-4xl">
 				{isZh ? ugly.title : ugly.title_en}
 			</div>
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
 				{#each ugly.data as item}
 					<div
-						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/20 group relative overflow-hidden rounded-xl border p-0.5 shadow-lg"
+						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/10 group rounded-xl border p-4 shadow-lg"
 					>
-						<div
-							class="bg-primary absolute -left-1/2 top-1/3 hidden h-1/2 w-[200%] group-hover:block {$currentThemeStore === 'dark'
-								? 'animate-spin-line-dark'
-								: 'animate-spin-line'}"
-						></div>
-						<div class="bg-primaryWhite dark:bg-darkBlack relative rounded-lg p-4">
-							<div class="text-primary dark:text-dark size-6 flex-none transition-all ease-out group-hover:scale-110">
-								<svg style="fill: currentColor;display: inline;" viewBox="0 0 24 24">
-									<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
-								</svg>
-							</div>
-							<p class="mt-6 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
+						<div class="text-primary dark:text-dark size-6 transition-all duration-300 group-hover:scale-110">
+							<svg class="fill-current" viewBox="0 0 24 24">
+								<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
+							</svg>
 						</div>
+						<p class="mt-4 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
 					</div>
 				{/each}
 			</div>
-
-			<!-- <div class="space-y-10">
-            {#each isZh ? ugly.p : ugly.p_en as item, i}
-                <p>{item}</p>
-            {/each}
-        </div> -->
 		</div>
 	</div>
 

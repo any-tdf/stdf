@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { isShowNavStore, isCmdKStore, isWideScreenStore } from '../../store';
+	import { isShowNavStore, isCmdKStore, isWideScreenStore, currentColorStore, currentThemeStore } from '../../store';
 	import { menuList, type MenuList } from '../../data/menuList';
 	import { page } from '$app/stores';
 	import hljs from 'highlight.js';
@@ -255,8 +255,8 @@
 										title="Demo"
 										id="iframe-id"
 										src={import.meta.env.DEV
-											? `http://localhost:8888/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe`
-											: `https://demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe`}
+											? `http://localhost:8888/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`
+											: `https://demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`}
 										height={demoHeight - 2}
 										width="390"
 									></iframe>
