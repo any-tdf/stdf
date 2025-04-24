@@ -1,4 +1,4 @@
-import type { ThemeProps } from '../../lib/theme/types.js';
+import type { ThemeProps } from '$lib/theme/types.js';
 
 const CamelliaRed: ThemeProps = {
 	name: 'CamelliaRed',

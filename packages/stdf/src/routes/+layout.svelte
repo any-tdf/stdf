@@ -176,7 +176,7 @@
 <div
 	class="fixed z-[1000] {showTheme
 		? 'right-0'
-		: '-right-80'} top-12 rounded-xl bg-white px-4 shadow-sm transition-all duration-500 dark:bg-black"
+		: '-right-80'} top-12 rounded-lg bg-white px-2 shadow-sm transition-all duration-500 dark:bg-black"
 >
 	<ThemeSwitch />
 </div>
