@@ -221,8 +221,8 @@
 		{
 			title: 'Fast',
 			titleZh: '快速',
-			desc: '脚手架快速开发，无虚拟 DOM，性能卓越。',
-			descEn: 'Quick dev with CLI, no vDOM, high performance.',
+			desc: '配套脚手架，无虚拟 DOM，性能卓越。',
+			descEn: 'With CLI, no vDOM, high performance.',
 			icon: '/assets/images/home/f.jpeg',
 			shwTip: false
 		}
@@ -514,10 +514,29 @@
 					href="/guide"
 					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-6 py-2 text-white transition-all dark:text-black"
 				>
-					{isZh ? '开始使用' : 'Get Started'}
-					<span class="absolute left-1/2 top-0 hidden group-hover:block">
-						<Confetti infinite rounded />
-					</span>
+					<div class="group flex items-center gap-1">
+						{isZh ? '开始使用' : 'Get Started'}
+						<div class="size-3 translate-y-px">
+							<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect
+									x="6"
+									y="14"
+									width="10"
+									height="2"
+									fill="currentColor"
+									class="group-hover:scale-x-135 transition-all duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2"
+								/>
+								<path
+									d="M8.48535 7.07129L1.41406 14.1426L0 12.7275L5.65625 7.07031L0 1.41406L1.41406 0L8.48535 7.07129Z"
+									fill="currentColor"
+									class="transition-all duration-500 group-hover:translate-x-2"
+								/>
+							</svg>
+						</div>
+						<span class="absolute left-1/2 top-0 hidden group-hover:block">
+							<Confetti infinite rounded />
+						</span>
+					</div>
 				</a>
 				<!-- use:link -->
 				<a
@@ -557,7 +576,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="group relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
+		<div class="relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
 			<div class="animate-elementUpDownMove1 -translate-x-18 absolute inset-1/2 size-20 -translate-y-12">
 				{#if avatar}
 					<Avatar size="md" radius={avatarRadius} image={avatar} injClass="shadow-lg dark:shadow-white/10" />
@@ -624,9 +643,20 @@
 			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-[390px] translate-y-16 overflow-hidden">
 				<Swiper {...swiperOption} />
 			</div>
-			<div class="animate-elementUpDownMove1 -translate-y-74 absolute inset-1/2 w-64 translate-x-32">
+			<div class="animate-elementUpDownMove1 -translate-y-74 group absolute inset-1/2 w-64 translate-x-32">
 				<Button heightIn="2" onclick={randomThemeFunc}>
-					{isZh ? '随机主题' : 'Random Theme'}
+					<span class="transition-all duration-500 group-hover:translate-x-1">
+						{themes.find((item) => item.name === $currentColorStore)?.[isZh ? 'name_CN' : 'name']}
+					</span>
+					<span
+						class="ml-1 size-4 -translate-x-4 text-white opacity-0 transition-all delay-100 duration-500 group-hover:translate-x-0 group-hover:opacity-100 dark:text-black"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+							<path
+								d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
+							></path>
+						</svg>
+					</span>
 				</Button>
 			</div>
 		</div>
@@ -754,8 +784,8 @@
 		</div>
 	</div>
 </div>
-<div class="bg-white dark:bg-black">
-	<div class="mx-auto grid max-w-[1536px] grid-cols-2 gap-10 pb-16 pt-20 text-left md:grid-cols-4 md:px-10">
+<div class="bg-gray-100 dark:bg-gray-950">
+	<div class="mx-auto grid max-w-[1536px] grid-cols-2 gap-10 px-6 py-10 md:grid-cols-4 md:px-20">
 		{#each bottomInfo as item}
 			<div>
 				<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
@@ -771,7 +801,7 @@
 	</div>
 </div>
 
-<div class="border-t border-black/10 bg-white py-4 text-center text-xs dark:border-white/10 dark:bg-black">
+<div class="py-4 text-center text-xs">
 	<div class="flex justify-center gap-1">
 		<div>STDF DESIGN • MADE BY DUFU</div>
 		<div>
