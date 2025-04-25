@@ -200,6 +200,7 @@
 			desc: '代码清晰，文档完善，易于使用。',
 			descEn: 'Clear code, complete docs, easy to use.',
 			icon: '/assets/images/home/s.jpeg',
+			icon_d: '/assets/images/home/s-d.png',
 			shwTip: false
 		},
 		{
@@ -208,6 +209,7 @@
 			desc: '体积小，无依赖，适合移动端。',
 			descEn: 'Small size, no deps, for mobile.',
 			icon: '/assets/images/home/t.jpeg',
+			icon_d: '/assets/images/home/t-d.png',
 			shwTip: true
 		},
 		{
@@ -216,6 +218,7 @@
 			desc: '优化移动端设计交互，支持主题配置。',
 			descEn: 'Better mobile design & themes.',
 			icon: '/assets/images/home/d.jpeg',
+			icon_d: '/assets/images/home/d-d.png',
 			shwTip: false
 		},
 		{
@@ -224,6 +227,7 @@
 			desc: '配套脚手架，无虚拟 DOM，性能卓越。',
 			descEn: 'With CLI, no vDOM, high performance.',
 			icon: '/assets/images/home/f.jpeg',
+			icon_d: '/assets/images/home/f.jpeg',
 			shwTip: false
 		}
 	];
@@ -668,9 +672,18 @@
 				class="intersection shadow-primary/10 dark:shadow-dark/20 group flex w-full flex-col space-y-5 overflow-hidden rounded-2xl shadow-xl transition-all duration-300 sm:w-2/3 md:w-80 lg:w-96"
 			>
 				<div class="relative w-full">
-					<img class="aspect-5/3 h-full w-full object-cover transition-all duration-500 group-hover:scale-125" src={desc.icon} alt="" />
+					<img
+						class="aspect-5/3 block h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:hidden"
+						src={desc.icon}
+						alt=""
+					/>
+					<img
+						class="aspect-5/3 hidden h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:block"
+						src={desc.icon_d}
+						alt=""
+					/>
 					<div
-						class="text-shadow-lg bg-primary/10 dark:bg-dark/10 absolute bottom-1.5 left-0 right-0 mx-1.5 flex flex-col justify-center rounded-2xl border border-white/20 px-3 py-1.5 text-white backdrop-blur-sm"
+						class="text-shadow-lg bg-primary/10 dark:bg-dark/10 absolute bottom-1.5 left-0 right-0 mx-1.5 flex flex-col justify-center rounded-2xl border border-white/30 px-3 py-1.5 text-white backdrop-blur-sm"
 					>
 						<div class="mb-0.5 text-3xl font-bold transition-all duration-500 group-hover:translate-x-4">{desc.title}</div>
 						<div class="text-xs font-bold transition-all duration-500">
