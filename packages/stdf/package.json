@@ -1,6 +1,6 @@
 {
 	"name": "stdf",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
@@ -124,6 +124,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
+		},
+		"./types": {
+			"types": "./dist/types/index.d.ts",
+			"svelte": "./dist/types/index.js"
 		},
 		"./theme": {
 			"types": "./dist/theme/index.d.ts",

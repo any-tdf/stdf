@@ -51,6 +51,7 @@
 <Input title="Number (Any)" type="number" />
 <Input title="Number (Integer)" type="numeric" />
 <Input title="Number (Decimal Allowed)" type="decimal" />
+<Input title="Number (Allow Negative)" type="number" negative />
 <Input title="Email" type="email" />
 <Input title="Phone Number" type="tel" />
 <Input title="URL" type="url" />

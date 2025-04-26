@@ -312,6 +312,7 @@ export type InputProps = {
 	textareaMaxlength?: number;
 	rows?: number;
 	autosize?: boolean;
+	negative?: boolean;
 	label1?: null | IconProps;
 	label2?: null | string;
 	label3?: null | IconProps;

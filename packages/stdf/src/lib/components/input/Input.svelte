@@ -40,6 +40,7 @@
 		textareaMaxlength = 200,
 		rows = 2,
 		autosize = false,
+		negative = false,
 		onfocus,
 		onblur,
 		onchange,
@@ -188,11 +189,32 @@
 				if (type === 'decimal' || type === 'number') {
 					// 数字
 					// Number
-					value = e.value.replace(/[^\d^.]+/g, '');
+					if (negative && e.value.startsWith('-')) {
+						// 允许第一个字符为负号
+						// Allow the first character to be a negative sign
+						value =
+							'-' +
+							e.value
+								.substring(1)
+								.replace(/[^\d.]+/g, '')
+								.replace(/\.{2,}/g, '.')
+								.replace(/^(\d*\.\d*)\./, '$1');
+					} else {
+						value = e.value
+							.replace(/[^\d.]+/g, '')
+							.replace(/\.{2,}/g, '.')
+							.replace(/^(\d*\.\d*)\./, '$1');
+					}
 				} else if (type === 'numeric') {
 					// 整数
 					// Integer
-					value = e.value.replace(/[^\d]/g, '');
+					if (negative && e.value.startsWith('-')) {
+						// 允许第一个字符为负号
+						// Allow the first character to be a negative sign
+						value = '-' + e.value.substring(1).replace(/[^\d]+/g, '');
+					} else {
+						value = e.value.replace(/[^\d]+/g, '');
+					}
 				} else {
 					value = e.value;
 				}
@@ -218,6 +240,7 @@
 	const clearFun = () => {
 		value = '';
 		onclear?.();
+		onchange?.('');
 	};
 
 	// 键盘事件
