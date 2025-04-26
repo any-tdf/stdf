@@ -9,7 +9,7 @@
 	import { browser } from '$app/environment';
 
 	if (browser) {
-		//解决ios不支持按钮:active伪类
+		//解决 ios 不支持按钮:active 伪类
 		// Solve the problem that ios does not support the button: active pseudo class
 		document.body.addEventListener('touchstart', function () {
 			//...空函数即可
@@ -17,7 +17,7 @@
 		});
 	}
 
-	//切换亮暗模式(toggle light or dark mode)
+	//切换亮暗模式 (toggle light or dark mode)
 	let mode = $state(sessionStorage.getItem('mode') === 'dark' ? 'dark' : 'light');
 
 	$effect(() => {
@@ -29,19 +29,19 @@
 	});
 	const toggleModeFun = () => {
 		if (mode === 'dark') {
-			// 切换到(light switch to light)
+			// 切换到 (light switch to light)
 			mode = 'light';
 			darkMode(false);
 			sessionStorage.setItem('mode', 'light');
 		} else {
-			// 切换到(dark switch to dark)
+			// 切换到 (dark switch to dark)
 			mode = 'dark';
 			darkMode(true);
 			sessionStorage.setItem('mode', 'dark');
 		}
 	};
 
-	// 设置语言(setting language)
+	// 设置语言 (setting language)
 	let lang = $state(localStorage.getItem('lang') === 'en_US' ? 'en_US' : 'zh_CN');
 	setContext('STDF_lang', localStorage.getItem('lang') === 'en_US' ? en_US : zh_CN);
 	const toggleLangFun = () => {
@@ -50,7 +50,7 @@
 		window.location.reload();
 	};
 
-	// 进度条(percent)
+	// 进度条 (percent)
 	let percent = $state(20);
 	const reduceFunc = () => {
 		if (percent > 0) {

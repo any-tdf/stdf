@@ -9,7 +9,7 @@
 	import { browser } from '$app/environment';
 
 	if (browser) {
-		//解决ios不支持按钮:active伪类
+		//解决 ios 不支持按钮:active 伪类
 		// Solve the problem that ios does not support the button: active pseudo class
 		document.body.addEventListener('touchstart', function () {
 			//...空函数即可
@@ -17,7 +17,7 @@
 		});
 	}
 
-	//切换亮暗模式(toggle light or dark mode)
+	//切换亮暗模式 (toggle light or dark mode)
 	let mode = $state(sessionStorage.getItem('mode') === 'dark' ? 'dark' : 'light');
 
 	$effect(() => {
@@ -29,19 +29,19 @@
 	});
 	const toggleModeFun = () => {
 		if (mode === 'dark') {
-			// 切换到(light switch to light)
+			// 切换到 (light switch to light)
 			mode = 'light';
 			darkMode(false);
 			sessionStorage.setItem('mode', 'light');
 		} else {
-			// 切换到(dark switch to dark)
+			// 切换到 (dark switch to dark)
 			mode = 'dark';
 			darkMode(true);
 			sessionStorage.setItem('mode', 'dark');
 		}
 	};
 
-	// 设置语言(setting language)
+	// 设置语言 (setting language)
 	let lang = $state(localStorage.getItem('lang') === 'en_US' ? 'en_US' : 'zh_CN');
 	setContext('STDF_lang', localStorage.getItem('lang') === 'en_US' ? en_US : zh_CN);
 	const toggleLangFun = () => {
@@ -50,7 +50,7 @@
 		window.location.reload();
 	};
 
-	// 进度条(percent)
+	// 进度条 (percent)
 	let percent = $state(20);
 	const reduceFunc = () => {
 		if (percent > 0) {
@@ -80,29 +80,13 @@
 </script>
 
 <div class="flex items-center justify-center gap-2 pt-10 text-center">
-	<a
-		class="flex w-10 flex-col items-center"
-		href="https://kit.svelte.dev"
-		target="_blank"
-		rel="noreferrer"
-	>
+	<a class="flex w-10 flex-col items-center" href="https://kit.svelte.dev" target="_blank" rel="noreferrer">
 		<img src="/svelte.svg" alt="Svelte Logo" />
 	</a>+
-	<a
-		class="flex w-10 flex-col items-center"
-		href="https://tailwindcss.com"
-		target="_blank"
-		rel="noreferrer"
-	>
+	<a class="flex w-10 flex-col items-center" href="https://tailwindcss.com" target="_blank" rel="noreferrer">
 		<img src="/tailwindcss.svg" alt="Tailwind Logo" />
 	</a>+
-	<a
-		class="flex w-8 flex-col items-center"
-		href="https://stdf.design"
-		target="_blank"
-		rel="noreferrer"
-		aria-label="STDF Logo"
-	>
+	<a class="flex w-8 flex-col items-center" href="https://stdf.design" target="_blank" rel="noreferrer" aria-label="STDF Logo">
 		<svg viewBox="0 0 90 80" fill="currentColor">
 			<path
 				class="text-primary dark:text-dark"
@@ -139,14 +123,8 @@
 <div class="mb-8">
 	<Button heightIn="0" group fill="lineTheme">
 		<div class="flex w-full">
-			<button
-				class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80"
-				onclick={reduceFunc}>-10</button
-			>
-			<button
-				class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80"
-				onclick={increaseFunc}>+10</button
-			>
+			<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80" onclick={reduceFunc}>-10</button>
+			<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80" onclick={increaseFunc}>+10</button>
 			<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>
 				{lang === 'zh_CN' ? '重置' : 'Reset'}
 			</button>
@@ -154,9 +132,7 @@
 	</Button>
 </div>
 <div class="my-6">
-	<Button fill="lineTheme" onclick={() => (visible = true)}
-		>{lang === 'zh_CN' ? '日历' : 'Calendar'}</Button
-	>
+	<Button fill="lineTheme" onclick={() => (visible = true)}>{lang === 'zh_CN' ? '日历' : 'Calendar'}</Button>
 </div>
 <Calendar bind:visible />
 <div class="my-6 flex justify-between px-8">
@@ -176,7 +152,5 @@
 </div>
 <div class="my-6">
 	<Button onclick={toggleLangFun}>{lang === 'zh_CN' ? '切换语言' : 'Toggle language'}</Button>
-	<Button fill="lineTheme" onclick={toggleThemeFun}
-		>{lang === 'zh_CN' ? '切换主题' : 'Toggle theme'}</Button
-	>
+	<Button fill="lineTheme" onclick={toggleThemeFun}>{lang === 'zh_CN' ? '切换主题' : 'Toggle theme'}</Button>
 </div>
