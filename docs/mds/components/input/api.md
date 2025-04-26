@@ -8,7 +8,7 @@
 | placeholder       | `string`                                                                                                  | `''`      | N    | 输入框提示文本。                |
 | radius            | `'none'\|'sm'\|'xl'\|'full'`                                                                              | `'sm'`    | N    | 圆角风格。                      |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N    | 输入框风格。                    |
-| lineTransition    | `string`                                                                                                  | `'none'`  | N    | 线性过渡位置。                  |
+| lineTransition    | `'left'\|'center'`                                                                                         | `'left'`  | N    | 线性过渡位置。                  |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N    | 过渡时间。                      |
 | autocomplete      | `boolean`                                                                                                 | `true`    | N    | 是否开启自动填充功能。          |
 | py                | `'0'\|'0.5'\|'1'\|'2'\|'3'\|'4'\|'6'`                                                                     | `'2'`     | N    | 垂直间距。                      |
@@ -20,6 +20,7 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N    | textarea 时最多可输入文本长度。 |
 | rows              | `number`                                                                                                  | `2`       | N    | textarea 时行数。               |
 | autosize          | `boolean`                                                                                                 | `false`   | N    | textarea 时是否自动调整高度。   |
+| negative          | `boolean`                                                                                                 | `false`   | N    | 是否允许输入负数。              |
 | label1            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 1 内容。                   |
 | label2            | `string\|null`                                                                                            | `null`    | N    | 标签 2 内容。                   |
 | label3            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N    | 标签 3 内容。                   |

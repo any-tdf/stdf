@@ -1,3 +1,7 @@
+## 1.0.4
+
+- [!tag|A|0|] Added `type` property [PR#43](https://github.com/any-tdf/stdf/pull/43), related [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#type). [!contribute|arithefirst|]
+
 ## 0.5.2
 
 - [!tag|O|0|]Adjust the icon and loading parameters to allow them to coexist.

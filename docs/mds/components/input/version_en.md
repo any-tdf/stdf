@@ -1,3 +1,9 @@
+## 1.0.4
+
+- [!tag|B|3|] Trigger `onclear` also triggers `onchange`.
+- [!tag|A|0|] Allow negative numbers through the `negative` property [PR#43](https://github.com/any-tdf/stdf/pull/43). [!contribute|arithefirst|]
+- [!tag|O|0|] Do not allow decimal points to start and only allow one decimal point when entering numbers.
+
 ## 0.3.2
 
 - [!tag|B|2|] Fixed the problem that textarea cannot wrap when pressing enter.

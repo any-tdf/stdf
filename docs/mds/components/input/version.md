@@ -1,3 +1,9 @@
+## 1.0.4
+
+- [!tag|B|3|]触发 `onclear` 同时也触发 `onchange`。
+- [!tag|A|0|]通过 `negative` 属性允许输入负数 [PR#38](https://github.com/any-tdf/stdf/pull/38)。[!contribute|rizmyabdulla |]
+- [!tag|O|0|]输入数字时不允许小数点开头且只允许一个小数点。
+
 ## 0.3.2
 
 - [!tag|B|2|]修复 textarea 回车无法换行的问题。

@@ -1,3 +1,10 @@
+## 1.0.4 <font size=1>2025-04-26</font>
+
+- 增强 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
+- 增强 Button 组件，详见 [Button](https://stdf.design/components?nav=button&tab=4)。
+- 补充遗漏的语言文件。
+- 修复类型导出错误。
+
 ## 1.0.3 <font size=1>2025-04-07</font>
 
 - 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript，包括库、示例、create-stdf、站点。

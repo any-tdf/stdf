@@ -62,9 +62,9 @@
 		if (issueList) {
 			issueList.forEach((item) => {
 				const arr = item.split('|');
-				const span = `<span><a href="https://github.com/${
+				const span = `<span><a class="size-4 translate-y-0.5 rounded-full overflow-hidden inline-flex items-center justify-center" href="https://github.com/${
 					arr[1]
-				}" target="_blank"><img class="w-4 h-4 ml-1 p-0 m-0 rounded-full overflow-hidden inline" src="https://avatars.githubusercontent.com/${
+				}" target="_blank"><img class="w-full h-full" src="https://avatars.githubusercontent.com/${
 					arr[1]
 				}" title="${isZh ? '感谢' : 'Thanks'} ${arr[1]} ${isZh ? '提出 Issue' : 'raise an Issue'}" alt=""></a></span>`;
 				string = string.replace(item, span);
@@ -75,9 +75,9 @@
 		if (contributeList) {
 			contributeList.forEach((item) => {
 				const arr = item.split('|');
-				const span = `<span><a href="https://github.com/${
+				const span = `<span><a class="size-4 translate-y-0.5 rounded-full overflow-hidden inline-flex items-center justify-center" href="https://github.com/${
 					arr[1]
-				}" target="_blank"><img class="w-4 h-4 ml-1 p-0 m-0 rounded-full overflow-hidden inline" src="https://avatars.githubusercontent.com/${
+				}" target="_blank"><img class="w-full h-full" src="https://avatars.githubusercontent.com/${
 					arr[1]
 				}" title="${isZh ? '感谢' : 'Thanks'} ${arr[1]} ${isZh ? '贡献代码' : 'contribute code'}" alt=""></a></span>`;
 				string = string.replace(item, span);

@@ -13,6 +13,10 @@
 -   [!tag|A|0|] 新增。
  -->
 
+## 1.0.4
+
+- [!tag|A|0|] 新增 `type` 属性 [PR#43](https://github.com/any-tdf/stdf/pull/43)，相关 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/button#type)。[!contribute|arithefirst|]
+
 ## 0.5.2
 
 - [!tag|O|0|]调整 icon 与 loading 参数，使其可同时存在。

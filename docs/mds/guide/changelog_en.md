@@ -1,3 +1,10 @@
+## 1.0.4 <font size=1>2025-04-26</font>
+
+- Enhanced Input component, please see [Input](https://stdf.design/components?nav=input&tab=4).
+- Enhanced Button component, please see [Button](https://stdf.design/components?nav=button&tab=4).
+- Added missing language files.
+- Fixed type export error.
+
 ## 1.0.3 <font size=1>2025-04-07</font>
 
 - Full support for Svelte v5, Tailwind CSS v4, and TypeScript, including libraries, demos, create-stdf, and site.

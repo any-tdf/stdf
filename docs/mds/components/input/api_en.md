@@ -8,7 +8,7 @@
 | placeholder       | `string`                                                                                                  | `''`      | N        | Input placeholder text.           |
 | radius            | `'none'\|'base'\|'xl'\|'full'`                                                                            | `'base'`  | N        | Border radius style.              |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N        | Input box style.                  |
-| lineTransition    | `string`                                                                                                  | `'none'`  | N        | Linear transition position.       |
+| lineTransition    | `'left'\|'center'`                                                                                         | `'left'`  | N        | Linear transition position.       |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N        | Transition duration.              |
 | autocomplete      | `boolean`                                                                                                 | `true`    | N        | Whether to enable autocomplete.   |
 | py                | `'0'\|'0.5'\|'1'\|'2'\|'3'\|'4'\|'6'`                                                                     | `'2'`     | N        | Vertical padding.                 |
@@ -20,6 +20,7 @@
 | textareaMaxlength | `number`                                                                                                  | `200`     | N        | Maximum text length for textarea. |
 | rows              | `number`                                                                                                  | `2`       | N        | Number of rows for textarea.      |
 | autosize          | `boolean`                                                                                                 | `false`   | N        | Auto adjust height for textarea.  |
+| negative          | `boolean`                                                                                                 | `false`   | N        | Whether to allow negative numbers. |
 | label1            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 1 content.                  |
 | label2            | `string\|null`                                                                                            | `null`    | N        | Label 2 content.                  |
 | label3            | [`Icon`](https://stdf.design/components?nav=icon&tab=1)\|`null`                                         | `null`    | N        | Label 3 content.                  |
