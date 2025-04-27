@@ -1,3 +1,7 @@
+## 0.5.5
+
+- [!tag|A|0|]通过 `negative` 属性允许输入负数 [Issue#37](https://github.com/any-tdf/stdf/issues/37) [PR#38](https://github.com/any-tdf/stdf/pull/38)。[!issue|sbscan|] [!contribute|rizmyabdulla|]
+
 ## 0.3.2
 
 - [!tag|B|2|]修复 textarea 回车无法换行的问题。

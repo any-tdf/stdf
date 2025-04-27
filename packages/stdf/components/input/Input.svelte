@@ -272,7 +272,7 @@
 
 	// 输入模式判断
 	// Input mode judgment
-	const modeFun = type => {
+	const modeFun = (type) => {
 		switch (type) {
 			case 'password':
 				return 'text';
@@ -290,7 +290,7 @@
 	$: mode = inputmode === '' ? modeFun(type) : inputmode;
 
 	// 输入框类型判断
-	const typeAction = node => {
+	const typeAction = (node) => {
 		if (type !== 'textarea') {
 			node.type = type === 'password' ? 'password' : 'text';
 		}
@@ -304,7 +304,7 @@
 	// Input box style style
 	const inputStyleObj = {
 		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.base,
-		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500',
+		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
 	};
 
 	// 状态样式
@@ -314,14 +314,14 @@
 		success: 'ring-success',
 		warning: 'ring-warning',
 		error: 'ring-error',
-		info: 'ring-info',
+		info: 'ring-info'
 	};
 
 	// 根据是否获取焦点判断输入框样式
 	// Determine the input box style according to whether to get focus
 	$: inputStyleFocusObj = {
 		block: 'px-2 ring-2 bg-transparent ' + stateObj[state] || stateObj.theme + radiusObj[radius] || radiusObj.base,
-		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500',
+		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
 	};
 
 	// 线性动画样式
@@ -331,7 +331,7 @@
 		success: 'bg-success',
 		warning: 'bg-warning',
 		error: 'bg-error',
-		info: 'bg-info',
+		info: 'bg-info'
 	};
 
 	// 动画时长样式
@@ -358,7 +358,7 @@
 
 	// 输入内容变化时触发
 	// Triggered when input content changes
-	const valueChangeFun = e => {
+	const valueChangeFun = (e) => {
 		//处理拼音输入时，内容上屏后才做校验
 		//Handle pinyin input, content screening after validation
 		setTimeout(function () {
@@ -379,12 +379,35 @@
 				if (type === 'decimal' || type === 'number') {
 					// 数字
 					// Number
-					value = e.target.value.replace(negative ? /[^\d^.\-]+/g : /[^\d^.]+/g, '');
-					// value = e.target.value.replace(/[^\d^\.]+/g, '');
+					if (negative && e.value.startsWith('-')) {
+						// 允许第一个字符为负号
+						// Allow the first character to be a negative sign
+						value =
+							'-' +
+							e.value
+								.substring(1)
+								.replace(/[^\d.]+/g, '')
+								.replace(/\.{2,}/g, '.')
+								.replace(/^(\d*\.\d*)\./, '$1');
+					} else {
+						// 不允许小数点开头且只允许一个小数点
+						// Do not allow decimal points to start and only allow one decimal point
+						value = e.value
+							.replace(/[^\d.]+/g, '')
+							.replace(/^\./, '')
+							.replace(/\.{2,}/g, '.')
+							.replace(/^(\d*\.\d*)\./, '$1');
+					}
 				} else if (type === 'numeric') {
 					// 整数
 					// Integer
-					value = e.target.value.replace(/[^\d]/g, '');
+					if (negative && e.value.startsWith('-')) {
+						// 允许第一个字符为负号
+						// Allow the first character to be a negative sign
+						value = '-' + e.value.substring(1).replace(/[^\d]+/g, '');
+					} else {
+						value = e.value.replace(/[^\d]+/g, '');
+					}
 				} else {
 					value = e.target.value;
 				}
@@ -435,7 +458,7 @@
 
 	// 键盘事件
 	// Keyboard event
-	const keydownFunc = e => {
+	const keydownFunc = (e) => {
 		// 派发事件，并传出按键的 key
 		// Dispatch events and pass out the key of the key
 		dispatch('keydown', e.key);
@@ -451,7 +474,7 @@
 				{:else if title === 'slot'}
 					<slot name="title">title {commonLang.slotEmpty}</slot>
 				{:else}
-					<div class="text-sm font-semibold mb-1">{title}</div>
+					<div class="mb-1 text-sm font-semibold">{title}</div>
 				{/if}
 			{/if}
 			<div class="flex space-x-2 text-xs">
@@ -472,7 +495,7 @@
 			</div>
 		</div>
 		<div
-			class={`flex items-center my-0.5 space-x-1 text-sm relative transition-all whitespace-nowrap ${
+			class={`relative my-0.5 flex items-center space-x-1 whitespace-nowrap text-sm transition-all ${
 				durationObj[duration] || durationObj.base
 			} ${titlePosition === 'in' ? 'py-1' : 'py-3'} ${
 				focus ? inputStyleFocusObj[inputStyle] || inputStyleFocusObj.block : inputStyleObj[inputStyle] || inputStyleObj.block
@@ -511,9 +534,9 @@
 					<Icon {...label3} />
 				</div>
 			{/if}
-			<div class="flex flex-col grow">
+			<div class="flex grow flex-col">
 				{#if titlePosition === 'in'}
-					<div class="text-gray-400 text-xs">{title}</div>
+					<div class="text-xs text-gray-400">{title}</div>
 				{/if}
 				<div class="flex space-x-1">
 					<div class="w-full">
@@ -524,7 +547,7 @@
 								{rows}
 								inputmode={mode}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class={`w-full focus:outline-none bg-transparent font-semibold ${inputPosition === 'left' ? 'text-left' : 'text-right'} ${
+								class={`w-full bg-transparent font-semibold focus:outline-none ${inputPosition === 'left' ? 'text-left' : 'text-right'} ${
 									disabled ? 'cursor-not-allowed opacity-50' : ''
 								}`}
 								on:focus={onFocus}
@@ -543,7 +566,7 @@
 								use:typeAction
 								inputmode={mode}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class={`w-full focus:outline-none bg-transparent font-semibold whitespace-normal ${
+								class={`w-full whitespace-normal bg-transparent font-semibold focus:outline-none ${
 									inputPosition === 'left' ? 'text-left' : 'text-right'
 								} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
 								on:focus={onFocus}
@@ -601,9 +624,9 @@
 			{/if}
 			{#if inputStyle === 'line'}
 				<div
-					class={`h-[2px] absolute -bottom-px ${lineTransition === 'none' ? 'transition-colors' : 'transition-all'} ${
+					class={`absolute -bottom-px h-[2px] ${lineTransition === 'none' ? 'transition-colors' : 'transition-all'} ${
 						durationObj[duration] || durationObj.base
-					} ${!focus && lineTransition === 'none' && 'bg-transparent w-full'} ${
+					} ${!focus && lineTransition === 'none' && 'w-full bg-transparent'} ${
 						focus && lineTransition === 'none' && `${lineTransitionStateObj[state] || lineTransitionStateObj.theme} w-full`
 					} ${!focus && lineTransition !== 'none' && `w-0 ${lineTransitionStateObj[state] || lineTransitionStateObj.theme}`} ${
 						focus && lineTransition !== 'none' && `w-full ${lineTransitionStateObj[state] || lineTransitionStateObj.theme}`
@@ -614,7 +637,7 @@
 				/>
 			{/if}
 		</div>
-		<div class={`flex  px-2 text-gay6 ${tip === '' ? 'justify-end' : 'justify-between'}`}>
+		<div class={`text-gay6  flex px-2 ${tip === '' ? 'justify-end' : 'justify-between'}`}>
 			{#if tip === ''}
 				<!-- none -->
 			{:else if tip === 'slot'}

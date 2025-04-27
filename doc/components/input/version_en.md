@@ -1,3 +1,7 @@
+## 0.5.5
+
+- [!tag|A|0|] Allow negative numbers through the `negative` property [Issue#37](https://github.com/any-tdf/stdf/issues/37) [PR#38](https://github.com/any-tdf/stdf/pull/38). [!issue|sbscan|] [!contribute|rizmyabdulla|]
+
 ## 0.3.2
 
 - [!tag|B|2|] Fixed the problem that textarea cannot wrap when pressing enter.

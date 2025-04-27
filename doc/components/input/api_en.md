@@ -18,6 +18,7 @@
 | maxlength         | Number             | 24            | -                                                                                             | No       | The maximum number of characters allowed.                     |
 | rows              | Number             | 2             | -                                                                                             | No       | The number of rows when the input is a text area.             |
 | autosize          | Boolean            | false         | true/false                                                                                    | No       | Whether or not the text area automatically adjust its height. |
+| negative          | Boolean            | false         | true/false                                                                                    | No       | Whether or not to allow negative numbers.                     |
 | textareaMaxlength | Number             | 200           | -                                                                                             | No       | The maximum number of characters allowed in the text area.    |
 | clear             | Boolean            | false         | true/false                                                                                    | No       | Whether or not it is possible to clear the input field.       |
 | autocomplete      | Boolean            | true          | true/false                                                                                    | No       | Whether or not to enable auto-fill functionality.             |
@@ -32,7 +33,6 @@
 | data1             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 1.                                  |
 | data2             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 2.                                  |
 | data3             | String/slot        | ''            | ''/Any String/slot                                                                            | No       | The contents of data item 3.                                  |
-| negative          | Boolean            | false         | true/false                                                                                    | No       | Whether or not to allow negative numbers.                     |
 
 ## Input Events
 

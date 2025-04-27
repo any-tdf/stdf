@@ -52,7 +52,7 @@
 <Input title="password" type="password" />
 <Input title="Number (arbitrarily)" type="number" />
 <Input title="Number (integer)" type="numeric" />
-<Input title="Number (allowing decimal points)" type="decimal" />
+<Input title="Number (Allow Negative)" type="number" negative />
 <Input title="Mail" type="email" />
 <Input title="telephone number" type="tel" />
 <Input title="Url" type="url" />

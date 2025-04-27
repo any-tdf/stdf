@@ -18,6 +18,7 @@
 | maxlength         | Number             | 24      | -                                                                                             | N    | 最多可输入文本长度。            |
 | rows              | Number             | 2       | -                                                                                             | N    | textarea 时行数。               |
 | autosize          | Boolean            | false   | true/false                                                                                    | N    | textarea 时是否自动调整高度。   |
+| negative          | Boolean            | false   | true/false                                                                                    | N    | 是否允许负数。                  |
 | textareaMaxlength | Number             | 200     | -                                                                                             | N    | textarea 时最多可输入文本长度。 |
 | clear             | Boolean            | false   | true/false                                                                                    | N    | 是否可清空。                    |
 | autocomplete      | Boolean            | true    | true/false                                                                                    | N    | 是否开启自动填充功能。          |
@@ -32,7 +33,6 @@
 | data1             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 1 内容。                 |
 | data2             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 2 内容。                 |
 | data3             | String/slot        | ''      | ''/Any String/slot                                                                            | N    | 数据项 3 内容。                 |
-| negative          | Boolean            | false   | true/false                                                                                    | N    | 是否允许负数。                  |
 
 ## Input Events
 
