@@ -3,6 +3,7 @@
 name: RELEASES STDF
 
 on:
+    workflow_dispatch:
     push:
         branches:
             - main
