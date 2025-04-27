@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import { Confetti } from 'svelte-confetti';
 	import { currentThemeStore, currentColorStore } from '../store';
 	// @ts-ignore
@@ -405,7 +405,7 @@
 		 * @param {String} [options.posColor] 定位点颜色
 		 */
 		const qrcode = encodeData({
-			text: `https://demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`,
+			text: `HTTPS://DEMO.STDF.DESIGN?lang=${isZh ? 'zh_CN' : 'en_US'}`,
 			isSpace: false
 		});
 		const color = $currentThemeStore === 'dark' ? 'var(--color-dark)' : 'var(--color-primary)';
@@ -557,16 +557,14 @@
 					{isZh ? '示例' : 'Demo'}
 					{#if showQr}
 						<div
-							class="absolute left-full top-0 z-10 block w-52 -translate-y-1/3 translate-x-2 rounded-lg border border-black/5 p-2 shadow-lg dark:hidden"
-							in:fade={{ duration: 300 }}
-							out:fade={{ duration: 0 }}
+							transition:fly={{ duration: 300, x: -10, opacity: 0 }}
+							class="z-100 absolute left-full top-0 block w-44 -translate-y-1/3 translate-x-1 rounded-lg border border-black/5 p-2 shadow-lg dark:hidden"
 						>
 							<span>{@html A_a1Svg}</span>
 						</div>
 						<div
-							class="absolute left-full top-0 z-10 hidden w-52 -translate-y-1/3 translate-x-2 rounded-lg border border-white/5 bg-black p-2 shadow-lg dark:block"
-							in:fade={{ duration: 300 }}
-							out:fade={{ duration: 0 }}
+							transition:fly={{ duration: 300, x: -10, opacity: 0 }}
+							class="z-100 absolute left-full top-0 hidden w-44 -translate-y-1/3 translate-x-1 rounded-lg border bg-black p-2 shadow-lg shadow-white/10 dark:block dark:border-white/10"
 						>
 							<span>{@html A_a1Svg}</span>
 						</div>

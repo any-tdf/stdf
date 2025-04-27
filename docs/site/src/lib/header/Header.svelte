@@ -176,7 +176,7 @@
 					<!-- AI 问答 -->
 					<a
 						href="https://deepwiki.com/any-tdf/stdf"
-						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="px-4 py-1 text-center"
 						target="_blank"
 						title={isZh ? '到 DeepWiki 提问' : 'Ask questions on DeepWiki'}
 						aria-label={isZh ? '到 DeepWiki 提问' : 'Ask questions on DeepWiki'}
@@ -189,22 +189,18 @@
 						</svg>
 					</a>
 					<a
-						href="/guide"
-						class="rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
-						class:bg-gray-100={currentRoute === '/guide'}
-						class:dark:bg-gray-500={currentRoute === '/guide'}>{isZh ? '指南' : 'Guide'}</a
+						href={currentRoute.includes('/guide') ? 'javascript:void(0)' : '/guide'}
+						class="px-4 py-1 text-center {currentRoute.includes('/guide') ? ' text-primary dark:text-dark' : ''}"
 					>
+						{isZh ? '指南' : 'Guide'}
+					</a>
 					<a
-						href="/components?nav=button&tab=0"
-						class="rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
-						class:bg-gray-100={currentRoute === '/components'}
-						class:dark:bg-gray-500={currentRoute === '/components'}>{isZh ? '组件' : 'Components'}</a
+						href={currentRoute.includes('/components') ? 'javascript:void(0)' : '/components?nav=button&tab=0'}
+						class="px-4 py-1 text-center {currentRoute.includes('/components') ? ' text-primary dark:text-dark' : ''}"
 					>
-					<button
-						class="relative rounded-sm px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
-						onclick={showThemeFunc}
-						bind:this={ThemeSwitchDom}
-					>
+						{isZh ? '组件' : 'Components'}
+					</a>
+					<button class="relative px-4 py-1 text-center" onclick={showThemeFunc} bind:this={ThemeSwitchDom}>
 						{isZh ? '主题' : 'Theme'}
 						{#if $showThemeSwitchStore}
 							<div
@@ -217,7 +213,7 @@
 							</div>
 						{/if}
 					</button>
-					<button class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700" onclick={toggleFundFunc}>
+					<button class="px-4 py-1 text-center" onclick={toggleFundFunc}>
 						{isZh ? '支持' : 'Support'}
 					</button>
 
@@ -225,7 +221,7 @@
 					<button
 						onclick={switchLangFunc}
 						aria-label={isZh ? '跳转英文站点' : 'Jump to Chinese Site'}
-						class="cursor-pointer rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="cursor-pointer px-4 py-1 text-center"
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="inline-block">
 							<path fill="none" d="M0 0h24v24H0z" />
@@ -238,7 +234,7 @@
 					<!-- GitHub -->
 					<a
 						href="https://github.com/any-tdf/stdf"
-						class="rounded-sm px-4 py-1 text-center hover:bg-gray-100 dark:hover:bg-gray-700"
+						class="px-4 py-1 text-center"
 						target="_blank"
 						aria-label={isZh ? '跳转至 GitHub' : 'Jump to GitHub'}
 					>
