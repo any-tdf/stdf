@@ -1,3 +1,7 @@
+## 1.0.5 <font size=1>2025-04-27</font>
+
+- Fixed Input component, please see [Input](https://stdf.design/components?nav=input&tab=4).
+
 ## 1.0.4 <font size=1>2025-04-26</font>
 
 - Enhanced Input component, please see [Input](https://stdf.design/components?nav=input&tab=4).

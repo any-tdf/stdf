@@ -1,3 +1,7 @@
+## 1.0.5
+
+- [!tag|B|3|] Do not allow decimal points to start when entering numbers.
+
 ## 1.0.4
 
 - [!tag|B|3|] Trigger `onclear` also triggers `onchange`.
