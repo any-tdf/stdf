@@ -1,7 +1,7 @@
 ## 1.0.4
 
 - [!tag|B|3|] Trigger `onclear` also triggers `onchange`.
-- [!tag|A|0|] Allow negative numbers through the `negative` property [PR#43](https://github.com/any-tdf/stdf/pull/43). [!contribute|arithefirst|]
+- [!tag|A|0|] Allow negative numbers through the `negative` property [Issue#37](https://github.com/any-tdf/stdf/issues/37) [PR#38](https://github.com/any-tdf/stdf/pull/38). [!issue|sbscan|] [!contribute|rizmyabdulla|]
 - [!tag|O|0|] Do not allow decimal points to start and only allow one decimal point when entering numbers.
 
 ## 0.3.2
