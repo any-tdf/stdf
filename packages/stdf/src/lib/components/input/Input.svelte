@@ -200,8 +200,11 @@
 								.replace(/\.{2,}/g, '.')
 								.replace(/^(\d*\.\d*)\./, '$1');
 					} else {
+						// 不允许小数点开头且只允许一个小数点
+						// Do not allow decimal points to start and only allow one decimal point
 						value = e.value
 							.replace(/[^\d.]+/g, '')
+							.replace(/^\./, '')
 							.replace(/\.{2,}/g, '.')
 							.replace(/^(\d*\.\d*)\./, '$1');
 					}
