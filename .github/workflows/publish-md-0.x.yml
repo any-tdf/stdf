@@ -1,0 +1,43 @@
+# 当分支 0.x 有 push 事件并且此次 push 包含了 packages/rollup-plugin-md-ts/package.json 文件时，执行以下任务
+
+name: PUBLISH MD 0.x
+
+on:
+    push:
+        branches:
+            - 0.x
+        paths:
+            - 'packages/rollup-plugin-md-ts/package.json'
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: write
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20.x
+
+            # 将 LICENSE 复制到 packages/rollup-plugin-md-ts 目录下
+            # cd packages/rollup-plugin-md-ts 目录下
+            # 安装依赖 npm install
+            # 打包 npm run build
+            # 发布 rollup-plugin-md-ts 到 npm
+            - name: Publish
+              run: |
+                  cp LICENSE packages/rollup-plugin-md-ts/LICENSE
+                  cd packages/rollup-plugin-md-ts
+                  npm install
+                  npm run build 
+                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+                  npm publish --tag=0.x --provenance
+              env:
+                  CI: true
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

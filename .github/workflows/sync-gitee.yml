@@ -1,0 +1,20 @@
+# 每天 3 点自动将 GitHub 仓库同步到 Gitee
+
+name: SYNC GITEE
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Black list
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/any-tdf
+          dst: gitee/dufu1991
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: 'stdf'

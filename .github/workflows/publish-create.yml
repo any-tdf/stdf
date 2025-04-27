@@ -1,0 +1,45 @@
+# 当分支 main 有 push 事件并且此次 push 包含了 packages/create-stdf/package.json 文件时，执行以下任务
+
+name: PUBLISH CREATE
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'packages/create-stdf/package.json'
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: write
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20.x
+
+            # 将 LICENSE 复制到 packages/create-stdf 目录下
+            # cd packages/create-stdf 目录下
+            # 安装依赖 npm install
+            # 打包 npm run build
+            # 执行 npm run update
+            # 发布 create-stdf 到 npm
+            - name: Publish
+              run: |
+                  cp LICENSE packages/create-stdf/LICENSE
+                  cd packages/create-stdf
+                  npm install
+                  npm run build
+                  npm run update
+                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+                  npm publish --provenance
+              env:
+                  CI: true
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
