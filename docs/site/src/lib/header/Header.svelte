@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
+	import { slide, fly } from 'svelte/transition';
 	import ModeSwitch from '../modeSwitch/ModeSwitch.svelte';
 	import ThemeSwitch from '../themeSwitch/ThemeSwitch.svelte';
 	import { isShowNavStore, isShowFundStore, showThemeSwitchStore } from '../../store';
 	import { page } from '$app/stores';
+	import stdfPackage from '../../../../../packages/stdf/package.json';
 
 	let { showLeftNav = false, showBottonLine = false, onclickCmdK } = $props();
 
@@ -44,23 +45,13 @@
 	let versionBtnRef: HTMLButtonElement | null = $state(null);
 
 	const switchLangFunc = () => {
-		console.log(43, window.location.href);
 		const isHaveParams = window.location.href.includes('?');
-		console.log(45, isHaveParams);
 		// 如果有参数，则增加 &lang=xxx，否则增加 ?lang=xxx
 		const newUrl = isHaveParams
 			? window.location.href + '&lang=' + (isZh ? 'en_US' : 'zh_CN')
 			: window.location.href + '?lang=' + (isZh ? 'en_US' : 'zh_CN');
-		console.log(47, newUrl);
 		window.location.href = newUrl;
 	};
-	// 判断当前 url 是否包含参数
-	// console.log(33, $page.url.search);
-
-	// 如果 $page.url.href 有 ?lang=xxx 或者 &lang=xxx 则删除这些字符
-	// const newUrl = $page.url.href.replace(/\?lang=.*|&lang=.*|#.*$/, '');
-
-	// const urlLang = newUrl + (isHaveParams ? '&lang=' + (isZh ? 'en_US' : 'zh_CN') : '?lang=' + (isZh ? 'en_US' : 'zh_CN'));
 </script>
 
 <svelte:document
@@ -111,30 +102,44 @@
 			<div class="relative bottom-1">
 				<button
 					bind:this={versionBtnRef}
-					class="flex cursor-pointer rounded bg-black/5 py-0.5 pl-2 pr-4 text-sm dark:bg-white/20"
+					class="flex cursor-pointer py-0.5 pl-2 pr-4 text-xs text-gray-500"
 					onclick={() => (showVersion = !showVersion)}
 				>
-					v1
-					<span class="absolute bottom-0.5 left-5 w-4 text-gray-500">
+					{stdfPackage.version}
+					<span class="absolute -bottom-px left-8 w-5 text-gray-500">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 							<path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
 						</svg>
 					</span>
 				</button>
 				{#if showVersion}
-					<div class="absolute left-0 top-8 w-12 rounded-md bg-white p-1 text-xs shadow-md dark:bg-black dark:shadow-white/10">
-						<a href="/" class="relative flex rounded py-0.5 pl-2 hover:bg-black/5 dark:hover:bg-white/20"
-							>v1
-							<span class="absolute bottom-0.5 left-4 ml-2 w-3">
+					<div
+						transition:fly={{ duration: 300, y: -20, opacity: 0 }}
+						class="absolute left-0 top-10 w-28 rounded-xl bg-white p-4 text-xs shadow-md dark:bg-black dark:shadow-white/10"
+					>
+						<div class="text-primary dark:text-dark relative flex py-0.5">
+							{stdfPackage.version}
+							<span class="absolute bottom-1 left-8 ml-2 w-3">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
 									></path>
 								</svg>
 							</span>
+						</div>
+						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
+						<a href="/guide/changelog" class="hover:underline">
+							<span class="inline-block size-3 translate-y-0.5">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+									<path
+										d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"
+									>
+									</path>
+								</svg>
+							</span>
+							{isZh ? '更新日志' : 'Changelog'}
 						</a>
-						<a href="https://0.stdf.design" target="_blank" class="mt-2 block rounded px-2 py-0.5 hover:bg-black/5 dark:hover:bg-white/20">
-							v0
-						</a>
+						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
+						<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
 					</div>
 				{/if}
 			</div>
