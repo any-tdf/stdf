@@ -209,7 +209,8 @@
 						{#if $showThemeSwitchStore}
 							<div
 								transition:slide={{ duration: 300, axis: 'x' }}
-								class="absolute right-16 top-0 h-80 overflow-y-auto rounded-lg bg-white p-3 shadow-lg dark:bg-black/95 dark:shadow-white/40"
+								class="absolute top-0 h-80 overflow-y-auto rounded-lg bg-white p-3 shadow-lg dark:bg-black/95 dark:shadow-white/40"
+								style="right:{isZh ? '66px' : '128px'}"
 							>
 								<ModeSwitch useViewTransition={false} />
 								<ThemeSwitch vertical />
