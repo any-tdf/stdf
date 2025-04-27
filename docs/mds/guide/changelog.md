@@ -1,3 +1,7 @@
+## 1.0.6 <font size=1>2025-04-27</font>
+
+- 修复 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
+
 ## 1.0.5 <font size=1>2025-04-27</font>
 
 - 修复 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。

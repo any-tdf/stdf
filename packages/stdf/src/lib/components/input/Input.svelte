@@ -318,7 +318,7 @@
 								{rows}
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class="focus:outline-hidden w-full bg-transparent font-semibold {inputPosition === 'left'
+								class="focus:outline-hidden w-full bg-transparent font-semibold text-black dark:text-white {inputPosition === 'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
@@ -337,7 +337,8 @@
 								use:typeAction
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
 								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
-								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold {inputPosition === 'left'
+								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold text-black dark:text-white {inputPosition ===
+								'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
@@ -395,11 +396,11 @@
 				></div>
 			{/if}
 		</div>
-		<div class="text-gay6 flex px-2 {tip === null ? 'justify-end' : 'justify-between'}">
+		<div class="flex px-2 {tip === null ? 'justify-end' : 'justify-between'}">
 			{#if tipChild}
 				{@render tipChild?.()}
 			{:else if tip === null}{:else}
-				<div class="text-sm text-gray-400">
+				<div class="text-xs text-gray-400">
 					{tip}
 				</div>
 			{/if}

@@ -1,3 +1,7 @@
+## 1.0.6
+
+- [!tag|B|3|] Fix the problem that the input box placeholder font color does not follow the change when the light and dark mode is switched.
+
 ## 1.0.5
 
 - [!tag|B|3|] Do not allow decimal points to start when entering numbers.

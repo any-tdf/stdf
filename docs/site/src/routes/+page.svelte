@@ -519,9 +519,9 @@
 					href="/guide"
 					onmouseenter={() => (showConfetti = true)}
 					onmouseleave={() => (showConfetti = false)}
-					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-6 py-2 text-white transition-all dark:text-black"
+					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-4 py-2 text-white transition-all dark:text-black"
 				>
-					<div class="group flex items-center gap-1">
+					<div class="group flex items-center gap-2">
 						{isZh ? '开始使用' : 'Get Started'}
 						<div class="size-3 translate-y-px">
 							<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -531,12 +531,12 @@
 									width="10"
 									height="2"
 									fill="currentColor"
-									class="group-hover:scale-x-135 transition-all duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2"
+									class="scale-x-135 -translate-x-2 -translate-y-2 transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0"
 								/>
 								<path
 									d="M8.48535 7.07129L1.41406 14.1426L0 12.7275L5.65625 7.07031L0 1.41406L1.41406 0L8.48535 7.07129Z"
 									fill="currentColor"
-									class="transition-all duration-500 group-hover:translate-x-2"
+									class="translate-x-2 transition-all duration-500 group-hover:translate-x-0"
 								/>
 							</svg>
 						</div>
