@@ -1,5 +1,11 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
+	"extends": [
+		"./eslint.config.js",
+		"./scripts/env.js",
+		"./src/utils/code-group-svg-data.js",
+		"./svelte/config.js",
+		"./.svelte-kit/tsconfig.json"
+	],
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
