@@ -6,7 +6,7 @@
 		"env": "bun run scripts/env.js",
 		"dev": "bun run env && vite dev",
 		"preview": "vite preview",
-		"build": "bun run env && vite build",
+		"build": "tsc -b && bun run env && vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",

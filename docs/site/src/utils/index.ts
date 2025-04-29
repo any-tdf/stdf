@@ -75,9 +75,9 @@ const replacePart = (str: string, findText: string, replaceText: string) => {
  * @example
  * mdTextToHljs('```js\nconsole.log(123)\n```') // <code class="hljs language-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">123</span>)</code>
  */
-export const mdTextToHljs = (mdText: string) => {
+export const mdTextToHljs = (mdText: string, language: string = '') => {
 	// 将所有 <td><code> 标签替换为 <td><code class="hljs language-typescript">
-	mdText = mdText.replace(/<td><code>/g, '<td><code class="hljs language-typescript">');
+	mdText = mdText.replace(/<td><code>/g, `<td><code class="${language ? 'language-' + language : ''}">`);
 	if (mdText.indexOf('<code class="') > 0) {
 		let apiText = mdText.indexOf('<code class="') > 0 ? htmlFilter(mdText).replace(/<code class="/g, '<code class="hljs ') : mdText;
 		const codeTexts = apiText.match(/<code[\s\S]*?<\/code>/g);

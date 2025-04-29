@@ -15,7 +15,7 @@
 		const rawObj = await import(`../../../../mds/components/${nav}/api${isZh ? '' : '_en'}.md`);
 		const mdStr = rawObj.default;
 		loading = false;
-		return mdTextToHljs(mdStr.replace(/<a href="/g, '<a target="_blank" href="'));
+		return mdTextToHljs(mdStr.replace(/<a href="/g, '<a target="_blank" href="'), 'javascript');
 	};
 	let apiText: string | null = $state(null);
 	onMount(async () => {

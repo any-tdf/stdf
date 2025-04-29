@@ -2119,12 +2119,11 @@ colors.forEach((item) => {
 	const obj = {
 		name: item[1],
 		hex,
-		rgb: colorConvertFunc(hex).rgb,
-		hsl: colorConvertFunc(hex).hsl,
-		// hslArr: hslFunc(colorConvertFunc(hex).hsl),
-		hsl_h: hslFunc(colorConvertFunc(hex).hsl)?.[0],
-		hsl_s: hslFunc(colorConvertFunc(hex).hsl)?.[1],
-		hsl_l: hslFunc(colorConvertFunc(hex).hsl)?.[2],
+		rgb: colorConvertFunc(hex).rgb.split(','),
+		hsl: colorConvertFunc(hex).hsl.split(','),
+		hsl_h: hslFunc(colorConvertFunc(hex).hsl)?.[0] ?? null,
+		hsl_s: hslFunc(colorConvertFunc(hex).hsl)?.[1] ?? null,
+		hsl_l: hslFunc(colorConvertFunc(hex).hsl)?.[2] ?? null,
 		mode: hslFunc(colorConvertFunc(hex).hsl)?.[2] !== undefined && Number(hslFunc(colorConvertFunc(hex).hsl)?.[2]) > 50 ? 'light' : 'dark'
 	};
 	colorList.push(obj);
@@ -2132,7 +2131,8 @@ colors.forEach((item) => {
 
 // 过滤出 hsl_l 在 20-45 和 55-80 之间的颜色，区分明显
 colorList = colorList.filter((item) => {
-	return (item.hsl_l >= 20 && item.hsl_l < 45) || (item.hsl_l > 55 && item.hsl_l <= 80);
+	const hslL = item.hsl_l ? Number(item.hsl_l) : null;
+	return hslL !== null && ((hslL >= 20 && hslL < 45) || (hslL > 55 && hslL <= 80));
 });
 
 export default colorList;
