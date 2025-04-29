@@ -46,14 +46,14 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 # Features
 
 - 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
-- 🚀 No runtime, no virtual DOM, runs faster online.
-- 🧰 Rich API, easily configure component styles that meet your needs.
+- 🚀 No runtime, no virtual DOM — runs faster online.
+- 🧰 Rich API — easily configure component styles to meet your needs.
 - 🍭 Supports dark mode and multiple theme configuration.
 - 📖 Provides extensive Chinese and English documentation and component examples.
 - 🌍 Supports internationalization, with 60+ built-in language packages.
 - 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
 - 🤝 Supports Tailwind libraries such as UnoCSS.
-- 🫡 No three -party dependence, no need to worry about the three -party library version and security issues.
+- 🫡 No third-party dependencies — no need to worry about library versions or security issues.
 - 📦 Supports on-demand import to reduce bundle size.
 - 🪜 Comes with a scaffolding tool for quick project creation.
 - 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
