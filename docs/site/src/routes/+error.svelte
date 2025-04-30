@@ -29,7 +29,7 @@
 			<div class="text-primary dark:text-dark mb-4 text-9xl font-bold">4</div>
 		</div>
 		<p class="mb-8 text-black/60 dark:text-white/60">{isZh ? '抱歉，页面未找到' : 'Sorry, page not found'}</p>
-		<a href="/" class="bg-primary dark:bg-dark rounded px-6 py-2 text-black hover:opacity-90 dark:text-white">
+		<a href="/" class="bg-primary dark:bg-dark rounded px-6 py-2 text-white hover:opacity-90 dark:text-black">
 			{isZh ? '返回首页' : 'Back to home'}
 		</a>
 	</div>
