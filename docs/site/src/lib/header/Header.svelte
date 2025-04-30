@@ -55,7 +55,7 @@
 </script>
 
 <svelte:document
-	on:click={(e) => {
+	onclick={(e) => {
 		if (versionBtnRef && !versionBtnRef.contains(e.target as Node)) {
 			showVersion = false;
 		}
@@ -118,8 +118,16 @@
 						class="absolute left-0 top-10 w-28 rounded-xl bg-white p-4 text-xs shadow-md dark:bg-black dark:shadow-white/10"
 					>
 						<div class="text-primary dark:text-dark relative flex py-0.5">
+							<span class="mr-1">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 24 24">
+									<path
+										fill="currentColor"
+										d="M3 20q-.825 0-1.412-.587T1 18V6q0-.825.588-1.412T3 4h18q.825 0 1.413.588T23 6v12q0 .825-.587 1.413T21 20zm1.75-8.5l2.375 3.25q.075.125.2.188T7.6 15h.3q.25 0 .425-.175T8.5 14.4V9.625q0-.275-.175-.45T7.875 9t-.45.175t-.175.45V12.5L4.925 9.25q-.1-.125-.225-.187T4.425 9h-.3q-.275 0-.45.175t-.175.45v4.75q0 .275.175.45t.45.175t.45-.175t.175-.45zM10 15h2.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.1h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.15h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H10q-.2 0-.35.15t-.15.35v5q0 .2.15.35T10 15m5.5 0h4q.425 0 .713-.288T20.5 14V9.625q0-.275-.175-.45T19.875 9t-.45.175t-.175.45V13.5h-1.1v-2.875q0-.275-.175-.45t-.45-.175t-.45.175t-.175.45V13.5h-1.15V9.625q0-.275-.175-.45T15.125 9t-.45.175t-.175.45V14q0 .425.288.713T15.5 15"
+									/>
+								</svg>
+							</span>
 							{stdfPackage.version}
-							<span class="absolute bottom-1 left-8 ml-2 w-3">
+							<span class="absolute bottom-1 left-12 w-3">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
 									></path>

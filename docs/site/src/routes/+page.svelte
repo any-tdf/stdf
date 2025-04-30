@@ -306,8 +306,9 @@
 
 	// 赞助人员
 	const thinkGithub = [
-		{ name: 'yuedanlabs', amount: 10 },
-		{ name: 'sbscan', amount: 100 }
+		{ name: 'sbscan', amount: 100 },
+		{ name: 'MuGuiLin', amount: 50 },
+		{ name: 'yuedanlabs', amount: 10 }
 	];
 
 	const bottomInfo = [
