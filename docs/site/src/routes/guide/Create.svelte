@@ -2,7 +2,9 @@
 	import { mdTextToHljs, groupIconMdPlugin } from '../../utils/index.js';
 	import { isWideScreenStore } from '../../store.js';
 
+	// @ts-ignore
 	import createText from '../../../../../../packages/create-stdf/README_CN.md';
+	// @ts-ignore
 	import createText_en from '../../../../../../packages/create-stdf/README.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
@@ -12,7 +14,7 @@
 </script>
 
 <article
-	class="prose pb-12 dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark {$isWideScreenStore
+	class="prose dark:prose-invert prose-strong:text-primary dark:prose-strong:text-dark pb-12 {$isWideScreenStore
 		? 'max-w-full'
 		: 'max-w-5xl'}"
 >

@@ -4,7 +4,8 @@
 	import ClipboardJS from 'clipboard';
 	import ModeSwitch from '$lib/modeSwitch/ModeSwitch.svelte';
 	import { currentColorStore } from '../../../store';
-	import themes, { type ThemeItem } from '../../../data/themes';
+	import themes from '../../../data/themes';
+	import type { STDFTheme } from 'stdf/theme';
 	import {
 		generatePalette,
 		generateThemeBlack,
@@ -25,6 +26,12 @@
 	let windowWidth = $state(0);
 	let windowHeight = $state(0);
 	const initTheme = themes.find((item) => item.name === $currentColorStore) as ThemeItem;
+
+	type ThemeItem = {
+		name: string;
+		name_CN: string;
+		theme: typeof STDFTheme;
+	};
 
 	const setPropertyFunc = (name: string, value: string) => {
 		const rgbStr = value.startsWith('oklch') ? value : hexToRgb(value);
@@ -86,7 +93,9 @@
 		dark: { hex: '', hsl: '', rgb: '', oklch: '' }
 	});
 	let stateColor = $state({ success: '', warning: '', error: '', info: '' });
-	let extendList: { color: string; alias: string; hex: string }[] = $state(initTheme.theme.color.extend);
+	let extendList: { color: string; alias: string; hex: string }[] = $state(
+		initTheme.theme.color.extend.map((item) => ({ ...item, hex: getHexFunc(item.color) }))
+	);
 
 	let name = $state(initTheme.name);
 	let showCopyTip = $state(false);
@@ -325,7 +334,7 @@ ${extendListStr2}
 				}
 			});
 		} else {
-			setPropertyFunc(`--color-functional-${type}`, item?.color);
+			setPropertyFunc(`--color-functional-${type}`, item?.color ?? '');
 			(functionalObj as unknown as Record<string, string>)[type] = colorValue;
 		}
 		currentColorObj = {

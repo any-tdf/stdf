@@ -803,19 +803,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-	@keyframes spin-line {
-		to {
-			transform: rotate(360deg);
-		}
-	}
-	.animate-spin-line {
-		animation: spin-line 6s linear infinite;
-		background: conic-gradient(transparent 50deg, rgba(var(--color-primary), 0.4) 80deg, transparent 90deg);
-	}
-	.animate-spin-line-dark {
-		animation: spin-line 6s linear infinite;
-		background: conic-gradient(transparent 50deg, rgba(var(--color-dark), 0.6) 80deg, transparent 90deg);
-	}
-</style>

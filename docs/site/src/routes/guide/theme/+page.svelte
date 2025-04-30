@@ -2,7 +2,9 @@
 	import { mdTextToHljs } from '../../../utils/index';
 	import { isWideScreenStore } from '../../../store';
 
+	// @ts-ignore
 	import theme from '../../../../../mds/guide/theme.md';
+	// @ts-ignore
 	import theme_en from '../../../../../mds/guide/theme_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
