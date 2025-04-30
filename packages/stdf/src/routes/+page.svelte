@@ -29,10 +29,10 @@
 </a>
 <div class="flex flex-col py-4">
 	<div>
-		{#each menuList as menu}
+		{#each menuList as menu (menu.class)}
 			<div class="mb-2 mt-8 px-4 text-sm text-gray-500">{isZh ? menu.class : menu.class_en}</div>
 			<CellGroup>
-				{#each menu.childs as child, i}
+				{#each menu.childs as child, i (child.nav)}
 					<a href={child.nav + (isZh ? '/zh_CN' : '/en_US')}>
 						<Cell
 							title={isZh ? child.title : child.title_en}

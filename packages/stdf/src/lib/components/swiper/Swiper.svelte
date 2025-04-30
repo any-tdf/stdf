@@ -181,7 +181,7 @@
 	};
 	//定时器
 	// timer
-	let intervalTime: number | null = null;
+	let intervalTime: ReturnType<typeof setInterval>;
 	//定时器执行函数
 	// timer function
 	const intervalTimeFun = () => {

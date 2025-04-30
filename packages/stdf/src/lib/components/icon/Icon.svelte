@@ -18,7 +18,7 @@
 	{#if children}
 		{@render children()}
 	{:else}
-		<svg width={size} height={size === 'full' ? '100%' : size} style="fill: currentColor;fill-opacity: {alpha};display: inline;">
+		<svg width={size} height={size === 'full' ? '100%' : size} class="inline fill-current" style="fill-opacity: {alpha};">
 			<use xlink:href="/{path}#{name}" />
 		</svg>
 	{/if}

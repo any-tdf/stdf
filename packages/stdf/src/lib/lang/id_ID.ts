@@ -65,7 +65,7 @@ const id_ID: LangProps = {
 		defaultMinute: 'Menit',
 		defaultSecond: 'Kedua'
 	},
-	kalender: {
+	calendar: {
 		weekTextList: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
 		weekSundayStartTextList: ['Ming', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
 		monthTextList: [

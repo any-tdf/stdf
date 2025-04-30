@@ -63,7 +63,7 @@
 		<div class="flex flex-col space-y-2">
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 			{#each new Array(lines - 1) as _}
-				<div class="bg-black/20 dark:bg-white/20 w-full{heightObj[height] || heightObj['6']}{radiusObj[radius] || radiusObj.base}"></div>
+				<div class="bg-black/20 dark:bg-white/20 w-full{heightObj[height] || heightObj['6']}{radiusObj[radius] || radiusObj.sm}"></div>
 			{/each}
 			<div
 				class="bg-black/20 dark:bg-white/20 {randomArr[Math.floor(Math.random() * randomArr.length)]}{heightObj[height] ||

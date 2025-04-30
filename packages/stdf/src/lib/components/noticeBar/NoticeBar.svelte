@@ -57,7 +57,7 @@
 
 	//垂直滚动时的处理
 	//Processing when scrolling vertically
-	let times: number | null = null;
+	let times: NodeJS.Timeout | null = null;
 	let currentIndex = $state(0);
 	let textListVertical = [...textList, textList[0]];
 	let isTransition = $state(true);

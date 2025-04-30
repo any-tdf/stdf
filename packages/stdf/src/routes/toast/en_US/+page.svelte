@@ -36,7 +36,7 @@
 	let visible32 = $state(false);
 
 	let time = $state(4);
-	let timer: number | null = null;
+	let timer: ReturnType<typeof setInterval>;
 	const useSnippetFun = () => {
 		visible25 = true;
 		timer = setInterval(() => {

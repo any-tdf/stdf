@@ -1,3 +1,8 @@
+## 1.0.7 <font size=1>2025-04-30</font>
+
+- Fixed some type errors.
+- Fixed `id_ID` language file error.
+
 ## 1.0.6 <font size=1>2025-04-27</font>
 
 - Fixed Input component, please see [Input](https://stdf.design/components?nav=input&tab=4).

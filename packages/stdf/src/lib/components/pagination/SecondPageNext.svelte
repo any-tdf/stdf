@@ -5,8 +5,8 @@
 		pageCol: number;
 		Pages: number[];
 		maxShowPage: number;
-		radius: string;
-		type: string;
+		radius: 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'none';
+		type: 'border' | 'block' | 'bold';
 		onclickItem: (index: number) => void;
 	};
 	let { pageCol = 3, Pages = [], maxShowPage = 9, radius = 'md', type = 'bold', onclickItem }: Props = $props();

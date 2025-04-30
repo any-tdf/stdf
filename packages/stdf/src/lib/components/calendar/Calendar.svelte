@@ -390,7 +390,7 @@
 								class:!rounded-r-sm={radius === 'sm' &&
 									mode === 'range' &&
 									(selectedDateStr.indexOf(`${item.year}${item.month}${day.text}`) === selectedDateStr.length - 8 || day.end)}
-								class:!rounded-sm={radius === 'sn' && mode !== 'range'}
+								class:!rounded-sm={radius === 'sm' && mode !== 'range'}
 							>
 								<div
 									class="{radiusClass[radius] || 'rounded-xl'} relative flex h-full w-full flex-col justify-center {day.info
