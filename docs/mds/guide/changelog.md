@@ -1,3 +1,7 @@
+## 1.0.8 <font size=1>2025-05-04</font>
+
+- 修复 Grids 组件，详见 [Grids](https://stdf.design/components?nav=grids&tab=4)。
+
 ## 1.0.7 <font size=1>2025-04-30</font>
 
 - 修复部分类型错误。
