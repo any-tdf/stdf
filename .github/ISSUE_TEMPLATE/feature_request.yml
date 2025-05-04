@@ -23,6 +23,7 @@ body:
               - create (create-stdf scaffolding)
               - vscode (STDF VS Code plugin)
               - icon (rollup-plugin-stdf-icon plugin)
+              - md (rollup-plugin-md-ts plugin)
               - demo (STDF demo)
               - doc (STDF site and documentation)
               - other (other)

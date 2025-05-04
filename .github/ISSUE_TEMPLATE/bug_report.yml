@@ -23,6 +23,7 @@ body:
               - create (create-stdf scaffolding)
               - vscode (STDF VS Code plugin)
               - icon (rollup-plugin-stdf-icon plugin)
+              - md (rollup-plugin-md-ts plugin)
               - demo (STDF demo)
               - doc (STDF site and documentation)
               - other (other)
@@ -33,7 +34,7 @@ body:
       id: version
       attributes:
           label: Version
-          description: If it is stdf/create/icon/vscode, please indicate the version in which this bug occurred.
+          description: If it is stdf/create/icon/vscode/md, please indicate the version in which this bug occurred.
       validations:
           required: false
 
