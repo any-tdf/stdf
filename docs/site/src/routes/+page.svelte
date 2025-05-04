@@ -120,6 +120,8 @@
 	// slider radius 随机 'none'|'full'|'sm'|'xl'
 	const sliderRadiusList = ['none', 'full', 'sm', 'xl'];
 	const sliderRadius = sliderRadiusList[Math.floor(Math.random() * sliderRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
+	const sliderShowTipList = ['always', 'never', 'touch'];
+	const sliderShowTip = sliderShowTipList[Math.floor(Math.random() * sliderShowTipList.length)] as 'always' | 'never' | 'touch';
 	// 列举 20 个与评分相关的 emoji 表情
 	const emojiList1 = ['love', 'default'];
 	const emojiList2 = ['👍', '👋', '👏', '🌺', '🏆', '🎯', '💯', '🎳', '🎖️'];
@@ -642,7 +644,7 @@
 				<NoticeBar vertical {textList}></NoticeBar>
 			</div>
 			<div class="animate-elementUpDownMove1 absolute inset-1/2 w-64 -translate-y-20 translate-x-32">
-				<Slider value={sliderValue} showTip="always" radius={sliderRadius} />
+				<Slider value={sliderValue} showTip={sliderShowTip} radius={sliderRadius} />
 			</div>
 			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-[390px] translate-y-16 overflow-hidden">
 				<Swiper {...swiperOption} />

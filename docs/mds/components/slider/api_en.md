@@ -9,8 +9,8 @@
 | isRange    | `boolean`                   | `false`   | N        | Whether it's a range selection.     |
 | startValue | `number`                    | `20`      | N        | Start value for range selection.    |
 | endValue   | `number`                    | `60`      | N        | End value for range selection.      |
-| showTip    | `'always'\|'never'\|'touch` | `'touch'` | N        | Tip display mode.                   |
-| radius     | `'none'\|'sm'\|'xl'\|'full` | `'full'`  | N        | Border radius style.                |
+| showTip    | `'always'\|'never'\|'touch'` | `'touch'` | N        | Tip display mode.                   |
+| radius     | `'none'\|'sm'\|'xl'\|'full'` | `'full'`  | N        | Border radius style.                |
 | lineBlock  | `boolean`                   | `false`   | N        | Whether the slider is a line block. |
 | disabled   | `boolean`                   | `false`   | N        | Whether it's disabled.              |
 | readonly   | `boolean`                   | `false`   | N        | Whether it's read-only.             |
