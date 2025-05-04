@@ -11,7 +11,7 @@
 
 <div class="flex flex-col px-2 py-4">
 	<span class="pb-3 text-xs text-gray-500">
-		{isZh ? '最近更新：' : 'Last update:'}
+		{isZh ? '文档更新：' : 'Document last updated:'}
 		<br />
 		{isZh ? import.meta.env.VITE_BUILD_TIME_ZH : import.meta.env.VITE_BUILD_TIME_EN}
 	</span>
