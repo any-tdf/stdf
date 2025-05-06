@@ -117,11 +117,14 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
 
 # Sponsors
 
+<a href="https://github.com/sbscan" target="_blank">
+  <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
+</a>
+<a href="https://github.com/MuGuiLin" target="_blank">
+  <img src="https://avatars.githubusercontent.com/MuGuiLin" width="60" height="auto" style='border-radius:100%' >
+</a>
 <a href="https://github.com/yuedanlabs" target="_blank">
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
-</a>
-<a href="https://github.com/sbscan" target="_blank">
-  <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style='border-radius:100%' >
 </a>
 
 # License
