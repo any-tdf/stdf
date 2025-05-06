@@ -114,7 +114,7 @@ yarn create stdf
 # 贡献者
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=any-tdf/stdf" />
+  <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
 # 赞助者
