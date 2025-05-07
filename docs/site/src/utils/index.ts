@@ -16,7 +16,7 @@ hljs_svelte(hljs);
  * const throttleFunc = throttle(() => console.log(123), 1000)
  */
 export const throttle = <T extends (...args: unknown[]) => void>(func: T, wait: number = 100) => {
-	let timer: null | NodeJS.Timeout = null;
+	let timer: null | ReturnType<typeof setInterval> = null;
 	return function (...args: Parameters<T>) {
 		if (timer) {
 			return;
