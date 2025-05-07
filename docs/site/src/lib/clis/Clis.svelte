@@ -43,7 +43,7 @@
 		type="button"
 		onmouseenter={() => (isHover = true)}
 		onmouseleave={() => (isHover = false)}
-		class="relative inline-flex items-center justify-center rounded-r-lg border border-black/5 bg-black/5 px-4 py-1 transition-all duration-300 dark:border-white/10 dark:bg-white/10"
+		class="relative inline-flex cursor-copy items-center justify-center rounded-r-lg border border-black/5 bg-black/5 px-4 py-1 transition-all duration-300 dark:border-white/10 dark:bg-white/10"
 		onclick={async () => {
 			await navigator.clipboard.writeText(codeGroupSvgData[showCli].cli);
 			isClicked = true;
@@ -52,7 +52,7 @@
 			}, 2000);
 		}}
 	>
-		<code class="cursor-copy text-sm opacity-80">{codeGroupSvgData[showCli].cli}</code>
+		<code class="text-sm opacity-80">{codeGroupSvgData[showCli].cli}</code>
 		<div
 			class="bg-primary dark:bg-dark rounded-xs absolute -top-3 left-1/2 size-3 -translate-x-1/2 rotate-45 transition-all {isHover
 				? '-translate-y-1/2 opacity-100'
