@@ -10,7 +10,7 @@
 	import { menuList, type MenuList } from '../data/menuList';
 	import themes from '../data/themes/index.js';
 	import { switchTheme } from 'stdf/theme';
-
+	import Clis from '../lib/clis/Clis.svelte';
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
 	// 随机生成 1_0 到 1_53 这种字符串
@@ -436,7 +436,7 @@
 <div class="mx-auto max-w-[1536px]">
 	<div class="justify-center lg:flex">
 		<div class="flex basis-2/5 flex-col justify-center py-16 text-center md:py-20">
-			<div class="relative mb-20 mt-16 hidden h-20 flex-col items-center justify-center md:flex md:h-28">
+			<div class="relative mb-20 mt-16 flex h-20 flex-col items-center justify-center md:h-28">
 				<div class="animate-dynamicsBg absolute rounded-full opacity-50 blur-xl md:opacity-100 md:blur-3xl">
 					<svg viewBox="0 0 100 100">
 						<path
@@ -517,12 +517,12 @@
 					</a>
 				{/if}
 			</div>
-			<div class="mb-8 mt-8 flex justify-center gap-4 space-x-8 md:mb-10 md:mt-16">
+			<div class="mb-16 mt-8 flex justify-center gap-8 md:mt-16">
 				<a
 					href="/guide"
 					onmouseenter={() => (showConfetti = true)}
 					onmouseleave={() => (showConfetti = false)}
-					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-4 py-2 text-white transition-all dark:text-black"
+					class="bg-primary hover:bg-primary/80 dark:bg-dark hover:dark:bg-dark/80 group relative rounded-sm px-6 py-2 text-white transition-all dark:text-black"
 				>
 					<div class="group flex items-center gap-2">
 						{isZh ? '开始使用' : 'Get Started'}
@@ -581,6 +581,7 @@
 					{isZh ? '示例' : 'Demo'}
 				</a>
 			</div>
+			<Clis />
 		</div>
 		<div class="relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
 			<div class="animate-elementUpDownMove1 -translate-x-18 absolute inset-1/2 size-20 -translate-y-12">
