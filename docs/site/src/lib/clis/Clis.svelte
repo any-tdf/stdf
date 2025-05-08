@@ -45,11 +45,11 @@
 	onMount(() => {
 		animationFun();
 		window.addEventListener('visibilitychange', () => {
-			if (document.visibilityState === 'hidden') {
+			if (document.visibilityState === 'visible') {
+				animationFun();
+			} else {
 				clearInterval(intervalTime);
 				clearInterval(times);
-			} else {
-				animationFun();
 			}
 		});
 	});
