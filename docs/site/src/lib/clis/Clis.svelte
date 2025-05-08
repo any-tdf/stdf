@@ -26,10 +26,10 @@
 			}
 		}, speed);
 	};
-
-	// 每 3 秒切换一次
-	onMount(() => {
+	// 动画
+	const animationFun = () => {
 		typeWriter(randomCodeGroupSvgData[showCli].cli);
+		// 每 3 秒切换一次
 		intervalTime = setInterval(() => {
 			if (showCli === codeGroupSvgData.length - 1) {
 				showCli = 0;
@@ -41,6 +41,17 @@
 				typeWriter(randomCodeGroupSvgData[showCli].cli);
 			}, 300);
 		}, 6000);
+	};
+	onMount(() => {
+		animationFun();
+		window.addEventListener('visibilitychange', () => {
+			if (document.visibilityState === 'hidden') {
+				clearInterval(intervalTime);
+				clearInterval(times);
+			} else {
+				animationFun();
+			}
+		});
 	});
 	onDestroy(() => {
 		clearInterval(intervalTime);
