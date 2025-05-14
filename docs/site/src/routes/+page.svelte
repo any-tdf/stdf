@@ -753,7 +753,7 @@
 		</div>
 		<div class="intersection flex justify-center">
 			<a href="https://github.com/any-tdf/stdf/graphs/contributors" target="_blank">
-				<img src="https://contrib.rocks/image?repo=any-tdf/stdf" title={isZh ? '贡献者' : 'Contributors'} alt="" />
+				<img src="https://contrib.nn.ci/api?repo=any-tdf/stdf&cols=7" title={isZh ? '贡献者' : 'Contributors'} alt="" />
 			</a>
 		</div>
 	</div>
