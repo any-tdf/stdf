@@ -41,7 +41,7 @@
 
 Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
 
-> **S**imple • **T**hin • **D**esign • **F**ast
+> **S**imple • **T**iny • **D**esign • **F**ast
 
 # Features
 

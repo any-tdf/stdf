@@ -206,7 +206,7 @@
 			shwTip: false
 		},
 		{
-			title: 'Thin',
+			title: 'Tiny',
 			titleZh: '轻量',
 			desc: '体积小，无依赖，适合移动端。',
 			descEn: 'Small size, no deps, for mobile.',

@@ -1,6 +1,6 @@
 ## STDF Name
 
-Generally speaking, S stands for Simple, T stands for Thin, D stands for Design, and F stands for Fast. So, STDF is a simple, lightweight, design-friendly, and fast UI component library.
+Generally speaking, S stands for Simple, T stands for Tiny, D stands for Design, and F stands for Fast. So, STDF is a simple, lightweight, design-friendly, and fast UI component library.
 
 Unconventional explanation: S and T stand for Svelte and Tailwind respectively, because STDF is based on Svelte and Tailwind. DF can be seen as the poet Du Fu, who is not as romantic and elegant as Li Bai. He pays attention to practicality and ease of use, which is also the design concept of STDF. I hope that every developer who uses STDF can write code like a poem.
 
