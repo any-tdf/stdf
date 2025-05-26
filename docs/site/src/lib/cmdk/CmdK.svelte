@@ -236,7 +236,7 @@
 					<input
 						bind:this={cmdKInput}
 						bind:value={cmdKValue}
-						class="focus:ring-b caret-primary dark:caret-dark focus:outline-hidden w-full placeholder:text-black/20 dark:bg-black dark:placeholder:text-white/30"
+						class="caret-primary dark:caret-dark focus:outline-hidden w-full placeholder:text-black/20 dark:bg-black dark:placeholder:text-white/30"
 						type="text"
 						placeholder={isZh ? '请输入组件关键字' : 'Please enter the component keyword'}
 					/>
@@ -343,6 +343,7 @@
 							</button>
 						</div>
 					</div>
+					<div class="h-px bg-black/5 dark:bg-white/10"></div>
 				{/each}
 			</div>
 			<div class="flex gap-4 border-t border-black/10 px-4 py-2 text-xs opacity-60 dark:border-white/10">

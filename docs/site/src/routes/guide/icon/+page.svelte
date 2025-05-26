@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { mdTextToHljs } from '../../../utils/index';
+	import { mdTextToHljs, groupIconMdPlugin } from '../../../utils/index';
 	import { isWideScreenStore } from '../../../store';
 
 	// @ts-ignore
@@ -8,7 +8,7 @@
 	import text_en from '../../../../../mds/guide/icon_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
-	const hljsText = mdTextToHljs((isZh ? text : text_en).replace(/<a href="/g, '<a target="_blank" href="'));
+	const hljsText = groupIconMdPlugin(mdTextToHljs((isZh ? text : text_en).replace(/<a href="/g, '<a target="_blank" href="')));
 </script>
 
 <article

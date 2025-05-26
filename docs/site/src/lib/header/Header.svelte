@@ -147,7 +147,10 @@
 							{isZh ? '更新日志' : 'Changelog'}
 						</a>
 						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
-						<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
+						<div class="flex flex-col space-y-2">
+							<a href="https://1.0.stdf.design" target="_blank" class="hover:underline">Version 1.0.x </a>
+							<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
+						</div>
 					</div>
 				{/if}
 			</div>
