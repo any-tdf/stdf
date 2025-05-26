@@ -5,7 +5,7 @@
 
 	let {
 		textList = [],
-		leftIcon = {},
+		leftIcon = 'volume',
 		rightIcon = 'close',
 		fontSize = 'sm',
 		space = 100,
@@ -126,17 +126,24 @@
 			? ''
 			: ` ${injClass}`}"
 	>
-		<div class={!leftIcon ? '' : 'mr-1'}>
+		<div class={leftIcon ? 'mr-1' : ''}>
 			{#if leftChild}
 				{@render leftChild()}
-			{:else if !leftIcon}{:else}
-				<Icon name="ri-volume-down-line" size={20} top={-1} {...leftIcon} />
-			{/if}
+			{:else if leftIcon === 'volume'}
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-current">
+					<path
+						d="M13 7.22056L9.60282 10.0001H6V14.0001H9.60282L13 16.7796V7.22056ZM8.88889 16.0001H5C4.44772 16.0001 4 15.5524 4 15.0001V9.00007C4 8.44778 4.44772 8.00007 5 8.00007H8.88889L14.1834 3.66821C14.3971 3.49335 14.7121 3.52485 14.887 3.73857C14.9601 3.8279 15 3.93977 15 4.05519V19.9449C15 20.2211 14.7761 20.4449 14.5 20.4449C14.3846 20.4449 14.2727 20.405 14.1834 20.3319L8.88889 16.0001ZM18.8631 16.5911L17.4411 15.1691C18.3892 14.4376 19 13.2902 19 12.0001C19 10.5697 18.2493 9.31476 17.1203 8.60766L18.5589 7.16906C20.0396 8.26166 21 10.0187 21 12.0001C21 13.8422 20.1698 15.4905 18.8631 16.5911Z"
+					>
+					</path>
+				</svg>
+			{:else if leftIcon}
+				<Icon {...leftIcon} />
+			{:else}{/if}
 		</div>
 		{#if vertical}
 			<div class="grow" bind:this={outBoxDom}>
 				<div class="relative overflow-hidden" style="height:{outBoxHeight}px;">
-					{#each textListVertical as item, i}
+					{#each textListVertical as item, i (i)}
 						<div
 							class="absolute truncate{isTransition ? ' transition-all' : ' transition-none'}{durationClass[duration] ||
 								durationClass['500']}"
@@ -150,7 +157,7 @@
 		{:else}
 			<div class="relative grow overflow-hidden" bind:this={outBoxDom}>
 				<div class="absolute whitespace-nowrap" style="left:{left}px" bind:this={boxDom}>
-					{#each newTextList as item}
+					{#each newTextList as item, i (i)}
 						<div class="inline-block" style="margin-right:{space}px">{item}</div>
 					{/each}
 				</div>
@@ -160,9 +167,17 @@
 			{#if rightChild}
 				{@render rightChild()}
 			{:else if !rightIcon}{:else if rightIcon === 'close'}
-				<Icon name="ri-close-line" size={20} top={-1} />
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="mx-auto block fill-current">
+					<path
+						d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+					>
+					</path>
+				</svg>
 			{:else if rightIcon === 'arrow'}
-				<Icon name="ri-arrow-right-s-line" size={20} top={-1} />
+				<svg xmlns="http://www.w3.org/2000/svg" class="fill-current" width="20" height="20" viewBox="0 0 24 24">
+					<path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"
+					></path>
+				</svg>
 			{/if}
 		</button>
 	</div>

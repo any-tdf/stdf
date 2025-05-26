@@ -34,7 +34,7 @@
 		></div>
 	{/if}
 	<div class="flex justify-between">
-		{#each labels as label, i}
+		{#each labels as label, i (i)}
 			<button
 				onclick={() => clickFun(i)}
 				class="flex flex-1 flex-col items-center justify-center py-1 text-center active:opacity-80 {i === active
@@ -48,15 +48,14 @@
 								{...label.icon}
 								name={label.activeIcon ? label.activeIcon.name : label.icon.name}
 								size={i === active
-									? label.activeIcon?.size !== 'full' && label.activeIcon?.size
+									? label.activeIcon?.size
 										? label.activeIcon.size * (love ? 1.2 : 1)
-										: label.icon.size !== 'full' && label.icon.size
+										: label.icon.size
 											? label.icon.size * (love ? 1.2 : 1)
 											: undefined
-									: label.icon.size !== 'full' && label.icon.size
+									: label.icon.size
 										? label.icon.size * (love ? 1.2 : 1)
 										: undefined}
-								top={0}
 							/>
 						</i>
 						<i class:hidden={i === active}>
@@ -64,15 +63,14 @@
 								{...label.icon}
 								name={label.icon.name}
 								size={i === active
-									? label.activeIcon?.size !== 'full' && label.activeIcon?.size
+									? label.activeIcon?.size
 										? label.activeIcon.size * (love ? 1.2 : 1)
-										: label.icon.size !== 'full' && label.icon.size
+										: label.icon.size
 											? label.icon.size * (love ? 1.2 : 1)
 											: undefined
-									: label.icon.size !== 'full' && label.icon.size
+									: label.icon.size
 										? label.icon.size * (love ? 1.2 : 1)
 										: undefined}
-								top={0}
 							/>
 						</i>
 					</div>

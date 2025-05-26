@@ -19,6 +19,7 @@
 		customWidth = 0,
 		customHeight = 0,
 		icon = null,
+		iconPosition = 'left',
 		loading = null,
 		disabledLoading = true,
 		type = 'button',
@@ -93,9 +94,12 @@
 		{#if loading}
 			<Loading {...loading} />
 		{/if}
-		{#if icon && icon.name}
+		{#if icon && icon.name && iconPosition === 'left'}
 			<Icon {...icon} />
 		{/if}
 		{@render children?.()}
+		{#if icon && icon.name && iconPosition === 'right'}
+			<Icon {...icon} />
+		{/if}
 	</button>
 </div>

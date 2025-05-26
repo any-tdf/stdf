@@ -1,3 +1,7 @@
+## 1.1.0
+
+- [!tag|B|3|] 修复 Avatars 边框为 3 时的样式以适配 Tailwind 4。
+
 ## 0.5.1
 
 - [!tag|B|3|]修复未传入 altSizeObj 时的默认值问题。

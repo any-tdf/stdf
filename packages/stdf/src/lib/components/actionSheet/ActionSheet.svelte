@@ -80,7 +80,7 @@
 		</div>
 	{/if}
 	<div>
-		{#each actions as item, index}
+		{#each actions as item, index (index)}
 			<button
 				class="{item.style !== 'disabled'
 					? 'active:scale-90 '

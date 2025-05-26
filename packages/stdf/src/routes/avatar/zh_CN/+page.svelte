@@ -1,12 +1,13 @@
 <!-- Avatar Demo -->
 <script lang="ts">
 	import { Avatar, Avatars, Divider, Icon } from '$lib/index.js';
+	import type { IconProps } from '$lib/types/index.js';
 
-	const icons = [
-		{ name: 'ri-aliens-fill', theme: true, top: -1, size: 16 },
-		{ name: 'ri-user-smile-line', top: -1 },
-		{ name: 'ri-shield-user-line', theme: true, top: 0, size: 32 },
-		{ name: 'ri-emotion-line', theme: true, top: -1, size: 46 }
+	const icons: IconProps[] = [
+		{ name: 'ri-aliens-fill', theme: true, y: -1, size: 16 },
+		{ name: 'ri-emotion-line', theme: true, y: -1, size: 46 },
+		{ name: 'ri-shield-user-line', theme: true, y: 0, size: 32 },
+		{ type: 'iconify', name: 'solar--user-hands-line-duotone', theme: true, size: 28 }
 	];
 
 	const imgNames = [
@@ -71,7 +72,7 @@
 
 	<div class="font-bold">替换 Icon</div>
 	<div class="mb-8 mt-4 flex justify-between">
-		{#each icons as icon}
+		{#each icons as icon (icon.name)}
 			<Avatar {icon} />
 		{/each}
 	</div>
@@ -127,8 +128,8 @@
 	<div class="mb-2 mt-6 font-bold">自定义顶层</div>
 	<Avatars {data}>
 		{#snippet top()}
-			<button class="relative flex h-12 w-12 justify-center overflow-hidden rounded-full bg-primary-200 dark:bg-dark-200">
-				<div class="flex h-full w-full items-center justify-center text-primary-950 dark:text-dark-950">
+			<button class="bg-primary-200 dark:bg-dark-200 relative flex h-12 w-12 justify-center overflow-hidden rounded-full">
+				<div class="text-primary-950 dark:text-dark-950 flex h-full w-full items-center justify-center">
 					<Icon name="ri-svelte-line" />
 				</div>
 			</button>

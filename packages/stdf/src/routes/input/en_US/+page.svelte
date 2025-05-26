@@ -117,70 +117,70 @@
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Icon</div>
-<Input title="Password" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="Password" type="password" label1={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 <Input
 	title="Username"
-	label1={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-	label3={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-arrow-down-s-line', size: 16, opacity: 0.5 }}
+	label3={{ name: 'ri-shield-user-line', size: 16, opacity: 0.5 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Text</div>
 <Input title="Account" label2="Account" />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Icon and Text</div>
-<Input title="Password" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} label2="Password" />
+<Input title="Password" type="password" label1={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} label2="Password" />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Text and Icon</div>
-<Input title="Password" type="password" label2="Password" label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="Password" type="password" label2="Password" label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Icon, Text, Icon</div>
 <Input
 	title="Password"
 	type="password"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="Password"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Right Icon</div>
-<Input title="ID Card" label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }} />
+<Input title="ID Card" label4={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }} />
 <Input
 	title="Username"
-	label4={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-	label6={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-arrow-down-s-line', size: 16, opacity: 0.5 }}
+	label6={{ name: 'ri-shield-user-line', size: 16, opacity: 0.5 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Right Text</div>
 <Input title="Amount" type="number" label5="Yuan" />
 
 <div class="px-4 pt-8 text-xl font-bold">Right Icon and Text</div>
-<Input title="Password" type="password" label4={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} label5="Password" />
+<Input title="Password" type="password" label4={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} label5="Password" />
 
 <div class="px-4 pt-8 text-xl font-bold">Right Text and Icon</div>
-<Input title="Password" type="password" label5="Password" label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="Password" type="password" label5="Password" label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 
 <div class="px-4 pt-8 text-xl font-bold">Right Icon, Text, Icon</div>
 <Input
 	title="Password"
 	type="password"
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="Password"
-	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Left Text and Right Icon</div>
-<Input label2="ID Card" label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }} placeholder="Please enter ID card number" />
+<Input label2="ID Card" label6={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }} placeholder="Please enter ID card number" />
 
 <div class="px-4 pt-8 text-xl font-bold">All Six Items</div>
 <Input
 	title="Password"
 	type="password"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="Password"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="Password"
-	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">Tips and Data Items</div>
@@ -195,12 +195,12 @@
 <Input
 	title="Title"
 	placeholder="Please enter text"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="Label 2"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="Label 5"
-	label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5, y: -2 }}
 	data1="Data item 1"
 	data2="Data item 2"
 	data3="Data item 3"
@@ -263,7 +263,7 @@
 	title="ID Card"
 	placeholder={placeholderIdCard}
 	bind:value={IdCard}
-	label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }}
 	onclickLabel4={clickLabel4Fun}
 	clear
 />

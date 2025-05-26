@@ -97,7 +97,7 @@
 			isTouch = true;
 		}}
 	>
-		{#each newData as item}
+		{#each newData as item, index (index)}
 			<div class="{alignClass[align] || alignClass.center} flex snap-center flex-col justify-center px-2" style="height:{itemHeight}rem;">
 				<div class="truncate">{item[labelKey]}</div>
 			</div>

@@ -209,10 +209,10 @@
 					<div class="flex justify-center">
 						<Switch radius="full">
 							{#snippet falseChild()}
-								<div><Icon name="ri-bluetooth-line" size={12} top={-1} /></div>
+								<div><Icon name="ri-bluetooth-line" size={12} y={-1} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div><Icon name="ri-bluetooth-connect-line" size={12} theme top={-1} /></div>
+								<div><Icon name="ri-bluetooth-connect-line" size={12} theme y={-1} /></div>
 							{/snippet}
 						</Switch>
 					</div>

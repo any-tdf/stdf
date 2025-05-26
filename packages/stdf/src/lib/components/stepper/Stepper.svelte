@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Icon from '../icon/Icon.svelte';
 	import Loading from '../loading/Loading.svelte';
 	import type { StepperProps } from '../../types/index.js';
 
@@ -71,7 +70,15 @@
 		aria-label="decrease"
 	>
 		<span class={async || value === min ? 'opacity-20' : ''}>
-			<Icon name="ri-subtract-line" theme={theme && (numberHighlight ? false : true)} />
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="24"
+				height="24"
+				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : ''}
+			>
+				<path d="M5 11V13H19V11H5Z"></path>
+			</svg>
 		</span>
 	</button>
 
@@ -103,7 +110,15 @@
 		disabled={async || value === max}
 	>
 		<span class={async || value === max ? 'opacity-20' : ''}>
-			<Icon name="ri-add-line" theme={theme && (numberHighlight ? false : true)} />
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				width="24"
+				height="24"
+				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : ''}
+			>
+				<path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+			</svg>
 		</span>
 	</button>
 </div>

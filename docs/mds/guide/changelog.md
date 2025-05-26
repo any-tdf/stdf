@@ -1,3 +1,10 @@
+## 1.1.0 <font size=1>2025-05-26</font>
+
+- 增强 Button 组件，详见 [Button](https://stdf.design/components?nav=button&tab=4)。
+- 增强 Icon 组件，支持 Iconify，组件内置 svg，详见 [指南 - 图标](https://stdf.design/guide/icon) 和 [Icon](https://stdf.design/components?nav=icon&tab=4)。
+- 修复 Avatar 组件，详见 [Avatar](https://stdf.design/components?nav=avatar&tab=4)。
+- 优化 NoticeBar 组件，详见 [NoticeBar](https://stdf.design/components?nav=noticeBar&tab=4)。
+
 ## 1.0.8 <font size=1>2025-05-04</font>
 
 - 修复 Grids 组件，详见 [Grids](https://stdf.design/components?nav=grids&tab=4)。

@@ -110,70 +110,70 @@
 <Input title="动态改变状态色" type="tel" placeholder="请输入11位手机号" maxlength={11} state={mobileState} onchange={changeStateFun} />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带图标</div>
-<Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 <Input
 	title="用户名"
-	label1={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-	label3={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-arrow-down-s-line', size: 16, opacity: 0.5 }}
+	label3={{ name: 'ri-shield-user-line', size: 16, opacity: 0.5 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带文字</div>
 <Input title="账号" label2="账号" />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带图标与文字</div>
-<Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} label2="密码" />
+<Input title="密码" type="password" label1={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} label2="密码" />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带文字与图标</div>
-<Input title="密码" type="password" label2="密码" label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="密码" type="password" label2="密码" label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带图标、文字、图标</div>
 <Input
 	title="密码"
 	type="password"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="密码"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">右侧带图标</div>
-<Input title="身份证号" label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }} />
+<Input title="身份证号" label4={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }} />
 <Input
 	title="用户名"
-	label4={{ name: 'ri-arrow-down-s-line', size: 16, alpha: 0.5 }}
-	label6={{ name: 'ri-shield-user-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-arrow-down-s-line', size: 16, opacity: 0.5 }}
+	label6={{ name: 'ri-shield-user-line', size: 16, opacity: 0.5 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">右侧带文字</div>
 <Input title="金额" type="number" label5="元" />
 
 <div class="px-4 pt-8 text-xl font-bold">右侧带图标与文字</div>
-<Input title="密码" type="password" label4={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} label5="密码" />
+<Input title="密码" type="password" label4={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} label5="密码" />
 
 <div class="px-4 pt-8 text-xl font-bold">右侧带文字与图标</div>
-<Input title="密码" type="password" label5="密码" label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }} />
+<Input title="密码" type="password" label5="密码" label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }} />
 
 <div class="px-4 pt-8 text-xl font-bold">右侧带图标、文字、图标</div>
 <Input
 	title="密码"
 	type="password"
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="密码"
-	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">左侧带文字右侧带图标</div>
-<Input label2="身份证号" label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }} placeholder="请输入身份证号" />
+<Input label2="身份证号" label6={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }} placeholder="请输入身份证号" />
 
 <div class="px-4 pt-8 text-xl font-bold">左右六项全带</div>
 <Input
 	title="密码"
 	type="password"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="密码"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="密码"
-	label6={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
 />
 
 <div class="px-4 pt-8 text-xl font-bold">提示信息与数据项组合</div>
@@ -188,12 +188,12 @@
 <Input
 	title="标题"
 	placeholder="请输入文本"
-	label1={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label1={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label2="标签 2"
-	label3={{ name: 'ri-lock-line', size: 16, alpha: 0.5 }}
-	label4={{ name: 'ri-bank-line', size: 16, alpha: 0.5 }}
+	label3={{ name: 'ri-lock-line', size: 16, opacity: 0.5, y: -2 }}
+	label4={{ name: 'ri-bank-line', size: 16, opacity: 0.5, y: -2 }}
 	label5="标签 5"
-	label6={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	label6={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5, y: -2 }}
 	data1="数据项 1"
 	data2="数据项 2"
 	data3="数据项 3"
@@ -249,7 +249,7 @@
 	title="身份证号"
 	placeholder={placeholderIdCard}
 	bind:value={IdCard}
-	label4={{ name: 'ri-qr-scan-line', size: 16, alpha: 0.5 }}
+	label4={{ name: 'ri-qr-scan-line', size: 16, opacity: 0.5 }}
 	onclickLabel4={clickLabel4Fun}
 	clear
 />

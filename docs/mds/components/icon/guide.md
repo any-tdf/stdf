@@ -1,36 +1,20 @@
-## 背景
+> 从 v1.1.0 开始，STDF 支持 [Iconify](https://iconify.design) 方式使用图标。
 
-STDF 使用 SVG Sprites 技术使用图标，这样可以减少 HTTP 请求，提高页面性能。
+## 使用方式
 
-STDF 的 SVG Sprites 是使用 [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol)，大致原理类似于 CSS 中的 Sprite 技术，将项目中的 SVG 拼接在一个文件内，通过 SVG 中的 use 元素找到对应的图标来显示。
-
-你可以把它类比看成是一种字体，只不过这种字体是由 SVG 组成的，而且可以通过 CSS 控制颜色、大小等属性。所以如果用到比较大或者有多种颜色等比较复杂的图标，建议单独引入 SVG 文件使用，不要放在 symbol 中。
-
-兼容性方面也完全没问题。参考 [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility)。
-
-## rollup-plugin-stdf-icon
-
-STDF 已经开发了一个 Rollup/Vite 插件，用于将项目中的 SVG 文件合并成 SVG Sprites，具体使用请参考 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon)，由于 svg 格式的多样性，可能存在 rollup-plugin-stdf-icon 处理不准确的情况，请到 [GitHub](https://github.com/any-tdf/stdf/issues) 提 issue，注明 svg 文件的具体情况。
-
-或使用其他 SVG Sprites 合成工具或手动合成，也可以请设计师提供设计物料时一并提供对应的 SVG Sprites。或类似 Remix Icon 这样的图标库，可以直接将选定的多个图标下载为 SVG Sprites。
-
-## 内置说明
-
-STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixicon.com)（[GitHub](https://github.com/Remix-Design/remixicon)），在此表示感谢 🙏🏻🙏🏻。
-
-**如果使用这些组件，请确保项目的 symbol.svg 中包含了对应图标。**
-
-具体请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
-可到 `node_modules/stdf/assets/svg_base/` 查看这些图标的 SVG 源文件。
+参考 [Icon](https://stdf.design/guide/icon)。
 
 ## 图标名称
 
-当传入 Snippet 时表示图标内部使用传入的元素渲染，其他字符如 'ri-home-line' 使用 symbol.svg 中对应的 SVG 图标渲染。
+当传入 Snippet 时表示图标内部使用传入的元素渲染，其他字符如 'ri-home-line' 使用 symbol.svg 中对应的 SVG 图标渲染；当使用 iconify 时，name 为 Iconify 的规则图标名称，如 'solar--cat-broken'。
 
 ## 图标颜色
 
-如果 theme 不传或传入 false，图标颜色将继承自父级文字颜色，传入 true 图标颜色会根据主题色变化（包含亮暗模式）；如果要实现自定义颜色，而颜色又同时包含亮暗模式，建议使用 CSS 注入或 Snippet 渲染，在 injClass 或 Snippet 中分别配置亮暗模式，请查看示例。
+如果 theme 不传或传入 false，图标颜色将继承自父级文字颜色，传入 true 图标颜色会根据主题色变化（包含亮暗模式）；如果要实现自定义颜色，可以使用 `iconify-color`，或者使用 CSS 注入或 Snippet 渲染，在 injClass 或 Snippet 中分别配置亮暗模式，请查看示例。
+
+## 图标大小
+
+图标默认大小为 24px，当传入 width 或 height 时，图标会根据传入的值设置宽高，否则使用 size 属性设置宽高，即 `size` 属性优先级低于 `width` 和 `height`。
 
 ## 颜色优先级
 
@@ -42,7 +26,7 @@ STDF 部分组件内使用的图标源自 [Remix Icon 图标库](https://remixic
 
 ## CSS 注入
 
-通过 injClass 参数可以向组件内部最外层元素注入 CSS 名称（不仅限于 Tailwind CSS），这将使组件样式有更多自定义可能性。因为 CSS 注入于最后，此时最外层元素若已有同属性 CSS 将会以 injClass 为准，这也是通过 injClass 实现自定义图标颜色的原因。
+通过 injClass 参数可以向组件内部外层元素注入 CSS 名称（不仅限于 Tailwind CSS），这将使组件样式有更多自定义可能性。因为 CSS 注入于最后，此时最外层元素若已有同属性 CSS 将会以 injClass 为准，这也是通过 injClass 实现自定义图标颜色的原因。
 
 ## Snippet
 

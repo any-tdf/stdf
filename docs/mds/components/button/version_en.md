@@ -1,3 +1,7 @@
+## 1.1.0
+
+- [!tag|A|0|] Added `iconPosition` property, support setting icon position.
+
 ## 1.0.4
 
 - [!tag|A|0|] Added `type` property [PR#43](https://github.com/any-tdf/stdf/pull/43), related [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#type). [!contribute|arithefirst|]

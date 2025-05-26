@@ -24,7 +24,7 @@
 		<Cell title="开关带文字" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="开关全圆角" right={{ type: 'switch', switch: { radius: 'full' } }} />
 		<Cell title="仅点击开关触发" clickAll={false} right={{ type: 'switch' }} />
-		<Cell title="左侧使用 Icon 组件" left={{ name: 'ri-bank-line', size: 20, theme: true, top: -2 }} />
+		<Cell title="左侧使用 Icon 组件" left={{ name: 'ri-bank-line', size: 20, theme: true }} />
 		<Cell title="右侧使用 Icon 组件" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, theme: true } }} />
 		<Cell title="左侧自定义图片">
 			{#snippet leftChild()}

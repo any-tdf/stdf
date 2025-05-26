@@ -132,10 +132,10 @@
 </script>
 
 <div bind:this={bodyDom} class="overflow-y-auto {scrollAlign && 'snap-y'}" onscroll={scrollBody} style="height:{height}px;">
-	{#each data as group, index}
+	{#each data as group, index (index)}
 		<div class="snap-start px-4 pt-8" bind:clientHeight={group.height}>
 			<div class="text-primary dark:text-dark text-sm {titleInjClass}">{group.title}</div>
-			{#each group.child as child, childIndex}
+			{#each group.child as child, childIndex (childIndex)}
 				<button class="w-full py-2 text-left {textInjClass}" onclick={() => onclickChild && onclickChild(index, group, childIndex, child)}>
 					{child}
 				</button>
@@ -155,7 +155,7 @@
 	] || radiusObj.middle}"
 	style="top:{top + (height - barHeight) / 2}px;min-height:{height / 4}px;"
 >
-	{#each data as group, i}
+	{#each data as group, i (i)}
 		<div class="relative flex flex-1 flex-col justify-center">
 			<div
 				class="h-5 w-5 text-center text-xs leading-5 transition-all {current === i

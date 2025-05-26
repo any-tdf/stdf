@@ -37,9 +37,9 @@
 <NoticeBar fontSize="lg" {textList}></NoticeBar>
 
 <div class="m-4 mt-8 text-lg font-bold">Custom left</div>
-<NoticeBar leftIcon={{ name: 'ri-notification-2-line', size: 16, top: -1 }} {textList}></NoticeBar>
+<NoticeBar leftIcon={{ name: 'ri-notification-2-line', size: 16, y: -1 }} {textList}></NoticeBar>
 <div class="my-4"></div>
-<NoticeBar leftIcon={{ name: 'ri-wireless-charging-line', size: 16, top: -1 }} {textList}></NoticeBar>
+<NoticeBar leftIcon={{ name: 'ri-wireless-charging-line', size: 16, y: -1 }} {textList}></NoticeBar>
 <div class="my-4"></div>
 <NoticeBar {textList}>
 	{#snippet leftChild()}🥳{/snippet}
@@ -68,7 +68,7 @@
 <div class="m-4 mt-8 text-lg font-bold">Custom style</div>
 <NoticeBar injClass="!text-error !bg-error/10" {textList}></NoticeBar>
 <div class="my-4"></div>
-<NoticeBar leftIcon={{ name: 'ri-check-line', size: 16, top: -1 }} injClass="!text-success !bg-success/10" {textList}></NoticeBar>
+<NoticeBar leftIcon={{ name: 'ri-check-line', size: 16, y: -1 }} injClass="!text-success !bg-success/10" {textList}></NoticeBar>
 <div class="my-4"></div>
 <NoticeBar injClass="!text-extend0 !bg-extend0/10" {textList}></NoticeBar>
 <div class="pb-8"></div>

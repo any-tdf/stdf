@@ -270,10 +270,10 @@
 	<div class="flex items-center justify-between border-b border-black/10 bg-white dark:border-white/20 dark:bg-black">
 		<button class="h-10 cursor-pointer px-4 leading-10 text-black/60 dark:text-white/60" onclick={clickCancelFunc}>{cancelText}</button>
 		<div>{title}</div>
-		<button class="h-10 cursor-pointer px-4 leading-10 text-primary dark:text-dark" onclick={clickConfirmFunc}>{confirmText}</button>
+		<button class="text-primary dark:text-dark h-10 cursor-pointer px-4 leading-10" onclick={clickConfirmFunc}>{confirmText}</button>
 	</div>
 	<div class="flex items-center justify-around gap-1 bg-white dark:bg-black">
-		{#each newDatas as item, col}
+		{#each newDatas as item, col (col)}
 			<div class="truncate" style="flex:{item.flex || 1}">
 				{#if (item as PickerDatasProps).data.length > 0}
 					<ScrollRadio

@@ -53,7 +53,7 @@
 	<NavBar injClass="!bg-transparent" line={false}>
 		{#snippet leftChild()}
 			<div class="m-2 h-8 w-8 rounded-full bg-white text-center leading-8 dark:bg-black/50">
-				<Icon name="ri-home-7-line" size={18} top={-2} />
+				<Icon name="ri-home-7-line" size={18} y={-2} />
 			</div>
 		{/snippet}
 		{#snippet titleChild()}
@@ -61,7 +61,7 @@
 		{/snippet}
 		{#snippet rightChild()}
 			<div class="m-2 h-8 w-8 rounded-full bg-white text-center leading-8 dark:bg-black/50">
-				<Icon name="ri-customer-service-2-line" size={18} top={-2} />
+				<Icon name="ri-customer-service-2-line" size={18} y={-2} />
 			</div>
 		{/snippet}
 	</NavBar>

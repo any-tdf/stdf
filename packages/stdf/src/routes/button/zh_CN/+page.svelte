@@ -47,7 +47,7 @@
 		<Button size="auto">AUTO</Button>
 		<Button size="auto">
 			<div class="px-1">
-				<Icon name="ri-plane-fill" size={20} top={-2} />
+				<Icon name="ri-plane-fill" size={20} />
 			</div>
 		</Button>
 	</div>
@@ -64,16 +64,16 @@
 			<Button customSize customWidth={40} customHeight={40}>一</Button>
 			<Button customSize customWidth={40} customHeight={40} radius="none">致</Button>
 			<Button fill="lineTheme" customSize customWidth={40} customHeight={40}>
-				<Icon name="ri-plane-fill" size={20} top={-2} />
+				<Icon name="ri-plane-fill" size={20} />
 			</Button>
 			<Button radius="full" fill="lineTheme" customSize customWidth={40} customHeight={40}>
-				<Icon name="ri-plane-fill" size={20} top={-2} />
+				<Icon name="ri-plane-fill" size={20} />
 			</Button>
 			<Button radius="full" line="dashed" fill="lineTheme" customSize customWidth={40} customHeight={40}>
-				<Icon name="ri-plane-fill" size={20} top={-2} />
+				<Icon name="ri-plane-fill" size={20} />
 			</Button>
 			<Button radius="full" customSize customWidth={24} customHeight={24} heightIn="0">
-				<Icon name="ri-plane-fill" size={12} top={-2} />
+				<Icon name="ri-plane-fill" size={12} />
 			</Button>
 		</div>
 	</div>
@@ -84,8 +84,6 @@
 	</div>
 	<div>
 		<div class="p-4 font-bold">带图标</div>
-		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18, top: -2 }}>投掷二向箔</Button>
-		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16, top: -2 }}>启动面壁计划</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带加载（默认禁用）</div>
@@ -96,11 +94,11 @@
 	<div>
 		<div class="p-4 font-bold">带图标（通过 Snippet 传入）</div>
 		<Button>
-			<Icon name="ri-share-forward-2-fill" size={18} top={-2} />
+			<Icon name="ri-share-forward-2-fill" size={18} />
 			投掷二向箔
 		</Button>
 		<Button fill="lineTheme">
-			<Icon name="ri-mic-off-fill" size={16} top={-2} />
+			<Icon name="ri-mic-off-fill" size={16} />
 			启动面壁计划
 		</Button>
 	</div>
@@ -117,7 +115,7 @@
 		<div class="p-4 font-bold">关爱版</div>
 		<Button love>关爱版按钮</Button>
 		<Button love fill="lineTheme">
-			<Icon name="ri-hand-heart-line" size={22} top={-2} />
+			<Icon name="ri-hand-heart-line" size={22} />
 			关爱版按钮
 		</Button>
 	</div>
@@ -133,16 +131,16 @@
 		<div class="p-4 font-bold">按钮组</div>
 		<Button fill="lineTheme" heightIn="0" group>
 			<div class="flex w-full">
-				<button class="flex-1 border-r border-primary py-2 active:opacity-80 dark:border-dark">
-					<Icon name="ri-apps-2-line" size={18} top={-2} />
+				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
+					<Icon name="ri-apps-2-line" size={18} y={-2} />
 					应用
 				</button>
-				<button class="flex-1 border-r border-primary py-2 active:opacity-80 dark:border-dark">
-					<Icon name="ri-star-line" size={18} top={-2} />
+				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
+					<Icon name="ri-star-line" size={18} y={-2} />
 					收藏
 				</button>
 				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} top={-2} />
+					<Icon name="ri-share-forward-line" size={18} y={-2} />
 					分享
 				</button>
 			</div>
@@ -150,15 +148,15 @@
 		<Button radius="full" heightIn="0" group>
 			<div class="flex w-full">
 				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-apps-2-line" size={18} top={-2} />
+					<Icon name="ri-apps-2-line" size={18} y={-2} />
 					应用
 				</button>
 				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-star-line" size={18} top={-2} />
+					<Icon name="ri-star-line" size={18} y={-2} />
 					收藏
 				</button>
 				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} top={-2} />
+					<Icon name="ri-share-forward-line" size={18} y={-2} />
 					分享
 				</button>
 			</div>

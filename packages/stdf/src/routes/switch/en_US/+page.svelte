@@ -64,12 +64,12 @@
 				<Switch>
 					{#snippet falseChild()}
 						<div>
-							<Icon name="ri-moon-line" size={16} top={-1} />
+							<Icon name="ri-moon-line" size={16} y={-1} />
 						</div>
 					{/snippet}
 					{#snippet trueChild()}
 						<div>
-							<Icon name="ri-sun-line" size={16} top={-1} />
+							<Icon name="ri-sun-line" size={16} y={-1} />
 						</div>
 					{/snippet}
 				</Switch>

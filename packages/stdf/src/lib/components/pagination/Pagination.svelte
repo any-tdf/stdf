@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import Icon from '../icon/Icon.svelte';
 	import Page from './Page.svelte';
 	import SecondPageNext from './SecondPageNext.svelte';
 	import SecondPagePre from './SecondPagePre.svelte';
@@ -200,10 +199,14 @@
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current > 1
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} active:scale-75"
+			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} {current > 1 ? 'active:scale-75' : ''}"
+		disabled={current === 1}
 		onclick={preFunc}
+		aria-label="pre"
 	>
-		<Icon name="ri-arrow-left-s-line" size={18} />
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="mx-auto block fill-current">
+			<path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
+		</svg>
 	</button>
 	{#if totalPage === 0}
 		<div class="flex-1 border border-transparent py-2">{noDataText}</div>
@@ -211,7 +214,7 @@
 		<div class="flex-1 border border-transparent py-2">{onePageText}</div>
 	{:else if totalPage > 1 && totalPage <= maxShowPage}
 		<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-		{#each new Array(totalPage) as _, index}
+		{#each new Array(totalPage) as _, index (index)}
 			<Page active={current === index + 1} {type} {radius} onclick={() => !continuous && clickItemFunc(index + 1)}>
 				{index + 1}
 			</Page>
@@ -226,22 +229,32 @@
 				onclick={() => !continuous && clickPreEllipsisFunc()}
 			>
 				{#if type === 'bold' && showPreOmitPage}
-					<Icon name="ri-more-fill" size={18} />
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-current">
+						<path
+							d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+						>
+						</path>
+					</svg>
 				{:else}
-					<Icon name="ri-more-line" size={18} />
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block">
+						<path
+							d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"
+						>
+						</path>
+					</svg>
 				{/if}
 			</button>
 		{/if}
 		{#if !showPreEllipsis && current <= maxShowPage - 1}
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			{#each new Array(maxShowPage - 3) as _, index}
+			{#each new Array(maxShowPage - 3) as _, index (index)}
 				<Page active={current === index + 2} {type} {radius} onclick={() => !continuous && clickItemFunc(index + 2)}>
 					{index + 2}
 				</Page>
 			{/each}
 		{/if}
 		{#if middleShowPage.length > 0}
-			{#each middleShowPage as item, index}
+			{#each middleShowPage as item, index (item)}
 				<Page active={index === (middleShowPage.length - 1) / 2} {type} {radius} onclick={() => !continuous && clickItemFunc(item)}>
 					{item}
 				</Page>
@@ -249,7 +262,7 @@
 		{/if}
 		{#if !showNextEllipsis && current > totalPage - (maxShowPage - 3)}
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			{#each new Array(maxShowPage - 3) as _, index}
+			{#each new Array(maxShowPage - 3) as _, index (index)}
 				<Page
 					active={current === totalPage + index + 3 - maxShowPage}
 					{type}
@@ -268,9 +281,19 @@
 				onclick={() => !continuous && clickNextEllipsisFunc()}
 			>
 				{#if type === 'bold' && showNextOmitPage}
-					<Icon name="ri-more-fill" size={18} />
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-current">
+						<path
+							d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+						>
+						</path>
+					</svg>
 				{:else}
-					<Icon name="ri-more-line" size={18} />
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block">
+						<path
+							d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"
+						>
+						</path>
+					</svg>
 				{/if}
 			</button>
 		{/if}
@@ -279,10 +302,14 @@
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current < totalPage
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} active:scale-75"
+			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} {current < totalPage ? 'active:scale-75' : ''}"
+		disabled={current === totalPage}
 		onclick={nextFunc}
+		aria-label="next"
 	>
-		<Icon name="ri-arrow-right-s-line" size={20} />
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="mx-auto block fill-current" viewBox="0 0 24 24">
+			<path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"> </path>
+		</svg>
 	</button>
 	{#if showNextOmitPage}
 		<SecondPageNext {pageCol} Pages={nextEllipsisPages} {type} {radius} onclickItem={clickSecondPageItemFunc} {maxShowPage} />

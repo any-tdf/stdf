@@ -41,8 +41,10 @@
 	{#if leftChild}
 		{@render leftChild()}
 	{:else if left === 'back'}
-		<button class="min-w-[3rem] text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()}>
-			<Icon name="ri-arrow-left-s-line" size={iconSize} top={-2} />
+		<button class="min-w-[3rem] text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()} aria-label="back">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={iconSize} height={iconSize} class="mx-auto block fill-current">
+				<path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
+			</svg>
 		</button>
 	{:else if left === null}
 		<div class="h-full w-4"></div>
@@ -62,7 +64,7 @@
 		{#if rightChild}
 			{@render rightChild()}
 		{:else if rights.length > 0}
-			{#each rights as icon, i}
+			{#each rights as icon, i (icon.name)}
 				<button class="w-12 text-center active:opacity-80" onclick={() => onclickRight && onclickRight(i)}>
 					<Icon {...icon} size={iconSize} />
 				</button>

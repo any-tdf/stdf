@@ -18,7 +18,7 @@
 		style="width: calc({(pageCol / (maxShowPage + 2)) * 100}% + 8px);right:{(2.5 / (maxShowPage + 2)) *
 			100}%;grid-template-columns: repeat({pageCol}, minmax(0, 1fr));"
 	>
-		{#each Pages as item}
+		{#each Pages as item, index (index)}
 			<Page onclick={() => onclickItem && onclickItem(item)} {type} {radius}>{item}</Page>
 		{/each}
 	</div>

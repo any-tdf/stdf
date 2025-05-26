@@ -123,6 +123,7 @@ export type ButtonProps = {
 	customWidth?: number;
 	customHeight?: number;
 	icon?: IconProps | null;
+	iconPosition?: 'left' | 'right';
 	loading?: LoadingProps | null;
 	disabledLoading?: boolean;
 	type?: 'submit' | 'reset' | 'button';
@@ -264,12 +265,15 @@ export type GridsProps = {
 };
 
 export type IconProps = {
+	type?: 'symbol' | 'iconify' | 'iconify-color';
 	name?: string;
-	size?: number | 'full';
+	size?: number;
+	width?: number;
+	height?: number;
 	theme?: boolean;
-	alpha?: number;
+	opacity?: number;
 	path?: string;
-	top?: number;
+	y?: number;
 	injClass?: string;
 	children?: Snippet;
 	onclick?: () => void;
@@ -405,7 +409,7 @@ export type NavBarProps = {
 
 export type NoticeBarProps = {
 	textList: string[];
-	leftIcon?: IconProps | null;
+	leftIcon?: IconProps | null | 'volume';
 	rightIcon?: 'close' | 'arrow' | null;
 	fontSize?: 'xs' | 'sm' | 'base' | 'lg';
 	space?: number;

@@ -130,7 +130,7 @@
 					<Icon
 						name={imgChecked === item.name ? 'ri-arrow-up-s-fill' : 'ri-arrow-up-s-line'}
 						theme={imgChecked === item.name}
-						alpha={imgChecked === item.name ? 1 : 0.2}
+						opacity={imgChecked === item.name ? 1 : 0.2}
 					/>
 				</div>
 			</div>
@@ -186,12 +186,12 @@
 					<Icon
 						name={voiceChecked === item.name ? 'ri-radio-button-line' : 'ri-checkbox-blank-circle-line'}
 						theme={voiceChecked === item.name}
-						alpha={voiceChecked === item.name ? 1 : 0.2}
+						opacity={voiceChecked === item.name ? 1 : 0.2}
 					/>
 				</div>
 				<div class="ml-2 grow {voiceChecked === item.name ? 'text-primary dark:text-dark' : ''}">
 					{item.label}
-					{#each item.voices as string[] as voice}
+					{#each item.voices as string[] as voice (voice)}
 						<div class="text-xs">{voice}</div>
 					{/each}
 					<div class="mt-1 h-px bg-black/10 dark:bg-white/10"></div>

@@ -15,7 +15,7 @@
 
 {#if vertical}
 	<div class="flex flex-col justify-between">
-		{#each steps as item, i}
+		{#each steps as item, i (item.step.title)}
 			<div class="relative flex items-center py-3" use:getClientHeight>
 				{#if item.step?.bar || item.finishStep?.bar}
 					<div class="my-4 mr-10 pl-4">
@@ -36,14 +36,14 @@
 							{#if item.step?.bar?.type === 'icon' || item.finishStep?.bar?.type === 'icon'}
 								<div class="m-auto h-4 w-4">
 									<Icon
-										{...item.step?.bar?.type === 'icon' ? item.step?.bar : {}}
+										{...item.step?.bar?.type === 'icon' ? item.step?.bar?.content : {}}
+										{...item.finishStep && i < current && item.finishStep?.bar?.type === 'icon' ? item.finishStep?.bar?.content : {}}
 										name={item.finishStep && i < current && item.finishStep?.bar?.type === 'icon'
 											? item.finishStep?.bar?.content?.name
 											: item.step?.bar?.type === 'icon'
 												? item.step?.bar?.content?.name
 												: ''}
 										size={16}
-										top={0}
 									/>
 								</div>
 							{/if}
@@ -113,7 +113,7 @@
 	</div>
 {:else}
 	<div class="mt-4 flex justify-between" bind:clientWidth={width}>
-		{#each steps as item, i}
+		{#each steps as item, i (item.step.title)}
 			<div class="flex flex-1 flex-col items-center space-y-2">
 				{#if item.step?.bar || item.finishStep?.bar}
 					<div class="relative w-full pb-8">
@@ -134,14 +134,14 @@
 							{#if item.step?.bar?.type === 'icon' || item.finishStep?.bar?.type === 'icon'}
 								<div class="m-auto h-4 w-4">
 									<Icon
-										{...item.step?.bar?.type === 'icon' ? item.step?.bar : {}}
+										{...item.step?.bar?.type === 'icon' ? item.step?.bar?.content : {}}
+										{...item.finishStep && i < current && item.finishStep?.bar?.type === 'icon' ? item.finishStep?.bar?.content : {}}
 										name={item.finishStep && i < current && item.finishStep?.bar?.type === 'icon'
 											? item.finishStep?.bar?.content?.name
 											: item.step?.bar?.type === 'icon'
 												? item.step?.bar?.content?.name
 												: ''}
 										size={16}
-										top={0}
 									/>
 								</div>
 							{/if}

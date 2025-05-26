@@ -123,7 +123,16 @@
 				{@render rightChild?.()}
 			{:else if right === 'arrow'}
 				<div class="flex flex-col justify-center text-gray-700 dark:text-gray-300">
-					<Icon name="ri-arrow-right-s-line" size={love ? 26 : 20} alpha={0.6} top={-2} />
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						class="fill-current opacity-60"
+						width={love ? 26 : 20}
+						height={love ? 26 : 20}
+					>
+						<path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"
+						></path>
+					</svg>
 				</div>
 			{:else if typeof right === 'object' && right?.type === 'switch'}
 				<div class="ml-1 flex flex-col justify-center">

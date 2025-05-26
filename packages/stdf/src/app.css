@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@plugin "@iconify/tailwind4" {
+	prefixes: material-symbols, solar, carbon, fluent-color;
+}
+
 @theme {
 	--color-primary-50: oklch(0.979 0.01 267.36);
 	--color-primary-100: oklch(0.95 0.024 270.343);

@@ -12,10 +12,10 @@
 		{ icon: { name: 'ri-car-line', theme: true, size: 20 } }
 	];
 	const labels2: TabLabelProps[] = [
-		{ text: 'aircraft', icon: { name: 'ri-plane-line', theme: true, size: 16, top: -1 } },
-		{ text: 'steamer', icon: { name: 'ri-ship-2-line', theme: true, size: 16, top: -1 } },
-		{ text: 'train', icon: { name: 'ri-train-line', theme: true, size: 16, top: -1 } },
-		{ text: 'car', icon: { name: 'ri-car-line', theme: true, size: 16, top: -1 } }
+		{ text: 'aircraft', icon: { name: 'ri-plane-line', theme: true, size: 16, y: -1 } },
+		{ text: 'steamer', icon: { name: 'ri-ship-2-line', theme: true, size: 16, y: -1 } },
+		{ text: 'train', icon: { name: 'ri-train-line', theme: true, size: 16, y: -1 } },
+		{ text: 'car', icon: { name: 'ri-car-line', theme: true, size: 16, y: -1 } }
 	];
 	const overflowLabels: TabLabelProps[] = [
 		{ text: 'aircraft' },
@@ -117,7 +117,7 @@
 		<Tabs tab={{ labels }} transition={false}>
 			{#snippet children({ active })}
 				<div class="relative py-8">
-					{#each labels as item, i}
+					{#each labels as item, i (item.text)}
 						{#if active === i}
 							<div class="absolute" in:fly={{ y: -80, x: (width / 4) * i, duration: 1000 }}>I am {item.text}</div>
 						{/if}
@@ -139,12 +139,12 @@
 
 		<div class="px-4 font-bold">Overflow mode</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>I am {item.text}</TabContent>
 			{/each}
 		</Tabs>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, lineType: true }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>I am {item.text}</TabContent>
 			{/each}
 		</Tabs>
@@ -152,7 +152,7 @@
 
 		<div class="px-4 font-bold">Overflow mode closes automatic scrolling</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, autoScroll: false }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>I am {item.text}</TabContent>
 			{/each}
 		</Tabs>
@@ -160,7 +160,7 @@
 
 		<div class="px-4 font-bold">Overflow mode shows 2 items</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 2 }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>I am {item.text}</TabContent>
 			{/each}
 		</Tabs>

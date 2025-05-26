@@ -1,6 +1,6 @@
 {
 	"name": "stdf",
-	"version": "1.0.8",
+	"version": "1.1.0",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
@@ -147,6 +147,11 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
+		"@iconify-json/carbon": "^1.2.8",
+		"@iconify-json/fluent-color": "^1.2.12",
+		"@iconify-json/material-symbols": "^1.2.21",
+		"@iconify-json/solar": "^1.2.2",
+		"@iconify/tailwind4": "^1.0.6",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.19.0",
 		"@sveltejs/package": "^2.3.10",

@@ -1,3 +1,10 @@
+## 1.1.0 <font size=1>2025-05-26</font>
+
+- Enhanced Button component, please see [Button](https://stdf.design/components?nav=button&tab=4).
+- Enhanced Icon component, support Iconify, built-in svg, please see [Guide - Icon](https://stdf.design/guide/icon) and [Icon](https://stdf.design/components?nav=icon&tab=4).
+- Fixed Avatar component, please see [Avatar](https://stdf.design/components?nav=avatar&tab=4).
+- Optimized NoticeBar component, please see [NoticeBar](https://stdf.design/components?nav=noticeBar&tab=4).
+
 ## 1.0.8 <font size=1>2025-05-04</font>
 
 - Fixed Grids component, please see [Grids](https://stdf.design/components?nav=grids&tab=4).

@@ -422,7 +422,7 @@
 	<div class="relative overflow-hidden" style="width:{width}px;height:{(width * aspectRatio[1]) / aspectRatio[0]}px;perspective:{width}px;">
 		<!-- 通过循环 dataNew 渲染多个 item -->
 		<!-- Render multiple item through loop dataNew -->
-		{#each dataNew as item, i}
+		{#each dataNew as item, i (i)}
 			<div
 				class="absolute {pxObj[px] || ''} {pyObj[py] || ''} {translateXTransition ? 'transition-all' : 'transition-none'} {i === active
 					? activeInjClass
@@ -460,7 +460,7 @@
 			] || indicateAlignObj.center}"
 		>
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			{#each data as _, i}
+			{#each data as _, i (i)}
 				<div
 					class="{indicateStyleInnerFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
 						'rounded-full'} transition-all"
@@ -488,7 +488,7 @@
 		class="flex w-full space-x-2 px-4 py-3 {indicateAlignObj[indicateAlign] || indicateAlignObj.center} {indicateInjClass}"
 	>
 		<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-		{#each data as _, i}
+		{#each data as _, i (i)}
 			<div
 				class="{indicateStyleOutFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
 					'rounded-full'} transition-all"

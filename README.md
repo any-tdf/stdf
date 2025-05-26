@@ -56,7 +56,7 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 - 🫡 No third-party dependencies — no need to worry about library versions or security issues.
 - 📦 Supports on-demand import to reduce bundle size.
 - 🪜 Comes with a scaffolding tool for quick project creation.
-- 🔗 Comes with an SVG merging plugin for quickly merging SVG files.
+- 🔗 Comes with an SVG merging plugin for quickly merging SVG files, support Iconify.
 - 🍺 IDE plugin for quickly viewing component APIs.
 
 # Getting Started

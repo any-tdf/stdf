@@ -91,7 +91,7 @@
 			style="width: {ofActiveW}px;height: {lineType ? 2 : ofActiveH}px;left: {ofActiveLeft}px;"
 		></div>
 		<div class="relative flex whitespace-nowrap" style="width: {itemW * labels.length + 2}px;">
-			{#each labels as label, i}
+			{#each labels as label, i (i)}
 				<button
 					class="flex shrink-0 justify-center overflow-hidden py-1 font-medium {love ? 'text-lg' : 'text-sm'} leading-6 {radiusObj[
 						radius
@@ -131,7 +131,7 @@
 			style="width: {activeW}px;height: {lineType && layout !== 'v' ? 2 : activeH}px;left: {activeLeft}px;top: {activeTop}px"
 		></div>
 		<div class="relative {layout === 'h' ? 'flex justify-between' : 'whitespace-nowrap px-4'}">
-			{#each labels as label, i}
+			{#each labels as label, i (i)}
 				<button
 					class="flex flex-1 justify-center {layout === 'h' ? 'py-1' : 'py-2'} overflow-hidden font-medium {love
 						? 'text-lg'

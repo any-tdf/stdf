@@ -136,7 +136,7 @@
 			<div class="h-8 flex-none text-center text-sm leading-8 text-black/60 dark:text-white/60">
 				{selectedText}
 			</div>
-			{#each items as item}
+			{#each items as item, index (index)}
 				{#if !isLoading}
 					<div
 						in:fly|global={{ x: document.documentElement.clientWidth, duration: 500 }}

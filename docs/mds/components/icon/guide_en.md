@@ -1,62 +1,46 @@
-## Background
+> Starting from v1.1.0, STDF supports using icons via [Iconify](https://iconify.design).
 
-STDF uses SVG Sprites technology for icons, which reduces HTTP requests and improves page performance.
+## Usage
 
-STDF's SVG Sprites uses [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), with a principle similar to CSS Sprite technology - combining project SVG files into one file and displaying icons through the SVG use element.
-
-You can think of it as a font, except it's composed of SVGs and can be styled with CSS properties like color and size. For large or complex icons with multiple colors, it's recommended to import SVG files separately rather than including them in the symbol.
-
-Browser compatibility is not an issue. See [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
-
-## rollup-plugin-stdf-icon
-
-STDF has developed a Rollup/Vite plugin to merge SVG files into SVG Sprites. For usage details, see [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon). Due to SVG format variations, if you encounter any issues with rollup-plugin-stdf-icon processing, please submit an issue on [GitHub](https://github.com/any-tdf/stdf/issues) with specific SVG file details.
-
-You can also use other SVG Sprites generation tools, manual compilation, or request SVG Sprites from designers along with design assets. Icon libraries like Remix Icon allow direct download of selected icons as SVG Sprites.
-
-## Built-in Icons
-
-Some STDF components use icons from [Remix Icon](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). We express our gratitude 🙏🏻🙏🏻.
-
-**When using these components, ensure your project's symbol.svg includes the corresponding icons.**
-
-For details, refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
-You can find SVG source files in `node_modules/stdf/assets/svg_base/`.
+Refer to [Icon](https://stdf.design/guide/icon).
 
 ## Icon Names
 
-When a Snippet is passed, the icon renders using the passed element. Other strings like 'ri-home-line' render the corresponding SVG icon from symbol.svg.
+When a Snippet is passed, it indicates that the icon internally uses the passed element for rendering. Other strings like 'ri-home-line' use the corresponding SVG icon in symbol.svg for rendering. When using iconify, the name follows Iconify's icon naming convention, such as 'solar--cat-broken'.
 
 ## Icon Colors
 
-Without theme prop or when set to false, icons inherit parent text color. When true, icons follow theme colors (including light/dark modes). For custom colors with light/dark mode support, use CSS injection or Snippet rendering with injClass or Snippet configured for both modes. See examples.
+If theme is not passed or set to false, the icon color will inherit from the parent text color. When set to true, the icon color will change according to the theme color (including light and dark modes). To implement custom colors, you can use `iconify-color`, or use CSS injection or Snippet rendering, configuring light and dark modes separately in injClass or Snippet. Please refer to the examples.
+
+## Icon Size
+
+The default icon size is 24px. When width or height is passed, the icon will set the width and height according to the passed value. Otherwise, the width and height are set using the size property, i.e., the `size` property has lower priority than `width` and `height`.
 
 ## Color Priority
 
 Color priority: Snippet > injClass > theme > default.
 
-## Vertical Offset
+## Offset
 
-European and West Asian typography has a baseline, while East Asian text doesn't. See [MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/baseline). Due to differences in system fonts, icons may misalign with text. Use the offset to fine-tune alignment or balance visual weight of icons.
+European and West Asian typography has a baseline, while East Asian text does not have a baseline. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Glossary/baseline). However, due to differences in various systems and fonts, icons and text may not align vertically when arranged together. This can be fine-tuned through offset. Or some icons may need offset during layout to maintain visual balance due to differences in visual center of gravity.
 
 ## CSS Injection
 
-The injClass parameter injects CSS classes (not limited to Tailwind CSS) into the component's outer element, enabling more style customization. Since CSS injection occurs last, any existing CSS properties on the outer element will be overridden by injClass, which enables custom icon colors.
+Through the injClass parameter, you can inject CSS class names (not limited to Tailwind CSS) into the outer element inside the component, which provides more customization possibilities for component styles. Since CSS injection happens last, if the outermost element already has CSS properties of the same type, injClass will take precedence, which is also why custom icon colors can be implemented through injClass.
 
 ## Snippet
 
-Can contain any element (even Icon component itself), primarily used for custom icons or colors. When placing custom SVGs in Icon component, note the relationships between SVG viewBox, height, width, and display property. Icon content depends on the passed element, and Props like name, size, theme become ineffective. Snippets enable more customization possibilities for component content.
+You can place any element (even the Icon component itself), mainly used for custom icons or custom icon colors, such as placing custom SVG into the Icon component. Please note the relationship between SVG's viewBox, height, width and the display property. At this point, the icon content depends on the passed element, and parameters like name, size, theme in Props will all become ineffective. Using Snippet provides more customization possibilities for component content.
 
-## Global Injection Icon SVG Path
+## Global Icon SVG Path Injection
 
-STDF Icon component uses SVG file path configuration, which is suitable for a one-time configuration of the global SVG symbol path or the application being deployed on a non-root server path. Usually, the Context is configured in the entry of the application, such as `App.svelte` or `+layout.svelte`, for example:
+STDF Icon component uses SVG file path configuration, suitable for one-time global SVG symbol path configuration, or when the application is deployed on a server non-root path. Generally configured in the application entry such as `App.svelte` or `+layout.svelte` using Context, for example:
 
 ```svelte
 <!-- App.svelte/+layout.svelte -->
 <script>
 	import { setContext } from 'svelte'; // Import setContext
 
-	setContext('STDF-global-icon-svg-path', 'webapps/svelte_demo/fonts/symbol.svg'); // Set the SVG file path
+	setContext('STDF-global-icon-svg-path', 'webapps/svelte_demo/fonts/symbol.svg'); // Set svg file path
 </script>
 ```

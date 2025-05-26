@@ -20,7 +20,7 @@
 </script>
 
 <div class={layout === 'inline' ? 'flex flex-wrap' : `flex ${layout === 'h' ? 'justify-between' : 'w-full flex-col space-y-2'}`}>
-	{#each data as item}
+	{#each data as item, index (index)}
 		{#if checkboxChild}
 			{@render checkboxChild({ item })}
 		{:else}

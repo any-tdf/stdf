@@ -24,7 +24,7 @@
 		<Cell title="Switch with Text" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="Rounded Switch" right={{ type: 'switch', switch: { radius: 'full' } }} />
 		<Cell title="Switch Only" clickAll={false} right={{ type: 'switch' }} />
-		<Cell title="Left Icon" left={{ name: 'ri-bank-line', size: 20, theme: true, top: -2 }} />
+		<Cell title="Left Icon" left={{ name: 'ri-bank-line', size: 20, theme: true }} />
 		<Cell title="Right Icon" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, theme: true } }} />
 		<Cell title="Left Image">
 			{#snippet leftChild()}

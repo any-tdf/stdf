@@ -12,10 +12,10 @@
 		{ icon: { name: 'ri-car-line', theme: true, size: 20 } }
 	];
 	const labels2: TabLabelProps[] = [
-		{ text: '飞机', icon: { name: 'ri-plane-line', theme: true, size: 16, top: -1 } },
-		{ text: '轮船', icon: { name: 'ri-ship-2-line', theme: true, size: 16, top: -1 } },
-		{ text: '火车', icon: { name: 'ri-train-line', theme: true, size: 16, top: -1 } },
-		{ text: '汽车', icon: { name: 'ri-car-line', theme: true, size: 16, top: -1 } }
+		{ text: '飞机', icon: { name: 'ri-plane-line', theme: true, size: 16, y: -1 } },
+		{ text: '轮船', icon: { name: 'ri-ship-2-line', theme: true, size: 16, y: -1 } },
+		{ text: '火车', icon: { name: 'ri-train-line', theme: true, size: 16, y: -1 } },
+		{ text: '汽车', icon: { name: 'ri-car-line', theme: true, size: 16, y: -1 } }
 	];
 	const overflowLabels: TabLabelProps[] = [
 		{ text: '飞机' },
@@ -117,7 +117,7 @@
 		<Tabs tab={{ labels }} transition={false}>
 			{#snippet children({ active })}
 				<div class="relative py-8">
-					{#each labels as item, i}
+					{#each labels as item, i (item.text)}
 						{#if active === i}
 							<div class="absolute" in:fly={{ y: -80, x: (width / 4) * i, duration: 1000 }}>我是{item.text}</div>
 						{/if}
@@ -139,12 +139,12 @@
 
 		<div class="px-4 font-bold">溢出模式</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>我是{item.text}</TabContent>
 			{/each}
 		</Tabs>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, lineType: true }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>我是{item.text}</TabContent>
 			{/each}
 		</Tabs>
@@ -152,7 +152,7 @@
 
 		<div class="px-4 font-bold">溢出模式关闭自动滚动</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, autoScroll: false }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>我是{item.text}</TabContent>
 			{/each}
 		</Tabs>
@@ -160,7 +160,7 @@
 
 		<div class="px-4 font-bold">溢出模式完整显示 2 项</div>
 		<Tabs tab={{ labels: overflowLabels, overflow: true, showNum: 2 }}>
-			{#each overflowLabels as item}
+			{#each overflowLabels as item (item.text)}
 				<TabContent>我是{item.text}</TabContent>
 			{/each}
 		</Tabs>

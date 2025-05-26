@@ -1,3 +1,7 @@
+## 1.1.0
+
+- [!tag|B|3|] Fix the style of Avatars when the border is 3 to adapt to Tailwind 4.
+
 ## 0.5.1
 
 - [!tag|B|3|] Fix the problem of default values when altSizeObj is not passed in.

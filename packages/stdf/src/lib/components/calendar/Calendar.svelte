@@ -304,7 +304,7 @@
 		<div class="sticky left-0 top-0 z-10 w-full bg-gray-50 dark:bg-gray-800">
 			{#if quickSelects.length > 0 && mode === 'range'}
 				<div class="calendar-container flex flex-nowrap gap-4 overflow-x-auto px-4 pb-1 pt-2">
-					{#each quickSelects as item}
+					{#each quickSelects as item, index (index)}
 						<button
 							class="flex-none rounded-sm bg-white px-2 py-1 text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 							class:!bg-primary={isQuickSelect && quickSelectItem === item}
@@ -331,7 +331,7 @@
 				</div>
 			{/if}
 			<div class="flex h-10 items-center justify-around gap-1 px-6 text-center leading-10">
-				{#each weekTexts as item, index}
+				{#each weekTexts as item, index (index)}
 					<div class="flex-1 font-bold{weekendRed && isWeekendFunc(startSunday, index) ? ' text-error' : ''}">
 						{item}
 					</div>
@@ -345,7 +345,7 @@
 			style="height:{(window.innerHeight * height) / 100}px"
 			bind:this={scrollElement}
 		>
-			{#each allMonthData as item}
+			{#each allMonthData as item, index (index)}
 				<div
 					class="{monthCard ? `bg-white shadow-md dark:bg-black dark:shadow-white/5 ${radiusClass[radius] || 'rounded-xl'}` : ''} relative"
 				>
@@ -356,7 +356,7 @@
 						{item.year}
 					</div>
 					<div class="grid grid-cols-7 gap-y-1 p-2 text-center">
-						{#each item.days as day}
+						{#each item.days as day, index (index)}
 							<button
 								class="p-px{day.text ? ' bg-primary/10 dark:bg-dark/20' : ''}"
 								onclick={() => {

@@ -1,55 +1,115 @@
-## Background
+> Starting from v1.1.0, STDF supports using icons via [Iconify](https://iconify.design).
 
-STDF uses SVG Sprites technology for icons, which helps reduce HTTP requests and improve page performance.
+## SVG Sprites
 
-STDF's SVG Sprites use [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), which is similar to CSS Sprite technique. It combines SVG files in the project into a single file and uses the `<use>` element in SVG to display the corresponding icons.
+The STDF icon component's `type` defaults to `symbol`, which uses SVG Sprites technology to display icons. This reduces HTTP requests and improves page performance.
 
-You can think of it as a type of font, except that it is composed of SVG and can be styled using CSS properties such as color and size. Therefore, for larger or more complex icons with multiple colors, it is recommended to use individual SVG files instead of placing them in the symbol.
+STDF's SVG Sprites use [SVG symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol). The principle is similar to CSS Sprite technology, where SVG files in the project are concatenated into a single file, and the corresponding icon is displayed through the use element in SVG.
 
-Compatibility is not an issue. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility) for more information.
+You can think of it as a font, except this font is composed of SVG and can be controlled for color, size, and other properties through CSS. Therefore, if you need to use large or complex icons with multiple colors, it's recommended to import SVG files separately rather than putting them in symbols.
 
-## rollup-plugin-stdf-icon
+Compatibility is also completely fine. Refer to [MDN symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol#browser_compatibility).
 
-STDF has developed a Rollup/Vite plugin called rollup-plugin-stdf-icon, which combines SVG files in the project into SVG Sprites. Please refer to [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) for specific usage. Due to the diversity of SVG formats, there may be cases where rollup-plugin-stdf-icon does not handle them accurately. In such cases, please raise an issue on [GitHub](https://github.com/any-tdf/stdf/issues) and provide details about the SVG file.
+STDF has developed a Rollup/Vite plugin for merging SVG files in projects into SVG Sprites. For specific usage, please refer to [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon). Due to the diversity of SVG formats, there may be cases where rollup-plugin-stdf-icon doesn't process accurately. Please submit an issue on [GitHub](https://github.com/any-tdf/stdf/issues) with specific details about the SVG file.
 
-Alternatively, you can use other SVG Sprites synthesis tools or manually combine them. You can also ask the designer to provide the corresponding SVG Sprites along with the design materials.Or, for icon libraries like Remix Icon, you can directly download a selection of multiple icons as SVG Sprites.
+Alternatively, you can use other SVG Sprites synthesis tools or manual synthesis, or ask designers to provide corresponding SVG Sprites along with design materials. Or use icon libraries like [Remix Icon](https://remixicon.com), which allows you to directly download multiple selected icons as SVG Sprites.
 
-## Built-in Icons
+## Iconify
 
-Some of the icons used in STDF components are sourced from [Remix Icon Library](https://remixicon.com) ([GitHub](https://github.com/Remix-Design/remixicon)). Many thanks to them! 🙏🏻🙏🏻
+STDF can also use icons via [Iconify](https://iconify.design) by setting `type` to `iconify` or `iconify-color`.
 
-**If you are using these components, please make sure that the `symbol.svg` file in your project includes the corresponding icons.**
+Iconify has many usage methods. STDF chooses the Tailwind 4 plugin approach, which has minimal code intrusion. Refer to [Iconify for Tailwind CSS](https://iconify.design/docs/usage/css/tailwind/tailwind4). The usage in STDF is as follows:
 
-Here are the icons and their corresponding components:
+1. Install the Tailwind 4 plugin
 
-| Icon Name                     | Component        |
-| ----------------------------- | ---------------- |
-| ri-user-3-line                | Avatar           |
-| ri-user-add-line              | Avatars          |
-| ri-arrow-right-s-line         | Cell / NoticeBar |
-| ri-checkbox-fill              | Checkbox         |
-| ri-checkbox-line              | Checkbox         |
-| ri-close-circle-fill          | Input            |
-| ri-arrow-left-s-line          | NavBar           |
-| ri-volume-down-line           | NoticeBar        |
-| ri-close-line                 | NoticeBar        |
-| ri-delete-back-2-line         | NumKeyboard      |
-| ri-skip-down-line             | NumKeyboard      |
-| ri-more-line                  | Pagination       |
-| ri-more-fill                  | Pagination       |
-| ri-radio-button-line          | Radio            |
-| ri-checkbox-blank-circle-line | Radio            |
-| ri-star-fill                  | Rate             |
-| ri-image-2-fill               | Skeleton         |
-| ri-movie-2-fill               | Skeleton         |
-| ri-code-box-fill              | Skeleton         |
-| ri-qr-code-fill               | Skeleton         |
-| ri-barcode-fill               | Skeleton         |
-| ri-add-line                   | Stepper          |
-| ri-subtract-line              | Stepper          |
-| ri-checkbox-circle-line       | Toast            |
-| ri-close-circle-line          | Toast            |
-| ri-error-warning-line         | Toast            |
-| ri-information-line           | Toast            |
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm i -D @iconify/tailwind4
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i -D @iconify/tailwind4
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun i -D @iconify/tailwind4
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add @iconify/tailwind4
+```
+<!-- ::: -->
 
-You can find the SVG source files for these icons in `node_modules/stdf/dist/assets/svg_base/`.
+2. Install the required open-source icon libraries
+
+> Installing `@iconify/json` is strongly discouraged as the full icon library has a very large size.
+
+Install icon libraries on demand. For example, use the following commands to install Solar and Carbon icon libraries:
+
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm i -D @iconify-json/solar
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i -D @iconify-json/solar
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun i -D @iconify-json/solar
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add @iconify-json/solar
+```
+<!-- ::: -->
+
+<!-- :::code-groups -->
+<!-- pnpm -->
+```sh
+pnpm i -D @iconify-json/carbon
+```
+<!-- :: -->
+<!-- npm -->
+```sh
+npm i -D @iconify-json/carbon
+```
+<!-- :: -->
+<!-- bun -->
+```sh
+bun i -D @iconify-json/carbon
+```
+<!-- :: -->
+<!-- yarn -->
+```sh
+yarn add @iconify-json/carbon
+```
+<!-- ::: -->
+
+3. Configure the plugin in your project's entry CSS file and set the icon library prefixes you need to use. Refer to [Clean selectors](https://iconify.design/docs/usage/css/tailwind/tailwind4/#clean-selectors).
+
+```css
+@plugin "@iconify/tailwind4" {
+	prefixes: solar, carbon;
+}
+```
+
+4. Use icons in components
+
+```svelte
+<Icon type="iconify" name="solar--cat-broken" />
+```
+
+The difference between using `iconify` and `iconify-color` is that `iconify` renders icons as mask images, where the icon color is the text color. Therefore, like using `symbol`, you can set the `theme` property to control the icon to follow the theme color, or set text color to customize the color. This is generally used for monochrome icons. While `iconify-color` renders icons as background images, you cannot set the `theme` property or customize colors with text color. This is generally used for multi-color icons, such as fluent-color icon libraries. Refer to [extra-class-name](https://iconify.design/docs/usage/css/tailwind/tailwind4/#extra-class-name).
+
+## When to choose the symbol approach?
+
+When the icons you use are designed by your team, or are not in iconify's open-source icon libraries, or you want to maintain icons manually, or the icons are already SVG Sprites, it's recommended to use the SVG Sprites approach.

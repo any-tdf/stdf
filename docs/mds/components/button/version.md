@@ -13,6 +13,10 @@
 -   [!tag|A|0|] 新增。
  -->
 
+## 1.1.0
+
+- [!tag|A|0|] 新增 `iconPosition` 属性，支持设置图标位置。
+
 ## 1.0.4
 
 - [!tag|A|0|] 新增 `type` 属性 [PR#43](https://github.com/any-tdf/stdf/pull/43)，相关 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/button#type)。[!contribute|arithefirst|]

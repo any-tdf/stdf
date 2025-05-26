@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import Icon from '../icon/Icon.svelte';
 	import type { RateProps } from '../../types/index.js';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 
@@ -154,7 +153,7 @@
 
 <div class="inset-0 inline-flex flex-wrap{spaceObj[space] || spaceObj['4']}{disabled ? ' opacity-50' : ''}">
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-	{#each new Array(Math.floor(total)) as _, index}
+	{#each new Array(Math.floor(total)) as _, index (index)}
 		<button
 			class="flex flex-wrap transition-all{disabled ? ' cursor-not-allowed' : ' cursor-pointer'}{animation === 'active'
 				? clickIndex >= index && isScale
@@ -168,7 +167,7 @@
 			style="height:{height}px;width:{width}px;"
 			onclick={() => clickFun(index)}
 		>
-			{#each [0, 1, 2, 3] as i}
+			{#each [0, 1, 2, 3] as i (i)}
 				<div
 					class="overflow-hidden{isActiveFun(index, value, half, vertical, i) ? '' : ` grayscale${opacityObj[opacity] || ' opacity-30'}`}"
 					style="height:{height / 2}px;width:{width / 2}px;"
@@ -177,7 +176,12 @@
 						{#if children}
 							{@render children?.()}
 						{:else}
-							<Icon name="ri-star-fill" theme size={height} top={height < 24 ? height - 24 : 0} />
+							<svg xmlns="http://www.w3.org/2000/svg" width={height} {height} viewBox="0 0 24 24" class="fill-primary dark:fill-dark">
+								<path
+									d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"
+								>
+								</path>
+							</svg>
 						{/if}
 					</div>
 				</div>

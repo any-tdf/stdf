@@ -3,7 +3,6 @@
 	import { fly } from 'svelte/transition';
 	import { throttleWithRAF } from '../utils/index.js';
 	import Mask from '../mask/Mask.svelte';
-	import Icon from '../icon/Icon.svelte';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 	import type { BottomSheetProps } from '../../types/index.js';
 
@@ -272,8 +271,17 @@
 						<button
 							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={backFunc}
+							aria-label="back"
 						>
-							<Icon name="ri-arrow-left-s-line" alpha={0.4} size={16} top={-2} />
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								width="16"
+								height="16"
+								class="mx-auto block fill-current opacity-40"
+							>
+								<path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
+							</svg>
 						</button>
 					{/if}
 					<div class="h-7 truncate text-lg font-bold grow{titleAlignClass[titleAlign] || titleAlignClass['left']}">
@@ -285,15 +293,37 @@
 						<button
 							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={closeFunc}
+							aria-label="close"
 						>
-							<Icon name="ri-close-line" alpha={0.4} size={14} top={-2} />
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								width="16"
+								height="16"
+								class="mx-auto block fill-current opacity-40"
+							>
+								<path
+									d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+								>
+								</path>
+							</svg>
 						</button>
 					{:else if closeContent === 'downIcon'}
 						<button
 							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
 							onclick={closeFunc}
+							aria-label="close"
 						>
-							<Icon name="ri-arrow-down-s-line" alpha={0.4} size={16} top={-1} />
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								width="16"
+								height="16"
+								class="mx-auto block fill-current opacity-40"
+							>
+								<path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z">
+								</path>
+							</svg>
 						</button>
 					{:else}
 						<button class="text-primary dark:text-dark cursor-pointer font-bold" onclick={closeFunc}>{closeContent}</button>

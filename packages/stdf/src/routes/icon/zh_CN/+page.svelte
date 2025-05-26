@@ -3,13 +3,31 @@
 	import { Icon } from '$lib/index.js';
 
 	const icons = ['ri-spy-fill', 'ri-chrome-fill', 'ri-riding-line', 'ri-switch-fill'];
+	const msIcons = [
+		{ name: 'material-symbols--agriculture' },
+		{ name: 'material-symbols--brightness-5', theme: true },
+		{ name: 'material-symbols--cardiology-outline', opacity: 0.5 },
+		{ name: 'material-symbols--e911-avatar-rounded', size: 36 }
+	];
+	const solarIcons = [
+		{ name: 'solar--cat-broken' },
+		{ name: 'solar--chair-2-line-duotone', theme: true },
+		{ name: 'solar--bonfire-line-duotone', opacity: 0.5 },
+		{ name: 'solar--cup-hot-broken', size: 36 }
+	];
+	const fcIcons = [
+		{ name: 'fluent-color--building-store-24' },
+		{ name: 'fluent-color--slide-text-sparkle-16' },
+		{ name: 'fluent-color--chart-multiple-24', opacity: 0.5 },
+		{ name: 'fluent-color--bot-sparkle-24', size: 36 }
+	];
 </script>
 
 <div class="felx felx-col space-y-12 px-4 py-8">
 	<div>
 		<div class="mb-2 text-xl font-bold">基础用法</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon}
+			{#each icons as icon (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon name={icon} />
 					<div class="mt-2 text-xs">{icon}</div>
@@ -20,7 +38,7 @@
 	<div>
 		<div class="mb-2 text-xl font-bold">跟随主题色</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon}
+			{#each icons as icon (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon name={icon} theme />
 				</div>
@@ -30,7 +48,7 @@
 	<div>
 		<div class="mb-2 text-xl font-bold">不同大小</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon, i}
+			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon name={icon} size={18 + i * 6} />
 					<div class="mt-2 text-xs">{18 + i * 6}</div>
@@ -41,11 +59,34 @@
 	<div>
 		<div class="mb-2 text-xl font-bold">不同透明度</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon, i}
+			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">
-					<Icon name={icon} alpha={Number((0.2 + i * 0.2).toFixed(1))} />
+					<Icon name={icon} opacity={Number((0.2 + i * 0.2).toFixed(1))} />
 					<div class="mt-2 text-xs">{(0.2 + i * 0.2).toFixed(1)}</div>
 				</div>
+			{/each}
+		</div>
+	</div>
+	<div>
+		<div class="mb-2 text-xl font-bold">使用 iconify</div>
+		<div>material-symbols</div>
+		<div class="flex flex-wrap items-center justify-around py-2">
+			{#each msIcons as icon (icon)}
+				<Icon type="iconify" {...icon} />
+			{/each}
+		</div>
+		<div>solar</div>
+		<div class="flex flex-wrap items-center justify-around py-2">
+			{#each solarIcons as icon (icon)}
+				<Icon type="iconify" {...icon} />
+			{/each}
+		</div>
+	</div>
+	<div>
+		<div class="mb-2 text-xl font-bold">使用 iconify-color</div>
+		<div class="flex flex-wrap items-center justify-around py-2">
+			{#each fcIcons as icon (icon)}
+				<Icon type="iconify-color" {...icon} />
 			{/each}
 		</div>
 	</div>
@@ -54,7 +95,7 @@
 			自定义颜色<span class="ml-2 text-xs font-normal">通过 injClass</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon}
+			{#each icons as icon (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon name={icon} injClass="text-[red] dark:text-[green]" />
 				</div>
@@ -66,7 +107,7 @@
 			自定义颜色<span class="ml-2 text-xs font-normal">通过 Snippet</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon}
+			{#each icons as icon (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon><i class="text-[#266CF6] dark:text-[#C84031]"><Icon name={icon} /></i></Icon>
 				</div>
@@ -77,7 +118,7 @@
 		<div class="mb-2 text-xl font-bold">Snippet</div>
 		<div class="flex flex-wrap justify-between">
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			{#each icons as _, index}
+			{#each icons as icon, index (icon)}
 				<div class="flex-1 py-2 text-center">
 					<Icon>
 						<svg
@@ -102,11 +143,10 @@
 	<div>
 		<div class="mb-2 text-xl font-bold">偏移</div>
 		<div class="flex flex-wrap justify-between">
-			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-			{#each icons as _, i}
+			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">
-					<Icon name={icons[1]} top={-4 + i * 2} />
-					top:{-4 + i * 2}
+					<Icon name={icons[1]} y={-4 + i * 2} />
+					y:{-4 + i * 2}
 				</div>
 			{/each}
 		</div>
