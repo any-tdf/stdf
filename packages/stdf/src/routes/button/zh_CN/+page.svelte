@@ -84,6 +84,10 @@
 	</div>
 	<div>
 		<div class="p-4 font-bold">带图标</div>
+		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }}>投掷二向箔</Button>
+		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }}>启动面壁计划</Button>
+		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }} iconPosition="right">投掷二向箔</Button>
+		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">启动面壁计划</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带加载（默认禁用）</div>

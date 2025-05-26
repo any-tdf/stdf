@@ -86,6 +86,8 @@
 		<div class="p-4 font-bold">With icon</div>
 		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }}>Throw the two way foil</Button>
 		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }}>Start the surface wall plan</Button>
+		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }} iconPosition="right">Throw the two way foil</Button>
+		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">Start the surface wall plan</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">With loading (disabled by default)</div>
