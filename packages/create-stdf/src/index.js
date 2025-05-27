@@ -61,10 +61,19 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 // 模板列表
 // Template list
 const templateOptions = [
-	{ value: 'sktt', label: 'SvelteKit + Tailwind + TypeScript', template: 'sktt', finish: true },
-	{ value: 'skt', label: 'SvelteKit + Tailwind', template: 'skt', finish: true },
-	{ value: 'skut', label: 'SvelteKit + UnoCSS + TypeScript', template: 'skut', finish: false },
-	{ value: 'sku', label: 'SvelteKit + UnoCSS', template: 'sku', finish: false },
+	{ value: 'sktts', label: 'SvelteKit & Tailwind & TypeScript & stdf-icon', template: 'sktts', finish: true },
+	{ value: 'skts', label: 'SvelteKit & Tailwind & stdf-icon', template: 'skts', finish: true },
+	{ value: 'sktti', label: 'SvelteKit & Tailwind & TypeScript & iconify', template: 'sktti', finish: true },
+	{ value: 'skti', label: 'SvelteKit & Tailwind & iconify', template: 'skti', finish: true },
+	{ value: 'skttsi', label: 'SvelteKit & Tailwind & TypeScript & stdf-icon & iconify', template: 'skttsi', finish: true },
+	{ value: 'sktsi', label: 'SvelteKit & Tailwind & stdf-icon & iconify', template: 'sktsi', finish: true },
+
+	{ value: 'skuts', label: 'SvelteKit & UnoCSS & TypeScript & stdf-icon', template: 'skuts', finish: false },
+	{ value: 'skus', label: 'SvelteKit & UnoCSS & stdf-icon', template: 'skus', finish: false },
+	{ value: 'skuti', label: 'SvelteKit & UnoCSS & TypeScript & iconify', template: 'skuti', finish: false },
+	{ value: 'skui', label: 'SvelteKit & UnoCSS & iconify', template: 'skui', finish: false },
+	{ value: 'skutsi', label: 'SvelteKit & UnoCSS & TypeScript & stdf-icon & iconify', template: 'skutsi', finish: false },
+	{ value: 'skusi', label: 'SvelteKit & UnoCSS & stdf-icon & iconify', template: 'skusi', finish: false },
 ];
 
 // 包管理工具列表
@@ -76,8 +85,8 @@ const packageManagerOptions = [
 	{ value: 'yarn', label: 'Yarn', install: 'yarn', dev: 'yarn run dev' },
 ];
 
-// 如果命令行参数中有项目名称，但没有模板名称，直接使用默认模板 skt
-// If there is a project name in the command line parameters, but no template name, use the default template skt directly
+// 如果命令行参数中有项目名称，但没有模板名称，直接使用第一个模板 sktt
+// If there is a project name in the command line parameters, but no template name, use the first template sktt directly
 if (argvProjectName && !argvTemplate) {
 	createFunc(argvProjectName, templateOptions[0]);
 }
@@ -146,12 +155,12 @@ else if (argvProjectName && argvTemplate) {
 			placeholder: 'stdf-project',
 			validate: value => {
 				if (!value) {
-					// 判断是否为空，提示 “项目名称不能为空”
+					// 判断是否为空，提示“项目名称不能为空”
 					// Determine whether it is empty, prompt "Project name cannot be empty"
 					return lang.pncbne;
 				}
 				if (fs.existsSync(value)) {
-					// 判断是否已存在，提示 “项目名称已存在”
+					// 判断是否已存在，提示“项目名称已存在”
 					// Determine whether it already exists, prompt "Project name already exists"
 					return lang.pane;
 				}
@@ -200,7 +209,7 @@ function createFunc(projectName, item, packageManager) {
 
 	fs.mkdirSync(projectDir);
 
-	// 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性, 使用 path.join
+	// 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性，使用 path.join
 	// Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
 	// @ts-ignore
 	const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${item.template}`);

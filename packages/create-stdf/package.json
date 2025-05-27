@@ -1,6 +1,6 @@
 {
 	"name": "create-stdf",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"description": "A CLI for creating new STDF projects",
 	"bin": {
 		"create-stdf": "index.js"
@@ -36,7 +36,8 @@
 		"stdf",
 		"cli",
 		"mobile",
-		"vite"
+		"vite",
+		"iconify"
 	],
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",

@@ -5,9 +5,15 @@ import { exec } from 'node:child_process';
 // Encapsulate the function, pass in the version number, the key value of devDependencies in package.json that needs to be modified, the file path that needs to be modified, and directly modify package.json and rewrite
 const updatePackageJson = (version, key, path) => {
 	const packageJson = JSON.parse(fs.readFileSync(path, 'utf-8'));
-	packageJson.devDependencies[key] = `^${version}`;
-	fs.writeFileSync(path, JSON.stringify(packageJson, null, 4));
-	console.log(`🎉 ${path} 更新成功`);
+	// 如果 packageJson.devDependencies 中有 key 值，则更新为最新版本
+	// If packageJson.devDependencies has the key value, update it to the latest version
+	if (packageJson.devDependencies[key]) {
+		packageJson.devDependencies[key] = `^${version}`;
+		fs.writeFileSync(path, JSON.stringify(packageJson, null, 4));
+		console.log(`🎉 ${path} 的 ${key} 更新成功`);
+	} else {
+		console.log(`⚠️  ${path} 中没有 ${key} 依赖`);
+	}
 };
 
 // 获取 stdf 最新版本
