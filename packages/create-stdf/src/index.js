@@ -235,23 +235,24 @@ function createFunc(projectName, item, packageManager) {
 
 			// 根据 item.value 的值，判断是否使用了 @sveltejs/kit
 			// According to the value of item.value, determine whether @sveltejs/kit is used
-			const isHasKit = item.value === 'skt' || item.value === 'sku' || item.value === 'sktt' || item.value === 'skut';
+			// const isHasKit = item.value === 'skt' || item.value === 'sku' || item.value === 'sktt' || item.value === 'skut';
 
 			// 根据 item.value 的值，判断使用 Tailwind 还是 UnoCSS
 			// According to the value of item.value, determine whether to use Tailwind or UnoCSS
-			const isHasUno = item.value === 'vu' || item.value === 'sku' || item.value === 'vut' || item.value === 'skut';
+			const isHasUno = item.value.includes('u');
 
 			// 获得依赖的版本号
 			// get the version number of the dependency
 			const versions = {
 				vite: packageJson.devDependencies.vite.replace('^', ''),
 				svelte: packageJson.devDependencies.svelte.replace('^', ''),
+				'@sveltejs/kit': packageJson.devDependencies['@sveltejs/kit'].replace('^', ''),
 				stdf: packageJson.devDependencies.stdf.replace('^', ''),
 			};
 
-			if (isHasKit) {
-				versions['@sveltejs/kit'] = packageJson.devDependencies['@sveltejs/kit'].replace('^', '');
-			}
+			// if (isHasKit) {
+			// versions['@sveltejs/kit'] = packageJson.devDependencies['@sveltejs/kit'].replace('^', '');
+			// }
 
 			if (isHasUno) {
 				versions['unocss'] = packageJson.devDependencies.unocss.replace('^', '');
