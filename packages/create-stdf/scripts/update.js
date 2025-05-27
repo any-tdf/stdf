@@ -31,8 +31,12 @@ exec('npm show stdf version', (error, stdout, stderr) => {
 	console.log(`👉 stdf 最新版本：${version}`);
 	// 更新模板中的 package.json 的 stdf 版本号
 	// Update the stdf version number in the template package.json
-	updatePackageJson(version, 'stdf', 'templates/skt/package.json');
-	updatePackageJson(version, 'stdf', 'templates/sktt/package.json');
+	updatePackageJson(version, 'stdf', 'templates/skti/package.json');
+	updatePackageJson(version, 'stdf', 'templates/skts/package.json');
+	updatePackageJson(version, 'stdf', 'templates/sktsi/package.json');
+	updatePackageJson(version, 'stdf', 'templates/sktti/package.json');
+	updatePackageJson(version, 'stdf', 'templates/sktts/package.json');
+	updatePackageJson(version, 'stdf', 'templates/skttsi/package.json');
 });
 
 // 获取 rollup-plugin-stdf-icon 最新版本
@@ -50,6 +54,10 @@ exec('npm show rollup-plugin-stdf-icon version', (errorIcon, stdoutIcon, stderrI
 	console.log(`👉 rollup-plugin-stdf-icon 最新版本：${version}`);
 	// 更新模板中的 package.json 的 rollup-plugin-stdf-icon 版本号
 	// Update the rollup-plugin-stdf-icon version number in the template package.json
-	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/skt/package.json');
-	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/sktt/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/skti/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/skts/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/sktsi/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/sktti/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/sktts/package.json');
+	updatePackageJson(version, 'rollup-plugin-stdf-icon', 'templates/skttsi/package.json');
 });
