@@ -12,7 +12,7 @@ const updatePackageJson = (version, key, path) => {
 		fs.writeFileSync(path, JSON.stringify(packageJson, null, 4));
 		console.log(`🎉 ${path} 的 ${key} 更新成功`);
 	} else {
-		console.log(`⚠️  ${path} 中没有 ${key} 依赖`);
+		console.log(`⚠️ ${path} 中没有 ${key} 依赖`);
 	}
 };
 
