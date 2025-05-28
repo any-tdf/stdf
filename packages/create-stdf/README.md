@@ -34,7 +34,7 @@ yarn create stdf@latest
 
 ...and follow the prompts.
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named my-app using the **SvelteKit & Tailwind & TypeScript & STDF** template, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example: create a new project named my-app using the **SvelteKit & Tailwind & TypeScript & STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -58,35 +58,35 @@ yarn create stdf@latest my-app
 ```
 <!-- ::: -->
 
-If you want to use the **SvelteKit & Tailwind & STDF** template, run:
+Prompt language is Simplified Chinese, use **SvelteKit & Tailwind & STDF** template, use Iconify to manage icons, create a new project named my-app, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf@latest my-app --template skt
+pnpm create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # or
-pnpm create stdf@latest my-app -t skt
+pnpm create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest my-app --template skt
+npm create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # or
-npm create stdf@latest my-app -t skt
+npm create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf@latest my-app --template skt
+bun create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # or
-bun create stdf@latest my-app -t skt
+bun create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf@latest my-app --template skt
+yarn create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # or
-yarn create stdf@latest my-app -t skt
+yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- ::: -->
 
@@ -95,9 +95,9 @@ yarn create stdf@latest my-app -t skt
 | Option          | Optional values   | Default | Description                                    |
 | --------------- | ------ | ------- | ---------------------------------------------- |
 | -               | -       | -       | The name of the project, you can direct input. |
-| -t / --template | sktt/skt/skut/sku | sktt | The template to use.                           |
-| -l / --language | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT | en_US | The language of the prompts.                   |
-| -i / --icon-usage | stdf-icon/iconify/both/none | stdf-icon | The icon usage method.                         |
+| --t / --template | sktt/skt/skut/sku | sktt | The template to use.                           |
+| --l / --language | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT | en_US | The language of the prompts.                   |
+| --i / --icon-usage | stdf-icon/iconify/both/none | stdf-icon | The icon usage method.                         |
 
 # Template presets
 
@@ -131,30 +131,6 @@ yarn create stdf@latest my-app -t skt
 | iconify   | Use iconify to manage icons.                                  |
 | both      | Use both rollup-plugin-stdf-icon and iconify to manage icons. |
 | none      | Do not use any tool to manage icons.                                       |
-
-For example:
-
-<!-- :::code-groups -->
-<!-- pnpm -->
-```sh
-pnpm create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- npm -->
-```sh
-npm create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- yarn -->
-```sh
-yarn create stdf@latest my-app -l zh_CN
-```
-<!-- ::: -->
 
 # License
 

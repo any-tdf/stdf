@@ -10,15 +10,32 @@ import pacote from 'pacote';
 
 import * as langAll from './lang';
 
-// 获取版本号
-// Get version
+// 获取最新版本号
+// Get the latest version number
+const getLatestVersion = async packageName => {
+	const manifest = await pacote.manifest(`${packageName}@latest`);
+	return manifest.version;
+};
+
+// 获取 create 当前版本
+// Get create-stdf current version
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
+
+// 获取 create-stdf 的最新版本号
+// Get the latest version number of create-stdf
+const createStdfV = await getLatestVersion('create-stdf');
 
 // 显示版本号
 // Display version number
 console.log(`
-${grey(`create-stdf@${version}
-`)}`);
+${grey(`create-stdf@${version}`)}`);
+
+if (version != createStdfV) {
+	console.log(
+		red(`😢 Recommended to use the latest version: ${createStdfV}
+		`)
+	);
+}
 
 const spinner = p.spinner();
 
@@ -44,11 +61,7 @@ const languages = [];
 // 循环 langAll 对象，将语言列表中的语言名字替换为对应的语言名字，且按照 sort 排序
 // Loop through the langAll object and replace the language name in the language list with the corresponding language name, and sort by sort
 for (const key in langAll) {
-	languages.push({
-		value: key,
-		label: langAll[key].name,
-		sort: langAll[key].sort,
-	});
+	languages.push({ value: key, label: langAll[key].name, sort: langAll[key].sort });
 }
 
 // 按照 sort 排序
@@ -86,48 +99,34 @@ const iconUsageOptions = [
 	{ value: 'none', label: 'none' },
 ];
 
-// 如果命令行参数中仅有项目名称
-// If there is only a project name in the command line parameters
-if (argvProjectName && !argvTemplate && !argvIconUsage) {
-	createFunc(argvProjectName, templateOptions[0], iconUsageOptions[0], packageManagerOptions[0]);
-	process.exit(0);
-}
-// 如果命令行参数中仅有项目名称和模板名称
-// If there is a project name and template name in the command line parameters
-else if (argvProjectName && argvTemplate && !argvIconUsage) {
-	const item = templateOptions.find(item => item.value === argvTemplate);
-	if (!item) {
-		p.intro(red(lang.pectn));
-	} else if (!item.finish) {
-		p.intro(red(item.label + ' ' + lang.hnay));
+// 如果命令行参数中有项目名称
+// If there is project name in command line parameters
+if (argvProjectName) {
+	let itemTemplate = null;
+	if (argvTemplate) {
+		itemTemplate = templateOptions.find(item => item.value === argvTemplate);
+		if (!itemTemplate) {
+			p.intro(red(lang.pectn + ' (' + templateOptions.map(item => item.value).join(', ') + ')'));
+			process.exit(0);
+		}
+		if (!itemTemplate.finish) {
+			p.intro(red(itemTemplate.label + ' ' + lang.hnay));
+			process.exit(0);
+		}
 	} else {
-		createFunc(argvProjectName, item, iconUsageOptions[0], packageManagerOptions[0]);
+		itemTemplate = templateOptions[0];
 	}
-	// 如果命令行参数中仅有项目名称和图标使用方式
-	// If there is a project name and icon usage method in the command line parameters
-} else if (argvProjectName && !argvTemplate && argvIconUsage) {
-	const item = iconUsageOptions.find(item => item.value === argvIconUsage);
-	if (!item) {
-		p.intro(red(lang.pic));
+	let itemIconUsage = null;
+	if (argvIconUsage) {
+		itemIconUsage = iconUsageOptions.find(item => item.value === argvIconUsage);
+		if (!itemIconUsage) {
+			p.intro(red(lang.pic + ' (' + iconUsageOptions.map(item => item.value).join(', ') + ')'));
+			process.exit(0);
+		}
 	} else {
-		createFunc(argvProjectName, templateOptions[0], item, packageManagerOptions[0]);
+		itemIconUsage = iconUsageOptions[0];
 	}
-	// 如果命令行参数中有项目名称和模板名称和图标使用方式
-	// If there is a project name and template name and icon usage method in the command line parameters
-} else if (argvProjectName && argvTemplate && argvIconUsage) {
-	const itemTemplate = templateOptions.find(item => item.value === argvTemplate);
-	const itemIconUsage = iconUsageOptions.find(item => item.value === argvIconUsage);
-	if (!itemTemplate) {
-		p.intro(red(lang.pectn));
-	} else if (!itemTemplate.finish) {
-		p.intro(red(item.label + ' ' + lang.hnay));
-	} else if (!itemIconUsage) {
-		p.intro(red(lang.pic));
-	} else {
-		createFunc(argvProjectName, itemTemplate, itemIconUsage, packageManagerOptions[0]);
-	}
-	// 如果命令行参数中没有项目名称，则进入交互式创建项目
-	// If there is no project name in the command line parameters, enter the interactive creation project
+	createFunc(argvProjectName, itemTemplate, itemIconUsage, packageManagerOptions[0]);
 } else {
 	(async () => {
 		// 选择一种语言
@@ -258,7 +257,7 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 	const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${templateItem.template}`);
 
 	// 将 templatePath 目录下的所有文件复制到 projectDir 目录下
-	// Copy all files under the templatePath directory to the projectDir directory\
+	// Copy all files under the templatePath directory to the projectDir directory
 	fs.copy(templatePath, projectDir)
 		.then(async () => {
 			// 读取 package.json 文件
@@ -268,13 +267,6 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			// 将项目内的 package.json 中的 name 属性修改为 projectName
 			// Modify the name attribute in package.json in the project to projectName
 			packageJson.name = projectName;
-
-			// 获取最新版本号
-			// Get the latest version number
-			const getLatestVersion = async packageName => {
-				const manifest = await pacote.manifest(`${packageName}@latest`);
-				return manifest.version;
-			};
 
 			// 获取 stdf 的最新版本号
 			// Get the latest version number of stdf
@@ -399,7 +391,6 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			// Display prompt information
 			console.log(
 				`👉 ${bold(lang.tgs)}
-
     ${blue(`1. cd ${projectName}`)}
     ${blue(`2. git init && git add -A && git commit -m "Initial commit"`)}
     ${blue(`3. ${packageManagerItem.install}`)}
@@ -408,10 +399,7 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			);
 			// 提示配置主题色
 			// Prompt configuration theme color
-			console.log(
-				`🎨 ${grey(isHasUno ? lang.pcyt_vu : lang.pcyt_vt)}
-    `
-			);
+			console.log(`🎨 ${grey(isHasUno ? lang.pcyt_vu : lang.pcyt_vt)}`);
 		})
 		.catch(err => {
 			spinner.stop();

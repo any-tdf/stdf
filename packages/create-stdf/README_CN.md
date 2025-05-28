@@ -34,7 +34,7 @@ yarn create stdf@latest
 
 ...然后按照提示进行操作。
 
-你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit & Tailwind & TypeScript & STDF** 模板创建一个名为 my-app 的新项目，请运行：
+你也可以通过额外的命令行选项直接指定项目名称与默认参数。例如，如果要使用 **SvelteKit & Tailwind & TypeScript & STDF** 模板创建一个名为 my-app 的新项目，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -63,30 +63,30 @@ yarn create stdf@latest my-app
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf@latest my-app --template skt -l zh_CN -i iconify
+pnpm create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # 或
-pnpm create stdf@latest my-app -t skt -l zh_CN -i iconify
+pnpm create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest my-app --template skt -l zh_CN -i iconify
+npm create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # 或
-npm create stdf@latest my-app -t skt -l zh_CN -i iconify
+npm create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf@latest my-app --template skt -l zh_CN -i iconify
+bun create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # 或
-bun create stdf@latest my-app -t skt -l zh_CN -i iconify
+bun create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf@latest my-app --template skt -l zh_CN -i iconify
+yarn create stdf@latest my-app --template skt --language zh_CN --icon-usage iconify
 # 或
-yarn create stdf@latest my-app -t skt -l zh_CN -i iconify
+yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 ```
 <!-- ::: -->
 
@@ -95,9 +95,9 @@ yarn create stdf@latest my-app -t skt -l zh_CN -i iconify
 | 命令              | 可选值                                                                                       | 默认          | 描述                     |
 | ----------------- | ------------------------------------------------------------------------------------------ | ------------- | ------------------------ |
 | -                 | -                                                                                     | -             | 项目名称，可以直接输入。 |
-| -t / --template   | sktt/skt/skut/sku                                                                         | sktt          | 要使用的模板。           |
-| -l / --language   | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT                             | en_US         | 提示语言。               |
-| -i / --icon-usage | stdf-icon/iconify/both/none                                                               | stdf-icon     | 图标使用方式。           |
+| --t / --template   | sktt/skt/skut/sku                                                                         | sktt          | 要使用的模板。           |
+| --l / --language   | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT                             | en_US         | 提示语言。               |
+| --i / --icon-usage | stdf-icon/iconify/both/none                                                               | stdf-icon     | 图标使用方式。           |
 
 # 模板预设
 
@@ -131,30 +131,6 @@ yarn create stdf@latest my-app -t skt -l zh_CN -i iconify
 | iconify   | 使用 iconify 插件管理图标。                                  |
 | both      | 同时使用 rollup-plugin-stdf-icon 和 iconify 插件管理图标。 |
 | none      | 不使用任何工具管理图标。                                       |
-
-例如：
-
-<!-- :::code-groups -->
-<!-- pnpm -->
-```sh
-pnpm create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- npm -->
-```sh
-npm create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun create stdf@latest my-app -l zh_CN
-```
-<!-- :: -->
-<!-- yarn -->
-```sh
-yarn create stdf@latest my-app -l zh_CN
-```
-<!-- ::: -->
 
 # 许可证
 
