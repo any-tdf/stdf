@@ -1,6 +1,6 @@
 [English](https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README.md)
 
-> v0.2.2 之后支持选择图标使用方式，支持 `stdf-icon` 或 `iconify`。
+> v0.2.2 之后支持选择图标使用方式，支持 stdf-icon 或 iconify。
 
 # create-stdf
 
@@ -34,7 +34,7 @@ yarn create stdf@latest
 
 ...然后按照提示进行操作。
 
-你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit & Tailwind & TypeScript & STDF** 模板创建一个名为 `my-app` 的新项目，请运行：
+你也可以通过额外的命令行选项直接指定项目名称和要使用的模板。例如，如果要使用 **SvelteKit & Tailwind & TypeScript & STDF** 模板创建一个名为 my-app 的新项目，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -58,46 +58,46 @@ yarn create stdf@latest my-app
 ```
 <!-- ::: -->
 
-如果要使用 **SvelteKit & Tailwind & STDF** 模板，请运行：
+提示语言为简体中文，使用 **SvelteKit & Tailwind & STDF** 模板，使用 Iconify 管理图标，创建一个名为 my-app 的新项目，请运行：
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf@latest my-app --template skt
+pnpm create stdf@latest my-app --template skt -l zh_CN -i iconify
 # 或
-pnpm create stdf@latest my-app -t skt
+pnpm create stdf@latest my-app -t skt -l zh_CN -i iconify
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest my-app --template skt
+npm create stdf@latest my-app --template skt -l zh_CN -i iconify
 # 或
-npm create stdf@latest my-app -t skt
+npm create stdf@latest my-app -t skt -l zh_CN -i iconify
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf@latest my-app --template skt
+bun create stdf@latest my-app --template skt -l zh_CN -i iconify
 # 或
-bun create stdf@latest my-app -t skt
+bun create stdf@latest my-app -t skt -l zh_CN -i iconify
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf@latest my-app --template skt
+yarn create stdf@latest my-app --template skt -l zh_CN -i iconify
 # 或
-yarn create stdf@latest my-app -t skt
+yarn create stdf@latest my-app -t skt -l zh_CN -i iconify
 ```
 <!-- ::: -->
 
 # 命令选项
 
-| 命令              | 类型                                                                                       | 默认          | 描述                     |
+| 命令              | 可选值                                                                                       | 默认          | 描述                     |
 | ----------------- | ------------------------------------------------------------------------------------------ | ------------- | ------------------------ |
-| -                 | string                                                                                     | -             | 项目名称，可以直接输入。 |
-| -t / --template   | `'sktt'\|'skt'\|'skut'\|'sku'`                                                             | `'sktt'`      | 要使用的模板。           |
-| -l / --language   | `'en_US'\|'zh_CN'\|'zh_TW'\|'ja_JP'\|'ko_KR'\|'es_ES'\|'ru_RU'\|'fr_FR'\|'de_DE'\|'it_IT'` | `'en_US'`     | 提示语言。               |
-| -i / --icon-usage | `'stdf-icon'\|'iconify'\|'both'\|'none'`                                                   | `'stdf-icon'` | 图标使用方式。           |
+| -                 | -                                                                                     | -             | 项目名称，可以直接输入。 |
+| -t / --template   | sktt/skt/skut/sku                                                                         | sktt          | 要使用的模板。           |
+| -l / --language   | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT                             | en_US         | 提示语言。               |
+| -i / --icon-usage | stdf-icon/iconify/both/none                                                               | stdf-icon     | 图标使用方式。           |
 
 # 模板预设
 
@@ -127,9 +127,9 @@ yarn create stdf@latest my-app -t skt
 
 | 简写      | 描述                                                           |
 | --------- | -------------------------------------------------------------- |
-| stdf-icon | 使用 `rollup-plugin-stdf-icon` 插件管理图标。                  |
-| iconify   | 使用 `iconify` 插件管理图标。                                  |
-| both      | 同时使用 `rollup-plugin-stdf-icon` 和 `iconify` 插件管理图标。 |
+| stdf-icon | 使用 rollup-plugin-stdf-icon 插件管理图标。                  |
+| iconify   | 使用 iconify 插件管理图标。                                  |
+| both      | 同时使用 rollup-plugin-stdf-icon 和 iconify 插件管理图标。 |
 | none      | 不使用任何工具管理图标。                                       |
 
 例如：
