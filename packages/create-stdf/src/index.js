@@ -6,12 +6,12 @@ import { fileURLToPath } from 'node:url';
 import * as p from '@clack/prompts';
 import { bold, cyan, grey, red, blue } from 'kleur/colors';
 import minimist from 'minimist';
+import pacote from 'pacote';
 
 import * as langAll from './lang';
 
 // 获取版本号
 // Get version
-// @ts-ignore
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
 
 // 显示版本号
@@ -35,6 +35,7 @@ const argv = minimist(process.argv.slice(2));
 const argvProjectName = argv._[0];
 const argvTemplate = argv.template || argv.t;
 const argvLanguage = argv.language || argv.l;
+const argvIconUsage = argv.iconUsage || argv.i;
 
 // 语言列表
 // Language list
@@ -61,19 +62,10 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 // 模板列表
 // Template list
 const templateOptions = [
-	{ value: 'sktts', label: 'SvelteKit & Tailwind & TypeScript & stdf-icon', template: 'sktts', finish: true },
-	{ value: 'skts', label: 'SvelteKit & Tailwind & stdf-icon', template: 'skts', finish: true },
-	{ value: 'sktti', label: 'SvelteKit & Tailwind & TypeScript & iconify', template: 'sktti', finish: true },
-	{ value: 'skti', label: 'SvelteKit & Tailwind & iconify', template: 'skti', finish: true },
-	{ value: 'skttsi', label: 'SvelteKit & Tailwind & TypeScript & stdf-icon & iconify', template: 'skttsi', finish: true },
-	{ value: 'sktsi', label: 'SvelteKit & Tailwind & stdf-icon & iconify', template: 'sktsi', finish: true },
-
-	{ value: 'skuts', label: 'SvelteKit & UnoCSS & TypeScript & stdf-icon', template: 'skuts', finish: false },
-	{ value: 'skus', label: 'SvelteKit & UnoCSS & stdf-icon', template: 'skus', finish: false },
-	{ value: 'skuti', label: 'SvelteKit & UnoCSS & TypeScript & iconify', template: 'skuti', finish: false },
-	{ value: 'skui', label: 'SvelteKit & UnoCSS & iconify', template: 'skui', finish: false },
-	{ value: 'skutsi', label: 'SvelteKit & UnoCSS & TypeScript & stdf-icon & iconify', template: 'skutsi', finish: false },
-	{ value: 'skusi', label: 'SvelteKit & UnoCSS & stdf-icon & iconify', template: 'skusi', finish: false },
+	{ value: 'sktt', label: 'SvelteKit & Tailwind & TypeScript', template: 'sktt', finish: true },
+	{ value: 'skt', label: 'SvelteKit & Tailwind', template: 'skt', finish: true },
+	{ value: 'skut', label: 'SvelteKit & UnoCSS & TypeScript', template: 'skut', finish: false },
+	{ value: 'sku', label: 'SvelteKit & UnoCSS', template: 'sku', finish: false },
 ];
 
 // 包管理工具列表
@@ -85,22 +77,57 @@ const packageManagerOptions = [
 	{ value: 'yarn', label: 'Yarn', install: 'yarn', dev: 'yarn run dev' },
 ];
 
-// 如果命令行参数中有项目名称，但没有模板名称，直接使用第一个模板 sktt
-// If there is a project name in the command line parameters, but no template name, use the first template sktt directly
-if (argvProjectName && !argvTemplate) {
-	createFunc(argvProjectName, templateOptions[0]);
+// 图标使用方式列表
+// Icon usage method list
+const iconUsageOptions = [
+	{ value: 'stdf-icon', label: 'rollup-plugin-stdf-icon' },
+	{ value: 'iconify', label: 'iconify' },
+	{ value: 'both', label: 'rollup-plugin-stdf-icon & iconify' },
+	{ value: 'none', label: 'none' },
+];
+
+// 如果命令行参数中仅有项目名称
+// If there is only a project name in the command line parameters
+if (argvProjectName && !argvTemplate && !argvIconUsage) {
+	createFunc(argvProjectName, templateOptions[0], iconUsageOptions[0], packageManagerOptions[0]);
+	process.exit(0);
 }
-// 如果命令行参数中有项目名称和模板名称，直接使用命令行参数中的值
-// If there is a project name and template name in the command line parameters, use the value in the command line parameters directly
-else if (argvProjectName && argvTemplate) {
+// 如果命令行参数中仅有项目名称和模板名称
+// If there is a project name and template name in the command line parameters
+else if (argvProjectName && argvTemplate && !argvIconUsage) {
 	const item = templateOptions.find(item => item.value === argvTemplate);
 	if (!item) {
 		p.intro(red(lang.pectn));
 	} else if (!item.finish) {
 		p.intro(red(item.label + ' ' + lang.hnay));
 	} else {
-		createFunc(argvProjectName, item);
+		createFunc(argvProjectName, item, iconUsageOptions[0], packageManagerOptions[0]);
 	}
+	// 如果命令行参数中仅有项目名称和图标使用方式
+	// If there is a project name and icon usage method in the command line parameters
+} else if (argvProjectName && !argvTemplate && argvIconUsage) {
+	const item = iconUsageOptions.find(item => item.value === argvIconUsage);
+	if (!item) {
+		p.intro(red(lang.pic));
+	} else {
+		createFunc(argvProjectName, templateOptions[0], item, packageManagerOptions[0]);
+	}
+	// 如果命令行参数中有项目名称和模板名称和图标使用方式
+	// If there is a project name and template name and icon usage method in the command line parameters
+} else if (argvProjectName && argvTemplate && argvIconUsage) {
+	const itemTemplate = templateOptions.find(item => item.value === argvTemplate);
+	const itemIconUsage = iconUsageOptions.find(item => item.value === argvIconUsage);
+	if (!itemTemplate) {
+		p.intro(red(lang.pectn));
+	} else if (!itemTemplate.finish) {
+		p.intro(red(item.label + ' ' + lang.hnay));
+	} else if (!itemIconUsage) {
+		p.intro(red(lang.pic));
+	} else {
+		createFunc(argvProjectName, itemTemplate, itemIconUsage, packageManagerOptions[0]);
+	}
+	// 如果命令行参数中没有项目名称，则进入交互式创建项目
+	// If there is no project name in the command line parameters, enter the interactive creation project
 } else {
 	(async () => {
 		// 选择一种语言
@@ -148,6 +175,18 @@ else if (argvProjectName && argvTemplate) {
 			});
 		}
 
+		// 选择图标使用方式
+		// Select icon usage method
+		const iconUsage = await p.select({
+			message: bold(lang.psai),
+			options: iconUsageOptions,
+		});
+
+		if (p.isCancel(iconUsage)) {
+			p.cancel(red('⛔ ') + lang.oc);
+			process.exit(0);
+		}
+
 		// 输入项目名称
 		// Enter the project name
 		const projectName = await p.text({
@@ -186,15 +225,20 @@ else if (argvProjectName && argvTemplate) {
 
 		// 根据 template 的值，复制对应目录下的所有文件到当前目录
 		// According to the value of template, copy all files under the corresponding directory to the current directory
-		templateOptions.forEach(async item => {
-			if (item.value === template) {
-				createFunc(projectName, item, packageManager);
-			}
-		});
+		createFunc(
+			projectName,
+			templateOptions.find(i => i.value === template),
+			iconUsageOptions.find(i => i.value === iconUsage),
+			packageManagerOptions.find(i => i.value === packageManager)
+		);
+		// templateOptions.forEach(async item => {
+		// 	if (item.value === template) {
+		// 	}
+		// });
 	})();
 }
 
-function createFunc(projectName, item, packageManager) {
+function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem) {
 	// 如果 projectName 是数字，转为字符串
 	// If projectName is a number, convert it to a string
 	if (typeof projectName === 'number') {
@@ -211,16 +255,12 @@ function createFunc(projectName, item, packageManager) {
 
 	// 获取模板目录的绝对路径，考虑到 Windows 系统的兼容性，使用 path.join
 	// Get the absolute path of the template directory, considering the compatibility of the Windows system, use path.join
-	// @ts-ignore
-	const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${item.template}`);
+	const templatePath = path.resolve(fileURLToPath(import.meta.url), '../..', `templates/${templateItem.template}`);
 
 	// 将 templatePath 目录下的所有文件复制到 projectDir 目录下
 	// Copy all files under the templatePath directory to the projectDir directory\
 	fs.copy(templatePath, projectDir)
-		.then(() => {
-			spinner.stop();
-			p.outro(`${projectName} - ${lang.pcsucc} 🎉`);
-
+		.then(async () => {
 			// 读取 package.json 文件
 			// Read the package.json file
 			const packageJson = JSON.parse(fs.readFileSync(`${projectDir}/package.json`, 'utf-8'));
@@ -229,17 +269,103 @@ function createFunc(projectName, item, packageManager) {
 			// Modify the name attribute in package.json in the project to projectName
 			packageJson.name = projectName;
 
+			// 获取最新版本号
+			// Get the latest version number
+			const getLatestVersion = async packageName => {
+				const manifest = await pacote.manifest(`${packageName}@latest`);
+				return manifest.version;
+			};
+
+			// 获取 stdf 的最新版本号
+			// Get the latest version number of stdf
+			const stdfV = await getLatestVersion('stdf');
+			packageJson.devDependencies['stdf'] = `^${stdfV}`;
+
+			const addIconifyFun = async () => {
+				const iconifyTailwind4V = await getLatestVersion('@iconify/tailwind4');
+				const bitcoin_iconsV = await getLatestVersion('@iconify-json/bitcoin-icons');
+				const duo_iconsV = await getLatestVersion('@iconify-json/duo-icons');
+				const fluent_colorV = await getLatestVersion('@iconify-json/fluent-color');
+				packageJson.devDependencies['@iconify/tailwind4'] = `^${iconifyTailwind4V}`;
+				packageJson.devDependencies['@iconify-json/bitcoin-icons'] = `^${bitcoin_iconsV}`;
+				packageJson.devDependencies['@iconify-json/duo-icons'] = `^${duo_iconsV}`;
+				packageJson.devDependencies['@iconify-json/fluent-color'] = `^${fluent_colorV}`;
+				// 在 ${projectDir}/src/app.css 的第 4 行增加 @plugin "@iconify/tailwind4" {
+				// 	prefixes: duo-icons, bitcoin-icons, fluent-color;
+				// }
+				const appCss = fs.readFileSync(`${projectDir}/src/app.css`, 'utf-8');
+				const appCssLines = appCss.split('\n');
+				appCssLines.splice(
+					3,
+					0,
+					`
+@plugin "@iconify/tailwind4" {
+	prefixes: duo-icons, bitcoin-icons, fluent-color;
+}`
+				);
+				fs.writeFileSync(`${projectDir}/src/app.css`, appCssLines.join('\n'), 'utf-8');
+				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
+				const pageSvelteLines = pageSvelte.split('\n');
+				const iconifySnippet = fs.readFileSync(new URL('../snippet/iconify.txt', import.meta.url), 'utf-8');
+				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, iconifySnippet);
+				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+			};
+			const addStdfIconFun = async () => {
+				const rollupPluginStdfIconV = await getLatestVersion('rollup-plugin-stdf-icon');
+				packageJson.devDependencies['rollup-plugin-stdf-icon'] = `^${rollupPluginStdfIconV}`;
+				const viteConfig = fs.readFileSync(`${projectDir}/vite.config.js`, 'utf-8');
+				const viteConfigLines = viteConfig.split('\n');
+				viteConfigLines.splice(1, 0, `import svgSprite from 'rollup-plugin-stdf-icon';`);
+				const viteStdfIconSnippet = fs.readFileSync(new URL('../snippet/vite-stdf-icon.txt', import.meta.url), 'utf-8');
+				// 将【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】替换为 viteStdfIconSnippet 的代码
+				// Replace 【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】 with the code of viteStdfIconSnippet
+				viteConfigLines.splice(
+					viteConfigLines.indexOf('export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });'),
+					1,
+					viteStdfIconSnippet
+				);
+				fs.writeFileSync(`${projectDir}/vite.config.js`, viteConfigLines.join('\n'), 'utf-8');
+				// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
+				// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
+				fs.copySync(new URL('../snippet/svgs', import.meta.url).pathname, `${projectDir}/src/lib/svgs`);
+				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
+				const pageSvelteLines = pageSvelte.split('\n');
+				const stdfIconSnippet = fs.readFileSync(new URL('../snippet/stdf-icon.txt', import.meta.url), 'utf-8');
+				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, stdfIconSnippet);
+				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+			};
+
+			// 如果 iconUsageItem 的值为 iconify
+			// If the value of iconUsageItem is iconify
+			if (iconUsageItem.value === 'iconify') {
+				await addIconifyFun();
+			}
+
+			// 如果 iconUsageItem 的值为 stdf-icon，则获取 rollup-plugin-stdf-icon 的最新版本号
+			// If the value of iconUsageItem is stdf-icon, get the latest version number of rollup-plugin-stdf-icon
+			if (iconUsageItem.value === 'stdf-icon') {
+				await addStdfIconFun();
+			}
+
+			// 如果 iconUsageItem 的值为 both，则同时调用 addIconifyFun 和 addStdfIconFun
+			// If the value of iconUsageItem is both, call addIconifyFun and addStdfIconFun
+			if (iconUsageItem.value === 'both') {
+				await addIconifyFun();
+				await addStdfIconFun();
+			}
+
 			// 将修改后的 packageJson 写入到项目内的 package.json 文件中
 			// Write the modified packageJson to the package.json file in the project
 			fs.writeFileSync(`${projectDir}/package.json`, JSON.stringify(packageJson, null, 4), 'utf-8');
 
-			// 根据 item.value 的值，判断是否使用了 @sveltejs/kit
-			// According to the value of item.value, determine whether @sveltejs/kit is used
-			// const isHasKit = item.value === 'skt' || item.value === 'sku' || item.value === 'sktt' || item.value === 'skut';
+			spinner.stop();
+			p.outro(`🎉🎉🎉 ${projectName} - ${lang.pcsucc}`);
 
 			// 根据 item.value 的值，判断使用 Tailwind 还是 UnoCSS
 			// According to the value of item.value, determine whether to use Tailwind or UnoCSS
-			const isHasUno = item.value.includes('u');
+			const isHasUno = templateItem.value.includes('u');
 
 			// 获得依赖的版本号
 			// get the version number of the dependency
@@ -249,10 +375,6 @@ function createFunc(projectName, item, packageManager) {
 				'@sveltejs/kit': packageJson.devDependencies['@sveltejs/kit'].replace('^', ''),
 				stdf: packageJson.devDependencies.stdf.replace('^', ''),
 			};
-
-			// if (isHasKit) {
-			// versions['@sveltejs/kit'] = packageJson.devDependencies['@sveltejs/kit'].replace('^', '');
-			// }
 
 			if (isHasUno) {
 				versions['unocss'] = packageJson.devDependencies.unocss.replace('^', '');
@@ -279,12 +401,12 @@ function createFunc(projectName, item, packageManager) {
 
     ${blue(`1. cd ${projectName}`)}
     ${blue(`2. git init && git add -A && git commit -m "Initial commit"`)}
-    ${blue(`3. ${packageManagerOptions.find(item => item.value === packageManager).install}`)}
-    ${blue(`4. ${packageManagerOptions.find(item => item.value === packageManager).dev}`)}
+    ${blue(`3. ${packageManagerItem.install}`)}
+    ${blue(`4. ${packageManagerItem.dev}`)}
     `
 			);
-			// 显示配置主题色
-			// Display configuration theme color
+			// 提示配置主题色
+			// Prompt configuration theme color
 			console.log(
 				`🎨 ${grey(isHasUno ? lang.pcyt_vu : lang.pcyt_vt)}
     `

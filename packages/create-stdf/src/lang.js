@@ -9,7 +9,8 @@ export const en_US = {
 	psat: 'Please select a template',
 	oc: 'Operation cancelled',
 	pca: 'Please choose again',
-	pm: 'Please select a package manager',
+	psai: 'Please select icon usage',
+	pm: 'Please select package manager',
 	cfsing: 'Creating file...',
 	pcsucc: 'Project created successfully',
 	tgs: 'To get started:',
@@ -17,6 +18,7 @@ export const en_US = {
 	pcyt_vu: 'Tip: please configure Initial Color System in src/app.css, reference https://stdf.design/guide/theme',
 	cferror: 'Failed to create file',
 	pectn: 'Please enter the correct template name!',
+	pic: 'Please enter the correct icon usage!',
 };
 
 // 简体中文 chinese
@@ -30,7 +32,8 @@ export const zh_CN = {
 	psat: '请选择一个模板',
 	oc: '操作已取消',
 	pca: '请重新选择',
-	pm: '请选择一个包管理工具',
+	psai: '请选择图标使用方式',
+	pm: '请选择包管理工具',
 	cfsing: '正在创建文件...',
 	pcsucc: '项目创建成功',
 	tgs: '开始：',
@@ -38,6 +41,7 @@ export const zh_CN = {
 	pcyt_vu: '提示：请到 src/app.css 配置初始主题色，参考 https://stdf.design/guide/theme',
 	cferror: '创建文件失败',
 	pectn: '请输入正确的模板名称！',
+	pic: '请输入正确的图标使用方式！',
 };
 
 // 繁體中文 chinese traditional
@@ -51,7 +55,8 @@ export const zh_TW = {
 	psat: '請選擇一個模板',
 	oc: '操作已取消',
 	pca: '請重新選擇',
-	pm: '請選擇一個包管理工具',
+	psai: '請選擇圖標使用方式',
+	pm: '請選擇包管理工具',
 	cfsing: '正在創建文件...',
 	pcsucc: '項目創建成功',
 	tgs: '開始：',
@@ -59,6 +64,7 @@ export const zh_TW = {
 	pcyt_vu: '提示：請到 src/app.css 配置初始主題色，參考 https://stdf.design/guide/theme',
 	cferror: '創建文件失敗',
 	pectn: '請輸入正確的模板名稱！',
+	pic: '請輸入正確的圖標使用方式！',
 };
 
 // 日语 japanese
@@ -72,6 +78,7 @@ export const ja_JP = {
 	psat: 'テンプレートを選択してください',
 	oc: '操作がキャンセルされました',
 	pca: 'もう一度選択してください',
+	psai: 'アイコンの使用方法を選択してください',
 	pm: 'パッケージマネージャーを選択してください',
 	cfsing: 'ファイルを作成しています...',
 	pcsucc: 'プロジェクトが正常に作成されました',
@@ -80,6 +87,7 @@ export const ja_JP = {
 	pcyt_vu: 'ヒント：src/app.css ファイルで初期カラーシステムを設定し、参考 https://stdf.design/guide/theme',
 	cferror: 'ファイルの作成に失敗しました',
 	pectn: '正しいテンプレート名を入力してください！',
+	pic: '正しいアイコン使用方法を入力してください！',
 };
 
 // 韩语 korean
@@ -93,6 +101,7 @@ export const ko_KR = {
 	psat: '템플릿을 선택하십시오',
 	oc: '작업이 취소되었습니다',
 	pca: '다시 선택하십시오',
+	psai: '아이콘 사용 방법을 선택하십시오',
 	pm: '패키지 관리자를 선택하십시오',
 	cfsing: '파일을 만드는 중입니다...',
 	pcsucc: '프로젝트가 성공적으로 생성되었습니다',
@@ -101,6 +110,7 @@ export const ko_KR = {
 	pcyt_vu: '팁: src/app.css 파일에서 초기 색상 시스템을 구성하고 참조 https://stdf.design/guide/theme',
 	cferror: '파일 생성 실패',
 	pectn: '올바른 템플릿 이름을 입력하십시오!',
+	pic: '올바른 아이콘 사용 방법을 입력하십시오!',
 };
 
 // 西班牙语 spanish
@@ -114,6 +124,7 @@ export const es_ES = {
 	psat: 'Por favor seleccione una plantilla',
 	oc: 'Operación cancelada',
 	pca: 'Por favor, elija de nuevo',
+	psai: 'Por favor seleccione el uso de iconos',
 	pm: 'Por favor seleccione un administrador de paquetes',
 	cfsing: 'Creando archivo...',
 	pcsucc: 'Proyecto creado con éxito',
@@ -122,6 +133,7 @@ export const es_ES = {
 	pcyt_vu: 'Consejo: configure su sistema de colores en reference https://stdf.design/guide/theme',
 	cferror: 'Error al crear archivo',
 	pectn: '¡Por favor ingrese el nombre de la plantilla correcto!',
+	pic: '¡Por favor ingrese el uso correcto de iconos!',
 };
 
 // 俄语 russian
@@ -135,6 +147,7 @@ export const ru_RU = {
 	psat: 'Пожалуйста, выберите шаблон',
 	oc: 'Операция отменена',
 	pca: 'Пожалуйста, выберите снова',
+	psai: 'Пожалуйста, выберите использование иконок',
 	pm: 'Пожалуйста, выберите пакетный менеджер',
 	cfsing: 'Создание файла...',
 	pcsucc: 'Проект успешно создан',
@@ -143,6 +156,7 @@ export const ru_RU = {
 	pcyt_vu: 'Совет: настройте свой цветовой систему в ссылке https://stdf.design/guide/theme',
 	cferror: 'Не удалось создать файл',
 	pectn: 'Пожалуйста, введите правильное название шаблона!',
+	pic: 'Пожалуйста, введите правильное использование иконок!',
 };
 
 // 法语 french
@@ -156,6 +170,7 @@ export const fr_FR = {
 	psat: 'Veuillez sélectionner un modèle',
 	oc: 'Opération annulée',
 	pca: 'Veuillez choisir à nouveau',
+	psai: "Veuillez sélectionner le mode d'utilisation des icônes",
 	pm: 'Veuillez sélectionner un gestionnaire de paquets',
 	cfsing: 'Création de fichier...',
 	pcsucc: 'Projet créé avec succès',
@@ -164,6 +179,7 @@ export const fr_FR = {
 	pcyt_vu: 'Conseil: veuillez configurer votre système de couleurs dans reference https://stdf.design/guide/theme',
 	cferror: 'Échec de la création du fichier',
 	pectn: 'Veuillez saisir le nom du modèle correct!',
+	pic: "Veuillez saisir le mode d'utilisation correct des icônes!",
 };
 
 // 德语 german
@@ -177,6 +193,7 @@ export const de_DE = {
 	psat: 'Bitte wählen Sie eine Vorlage aus',
 	oc: 'Vorgang abgebrochen',
 	pca: 'Bitte wählen Sie erneut',
+	psai: 'Bitte wählen Sie die Verwendung von Icons',
 	pm: 'Bitte wählen Sie einen Paketmanager aus',
 	cfsing: 'Erstelle Datei...',
 	pcsucc: 'Projekt erfolgreich erstellt',
@@ -185,6 +202,7 @@ export const de_DE = {
 	pcyt_vu: 'Tip: please configure your color system in reference https://stdf.design/guide/theme',
 	cferror: 'Fehler beim Erstellen der Datei',
 	pectn: 'Bitte geben Sie den richtigen Vorlagennamen ein!',
+	pic: 'Bitte geben Sie den richtigen Verwendungsmodus für Icons ein!',
 };
 
 // 意大利语 italian
@@ -198,6 +216,7 @@ export const it_IT = {
 	psat: 'Seleziona un modello',
 	oc: 'Operazione annullata',
 	pca: 'Seleziona di nuovo',
+	psai: 'Seleziona il modo di utilizzo delle icone',
 	pm: 'Seleziona un gestore di pacchetti',
 	cfsing: 'Creazione del file in corso...',
 	pcsucc: 'Progetto creato con successo',
@@ -206,4 +225,5 @@ export const it_IT = {
 	pcyt_vu: 'Consiglio: configura il tuo sistema di colori in https://stdf.design/guide/theme',
 	cferror: 'Impossibile creare il file',
 	pectn: 'Inserisci il nome del modello corretto!',
+	pic: 'Inserisci il modo di utilizzo corretto delle icone!',
 };
