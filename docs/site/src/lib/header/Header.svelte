@@ -117,7 +117,7 @@
 						transition:fly={{ duration: 300, y: -20, opacity: 0 }}
 						class="absolute left-0 top-10 w-28 rounded-xl bg-white p-4 text-xs shadow-md dark:bg-black dark:shadow-white/10"
 					>
-						<div class="text-primary dark:text-dark relative flex py-0.5">
+						<div class="relative flex py-0.5">
 							<span class="mr-1">
 								<svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 24 24">
 									<path
@@ -126,8 +126,11 @@
 									/>
 								</svg>
 							</span>
+							<a href="https://stdf.design" target="_blank" class="hover:underline">1.1.x</a>
+						</div>
+						<div class="text-primary dark:text-dark relative mt-2 flex py-0.5">
 							{stdfPackage.version}
-							<span class="absolute bottom-1 left-12 w-3">
+							<span class="absolute bottom-1 left-8 w-3">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
 									></path>
@@ -147,7 +150,7 @@
 							{isZh ? '更新日志' : 'Changelog'}
 						</a>
 						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
-						<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
+						<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x</a>
 					</div>
 				{/if}
 			</div>
