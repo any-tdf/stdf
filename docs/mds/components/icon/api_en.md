@@ -8,10 +8,10 @@
 | width    | `number`                               | `0`                  | N        | Icon width.                                                                            |
 | height   | `number`                               | `0`                  | N        | Icon height.                                                                           |
 | theme    | `boolean`                              | `false`              | N        | Whether to follow theme color (light/dark mode), invalid when type is `iconify-color`. |
-| alpha    | `number`                               | `1`                  | N        | Icon opacity.                                                                          |
-| top      | `number`                               | `0`                  | N        | Vertical offset.                                                                       |
+| opacity  | `number`                               | `1`                  | N        | Icon opacity.                                                                          |
+| y        | `number`                               | `0`                  | N        | Vertical offset.                                                                       |
 | injClass | `string`                               | `''`                 | N        | Injected CSS class name.                                                               |
-| path     | `string`                               | `'fonts/symbol.svg'` | N        | Project path for symbol.svg file.                                                      |
+| path     | `string`                               | `'fonts/symbol.svg'` | N        | Project path for symbol.svg file, valid when type is `symbol`.                          |
 
 ## Icon Snippets
 
