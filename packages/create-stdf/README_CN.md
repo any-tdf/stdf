@@ -39,7 +39,7 @@ yarn create stdf@latest
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf my-app
+pnpm create stdf@latest my-app
 ```
 <!-- :: -->
 <!-- npm -->
@@ -49,12 +49,12 @@ npm create stdf@latest my-app
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf my-app
+bun create stdf@latest my-app
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf my-app
+yarn create stdf@latest my-app
 ```
 <!-- ::: -->
 
@@ -63,9 +63,9 @@ yarn create stdf my-app
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf my-app --template skt
+pnpm create stdf@latest my-app --template skt
 # 或
-pnpm create stdf my-app -t skt
+pnpm create stdf@latest my-app -t skt
 ```
 <!-- :: -->
 <!-- npm -->
@@ -77,16 +77,16 @@ npm create stdf@latest my-app -t skt
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf my-app --template skt
+bun create stdf@latest my-app --template skt
 # 或
-bun create stdf my-app -t skt
+bun create stdf@latest my-app -t skt
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf my-app --template skt
+yarn create stdf@latest my-app --template skt
 # 或
-yarn create stdf my-app -t skt
+yarn create stdf@latest my-app -t skt
 ```
 <!-- ::: -->
 
@@ -137,7 +137,7 @@ yarn create stdf my-app -t skt
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf my-app -l zh_CN
+pnpm create stdf@latest my-app -l zh_CN
 ```
 <!-- :: -->
 <!-- npm -->
@@ -147,12 +147,12 @@ npm create stdf@latest my-app -l zh_CN
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf my-app -l zh_CN
+bun create stdf@latest my-app -l zh_CN
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf my-app -l zh_CN
+yarn create stdf@latest my-app -l zh_CN
 ```
 <!-- ::: -->
 
