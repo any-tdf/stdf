@@ -64,26 +64,26 @@ Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf
+pnpm create stdf@latest
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf
+npm create stdf@latest
 # or
-npm init stdf
+npm init stdf@latest
 # or
-npx create-stdf
+npx create-stdf@latest
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf
+bun create stdf@latest
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf
+yarn create stdf@latest
 ```
 <!-- ::: -->
 

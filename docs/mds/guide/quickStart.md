@@ -6,26 +6,26 @@
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf
+pnpm create stdf@latest
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf
+npm create stdf@latest
 # 或
-npm init stdf
+npm init stdf@latest
 # 或
-npx create-stdf
+npx create-stdf@latest
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf
+bun create stdf@latest
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf
+yarn create stdf@latest
 ```
 <!-- ::: -->
 
