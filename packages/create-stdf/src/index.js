@@ -312,9 +312,10 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
 			};
 			const addStdfIconFun = async () => {
+				const isTs = templateItem.value.includes('tt') || templateItem.value.includes('ut');
 				const rollupPluginStdfIconV = await getLatestVersion('rollup-plugin-stdf-icon');
 				packageJson.devDependencies['rollup-plugin-stdf-icon'] = `^${rollupPluginStdfIconV}`;
-				const viteConfig = fs.readFileSync(`${projectDir}/vite.config.js`, 'utf-8');
+				const viteConfig = fs.readFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, 'utf-8');
 				const viteConfigLines = viteConfig.split('\n');
 				viteConfigLines.splice(1, 0, `import svgSprite from 'rollup-plugin-stdf-icon';`);
 				const viteStdfIconSnippet = fs.readFileSync(new URL('../snippet/vite-stdf-icon.txt', import.meta.url), 'utf-8');
@@ -325,7 +326,7 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 					1,
 					viteStdfIconSnippet
 				);
-				fs.writeFileSync(`${projectDir}/vite.config.js`, viteConfigLines.join('\n'), 'utf-8');
+				fs.writeFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, viteConfigLines.join('\n'), 'utf-8');
 				// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
 				// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
 				fs.copySync(new URL('../snippet/svgs', import.meta.url).pathname, `${projectDir}/src/lib/svgs`);

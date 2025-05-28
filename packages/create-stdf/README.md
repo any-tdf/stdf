@@ -9,7 +9,7 @@ A CLI for creating new [STDF](https://stdf.design) projects. Just run...
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf
+pnpm create stdf@latest
 ```
 <!-- :: -->
 <!-- npm -->
@@ -23,18 +23,18 @@ npx create-stdf@latest
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf
+bun create stdf@latest
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf
+yarn create stdf@latest
 ```
 <!-- ::: -->
 
 ...and follow the prompts.
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit & Tailwind & TypeScript & STDF & stdf-icon** template, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to create a new project named `my-app` using the **SvelteKit & Tailwind & TypeScript & STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -58,66 +58,59 @@ yarn create stdf my-app
 ```
 <!-- ::: -->
 
-If you want to use the **SvelteKit & Tailwind & STDF & stdf-icon** template, run:
+If you want to use the **SvelteKit & Tailwind & STDF** template, run:
 
 <!-- :::code-groups -->
 <!-- pnpm -->
 ```sh
-pnpm create stdf my-app --template skts
+pnpm create stdf my-app --template skt
 # or
-pnpm create stdf my-app -t skts
+pnpm create stdf my-app -t skt
 ```
 <!-- :: -->
 <!-- npm -->
 ```sh
-npm create stdf@latest my-app --template skts
+npm create stdf@latest my-app --template skt
 # or
-npm create stdf@latest my-app -t skts
+npm create stdf@latest my-app -t skt
 ```
 <!-- :: -->
 <!-- bun -->
 ```sh
-bun create stdf my-app --template skts
+bun create stdf my-app --template skt
 # or
-bun create stdf my-app -t skts
+bun create stdf my-app -t skt
 ```
 <!-- :: -->
 <!-- yarn -->
 ```sh
-yarn create stdf my-app --template skts
+yarn create stdf my-app --template skt
 # or
-yarn create stdf my-app -t skts
+yarn create stdf my-app -t skt
 ```
 <!-- ::: -->
-
-Template presets include:
-
-| Abbreviation | Template                                                | Description     |
-| ------------ | ------------------------------------------------------- | --------------- |
-| sktts        | SvelteKit & Tailwind & TypeScript & stdf-icon           | Default         |
-| skts         | SvelteKit & Tailwind & stdf-icon                        | -               |
-| sktti        | SvelteKit & Tailwind & TypeScript & iconify             | -               |
-| skti         | SvelteKit & Tailwind & iconify                          | -               |
-| skttsi       | SvelteKit & Tailwind & TypeScript & stdf-icon & iconify | -               |
-| sktsi        | SvelteKit & Tailwind & stdf-icon & iconify              | -               |
-| skuts        | SvelteKit & UnoCSS & TypeScript & stdf-icon             | Not adapted yet |
-| skus         | SvelteKit & UnoCSS & stdf-icon                          | Not adapted yet |
-| skuti        | SvelteKit & UnoCSS & TypeScript & iconify               | Not adapted yet |
-| skui         | SvelteKit & UnoCSS & iconify                            | Not adapted yet |
-| skutsi       | SvelteKit & UnoCSS & TypeScript & stdf-icon & iconify   | Not adapted yet |
-| skusi        | SvelteKit & UnoCSS & stdf-icon & iconify                | Not adapted yet |
 
 # Options
 
 | Option          | Type   | Default | Description                                    |
 | --------------- | ------ | ------- | ---------------------------------------------- |
 | -               | string | -       | The name of the project, you can direct input. |
-| -t / --template | string | sktts   | The template to use.                           |
-| -l / --language | string | en_US   | The language of the prompts.                   |
+| -t / --template | `'sktt'\|'skt'\|'skut'\|'sku'` | `'sktt'` | The template to use.                           |
+| -l / --language | `'en_US'\|'zh_CN'\|'zh_TW'\|'ja_JP'\|'ko_KR'\|'es_ES'\|'ru_RU'\|'fr_FR'\|'de_DE'\|'it_IT'` | `'en_US'` | The language of the prompts.                   |
+| -i / --icon-usage | `'stdf-icon'\|'iconify'\|'both'\|'none'` | `'stdf-icon'` | The icon usage method.                         |
 
-# Supported Languages
+# Template presets
 
-| Code  | Language              |
+| Abbreviation | Template                                                | Description     |
+| ------------ | ------------------------------------------------------- | --------------- |
+| sktt        | SvelteKit & Tailwind & TypeScript           | Default         |
+| skt         | SvelteKit & Tailwind                         | -               |
+| skut        | SvelteKit & UnoCSS & TypeScript             | Not adapted yet |
+| sku         | SvelteKit & UnoCSS                         | Not adapted yet |
+
+# Language presets
+
+| Abbreviation  | Language              |
 | ----- | --------------------- |
 | en_US | English (US)          |
 | zh_CN | Chinese (Simplified)  |
@@ -129,6 +122,15 @@ Template presets include:
 | fr_FR | French                |
 | de_DE | German                |
 | it_IT | Italian               |
+
+# Icon usage presets
+
+| Abbreviation | Description                                                           |
+| --------- | -------------------------------------------------------------- |
+| stdf-icon | Use `rollup-plugin-stdf-icon` to manage icons.                  |
+| iconify   | Use `iconify` to manage icons.                                  |
+| both      | Use both `rollup-plugin-stdf-icon` and `iconify` to manage icons. |
+| none      | Do not use any tool to manage icons.                                       |
 
 For example:
 
