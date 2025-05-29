@@ -92,12 +92,12 @@ yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 
 # Options
 
-| Option          | Optional values   | Default | Description                                    |
-| --------------- | ------ | ------- | ---------------------------------------------- |
-| -               | -       | -       | The name of the project, you can direct input. |
-| --t / --template | sktt/skt/skut/sku | sktt | The template to use.                           |
-| --l / --language | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT | en_US | The language of the prompts.                   |
-| --i / --icon-usage | stdf-icon/iconify/both/none | stdf-icon | The icon usage method.                         |
+| Option             | Default | Description                                    |
+| --------------- | ------- | ---------------------------------------------- |
+| -               | -       | The name of the project, you can direct input. |
+| --t / --template | sktt | The template to use.                           |
+| --l / --language | en_US | The language of the prompts.                   |
+| --i / --icon-usage | stdf-icon | The icon usage method.                         |
 
 # Template presets
 

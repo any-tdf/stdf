@@ -28,7 +28,8 @@ const createStdfV = await getLatestVersion('create-stdf');
 // 显示版本号
 // Display version number
 console.log(`
-${grey(`create-stdf@${version}`)}`);
+${grey(`create-stdf@${version}`)}
+`);
 
 if (version != createStdfV) {
 	console.log(
@@ -126,6 +127,12 @@ if (argvProjectName) {
 	} else {
 		itemIconUsage = iconUsageOptions[0];
 	}
+	// 判断是否已存在，提示“项目名称已存在”
+	// Determine whether it already exists, prompt "Project name already exists"
+	if (fs.existsSync(argvProjectName)) {
+		p.intro(red('🚫 ' + argvProjectName + ' ' + lang.pane));
+		process.exit(0);
+	}
 	createFunc(argvProjectName, itemTemplate, itemIconUsage, packageManagerOptions[0]);
 } else {
 	(async () => {
@@ -200,7 +207,7 @@ if (argvProjectName) {
 				if (fs.existsSync(value)) {
 					// 判断是否已存在，提示“项目名称已存在”
 					// Determine whether it already exists, prompt "Project name already exists"
-					return lang.pane;
+					return '🚫 ' + value + ' ' + lang.pane;
 				}
 			},
 		});
@@ -230,10 +237,6 @@ if (argvProjectName) {
 			iconUsageOptions.find(i => i.value === iconUsage),
 			packageManagerOptions.find(i => i.value === packageManager)
 		);
-		// templateOptions.forEach(async item => {
-		// 	if (item.value === template) {
-		// 	}
-		// });
 	})();
 }
 

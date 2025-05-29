@@ -92,12 +92,12 @@ yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 
 # 命令选项
 
-| 命令              | 可选值                                                                                       | 默认          | 描述                     |
-| ----------------- | ------------------------------------------------------------------------------------------ | ------------- | ------------------------ |
-| -                 | -                                                                                     | -             | 项目名称，可以直接输入。 |
-| --t / --template   | sktt/skt/skut/sku                                                                         | sktt          | 要使用的模板。           |
-| --l / --language   | en_US/zh_CN/zh_TW/ja_JP/ko_KR/es_ES/ru_RU/fr_FR/de_DE/it_IT                             | en_US         | 提示语言。               |
-| --i / --icon-usage | stdf-icon/iconify/both/none                                                               | stdf-icon     | 图标使用方式。           |
+| 命令              | 默认          | 描述                     |
+| ----------------- | ------------- | ------------------------ |
+| -                 | -             | 项目名称，可以直接输入。 |
+| --t/--template   | sktt          | 要使用的模板。           |
+| --l/--language   | en_US         | 提示语言。               |
+| --i/--icon-usage | stdf-icon     | 图标使用方式。           |
 
 # 模板预设
 
