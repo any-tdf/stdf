@@ -19,7 +19,7 @@ const getLatestVersion = async packageName => {
 
 // 获取 create 当前版本
 // Get create-stdf current version
-const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
+const { version } = JSON.parse(fs.readFileSync(fileURLToPath(new URL('../package.json', import.meta.url)), 'utf-8'));
 
 // 获取 create-stdf 的最新版本号
 // Get the latest version number of create-stdf
@@ -127,7 +127,7 @@ if (argvProjectName) {
 	} else {
 		itemIconUsage = iconUsageOptions[0];
 	}
-	// 判断是否已存在，提示“项目名称已存在”
+	// 判断是否已存在，提示"项目名称已存在"
 	// Determine whether it already exists, prompt "Project name already exists"
 	if (fs.existsSync(argvProjectName)) {
 		p.intro(red('🚫 ' + argvProjectName + ' ' + lang.pane));
@@ -200,12 +200,12 @@ if (argvProjectName) {
 			placeholder: 'stdf-project',
 			validate: value => {
 				if (!value) {
-					// 判断是否为空，提示“项目名称不能为空”
+					// 判断是否为空，提示"项目名称不能为空"
 					// Determine whether it is empty, prompt "Project name cannot be empty"
 					return lang.pncbne;
 				}
 				if (fs.existsSync(value)) {
-					// 判断是否已存在，提示“项目名称已存在”
+					// 判断是否已存在，提示"项目名称已存在"
 					// Determine whether it already exists, prompt "Project name already exists"
 					return '🚫 ' + value + ' ' + lang.pane;
 				}
@@ -302,7 +302,7 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
 				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
 				const pageSvelteLines = pageSvelte.split('\n');
-				const iconifySnippet = fs.readFileSync(new URL('../snippet/iconify.txt', import.meta.url), 'utf-8');
+				const iconifySnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/iconify.txt', import.meta.url)), 'utf-8');
 				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, iconifySnippet);
 				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
 			};
@@ -313,7 +313,10 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 				const viteConfig = fs.readFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, 'utf-8');
 				const viteConfigLines = viteConfig.split('\n');
 				viteConfigLines.splice(1, 0, `import svgSprite from 'rollup-plugin-stdf-icon';`);
-				const viteStdfIconSnippet = fs.readFileSync(new URL('../snippet/vite-stdf-icon.txt', import.meta.url), 'utf-8');
+				const viteStdfIconSnippet = fs.readFileSync(
+					fileURLToPath(new URL('../snippet/vite-stdf-icon.txt', import.meta.url)),
+					'utf-8'
+				);
 				// 将【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】替换为 viteStdfIconSnippet 的代码
 				// Replace 【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】 with the code of viteStdfIconSnippet
 				viteConfigLines.splice(
@@ -324,11 +327,11 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 				fs.writeFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, viteConfigLines.join('\n'), 'utf-8');
 				// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
 				// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
-				fs.copySync(new URL('../snippet/svgs', import.meta.url).pathname, `${projectDir}/src/lib/svgs`);
+				fs.copySync(fileURLToPath(new URL('../snippet/svgs', import.meta.url)), `${projectDir}/src/lib/svgs`);
 				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
 				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
 				const pageSvelteLines = pageSvelte.split('\n');
-				const stdfIconSnippet = fs.readFileSync(new URL('../snippet/stdf-icon.txt', import.meta.url), 'utf-8');
+				const stdfIconSnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/stdf-icon.txt', import.meta.url)), 'utf-8');
 				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, stdfIconSnippet);
 				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
 			};
