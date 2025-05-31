@@ -9,14 +9,6 @@ on:
             - main
         paths:
             - 'packages/stdf/package.json'
-    # 这个选项可以使你手动在 Action tab 页面触发工作流
-    workflow_dispatch:
-
-# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages。
-permissions:
-    contents: read
-    pages: write
-    id-token: write
 
 jobs:
     releases:
