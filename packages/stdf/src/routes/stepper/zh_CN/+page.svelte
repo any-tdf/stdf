@@ -76,6 +76,12 @@
 	<Stepper radius="xl" vertical />
 </div>
 
+<div class="mx-4 mt-8 text-lg font-bold">固定宽度</div>
+<div class="space-x-8 px-2 py-4">
+	<Stepper width={160} />
+	<Stepper width={80} vertical />
+</div>
+
 <div class="mx-4 mt-8 text-lg font-bold">格式化显示数字</div>
 <div class="px-4 py-4">
 	<div class="mb-2 text-sm">保留一位小数</div>

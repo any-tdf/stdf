@@ -411,7 +411,6 @@ export type NoticeBarProps = {
 	textList: string[];
 	leftIcon?: IconProps | null | 'volume';
 	rightIcon?: 'close' | 'arrow' | null;
-	fontSize?: 'xs' | 'sm' | 'base' | 'lg';
 	space?: number;
 	speed?: number;
 	vertical?: boolean;
@@ -641,6 +640,7 @@ export type StepperProps = {
 	asyncLoading?: boolean;
 	loading?: LoadingProps;
 	padding?: boolean;
+	width?: number;
 	injClassOut?: string;
 	injClassBtn?: string;
 	injClassNum?: string;

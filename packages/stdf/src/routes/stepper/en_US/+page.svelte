@@ -76,6 +76,12 @@
 	<Stepper radius="xl" vertical />
 </div>
 
+<div class="mx-4 mt-8 text-lg font-bold">Fixed Width</div>
+<div class="space-x-8 px-2 py-4">
+	<Stepper width={160} />
+	<Stepper width={80} vertical />
+</div>
+
 <div class="mx-4 mt-8 text-lg font-bold">Format Display Numbers</div>
 <div class="px-4 py-4">
 	<div class="mb-2 text-sm">Keep one decimal place</div>

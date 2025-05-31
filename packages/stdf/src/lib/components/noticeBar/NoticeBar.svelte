@@ -7,7 +7,6 @@
 		textList = [],
 		leftIcon = 'volume',
 		rightIcon = 'close',
-		fontSize = 'sm',
 		space = 100,
 		speed = 30,
 		vertical = false,
@@ -30,10 +29,6 @@
 	if (textList.length === 0) {
 		console.error('[STDF NoticeBar error]textList must not be empty.');
 	}
-
-	// 字体大小样式
-	// Font size style
-	const fontSizeClass = { xs: ' text-xs', sm: ' text-sm', base: ' text-base', lg: ' text-lg' };
 
 	// 动画时长样式
 	// Animation duration style
@@ -121,10 +116,9 @@
 
 {#if isShowClose}
 	<div
-		class="bg-primary/10 text-primary dark:bg-dark/10 flex justify-between dark:text-dark{fontSizeClass[fontSize] ||
-			fontSizeClass['sm']} p-2{!rightIcon ? ' pr-2' : ' pr-0'} transition-all duration-300{isShow ? '' : ' scale-0'}{injClass === ''
-			? ''
-			: ` ${injClass}`}"
+		class="bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark flex justify-between text-sm p-2{!rightIcon
+			? ' pr-2'
+			: ' pr-0'} transition-all duration-300{isShow ? '' : ' scale-0'}{injClass === '' ? '' : ` ${injClass}`}"
 	>
 		<div class={leftIcon ? 'mr-1' : ''}>
 			{#if leftChild}

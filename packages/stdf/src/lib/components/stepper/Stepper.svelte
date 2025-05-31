@@ -16,6 +16,7 @@
 		asyncLoading = false,
 		loading = {},
 		padding = true,
+		width = 0,
 		injClassOut = '',
 		injClassBtn = '',
 		injClassNum = '',
@@ -75,7 +76,7 @@
 				viewBox="0 0 24 24"
 				width="24"
 				height="24"
-				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : ''}
+				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : 'fill-black dark:fill-white'}
 			>
 				<path d="M5 11V13H19V11H5Z"></path>
 			</svg>
@@ -93,6 +94,7 @@
 					? ' bg-primary/5 text-primary dark:bg-dark/10 dark:text-dark'
 					: ' bg-white dark:bg-black'
 				: ''}"
+			style={width ? `width: ${width}px;` : ''}
 		>
 			{value.toFixed(decimal)}
 		</div>
@@ -115,7 +117,7 @@
 				viewBox="0 0 24 24"
 				width="24"
 				height="24"
-				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : ''}
+				class={theme && (numberHighlight ? false : true) ? 'fill-primary dark:fill-dark' : 'fill-black dark:fill-white'}
 			>
 				<path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
 			</svg>
