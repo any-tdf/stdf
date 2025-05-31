@@ -30,9 +30,6 @@
 <div class="m-4 mt-8 text-lg font-bold">左侧无内容</div>
 <NoticeBar leftIcon={null} {textList}></NoticeBar>
 
-<div class="m-4 mt-8 text-lg font-bold">设定文字大小</div>
-<NoticeBar fontSize="lg" {textList}></NoticeBar>
-
 <div class="m-4 mt-8 text-lg font-bold">自定义左侧</div>
 <NoticeBar leftIcon={{ name: 'ri-notification-2-line', size: 16, y: -1 }} {textList}></NoticeBar>
 <div class="my-4"></div>

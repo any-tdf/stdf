@@ -33,9 +33,6 @@
 <div class="m-4 mt-8 text-lg font-bold">Nothing on the left</div>
 <NoticeBar leftIcon={null} {textList}></NoticeBar>
 
-<div class="m-4 mt-8 text-lg font-bold">Set text size</div>
-<NoticeBar fontSize="lg" {textList}></NoticeBar>
-
 <div class="m-4 mt-8 text-lg font-bold">Custom left</div>
 <NoticeBar leftIcon={{ name: 'ri-notification-2-line', size: 16, y: -1 }} {textList}></NoticeBar>
 <div class="my-4"></div>
