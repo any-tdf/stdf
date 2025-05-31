@@ -1,5 +1,3 @@
-> Pagination uses the icons ri-more-line and ri-more-fill, please ensure that the symbol.svg file in your project includes these icons. For details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
 ## Design Concept
 
 In my opinion, pagination should not be based on scrolling up to load the next page. This interaction can cause user uncomfortable as there is no psychological expectation. Therefore, the STDF pagination component meet the following conditions by default:

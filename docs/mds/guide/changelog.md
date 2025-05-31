@@ -1,3 +1,9 @@
+## 1.1.1 <font size=1>2025-05-31</font>
+
+- 修复 Avatar 组件，详见 [Avatar](https://stdf.design/components?nav=avatar&tab=4)。
+- 优化 NoticeBar 组件，详见 [NoticeBar](https://stdf.design/components?nav=noticeBar&tab=4)。
+- 优化 Stepper 组件，详见 [Stepper](https://stdf.design/components?nav=stepper&tab=4)。
+
 ## 1.1.0 <font size=1>2025-05-26</font>
 
 - 增强 Button 组件，详见 [Button](https://stdf.design/components?nav=button&tab=4)。

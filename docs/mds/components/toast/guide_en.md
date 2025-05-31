@@ -1,5 +1,3 @@
-> Toast uses icons ri-checkbox-circle-line, ri-close-circle-line, ri-error-warning-line, ri-information-line. Please ensure these icons are included in your project's symbol.svg file. For details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
 ## Display Position
 
 By default, the toast appears in the center of the screen. You can also set its position using the `position` prop. When position is set to `top` or `bottom`, you can use the `py` prop to set the distance from the top or bottom.

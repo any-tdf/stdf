@@ -1,5 +1,3 @@
-> Pagination 使用了图标 ri-more-line 和 ri-more-fill，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
 ## 设计思路
 
 私以为，分页不应该是上滑加载下一页，这种交互会让用户无心理预期而产生不适，所以 STDF 的分页组件交互默认满足以下几个条件：

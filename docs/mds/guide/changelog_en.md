@@ -1,3 +1,9 @@
+## 1.1.1 <font size=1>2025-05-31</font>
+
+- Fixed Avatar component, please see [Avatar](https://stdf.design/components?nav=avatar&tab=4).
+- Optimized NoticeBar component, please see [NoticeBar](https://stdf.design/components?nav=noticeBar&tab=4).
+- Optimized Stepper component, please see [Stepper](https://stdf.design/components?nav=stepper&tab=4).
+
 ## 1.1.0 <font size=1>2025-05-26</font>
 
 - Enhanced Button component, please see [Button](https://stdf.design/components?nav=button&tab=4).

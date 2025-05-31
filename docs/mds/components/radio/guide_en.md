@@ -1,5 +1,3 @@
-> Radio uses icons ri-radio-button-line and ri-checkbox-blank-circle-line. Please ensure these icons are included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
 ## Description
 
 Due to limited horizontal display space on mobile devices, Radio defaults to vertical layout. Horizontal layout is recommended only for simple use cases. When there are multiple options, longer content, or more display content, vertical layout is recommended.

@@ -1,5 +1,3 @@
-> NoticeBar uses icons ri-volume-down-line and ri-close-line. Please ensure these icons are included in your project's symbol.svg file. For more details, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
 ## Description
 
 When placed horizontally, regardless of the number of content items, NoticeBar will automatically scroll horizontally if the total length of all content plus the spacing between them exceeds the container width. Otherwise, it will not scroll.

@@ -5,7 +5,6 @@
 | textList  | `string[]`                                                                | `[]`       | Y    | 通告内容组成的数组。          |
 | leftIcon  | `'volume'\|null`\|[`Icon`](https://stdf.design/components?nav=icon&tab=0) | `'volume'` | N    | 左侧内容。                    |
 | rightIcon | `'close'\|'arrow'\|null`                                              | `'close'`  | N    | 右侧内容。                    |
-| fontSize  | `'xs'\|'sm'\|'base'\|'lg'`                                                | `'sm'`     | N    | 通告字体大小。                |
 | space     | `number`                                                                  | `100`      | N    | 通告间距，单位是 px。         |
 | speed     | `number`                                                                  | `30`       | N    | 横向滚动速度，单位是 px/s。   |
 | vertical  | `boolean`                                                                 | `false`    | N    | 是否垂直滚动。                |

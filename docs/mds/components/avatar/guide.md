@@ -1,5 +1,3 @@
-> Avatar 使用了图标 ri-user-3-line 和 ri-user-add-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
 ## 内容说明
 
 image 可以传入图片的相对路径或绝对路径，组件内部将其转换为 img 标签的 src 属性；alt 传入文字将直接显示；icon 传入 Icon Props 将使用 Icon 组件渲染头像框内容，请参考 Icon API；若 image、alt、icon 都不传，Avatar 组件会默认使用 Icon 组件显示一个用户图标。

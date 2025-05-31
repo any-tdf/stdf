@@ -1,5 +1,3 @@
-> Rate 使用了图标 ri-star-fill，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
 ## value 与 total 注意事项
 
 1. 传入的 value 不允许大于 total；

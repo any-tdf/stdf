@@ -1,5 +1,3 @@
-> NumKeyboard 使用了图标 ri-delete-back-2-line 和 ri-skip-down-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
 ## 说明
 
 NumKeyboard 组件是一个虚拟的数字键盘，一般用于输入整数或小数。内部使用了网格布局，布局方式只有 3\*4 或 4\*4 两种，当不显示完成按键时，就只有 3 列，否则就是 4 列。

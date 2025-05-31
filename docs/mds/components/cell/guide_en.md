@@ -1,5 +1,3 @@
-> Cell uses the icon ri-arrow-right-s-line, please make sure this icon is included in your project's symbol.svg file. For detailed information, please refer to [STDF-Guide-Icon](https://stdf.design/guide/icon).
-
 ## Description
 
 In component library development, satisfying both customization and ease of use is always a trade-off.

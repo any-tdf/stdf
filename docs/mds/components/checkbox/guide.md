@@ -1,5 +1,3 @@
-> Checkbox 使用了图标 ri-checkbox-fill 和 ri-checkbox-line，请确保项目的 symbol.svg 文件中包含这些图标。详细信息请参考 [STDF-指南 - 图标](https://stdf.design/guide/icon)。
-
 ## 说明
 
 由于移动端横向显示内容有限，Checkbox 默认为纵向布局，横向布局建议只用作简单使用。当选项较多、内容较长或显示内容较多时建议使用纵向布局，当 Checkbox 内的选项被点击时，通过 onchange 事件，可以获取到当前所有选定项标识符 name 组成的数组。

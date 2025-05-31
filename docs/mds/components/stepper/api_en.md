@@ -15,6 +15,7 @@
 | asyncLoading    | `boolean`                                                       | `false` | N        | Whether to show internal Loading in async state.   |
 | loading         | [`Loading`](https://stdf.design/components?nav=loading&tab=1) | `{}`    | N        | Loading parameters in async state.                 |
 | padding         | `boolean`                                                       | `true`  | N        | Whether to have external padding.                  |
+| width           | `number`                                                        | `0`     | N        | Fixed width for the number area.                  |
 | injClassOut     | `string`                                                        | `''`    | N        | Injected class for the outer container.            |
 | injClassBtn     | `string`                                                        | `''`    | N        | Injected class for the button area.                |
 | injClassNum     | `string`                                                        | `''`    | N        | Injected class for the number area.                |
