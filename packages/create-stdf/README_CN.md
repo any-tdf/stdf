@@ -92,21 +92,25 @@ yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 
 # 命令选项
 
-| 命令              | 默认          | 描述                     |
-| ----------------- | ------------- | ------------------------ |
-| -                 | -             | 项目名称，可以直接输入。 |
-| --t/--template   | sktt          | 要使用的模板。           |
-| --l/--language   | en_US         | 提示语言。               |
-| --i/--icon-usage | stdf-icon     | 图标使用方式。           |
+| 命令             | 默认      | 描述                     |
+| ---------------- | --------- | ------------------------ |
+| -                | -         | 项目名称，可以直接输入。 |
+| --t/--template   | sktt      | 要使用的模板。           |
+| --l/--language   | en_US     | 提示语言。               |
+| --i/--icon-usage | stdf-icon | 图标使用方式。           |
 
 # 模板预设
 
-| 简写 | 模板                              | 描述     |
-| ---- | --------------------------------- | -------- |
-| sktt | SvelteKit & Tailwind & TypeScript | 默认     |
-| skt  | SvelteKit & Tailwind              | -        |
-| skut | SvelteKit & UnoCSS & TypeScript   | 暂未适配 |
-| sku  | SvelteKit & UnoCSS                | 暂未适配 |
+| 简写 | 模板                                  | 描述     |
+| ---- | ------------------------------------- | -------- |
+| sktt | SvelteKit & Tailwind & TypeScript     | 默认     |
+| skt  | SvelteKit & Tailwind                  | -        |
+| vstt | Vite & Svelte & Tailwind & TypeScript | -        |
+| vst  | Vite & Svelte & Tailwind              | -        |
+| skut | SvelteKit & UnoCSS & TypeScript       | 暂未适配 |
+| sku  | SvelteKit & UnoCSS                    | 暂未适配 |
+| vsut | Vite & Svelte & UnoCSS                | 暂未适配 |
+| vsu  | Vite & Svelte & UnoCSS                | 暂未适配 |
 
 # 语言预设
 
@@ -125,12 +129,12 @@ yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 
 # 图标使用方式预设
 
-| 简写      | 描述                                                           |
-| --------- | -------------------------------------------------------------- |
-| stdf-icon | 使用 rollup-plugin-stdf-icon 插件管理图标。                  |
-| iconify   | 使用 iconify 插件管理图标。                                  |
+| 简写      | 描述                                                       |
+| --------- | ---------------------------------------------------------- |
+| stdf-icon | 使用 rollup-plugin-stdf-icon 插件管理图标。                |
+| iconify   | 使用 iconify 插件管理图标。                                |
 | both      | 同时使用 rollup-plugin-stdf-icon 和 iconify 插件管理图标。 |
-| none      | 不使用任何工具管理图标。                                       |
+| none      | 不使用任何工具管理图标。                                   |
 
 # 许可证
 

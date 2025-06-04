@@ -82,10 +82,10 @@
 <div class="flex items-center justify-center gap-2 pt-10 text-center">
 	<a class="flex w-10 flex-col items-center" href="https://kit.svelte.dev" target="_blank" rel="noreferrer">
 		<img src="/svelte.svg" alt="Svelte Logo" />
-	</a>+
+	</a>
 	<a class="flex w-10 flex-col items-center" href="https://tailwindcss.com" target="_blank" rel="noreferrer">
 		<img src="/tailwindcss.svg" alt="Tailwind Logo" />
-	</a>+
+	</a>
 	<a class="flex w-8 flex-col items-center" href="https://stdf.design" target="_blank" rel="noreferrer" aria-label="STDF Logo">
 		<svg viewBox="0 0 90 80" fill="currentColor">
 			<path
@@ -98,10 +98,10 @@
 </div>
 <div class="my-6 text-center text-xs">
 	{#if lang === 'zh_CN'}
-		<p>这是 SvelteKit + Tailwind + STDF 构建的模板</p>
+		<p>这是 SvelteKit & Tailwind & STDF 构建的模板</p>
 		<p class="mt-2">点击上方 LOGO 了解更多</p>
 	{:else}
-		<p>This is a template using SvelteKit + TailwindCSS + STDF</p>
+		<p>This is a template using SvelteKit & Tailwind & STDF</p>
 		<p class="mt-2">Click the logo above to learn more</p>
 	{/if}
 </div>

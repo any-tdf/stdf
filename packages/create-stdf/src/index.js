@@ -76,10 +76,14 @@ lang = argvLanguage && languages.find(item => item.value === argvLanguage) ? lan
 // 模板列表
 // Template list
 const templateOptions = [
-	{ value: 'sktt', label: 'SvelteKit & Tailwind & TypeScript', template: 'sktt', finish: true },
-	{ value: 'skt', label: 'SvelteKit & Tailwind', template: 'skt', finish: true },
-	{ value: 'skut', label: 'SvelteKit & UnoCSS & TypeScript', template: 'skut', finish: false },
-	{ value: 'sku', label: 'SvelteKit & UnoCSS', template: 'sku', finish: false },
+	{ value: 'sktt', label: 'SvelteKit & Tailwind & TypeScript', template: 'sktt', ts: true, finish: true },
+	{ value: 'skt', label: 'SvelteKit & Tailwind', template: 'skt', ts: false, finish: true },
+	{ value: 'vstt', label: 'Vite & Svelte & Tailwind & TypeScript', template: 'vstt', ts: true, finish: true },
+	{ value: 'vst', label: 'Vite & Svelte & Tailwind', template: 'vst', ts: false, finish: true },
+	{ value: 'skut', label: 'SvelteKit & UnoCSS & TypeScript', template: 'skut', ts: true, finish: false },
+	{ value: 'sku', label: 'SvelteKit & UnoCSS', template: 'sku', ts: false, finish: false },
+	{ value: 'vsut', label: 'Vite & Svelte & UnoCSS & TypeScript', template: 'vsut', ts: true, finish: false },
+	{ value: 'vsu', label: 'Vite & Svelte & UnoCSS', template: 'vsu', ts: false, finish: false },
 ];
 
 // 包管理工具列表
@@ -276,6 +280,10 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			const stdfV = await getLatestVersion('stdf');
 			packageJson.devDependencies['stdf'] = `^${stdfV}`;
 
+			const isVite = templateItem.value.includes('v');
+			const isTs = templateItem.ts;
+			const isUno = templateItem.value.includes('u');
+
 			const addIconifyFun = async () => {
 				const iconifyTailwind4V = await getLatestVersion('@iconify/tailwind4');
 				const bitcoin_iconsV = await getLatestVersion('@iconify-json/bitcoin-icons');
@@ -299,41 +307,77 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 }`
 				);
 				fs.writeFileSync(`${projectDir}/src/app.css`, appCssLines.join('\n'), 'utf-8');
-				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
-				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
-				const pageSvelteLines = pageSvelte.split('\n');
-				const iconifySnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/iconify.txt', import.meta.url)), 'utf-8');
-				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, iconifySnippet);
-				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+
+				if (isVite) {
+					// 使用 Vite
+					// 在 ${projectDir}/src/App.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+					const appSvelte = fs.readFileSync(`${projectDir}/src/App.svelte`, 'utf-8');
+					const appSvelteLines = appSvelte.split('\n');
+					const iconifySnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/iconify.txt', import.meta.url)), 'utf-8');
+					appSvelteLines.splice(appSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, iconifySnippet);
+					fs.writeFileSync(`${projectDir}/src/App.svelte`, appSvelteLines.join('\n'), 'utf-8');
+				} else {
+					// 使用 SvelteKit
+					// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+					const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
+					const pageSvelteLines = pageSvelte.split('\n');
+					const iconifySnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/iconify.txt', import.meta.url)), 'utf-8');
+					pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, iconifySnippet);
+					fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+				}
 			};
 			const addStdfIconFun = async () => {
-				const isTs = templateItem.value.includes('tt') || templateItem.value.includes('ut');
 				const rollupPluginStdfIconV = await getLatestVersion('rollup-plugin-stdf-icon');
 				packageJson.devDependencies['rollup-plugin-stdf-icon'] = `^${rollupPluginStdfIconV}`;
 				const viteConfig = fs.readFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, 'utf-8');
 				const viteConfigLines = viteConfig.split('\n');
 				viteConfigLines.splice(1, 0, `import svgSprite from 'rollup-plugin-stdf-icon';`);
-				const viteStdfIconSnippet = fs.readFileSync(
-					fileURLToPath(new URL('../snippet/vite-stdf-icon.txt', import.meta.url)),
-					'utf-8'
-				);
-				// 将【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】替换为 viteStdfIconSnippet 的代码
-				// Replace 【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】 with the code of viteStdfIconSnippet
-				viteConfigLines.splice(
-					viteConfigLines.indexOf('export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });'),
-					1,
-					viteStdfIconSnippet
-				);
-				fs.writeFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, viteConfigLines.join('\n'), 'utf-8');
-				// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
-				// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
-				fs.copySync(fileURLToPath(new URL('../snippet/svgs', import.meta.url)), `${projectDir}/src/lib/svgs`);
-				// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
-				const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
-				const pageSvelteLines = pageSvelte.split('\n');
-				const stdfIconSnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/stdf-icon.txt', import.meta.url)), 'utf-8');
-				pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, stdfIconSnippet);
-				fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+
+				if (isVite) {
+					const viteStdfIconSnippet = fs.readFileSync(
+						fileURLToPath(new URL('../snippet/vite-stdf-icon.txt', import.meta.url)),
+						'utf-8'
+					);
+					// 将【export default defineConfig({ plugins: [svelte(), tailwindcss()] });】替换为 viteStdfIconSnippet 的代码
+					// Replace 【export default defineConfig({ plugins: [svelte(), tailwindcss()] });】 with the code of viteStdfIconSnippet
+					viteConfigLines.splice(
+						viteConfigLines.indexOf('export default defineConfig({ plugins: [svelte(), tailwindcss()] });'),
+						1,
+						viteStdfIconSnippet
+					);
+					fs.writeFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, viteConfigLines.join('\n'), 'utf-8');
+					// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
+					// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
+					fs.copySync(fileURLToPath(new URL('../snippet/svgs', import.meta.url)), `${projectDir}/src/lib/svgs`);
+					// 在 ${projectDir}/src/App.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+					const appSvelte = fs.readFileSync(`${projectDir}/src/App.svelte`, 'utf-8');
+					const appSvelteLines = appSvelte.split('\n');
+					const stdfIconSnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/stdf-icon.txt', import.meta.url)), 'utf-8');
+					appSvelteLines.splice(appSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, stdfIconSnippet);
+					fs.writeFileSync(`${projectDir}/src/App.svelte`, appSvelteLines.join('\n'), 'utf-8');
+				} else {
+					const viteStdfIconSnippet = fs.readFileSync(
+						fileURLToPath(new URL('../snippet/svelte-kit-stdf-icon.txt', import.meta.url)),
+						'utf-8'
+					);
+					// 将【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】替换为 viteStdfIconSnippet 的代码
+					// Replace 【export default defineConfig({ plugins: [tailwindcss(), sveltekit()] });】 with the code of viteStdfIconSnippet
+					viteConfigLines.splice(
+						viteConfigLines.indexOf('export default defineConfig({ plugins: [sveltekit(), tailwindcss()] });'),
+						1,
+						viteStdfIconSnippet
+					);
+					fs.writeFileSync(`${projectDir}/vite.config.${isTs ? 'ts' : 'js'}`, viteConfigLines.join('\n'), 'utf-8');
+					// 将 snippet/svgs 整个目录复制到 ${projectDir}/src/lib 目录下
+					// Copy the snippet/svgs directory to the ${projectDir}/src/lib directory
+					fs.copySync(fileURLToPath(new URL('../snippet/svgs', import.meta.url)), `${projectDir}/src/lib/svgs`);
+					// 在 ${projectDir}/src/routes/+page.svelte 的 <Calendar bind:visible /> 下方增加图标使用示例
+					const pageSvelte = fs.readFileSync(`${projectDir}/src/routes/+page.svelte`, 'utf-8');
+					const pageSvelteLines = pageSvelte.split('\n');
+					const stdfIconSnippet = fs.readFileSync(fileURLToPath(new URL('../snippet/stdf-icon.txt', import.meta.url)), 'utf-8');
+					pageSvelteLines.splice(pageSvelteLines.indexOf('<Calendar bind:visible />') + 1, 0, stdfIconSnippet);
+					fs.writeFileSync(`${projectDir}/src/routes/+page.svelte`, pageSvelteLines.join('\n'), 'utf-8');
+				}
 			};
 
 			// 如果 iconUsageItem 的值为 iconify
@@ -362,30 +406,30 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			spinner.stop();
 			p.outro(`🎉🎉🎉 ${projectName} - ${lang.pcsucc}`);
 
-			// 根据 item.value 的值，判断使用 Tailwind 还是 UnoCSS
-			// According to the value of item.value, determine whether to use Tailwind or UnoCSS
-			const isHasUno = templateItem.value.includes('u');
-
 			// 获得依赖的版本号
 			// get the version number of the dependency
-			const versions = {
-				vite: packageJson.devDependencies.vite.replace('^', ''),
+			const BaseVersions = {
 				svelte: packageJson.devDependencies.svelte.replace('^', ''),
-				'@sveltejs/kit': packageJson.devDependencies['@sveltejs/kit'].replace('^', ''),
 				stdf: packageJson.devDependencies.stdf.replace('^', ''),
+				// vite: packageJson.devDependencies.vite.replace('^', ''),
+				// '@sveltejs/kit': packageJson.devDependencies['@sveltejs/kit'].replace('^', ''),
 			};
-
-			if (isHasUno) {
-				versions['unocss'] = packageJson.devDependencies.unocss.replace('^', '');
+			if (isVite) {
+				BaseVersions['vite'] = packageJson.devDependencies.vite.replace('^', '');
 			} else {
-				versions['tailwindcss'] = packageJson.devDependencies.tailwindcss.replace('^', '');
+				BaseVersions['@sveltejs/kit'] = packageJson.devDependencies['@sveltejs/kit'].replace('^', '');
+			}
+			if (isUno) {
+				BaseVersions['unocss'] = packageJson.devDependencies.unocss.replace('^', '');
+			} else {
+				BaseVersions['tailwindcss'] = packageJson.devDependencies.tailwindcss.replace('^', '');
 			}
 
 			// 将 versions 的键值拼接为 bold('Vite:') cyan(versions.vite) bold('Svelte:') cyan(versions.svelte) 的形式
 			// Splice the key value of versions into the form of bold('Vite:') cyan(versions.vite) bold('Svelte:') cyan(versions.svelte)
 			let versionsString = '';
-			for (const key in versions) {
-				versionsString += bold(key) + ': ' + cyan(versions[key]) + ' ';
+			for (const key in BaseVersions) {
+				versionsString += bold(key) + ': ' + cyan(BaseVersions[key]) + ' ';
 			}
 
 			// 显示版本号
@@ -405,7 +449,7 @@ function createFunc(projectName, templateItem, iconUsageItem, packageManagerItem
 			);
 			// 提示配置主题色
 			// Prompt configuration theme color
-			console.log(`🎨 ${grey(isHasUno ? lang.pcyt_vu : lang.pcyt_vt)}`);
+			console.log(`🎨 ${grey(isUno ? lang.pcyt_vu : lang.pcyt_vt)}`);
 		})
 		.catch(err => {
 			spinner.stop();

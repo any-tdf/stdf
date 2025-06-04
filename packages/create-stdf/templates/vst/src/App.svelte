@@ -1,21 +1,17 @@
-<script lang="ts">
+<script>
 	import { setContext } from 'svelte';
 	import { Button, Cell, Icon, Calendar } from 'stdf';
 	import { STDFTheme, switchTheme, darkMode } from 'stdf/theme';
-	import NintendoTheme from '../data/nintendo';
+	import NintendoTheme from './data/nintendo';
 	import { en_US, zh_CN } from 'stdf/lang';
 	import Counter from './Counter.svelte';
 
-	import { browser } from '$app/environment';
-
-	if (browser) {
-		//解决 ios 不支持按钮:active 伪类
-		// Solve the problem that ios does not support the button: active pseudo class
-		document.body.addEventListener('touchstart', function () {
-			//...空函数即可
-			// ... Empty function is OK
-		});
-	}
+	//解决 ios 不支持按钮:active 伪类
+	// Solve the problem that ios does not support the button: active pseudo class
+	document.body.addEventListener('touchstart', function () {
+		//...空函数即可
+		// ... Empty function is OK
+	});
 
 	//切换亮暗模式 (toggle light or dark mode)
 	let mode = $state(sessionStorage.getItem('mode') === 'dark' ? 'dark' : 'light');
@@ -80,14 +76,14 @@
 </script>
 
 <div class="flex items-center justify-center gap-2 pt-10 text-center">
-	<a class="flex w-10 flex-col items-center" href="https://kit.svelte.dev" target="_blank" rel="noreferrer">
+	<a class="flex w-10 flex-col items-center" href="https://vite.dev" target="_blank" rel="noreferrer">
+		<img src="/vite.svg" alt="Vite Logo" />
+	</a>
+	<a class="flex w-10 flex-col items-center" href="https://svelte.dev" target="_blank" rel="noreferrer">
 		<img src="/svelte.svg" alt="Svelte Logo" />
 	</a>
 	<a class="flex w-10 flex-col items-center" href="https://tailwindcss.com" target="_blank" rel="noreferrer">
 		<img src="/tailwindcss.svg" alt="Tailwind Logo" />
-	</a>
-	<a class="flex w-10 flex-col items-center" href="https://typescriptlang.org" target="_blank" rel="noreferrer">
-		<img src="/typescript.svg" alt="Typescript Logo" />
 	</a>
 	<a class="flex w-8 flex-col items-center" href="https://stdf.design" target="_blank" rel="noreferrer" aria-label="STDF Logo">
 		<svg viewBox="0 0 90 80" fill="currentColor">
@@ -101,17 +97,12 @@
 </div>
 <div class="my-6 text-center text-xs">
 	{#if lang === 'zh_CN'}
-		<p>这是 SvelteKit & Tailwind & TypeScript & STDF 构建的模板</p>
+		<p>这是 Vite & Svelte & Tailwind & STDF 构建的模板</p>
 		<p class="mt-2">点击上方 LOGO 了解更多</p>
 	{:else}
-		<p>This is a template using SvelteKit & Tailwind & TypeScript & STDF</p>
+		<p>This is a template using Vite & Svelte & TailwindCSS & STDF</p>
 		<p class="mt-2">Click the logo above to learn more</p>
 	{/if}
-</div>
-<div class="my-6">
-	<a href="about">
-		<Cell title={lang === 'zh_CN' ? '跳转 ABOUT' : 'Go to ABOUT'} />
-	</a>
 </div>
 <div class="my-6">
 	<Cell

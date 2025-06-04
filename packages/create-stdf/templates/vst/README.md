@@ -1,6 +1,6 @@
-# SvelteKit & Tailwind & TypeScript & STDF
+# Vite & Svelte & Tailwind & STDF
 
-This template should help get you started developing with SvelteKit & Tailwind & TypeScript & STDF.
+This template should help get you started developing with Svelte & Tailwind & STDF in Vite.
 
 ## Recommended IDE Setup
 

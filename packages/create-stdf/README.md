@@ -92,45 +92,49 @@ yarn create stdf@latest my-app --t skt --l zh_CN --i iconify
 
 # Options
 
-| Option             | Default | Description                                    |
-| --------------- | ------- | ---------------------------------------------- |
-| -               | -       | The name of the project, you can direct input. |
-| --t / --template | sktt | The template to use.                           |
-| --l / --language | en_US | The language of the prompts.                   |
+| Option             | Default   | Description                                    |
+| ------------------ | --------- | ---------------------------------------------- |
+| -                  | -         | The name of the project, you can direct input. |
+| --t / --template   | sktt      | The template to use.                           |
+| --l / --language   | en_US     | The language of the prompts.                   |
 | --i / --icon-usage | stdf-icon | The icon usage method.                         |
 
 # Template presets
 
-| Abbreviation | Template                                                | Description     |
-| ------------ | ------------------------------------------------------- | --------------- |
-| sktt        | SvelteKit & Tailwind & TypeScript           | Default         |
-| skt         | SvelteKit & Tailwind                         | -               |
-| skut        | SvelteKit & UnoCSS & TypeScript             | Not adapted yet |
-| sku         | SvelteKit & UnoCSS                         | Not adapted yet |
+| Abbreviation | Template                              | Description     |
+| ------------ | ------------------------------------- | --------------- |
+| sktt         | SvelteKit & Tailwind & TypeScript     | Default         |
+| skt          | SvelteKit & Tailwind                  | -               |
+| vstt         | Vite & Svelte & Tailwind & TypeScript | -               |
+| vst          | Vite & Svelte & Tailwind              | -               |
+| skut         | SvelteKit & UnoCSS & TypeScript       | Not adapted yet |
+| sku          | SvelteKit & UnoCSS                    | Not adapted yet |
+| vsut         | Vite & Svelte & UnoCSS                | Not adapted yet |
+| vsu          | Vite & Svelte & UnoCSS                | Not adapted yet |
 
 # Language presets
 
-| Abbreviation  | Language              |
-| ----- | --------------------- |
-| en_US | English (US)          |
-| zh_CN | Chinese (Simplified)  |
-| zh_TW | Chinese (Traditional) |
-| ja_JP | Japanese              |
-| ko_KR | Korean                |
-| es_ES | Spanish               |
-| ru_RU | Russian               |
-| fr_FR | French                |
-| de_DE | German                |
-| it_IT | Italian               |
+| Abbreviation | Language              |
+| ------------ | --------------------- |
+| en_US        | English (US)          |
+| zh_CN        | Chinese (Simplified)  |
+| zh_TW        | Chinese (Traditional) |
+| ja_JP        | Japanese              |
+| ko_KR        | Korean                |
+| es_ES        | Spanish               |
+| ru_RU        | Russian               |
+| fr_FR        | French                |
+| de_DE        | German                |
+| it_IT        | Italian               |
 
 # Icon usage presets
 
-| Abbreviation | Description                                                           |
-| --------- | -------------------------------------------------------------- |
-| stdf-icon | Use rollup-plugin-stdf-icon to manage icons.                  |
-| iconify   | Use iconify to manage icons.                                  |
-| both      | Use both rollup-plugin-stdf-icon and iconify to manage icons. |
-| none      | Do not use any tool to manage icons.                                       |
+| Abbreviation | Description                                                   |
+| ------------ | ------------------------------------------------------------- |
+| stdf-icon    | Use rollup-plugin-stdf-icon to manage icons.                  |
+| iconify      | Use iconify to manage icons.                                  |
+| both         | Use both rollup-plugin-stdf-icon and iconify to manage icons. |
+| none         | Do not use any tool to manage icons.                          |
 
 # License
 

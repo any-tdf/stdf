@@ -1,6 +1,6 @@
-# SvelteKit + Tailwind + STDF
+# SvelteKit & Tailwind & STDF
 
-This template should help get you started developing with Svelte + Tailwind + STDF in SvelteKit.
+This template should help get you started developing with SvelteKit & Tailwind & STDF.
 
 ## Recommended IDE Setup
 
