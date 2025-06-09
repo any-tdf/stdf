@@ -31,7 +31,7 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">Website</a>
+    <a href="https://stdf.design" target="_blank">웹사이트</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
@@ -56,29 +56,31 @@
   </p>
 </div>
 
-# Introduction
+# 소개
 
-Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
+[Svelte](https://svelte.dev)와 [Tailwind](https://www.tailwindcss.com)를 기반으로 한 모바일 웹 컴포넌트 라이브러리입니다.
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-# Features
+> 간 단 • 경 량 • 디 자 인 • 빠 름
 
-- 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
-- 🚀 No runtime, no virtual DOM — runs faster online.
-- 🧰 Rich API — easily configure component styles to meet your needs.
-- 🍭 Supports dark mode and multiple theme configuration.
-- 📖 Provides extensive Chinese and English documentation and component examples.
-- 🌍 Supports internationalization, with 60+ built-in language packages.
-- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
-- 🤝 Supports Tailwind libraries such as UnoCSS.
-- 🫡 No third-party dependencies — no need to worry about library versions or security issues.
-- 📦 Supports on-demand import to reduce bundle size.
-- 🪜 Comes with a scaffolding tool for quick project creation.
-- 🔗 Comes with an SVG merging plugin for quickly merging SVG files, support Iconify.
-- 🍺 IDE plugin for quickly viewing component APIs.
+# 특징
 
-# Getting Started
+- 🔥 Svelte v5, Tailwind CSS v4, TypeScript 를 완전 지원합니다.
+- 🚀 런타임 없음, 가상 DOM 없음 — 온라인에서 더 빠르게 실행됩니다.
+- 🧰 풍부한 API — 필요에 맞는 컴포넌트 스타일을 쉽게 구성할 수 있습니다.
+- 🍭 다크 모드와 다중 테마 구성을 지원합니다.
+- 📖 광범위한 한국어 및 영어 문서와 컴포넌트 예제를 제공합니다.
+- 🌍 국제화를 지원하며, 60 개 이상의 내장 언어 패키지를 제공합니다.
+- 🫰 사용자 친화적인 상호작용, 애니메이션 매개변수 구성 가능, 사용자 정의 테마 지원.
+- 🤝 UnoCSS 와 같은 Tailwind 라이브러리를 지원합니다.
+- 🫡 서드파티 의존성 없음 — 라이브러리 버전이나 보안 문제를 걱정할 필요가 없습니다.
+- 📦 온디맨드 가져오기를 지원하여 번들 크기를 줄입니다.
+- 🪜 빠른 프로젝트 생성을 위한 스캐폴딩 도구가 함께 제공됩니다.
+- 🔗 SVG 파일을 빠르게 병합하는 SVG 병합 플러그인이 함께 제공되며, Iconify 를 지원합니다.
+- 🍺 컴포넌트 API 를 빠르게 볼 수 있는 IDE 플러그인이 함께 제공됩니다.
+
+# 시작하기
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -89,9 +91,9 @@ pnpm create stdf@latest
 <!-- npm -->
 ```sh
 npm create stdf@latest
-# or
+# 또는
 npm init stdf@latest
-# or
+# 또는
 npx create-stdf@latest
 ```
 <!-- :: -->
@@ -106,35 +108,35 @@ yarn create stdf@latest
 ```
 <!-- ::: -->
 
-# Preview Demo
+# 데모 미리보기
 
-Please scan the QR code to access the mobile demo:
+QR 코드를 스캔하여 모바일 데모에 접속하세요:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# Quick Try
+# 빠른 체험
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+StackBlitz 의 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf)에서 STDF 를 빠르게 체험해볼 수 있습니다.
 
-# Feedback and Communication
+# 피드백 및 소통
 
-We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for direct and effective feedback and communication. Contributions of code are also highly appreciated. You can also choose from the following options:
+직접적이고 효과적인 피드백과 소통을 위해 [GitHub Issues](https://github.com/any-tdf/stdf/issues)를 사용하는 것을 권장합니다. 코드 기여도 매우 환영합니다. 다음 옵션 중에서도 선택할 수 있습니다:
 
-- [QQ Group](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
-- [QQ Discord](https://pd.qq.com/s/fdd8incyr)
+- [QQ 그룹](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ 디스코드](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
 - [Discussions](https://github.com/any-tdf/stdf/discussions)
 
-# Contributors
+# 기여자
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# Sponsors
+# 후원자
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -146,11 +148,11 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# License
+# 라이선스
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+이 프로젝트는 [MIT 라이선스](https://github.com/any-tdf/stdf/blob/main/LICENSE)에 따라 라이선스가 부여됩니다. 이 오픈소스 프로젝트를 자유롭게 즐기고 기여해 주세요.
 
-# Star History
+# Star 히스토리
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>

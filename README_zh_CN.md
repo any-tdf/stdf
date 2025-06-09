@@ -15,7 +15,7 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/favicon_logo_dark/android-chrome-512x512.png">
     <img src="https://stdf.design/assets/favicon_logo/android-chrome-512x512.png" alt="logo" width="120" height="auto" />
   </picture>
-  
+
   <h1>STDF</h1>
 
 ![](https://img.shields.io/badge/-Svelte%205-%23ff3e00?logo=svelte&logoColor=ffffff)
@@ -31,7 +31,7 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">Website</a>
+    <a href="https://stdf.design" target="_blank">网站</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
@@ -56,29 +56,31 @@
   </p>
 </div>
 
-# Introduction
+# 介绍
 
-Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
+基于 [Svelte](https://svelte.dev) 与 [Tailwind](https://www.tailwindcss.com) 的移动 web 组件库。
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-# Features
+> 简 单 • 轻 量 • 设 计 • 快 速
 
-- 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
-- 🚀 No runtime, no virtual DOM — runs faster online.
-- 🧰 Rich API — easily configure component styles to meet your needs.
-- 🍭 Supports dark mode and multiple theme configuration.
-- 📖 Provides extensive Chinese and English documentation and component examples.
-- 🌍 Supports internationalization, with 60+ built-in language packages.
-- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
-- 🤝 Supports Tailwind libraries such as UnoCSS.
-- 🫡 No third-party dependencies — no need to worry about library versions or security issues.
-- 📦 Supports on-demand import to reduce bundle size.
-- 🪜 Comes with a scaffolding tool for quick project creation.
-- 🔗 Comes with an SVG merging plugin for quickly merging SVG files, support Iconify.
-- 🍺 IDE plugin for quickly viewing component APIs.
+# 特性
 
-# Getting Started
+- 🔥 完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript。
+- 🚀 无运行时，无虚拟 DOM，线上运行更快。
+- 🧰 API 丰富，轻松配置出符合需求的组件样式。
+- 🍭 支持暗模式与多主题配置。
+- 📖 提供丰富的中英文文档和组件示例。
+- 🌍 支持国际化，已内置 60+ 种语言包。
+- 🫰 交互友好，动画参数可配，可自定义主题。
+- 🤝 支持 Tailwind 类库，如 UnoCSS。
+- 🫡 无三方依赖，无需担心三方库版本与安全问题。
+- 📦 支持按需引入，减少打包体积。
+- 🪜 配套脚手架，快速创建工程。
+- 🔗 配套 SVG 合并插件，快速合并 SVG，支持 Iconify。
+- 🍺 配套 IDE 插件，快速查看组件 API。
+
+# 快速上手
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -89,9 +91,9 @@ pnpm create stdf@latest
 <!-- npm -->
 ```sh
 npm create stdf@latest
-# or
+# 或
 npm init stdf@latest
-# or
+# 或
 npx create-stdf@latest
 ```
 <!-- :: -->
@@ -106,35 +108,35 @@ yarn create stdf@latest
 ```
 <!-- ::: -->
 
-# Preview Demo
+# 预览 Demo
 
-Please scan the QR code to access the mobile demo:
+扫描二维码访问移动端 Demo：
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
-  <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
+  <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_zh_dark.png">
+  <img src="https://stdf.design/assets/qr/demo_zh.png" width="220" height="220" >
 </picture>
 
-# Quick Try
+# 快速尝试
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+可以到 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 快速尝试 STDF。
 
-# Feedback and Communication
+# 反馈与交流
 
-We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for direct and effective feedback and communication. Contributions of code are also highly appreciated. You can also choose from the following options:
+推荐使用 [GitHub Issues](https://github.com/any-tdf/stdf/issues) 进行直接有效地反馈与交流，贡献代码就更好了。也可以选择以下几种方式：
 
-- [QQ Group](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
-- [QQ Discord](https://pd.qq.com/s/fdd8incyr)
+- [QQ 群](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ 频道](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
 - [Discussions](https://github.com/any-tdf/stdf/discussions)
 
-# Contributors
+# 贡献者
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# Sponsors
+# 赞助者
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -146,11 +148,11 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# License
+# 开源协议
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+本项目基于 [MIT](https://github.com/any-tdf/stdf/blob/main/LICENSE) 协议，请自由地享受和参与开源。
 
-# Star History
+# Star 历史
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>

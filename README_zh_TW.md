@@ -31,7 +31,7 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">Website</a>
+    <a href="https://stdf.design" target="_blank">網站</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
@@ -56,29 +56,29 @@
   </p>
 </div>
 
-# Introduction
+# 介紹
 
-Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
+基於 [Svelte](https://svelte.dev) 和 [Tailwind](https://www.tailwindcss.com) 的行動端網頁元件庫。
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-# Features
+# 特色
 
-- 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
-- 🚀 No runtime, no virtual DOM — runs faster online.
-- 🧰 Rich API — easily configure component styles to meet your needs.
-- 🍭 Supports dark mode and multiple theme configuration.
-- 📖 Provides extensive Chinese and English documentation and component examples.
-- 🌍 Supports internationalization, with 60+ built-in language packages.
-- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
-- 🤝 Supports Tailwind libraries such as UnoCSS.
-- 🫡 No third-party dependencies — no need to worry about library versions or security issues.
-- 📦 Supports on-demand import to reduce bundle size.
-- 🪜 Comes with a scaffolding tool for quick project creation.
-- 🔗 Comes with an SVG merging plugin for quickly merging SVG files, support Iconify.
-- 🍺 IDE plugin for quickly viewing component APIs.
+- 🔥 完全支援 Svelte v5、Tailwind CSS v4 和 TypeScript。
+- 🚀 無執行時、無虛擬 DOM — 線上執行更快速。
+- 🧰 豐富的 API — 輕鬆配置元件樣式以滿足您的需求。
+- 🍭 支援深色模式和多主題配置。
+- 📖 提供詳盡的中英文文件和元件範例。
+- 🌍 支援國際化，內建 60+ 種語言包。
+- 🫰 友善的互動體驗，動畫參數可配置，支援自訂主題。
+- 🤝 支援 UnoCSS 等 Tailwind 函式庫。
+- 🫡 無第三方依賴 — 無需擔心函式庫版本或安全性問題。
+- 📦 支援按需匯入以減少打包大小。
+- 🪜 附帶腳手架工具，快速建立專案。
+- 🔗 附帶 SVG 合併外掛，快速合併 SVG 檔案，支援 Iconify。
+- 🍺 IDE 外掛，快速檢視元件 API。
 
-# Getting Started
+# 開始使用
 
 <!-- :::code-groups -->
 <!-- pnpm -->
@@ -89,9 +89,9 @@ pnpm create stdf@latest
 <!-- npm -->
 ```sh
 npm create stdf@latest
-# or
+# 或
 npm init stdf@latest
-# or
+# 或
 npx create-stdf@latest
 ```
 <!-- :: -->
@@ -106,35 +106,35 @@ yarn create stdf@latest
 ```
 <!-- ::: -->
 
-# Preview Demo
+# 預覽示範
 
-Please scan the QR code to access the mobile demo:
+請掃描 QR 碼存取行動端示範：
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# Quick Try
+# 快速試用
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+您可以在 StackBlitz 的 [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) 上快速試用 STDF。
 
-# Feedback and Communication
+# 回饋與交流
 
-We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for direct and effective feedback and communication. Contributions of code are also highly appreciated. You can also choose from the following options:
+我們建議使用 [GitHub Issues](https://github.com/any-tdf/stdf/issues) 進行直接有效的回饋和交流。也非常歡迎程式碼貢獻。您也可以選擇以下選項：
 
-- [QQ Group](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ 群組](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
 - [QQ Discord](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
-- [Discussions](https://github.com/any-tdf/stdf/discussions)
+- [討論區](https://github.com/any-tdf/stdf/discussions)
 
-# Contributors
+# 貢獻者
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# Sponsors
+# 贊助者
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -146,11 +146,11 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# License
+# 授權條款
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+本專案採用 [MIT 授權條款](https://github.com/any-tdf/stdf/blob/main/LICENSE)。歡迎享受並為這個開源專案做出貢獻。
 
-# Star History
+# Star 歷史
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>

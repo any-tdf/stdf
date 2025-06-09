@@ -31,7 +31,7 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">Website</a>
+    <a href="https://stdf.design" target="_blank">Webseite</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
@@ -56,85 +56,81 @@
   </p>
 </div>
 
-# Introduction
+# Einführung
 
-Mobile web component library based on [Svelte](https://svelte.dev) and [Tailwind](https://www.tailwindcss.com) .
+Mobile Web-Komponentenbibliothek basierend auf [Svelte](https://svelte.dev) und [Tailwind](https://www.tailwindcss.com).
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-# Features
+> Einfach • Leicht • Design • Schnell
 
-- 🔥 Full support for Svelte v5, Tailwind CSS v4, and TypeScript.
-- 🚀 No runtime, no virtual DOM — runs faster online.
-- 🧰 Rich API — easily configure component styles to meet your needs.
-- 🍭 Supports dark mode and multiple theme configuration.
-- 📖 Provides extensive Chinese and English documentation and component examples.
-- 🌍 Supports internationalization, with 60+ built-in language packages.
-- 🫰 User-friendly interaction, animation parameters can be configured, and custom themes are supported.
-- 🤝 Supports Tailwind libraries such as UnoCSS.
-- 🫡 No third-party dependencies — no need to worry about library versions or security issues.
-- 📦 Supports on-demand import to reduce bundle size.
-- 🪜 Comes with a scaffolding tool for quick project creation.
-- 🔗 Comes with an SVG merging plugin for quickly merging SVG files, support Iconify.
-- 🍺 IDE plugin for quickly viewing component APIs.
+# Funktionen
 
-# Getting Started
+- 🔥 Vollständige Unterstützung für Svelte v5, Tailwind CSS v4 und TypeScript.
+- 🚀 Keine Laufzeit, kein virtuelles DOM — läuft schneller online.
+- 🧰 Reiche API — konfigurieren Sie einfach Komponentenstile, um Ihre Bedürfnisse zu erfüllen.
+- 🍭 Unterstützt dunklen Modus und mehrere Theme-Konfigurationen.
+- 📖 Bietet umfangreiche deutsche und englische Dokumentation und Komponentenbeispiele.
+- 🌍 Unterstützt Internationalisierung mit über 60 eingebauten Sprachpaketen.
+- 🫰 Benutzerfreundliche Interaktion, konfigurierbare Animationsparameter und Unterstützung für benutzerdefinierte Themes.
+- 🤝 Unterstützt Tailwind-Bibliotheken wie UnoCSS.
+- 🫡 Keine Drittanbieter-Abhängigkeiten — keine Sorgen über Bibliotheksversionen oder Sicherheitsprobleme.
+- 📦 Unterstützt On-Demand-Import zur Reduzierung der Bundle-Größe.
+- 🪜 Kommt mit einem Scaffolding-Tool für schnelle Projekterstellung.
+- 🔗 Kommt mit einem SVG-Merge-Plugin zum schnellen Zusammenführen von SVG-Dateien, unterstützt Iconify.
+- 🍺 IDE-Plugin zum schnellen Anzeigen von Komponenten-APIs.
 
-<!-- :::code-groups -->
-<!-- pnpm -->
+# Erste Schritte
+
 ```sh
 pnpm create stdf@latest
 ```
-<!-- :: -->
-<!-- npm -->
+
 ```sh
 npm create stdf@latest
-# or
+# oder
 npm init stdf@latest
-# or
+# oder
 npx create-stdf@latest
 ```
-<!-- :: -->
-<!-- bun -->
+
 ```sh
 bun create stdf@latest
 ```
-<!-- :: -->
-<!-- yarn -->
+
 ```sh
 yarn create stdf@latest
 ```
-<!-- ::: -->
 
-# Preview Demo
+# Demo-Vorschau
 
-Please scan the QR code to access the mobile demo:
+Scannen Sie den QR-Code, um auf die mobile Demo zuzugreifen:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# Quick Try
+# Schneller Test
 
-You can quickly try STDF on StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf?startScript=dev_en).
+Sie können STDF schnell auf StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) ausprobieren.
 
-# Feedback and Communication
+# Feedback und Kommunikation
 
-We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for direct and effective feedback and communication. Contributions of code are also highly appreciated. You can also choose from the following options:
+Wir empfehlen die Verwendung von [GitHub Issues](https://github.com/any-tdf/stdf/issues) für direktes und effektives Feedback und Kommunikation. Code-Beiträge sind ebenfalls sehr geschätzt. Sie können auch aus den folgenden Optionen wählen:
 
-- [QQ Group](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ-Gruppe](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
 - [QQ Discord](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
 - [Discussions](https://github.com/any-tdf/stdf/discussions)
 
-# Contributors
+# Mitwirkende
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# Sponsors
+# Sponsoren
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -146,11 +142,11 @@ We recommend using [GitHub Issues](https://github.com/any-tdf/stdf/issues) for d
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# License
+# Lizenz
 
-This project is licensed under the [MIT License](https://github.com/any-tdf/stdf/blob/main/LICENSE). Feel free to enjoy and contribute to this open-source project.
+Dieses Projekt ist unter der [MIT-Lizenz](https://github.com/any-tdf/stdf/blob/main/LICENSE) lizenziert. Fühlen Sie sich frei, dieses Open-Source-Projekt zu genießen und dazu beizutragen.
 
-# Star History
+# Star-Geschichte
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>
