@@ -1,3 +1,34 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="right">
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=en">English</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=zh-CN">简体中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=zh-TW">繁體中文</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=ja">日本語</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=ko">한국어</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=hi">हिन्दी</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=th">ไทย</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=fr">Français</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=de">Deutsch</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=es">Español</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=it">Itapano</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=ru">Русский</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=pt">Português</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=nl">Nederlands</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=pl">Polski</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=ar">العربية</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=fa">فارسی</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=tr">Türkçe</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=vi">Tiếng Việt</a></p>
+        <p><a href="https://openaitx.github.io/view.html?user=any-tdf&project=stdf&lang=id">Bahasa Indonesia</a></p>
+      </div>
+    </div>
+  </details>
+</div>
+
 <div align="center">
 
 [![Public STDF Status](https://github.com/any-tdf/stdf/actions/workflows/publish-stdf.yml/badge.svg)](https://github.com/any-tdf/stdf/actions/workflows/publish-stdf.yml)
