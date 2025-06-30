@@ -31,61 +31,64 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">Sito web</a>
+    <a href="https://stdf.design" target="_blank">Sitio web</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_zh_CN.md" target="_blank">简体中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_zh_CN.md" target="_blank">简体中文</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_zh_TW.md" target="_blank">繁體中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_zh_TW.md" target="_blank">繁體中文</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ja_JP.md" target="_blank">日本語</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ja_JP.md" target="_blank">日本語</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ko_KR.md" target="_blank">한국어</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ko_KR.md" target="_blank">한국어</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_es_ES.md" target="_blank">Español</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_es_ES.md" target="_blank">Español</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ru_RU.md" target="_blank">Русский</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ru_RU.md" target="_blank">Русский</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_fr_FR.md" target="_blank">Français</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_fr_FR.md" target="_blank">Français</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_de_DE.md" target="_blank">Deutsch</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_de_DE.md" target="_blank">Deutsch</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_it_IT.md" target="_blank">Italiano</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_it_IT.md" target="_blank">Italiano</a>
   </p>
 </div>
 
-# Introduzione
+# Introducción
 
-Libreria di componenti web mobili basata su [Svelte](https://svelte.dev) e [Tailwind](https://www.tailwindcss.com).
+Biblioteca de componentes web móviles basada en [Svelte](https://svelte.dev) y [Tailwind](https://www.tailwindcss.com).
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-> Semplice • Leggero • Design • Veloce
+> Simple • Ligero • Diseño • Rápido
 
-# Caratteristiche
+# Características
 
-- 🔥 Supporto completo per Svelte v5, Tailwind CSS v4 e TypeScript.
-- 🚀 Nessun runtime, nessun DOM virtuale — funziona più velocemente online.
-- 🧰 API ricca — configura facilmente gli stili dei componenti per soddisfare le tue esigenze.
-- 🍭 Supporta la modalità scura e la configurazione di più temi.
-- 📖 Fornisce documentazione italiana e inglese estesa ed esempi di componenti.
-- 🌍 Supporta l'internazionalizzazione, con oltre 60 pacchetti linguistici integrati.
-- 🫰 Interazione user-friendly, parametri di animazione configurabili e supporto per temi personalizzati.
-- 🤝 Supporta librerie Tailwind come UnoCSS.
-- 🫡 Nessuna dipendenza di terze parti — non devi preoccuparti delle versioni delle librerie o dei problemi di sicurezza.
-- 📦 Supporta l'importazione on-demand per ridurre le dimensioni del bundle.
-- 🪜 Viene fornito con uno strumento di scaffolding per la creazione rapida di progetti.
-- 🔗 Viene fornito con un plugin di fusione SVG per fondere rapidamente i file SVG, supporta Iconify.
-- 🍺 Plugin IDE per visualizzare rapidamente le API dei componenti.
+- 🔥 Soporte completo para Svelte v5, Tailwind CSS v4 y TypeScript.
+- 🚀 Sin tiempo de ejecución, sin DOM virtual — funciona más rápido en línea.
+- 🧰 API rica — configura fácilmente estilos de componentes para satisfacer tus necesidades.
+- 🍭 Soporta modo oscuro y configuración de múltiples temas.
+- 📖 Proporciona documentación extensa en español e inglés y ejemplos de componentes.
+- 🌍 Soporta internacionalización, con más de 60 paquetes de idiomas incorporados.
+- 🫰 Interacción amigable, parámetros de animación configurables y soporte para temas personalizados.
+- 🤝 Soporta bibliotecas de Tailwind como UnoCSS.
+- 🫡 Sin dependencias de terceros — no necesitas preocuparte por versiones de bibliotecas o problemas de seguridad.
+- 📦 Soporta importación bajo demanda para reducir el tamaño del bundle.
+- 🪜 Viene con una herramienta de scaffolding para creación rápida de proyectos.
+- 🔗 Viene con un plugin de fusión SVG para fusionar rápidamente archivos SVG, soporta Iconify.
+- 🍺 Plugin IDE para ver rápidamente las APIs de componentes.
 
-# Iniziare
+# Comenzar
 
+<!-- :::code-groups -->
+<!-- pnpm -->
 ```sh
 pnpm create stdf@latest
 ```
-
+<!-- :: -->
+<!-- npm -->
 ```sh
 npm create stdf@latest
 # o
@@ -93,44 +96,47 @@ npm init stdf@latest
 # o
 npx create-stdf@latest
 ```
-
+<!-- :: -->
+<!-- bun -->
 ```sh
 bun create stdf@latest
 ```
-
+<!-- :: -->
+<!-- yarn -->
 ```sh
 yarn create stdf@latest
 ```
+<!-- ::: -->
 
-# Anteprima demo
+# Vista previa de la demo
 
-Scansiona il codice QR per accedere alla demo mobile:
+Escanea el código QR para acceder a la demo móvil:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# Prova veloce
+# Prueba rápida
 
-Puoi provare rapidamente STDF su [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) di StackBlitz.
+Puedes probar rápidamente STDF en [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) de StackBlitz.
 
-# Feedback e comunicazione
+# Comentarios y comunicación
 
-Raccomandiamo di utilizzare [GitHub Issues](https://github.com/any-tdf/stdf/issues) per feedback e comunicazione diretta ed efficace. Anche i contributi di codice sono molto apprezzati. Puoi anche scegliere tra le seguenti opzioni:
+Recomendamos usar [GitHub Issues](https://github.com/any-tdf/stdf/issues) para comentarios y comunicación directa y efectiva. Las contribuciones de código también son muy apreciadas. También puedes elegir entre las siguientes opciones:
 
-- [Gruppo QQ](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [Grupo QQ](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
 - [QQ Discord](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
 - [Discussions](https://github.com/any-tdf/stdf/discussions)
 
-# Contributori
+# Contribuidores
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# Sponsor
+# Patrocinadores
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -142,11 +148,11 @@ Raccomandiamo di utilizzare [GitHub Issues](https://github.com/any-tdf/stdf/issu
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# Licenza
+# Licencia
 
-Questo progetto è concesso in licenza sotto la [Licenza MIT](https://github.com/any-tdf/stdf/blob/main/LICENSE). Sentiti libero di goderti e contribuire a questo progetto open source.
+Este proyecto está licenciado bajo la [Licencia MIT](https://github.com/any-tdf/stdf/blob/main/LICENSE). Siéntete libre de disfrutar y contribuir a este proyecto de código abierto.
 
-# Storia delle stelle
+# Historial de estrellas
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>

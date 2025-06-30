@@ -31,110 +31,106 @@
 [![GitHub license](https://img.shields.io/github/license/any-tdf/stdf?logo=github&style=for-the-badge&color=B9C46A&logoColor=F3F3CB&labelColor=161901)](https://github.com/any-tdf/stdf)
 
   <h3>
-    <a href="https://stdf.design" target="_blank">ウェブサイト</a>
+    <a href="https://stdf.design" target="_blank">Webseite</a>
   </h3>
   <p>
     <a href="https://github.com/any-tdf/stdf/blob/main/README.md" target="_blank">English</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_zh_CN.md" target="_blank">简体中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_zh_CN.md" target="_blank">简体中文</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_zh_TW.md" target="_blank">繁體中文</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_zh_TW.md" target="_blank">繁體中文</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ja_JP.md" target="_blank">日本語</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ja_JP.md" target="_blank">日本語</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ko_KR.md" target="_blank">한국어</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ko_KR.md" target="_blank">한국어</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_es_ES.md" target="_blank">Español</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_es_ES.md" target="_blank">Español</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_ru_RU.md" target="_blank">Русский</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_ru_RU.md" target="_blank">Русский</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_fr_FR.md" target="_blank">Français</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_fr_FR.md" target="_blank">Français</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_de_DE.md" target="_blank">Deutsch</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_de_DE.md" target="_blank">Deutsch</a>
     <span> • </span>
-    <a href="https://github.com/any-tdf/stdf/blob/main/README_it_IT.md" target="_blank">Italiano</a>
+    <a href="https://github.com/any-tdf/stdf/blob/main/readme/README_it_IT.md" target="_blank">Italiano</a>
   </p>
 </div>
 
-# はじめに
+# Einführung
 
-[Svelte](https://svelte.dev) と [Tailwind](https://www.tailwindcss.com)をベースにしたモバイル Web コンポーネントライブラリです。。
+Mobile Web-Komponentenbibliothek basierend auf [Svelte](https://svelte.dev) und [Tailwind](https://www.tailwindcss.com).
 
 > **S**imple • **T**iny • **D**esign • **F**ast
 
-# 特徴
+> Einfach • Leicht • Design • Schnell
 
-- 🔥 Svelte v5、Tailwind CSS v4、TypeScript を完全サポート。
-- 🚀 ランタイムなし、仮想 DOM なし — オンラインでより高速に動作。
-- 🧰 豊富な API — コンポーネントスタイルを簡単に設定してニーズに対応。
-- 🍭 ダークモードと複数テーマ設定をサポート。
-- 📖 豊富な中国語と英語のドキュメントとコンポーネント例を提供。
-- 🌍 国際化をサポート、60 以上の内蔵言語パッケージ。
-- 🫰 ユーザーフレンドリーなインタラクション、アニメーションパラメータの設定可能、カスタムテーマをサポート。
-- 🤝 UnoCSS などの Tailwind ライブラリをサポート。
-- 🫡 サードパーティの依存関係なし — ライブラリのバージョンやセキュリティ問題を心配する必要なし。
-- 📦 オンデマンドインポートをサポートしてバンドルサイズを削減。
-- 🪜 プロジェクトを素早く作成するためのスキャフォールディングツールを付属。
-- 🔗 SVG ファイルを素早くマージするための SVG マージプラグインを付属、Iconify をサポート。
-- 🍺 コンポーネント API を素早く確認するための IDE プラグイン。
+# Funktionen
 
-# はじめ方
+- 🔥 Vollständige Unterstützung für Svelte v5, Tailwind CSS v4 und TypeScript.
+- 🚀 Keine Laufzeit, kein virtuelles DOM — läuft schneller online.
+- 🧰 Reiche API — konfigurieren Sie einfach Komponentenstile, um Ihre Bedürfnisse zu erfüllen.
+- 🍭 Unterstützt dunklen Modus und mehrere Theme-Konfigurationen.
+- 📖 Bietet umfangreiche deutsche und englische Dokumentation und Komponentenbeispiele.
+- 🌍 Unterstützt Internationalisierung mit über 60 eingebauten Sprachpaketen.
+- 🫰 Benutzerfreundliche Interaktion, konfigurierbare Animationsparameter und Unterstützung für benutzerdefinierte Themes.
+- 🤝 Unterstützt Tailwind-Bibliotheken wie UnoCSS.
+- 🫡 Keine Drittanbieter-Abhängigkeiten — keine Sorgen über Bibliotheksversionen oder Sicherheitsprobleme.
+- 📦 Unterstützt On-Demand-Import zur Reduzierung der Bundle-Größe.
+- 🪜 Kommt mit einem Scaffolding-Tool für schnelle Projekterstellung.
+- 🔗 Kommt mit einem SVG-Merge-Plugin zum schnellen Zusammenführen von SVG-Dateien, unterstützt Iconify.
+- 🍺 IDE-Plugin zum schnellen Anzeigen von Komponenten-APIs.
 
-<!-- :::code-groups -->
-<!-- pnpm -->
+# Erste Schritte
+
 ```sh
 pnpm create stdf@latest
 ```
-<!-- :: -->
-<!-- npm -->
+
 ```sh
 npm create stdf@latest
-# または
+# oder
 npm init stdf@latest
-# または
+# oder
 npx create-stdf@latest
 ```
-<!-- :: -->
-<!-- bun -->
+
 ```sh
 bun create stdf@latest
 ```
-<!-- :: -->
-<!-- yarn -->
+
 ```sh
 yarn create stdf@latest
 ```
-<!-- ::: -->
 
-# デモプレビュー
+# Demo-Vorschau
 
-QR コードをスキャンしてモバイルデモにアクセスしてください：
+Scannen Sie den QR-Code, um auf die mobile Demo zuzugreifen:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://stdf.design/assets/qr/demo_en_dark.png">
   <img src="https://stdf.design/assets/qr/demo_en.png" width="220" height="220" >
 </picture>
 
-# クイック試用
+# Schneller Test
 
-StackBlitz の[STDF デモ](https://stackblitz.com/github/any-tdf/demo-stdf)で STDF を素早く試すことができます。
+Sie können STDF schnell auf StackBlitz's [STDF Demo](https://stackblitz.com/github/any-tdf/demo-stdf) ausprobieren.
 
-# フィードバックとコミュニケーション
+# Feedback und Kommunikation
 
-直接的で効果的なフィードバックとコミュニケーションには[GitHub Issues](https://github.com/any-tdf/stdf/issues)の使用をお勧めします。コードの貢献も大歓迎です。以下のオプションからも選択できます：
+Wir empfehlen die Verwendung von [GitHub Issues](https://github.com/any-tdf/stdf/issues) für direktes und effektives Feedback und Kommunikation. Code-Beiträge sind ebenfalls sehr geschätzt. Sie können auch aus den folgenden Optionen wählen:
 
-- [QQ グループ](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
+- [QQ-Gruppe](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686)
 - [QQ Discord](https://pd.qq.com/s/fdd8incyr)
 - [Discord](https://discord.gg/DMkHu8GGre)
-- [ディスカッション](https://github.com/any-tdf/stdf/discussions)
+- [Discussions](https://github.com/any-tdf/stdf/discussions)
 
-# 貢献者
+# Mitwirkende
 
 <a href="https://github.com/any-tdf/stdf/graphs/contributors">
   <img src="https://contrib.nn.ci/api?repo=any-tdf/stdf" />
 </a>
 
-# スポンサー
+# Sponsoren
 
 <a href="https://github.com/sbscan" target="_blank">
   <img src="https://avatars.githubusercontent.com/sbscan" width="60" height="auto" style="border-radius:100%" >
@@ -146,11 +142,11 @@ StackBlitz の[STDF デモ](https://stackblitz.com/github/any-tdf/demo-stdf)で 
   <img src="https://avatars.githubusercontent.com/yuedanlabs" width="60" height="auto" style='border-radius:100%' >
 </a>
 
-# ライセンス
+# Lizenz
 
-このプロジェクトは[MIT ライセンス](https://github.com/any-tdf/stdf/blob/main/LICENSE)の下でライセンスされています。このオープンソースプロジェクトを自由にお楽しみいただき、貢献してください。
+Dieses Projekt ist unter der [MIT-Lizenz](https://github.com/any-tdf/stdf/blob/main/LICENSE) lizenziert. Fühlen Sie sich frei, dieses Open-Source-Projekt zu genießen und dazu beizutragen.
 
-# スター履歴
+# Star-Geschichte
 
 <a href="https://github.com/any-tdf/stdf">
   <picture>
