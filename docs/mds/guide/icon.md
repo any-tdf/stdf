@@ -110,6 +110,16 @@ yarn add @iconify-json/carbon
 
 使用 `iconify` 与 `iconify-color` 的区别在于，`iconify` 将图标渲染为蒙版图像，图标颜色为文本颜色，因此与使用 `symbol` 一样，可以设置 `theme` 属性控制图标跟随主题色，或者设置文本颜色自定义颜色，一般用于纯色图标。而 `iconify-color` 将图标渲染为背景图像，将无法设置 `theme` 属性，也无法设置文本颜色自定义颜色，一般用于多色图标，如 fluent-color 图标库，参考 [extra-class-name](https://iconify.design/docs/usage/css/tailwind/tailwind4/#extra-class-name)。
 
-## 何时选择 symbol 方式？
+## 选择哪种方式？
 
-当你使用的图标是团队自行设计，或不在 iconify 的开源图标库内，或者希望图标由自己手动维护，或图标已经是 SVG Sprites 时，建议使用 SVG Sprites 方式。
+一般来说，在 STDF 项目中可以有以下几种使用 svg 图标方式。
+
+1. 不对 svg 文件做任何处理，直接使用。可以不需要使用 Icon 组件，直接使用 svg 标签，但是会增加 HTTP 请求和工程体积，也不方便统一调整这些图标的属性。一般用来处理比较大比较复杂的 svg 图片，**处理小 svg 图标不推荐**。
+
+2. 使用 [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) 插件。将各个 svg 文件编译之后合并成 SVG symbol，但是要求 svg 文件符合常规标准，否则可能无法正确合并。**推荐使用**。
+
+3. 使用 [Iconify](https://iconify.design)。Iconify 的优点是图标库非常丰富，省去了找图标的麻烦，但是需要手动安装图标库和配置插件，而且项目中可能会有一些冗余图标。**推荐使用**。
+
+4. 已经有合并的 SVG symbol 文件。一些图标库本身就支持导出 SVG symbol 文件，还有一些其他工具支持合并 svg 为 SVG symbol 文件，或者设计师给的物料就是 SVG symbol 文件，那么可以不用 rollup-plugin-stdf-icon 和 Iconify，直接指定合并后的 SVG symbol 文件路径给 Icon 组件使用。**推荐视情况而定**。
+
+当然，以上这些方式不是互斥的，一个工程中可能同时使用多种方式。

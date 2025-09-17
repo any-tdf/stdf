@@ -110,6 +110,16 @@ yarn add @iconify-json/carbon
 
 The difference between using `iconify` and `iconify-color` is that `iconify` renders icons as mask images, where the icon color is the text color. Therefore, like using `symbol`, you can set the `theme` property to control the icon to follow the theme color, or set text color to customize the color. This is generally used for monochrome icons. While `iconify-color` renders icons as background images, you cannot set the `theme` property or customize colors with text color. This is generally used for multi-color icons, such as fluent-color icon libraries. Refer to [extra-class-name](https://iconify.design/docs/usage/css/tailwind/tailwind4/#extra-class-name).
 
-## When to choose the symbol approach?
+## How to choose?
 
-When the icons you use are designed by your team, or are not in iconify's open-source icon libraries, or you want to maintain icons manually, or the icons are already SVG Sprites, it's recommended to use the SVG Sprites approach.
+Generally, there are several ways to use svg icons in STDF projects.
+
+1. Use svg files directly without any processing. You can use the svg tag directly without using the Icon component, but it will increase HTTP requests and project size, and it is also not convenient to adjust the attributes of these icons uniformly. Generally used for large and complex svg images, **not recommended for processing small svg icons**.
+
+2. Use the [rollup-plugin-stdf-icon](https://www.npmjs.com/package/rollup-plugin-stdf-icon) plugin. Merge the svg files into SVG symbol after compilation, but the svg files must conform to the standard, otherwise they may not be merged correctly. **Recommended**.
+
+3. Use [Iconify](https://iconify.design). Iconify's advantage is that the icon library is very rich, saves the trouble of finding icons, but requires manual installation of icon libraries and configuration plugins, and there may be some redundant icons in the project. **Recommended**.
+
+4. Already have a merged SVG symbol file. Some icon libraries support exporting SVG symbol files, some other tools support merging svg into SVG symbol files, or the material provided by the designer is already a SVG symbol file, then you can use the merged SVG symbol file path directly without using rollup-plugin-stdf-icon and Iconify. **Recommended depending on the situation**.
+
+Of course, these methods are not mutually exclusive, and a project may use multiple methods at the same time.
