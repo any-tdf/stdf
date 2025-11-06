@@ -6,9 +6,9 @@
 | titlePosition     | `'in'\|'out'\|null`                                                                                       | `'out'`   | N    | 标题位置。                      |
 | inputPosition     | `'left'\|'right'`                                                                                         | `'left'`  | N    | 输入框文字位置。                |
 | placeholder       | `string`                                                                                                  | `''`      | N    | 输入框提示文本。                |
-| radius            | `'none'\|'sm'\|'xl'\|'full'`                                                                              | `'sm'`    | N    | 圆角风格。                      |
+| radius            | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`                                                                         | `'sm'`    | N    | 圆角风格。                      |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N    | 输入框风格。                    |
-| lineTransition    | `'left'\|'center'`                                                                                         | `'left'`  | N    | 线性过渡位置。                  |
+| lineTransition    | `'left'\|'center'\|null`                                                                                   | `null`    | N    | 线性过渡位置。                  |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N    | 过渡时间。                      |
 | autocomplete      | `boolean`                                                                                                 | `true`    | N    | 是否开启自动填充功能。          |
 | py                | `'0'\|'0.5'\|'1'\|'2'\|'3'\|'4'\|'6'`                                                                     | `'2'`     | N    | 垂直间距。                      |
@@ -16,6 +16,9 @@
 | state             | `'theme'\|'success'\|'warning'\|'error'\|'info'`                                                          | `'theme'` | N    | 状态。                          |
 | type              | `'text'\|'decimal'\|'email'\|'none'\|'numeric'\|'search'\|'tel'\|'url'\|'password'\|'number'\|'textarea'` | `'text'`  | N    | 输入框类型。                    |
 | inputmode         | `'text'\|'decimal'\|'email'\|'none'\|'numeric'\|'search'\|'tel'\|'url'\|''`                               | `''`      | N    | 指定输入的数据类型。            |
+| readonly         | `boolean`                                                                                                 | `false`   | N    | 是否只读。                      |
+| select           | `boolean`                                                                                                 | `false`   | N    | 选择模式，开启后显示下拉箭头。  |
+| required         | `boolean`                                                                                                 | `false`   | N    | 是否必填。                      |
 | maxlength         | `number`                                                                                                  | `24`      | N    | 最多可输入文本长度。            |
 | textareaMaxlength | `number`                                                                                                  | `200`     | N    | textarea 时最多可输入文本长度。 |
 | rows              | `number`                                                                                                  | `2`       | N    | textarea 时行数。               |

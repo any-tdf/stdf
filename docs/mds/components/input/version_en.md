@@ -1,3 +1,9 @@
+## 1.2.0
+
+- [!tag|A|0|] Added `readonly` property to set the input box to readonly mode.
+- [!tag|A|0|] Added `select` property to enable select mode and show dropdown arrow.
+- [!tag|A|0|] Added `required` property to mark the input box as required.
+
 ## 1.0.6
 
 - [!tag|B|3|] Fix the problem that the input box placeholder font color does not follow the change when the light and dark mode is switched.

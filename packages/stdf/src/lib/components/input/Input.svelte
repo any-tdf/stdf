@@ -36,6 +36,9 @@
 		state: inputState = 'theme',
 		type = 'text',
 		inputmode = '',
+		readonly = false,
+		select = false,
+		required = false,
 		maxlength = 24,
 		textareaMaxlength = 200,
 		rows = 2,
@@ -150,7 +153,7 @@
 	// Vertical spacing style
 	const pyObj = { '0': 'py-0', '0.5': 'py-0.5', '1': 'py-1', '2': 'py-2', '3': 'py-3', '4': 'py-4', '6': 'py-6' };
 
-	// 获取焦点是派发事件
+	// 获取焦点时派发事件
 	// Get focus to dispatch events
 	const onFocus = () => {
 		focus = true;
@@ -240,7 +243,11 @@
 
 	//清除时触发
 	//Triggered when cleared
-	const clearFun = () => {
+	const clearFun = (e?: Event) => {
+		// 阻止事件冒泡，避免在 select 模式下触发焦点
+		// Prevent event bubbling to avoid triggering focus in select mode
+		e?.preventDefault();
+		e?.stopPropagation();
 		value = '';
 		onclear?.();
 		onchange?.('');
@@ -262,7 +269,12 @@
 				{#if titleChild}
 					{@render titleChild?.()}
 				{:else if title === ''}{:else}
-					<div class="mb-1 text-sm font-semibold">{title}</div>
+					<div class="relative mb-1 text-sm font-semibold">
+						{#if required}
+							<span class="text-error absolute -left-2.5 text-base">*</span>
+						{/if}
+						{title}
+					</div>
 				{/if}
 			{/if}
 			<div class="flex space-x-2 text-xs">
@@ -307,7 +319,12 @@
 			{/if}
 			<div class="flex grow flex-col">
 				{#if titlePosition === 'in'}
-					<div class="text-xs text-gray-400">{title}</div>
+					<div class="relative text-xs text-gray-400">
+						{#if required}
+							<span class="text-error absolute -left-2 text-sm">*</span>
+						{/if}
+						{title}
+					</div>
 				{/if}
 				<div class="flex space-x-1">
 					<div class="w-full">
@@ -317,7 +334,11 @@
 								use:typeAction
 								{rows}
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
-								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
+								placeholder={placeholder !== ''
+									? placeholder
+									: title !== ''
+										? (select ? inputLang.pleaseSelect : inputLang.pleaseInput) + ' ' + title
+										: ''}
 								class="focus:outline-hidden w-full bg-transparent font-semibold text-black dark:text-white {inputPosition === 'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
@@ -328,6 +349,7 @@
 								oncompositionstart={compositionstartFun}
 								autocomplete={autocomplete === true ? 'on' : 'off'}
 								{disabled}
+								readonly={readonly || select}
 								bind:this={textareaDom}
 								onkeydown={keydownFunc}
 							></textarea>
@@ -336,7 +358,11 @@
 								bind:value
 								use:typeAction
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
-								placeholder={placeholder !== '' ? placeholder : title !== '' ? inputLang.pleaseInput + ' ' + title : ''}
+								placeholder={placeholder !== ''
+									? placeholder
+									: title !== ''
+										? (select ? inputLang.pleaseSelect : inputLang.pleaseInput) + ' ' + title
+										: ''}
 								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold text-black dark:text-white {inputPosition ===
 								'left'
 									? 'text-left'
@@ -348,12 +374,13 @@
 								oncompositionstart={compositionstartFun}
 								autocomplete={autocomplete === true ? 'on' : 'off'}
 								{disabled}
+								readonly={readonly || select}
 								onkeydown={keydownFunc}
 							/>
 						{/if}
 					</div>
 					{#if clear && value !== ''}
-						<button onclick={() => clearFun()} aria-label="clear">
+						<button onclick={(e) => clearFun(e)} aria-label="clear">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="fill-current opacity-30">
 								<path
 									d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 10.5858L9.17157 7.75736L7.75736 9.17157L10.5858 12L7.75736 14.8284L9.17157 16.2426L12 13.4142L14.8284 16.2426L16.2426 14.8284L13.4142 12L16.2426 9.17157L14.8284 7.75736L12 10.5858Z"
@@ -377,6 +404,12 @@
 				<button onclick={() => onclickLabel5 && onclickLabel5()}>
 					{label5}
 				</button>
+			{/if}
+			{#if select}
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current opacity-50">
+					<path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z">
+					</path>
+				</svg>
 			{/if}
 			{#if label6Child}
 				{@render label6Child?.()}

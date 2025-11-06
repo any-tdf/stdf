@@ -6,9 +6,9 @@
 | titlePosition     | `'in'\|'out'\|null`                                                                                       | `'out'`   | N        | Title position.                   |
 | inputPosition     | `'left'\|'right'`                                                                                         | `'left'`  | N        | Input text position.              |
 | placeholder       | `string`                                                                                                  | `''`      | N        | Input placeholder text.           |
-| radius            | `'none'\|'base'\|'xl'\|'full'`                                                                            | `'base'`  | N        | Border radius style.              |
+| radius            | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`                                                                         | `'sm'`    | N        | Border radius style.              |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N        | Input box style.                  |
-| lineTransition    | `'left'\|'center'`                                                                                         | `'left'`  | N        | Linear transition position.       |
+| lineTransition    | `'left'\|'center'\|null`                                                                                   | `null`    | N        | Linear transition position.       |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N        | Transition duration.              |
 | autocomplete      | `boolean`                                                                                                 | `true`    | N        | Whether to enable autocomplete.   |
 | py                | `'0'\|'0.5'\|'1'\|'2'\|'3'\|'4'\|'6'`                                                                     | `'2'`     | N        | Vertical padding.                 |
@@ -16,6 +16,9 @@
 | state             | `'theme'\|'success'\|'warning'\|'error'\|'info'`                                                          | `'theme'` | N        | State.                            |
 | type              | `'text'\|'decimal'\|'email'\|'none'\|'numeric'\|'search'\|'tel'\|'url'\|'password'\|'number'\|'textarea'` | `'text'`  | N        | Input type.                       |
 | inputmode         | `'text'\|'decimal'\|'email'\|'none'\|'numeric'\|'search'\|'tel'\|'url'\|''`                               | `''`      | N        | Specify input data type.          |
+| readonly         | `boolean`                                                                                                 | `false`   | N        | Whether readonly.                 |
+| select           | `boolean`                                                                                                 | `false`   | N        | Select mode, shows dropdown arrow.|
+| required         | `boolean`                                                                                                 | `false`   | N        | Whether required.                 |
 | maxlength         | `number`                                                                                                  | `24`      | N        | Maximum input text length.        |
 | textareaMaxlength | `number`                                                                                                  | `200`     | N        | Maximum text length for textarea. |
 | rows              | `number`                                                                                                  | `2`       | N        | Number of rows for textarea.      |
