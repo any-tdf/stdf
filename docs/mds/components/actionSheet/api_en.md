@@ -5,7 +5,7 @@
 | visible        | `boolean`                                                   | `false`                                 | N        | Whether to show the action sheet.            |
 | title          | `string`                                                    | `''`                                    | N        | Title text.                                  |
 | titleAlign     | `'left'\|'center'\|'right'`                                 | `'center'`                              | N        | Title alignment.                             |
-| actions        | `Action[]`                                                  | `[]`                                    | N        | Menu options array composed of Action Props. |
+| actions        | `Action[]`                                                  | `[]`                                    | Y        | Menu options array composed of Action Props. |
 | popup          | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                    | N        | Popup layer parameters.                      |
 | showCancel     | `boolean`                                                   | `false`                                 | N        | Whether to show cancel button.               |
 | cancelText     | `string`                                                    | Current language actionSheet.cancelText | N        | Cancel button text.                          |

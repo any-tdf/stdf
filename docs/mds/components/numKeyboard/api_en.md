@@ -25,6 +25,6 @@
 
 | Name    | Type                       | Parameters                 | Description                        |
 | ------- | -------------------------- | -------------------------- | ---------------------------------- |
-| onclick | `(key: string) => void`    | key - Clicked keyboard key | Triggered when any key is clicked. |
+| onclick | `(key: '0'\|'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'7'\|'8'\|'9'\|'.'\|'delete'\|'close'\|'done') => void`    | key - Clicked keyboard key | Triggered when any key is clicked. |
 | onopen  | `(height: number) => void` | height - Keyboard height   | Triggered when keyboard opens.     |
 | onclose | `() => void`               | -                          | Triggered when keyboard closes.    |

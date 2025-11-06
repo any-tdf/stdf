@@ -127,8 +127,8 @@
 	<div class="px-4">
 		{#if allItems.length}
 			Currently selected:
-			{#each allItems as item}
-				<span class="mr-2 text-primary dark:text-dark">{item.label}</span>
+			{#each allItems as item, index (index)}
+				<span class="text-primary dark:text-dark mr-2">{item.label}</span>
 			{/each}
 		{:else}
 			<div>Please select data</div>
@@ -137,8 +137,8 @@
 	<div class="px-4">
 		{#if allIndexs.length}
 			Currently selected value is located at the index of each column:
-			{#each allIndexs as index}
-				<span class="mr-2 text-primary dark:text-dark">{index}</span>
+			{#each allIndexs as index, i (i)}
+				<span class="text-primary dark:text-dark mr-2">{index}</span>
 			{/each}
 		{:else}
 			<div>Please select data</div>

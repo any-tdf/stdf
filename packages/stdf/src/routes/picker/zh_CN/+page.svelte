@@ -123,8 +123,8 @@
 	<div class="px-4">
 		{#if allItems.length}
 			当前选定了：
-			{#each allItems as item}
-				<span class="mr-2 text-primary dark:text-dark">{item.label}</span>
+			{#each allItems as item, index (index)}
+				<span class=" text-primary dark:text-dark mr-2">{item.label}</span>
 			{/each}
 		{:else}
 			<div>请选定数据</div>
@@ -133,8 +133,8 @@
 	<div class="px-4">
 		{#if allIndexs.length}
 			当前选定值位于所在列的索引值分别为：
-			{#each allIndexs as index}
-				<span class="mr-2 text-primary dark:text-dark">{index}</span>
+			{#each allIndexs as index, i (i)}
+				<span class="text-primary dark:text-dark mr-2">{index}</span>
 			{/each}
 		{:else}
 			<div>请选定数据</div>

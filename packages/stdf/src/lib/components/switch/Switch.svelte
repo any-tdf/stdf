@@ -3,7 +3,7 @@
 	import type { SwitchProps } from '../../types/index.js';
 
 	let {
-		active = false,
+		active = $bindable(false),
 		radius = 'middle',
 		inside = null,
 		injClass = '',

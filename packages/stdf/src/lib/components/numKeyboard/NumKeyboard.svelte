@@ -124,7 +124,7 @@
 		}
 		// 派发事件，传递出两个参数，输入的数字字符串和本次点击的类型
 		// Dispatch events, pass out two parameters, the input number string and the type of this click
-		onclick?.(key);
+		onclick?.(key as '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '.' | 'delete' | 'close' | 'done');
 	};
 
 	// 激活与关闭键盘事件
