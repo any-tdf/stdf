@@ -100,6 +100,9 @@
 <div class="px-4 pt-8 text-xl font-bold">Disabled</div>
 <Input title="Text" disabled value="Disabled" />
 
+<div class="px-4 pt-8 text-xl font-bold">Readonly</div>
+<Input title="Text" readonly value="Readonly" />
+
 <div class="px-4 pt-8 text-xl font-bold">Different States</div>
 <Input title="Success" state="success" />
 <Input title="Warning" state="warning" />
@@ -277,3 +280,9 @@
 <div class="px-4 pt-4 text-xl font-bold">Listen to Keydown Event</div>
 <div class="px-4 pt-4">You pressed {key}</div>
 <Input placeholder="Please enter content" onkeydown={(v) => (key = v)} />
+
+<div class="px-4 pt-8 text-xl font-bold">Select Mode (Combine with Other Input Components)</div>
+<Input title="Date" select />
+
+<div class="px-4 pt-8 text-xl font-bold">Required</div>
+<Input title="Required" required />

@@ -100,6 +100,9 @@
 <div class="px-4 pt-8 text-xl font-bold">禁用</div>
 <Input title="文本" disabled value="已禁用" />
 
+<div class="px-4 pt-8 text-xl font-bold">只读</div>
+<Input title="文本" readonly value="只读" />
+
 <div class="px-4 pt-8 text-xl font-bold">不同状态色</div>
 <Input title="成功" state="success" />
 <Input title="警告" state="warning" />
@@ -263,3 +266,9 @@
 <div class="px-4 pt-4 text-xl font-bold">监听 keydown 事件</div>
 <div class="px-4 pt-4">你按下了 {key}</div>
 <Input placeholder="请输入内容" onkeydown={(v) => (key = v)} />
+
+<div class="px-4 pt-8 text-xl font-bold">选择模式（结合其他输入组件）</div>
+<Input title="日期" select />
+
+<div class="px-4 pt-8 text-xl font-bold">必输项</div>
+<Input title="必输项" required />
