@@ -115,7 +115,7 @@
 	// Input box style style
 	const inputStyleObj = {
 		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.sm,
-		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
+		line: 'px-1 border-b bg-transparent border-black/20 dark:border-white/20'
 	};
 
 	// 状态样式
@@ -132,7 +132,7 @@
 	// Determine the input box style according to whether to get focus
 	const inputStyleFocusObj = $derived({
 		block: 'px-2 ring-2 bg-transparent ' + stateObj[inputState] || stateObj.theme + radiusObj[radius] || radiusObj.sm,
-		line: 'px-1 border-b bg-transparent border-gray-300 dark:border-gray-500'
+		line: 'px-1 border-b bg-transparent border-black/20 dark:border-white/20'
 	});
 
 	// 线性动画样式
@@ -429,8 +429,8 @@
 						lineTransition !== null &&
 						`w-full ${lineTransitionStateObj[inputState] || lineTransitionStateObj.theme}`}"
 					style={lineTransition === 'center'
-						? 'left:50%;transform:translateX(calc( -50% - 0.25rem ));-webkit-transform:translateX(calc( -50% - 0.25rem ));'
-						: 'left:0;transform:translateX( -0.25rem );-webkit-transform:translateX( -0.25rem );'}
+						? 'left:50%;transform:translateX(calc( -50%  ));-webkit-transform:translateX(calc( -50%  ));'
+						: 'left:0;'}
 				></div>
 			{/if}
 		</div>

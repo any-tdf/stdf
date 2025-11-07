@@ -3,6 +3,7 @@
 - [!tag|A|0|] Added `readonly` property to set the input box to readonly mode.
 - [!tag|A|0|] Added `select` property to enable select mode and show dropdown arrow.
 - [!tag|A|0|] Added `required` property to mark the input box as required.
+- [!tag|B|3|] Fixed the line alignment issue in linear style.
 
 ## 1.0.6
 
