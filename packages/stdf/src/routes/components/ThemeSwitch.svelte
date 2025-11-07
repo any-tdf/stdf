@@ -4,7 +4,7 @@
 
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
 
-	let currentColor = $state('STDF');
+	let { currentColor } = $props();
 
 	const selectColorFunc = (e: MouseEvent, item: (typeof themes)[number]) => {
 		// 阻止冒泡

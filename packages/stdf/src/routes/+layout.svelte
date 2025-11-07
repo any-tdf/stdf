@@ -13,6 +13,7 @@
 	import themes from '../data/themes/index.js';
 
 	let { children } = $props();
+	let currentColor = $state('STDF');
 
 	// 循环 menuList，将所有元素的 childs 组成一个数组
 	// Cycle menuList, and combine the childs of all elements into an array
@@ -42,6 +43,7 @@
 		const urlTheme = urlParams.get('theme');
 		const urlDarkMode = urlParams.get('darkMode');
 		const currentTheme = themes.find((item) => item.name === urlTheme);
+		currentColor = urlTheme || 'STDF';
 		if (currentTheme) {
 			switchTheme(currentTheme.theme);
 		}
@@ -205,5 +207,5 @@
 		? 'right-0'
 		: '-right-80'} top-12 rounded-lg bg-white px-2 shadow-sm transition-all duration-500 dark:bg-black"
 >
-	<ThemeSwitch />
+	<ThemeSwitch {currentColor} />
 </div>
