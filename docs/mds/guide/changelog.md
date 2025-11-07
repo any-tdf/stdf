@@ -1,3 +1,8 @@
+## 1.2.0 <font size=1>2025-11-07</font>
+
+- 增强 Input 组件，详见 [Input](https://stdf.design/components?nav=input&tab=4)。
+- 新增 Form 组件，详见 [Form](https://stdf.design/components?nav=form&tab=0)
+
 ## 1.1.1 <font size=1>2025-05-31</font>
 
 - 修复 Avatar 组件，详见 [Avatar](https://stdf.design/components?nav=avatar&tab=4)。

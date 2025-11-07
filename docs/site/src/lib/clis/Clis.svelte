@@ -83,7 +83,7 @@
 				: '-translate-y-4 opacity-0'}"
 		></div>
 		<div
-			class="bg-primary dark:bg-dark absolute -top-8 left-1/2 -translate-x-1/2 rounded-sm px-2 py-1 text-xs text-white transition-all dark:text-black {isHover
+			class="bg-primary dark:bg-dark absolute -top-8 left-1/2 -translate-x-1/2 text-nowrap rounded-sm px-2 py-1 text-xs text-white transition-all dark:text-black {isHover
 				? 'translate-y-0 opacity-100'
 				: '-translate-y-2 opacity-0'}"
 		>

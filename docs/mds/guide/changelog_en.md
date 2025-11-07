@@ -1,3 +1,8 @@
+## 1.2.0 <font size=1>2025-11-07</font>
+
+- Enhanced Input component, please see [Input](https://stdf.design/components?nav=input&tab=4).
+- Added Form component, please see [Form](https://stdf.design/components?nav=form&tab=0)
+
 ## 1.1.1 <font size=1>2025-05-31</font>
 
 - Fixed Avatar component, please see [Avatar](https://stdf.design/components?nav=avatar&tab=4).
@@ -43,8 +48,8 @@
 - Fixed Cell component, please see [Cell](https://stdf.design/components?nav=cell&tab=4).
 - Enhanced NumKeyboard component, please see [NumKeyboard](https://stdf.design/components?nav=numKeyboard&tab=4).
 - Rewrote Checkbox, Radio, etc. components, modified some component APIs, please check when upgrading.
-- Document component API added type.
-- Follow Tailwind CSS v4, the color system of document site, theme generator, component library, etc. uses oklch, reference [Tailwind CSS](https://tailwindcss.com/docs/colors).
+- Added type to document component API.
+- Following Tailwind CSS v4, the color system of document site, theme generator, component library, etc. uses oklch, refer to [Tailwind CSS](https://tailwindcss.com/docs/colors).
 
 ## 1.0.0 <font size=1>2025-04-07</font>
 

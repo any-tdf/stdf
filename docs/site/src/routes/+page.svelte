@@ -763,7 +763,7 @@
 		<div class="intersection my-5 text-2xl font-bold transition-all ease-out md:my-10 md:text-4xl">
 			🙏 {isZh ? '赞助者' : 'Sponsors'}
 		</div>
-		<div class="">
+		<div>
 			<div class="intersection mb-4">GitHub</div>
 			<div class="flex flex-wrap justify-center gap-4">
 				{#each thinkGithub as item}
