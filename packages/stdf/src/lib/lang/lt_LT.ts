@@ -21,7 +21,8 @@ const lt_LT: LangProps = {
 		secondaryText: 'Atšaukti'
 	},
 	input: {
-		pleaseInput: 'Įveskite slaptažodį'
+		pleaseInput: 'Įveskite slaptažodį',
+		pleaseSelect: 'Prašome pasirinkti'
 	},
 	modal: {
 		title: 'Pavadinimas',
@@ -90,6 +91,9 @@ const lt_LT: LangProps = {
 		currentWeekText: 'Ši savaitė',
 		currentMonthText: 'Šis mėnuo',
 		currentQuarterText: 'Šis ketvirtis'
+	},
+	form: {
+		submit: 'Pateikti'
 	}
 };
 

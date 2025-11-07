@@ -21,7 +21,8 @@ const si_LK: LangProps = {
 		secondaryText: 'ඉවත් කරන්න'
 	},
 	input: {
-		pleaseInput: 'කරුණාකර ඇතුලත් කරන්න'
+		pleaseInput: 'කරුණාකර ඇතුලත් කරන්න',
+		pleaseSelect: 'කරුණාකර තෝරන්න'
 	},
 	modal: {
 		title: 'මාතෘකාව',
@@ -90,6 +91,9 @@ const si_LK: LangProps = {
 		currentWeekText: 'මෙම සතිය',
 		currentMonthText: 'මෙම මාසය',
 		currentQuarterText: 'මෙම කාර්තුව'
+	},
+	form: {
+		submit: 'ඉදිරිපත් කරන්න'
 	}
 };
 

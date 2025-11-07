@@ -21,7 +21,8 @@ const hr_HR: LangProps = {
 		secondaryText: 'Otkaži'
 	},
 	input: {
-		pleaseInput: 'Molimo unesite'
+		pleaseInput: 'Molimo unesite',
+		pleaseSelect: 'Molimo odaberite'
 	},
 	modal: {
 		title: 'Naslov',
@@ -90,6 +91,9 @@ const hr_HR: LangProps = {
 		currentWeekText: 'Ovaj tjedan',
 		currentMonthText: 'Ovaj mjesec',
 		currentQuarterText: 'Ovo tromjesečje'
+	},
+	form: {
+		submit: 'Pošalji'
 	}
 };
 

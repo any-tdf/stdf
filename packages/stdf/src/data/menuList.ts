@@ -186,7 +186,8 @@ export const menuList: MenuList[] = [
 				nav: 'asyncPicker',
 				tip: '错过的话，就请错过一辈子吧！',
 				tip_en: 'If you miss it, please miss it for a lifetime!',
-				alias: 'asyncPicker|异步选择器 | 异步|asyncPicker 异步选择器|asyncPicker 异步选择器|async picker|asyncpicker|异步 picker|异步 picker'
+				alias:
+					'asyncPicker|异步选择器 | 异步|asyncPicker 异步选择器|asyncPicker 异步选择器|async picker|asyncpicker|异步 picker|异步 picker'
 			},
 			{
 				title: '日历 Calendar',
@@ -207,6 +208,15 @@ export const menuList: MenuList[] = [
 				tip_en: 'Either all or none.',
 				alias:
 					'checkbox|复选框 | 复选|checkbox 复选框|checkbox 复选框 | 复选按钮|checkbox 复选按钮|checkbox 复选按钮 | 多选框 | 多选|checkbox 多选框|checkbox 多选框 | 多选按钮|checkbox 多选按钮|checkbox 多选按钮'
+			},
+			{
+				title: '表单 Form',
+				title_zh: '表单',
+				title_en: 'Form',
+				nav: 'form',
+				tip: '别让用户思考，除非你想让他们逃跑。',
+				tip_en: 'Do not make users think, unless you want them to run away.',
+				alias: 'form|表单'
 			},
 			{
 				title: '输入框 Input',
@@ -362,7 +372,8 @@ export const menuList: MenuList[] = [
 				nav: 'swiper',
 				tip: '人世间悲喜烂剧，昼夜轮播不停。',
 				tip_en: 'The ups and downs of life, day and night, are not stopping.',
-				alias: 'swiper|轮播 | 轮|播|swiper 轮播|swiper 轮播 | 轮播图|swiper 轮播图|swiper 轮播图 | 走马灯|swiper 走马灯|swiper 走马灯|carousel'
+				alias:
+					'swiper|轮播 | 轮|播|swiper 轮播|swiper 轮播 | 轮播图|swiper 轮播图|swiper 轮播图 | 走马灯|swiper 走马灯|swiper 走马灯|carousel'
 			}
 		]
 	},

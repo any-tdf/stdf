@@ -21,7 +21,8 @@ const hy_AM: LangProps = {
 		secondaryText: 'Չեղարկել'
 	},
 	input: {
-		pleaseInput: 'Խնդրում եմ մուտքագրել'
+		pleaseInput: 'Խնդրում եմ մուտքագրել',
+		pleaseSelect: 'Խնդրում ենք ընտրել'
 	},
 	modal: {
 		title: 'Վերնագիր',
@@ -90,6 +91,9 @@ const hy_AM: LangProps = {
 		currentWeekText: 'Այս շաբաթ',
 		currentMonthText: 'Այս ամսվա մեջ',
 		currentQuarterText: 'Այս եռամսյա մեջ'
+	},
+	form: {
+		submit: 'Ուղարկել'
 	}
 };
 

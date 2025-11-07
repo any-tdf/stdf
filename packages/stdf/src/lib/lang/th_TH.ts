@@ -21,7 +21,8 @@ const th_TH: LangProps = {
 		secondaryText: 'ยกเลิก'
 	},
 	input: {
-		pleaseInput: 'กรุณากรอกข้อมูล'
+		pleaseInput: 'กรุณากรอกข้อมูล',
+		pleaseSelect: 'กรุณาเลือก'
 	},
 	modal: {
 		title: 'กรุณายืนยัน',
@@ -77,6 +78,9 @@ const th_TH: LangProps = {
 		currentWeekText: 'สัปดาห์นี้',
 		currentMonthText: 'เดือนนี้',
 		currentQuarterText: 'ไตรมาสนี้'
+	},
+	form: {
+		submit: 'ส่ง'
 	}
 };
 

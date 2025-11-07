@@ -21,7 +21,8 @@ const mn_MN: LangProps = {
 		secondaryText: 'Цуцлах'
 	},
 	input: {
-		pleaseInput: 'Нууц үгээ оруулна уу'
+		pleaseInput: 'Нууц үгээ оруулна уу',
+		pleaseSelect: 'Сонгоно уу'
 	},
 	modal: {
 		title: 'Гарчиг',
@@ -78,6 +79,9 @@ const mn_MN: LangProps = {
 		currentWeekText: 'Энэ долоо хоног',
 		currentMonthText: 'Энэ сар',
 		currentQuarterText: 'Энэ улирал'
+	},
+	form: {
+		submit: 'Илгээх'
 	}
 };
 

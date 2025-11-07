@@ -21,7 +21,8 @@ const eu_ES: LangProps = {
 		secondaryText: 'Utzi'
 	},
 	input: {
-		pleaseInput: 'Mesedez sartu'
+		pleaseInput: 'Mesedez sartu',
+		pleaseSelect: 'Mesedez aukeratu'
 	},
 	modal: {
 		title: 'Izenburua',
@@ -90,6 +91,9 @@ const eu_ES: LangProps = {
 		currentWeekText: 'Aste hau',
 		currentMonthText: 'Hilabete hau',
 		currentQuarterText: 'Gertaera hau'
+	},
+	form: {
+		submit: 'Bidali'
 	}
 };
 

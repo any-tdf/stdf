@@ -21,7 +21,8 @@ const ko_KR: LangProps = {
 		secondaryText: '취소'
 	},
 	input: {
-		pleaseInput: '비밀번호를 입력해주세요'
+		pleaseInput: '비밀번호를 입력해주세요',
+		pleaseSelect: '선택해 주세요'
 	},
 	modal: {
 		title: '제목',
@@ -77,6 +78,9 @@ const ko_KR: LangProps = {
 		currentWeekText: '이번 주',
 		currentMonthText: '이번 달',
 		currentQuarterText: '이번 분기'
+	},
+	form: {
+		submit: '제출'
 	}
 };
 

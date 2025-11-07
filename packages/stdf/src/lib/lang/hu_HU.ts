@@ -21,7 +21,8 @@ const hu_HU: LangProps = {
 		secondaryText: 'Mégsem'
 	},
 	input: {
-		pleaseInput: 'Kérem írja be'
+		pleaseInput: 'Kérem írja be',
+		pleaseSelect: 'Kérjük válasszon'
 	},
 	modal: {
 		title: 'Cím',
@@ -90,6 +91,9 @@ const hu_HU: LangProps = {
 		currentWeekText: 'Ezen a héten',
 		currentMonthText: 'Ebben a hónapban',
 		currentQuarterText: 'Ebben a negyedévben'
+	},
+	form: {
+		submit: 'Küldés'
 	}
 };
 

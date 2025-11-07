@@ -21,7 +21,8 @@ const is_IS: LangProps = {
 		secondaryText: 'Hætta við'
 	},
 	input: {
-		pleaseInput: 'Vinsamlegast sláðu inn'
+		pleaseInput: 'Vinsamlegast sláðu inn',
+		pleaseSelect: 'Vinsamlegast veljið'
 	},
 	modal: {
 		title: 'Titill',
@@ -77,6 +78,9 @@ const is_IS: LangProps = {
 		currentWeekText: 'Þessi vika',
 		currentMonthText: 'Þessi mánuður',
 		currentQuarterText: 'Þessi fjórðungur'
+	},
+	form: {
+		submit: 'Senda'
 	}
 };
 

@@ -21,7 +21,8 @@ const et_EE: LangProps = {
 		secondaryText: 'Tühista'
 	},
 	input: {
-		pleaseInput: 'Palun sisesta'
+		pleaseInput: 'Palun sisesta',
+		pleaseSelect: 'Palun valige'
 	},
 	modal: {
 		title: 'Pealkiri',
@@ -90,6 +91,9 @@ const et_EE: LangProps = {
 		currentWeekText: 'See nädal',
 		currentMonthText: 'See kuu',
 		currentQuarterText: 'See kvartal'
+	},
+	form: {
+		submit: 'Saada'
 	}
 };
 

@@ -21,7 +21,8 @@ const en_US: LangProps = {
 		secondaryText: 'Cancel'
 	},
 	input: {
-		pleaseInput: 'Please enter'
+		pleaseInput: 'Please enter',
+		pleaseSelect: 'Please select'
 	},
 	modal: {
 		title: 'Title',
@@ -90,6 +91,9 @@ const en_US: LangProps = {
 		currentWeekText: 'This week',
 		currentMonthText: 'This month',
 		currentQuarterText: 'This quarter'
+	},
+	form: {
+		submit: 'Submit'
 	}
 };
 

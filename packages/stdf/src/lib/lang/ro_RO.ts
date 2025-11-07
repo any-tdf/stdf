@@ -21,7 +21,8 @@ const ro_RO: LangProps = {
 		secondaryText: 'Anulează'
 	},
 	input: {
-		pleaseInput: 'Introduceți'
+		pleaseInput: 'Introduceți',
+		pleaseSelect: 'Vă rugăm selectați'
 	},
 	modal: {
 		title: 'Titlu',
@@ -90,6 +91,9 @@ const ro_RO: LangProps = {
 		currentWeekText: 'Săptămâna aceasta',
 		currentMonthText: 'Luna aceasta',
 		currentQuarterText: 'Acest trimestru'
+	},
+	form: {
+		submit: 'Trimite'
 	}
 };
 

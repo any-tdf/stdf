@@ -21,7 +21,8 @@ const tr_TR: LangProps = {
 		secondaryText: 'İptal'
 	},
 	input: {
-		pleaseInput: 'Lütfen giriş yapınız'
+		pleaseInput: 'Lütfen giriş yapınız',
+		pleaseSelect: 'Lütfen seçin'
 	},
 	modal: {
 		title: 'Onay',
@@ -77,6 +78,9 @@ const tr_TR: LangProps = {
 		currentWeekText: 'Bu hafta',
 		currentMonthText: 'Bu ay',
 		currentQuarterText: 'Bu çeyrek'
+	},
+	form: {
+		submit: 'Gönder'
 	}
 };
 

@@ -21,7 +21,8 @@ const bg_BG: LangProps = {
 		secondaryText: 'Откажи'
 	},
 	input: {
-		pleaseInput: 'Моля, въведете'
+		pleaseInput: 'Моля, въведете',
+		pleaseSelect: 'Моля изберете'
 	},
 	modal: {
 		title: 'Заглавие',
@@ -77,6 +78,9 @@ const bg_BG: LangProps = {
 		currentWeekText: 'Тази седмица',
 		currentMonthText: 'Този месец',
 		currentQuarterText: 'Това тримесечие'
+	},
+	form: {
+		submit: 'Изпрати'
 	}
 };
 

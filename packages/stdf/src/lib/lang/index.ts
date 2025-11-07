@@ -87,6 +87,7 @@ export type LangProps = {
 	};
 	input: {
 		pleaseInput: string;
+		pleaseSelect: string;
 	};
 	modal: {
 		title: string;
@@ -142,5 +143,8 @@ export type LangProps = {
 		currentWeekText: string;
 		currentMonthText: string;
 		currentQuarterText: string;
+	};
+	form: {
+		submit: string;
 	};
 };

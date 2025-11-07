@@ -21,7 +21,8 @@ const vi_VN: LangProps = {
 		secondaryText: 'Hủy'
 	},
 	input: {
-		pleaseInput: 'Vui lòng nhập'
+		pleaseInput: 'Vui lòng nhập',
+		pleaseSelect: 'Vui lòng chọn'
 	},
 	modal: {
 		title: 'Xác nhận',
@@ -90,6 +91,9 @@ const vi_VN: LangProps = {
 		currentWeekText: 'Tuần này',
 		currentMonthText: 'Tháng này',
 		currentQuarterText: 'Quý này'
+	},
+	form: {
+		submit: 'Gửi'
 	}
 };
 

@@ -21,7 +21,8 @@ const ka_GE: LangProps = {
 		secondaryText: 'გაუქმება'
 	},
 	input: {
-		pleaseInput: 'შეიყვანეთ'
+		pleaseInput: 'შეიყვანეთ',
+		pleaseSelect: 'გთხოვთ აირჩიოთ'
 	},
 	modal: {
 		title: 'სათაური',
@@ -91,6 +92,9 @@ const ka_GE: LangProps = {
 		currentWeekText: 'ამ კვირაში',
 		currentMonthText: 'ამ თვეში',
 		currentQuarterText: 'ამ კვარტალში'
+	},
+	form: {
+		submit: 'გაგზავნა'
 	}
 };
 

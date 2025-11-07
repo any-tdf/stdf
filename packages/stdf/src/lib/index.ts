@@ -12,6 +12,7 @@ export { default as CheckboxItem } from './components/checkbox/CheckboxItem.svel
 export { default as Checkbox } from './components/checkbox/Checkbox.svelte';
 export { default as Dialog } from './components/dialog/Dialog.svelte';
 export { default as Divider } from './components/divider/Divider.svelte';
+export { default as Form } from './components/form/Form.svelte';
 export { default as Grid } from './components/grids/Grid.svelte';
 export { default as Grids } from './components/grids/Grids.svelte';
 export { default as Icon } from './components/icon/Icon.svelte';

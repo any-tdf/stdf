@@ -21,7 +21,8 @@ const fr_FR: LangProps = {
 		secondaryText: 'Annuler'
 	},
 	input: {
-		pleaseInput: 'Veuillez renseigner'
+		pleaseInput: 'Veuillez renseigner',
+		pleaseSelect: 'Veuillez sélectionner'
 	},
 	modal: {
 		title: 'Titre',
@@ -90,6 +91,9 @@ const fr_FR: LangProps = {
 		currentWeekText: 'Semaine en cours',
 		currentMonthText: 'Mois en cours',
 		currentQuarterText: 'Trimestre en cours'
+	},
+	form: {
+		submit: 'Soumettre'
 	}
 };
 

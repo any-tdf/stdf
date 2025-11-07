@@ -21,7 +21,8 @@ const fa_IR: LangProps = {
 		secondaryText: 'لغو'
 	},
 	input: {
-		pleaseInput: 'لطفا وارد کنید'
+		pleaseInput: 'لطفا وارد کنید',
+		pleaseSelect: 'لطفاً انتخاب کنید'
 	},
 	modal: {
 		title: 'عنوان',
@@ -77,6 +78,9 @@ const fa_IR: LangProps = {
 		currentWeekText: 'هفته جاری',
 		currentMonthText: 'ماه جاری',
 		currentQuarterText: 'سه ماهه جاری'
+	},
+	form: {
+		submit: 'ارسال'
 	}
 };
 

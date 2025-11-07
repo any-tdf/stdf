@@ -21,7 +21,8 @@ const mk_MK: LangProps = {
 		secondaryText: 'Откажи'
 	},
 	input: {
-		pleaseInput: 'Внесете лозинка'
+		pleaseInput: 'Внесете лозинка',
+		pleaseSelect: 'Ве молиме изберете'
 	},
 	modal: {
 		title: 'Наслов',
@@ -90,6 +91,9 @@ const mk_MK: LangProps = {
 		currentWeekText: 'Оваа недела',
 		currentMonthText: 'Овој месец',
 		currentQuarterText: 'Оваа тромесечје'
+	},
+	form: {
+		submit: 'Испрати'
 	}
 };
 

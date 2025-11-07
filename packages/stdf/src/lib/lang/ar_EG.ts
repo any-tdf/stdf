@@ -21,7 +21,8 @@ const ar_EG: LangProps = {
 		secondaryText: 'إلغاء'
 	},
 	input: {
-		pleaseInput: 'الرجاء إدخال'
+		pleaseInput: 'الرجاء إدخال',
+		pleaseSelect: 'الرجاء الاختيار'
 	},
 	modal: {
 		title: 'العنوان',
@@ -77,6 +78,9 @@ const ar_EG: LangProps = {
 		currentWeekText: 'هذا الأسبوع',
 		currentMonthText: 'هذا الشهر',
 		currentQuarterText: 'هذه الفصل'
+	},
+	form: {
+		submit: 'إرسال'
 	}
 };
 

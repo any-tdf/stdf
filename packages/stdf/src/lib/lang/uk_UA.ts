@@ -21,7 +21,8 @@ const uk_UA: LangProps = {
 		secondaryText: 'Скасувати'
 	},
 	input: {
-		pleaseInput: 'Будь ласка, введіть'
+		pleaseInput: 'Будь ласка, введіть',
+		pleaseSelect: 'Будь ласка виберіть'
 	},
 	modal: {
 		title: 'Підтвердження',
@@ -90,6 +91,9 @@ const uk_UA: LangProps = {
 		currentWeekText: 'Поточний тиждень',
 		currentMonthText: 'Поточний місяць',
 		currentQuarterText: 'Поточний квартал'
+	},
+	form: {
+		submit: 'Надіслати'
 	}
 };
 

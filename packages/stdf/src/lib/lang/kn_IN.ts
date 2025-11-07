@@ -21,7 +21,8 @@ const kn_IN: LangProps = {
 		secondaryText: 'ರದ್ದುಪಡಿಸಿ'
 	},
 	input: {
-		pleaseInput: 'ದಯವಿಟ್ಟು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ'
+		pleaseInput: 'ದಯವಿಟ್ಟು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ',
+		pleaseSelect: 'ದಯವಿಟ್ಟು ಆಯ್ಕೆಮಾಡಿ'
 	},
 	modal: {
 		title: 'ಶೀರ್ಷಿಕೆ',
@@ -90,6 +91,9 @@ const kn_IN: LangProps = {
 		currentWeekText: 'ಈ ವಾರ',
 		currentMonthText: 'ಈ ತಿಂಗಳು',
 		currentQuarterText: 'ಈ ತ್ರೈಮಾಸಿಕ'
+	},
+	form: {
+		submit: 'ಸಲ್ಲಿಸಿ'
 	}
 };
 

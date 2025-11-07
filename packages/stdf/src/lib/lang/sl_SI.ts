@@ -21,7 +21,8 @@ const sl_SI: LangProps = {
 		secondaryText: 'Prekliči'
 	},
 	input: {
-		pleaseInput: 'Prosim vnesite'
+		pleaseInput: 'Prosim vnesite',
+		pleaseSelect: 'Prosim izberite'
 	},
 	modal: {
 		title: 'Naslov',
@@ -90,6 +91,9 @@ const sl_SI: LangProps = {
 		currentWeekText: 'Ta teden',
 		currentMonthText: 'Ta mesec',
 		currentQuarterText: 'To četrtletje'
+	},
+	form: {
+		submit: 'Pošlji'
 	}
 };
 

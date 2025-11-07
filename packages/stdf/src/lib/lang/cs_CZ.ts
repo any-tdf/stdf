@@ -21,7 +21,8 @@ const cs_CZ: LangProps = {
 		secondaryText: 'Zrušit'
 	},
 	input: {
-		pleaseInput: 'Prosím, zadejte'
+		pleaseInput: 'Prosím, zadejte',
+		pleaseSelect: 'Prosím vyberte'
 	},
 	modal: {
 		title: 'Název',
@@ -77,6 +78,9 @@ const cs_CZ: LangProps = {
 		currentWeekText: 'Tento týden',
 		currentMonthText: 'Tento měsíc',
 		currentQuarterText: 'Toto čtvrtletí'
+	},
+	form: {
+		submit: 'Odeslat'
 	}
 };
 

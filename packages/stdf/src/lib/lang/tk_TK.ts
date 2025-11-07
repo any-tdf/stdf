@@ -21,7 +21,8 @@ const tk_TK: LangProps = {
 		secondaryText: 'Gurnama'
 	},
 	input: {
-		pleaseInput: 'Eçow giriziň'
+		pleaseInput: 'Eçow giriziň',
+		pleaseSelect: 'Saýlaň'
 	},
 	modal: {
 		title: 'Tassyklaň',
@@ -77,6 +78,9 @@ const tk_TK: LangProps = {
 		currentWeekText: 'Bu hepde',
 		currentMonthText: 'Bu aý',
 		currentQuarterText: 'Bu çärýek'
+	},
+	form: {
+		submit: 'Ugrat'
 	}
 };
 

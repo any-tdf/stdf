@@ -21,7 +21,8 @@ const da_DK: LangProps = {
 		secondaryText: 'Annuller'
 	},
 	input: {
-		pleaseInput: 'Indtast venligst'
+		pleaseInput: 'Indtast venligst',
+		pleaseSelect: 'Vælg venligst'
 	},
 	modal: {
 		title: 'Titel',
@@ -77,6 +78,9 @@ const da_DK: LangProps = {
 		currentWeekText: 'Denne uge',
 		currentMonthText: 'Denne måned',
 		currentQuarterText: 'Dette kvartal'
+	},
+	form: {
+		submit: 'Indsend'
 	}
 };
 

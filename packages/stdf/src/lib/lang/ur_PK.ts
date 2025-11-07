@@ -21,7 +21,8 @@ const ur_PK: LangProps = {
 		secondaryText: 'منسوخ'
 	},
 	input: {
-		pleaseInput: 'براہ کرم انپٹ کریں'
+		pleaseInput: 'براہ کرم انپٹ کریں',
+		pleaseSelect: 'براہ کرم منتخب کریں'
 	},
 	modal: {
 		title: 'تصدیق کریں',
@@ -77,6 +78,9 @@ const ur_PK: LangProps = {
 		currentWeekText: 'اس ہفتے',
 		currentMonthText: 'اس مہینہ',
 		currentQuarterText: 'اس ترکیب'
+	},
+	form: {
+		submit: 'جمع کریں'
 	}
 };
 

@@ -21,7 +21,8 @@ const el_GR: LangProps = {
 		secondaryText: 'Ακύρωση'
 	},
 	input: {
-		pleaseInput: 'Παρακαλώ εισάγετε'
+		pleaseInput: 'Παρακαλώ εισάγετε',
+		pleaseSelect: 'Παρακαλώ επιλέξτε'
 	},
 	modal: {
 		title: 'Τίτλος',
@@ -90,6 +91,9 @@ const el_GR: LangProps = {
 		currentWeekText: 'Αυτήν την εβδομάδα',
 		currentMonthText: 'Αυτό το μήνα',
 		currentQuarterText: 'Αυτό το τρίμηνο'
+	},
+	form: {
+		submit: 'Υποβολή'
 	}
 };
 

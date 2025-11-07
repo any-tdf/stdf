@@ -21,7 +21,8 @@ const ta_IN: LangProps = {
 		secondaryText: 'ரத்துசெய்'
 	},
 	input: {
-		pleaseInput: 'தயவு செய்து உள்ளிடவும்'
+		pleaseInput: 'தயவு செய்து உள்ளிடவும்',
+		pleaseSelect: 'தயவுசெய்து தேர்ந்தெடுக்கவும்'
 	},
 	modal: {
 		title: 'தலைப்பு',
@@ -90,6 +91,9 @@ const ta_IN: LangProps = {
 		currentWeekText: 'இந்த வாரம்',
 		currentMonthText: 'இந்த மாதம்',
 		currentQuarterText: 'இந்த காலாண்டு'
+	},
+	form: {
+		submit: 'சமர்ப்பிக்கவும்'
 	}
 };
 

@@ -21,7 +21,8 @@ const ca_ES: LangProps = {
 		secondaryText: 'Cancel·lar'
 	},
 	input: {
-		pleaseInput: 'Si us plau, introdueixi'
+		pleaseInput: 'Si us plau, introdueixi',
+		pleaseSelect: 'Si us plau, trieu'
 	},
 	modal: {
 		title: 'Títol',
@@ -77,6 +78,9 @@ const ca_ES: LangProps = {
 		currentWeekText: 'Aquesta setmana',
 		currentMonthText: 'Aquest mes',
 		currentQuarterText: 'Aquest trimestre'
+	},
+	form: {
+		submit: 'Enviar'
 	}
 };
 

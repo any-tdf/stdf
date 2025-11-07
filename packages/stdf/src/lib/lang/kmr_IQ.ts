@@ -21,7 +21,8 @@ const kmr_IQ: LangProps = {
 		secondaryText: 'Betalke'
 	},
 	input: {
-		pleaseInput: 'Ji kerema xwe bixwîne'
+		pleaseInput: 'Ji kerema xwe bixwîne',
+		pleaseSelect: 'Hilbijêre'
 	},
 	modal: {
 		title: 'Nav',
@@ -90,6 +91,9 @@ const kmr_IQ: LangProps = {
 		currentWeekText: 'Ji bo herî dawî ji bo asta',
 		currentMonthText: 'Ji bo herî dawî ji bo asta',
 		currentQuarterText: 'Ji bo herî dawî ji bo asta'
+	},
+	form: {
+		submit: 'Bişîne'
 	}
 };
 

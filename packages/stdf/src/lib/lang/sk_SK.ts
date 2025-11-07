@@ -21,7 +21,8 @@ const sk_SK: LangProps = {
 		secondaryText: 'Cancel'
 	},
 	input: {
-		pleaseInput: 'Prosím zadajte'
+		pleaseInput: 'Prosím zadajte',
+		pleaseSelect: 'Prosím vyberte'
 	},
 	modal: {
 		title: 'Titulok',
@@ -77,6 +78,9 @@ const sk_SK: LangProps = {
 		currentWeekText: 'Tento týždeň',
 		currentMonthText: 'Tento mesiac',
 		currentQuarterText: 'Tento štvrťrok'
+	},
+	form: {
+		submit: 'Odoslať'
 	}
 };
 

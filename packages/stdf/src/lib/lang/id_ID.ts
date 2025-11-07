@@ -21,7 +21,8 @@ const id_ID: LangProps = {
 		secondaryText: 'Batal'
 	},
 	input: {
-		pleaseInput: 'Silakan masukkan'
+		pleaseInput: 'Silakan masukkan',
+		pleaseSelect: 'Silakan pilih'
 	},
 	modal: {
 		title: 'Judul',
@@ -90,6 +91,9 @@ const id_ID: LangProps = {
 		currentWeekText: 'Minggu Ini',
 		currentMonthText: 'Bulan Ini',
 		currentQuarterText: 'Kuartal Ini'
+	},
+	form: {
+		submit: 'Kirim'
 	}
 };
 

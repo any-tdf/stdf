@@ -21,7 +21,8 @@ const lv_LV: LangProps = {
 		secondaryText: 'Atcelt'
 	},
 	input: {
-		pleaseInput: 'Lūdzu, ievadiet paroli'
+		pleaseInput: 'Lūdzu, ievadiet paroli',
+		pleaseSelect: 'Lūdzu izvēlieties'
 	},
 	modal: {
 		title: 'Nosaukums',
@@ -90,6 +91,9 @@ const lv_LV: LangProps = {
 		currentWeekText: 'Šonedēļ',
 		currentMonthText: 'Šomēnes',
 		currentQuarterText: 'Šajā ceturksnī'
+	},
+	form: {
+		submit: 'Iesniegt'
 	}
 };
 

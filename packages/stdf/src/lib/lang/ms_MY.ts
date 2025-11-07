@@ -21,7 +21,8 @@ const ms_MY: LangProps = {
 		secondaryText: 'Batal'
 	},
 	input: {
-		pleaseInput: 'Sila masukkan kata laluan'
+		pleaseInput: 'Sila masukkan kata laluan',
+		pleaseSelect: 'Sila pilih'
 	},
 	modal: {
 		title: 'Tajuk',
@@ -78,6 +79,9 @@ const ms_MY: LangProps = {
 		currentWeekText: 'Minggu ini',
 		currentMonthText: 'Bulan ini',
 		currentQuarterText: 'Suku Tahun Ini'
+	},
+	form: {
+		submit: 'Hantar'
 	}
 };
 

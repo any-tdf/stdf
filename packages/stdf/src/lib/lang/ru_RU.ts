@@ -21,7 +21,8 @@ const ru_RU: LangProps = {
 		secondaryText: 'Отмена'
 	},
 	input: {
-		pleaseInput: 'Пожалуйста, введите'
+		pleaseInput: 'Пожалуйста, введите',
+		pleaseSelect: 'Пожалуйста выберите'
 	},
 	modal: {
 		title: 'Заголовок',
@@ -77,6 +78,9 @@ const ru_RU: LangProps = {
 		currentWeekText: 'Текущая неделя',
 		currentMonthText: 'Текущий месяц',
 		currentQuarterText: 'Текущий квартал'
+	},
+	form: {
+		submit: 'Отправить'
 	}
 };
 

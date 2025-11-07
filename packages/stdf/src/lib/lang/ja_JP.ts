@@ -21,7 +21,8 @@ const ja_JP: LangProps = {
 		secondaryText: 'キャンセル'
 	},
 	input: {
-		pleaseInput: '入力してください'
+		pleaseInput: '入力してください',
+		pleaseSelect: '選択してください'
 	},
 	modal: {
 		title: 'タイトル',
@@ -77,6 +78,9 @@ const ja_JP: LangProps = {
 		currentWeekText: '今週',
 		currentMonthText: '今月',
 		currentQuarterText: '今四半期'
+	},
+	form: {
+		submit: '送信'
 	}
 };
 

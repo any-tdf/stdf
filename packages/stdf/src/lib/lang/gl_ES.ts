@@ -21,7 +21,8 @@ const gl_ES: LangProps = {
 		secondaryText: 'Cancelar'
 	},
 	input: {
-		pleaseInput: 'Por favor introduzca'
+		pleaseInput: 'Por favor introduzca',
+		pleaseSelect: 'Por favor seleccione'
 	},
 	modal: {
 		title: 'Título',
@@ -77,6 +78,9 @@ const gl_ES: LangProps = {
 		currentWeekText: 'Semana actual',
 		currentMonthText: 'Este mes',
 		currentQuarterText: 'Este cuarto'
+	},
+	form: {
+		submit: 'Enviar'
 	}
 };
 

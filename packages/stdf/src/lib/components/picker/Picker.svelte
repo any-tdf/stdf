@@ -70,43 +70,51 @@
 	const initFn = () => {
 		// 对 datas 处理，如果没有设置 initIndex 则默认为 0，如果没有设置 showRow 则默认为 5
 		// Process datas, if initIndex is not set, it is default to 0, if showRow is not set, it is default to 5
-		newDatas = newDatas.map((item, index) => {
-			if (!item.initIndex) {
-				(item as PickerDatasProps).initIndex = 0;
+		const processedDatas = newDatas.map((item, index) => {
+			// 创建一个新的对象，避免直接修改响应式状态
+			// Create a new object to avoid directly modifying reactive state
+			const processedItem = { ...item };
+
+			if (!processedItem.initIndex) {
+				(processedItem as PickerDatasProps).initIndex = 0;
 			}
-			if (!item.showRow) {
-				item.showRow = 5;
+			if (!processedItem.showRow) {
+				processedItem.showRow = 5;
 			}
-			if (!(item as PickerDatasProps).lastSelectedIndex) {
-				(item as PickerDatasProps).lastSelectedIndex = 0;
+			if (!(processedItem as PickerDatasProps).lastSelectedIndex) {
+				(processedItem as PickerDatasProps).lastSelectedIndex = 0;
 			}
-			if (!item.flex) {
-				item.flex = 1;
+			if (!processedItem.flex) {
+				processedItem.flex = 1;
 			}
-			if (!item.align) {
-				item.align = 'center';
+			if (!processedItem.align) {
+				processedItem.align = 'center';
 			}
 			if (isLinkage) {
 				if (linkageInitIndexs[index]) {
-					item.initIndex = linkageInitIndexs[index];
+					processedItem.initIndex = linkageInitIndexs[index];
 				} else {
-					item.initIndex = 0;
+					processedItem.initIndex = 0;
 				}
 				if (linkageShowRows[index]) {
-					(item as PickerDatasProps).showRow = linkageShowRows[index] as 3 | 5 | 7;
+					(processedItem as PickerDatasProps).showRow = linkageShowRows[index] as 3 | 5 | 7;
 				}
 				if (linkageFlexs[index]) {
-					item.flex = linkageFlexs[index];
+					processedItem.flex = linkageFlexs[index];
 				}
 				if (linkageAligns[index]) {
-					item.align = linkageAligns[index];
+					processedItem.align = linkageAligns[index];
 				}
-				if (!item.lastSelectedIndex) {
-					item.lastSelectedIndex = 0;
+				if (!processedItem.lastSelectedIndex) {
+					processedItem.lastSelectedIndex = 0;
 				}
 			}
-			return item;
+			return processedItem;
 		}) as PickerDatasProps[];
+
+		// 重新赋值 newDatas
+		// Reassign newDatas
+		newDatas = processedDatas;
 		// 滚动结束时选中项组成的数组
 		// An array of selected items when scrolling ends
 		scrollEndIndexs = newDatas.map((item: PickerDatasProps | PickerDataChildProps) => item.initIndex as number);
@@ -174,10 +182,15 @@
 			// Take each item in tempItems out according to the index of lastSelectedIndexs to form a new array items
 			items = tempItems.map((item: PickerDatasProps[] | PickerDataChildProps[], index: number) => {
 				const selectedIndex = lastSelectedIndexs[index];
-				if (Array.isArray(item)) {
-					return item[selectedIndex] as { [key: string]: string };
+				if (Array.isArray(item) && item[selectedIndex]) {
+					const selectedItem = item[selectedIndex] as PickerDataChildProps;
+					// 根据 linkageLabelKeys 获取正确的 label
+					// Get the correct label according to linkageLabelKeys
+					const labelKey = linkageLabelKeys[index] || 'label';
+					const label = selectedItem[labelKey] || selectedItem.label || '';
+					return { label: label as string };
 				}
-				return item;
+				return { label: '' };
 			});
 		} else {
 			// 循环 datas 与 scrollEndIndexs，按照 scrollEndIndexs 将 datas 中的 data 对应的��组成一个新数组
@@ -203,9 +216,12 @@
 		if (isLinkage) {
 			// 任何列滚动之后，使传入的 linkageInitIndexs 都会失效，将所有下级的初始选中项设置为 0
 			// After any column scrolls, the linkageInitIndexs passed in will all be invalid, and set the initial selected item of all lower levels to 0
-			for (let i = col + 1; i < newDatas.length; i++) {
-				newDatas[i].initIndex = 0;
-			}
+			newDatas = newDatas.map((item, index) => {
+				if (index > col) {
+					return { ...item, initIndex: 0 };
+				}
+				return item;
+			}) as PickerDatasProps[];
 			// 递归计算当前列的数据
 			// Recursively calculate the data of the current column
 			if (col === 0) {
@@ -214,11 +230,15 @@
 				allLevelData[0] = datas as PickerDatasProps[];
 			} else {
 				preLevelData = allLevelData[col - 1] as PickerDatasProps[];
-				if (preLevelData[scrollEndIndexs[col - 1]]) {
+				if (preLevelData && preLevelData[scrollEndIndexs[col - 1]]) {
 					const children = preLevelData[scrollEndIndexs[col - 1]][linkageChildrenKey as keyof PickerDatasProps] as PickerDataChildProps[];
 					currentLevelData = Array.isArray(children) ? (children as PickerDataChildProps[]) : [];
+					// 更新 allLevelData 当前级别的数据
+					// Update allLevelData for current level
+					allLevelData[col] = currentLevelData;
 				} else {
 					currentLevelData = [];
+					allLevelData[col] = [];
 				}
 			}
 			// 递归计算后面的所有列数据
@@ -240,10 +260,22 @@
 						);
 						// 将数据置空，此列数据为空，此列将立即消失，然后通过 setTimeout 立即设置数据，使得数据更新后，此列才会出现
 						// Set the data to empty, the data of this column is empty, this column will disappear immediately, and then set the data immediately through setTimeout, so that the data is updated, this column will appear
-						newDatas[nextCol].data = [];
+						newDatas = newDatas.map((item, idx) => {
+							if (idx === nextCol) {
+								return { ...item, data: [] };
+							}
+							return item;
+						}) as PickerDatasProps[];
 						setTimeout(() => {
-							newDatas[nextCol].data = nextData;
+							newDatas = newDatas.map((item, idx) => {
+								if (idx === nextCol) {
+									return { ...item, data: nextData };
+								}
+								return item;
+							}) as PickerDatasProps[];
 						});
+						// 确保 allLevelData 正确存储当前级别的完整数据
+						// Ensure allLevelData correctly stores the complete data for current level
 						allLevelData[nextCol] = nextLevelData;
 						recursionFunc(nextCol, nextLevelData);
 					} else {
@@ -251,7 +283,12 @@
 						// If there is no data in the next level, set the data of the next level to empty
 						// 也可以用来解决数据层级超级大的时候，递归计算数据的性能问题，暂时将后面的数据置空，等到有数据的时候再设置，避免选择数据与视图不同步的问题
 						// It can also be used to solve the performance problem of recursive calculation of data when the data hierarchy is super large. Temporarily set the data behind to empty, and set it when there is data, to avoid the problem that the selected data and the view are not synchronized
-						newDatas[nextCol].data = [];
+						newDatas = newDatas.map((item, idx) => {
+							if (idx === nextCol) {
+								return { ...item, data: [] };
+							}
+							return item;
+						}) as PickerDatasProps[];
 					}
 				}
 			};

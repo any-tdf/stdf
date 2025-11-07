@@ -21,7 +21,8 @@ const fi_FI: LangProps = {
 		secondaryText: 'Peruuta'
 	},
 	input: {
-		pleaseInput: 'Kirjoita tähän'
+		pleaseInput: 'Kirjoita tähän',
+		pleaseSelect: 'Valitse'
 	},
 	modal: {
 		title: 'Otsikko',
@@ -90,6 +91,9 @@ const fi_FI: LangProps = {
 		currentWeekText: 'Nykyinen viikko',
 		currentMonthText: 'Nykyinen kuukausi',
 		currentQuarterText: 'Nykyinen neljännesvuosi'
+	},
+	form: {
+		submit: 'Lähetä'
 	}
 };
 

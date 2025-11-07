@@ -21,7 +21,8 @@ const bn_BD: LangProps = {
 		secondaryText: 'না'
 	},
 	input: {
-		pleaseInput: 'অনুগ্রহপূর্বক প্রবেশ করুন'
+		pleaseInput: 'অনুগ্রহপূর্বক প্রবেশ করুন',
+		pleaseSelect: 'অনুগ্রহ করে নির্বাচন করুন'
 	},
 	modal: {
 		title: 'শিরোনাম',
@@ -90,6 +91,9 @@ const bn_BD: LangProps = {
 		currentWeekText: 'এই সপ্তাহে',
 		currentMonthText: 'এই মাসে',
 		currentQuarterText: 'এই ত্রৈমাসিকে'
+	},
+	form: {
+		submit: 'জমা দিন'
 	}
 };
 

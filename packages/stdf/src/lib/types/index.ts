@@ -12,7 +12,7 @@ export type ActionSheetProps = {
 	visible?: boolean;
 	title?: string;
 	titleAlign?: 'left' | 'center' | 'right';
-	actions?: ActionProps[];
+	actions: ActionProps[];
 	popup?: PopupProps;
 	showCancel?: boolean;
 	cancelText?: string;
@@ -312,6 +312,9 @@ export type InputProps = {
 	state?: 'theme' | 'success' | 'warning' | 'error' | 'info';
 	type?: 'text' | 'decimal' | 'email' | 'none' | 'numeric' | 'search' | 'tel' | 'url' | 'password' | 'number' | 'textarea';
 	inputmode?: 'text' | 'decimal' | 'email' | 'none' | 'numeric' | 'search' | 'tel' | 'url' | '';
+	readonly?: boolean;
+	select?: boolean;
+	required?: boolean;
 	maxlength?: number;
 	textareaMaxlength?: number;
 	rows?: number;
@@ -441,7 +444,7 @@ export type NumKeyboardProps = {
 	keyClass?: string;
 	doneClass?: string;
 	popup?: PopupProps;
-	onclick?: (key: string) => void;
+	onclick?: (key: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '.' | 'delete' | 'close' | 'done') => void;
 	onopen?: (height: number) => void;
 	onclose?: () => void;
 };
@@ -482,7 +485,7 @@ export type PickerDatasProps = {
 };
 export type PickerProps = {
 	visible?: boolean;
-	datas?: PickerDatasProps[] | PickerDataChildProps[];
+	datas: PickerDatasProps[] | PickerDataChildProps[];
 	autoScrollToLast?: boolean;
 	cancelText?: string;
 	confirmText?: string;
@@ -856,6 +859,154 @@ export type ToastProps = {
 	dynamicFixed?: boolean;
 	children?: Snippet;
 	onclose?: () => void;
+};
+
+export type FormInputValue = string;
+export type FormTimePickerValue = { timeStr?: string; timeObj?: TimePickerObjProps };
+export type FormActionSheetValue = { action?: ActionProps; index?: number };
+export type FormCalendarValue = { dates?: string[] };
+export type FormNumKeyboardValue = string;
+export type FormPickerValue = { items?: { [key: string]: string }[]; indexs?: number[] };
+export type FormCheckboxValue = string[];
+export type FormRadioValue = string;
+export type FormSliderValue = { value?: number; valueRange?: [number, number] };
+export type FormSwitchValue = boolean;
+export type FormStepperValue = number;
+export type FormInputProps = {
+	type?: 'input';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	input?: InputProps;
+};
+export type FormTimePickerProps = {
+	type?: 'timePicker';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	timePicker?: TimePickerProps;
+	input?: InputProps;
+};
+export type FormActionSheetProps = {
+	type?: 'actionSheet';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	actionSheet: ActionSheetProps;
+	input?: InputProps;
+};
+export type FormCalendarProps = {
+	type?: 'calendar';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	calendar?: CalendarProps;
+	input?: InputProps;
+};
+export type FormNumKeyboardProps = {
+	type?: 'numKeyboard';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	numKeyboard?: NumKeyboardProps;
+	input?: InputProps;
+};
+export type FormPickerProps = {
+	type?: 'picker';
+	name: string;
+	label: string;
+	initValue?: string;
+	linkageSeparator?: string;
+	required?: boolean;
+	picker?: PickerProps;
+	input?: InputProps;
+};
+export type FormCheckboxProps = {
+	type?: 'checkbox';
+	name: string;
+	label: string;
+	initValue?: string[];
+	required?: boolean;
+	checkbox?: CheckboxProps;
+};
+export type FormRadioProps = {
+	type?: 'radio';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	radio?: RadioProps;
+};
+export type FormSliderProps = {
+	type?: 'slider';
+	name: string;
+	label: string;
+	initValue?: number | number[];
+	required?: boolean;
+	slider?: SliderProps;
+};
+export type FormSwitchProps = {
+	type?: 'switch';
+	name: string;
+	label: string;
+	initValue?: boolean;
+	required?: boolean;
+	switch?: SwitchProps;
+};
+export type FormStepperProps = {
+	type?: 'stepper';
+	name: string;
+	label: string;
+	initValue?: number;
+	required?: boolean;
+	stepper?: StepperProps;
+};
+export type FormItemProps =
+	| FormInputProps
+	| FormTimePickerProps
+	| FormActionSheetProps
+	| FormCalendarProps
+	| FormNumKeyboardProps
+	| FormPickerProps
+	| FormCheckboxProps
+	| FormRadioProps
+	| FormSliderProps
+	| FormSwitchProps
+	| FormStepperProps;
+export type FormValueProps =
+	| FormInputValue
+	| FormTimePickerValue
+	| FormActionSheetValue
+	| FormCalendarValue
+	| FormNumKeyboardValue
+	| FormPickerValue
+	| FormCheckboxValue
+	| FormRadioValue
+	| FormSliderValue
+	| FormSwitchValue
+	| FormStepperValue;
+export type FormProps = {
+	form: FormItemProps[];
+	submitText?: string;
+	submitButton?: ButtonProps;
+	resetText?: string | null;
+	resetButton?: ButtonProps;
+	submitChildren?: Snippet;
+	resetChildren?: Snippet;
+	space?: '0' | '1' | '2' | '4' | '6' | '8';
+	card?: boolean;
+	mx?: '2' | '3' | '4' | '6' | '8';
+	px?: '0' | '1' | '2' | '4' | '6';
+	radius?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	onchange?: (data: Record<string, FormValueProps>) => void;
+	onsubmit?: (data: Record<string, FormValueProps>) => void;
+	onreset?: () => void;
 };
 
 export type SvelteEasingProps =

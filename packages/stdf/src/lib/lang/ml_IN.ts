@@ -21,7 +21,8 @@ const ml_IN: LangProps = {
 		secondaryText: 'റദ്ദാക്കുക'
 	},
 	input: {
-		pleaseInput: 'പാസ്സ്വേഡ് നൽകുക'
+		pleaseInput: 'പാസ്സ്വേഡ് നൽകുക',
+		pleaseSelect: 'ദയവായി തിരഞ്ഞെടുക്കുക'
 	},
 	modal: {
 		title: 'ശീർഷകം',
@@ -91,6 +92,9 @@ const ml_IN: LangProps = {
 		currentWeekText: 'ഈ ആഴ്ച',
 		currentMonthText: 'ഈ മാസം',
 		currentQuarterText: 'ഈ ക്വാർട്ടർ'
+	},
+	form: {
+		submit: 'സമർപ്പിക്കുക'
 	}
 };
 

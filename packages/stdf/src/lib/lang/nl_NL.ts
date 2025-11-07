@@ -21,7 +21,8 @@ const nl_NL: LangProps = {
 		secondaryText: 'Annuleren'
 	},
 	input: {
-		pleaseInput: 'Voer in'
+		pleaseInput: 'Voer in',
+		pleaseSelect: 'Selecteer alsjeblieft'
 	},
 	modal: {
 		title: 'Titel',
@@ -90,6 +91,9 @@ const nl_NL: LangProps = {
 		currentWeekText: 'Deze week',
 		currentMonthText: 'Deze maand',
 		currentQuarterText: 'Dit kwartaal'
+	},
+	form: {
+		submit: 'Verzenden'
 	}
 };
 

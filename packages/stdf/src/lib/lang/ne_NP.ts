@@ -21,7 +21,8 @@ const ne_NP: LangProps = {
 		secondaryText: 'रद्द गर्नुहोस्'
 	},
 	input: {
-		pleaseInput: 'कृपया टाइप गर्नुहोस्'
+		pleaseInput: 'कृपया टाइप गर्नुहोस्',
+		pleaseSelect: 'कृपया चयन गर्नुहोस्'
 	},
 	modal: {
 		title: 'शीर्षक',
@@ -77,6 +78,9 @@ const ne_NP: LangProps = {
 		currentWeekText: 'यो हप्ता',
 		currentMonthText: 'यो महिना',
 		currentQuarterText: 'यो तिमीहरूको तिमी'
+	},
+	form: {
+		submit: 'पेश गर्नुहोस्'
 	}
 };
 

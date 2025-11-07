@@ -21,7 +21,8 @@ const ga_IE: LangProps = {
 		secondaryText: 'Cealaigh'
 	},
 	input: {
-		pleaseInput: 'Cuir isteach le do thoil'
+		pleaseInput: 'Cuir isteach le do thoil',
+		pleaseSelect: 'Roghnaigh le do thoil'
 	},
 	modal: {
 		title: 'Teideal',
@@ -90,6 +91,9 @@ const ga_IE: LangProps = {
 		currentWeekText: 'Seachtain reatha',
 		currentMonthText: 'Mí reatha',
 		currentQuarterText: 'Ráithe reatha'
+	},
+	form: {
+		submit: 'Cuir isteach'
 	}
 };
 

@@ -21,7 +21,8 @@ const kk_KZ: LangProps = {
 		secondaryText: 'Болдырмау'
 	},
 	input: {
-		pleaseInput: 'Құпия сөзді енгізіңіз'
+		pleaseInput: 'Құпия сөзді енгізіңіз',
+		pleaseSelect: 'Таңдаңыз'
 	},
 	modal: {
 		title: 'Тақырып',
@@ -77,6 +78,9 @@ const kk_KZ: LangProps = {
 		currentWeekText: 'Бұл апта',
 		currentMonthText: 'Бұл ай',
 		currentQuarterText: 'Бұл тоқсаны'
+	},
+	form: {
+		submit: 'Жіберу'
 	}
 };
 

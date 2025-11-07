@@ -21,7 +21,8 @@ const hi_IN: LangProps = {
 		secondaryText: 'रद्द करें'
 	},
 	input: {
-		pleaseInput: 'कृपया इनपुट करें'
+		pleaseInput: 'कृपया इनपुट करें',
+		pleaseSelect: 'कृपया चुनें'
 	},
 	modal: {
 		title: 'शीर्षक',
@@ -77,6 +78,9 @@ const hi_IN: LangProps = {
 		currentWeekText: 'वर्तमान सप्ताह',
 		currentMonthText: 'वर्तमान महीना',
 		currentQuarterText: 'वर्तमान तिमाही'
+	},
+	form: {
+		submit: 'जमा करें'
 	}
 };
 

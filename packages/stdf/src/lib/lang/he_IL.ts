@@ -21,7 +21,8 @@ const he_IL: LangProps = {
 		secondaryText: 'בטל'
 	},
 	input: {
-		pleaseInput: 'אנא הזן'
+		pleaseInput: 'אנא הזן',
+		pleaseSelect: 'אנא בחר'
 	},
 	modal: {
 		title: 'כותרת',
@@ -77,6 +78,9 @@ const he_IL: LangProps = {
 		currentWeekText: 'שבוע נוכחי',
 		currentMonthText: 'חודש נוכחי',
 		currentQuarterText: 'רבעון נוכחי'
+	},
+	form: {
+		submit: 'שלח'
 	}
 };
 

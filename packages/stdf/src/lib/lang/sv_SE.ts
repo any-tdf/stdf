@@ -21,7 +21,8 @@ const sv_SE: LangProps = {
 		secondaryText: 'Avbryt'
 	},
 	input: {
-		pleaseInput: 'Vänligen fyll i'
+		pleaseInput: 'Vänligen fyll i',
+		pleaseSelect: 'Vänligen välj'
 	},
 	modal: {
 		title: 'Titel',
@@ -90,6 +91,9 @@ const sv_SE: LangProps = {
 		currentWeekText: 'Denna vecka',
 		currentMonthText: 'Denna månad',
 		currentQuarterText: 'Detta kvartal'
+	},
+	form: {
+		submit: 'Skicka'
 	}
 };
 

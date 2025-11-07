@@ -21,7 +21,8 @@ const km_KH: LangProps = {
 		secondaryText: 'បោះបង់'
 	},
 	input: {
-		pleaseInput: 'សូមបំពេញ'
+		pleaseInput: 'សូមបំពេញ',
+		pleaseSelect: 'សូមជ្រើសរើស'
 	},
 	modal: {
 		title: 'ចំណងជើង',
@@ -77,6 +78,9 @@ const km_KH: LangProps = {
 		currentWeekText: 'សប្តាហ៍នេះ',
 		currentMonthText: 'ខែនេះ',
 		currentQuarterText: 'ត្រីមាសនេះ'
+	},
+	form: {
+		submit: 'ផ្ញើ'
 	}
 };
 

@@ -21,7 +21,8 @@ const az_AZ: LangProps = {
 		secondaryText: 'Ləğv et'
 	},
 	input: {
-		pleaseInput: 'Daxil edin'
+		pleaseInput: 'Daxil edin',
+		pleaseSelect: 'Zəhmət olmasa seçin'
 	},
 	modal: {
 		title: 'Başlıq',
@@ -77,6 +78,9 @@ const az_AZ: LangProps = {
 		currentWeekText: 'Bu həftə',
 		currentMonthText: 'Bu ay',
 		currentQuarterText: 'Bu rəbə'
+	},
+	form: {
+		submit: 'Göndər'
 	}
 };
 

@@ -21,7 +21,8 @@ const zh_TW: LangProps = {
 		secondaryText: '取消'
 	},
 	input: {
-		pleaseInput: '請輸入'
+		pleaseInput: '請輸入',
+		pleaseSelect: '請選擇'
 	},
 	modal: {
 		title: '標題',
@@ -77,6 +78,9 @@ const zh_TW: LangProps = {
 		currentWeekText: '本週',
 		currentMonthText: '本月',
 		currentQuarterText: '本季度'
+	},
+	form: {
+		submit: '提交'
 	}
 };
 

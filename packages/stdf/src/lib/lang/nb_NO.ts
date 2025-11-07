@@ -21,7 +21,8 @@ const nb_NO: LangProps = {
 		secondaryText: 'Avbryt'
 	},
 	input: {
-		pleaseInput: 'Vennligst skriv inn'
+		pleaseInput: 'Vennligst skriv inn',
+		pleaseSelect: 'Vennligst velg'
 	},
 	modal: {
 		title: 'Tittel',
@@ -77,6 +78,9 @@ const nb_NO: LangProps = {
 		currentWeekText: 'Denne uken',
 		currentMonthText: 'Denne måneden',
 		currentQuarterText: 'Dette kvartalet'
+	},
+	form: {
+		submit: 'Send'
 	}
 };
 
