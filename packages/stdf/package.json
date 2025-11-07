@@ -70,6 +70,7 @@
 		"calendar": "vite --mode calendar",
 		"pagination": "vite --mode pagination",
 		"numKeyboard": "vite --mode numKeyboard",
+		"form": "vite --mode form",
 		"button_en": "vite --mode button_en",
 		"icon_en": "vite --mode icon_en",
 		"navBar_en": "vite --mode navBar_en",
@@ -107,7 +108,8 @@
 		"timePicker_en": "vite --mode timePicker_en",
 		"calendar_en": "vite --mode calendar_en",
 		"pagination_en": "vite --mode pagination_en",
-		"numKeyboard_en": "vite --mode numKeyboard_en"
+		"numKeyboard_en": "vite --mode numKeyboard_en",
+		"form_en": "vite --mode form_en"
 	},
 	"files": [
 		"dist",
