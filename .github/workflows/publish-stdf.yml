@@ -9,21 +9,23 @@ on:
         paths:
             - 'packages/stdf/package.json'
 
+permissions:
+    id-token: write # Required for OIDC
+    contents: read
+
 jobs:
     publish:
         runs-on: ubuntu-latest
-        permissions:
-            id-token: write
-            contents: write
 
         steps:
             - name: Checkout
               uses: actions/checkout@v4
 
             - name: Setup Node.js environment
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
-                  node-version: 20.x
+                  node-version: '24'
+                  registry-url: 'https://registry.npmjs.org'
 
             # 将 README.md 和 LICENSE 复制到 packages/stdf 目录下
             - name: Copy Files
@@ -46,8 +48,4 @@ jobs:
                   cd packages/stdf
                   npm install
                   npm run package
-                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
                   npm publish --provenance
-              env:
-                  CI: true
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
