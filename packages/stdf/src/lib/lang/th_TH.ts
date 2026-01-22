@@ -81,6 +81,14 @@ const th_TH: LangProps = {
 	},
 	form: {
 		submit: 'ส่ง'
+	},
+	fullKeyboard: {
+		space: 'เว้นวรรค'
+	},
+	list: {
+		editText: 'แก้ไข',
+		doneText: 'เสร็จสิ้น',
+		selectAllText: 'เลือกทั้งหมด'
 	}
 };
 

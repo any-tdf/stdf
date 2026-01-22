@@ -94,6 +94,14 @@ const uk_UA: LangProps = {
 	},
 	form: {
 		submit: 'Надіслати'
+	},
+	fullKeyboard: {
+		space: 'Пробіл'
+	},
+	list: {
+		editText: 'Редагувати',
+		doneText: 'Готово',
+		selectAllText: 'Вибрати все'
 	}
 };
 

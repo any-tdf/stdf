@@ -81,6 +81,14 @@ const hi_IN: LangProps = {
 	},
 	form: {
 		submit: 'जमा करें'
+	},
+	fullKeyboard: {
+		space: 'स्पेस'
+	},
+	list: {
+		editText: 'संपादित करें',
+		doneText: 'पूरा कर लिया',
+		selectAllText: 'सभी चुनें'
 	}
 };
 

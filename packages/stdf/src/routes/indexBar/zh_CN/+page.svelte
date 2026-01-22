@@ -1,6 +1,6 @@
 <!-- IndexBar Demo -->
 <script lang="ts">
-	import { IndexBar, Button, Toast } from '$lib/index.js';
+	import { IndexBar, ButtonGroup, Toast, Icon } from '$lib/index.js';
 	import type { IndexBarItemProps } from '$lib/types/index.js';
 
 	const addressList: IndexBarItemProps[] = [
@@ -38,92 +38,126 @@
 		{ index: '⚠️', title: '符号标志', child: ['🚫', '⚛️', '🛄', '🔱'] },
 		{ index: '🏁', title: '旗帜', child: ['🇨🇳', '🇺🇸', '🇧🇻', '🇦🇹'] }
 	];
-	const movieTVList: IndexBarItemProps[] = [
+
+	// 复杂数据结构：联系人
+	type ContactItem = {
+		name: string;
+		phone: string;
+	};
+	const contactList: IndexBarItemProps<ContactItem>[] = [
 		{
-			index: '三',
-			title: '三体',
+			index: 'A',
+			title: 'A',
 			child: [
-				'地球往事',
-				'黑暗森林',
-				'死神永生',
-				'科学边界',
-				'射手和农场主',
-				'寂静的春天',
-				'宇宙闪烁',
-				'地球叛军',
-				'古筝行动',
-				'智子',
-				'面壁者',
-				'咒语',
-				'黑暗森林',
-				'危机纪元',
-				'威慑纪元',
-				'广播纪元',
-				'掩体纪元',
-				'银河纪元',
-				'时间开始',
-				'时间之外，我们的宇宙'
+				{ name: '阿里', phone: '138****1234' },
+				{ name: '安迪', phone: '139****5678' },
+				{ name: '艾米', phone: '137****9012' }
 			]
 		},
 		{
-			index: '流',
-			title: '流浪地球',
+			index: 'B',
+			title: 'B',
 			child: [
-				'人类的勇气和坚毅必将被镌刻在星空之下。',
-				'希望是像钻石一样珍贵的东西！',
-				'希望，希望是我们唯一回家的方向。',
-				'让人类永远保持理智，是一种奢求。',
-				'道路千万条，安全第一条；行车不规范，亲人两行泪！',
-				'那时候人们还没注意到太阳，人们更喜欢叫做钱的东西。',
-				'为了我们的孩子，没有什么不能失去的了',
-				'moss 没有叛逃！',
-				'火石没了，我老婆孩子全他妈白死了！'
+				{ name: '贝贝', phone: '136****3456' },
+				{ name: '博文', phone: '135****7890' }
 			]
 		},
 		{
-			index: '仙',
-			title: '仙剑奇侠传',
+			index: 'C',
+			title: 'C',
 			child: [
-				'既不回头，何必不忘。既然无缘，何必誓言。',
-				'没有值得不值得，只有愿意不愿意。',
-				'不曾得到，谈何放下。既已得到，又如何放下。',
-				'轮回的是故人，不变的是初心！',
-				'明夕何夕，君已陌路。',
-				'我曾经也拥有过爱，只是，我放弃了。',
-				'你以为每天看到的东西，就会抓得住吗？',
-				'世有无情人，却有痴情妖。',
-				'君子，小人，皆在一念思量。',
-				'到家了，一定要叫醒我，我怕我醒不过来。',
-				'如果得道就是牺牲所有人来成全自己，我宁愿执迷不悟。',
-				'我们今日一别，让我们十年后再相见，不见不散！',
-				'一杯愁绪，几段情缘，莫过，与君对酒当歌。'
+				{ name: '陈晨', phone: '134****1234' },
+				{ name: '程程', phone: '133****5678' },
+				{ name: '聪聪', phone: '132****9012' }
+			]
+		},
+		{
+			index: 'D',
+			title: 'D',
+			child: [
+				{ name: '丹丹', phone: '131****3456' },
+				{ name: '东东', phone: '130****7890' }
+			]
+		},
+		{
+			index: 'L',
+			title: 'L',
+			child: [
+				{ name: '李明', phone: '158****1234' },
+				{ name: '刘洋', phone: '159****5678' },
+				{ name: '林涛', phone: '157****9012' }
+			]
+		},
+		{
+			index: 'W',
+			title: 'W',
+			child: [
+				{ name: '王芳', phone: '186****3456' },
+				{ name: '吴刚', phone: '187****7890' },
+				{ name: '魏明', phone: '188****1234' }
+			]
+		},
+		{
+			index: 'Z',
+			title: 'Z',
+			child: [
+				{ name: '张伟', phone: '198****5678' },
+				{ name: '赵敏', phone: '199****9012' },
+				{ name: '周杰', phone: '197****3456' }
 			]
 		}
 	];
+
+	// 颜色列表，通过 Snippet 动态选择
+	const colors = [
+		'bg-red-500',
+		'bg-orange-500',
+		'bg-amber-500',
+		'bg-yellow-500',
+		'bg-lime-500',
+		'bg-green-500',
+		'bg-emerald-500',
+		'bg-teal-500',
+		'bg-cyan-500',
+		'bg-sky-500',
+		'bg-blue-500',
+		'bg-indigo-500',
+		'bg-violet-500',
+		'bg-purple-500',
+		'bg-fuchsia-500',
+		'bg-pink-500',
+		'bg-rose-500'
+	];
+
 	const navHeight = 48;
 	const bottomHeight = 50;
 	const height = window.innerHeight - navHeight - bottomHeight;
-	/**
-	 * @type {'base' | 'full' | 'none'}
-	 */
-	let radius: 'middle' | 'full' | 'none' = $state('middle');
-	let dataFlag = $state(0);
+	let radius: 'sm' | 'full' | 'none' = $state('sm');
+	let dataFlag = $state(2);
 	let scrollAlign = $state(true);
 	let injClassList: string[] = $state([]);
+	let snippetStyle = $state(0); // 联系人 Snippet 样式：0-头像卡片、1-简约列表、2-彩色标签
 	const changeRadiusFun = () => {
-		radius = radius === 'middle' ? 'full' : radius === 'full' ? 'none' : 'middle';
+		radius = radius === 'sm' ? 'full' : radius === 'full' ? 'none' : 'sm';
 	};
 	const changeListFun = () => {
 		dataFlag = dataFlag === 0 ? 1 : dataFlag === 1 ? 2 : 0;
+		snippetStyle = 0; // 切换数据时重置样式
 	};
 	const changeScrollAlignFun = () => {
 		scrollAlign = !scrollAlign;
 	};
-	const changeClassFun = () => {
-		injClassList = !injClassList.length ? ['!text-3xl text-center', 'text-xs text-center !py-1'] : [];
+	const changeStyleFun = () => {
+		if (dataFlag === 2) {
+			// 联系人模式：切换 Snippet 样式
+			snippetStyle = (snippetStyle + 1) % 3;
+		} else {
+			// 其他模式：切换注入样式
+			injClassList = !injClassList.length ? ['!text-3xl text-center', 'text-xs text-center !py-1'] : [];
+		}
 	};
 	let visible = $state(false);
-	let toastObj = $state({ index: 0, group: { title: '' }, childIndex: 0, child: '' });
+	let toastMessage = $state('');
 </script>
 
 {#if dataFlag === 0}
@@ -136,7 +170,7 @@
 		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `点击了第 ${index + 1} 组（${group.title}）中的第 ${childIndex + 1} 项（${child}）`;
 			visible = true;
 		}}
 	/>
@@ -150,35 +184,61 @@
 		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `点击了第 ${index + 1} 组（${group.title}）中的第 ${childIndex + 1} 项（${child}）`;
 			visible = true;
 		}}
 	/>
 {:else}
 	<IndexBar
-		data={movieTVList}
+		data={contactList}
 		{radius}
 		{height}
 		{scrollAlign}
-		titleInjClass={injClassList[0]}
-		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `点击了 ${child.name}，电话：${child.phone}`;
 			visible = true;
 		}}
-	/>
+	>
+		{#snippet children(item, childIndex, group, groupIndex)}
+			{#if snippetStyle === 0}
+				<!-- 头像卡片样式 -->
+				<div class="flex items-center gap-3 py-1">
+					<div class="{colors[(groupIndex * 3 + childIndex) % colors.length]} flex h-10 w-10 items-center justify-center rounded-full text-lg font-medium text-white">
+						{item.name[0]}
+					</div>
+					<div class="flex-1">
+						<div class="font-medium">{item.name}</div>
+						<div class="text-xs text-black/50 dark:text-white/50">{item.phone}</div>
+					</div>
+					<Icon name="ri-phone-line" />
+				</div>
+			{:else if snippetStyle === 1}
+				<!-- 简约列表样式 -->
+				<div class="flex items-center justify-between py-2">
+					<span class="font-medium">{item.name}</span>
+					<span class="text-sm text-black/60 dark:text-white/60">{item.phone}</span>
+				</div>
+			{:else}
+				<!-- 彩色标签样式 -->
+				<div class="flex items-center gap-2 py-1">
+					<span class="{colors[(groupIndex * 3 + childIndex) % colors.length]} rounded-md px-2 py-1 text-sm text-white">{item.name}</span>
+					<span class="text-xs text-black/50 dark:text-white/50">{item.phone}</span>
+				</div>
+			{/if}
+		{/snippet}
+	</IndexBar>
 {/if}
-<Toast
-	bind:visible
-	message={`点击了第 ${toastObj.index + 1} 组（${toastObj.group.title}）中的第 ${toastObj.childIndex + 1} 项（${toastObj.child}）`}
-/>
+<Toast bind:visible message={toastMessage} />
 
-<div class="sticky bottom-0 z-10 flex justify-between bg-white/90 px-2 dark:bg-black/90">
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeListFun}>切换数据</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeScrollAlignFun}>
-		{scrollAlign ? '关闭' : '开启'}滚动对齐
-	</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeRadiusFun}>切换圆角</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeClassFun}>切换样式</Button>
+<div class="sticky bottom-0 z-10 bg-white/90 dark:bg-black/90">
+	<ButtonGroup
+		fill="lineState"
+		items={[
+			{ text: dataFlag === 0 ? '城市' : dataFlag === 1 ? '表情' : '联系人', onclick: changeListFun },
+			{ text: scrollAlign ? '对齐关闭' : '对齐开启', onclick: changeScrollAlignFun },
+			{ text: '圆角', onclick: changeRadiusFun },
+			{ text: dataFlag === 2 ? (snippetStyle === 0 ? '卡片' : snippetStyle === 1 ? '列表' : '标签') : '样式', onclick: changeStyleFun }
+		]}
+	/>
 </div>

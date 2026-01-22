@@ -1,6 +1,7 @@
 <!-- Toast Demo -->
 <script lang="ts">
-	import { Toast, Cell, Button, Loading } from '$lib/index.js';
+	import { Toast, Cell, Button, Loading, Tab, Slider } from '$lib/index.js';
+	import type { TabLabelProps, SvelteEasingProps } from '$lib/types/index.js';
 
 	let visible1 = $state(false);
 	let visible2 = $state(false);
@@ -15,22 +16,12 @@
 	let visible11 = $state(false);
 	let visible12 = $state(false);
 	let visible13 = $state(false);
-	let visible14 = $state(false);
-	let visible15 = $state(false);
-	let visible16 = $state(false);
-	let visible17 = $state(false);
-	let visible18 = $state(false);
-	let visible19 = $state(false);
-	let visible20 = $state(false);
-	let visible21 = $state(false);
 	let visible22 = $state(false);
 	let visible23 = $state(false);
 	let visible24 = $state(false);
 	let visible25 = $state(false);
 	let visible26 = $state(false);
 	let visible27 = $state(false);
-	let visible28 = $state(false);
-	let visible29 = $state(false);
 	let visible30 = $state(false);
 	let visible31 = $state(false);
 	let visible32 = $state(false);
@@ -47,6 +38,44 @@
 				time = 3;
 			}
 		}, 1000);
+	};
+
+	// Transition type control
+	const transitionTypes = ['scale', 'fly', 'fade', 'blur'] as const;
+	const transitionLabels: TabLabelProps[] = transitionTypes.map((t) => ({ text: t }));
+	let transitionTypeIndex = $state(0);
+	let transitionType = $derived(transitionTypes[transitionTypeIndex]);
+
+	// Easing function control
+	const easeTypes: SvelteEasingProps[] = ['cubicOut', 'bounceOut', 'elasticOut', 'backOut'];
+	const easeLabels: TabLabelProps[] = easeTypes.map((t) => ({ text: t.replace('Out', '') }));
+	let easeTypeIndex = $state(0);
+	let easeType = $derived(easeTypes[easeTypeIndex]);
+
+	// Animation duration control
+	let inDuration = $state(300);
+	let outDuration = $state(300);
+
+	// fly animation params
+	let flyY = $state(-100);
+
+	// scale animation params
+	let scaleStart = $state(0);
+
+	// blur animation params
+	let blurAmount = $state(5);
+
+	// Generate transitionParams based on animation type
+	const getTransitionParams = () => {
+		const base = { duration: inDuration };
+		if (transitionType === 'fly') {
+			return { ...base, y: flyY };
+		} else if (transitionType === 'scale') {
+			return { ...base, start: scaleStart };
+		} else if (transitionType === 'blur') {
+			return { ...base, amount: blurAmount };
+		}
+		return base;
 	};
 </script>
 
@@ -107,55 +136,64 @@
 	<Cell title="Mask blur" onclick={() => (visible12 = true)} />
 	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'sm' }} message="The content below the mask is blurry" />
 
-	<Cell title="Faster transition" onclick={() => (visible13 = true)} />
-	<Toast bind:visible={visible13} transitionParams={{ duration: 150 }} message="The transition time is 150ms" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">Animation Type (transitionType: {transitionType})</div>
+		<Tab labels={transitionLabels} active={transitionTypeIndex} onclickTab={(v) => (transitionTypeIndex = v)} />
+	</div>
 
-	<Cell title="Slow transition" onclick={() => (visible14 = true)} />
-	<Toast bind:visible={visible14} transitionParams={{ duration: 1000 }} message="The transition time is 1s" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">Easing Function (easeType: {easeType})</div>
+		<Tab labels={easeLabels} active={easeTypeIndex} onclickTab={(v) => (easeTypeIndex = v)} />
+	</div>
 
-	<Cell title="Fade in" onclick={() => (visible15 = true)} />
-	<Toast bind:visible={visible15} transitionType="fade" message="Fade in presentation" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">Enter Animation Duration: {inDuration}ms</div>
+		<Slider value={inDuration} minRange={0} maxRange={1000} step={50} onchange={(v) => (inDuration = v)} />
+	</div>
 
-	<Cell title="Move down" onclick={() => (visible16 = true)} />
-	<Toast bind:visible={visible16} transitionType="fly" transitionParams={{ y: -150 }} message="Move down into presentation" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">Exit Animation Duration: {outDuration}ms</div>
+		<Slider value={outDuration} minRange={0} maxRange={1000} step={50} onchange={(v) => (outDuration = v)} />
+	</div>
 
-	<Cell title="Move in to the right" onclick={() => (visible17 = true)} />
-	<Toast bind:visible={visible17} transitionType="fly" transitionParams={{ x: -150 }} message="Move right into presentation" />
+	{#if transitionType === 'fly'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">fly Y Offset: {flyY}px</div>
+			<Slider value={flyY} minRange={-200} maxRange={200} step={10} onchange={(v) => (flyY = v)} />
+		</div>
+	{:else if transitionType === 'scale'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">scale Initial Scale: {scaleStart}</div>
+			<Slider value={scaleStart} minRange={0} maxRange={1} step={0.1} onchange={(v) => (scaleStart = v)} />
+		</div>
+	{:else if transitionType === 'blur'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">blur Amount: {blurAmount}px</div>
+			<Slider value={blurAmount} minRange={0} maxRange={20} step={1} onchange={(v) => (blurAmount = v)} />
+		</div>
+	{/if}
 
-	<Cell title="expansion" onclick={() => (visible18 = true)} />
-	<Toast bind:visible={visible18} transitionType="slide" message="Unfold and present" />
-
-	<Cell title="blur" onclick={() => (visible19 = true)} />
-	<Toast bind:visible={visible19} transitionType="blur" transitionParams={{ duration: 1000 }} message="Fuzzy rendering" />
-
-	<Cell title="No transition" onclick={() => (visible20 = true)} />
-	<Toast bind:visible={visible20} transitionType={null} message="Direct presentation without transition" />
-
-	<Cell title="Exit zoom animation" onclick={() => (visible28 = true)} />
-	<Toast bind:visible={visible28} outDuration={300} message="The zoom animation time on exit is 300ms" />
-
-	<Cell title="Exit Move out animation" onclick={() => (visible29 = true)} />
+	<Cell title="Custom Animation Effect" onclick={() => (visible13 = true)} />
 	<Toast
-		bind:visible={visible29}
-		outDuration={300}
-		transitionType="fly"
-		transitionParams={{ y: -150 }}
-		message="When exiting, move out animation time is 300ms"
+		bind:visible={visible13}
+		{transitionType}
+		transitionParams={getTransitionParams()}
+		{outDuration}
+		{easeType}
+		easeOutType={easeType}
+		message="Adjust the controls above to see different animation effects"
 	/>
 
-	<Cell title="Delayed occurrence" onclick={() => (visible21 = true)} />
-	<Toast bind:visible={visible21} transitionParams={{ delay: 1000 }} message="Click for 1 second and then display" />
-
-	<Cell title="top" onclick={() => (visible22 = true)} />
+	<Cell title="Top" onclick={() => (visible22 = true)} />
 	<Toast bind:visible={visible22} position="top" message="Tips at the top" />
 
-	<Cell title="bottom" onclick={() => (visible23 = true)} />
+	<Cell title="Bottom" onclick={() => (visible23 = true)} />
 	<Toast bind:visible={visible23} position="bottom" message="Tips at the bottom" />
 
 	<Cell title="Top increase distance" onclick={() => (visible24 = true)} />
 	<Toast bind:visible={visible24} position="top" py="40" message="The tip is at the top and the distance is increased" />
 
-	<Cell title="use Snippet" onclick={useSnippetFun} />
+	<Cell title="Use Snippet" onclick={useSnippetFun} />
 	<Toast bind:visible={visible25} duration={0}>
 		<div class="flex flex-col space-y-4">
 			<div>Customize the prompt content</div>
@@ -165,11 +203,11 @@
 	</Toast>
 
 	<Cell title="Different styles of rounded corners" onclick={() => (visible26 = true)} />
-	<Toast bind:visible={visible26} radius="xl" message="Rounded corners were added" />
+	<Toast bind:visible={visible26} radius="2xl" message="Rounded corners were added" />
 </div>
 
 <div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
 	<div class="flex-1">
-		<Button fill="lineTheme" onclick={() => (visible5 = false)}>Manual shutdown</Button>
+		<Button fill="lineState" onclick={() => (visible5 = false)}>Manual shutdown</Button>
 	</div>
 </div>

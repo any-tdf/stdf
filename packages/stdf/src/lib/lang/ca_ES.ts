@@ -81,6 +81,14 @@ const ca_ES: LangProps = {
 	},
 	form: {
 		submit: 'Enviar'
+	},
+	fullKeyboard: {
+		space: 'Espai'
+	},
+	list: {
+		editText: 'Edita',
+		doneText: 'Fet',
+		selectAllText: 'Selecciona-ho tot'
 	}
 };
 

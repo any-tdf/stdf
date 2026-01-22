@@ -1,6 +1,13 @@
 <!-- Stepper Demo -->
 <script lang="ts">
-	import { Stepper, Toast } from '$lib/index.js';
+	import { Stepper, Toast, Slider } from '$lib/index.js';
+	import type { StepperProps } from '$lib/types/index.js';
+
+	// 圆角配置
+	const radiusOptions: StepperProps['radius'][] = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	const radiusLabels = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	let radiusIndex = $state(1); // 默认 sm
+	let currentRadius: StepperProps['radius'] = $derived(radiusOptions[radiusIndex]);
 
 	let asyncValue1 = $state(1);
 	let loading1 = $state(false);
@@ -58,13 +65,21 @@
 </div>
 
 <div class="mx-4 mt-8 text-lg font-bold">不同圆角</div>
+<div class="px-4 py-2">
+	<Slider
+		value={radiusIndex}
+		minRange={0}
+		maxRange={6}
+		step={1}
+		showSteps
+		stepLabels={radiusLabels}
+		onchange={(v) => (radiusIndex = v)}
+	/>
+</div>
 <div class="flex flex-wrap gap-2 px-4 py-4">
-	<div><Stepper radius="none" /></div>
-	<div><Stepper radius="sm" /></div>
-	<div><Stepper radius="xl" /></div>
-	<div><Stepper radius="full" /></div>
-	<div><Stepper radius="full" numberHighlight /></div>
-	<div><Stepper radius="full" theme={false} /></div>
+	<div><Stepper radius={currentRadius} /></div>
+	<div><Stepper radius={currentRadius} numberHighlight /></div>
+	<div><Stepper radius={currentRadius} theme={false} /></div>
 </div>
 
 <div class="mx-4 mt-8 text-lg font-bold">竖向</div>
@@ -130,7 +145,7 @@
 
 <div class="mx-4 mt-8 text-lg font-bold">不同位置注入 Class</div>
 <div class="px-4 py-2">
-	<Stepper theme={false} injClassOut="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
+	<Stepper theme={false} injClassOut="bg-linear-to-r from-[#CE9FFC] to-[#7367F0]" />
 </div>
 <div class="px-4 py-2">
 	<Stepper injClassNum="text-primary dark:text-dark" />

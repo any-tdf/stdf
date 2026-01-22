@@ -81,6 +81,14 @@ const fa_IR: LangProps = {
 	},
 	form: {
 		submit: 'ارسال'
+	},
+	fullKeyboard: {
+		space: 'فاصله'
+	},
+	list: {
+		editText: 'ویرایش',
+		doneText: 'انجام شد',
+		selectAllText: 'انتخاب همه'
 	}
 };
 

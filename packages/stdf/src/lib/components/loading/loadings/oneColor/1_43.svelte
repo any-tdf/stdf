@@ -13,7 +13,7 @@
 
 <div class="{size} m-auto flex flex-col justify-center">
 	<div class="flex items-center justify-between">
-		{#each [-0.45, -0.3, -0.15, 0] as item}
+		{#each [-0.45, -0.3, -0.15, 0] as item (item)}
 			<div
 				class="dot h-1.5 w-1.5 rounded-full{colorClass()}"
 				style="background-color: {customColor[0]};animation-duration: {1 / speed}s;animation-delay: {(1 / speed) * item}s"

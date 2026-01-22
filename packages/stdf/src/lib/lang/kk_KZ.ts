@@ -81,6 +81,14 @@ const kk_KZ: LangProps = {
 	},
 	form: {
 		submit: 'Жіберу'
+	},
+	fullKeyboard: {
+		space: 'Бос орын'
+	},
+	list: {
+		editText: 'Өңдеу',
+		doneText: 'Аяқталды',
+		selectAllText: 'Барлығын таңдау'
 	}
 };
 

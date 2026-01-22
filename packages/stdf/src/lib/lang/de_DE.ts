@@ -81,6 +81,14 @@ const de_DE: LangProps = {
 	},
 	form: {
 		submit: 'Senden'
+	},
+	fullKeyboard: {
+		space: 'Leerzeichen'
+	},
+	list: {
+		editText: 'Bearbeiten',
+		doneText: 'Fertig',
+		selectAllText: 'Alle auswählen'
 	}
 };
 

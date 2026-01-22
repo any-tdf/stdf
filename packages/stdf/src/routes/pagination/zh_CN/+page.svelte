@@ -95,11 +95,17 @@
 <div class="m-4 mt-8 text-lg font-bold">省略页码列数为 2</div>
 <Pagination {total} pageCol={2} />
 
+<div class="m-4 mt-8 text-lg font-bold">白色背景</div>
+<Pagination {total} bg="white" />
+
+<div class="m-4 mt-8 text-lg font-bold">主题色背景</div>
+<Pagination {total} bg="theme" />
+
 <div class="m-4 mt-8 text-lg font-bold">注入 injClass</div>
 <Pagination {total} injClass="mx-2 rounded-full shadow-md dark:shadow-white/10" />
 
 <div class="m-4 mt-8 text-lg font-bold">模拟请求</div>
-<div class="relative min-h-[20rem] divide-y divide-black/5 px-4 py-8 dark:divide-white/5">
+<div class="relative min-h-80 divide-y divide-black/5 px-4 py-8 dark:divide-white/5">
 	{#each data as item}
 		<div class:py-6={pageSize > 1}>
 			<div class="text-justify text-sm">{item.text}</div>

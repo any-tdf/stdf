@@ -81,6 +81,14 @@ const bg_BG: LangProps = {
 	},
 	form: {
 		submit: 'Изпрати'
+	},
+	fullKeyboard: {
+		space: 'Интервал'
+	},
+	list: {
+		editText: 'Редактиране',
+		doneText: 'Готово',
+		selectAllText: 'Избери всички'
 	}
 };
 

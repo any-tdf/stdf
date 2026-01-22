@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { SwiperProps, SwiperImgProps, SwiperComponentProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		data = [],
@@ -12,7 +13,7 @@
 		indicatePosition = 'inner',
 		indicateAlign = 'center',
 		indicateStyle = 'pointLine',
-		indicateRadius = true,
+		indicateRadius = '',
 		indicateInjClass = '',
 		indicateColor = '',
 		indicateActiveColor = '',
@@ -27,7 +28,7 @@
 		rotateZ = 0,
 		activeInjClass = '',
 		notActiveInjClass = '',
-		radius = 'none',
+		radius = '',
 		innerInjClass = '',
 		triggerLong = 30,
 		notTriggerLong = 10,
@@ -36,35 +37,38 @@
 		onclick
 	}: SwiperProps = $props();
 
-	let width = containerWidth === 0 ? document.body.clientWidth : containerWidth; //宽度 width
-	let active = $state(data.length > 1 ? initActive + 1 : 1); //当前激活的 item current active item
-	let currentIndicate = $state(data.length > 1 ? initActive : 0); //当前激活的指示器  current active indicate
+	let width = $derived(containerWidth === 0 ? (typeof document !== 'undefined' ? document.body.clientWidth : 0) : containerWidth); //宽度 width
+	let active = $derived(data.length > 1 ? initActive + 1 : 1); //当前激活的 item current active item
+	let currentIndicate = $derived(data.length > 1 ? initActive : 0); //当前激活的指示器  current active indicate
 	let longTransition = $state(true); //长线指示器过渡 long line indicate transition
 	let long = $state(false); //长线指示器是否较长状态 long line indicate is long
 	let once = $state(true); //是否是第首次轮播，处理轮播间隔与过渡时间的差异 is first time play, handle interval and duration difference
 	let translateXTransition = $state(true); //是否进行过渡动画 is transition animation
-	let initialState = true; //是否是初始状态 is initial state
-	let startX = 0; //滑动开始 X 坐标 when start touch x position
+	let initialState = $state(true); //是否是初始状态 is initial state
+	let startX = $state(0); //滑动开始 X 坐标 when start touch x position
 	let moveX = $state(0); //滑动移动 X 坐标 when move touch x position
-	let startTime = 0; //滑动开始时间 when start touch time
-	let endTime = 0; //滑动结束时间 when end touch time
-	let isMove = false; //是否滑动 is touch move
+	let startTime = $state(0); //滑动开始时间 when start touch time
+	let endTime = $state(0); //滑动结束时间 when end touch time
+	let isMove = $state(false); //是否滑动 is touch move
 	// let transition = true;
 	let swiperDom = $state<HTMLElement | null>(null); //Swiper 容器
 	let movePercent = $derived(moveX / width); //滑动距离占总宽度的百分比 touch width percent
 
 	//实现无限轮播，复制一个新数组，防止改变原数组
 	//	implement infinite loop, copy a new array to prevent change original array
-	const dataNew: (SwiperComponentProps | SwiperImgProps)[] =
-		data.length > 1
-			? [data[data.length - 1], ...data, data[0], data[1]]
-			: data.length === 1
-				? [data[data.length - 1], ...data, data[0]]
-				: data;
+	let dataNew = $derived.by(() => {
+		const arr: (SwiperComponentProps | SwiperImgProps)[] =
+			data.length > 1
+				? [data[data.length - 1], ...data, data[0], data[1]]
+				: data.length === 1
+					? [data[data.length - 1], ...data, data[0]]
+					: data;
+		return arr;
+	});
 	const indicateAlignObj = { left: 'justify-start', center: 'justify-center', right: 'justify-end' };
 	const pxObj = { '0': '', '1': 'px-1', '2': 'px-2', '4': 'px-4', '6': 'px-6', '8': 'px-8', '12': 'px-12', '16': 'px-16', '24': 'px-24' };
 	const pyObj = { '0': '', '1': 'py-1', '2': 'py-2', '4': 'py-4', '6': 'py-6', '8': 'py-8', '12': 'py-12' };
-	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
+
 	//根据 indicateStyle 和是否激活生成不同样式的 indicate
 	//generate different style indicate according to indicateStyle and isActive
 	const indicateStyleInnerFun = (indicateStyle: string, isActive: boolean, indicateColor: string, indicateActiveColor: string) => {
@@ -441,11 +445,11 @@
 			>
 				{#if item.type === 'img'}
 					<button type="button" onclick={clickImgFun} class="h-full w-full">
-						<img class="h-full w-full object-cover {radiusObj[radius] || ''} {innerInjClass}" src={item.url} alt="" />
+						<img class="h-full w-full object-cover {radius ? radiusObj[radius] : 'rounded-(--radius-box)'} {innerInjClass}" src={item.url} alt="" />
 					</button>
 				{/if}
 				{#if item.type === 'component'}
-					<div class="h-full w-full {radiusObj[radius] || ''} {innerInjClass}">
+					<div class="h-full w-full {radius ? radiusObj[radius] : 'rounded-(--radius-box)'} {innerInjClass}">
 						<item.component />
 					</div>
 				{/if}
@@ -455,20 +459,19 @@
 		<!-- Carousel indicator (inner) -->
 		<div
 			class:hidden={data.length < 2 || indicatePosition === 'out' || indicatePosition === null}
-			class="absolute bottom-0 z-50 flex w-full space-x-2 bg-gradient-to-b from-black/0 to-black/40 px-4 pb-2 pt-4 {indicateInjClass} {indicateAlignObj[
+			class="absolute bottom-0 z-50 flex w-full space-x-2 bg-linear-to-b from-black/0 to-black/40 px-4 pb-2 pt-4 {indicateInjClass} {indicateAlignObj[
 				indicateAlign
 			] || indicateAlignObj.center}"
 		>
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 			{#each data as _, i (i)}
 				<div
-					class="{indicateStyleInnerFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
-						'rounded-full'} transition-all"
+					class="{indicateStyleInnerFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius ? radiusObj[indicateRadius] : 'rounded-(--radius-small)'} transition-all"
 					style="transition-duration: {duration}ms;"
 				>
 					{#if indicateStyle === 'longLine'}
 						<div
-							class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius && 'rounded-full'} {long &&
+							class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius ? radiusObj[indicateRadius] : 'rounded-(--radius-small)'} {long &&
 							currentIndicate === i
 								? 'w-16'
 								: 'w-1'} {indicateActiveColor === '' ? 'bg-white' : indicateActiveColor}"
@@ -490,13 +493,12 @@
 		<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 		{#each data as _, i (i)}
 			<div
-				class="{indicateStyleOutFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius &&
-					'rounded-full'} transition-all"
+				class="{indicateStyleOutFun(indicateStyle, currentIndicate === i, indicateColor, indicateActiveColor)} {indicateRadius ? radiusObj[indicateRadius] : 'rounded-(--radius-small)'} transition-all"
 				style="transition-duration: {duration}ms;"
 			>
 				{#if indicateStyle === 'longLine'}
 					<div
-						class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius && 'rounded-full'} {long && currentIndicate === i
+						class="absolute h-1 transition-all {long ? 'ease-linear' : ''} {indicateRadius ? radiusObj[indicateRadius] : 'rounded-(--radius-small)'} {long && currentIndicate === i
 							? 'w-16'
 							: 'w-1'} {indicateActiveColor === '' ? 'bg-primary dark:bg-dark' : indicateActiveColor}"
 						style={longTransition

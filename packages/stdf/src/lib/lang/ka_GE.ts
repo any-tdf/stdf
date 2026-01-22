@@ -95,6 +95,14 @@ const ka_GE: LangProps = {
 	},
 	form: {
 		submit: 'გაგზავნა'
+	},
+	fullKeyboard: {
+		space: 'გამოტოვება'
+	},
+	list: {
+		editText: 'რედაქტირება',
+		doneText: 'დასრულებულია',
+		selectAllText: 'ყველას არჩევა'
 	}
 };
 

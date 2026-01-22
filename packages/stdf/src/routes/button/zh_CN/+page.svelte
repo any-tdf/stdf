@@ -1,42 +1,67 @@
 <!-- Button Demo -->
 <script lang="ts">
-	import { Button, Icon, Toast, Loading } from '$lib/index.js';
+	import { Button, Icon, Toast, Loading, Slider } from '$lib/index.js';
+	import type { ButtonProps } from '$lib/types/index.js';
 
 	let visible = $state(false);
+
+	// 圆角配置
+	const radiusOptions: ButtonProps['radius'][] = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	const radiusLabels = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	let radiusIndex = $state(2); // 默认 sm
+	let currentRadius: ButtonProps['radius'] = $derived(radiusOptions[radiusIndex]);
 </script>
 
 <div class="flex flex-col space-y-8 py-8">
 	<div>
-		<div class="p-4 font-bold">不同状态色</div>
-		<Button>默认</Button>
-		<Button state="success">成功</Button>
-		<Button state="warning">警告</Button>
-		<Button state="error">错误</Button>
-		<Button state="info">信息</Button>
+		<div class="p-4 font-bold">fill 与 state 结合</div>
+		<Button>填充主题</Button>
+		<Button state="success">填充成功</Button>
+		<Button state="warning">填充警告</Button>
+		<Button state="error">填充错误</Button>
+		<Button state="info">填充信息</Button>
+		<Button fill="line">无色线性</Button>
+		<Button fill="lineLight">浅色线性</Button>
+		<Button fill="lineState">线性主题</Button>
+		<Button fill="lineState" state="success">线性成功</Button>
+		<Button fill="lineState" state="warning">线性警告</Button>
+		<Button fill="lineState" state="error">线性错误</Button>
+		<Button fill="lineState" state="info">线性信息</Button>
+		<Button fill="text">无色文本</Button>
+		<Button fill="textState">文本主题</Button>
+		<Button fill="textState" state="success">文本成功</Button>
+		<Button fill="textState" state="warning">文本警告</Button>
+		<Button fill="textState" state="error">文本错误</Button>
+		<Button fill="textState" state="info">文本信息</Button>
+		<Button fill="colorLight">浅填灰色</Button>
+		<Button fill="colorLight" state="theme">浅填主题</Button>
+		<Button fill="colorLight" state="success">浅填成功</Button>
+		<Button fill="colorLight" state="warning">浅填警告</Button>
+		<Button fill="colorLight" state="error">浅填错误</Button>
+		<Button fill="colorLight" state="info">浅填信息</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">不同圆角风格</div>
-		<Button>默认</Button>
-		<Button radius="none">无圆角</Button>
-		<Button radius="xl">大圆角</Button>
-		<Button radius="2xl">更大圆角</Button>
-		<Button radius="full">全圆角</Button>
-	</div>
-	<div>
-		<div class="p-4 font-bold">不同填充模式</div>
-		<Button>默认</Button>
-		<Button fill="line">无色线性</Button>
-		<Button fill="lineLight">浅色线性</Button>
-		<Button fill="lineTheme">主题色线性</Button>
-		<Button fill="text">无色纯文本</Button>
-		<Button fill="textTheme">主题色纯文本</Button>
-		<Button fill="colorLight">浅色填充</Button>
+		<div class="px-4 pb-4">
+			<Slider
+				value={radiusIndex}
+				minRange={0}
+				maxRange={7}
+				step={1}
+				showSteps
+				stepLabels={radiusLabels}
+				onchange={(v) => (radiusIndex = v)}
+			/>
+		</div>
+		<Button radius={currentRadius}>默认填充</Button>
+		<Button radius={currentRadius} fill="lineState">状态色线性</Button>
+		<Button radius={currentRadius} fill="colorLight">浅色填充</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">不同边框风格</div>
-		<Button fill="lineTheme">实线</Button>
-		<Button fill="lineTheme" line="dashed">虚线</Button>
-		<Button fill="lineTheme" line="dotted">点线</Button>
+		<Button fill="lineState">实线</Button>
+		<Button fill="lineState" border="dashed">虚线</Button>
+		<Button fill="lineState" border="dotted">点线</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">不同大小</div>
@@ -63,13 +88,13 @@
 			<Button customSize customWidth={40} customHeight={40} radius="xl">高</Button>
 			<Button customSize customWidth={40} customHeight={40}>一</Button>
 			<Button customSize customWidth={40} customHeight={40} radius="none">致</Button>
-			<Button fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
-			<Button radius="full" fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button radius="full" fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
-			<Button radius="full" line="dashed" fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button radius="full" border="dashed" fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
 			<Button radius="full" customSize customWidth={24} customHeight={24} heightIn="0">
@@ -80,14 +105,14 @@
 	<div>
 		<div class="p-4 font-bold">禁用</div>
 		<Button disabled>禁用</Button>
-		<Button fill="lineTheme" disabled>禁用</Button>
+		<Button fill="lineState" disabled>禁用</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带图标</div>
 		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }}>投掷二向箔</Button>
-		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }}>启动面壁计划</Button>
+		<Button fill="lineState" icon={{ name: 'ri-mic-off-fill', size: 16 }}>启动面壁计划</Button>
 		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }} iconPosition="right">投掷二向箔</Button>
-		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">启动面壁计划</Button>
+		<Button fill="lineState" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">启动面壁计划</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">带加载（默认禁用）</div>
@@ -101,7 +126,7 @@
 			<Icon name="ri-share-forward-2-fill" size={18} />
 			投掷二向箔
 		</Button>
-		<Button fill="lineTheme">
+		<Button fill="lineState">
 			<Icon name="ri-mic-off-fill" size={16} />
 			启动面壁计划
 		</Button>
@@ -118,7 +143,7 @@
 	<div>
 		<div class="p-4 font-bold">关爱版</div>
 		<Button love>关爱版按钮</Button>
-		<Button love fill="lineTheme">
+		<Button love fill="lineState">
 			<Icon name="ri-hand-heart-line" size={22} />
 			关爱版按钮
 		</Button>
@@ -126,45 +151,10 @@
 	<div>
 		<div class="p-4 font-bold">自定义</div>
 		<Button injClass="bg-[#C84031] dark:bg-[#77B941]">纯色填充</Button>
-		<Button injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white">渐变填充</Button>
+		<Button injClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0] !text-white">渐变填充</Button>
 		<Button fill="line" injClass="border-[#C84031] dark:border-[#77B941] !text-[#C84031] dark:!text-[#77B941]">线性</Button>
 		<Button injClass="shadow-md shadow-black/30 dark:shadow-white/30">阴影</Button>
 		<Button radius="full" injClass="shadow-lg shadow-primary/40 dark:shadow-dark/40">颜色阴影</Button>
 	</div>
-	<div>
-		<div class="p-4 font-bold">按钮组</div>
-		<Button fill="lineTheme" heightIn="0" group>
-			<div class="flex w-full">
-				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
-					<Icon name="ri-apps-2-line" size={18} y={-2} />
-					应用
-				</button>
-				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
-					<Icon name="ri-star-line" size={18} y={-2} />
-					收藏
-				</button>
-				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} y={-2} />
-					分享
-				</button>
-			</div>
-		</Button>
-		<Button radius="full" heightIn="0" group>
-			<div class="flex w-full">
-				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-apps-2-line" size={18} y={-2} />
-					应用
-				</button>
-				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-star-line" size={18} y={-2} />
-					收藏
-				</button>
-				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} y={-2} />
-					分享
-				</button>
-			</div>
-		</Button>
-	</div>
 </div>
-<Toast bind:visible message="点击了按钮组中的分享！" />
+<Toast bind:visible message="点击了按钮！" />

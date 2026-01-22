@@ -34,6 +34,34 @@
 <div class="px-6 py-4">
 	<Slider step={5} />
 </div>
+<div class="mx-4 mt-8 text-lg font-bold">显示档位（block 样式）</div>
+<div class="px-6 py-4">
+	<Slider step={10} showSteps />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps radius="full" />
+</div>
+<div class="mx-4 mt-8 text-lg font-bold">显示档位（break 样式）</div>
+<div class="px-6 py-4">
+	<Slider step={10} showSteps stepsStyle="break" />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps stepsStyle="break" radius="full" />
+</div>
+<div class="mx-4 mt-8 text-lg font-bold">显示档位（区间选择）</div>
+<div class="px-6 py-4">
+	<Slider step={10} showSteps isRange startValue={20} endValue={70} />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps stepsStyle="break" isRange startValue={20} endValue={80} radius="full" />
+</div>
+<div class="mx-4 mt-8 text-lg font-bold">档位标签</div>
+<div class="px-6 py-4">
+	<Slider step={25} showSteps value={50} stepLabels={['极慢', '慢', '中', '快', '极快']} />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps stepsStyle="break" radius="full" stepLabels={['0%', '20%', '40%', '60%', '80%', '100%']} />
+</div>
 <div class="mx-4 mt-8 text-lg font-bold">步长为 0.1</div>
 <div class="px-6 py-4">
 	<Slider step={0.1} value={0.2} minRange={0} maxRange={1} />
@@ -60,17 +88,17 @@
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">不同圆角</div>
 <div class="px-6 py-4">
-	<Slider radius="sm" />
+	<Slider radius="full" />
 </div>
 <div class="px-6 py-4">
 	<Slider radius="none" />
 </div>
 <div class="px-6 py-4">
-	<Slider radius="sm" isRange />
+	<Slider radius="full" isRange />
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">线框滑块</div>
 <div class="px-6 py-4">
-	<Slider lineBlock radius="sm" />
+	<Slider lineBlock radius="full" />
 </div>
 <div class="px-6 py-4">
 	<Slider lineBlock isRange />

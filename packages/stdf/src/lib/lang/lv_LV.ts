@@ -94,6 +94,14 @@ const lv_LV: LangProps = {
 	},
 	form: {
 		submit: 'Iesniegt'
+	},
+	fullKeyboard: {
+		space: 'Atstarpe'
+	},
+	list: {
+		editText: 'Rediģēt',
+		doneText: 'Pabeigts',
+		selectAllText: 'Atlasīt visu'
 	}
 };
 

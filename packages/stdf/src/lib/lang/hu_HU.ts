@@ -94,6 +94,14 @@ const hu_HU: LangProps = {
 	},
 	form: {
 		submit: 'Küldés'
+	},
+	fullKeyboard: {
+		space: 'Szóköz'
+	},
+	list: {
+		editText: 'Szerkesztés',
+		doneText: 'Kész',
+		selectAllText: 'Összes kijelölése'
 	}
 };
 

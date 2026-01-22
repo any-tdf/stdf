@@ -82,9 +82,9 @@
 <div class="px-4 pt-8 text-xl font-bold">不同圆角风格</div>
 <Input title="文本" />
 <Input title="文本" radius="xl" />
-<Input title="文本" radius="full" />
+<Input title="文本" radius="4xl" />
 <Input title="文本" radius="none" />
-<Input title="线性风格圆角无效" radius="full" inputStyle="line" />
+<Input title="线性风格圆角无效" radius="4xl" inputStyle="line" />
 
 <div class="px-4 pt-8 text-xl font-bold">不同垂直间距</div>
 <Input placeholder="请输入文本（间距为 0）" py="0" inputStyle="line" />
@@ -222,7 +222,7 @@
 	{/snippet}
 	{#snippet label4Child()}
 		<div>
-			<Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
+			<Button size="auto" heightOut="0" heightIn="1" fill="lineState">
 				<div class="px-2">获取验证码</div>
 			</Button>
 		</div>

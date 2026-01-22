@@ -81,6 +81,14 @@ const he_IL: LangProps = {
 	},
 	form: {
 		submit: 'שלח'
+	},
+	fullKeyboard: {
+		space: 'רווח'
+	},
+	list: {
+		editText: 'עריכה',
+		doneText: 'סיום',
+		selectAllText: 'בחר הכל'
 	}
 };
 

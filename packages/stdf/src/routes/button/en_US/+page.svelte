@@ -1,42 +1,67 @@
 <!-- Button Demo -->
 <script lang="ts">
-	import { Button, Icon, Toast, Loading } from '$lib/index.js';
+	import { Button, Icon, Toast, Loading, Slider } from '$lib/index.js';
+	import type { ButtonProps } from '$lib/types/index.js';
 
 	let visible = $state(false);
+
+	// Radius configuration
+	const radiusOptions: ButtonProps['radius'][] = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	const radiusLabels = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	let radiusIndex = $state(2); // Default sm
+	let currentRadius: ButtonProps['radius'] = $derived(radiusOptions[radiusIndex]);
 </script>
 
 <div class="flex flex-col space-y-8 py-8">
 	<div>
-		<div class="p-4 font-bold">Different states</div>
-		<Button>Default</Button>
-		<Button state="success">Success</Button>
-		<Button state="warning">Warning</Button>
-		<Button state="error">Error</Button>
-		<Button state="info">Information</Button>
+		<div class="p-4 font-bold">fill + state</div>
+		<Button>Base Theme</Button>
+		<Button state="success">Base Success</Button>
+		<Button state="warning">Base Warning</Button>
+		<Button state="error">Base Error</Button>
+		<Button state="info">Base Info</Button>
+		<Button fill="line">Line Colorless</Button>
+		<Button fill="lineLight">LineLight</Button>
+		<Button fill="lineState">Line Theme</Button>
+		<Button fill="lineState" state="success">Line Success</Button>
+		<Button fill="lineState" state="warning">Line Warning</Button>
+		<Button fill="lineState" state="error">Line Error</Button>
+		<Button fill="lineState" state="info">Line Info</Button>
+		<Button fill="text">Text Colorless</Button>
+		<Button fill="textState">Text Theme</Button>
+		<Button fill="textState" state="success">Text Success</Button>
+		<Button fill="textState" state="warning">Text Warning</Button>
+		<Button fill="textState" state="error">Text Error</Button>
+		<Button fill="textState" state="info">Text Info</Button>
+		<Button fill="colorLight">Light Gray</Button>
+		<Button fill="colorLight" state="theme">Light Theme</Button>
+		<Button fill="colorLight" state="success">Light Success</Button>
+		<Button fill="colorLight" state="warning">Light Warning</Button>
+		<Button fill="colorLight" state="error">Light Error</Button>
+		<Button fill="colorLight" state="info">Light Info</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">Different rounded style</div>
-		<Button>Default</Button>
-		<Button radius="none">No rounded</Button>
-		<Button radius="xl">Large rounded corner</Button>
-		<Button radius="2xl">Larger corner</Button>
-		<Button radius="full">Full rounded corner</Button>
-	</div>
-	<div>
-		<div class="p-4 font-bold">Different fill mode</div>
-		<Button>Default</Button>
-		<Button fill="line">Colorless linear</Button>
-		<Button fill="lineLight">Light color linearity</Button>
-		<Button fill="lineTheme">Theme color linear</Button>
-		<Button fill="text">Colorless pure text</Button>
-		<Button fill="textTheme">Pure text of theme color</Button>
-		<Button fill="colorLight">Light color filling</Button>
+		<div class="px-4 pb-4">
+			<Slider
+				value={radiusIndex}
+				minRange={0}
+				maxRange={7}
+				step={1}
+				showSteps
+				stepLabels={radiusLabels}
+				onchange={(v) => (radiusIndex = v)}
+			/>
+		</div>
+		<Button radius={currentRadius}>Default</Button>
+		<Button radius={currentRadius} fill="lineState">State Line</Button>
+		<Button radius={currentRadius} fill="colorLight">Light Fill</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">Different border style</div>
-		<Button fill="lineTheme">Solid line</Button>
-		<Button fill="lineTheme" line="dashed">Dashed line</Button>
-		<Button fill="lineTheme" line="dotted">Dotted line</Button>
+		<Button fill="lineState">Solid line</Button>
+		<Button fill="lineState" border="dashed">Dashed line</Button>
+		<Button fill="lineState" border="dotted">Dotted line</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">Different size</div>
@@ -63,13 +88,13 @@
 			<Button customSize customWidth={40} customHeight={40} radius="xl">&</Button>
 			<Button customSize customWidth={40} customHeight={40}>H</Button>
 			<Button customSize customWidth={40} customHeight={40} radius="none">equal</Button>
-			<Button fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
-			<Button radius="full" fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button radius="full" fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
-			<Button radius="full" line="dashed" fill="lineTheme" customSize customWidth={40} customHeight={40}>
+			<Button radius="full" border="dashed" fill="lineState" customSize customWidth={40} customHeight={40}>
 				<Icon name="ri-plane-fill" size={20} />
 			</Button>
 			<Button radius="full" customSize customWidth={24} customHeight={24} heightIn="0">
@@ -80,14 +105,14 @@
 	<div>
 		<div class="p-4 font-bold">Disable</div>
 		<Button disabled>Disable</Button>
-		<Button fill="lineTheme" disabled>Disable</Button>
+		<Button fill="lineState" disabled>Disable</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">With icon</div>
 		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }}>Throw the two way foil</Button>
-		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }}>Start the surface wall plan</Button>
+		<Button fill="lineState" icon={{ name: 'ri-mic-off-fill', size: 16 }}>Start the surface wall plan</Button>
 		<Button icon={{ name: 'ri-share-forward-2-fill', size: 18 }} iconPosition="right">Throw the two way foil</Button>
-		<Button fill="lineTheme" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">Start the surface wall plan</Button>
+		<Button fill="lineState" icon={{ name: 'ri-mic-off-fill', size: 16 }} iconPosition="right">Start the surface wall plan</Button>
 	</div>
 	<div>
 		<div class="p-4 font-bold">With loading (disabled by default)</div>
@@ -101,7 +126,7 @@
 			<Icon name="ri-share-forward-2-fill" size={18} />
 			Throw the two way foil
 		</Button>
-		<Button fill="lineTheme">
+		<Button fill="lineState">
 			<Icon name="ri-mic-off-fill" size={16} />
 			Start the surface wall plan
 		</Button>
@@ -118,7 +143,7 @@
 	<div>
 		<div class="p-4 font-bold">Love version</div>
 		<Button love>Care version button</Button>
-		<Button love fill="lineTheme">
+		<Button love fill="lineState">
 			<Icon name="ri-hand-heart-line" size={22} />
 			Care version button
 		</Button>
@@ -126,45 +151,10 @@
 	<div>
 		<div class="p-4 font-bold">Customize</div>
 		<Button injClass="bg-[#C84031] dark:bg-[#77B941]">Solid color filling</Button>
-		<Button injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white">Gradient filling</Button>
+		<Button injClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0] !text-white">Gradient filling</Button>
 		<Button fill="line" injClass="border-[#C84031] dark:border-[#77B941] !text-[#C84031] dark:!text-[#77B941]">Linear</Button>
 		<Button injClass="shadow-md shadow-black/30 dark:shadow-white/30">Shadow</Button>
 		<Button radius="full" injClass="shadow-lg shadow-primary/40 dark:shadow-dark/40">Shadow</Button>
 	</div>
-	<div>
-		<div class="p-4 font-bold">Button group</div>
-		<Button fill="lineTheme" heightIn="0" group>
-			<div class="flex w-full">
-				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
-					<Icon name="ri-apps-2-line" size={18} y={-2} />
-					Application
-				</button>
-				<button class="border-primary dark:border-dark flex-1 border-r py-2 active:opacity-80">
-					<Icon name="ri-star-line" size={18} y={-2} />
-					Collect
-				</button>
-				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} y={-2} />
-					Share
-				</button>
-			</div>
-		</Button>
-		<Button radius="full" heightIn="0" group>
-			<div class="flex w-full">
-				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-apps-2-line" size={18} y={-2} />
-					Application
-				</button>
-				<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black">
-					<Icon name="ri-star-line" size={18} y={-2} />
-					Collect
-				</button>
-				<button class="flex-1 py-2 active:opacity-80" onclick={() => (visible = true)}>
-					<Icon name="ri-share-forward-line" size={18} y={-2} />
-					Share
-				</button>
-			</div>
-		</Button>
-	</div>
 </div>
-<Toast bind:visible message="Click share in the button group!" />
+<Toast bind:visible message="Clicked button!" />

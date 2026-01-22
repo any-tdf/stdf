@@ -30,7 +30,7 @@
 </script>
 
 <div class="{size} relative m-auto flex items-center">
-	{#each [-0.48, -0.4, -0.32, -0.24, -0.4, -0.32, -0.24, -0.16, -0.32, -0.24, -0.16, -0.08, -0.24, -0.16, -0.08, -0] as item, i}
+	{#each [-0.48, -0.4, -0.32, -0.24, -0.4, -0.32, -0.24, -0.16, -0.32, -0.24, -0.16, -0.08, -0.24, -0.16, -0.08, -0] as item, i (i)}
 		<div
 			class="dot absolute h-1 w-1 rounded-full{colorClass()}"
 			style="background-color: {customColor[0]};bottom: calc({brList[i][0]}% + 1.6px);right: calc({brList[

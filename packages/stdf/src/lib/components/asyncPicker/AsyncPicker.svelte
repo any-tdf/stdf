@@ -27,6 +27,7 @@
 		prevText = asyncPickerLang.defaultPrev,
 		showSelected = false,
 		selectedText = asyncPickerLang.defaultSelected,
+		height = 30,
 		popup = {},
 		loading = {},
 		oncancel,
@@ -35,6 +36,10 @@
 		onnext,
 		onclose
 	}: AsyncPickerProps = $props();
+
+	// 是否使用弹出层，当 popup 为 null 时不使用
+	// Whether to use popup, when popup is null, do not use
+	let usePopup = $derived(popup !== null);
 
 	// 用于存储当前选定的所有项和索引
 	// Used to store all selected items and indexes
@@ -93,14 +98,8 @@
 	let isLoading = $derived(data.length === 0);
 </script>
 
-<Popup
-	bind:visible
-	size={0}
-	maskClosable
-	transitionDistance={(showRow === 3 ? 64 : showRow === 5 ? 48 : 32) * showRow + 41 + (showSelected ? 32 : 0)}
-	{...popup}
->
-	<div class="flex items-center justify-between border-b border-black/10 bg-white dark:border-white/20 dark:bg-black">
+{#snippet asyncPickerContent()}
+	<div class="flex items-center justify-between border-b border-black/10 bg-bg-surface dark:border-white/20 dark:bg-bg-surface-dark">
 		<button
 			class="h-10 px-4 leading-10 text-black/60 dark:text-white/60"
 			onclick={() => {
@@ -132,7 +131,7 @@
 		</button>
 	</div>
 	{#if showSelected}
-		<div class="flex w-full gap-3 overflow-x-hidden bg-white px-4 dark:bg-black">
+		<div class="flex w-full gap-3 overflow-x-hidden bg-bg-surface px-4 dark:bg-bg-surface-dark">
 			<div class="h-8 flex-none text-center text-sm leading-8 text-black/60 dark:text-white/60">
 				{selectedText}
 			</div>
@@ -149,14 +148,17 @@
 			{/each}
 		</div>
 	{/if}
-	<div class="bg-white dark:bg-black">
+	<div class="bg-bg-surface dark:bg-bg-surface-dark">
 		<div class="truncate">
 			{#if isLoading}
-				<div class="flex items-center justify-center" style="height:{(showRow === 3 ? 64 : showRow === 5 ? 48 : 32) * showRow}px">
+				<div
+					class="flex items-center justify-center"
+					style="height:{usePopup ? (showRow === 3 ? 64 : showRow === 5 ? 48 : 32) * showRow : (window.innerHeight * height) / 100}px"
+				>
 					<Loading width="28" height="8" type="1_16" theme {...loading} />
 				</div>
 			{:else}
-				<div>
+				<div style={usePopup ? '' : `height:${(window.innerHeight * height) / 100}px`}>
 					<ScrollRadio
 						data={data as Record<string, string>[]}
 						{showRow}
@@ -169,4 +171,18 @@
 			{/if}
 		</div>
 	</div>
-</Popup>
+{/snippet}
+
+{#if usePopup}
+	<Popup
+		bind:visible
+		size={0}
+		maskClosable
+		transitionDistance={(showRow === 3 ? 64 : showRow === 5 ? 48 : 32) * showRow + 41 + (showSelected ? 32 : 0)}
+		{...popup}
+	>
+		{@render asyncPickerContent()}
+	</Popup>
+{:else}
+	{@render asyncPickerContent()}
+{/if}

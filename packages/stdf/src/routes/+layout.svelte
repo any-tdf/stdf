@@ -1,16 +1,13 @@
 <script lang="ts">
-	import { setContext, onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
-	import { NavBar, Icon } from '$lib/index.js';
+	import { setContext } from 'svelte';
+	import { page } from '$app/state';
+	import { NavBar, Icon, FeedbackContainer } from '$lib/index.js';
 	import { zh_CN, en_US } from '$lib/lang/index.js';
 	import '../app.css';
-	import { menuList, type MenuListChild } from '../data/menuList.js';
+	import { menuList } from '../data/menuList.js';
+	import type { MenuListChild } from '../data/menuList.js';
 	import ThemeSwitch from './components/ThemeSwitch.svelte';
-	import { darkMode } from '$lib/theme/index.js';
-
-	import { switchTheme } from '$lib/theme/index.js';
-	import themes from '../data/themes/index.js';
+	import { switchTheme, switchMode } from '$lib/theme/index.js';
 
 	let { children } = $props();
 	let currentColor = $state('STDF');
@@ -26,38 +23,43 @@
 
 	// 使用 `URLSearchParams` 对象来获取 URL 查询参数
 	// Use the `URLSearchParams` object to get the URL query parameters
-	const urlParams = new URLSearchParams($page.url.search);
+	const urlParams = new URLSearchParams(page.url.search);
 	const channel = urlParams.get('channel');
 	// 判断是否是 iframe
 	// judge whether it is iframe
-	const isIframe = channel && channel === 'iframe' ? '1' : '0';
+	const isIframe = channel === 'iframe' || (typeof window !== 'undefined' && window.self !== window.top) ? '1' : '0';
 	// 设置 iframe
 	// setting iframe
 	setContext('iframe', isIframe);
+	const storedTheme = localStorage.getItem('theme_color') || 'STDF';
 
 	let lang = 'zh_CN';
 
 	if (isIframe === '1') {
-		// 获取 url 中的 theme 和 darkMode 和 lang
-		// get theme, darkMode and lang from url
+		// 获取 url 中的 theme 和 mode 和 lang
+		// get theme, mode and lang from url
 		const urlTheme = urlParams.get('theme');
-		const urlDarkMode = urlParams.get('darkMode');
-		const currentTheme = themes.find((item) => item.name === urlTheme);
-		currentColor = urlTheme || 'STDF';
-		if (currentTheme) {
-			switchTheme(currentTheme.theme);
+		const themeToUse = urlTheme || storedTheme;
+		const urlMode = urlParams.get('darkMode');
+		currentColor = themeToUse;
+		switchTheme(themeToUse);
+		if (urlTheme) {
+			localStorage.setItem('theme_color', urlTheme);
 		}
-		if (urlDarkMode === 'dark') {
-			darkMode();
+		if (urlMode === 'dark') {
+			switchMode('dark');
 			localStorage.setItem('theme', 'dark');
-		} else if (urlDarkMode === 'light') {
-			darkMode(false);
-			localStorage.setItem('theme', 'light');
+		} else if (urlMode === 'light') {
+			switchMode('primary');
+			localStorage.setItem('theme', 'primary');
 		}
 		const urlLang = urlParams.get('lang');
 		if (urlLang) {
 			lang = urlLang;
 		}
+	} else {
+		currentColor = storedTheme;
+		switchTheme(storedTheme);
 	}
 
 	// 环境变量
@@ -68,34 +70,32 @@
 	// whether mode is specified component mode
 	const isComponentMode = mode != 'production' && mode != 'development' && mode != 'english';
 
-	let showLeft = $derived(!(isIframe === '1' || $page.url.pathname === '/' || isComponentMode));
+	let showLeft = $derived(!(isIframe === '1' || page.url.pathname === '/' || isComponentMode));
 
-	let theme = $state(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
+	let theme = $state(localStorage.getItem('theme') === 'dark' ? 'dark' : 'primary');
 
 	// 设置亮暗模式
-	// Set light and dark mode
+	// Set primary and dark mode
 	if (localStorage.getItem('theme') === 'dark') {
-		darkMode();
-	} else if (localStorage.getItem('theme') === 'light') {
-		darkMode(false);
+		switchMode('dark');
 	} else {
-		darkMode(false);
+		switchMode('primary');
 	}
 	//手动切换亮暗模式
-	// manually switch light and dark mode
+	// manually switch primary and dark mode
 	const toggleFun = () => {
 		if (theme === 'dark') {
-			// 切换到 light
-			// switch to light
-			theme = 'light';
-			localStorage.setItem('theme', 'light');
-			darkMode(false);
+			// 切换到 primary
+			// switch to primary
+			theme = 'primary';
+			localStorage.setItem('theme', 'primary');
+			switchMode('primary');
 		} else {
 			// 切换到 dark
 			// switch to dark
 			theme = 'dark';
 			localStorage.setItem('theme', 'dark');
-			darkMode();
+			switchMode('dark');
 		}
 	};
 
@@ -123,7 +123,7 @@
 		} else {
 			// 如果 URL 中包含 /en_US/ 或 /zh_CN/，则设置为英文或中文
 			// If the URL contains /en_US/ or /zh_CN/, set it to English or Chinese
-			const urlLang = $page.url.pathname.split('/')[1];
+			const urlLang = page.url.pathname.split('/')[1];
 			if (urlLang === 'en_US' || urlLang === 'zh_CN') {
 				lang = urlLang;
 			} else {
@@ -144,14 +144,15 @@
 	const isZh = lang === 'zh_CN';
 	setContext('STDF_lang', isZh ? zh_CN : en_US);
 
-	onMount(() => {
-		if (isComponentMode) {
-			// 英文模式去掉 mode 后面的 _en 作为 nav
-			// English mode removes _en after mode as nav
-			const nav = englishMode ? mode.slice(0, -3) : mode;
-			goto(`/${nav}/${englishMode ? 'en_US' : 'zh_CN'}`);
+	// 组件模式下重定向到对应路由
+	// Redirect to corresponding route in component mode
+	if (isComponentMode && typeof window !== 'undefined') {
+		const nav = englishMode ? mode.slice(0, -3) : mode;
+		const targetPath = `/${nav}/${englishMode ? 'en_US' : 'zh_CN'}`;
+		if (window.location.pathname !== targetPath) {
+			window.location.replace(targetPath);
 		}
-	});
+	}
 
 	let showTheme = $state(false);
 	// 切换主题
@@ -161,13 +162,13 @@
 	};
 </script>
 
-<div class="sticky top-0 z-[100]">
+<div class="z-100 sticky top-0">
 	<NavBar
-		title={$page.url.pathname === '/'
+		title={page.url.pathname === '/'
 			? isZh
 				? 'STDF 示例'
 				: 'STDF Demo'
-			: menuListArr.filter((item) => item.nav === $page.url.pathname.split('/')[1])[0][isZh ? 'title_zh' : 'title_en'] +
+			: menuListArr.filter((item) => item.nav === page.url.pathname.split('/')[1])[0][isZh ? 'title_zh' : 'title_en'] +
 				(isZh ? '示例' : ' Demo')}
 		left={showLeft ? 'back' : null}
 		injClass="bg-white/60 dark:bg-black/60 backdrop-blur-sm"
@@ -183,7 +184,7 @@
 					</div>
 					<div class="h-12 w-10">
 						<a
-							href={`https://stdf.design${$page.url.pathname === '/' ? '' : `/components?nav=${$page.url.pathname.split('/')[1]}&tab=0`}`}
+							href={`https://stdf.design${page.url.pathname === '/' ? '' : `/components?nav=${page.url.pathname.split('/')[1]}&tab=0`}`}
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -192,20 +193,26 @@
 					</div>
 				{/if}
 				<button class="h-12 w-10" onclick={toggleFun} aria-label={theme === 'dark' ? '切换到亮色模式' : '切换到暗色模式'}>
-					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} theme />
+					<Icon name={theme === 'dark' ? 'ri-moon-fill' : 'ri-sun-line'} state="theme" />
 				</button>
 				<button class="h-12 w-10" onclick={switchThemeFunc} aria-label="切换主题">
-					<Icon name="ri-palette-line" theme />
+					<Icon name="ri-palette-line" state="theme" />
 				</button>
 			</div>
 		{/snippet}
 	</NavBar>
 </div>
 {@render children?.()}
-<div
-	class="fixed z-[1000] {showTheme
-		? 'right-0'
-		: '-right-80'} top-12 rounded-lg bg-white px-2 shadow-sm transition-all duration-500 dark:bg-black"
->
-	<ThemeSwitch {currentColor} />
+<div class="z-1000 pointer-events-none fixed inset-x-0 top-14 overflow-hidden pb-4 pl-2">
+	<div
+		class="pointer-events-auto mr-2 rounded-lg border border-black/10 bg-white p-2 shadow-md transition-transform duration-500 dark:border-white/10 dark:bg-black {showTheme
+			? 'translate-x-0'
+			: 'translate-x-[calc(100%+8px)]'}"
+	>
+		<ThemeSwitch {currentColor} />
+	</div>
 </div>
+
+<!-- 全局反馈组件容器 -->
+<!-- Global feedback component container -->
+<FeedbackContainer />

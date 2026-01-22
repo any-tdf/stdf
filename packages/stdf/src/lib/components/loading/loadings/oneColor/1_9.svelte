@@ -13,7 +13,7 @@
 </script>
 
 <div class="relative {size} m-auto">
-	{#each [0, 1, 2] as i}
+	{#each [0, 1, 2] as i (i)}
 		<div
 			class="absolute{colorClass()} loading h-1/3 w-1/3 rounded-full"
 			style="animation-delay: {i - 2}s;background: {customColor[0]};animation-duration: {1.5 / speed}s;-webkit-animation-duration: {1.5 /

@@ -1,6 +1,7 @@
-import darkMode from './darkMode.js';
-import switchTheme from './switchTheme.js';
-import STDFTheme from './stdf.js';
-import type { ThemeProps, PrimaryAndDarkColor } from './types.js';
+import { switchTheme, switchMode, getTheme, getMode } from './switchTheme.js';
+import stdfThemePlugin, { themes, generateColorScale } from './plugin.js';
+import type { ThemeConfig, ThemeOptions } from './plugin.js';
 
-export { darkMode, switchTheme, STDFTheme, type ThemeProps, type PrimaryAndDarkColor };
+export { switchTheme, switchMode, getTheme, getMode, stdfThemePlugin, themes, generateColorScale };
+export type { ThemeConfig, ThemeOptions };
+export default stdfThemePlugin;

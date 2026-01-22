@@ -1,28 +1,20 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { radiusObj } from '../utils/index.js';
 
 	type Props = {
 		active?: boolean;
-		radius?: 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'none';
+		radius?: string;
 		type?: 'border' | 'block' | 'bold';
 		children?: Snippet;
 		onclick?: () => void;
 	};
-	let { active = false, radius = 'md', type = 'border', children, onclick }: Props = $props();
+	let { active = false, radius = '', type = 'border', children, onclick }: Props = $props();
 
 	const typeClass = {
 		border: 'border-primary dark:border-dark text-primary dark:text-dark',
-		block: 'bg-primary text-white dark:bg-dark dark:text-black',
+		block: 'bg-primary text-text-on-primary dark:bg-dark dark:text-text-on-dark border-transparent',
 		bold: 'font-bold text-primary dark:text-dark border-transparent'
-	};
-
-	const radiusClass = {
-		sm: 'rounded-sm',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-		none: 'rounded-none'
 	};
 </script>
 
@@ -30,7 +22,7 @@
 	{onclick}
 	class="flex-1 border py-2 {active
 		? typeClass[type] || typeClass.border
-		: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.md}"
+		: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radius ? radiusObj[radius as keyof typeof radiusObj] : 'rounded-(--radius-form)'}"
 >
 	{@render children?.()}
 </button>

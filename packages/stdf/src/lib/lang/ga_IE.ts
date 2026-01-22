@@ -94,6 +94,14 @@ const ga_IE: LangProps = {
 	},
 	form: {
 		submit: 'Cuir isteach'
+	},
+	fullKeyboard: {
+		space: 'Spás'
+	},
+	list: {
+		editText: 'Cuir in eagar',
+		doneText: 'Déanta',
+		selectAllText: 'Roghnaigh uile'
 	}
 };
 

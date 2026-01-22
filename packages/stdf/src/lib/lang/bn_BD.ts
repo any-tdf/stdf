@@ -94,6 +94,14 @@ const bn_BD: LangProps = {
 	},
 	form: {
 		submit: 'জমা দিন'
+	},
+	fullKeyboard: {
+		space: 'ফাঁকা স্থান'
+	},
+	list: {
+		editText: 'সম্পাদনা',
+		doneText: 'সম্পন্ন',
+		selectAllText: 'সব নির্বাচন করুন'
 	}
 };
 

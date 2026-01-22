@@ -27,6 +27,7 @@
 	let visible22 = $state(false);
 	let visible23 = $state(false);
 	let visible24 = $state(false);
+	let visible25 = $state(false);
 
 	// 随机取出当前日期后的 6 天，组成 infoDates 数组，其中 date 格式为 YYYYMMDD，月和日补足 2 位
 	const now = new Date();
@@ -80,6 +81,11 @@
 	let selectedFormatDates: string[] = $state([]);
 	const getSelectedFormatDatesFunc = (dates: string[]) => {
 		selectedFormatDates = dates;
+	};
+
+	let noPopupDates: string[] = $state([]);
+	const getNoPopupDatesFunc = (dates: string[]) => {
+		noPopupDates = dates;
 	};
 </script>
 
@@ -179,4 +185,20 @@
 
 	<Cell title="关闭时不清空已选日期" onclick={() => (visible24 = true)} />
 	<Calendar bind:visible={visible24} mode="range" clear={false} />
+
+	<Cell title="自定义月份卡片样式" onclick={() => (visible25 = true)} />
+	<Calendar bind:visible={visible25} card={{ bg: 'theme' }} />
+
+	<div class="px-4 py-2">不使用弹出层</div>
+	{#if noPopupDates.length}
+		<div class="px-4">
+			当前选定了以下共 {noPopupDates.length} 天：
+		</div>
+		<div class="grid grid-cols-4 gap-2 p-2 text-primary dark:text-dark">
+			{#each noPopupDates as item}
+				<div class="text-center">{item}</div>
+			{/each}
+		</div>
+	{/if}
+	<Calendar popup={null} mode="range" onconfirm={getNoPopupDatesFunc} />
 </div>

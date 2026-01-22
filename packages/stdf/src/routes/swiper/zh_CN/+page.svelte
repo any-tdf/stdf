@@ -51,21 +51,21 @@
 <Swiper {data} indicateStyle="longLine" interval={8} indicatePosition="out" />
 
 <div class="mx-4 mb-2 mt-10 text-lg font-bold">方形指示器</div>
-<Swiper {data} indicateRadius={false} />
+<Swiper {data} indicateRadius="none" />
 <div class="mt-10"></div>
-<Swiper {data} indicateStyle="point" indicateRadius={false} />
+<Swiper {data} indicateStyle="point" indicateRadius="none" />
 
 <div class="mx-4 mb-2 mt-10 text-lg font-bold">
 	指定指示器背景色
 	<p class="mb-2 text-xs font-thin">注入 Class</p>
 </div>
-<Swiper {data} indicateInjClass="from-black/0 to-extend0/50" />
+<Swiper {data} indicateInjClass="from-black/0 to-purple/50" />
 
 <div class="mx-4 mb-2 mt-10 text-lg font-bold">
 	指定指示器颜色
 	<p class="mb-2 text-xs font-thin">同时去除背景色</p>
 </div>
-<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-extend2" indicateActiveColor="bg-extend1" />
+<Swiper {data} indicateInjClass="bg-none" indicateColor="bg-blue" indicateActiveColor="bg-purple" />
 
 <div class="mx-4 mb-2 mt-10 text-lg font-bold">指定容器宽高比</div>
 <Swiper {data} aspectRatio={[4, 1]} />
@@ -93,7 +93,7 @@
 	indicateInjClass="bg-none"
 	indicateColor="bg-primary dark:bg-dark"
 	indicateActiveColor="bg-primary dark:bg-dark"
-	radius="full"
+	radius="4xl"
 	aspectRatio={[3, 1]}
 />
 
@@ -108,7 +108,7 @@
 	indicateInjClass="bg-none"
 	indicateColor="bg-primary dark:bg-dark"
 	indicateActiveColor="bg-primary dark:bg-dark"
-	radius="full"
+	radius="4xl"
 	aspectRatio={[3, 1]}
 	innerInjClass="shadow-md shadow-black/20 dark:shadow-white/20"
 />

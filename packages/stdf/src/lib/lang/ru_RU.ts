@@ -81,6 +81,14 @@ const ru_RU: LangProps = {
 	},
 	form: {
 		submit: 'Отправить'
+	},
+	fullKeyboard: {
+		space: 'Пробел'
+	},
+	list: {
+		editText: 'Редактировать',
+		doneText: 'Готово',
+		selectAllText: 'Выбрать все'
 	}
 };
 

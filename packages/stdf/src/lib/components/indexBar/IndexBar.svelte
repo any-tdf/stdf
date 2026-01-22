@@ -1,7 +1,7 @@
-<script lang="ts">
+<script lang="ts" generics="T = string">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { throttleWithRAF } from '../utils/index.js';
+	import { throttleWithRAF, radiusObj } from '../utils/index.js';
 	import type { IndexBarProps } from '../../types/index.js';
 
 	let {
@@ -9,12 +9,13 @@
 		current = $bindable(0),
 		top = 0,
 		height = 100,
-		radius = 'middle',
+		radius = '',
 		scrollAlign = true,
 		titleInjClass = '',
 		textInjClass = '',
+		children,
 		onclickChild
-	}: IndexBarProps = $props();
+	}: IndexBarProps<T> = $props();
 
 	// 用于绑定 bar 的高度
 	// Used to bind the height of the bar
@@ -45,10 +46,6 @@
 	// 每一个的高度
 	// Height of each
 	let itemHeight = $derived(barHeight / data.length);
-
-	// 圆角风格样式
-	// Rounded style style
-	const radiusObj = { none: 'rounded-none', middle: 'rounded-sm', full: 'rounded-full' };
 
 	onMount(() => {
 		if (bodyDom) {
@@ -136,8 +133,12 @@
 		<div class="snap-start px-4 pt-8" bind:clientHeight={group.height}>
 			<div class="text-primary dark:text-dark text-sm {titleInjClass}">{group.title}</div>
 			{#each group.child as child, childIndex (childIndex)}
-				<button class="w-full py-2 text-left {textInjClass}" onclick={() => onclickChild && onclickChild(index, group, childIndex, child)}>
-					{child}
+				<button class="w-full py-2 text-left {textInjClass}" onclick={() => onclickChild?.(index, group, childIndex, child)}>
+					{#if children}
+						{@render children(child, childIndex, group, index)}
+					{:else}
+						{child}
+					{/if}
 				</button>
 				<div class="h-px bg-black/5 dark:bg-white/5"></div>
 			{/each}
@@ -150,25 +151,21 @@
 	onpointerup={touchBoxEnd}
 	bind:clientHeight={barHeight}
 	bind:this={barDom}
-	class="fixed right-5 flex w-7 cursor-move touch-none select-none flex-col justify-around bg-black/5 p-1 dark:bg-white/5 {radiusObj[
-		radius
-	] || radiusObj.middle}"
+	class="fixed right-5 flex w-7 cursor-move touch-none select-none flex-col justify-around bg-black/5 p-1 dark:bg-white/5 {radius ? radiusObj[radius] : 'rounded-(--radius-small)'}"
 	style="top:{top + (height - barHeight) / 2}px;min-height:{height / 4}px;"
 >
 	{#each data as group, i (i)}
 		<div class="relative flex flex-1 flex-col justify-center">
 			<div
 				class="h-5 w-5 text-center text-xs leading-5 transition-all {current === i
-					? 'bg-primary dark:bg-dark text-white dark:text-black'
-					: 'text-gray-600 dark:text-gray-400'} {radiusObj[radius] || radiusObj.middle}"
+					? 'bg-primary dark:bg-dark text-text-on-primary dark:text-text-on-dark'
+					: 'text-gray-600 dark:text-gray-400'} {radius ? radiusObj[radius] : 'rounded-(--radius-small)'}"
 			>
 				{group.index}
 			</div>
 			{#if currentTouch === i}
 				<div
-					class="border-primary text-primary dark:border-dark dark:text-dark absolute -left-24 top-1/2 h-14 w-14 -translate-y-2/4 border text-center text-3xl leading-[3.5rem] {radiusObj[
-						radius
-					] || radiusObj.middle}"
+					class="border-primary text-primary dark:border-dark dark:text-dark absolute -left-24 top-1/2 h-14 w-14 -translate-y-2/4 border text-center text-3xl leading-14 {radius ? radiusObj[radius] : 'rounded-(--radius-small)'}"
 					transition:fly={{ x: 38, duration: 300 }}
 				>
 					{group.index}

@@ -1,6 +1,6 @@
 <!--Progress Demo-->
 <script lang="ts">
-	import { Progress, Button } from '$lib/index.js';
+	import { Progress, ButtonGroup } from '$lib/index.js';
 
 	let percent = $state(20);
 	const changePercentFun = (type: string) => {
@@ -35,9 +35,9 @@
 	<div class="m-4 mt-8 text-lg font-bold">不同圆角风格</div>
 	<div class="flex flex-col space-y-4">
 		<Progress radius="none" />
-		<Progress radius="middle" />
+		<Progress radius="md" />
 		<Progress radius="none" percentPosition="block" />
-		<Progress radius="middle" percentPosition="block" />
+		<Progress radius="md" percentPosition="block" />
 		<Progress percentPosition="block" />
 	</div>
 
@@ -55,22 +55,20 @@
 		<Progress {percent} duration="500" />
 		<Progress {percent} duration="1000" />
 	</div>
-	<Button heightIn="0" group size="full">
-		<div class="flex w-full">
-			<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('-10')}>
-				-10
-			</button>
-			<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('+10')}>
-				+10
-			</button>
-			<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>重置</button>
-		</div>
-	</Button>
+	<ButtonGroup heightIn="0" size="full">
+		<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('-10')}>
+			-10
+		</button>
+		<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('+10')}>
+			+10
+		</button>
+		<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>重置</button>
+	</ButtonGroup>
 
 	<div class="m-4 mt-8 text-lg font-bold">自定义颜色</div>
 	<div class="flex flex-col space-y-4">
 		<Progress injClass="bg-success dark:bg-error" />
-		<Progress injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
+		<Progress injClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0]" />
 		<Progress percentPosition="block" injClass="bg-[#FF9F7D] dark:bg-[#9e4f5e]" />
 		<Progress trackInjClass="!bg-primary/20 dark:!bg-dark/20" />
 	</div>

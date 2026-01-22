@@ -94,6 +94,14 @@ const kn_IN: LangProps = {
 	},
 	form: {
 		submit: 'ಸಲ್ಲಿಸಿ'
+	},
+	fullKeyboard: {
+		space: 'ಸ್ಪೇಸ್'
+	},
+	list: {
+		editText: 'ಸಂಪಾದನೆ',
+		doneText: 'ಮುಗಿದಿದೆ',
+		selectAllText: 'ಎಲ್ಲಾ ಆಯ್ಕೆಮಾಡಿ'
 	}
 };
 

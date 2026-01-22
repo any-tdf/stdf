@@ -94,6 +94,14 @@ const es_ES: LangProps = {
 	},
 	form: {
 		submit: 'Enviar'
+	},
+	fullKeyboard: {
+		space: 'Espacio'
+	},
+	list: {
+		editText: 'Editar',
+		doneText: 'Hecho',
+		selectAllText: 'Seleccionar todo'
 	}
 };
 

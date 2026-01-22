@@ -27,21 +27,23 @@
 
 	// 对传入数据进行一些报错或警告处理
 	// some error or warning processing for the incoming data
-	if (value > total) {
-		console.error(rateLang.error1);
-	}
-	if (total % 1 !== 0) {
-		console.error(rateLang.error2);
-	}
-	if (!half && value % 1 !== 0) {
-		console.error(rateLang.error3);
-	}
-	if (half && value % 0.5 !== 0) {
-		console.error(rateLang.error4);
-	}
-	if (width < 20 || height < 20) {
-		console.error(rateLang.error5);
-	}
+	$effect(() => {
+		if (value > total) {
+			console.error(rateLang.error1);
+		}
+		if (total % 1 !== 0) {
+			console.error(rateLang.error2);
+		}
+		if (!half && value % 1 !== 0) {
+			console.error(rateLang.error3);
+		}
+		if (half && value % 0.5 !== 0) {
+			console.error(rateLang.error4);
+		}
+		if (width < 20 || height < 20) {
+			console.error(rateLang.error5);
+		}
+	});
 
 	// 间距样式
 	// space style

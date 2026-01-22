@@ -12,9 +12,9 @@
 </script>
 
 <div class="{size} m-auto flex items-center justify-between">
-	{#each [-0.45, -0.3, -0.15, 0] as item}
+	{#each [-0.45, -0.3, -0.15, 0] as item (item)}
 		<div
-			class="bar h-full w-[3px]{colorClass()}"
+			class="bar h-full w-0.75{colorClass()}"
 			style="background-color: {customColor[0]}; animation-duration: {1 / speed}s; animation-delay: {1 * item}s"
 		></div>
 	{/each}

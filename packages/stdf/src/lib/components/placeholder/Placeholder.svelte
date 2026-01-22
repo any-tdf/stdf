@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { PlaceholderProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
-	let { py = '4', height = 'full', radius = 'md', shadow = 'none', injClass = '', children }: PlaceholderProps = $props();
+	let { py = '4', height = 'full', radius = '', shadow = 'none', injClass = '', children }: PlaceholderProps = $props();
 
 	// 上下内边距样式
 	// up down padding style
@@ -17,18 +18,6 @@
 		lg: ' shadow-lg dark:shadow-white/10',
 		xl: ' shadow-xl dark:shadow-white/10',
 		'2xl': ' shadow-2xl dark:shadow-white/20'
-	};
-
-	// 圆角样式
-	// radius style
-	const radiusObj = {
-		none: ' rounded-none',
-		sm: ' rounded-sm',
-		md: ' rounded-md',
-		xl: ' rounded-xl',
-		'2xl': ' rounded-2xl',
-		'3xl': ' rounded-3xl',
-		full: ' rounded-full'
 	};
 
 	// 高度样式
@@ -50,7 +39,7 @@
 
 <div
 	class="flex flex-col justify-center bg-black/5 dark:bg-white/5 text-center{heightObj[height] || heightObj.full}{pyObj[py] ||
-		pyObj['4']}{radiusObj[radius] || radiusObj.md}{shadowObj[shadow] || shadowObj.none}{injClass === '' ? '' : ` ${injClass}`}"
+		pyObj['4']} {radius ? radiusObj[radius] : 'rounded-(--radius-box)'}{shadowObj[shadow] || shadowObj.none}{injClass === '' ? '' : ` ${injClass}`}"
 >
 	{@render children?.()}
 </div>

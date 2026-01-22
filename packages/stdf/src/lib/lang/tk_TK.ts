@@ -81,6 +81,14 @@ const tk_TK: LangProps = {
 	},
 	form: {
 		submit: 'Ugrat'
+	},
+	fullKeyboard: {
+		space: 'Boşluk'
+	},
+	list: {
+		editText: 'Üýtget',
+		doneText: 'Tamam',
+		selectAllText: 'Ählisini saýla'
 	}
 };
 

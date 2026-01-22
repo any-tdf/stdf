@@ -94,7 +94,7 @@
 			<div class={btnStyle === 'textLine' && btnReverse ? 'border-r border-black/10 dark:border-white/10' : ''} style="flex:{btnRatio[0]}">
 				<Button
 					size="full"
-					fill={btnStyle === 'button' ? 'base' : 'textTheme'}
+					fill={btnStyle === 'button' ? 'base' : 'textState'}
 					heightIn={btnStyle === 'button' ? '3' : '2'}
 					injClass={btnStyle === 'button' ? '' : 'font-bold'}
 					{...primaryButton}

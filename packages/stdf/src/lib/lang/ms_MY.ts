@@ -82,6 +82,14 @@ const ms_MY: LangProps = {
 	},
 	form: {
 		submit: 'Hantar'
+	},
+	fullKeyboard: {
+		space: 'Ruang'
+	},
+	list: {
+		editText: 'Edit',
+		doneText: 'Selesai',
+		selectAllText: 'Pilih semua'
 	}
 };
 

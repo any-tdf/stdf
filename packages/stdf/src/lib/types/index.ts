@@ -1,12 +1,22 @@
 import type { Snippet, Component } from 'svelte';
 
+// 大区域组件圆角类型（容器、面板、卡片等）
+// Large area component radius type (containers, panels, cards, etc.)
+export type LargeAreaRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '';
+
+// 小型控件圆角类型（徽标、标签、指示器等）
+// Small control radius type (badges, tags, indicators, etc.)
+export type SmallAreaRadius = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | '';
+
 export type ActionProps = {
 	content: string;
-	style?: 'normal' | 'theme' | 'danger' | 'disabled';
+	style?: 'normal' | 'theme' | 'success' | 'warning' | 'error' | 'info';
+	disabled?: boolean;
 	desc?: string;
 	showImg?: boolean;
-	imgRadius?: 'none' | 'sm' | 'full' | 'lg';
+	imgRadius?: SmallAreaRadius;
 	imgSrc?: string;
+	icon?: IconProps | null;
 };
 export type ActionSheetProps = {
 	visible?: boolean;
@@ -20,6 +30,44 @@ export type ActionSheetProps = {
 	align?: 'left' | 'center' | 'right';
 	oncancel?: () => void;
 	onclickAction?: (index: number, action: ActionProps) => void;
+	onclose?: () => void;
+};
+// 环形布局操作项类型（仅支持图标）
+// Ring layout action item type (icon only)
+export type RingActionProps = {
+	icon: IconProps;
+	style?: 'normal' | 'theme' | 'success' | 'warning' | 'error' | 'info';
+	disabled?: boolean;
+};
+
+export type ActionPopoverProps = {
+	visible?: boolean;
+	title?: string;
+	titleAlign?: 'left' | 'center' | 'right';
+	actions: ActionProps[];
+	showCancel?: boolean;
+	cancelText?: string;
+	actionClosable?: boolean;
+	align?: 'left' | 'center' | 'right';
+	inverse?: boolean;
+	layout?: 'v' | 'h' | 'grid' | 'ring';
+	gridColumns?: 2 | 3 | 4;
+	// inline 模式相关属性
+	// inline mode related props
+	triggerRef?: HTMLElement | null;
+	inlineAlign?: 'left' | 'center' | 'right';
+	inlineDirection?: 'auto' | 'up' | 'down';
+	inlineOffset?: number;
+	inlineShadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	inlineRadius?: LargeAreaRadius;
+	// 环形布局相关属性
+	// ring layout related props
+	ringActions?: RingActionProps[];
+	ringRadius?: number;
+	ringItemSize?: number;
+	ringShape?: 'auto' | 'full' | 'half' | 'quarter';
+	oncancel?: () => void;
+	onclickAction?: (index: number, action: ActionProps | RingActionProps) => void;
 	onclose?: () => void;
 };
 
@@ -38,7 +86,8 @@ export type AsyncPickerProps = {
 	prevText?: string;
 	showSelected?: boolean;
 	selectedText?: string;
-	popup?: PopupProps;
+	height?: number;
+	popup?: PopupProps | null;
 	loading?: LoadingProps;
 	oncancel?: () => void;
 	onprev?: () => void;
@@ -52,16 +101,16 @@ export type AvatarProps = {
 	alt?: string;
 	icon?: IconProps;
 	altSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-	radius?: 'none' | 'sm' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: SmallAreaRadius;
 	size?: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
 	imgSize?: 's' | 'm' | 'l';
 	line?: 'none' | 'solid' | 'dashed' | 'dotted';
 	injClass?: string;
 	onclick?: () => void;
 };
-export type AvatarsProps = {
+export type AvatarGroupProps = {
 	data: AvatarProps[];
-	radius?: 'none' | 'sm' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: SmallAreaRadius;
 	size?: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl';
 	compact?: number;
 	lineWidth?: '0' | '1' | '2' | '3' | '4' | '8';
@@ -72,9 +121,57 @@ export type AvatarsProps = {
 	onclick?: () => void;
 };
 
+export type AccordionItemProps = {
+	title: string;
+	content?: string;
+	disabled?: boolean;
+	icon?: IconProps;
+};
+export type AccordionProps = {
+	items: AccordionItemProps[];
+	activeIndex?: number | number[];
+	multiple?: boolean;
+	radius?: LargeAreaRadius;
+	border?: 'none' | 'solid' | 'dashed' | 'dotted';
+	divider?: boolean;
+	expandIcon?: 'arrow' | 'plus' | null;
+	iconPosition?: 'left' | 'right';
+	transitionDuration?: number;
+	injClass?: string;
+	titleClass?: string;
+	contentClass?: string;
+	children?: Snippet<[item: AccordionItemProps, index: number]>;
+	onchange?: (index: number | number[] | undefined) => void;
+};
+
+export type AlertProps = {
+	visible?: boolean;
+	title?: string;
+	message?: string;
+	duration?: number;
+	position?: 'top' | 'bottom';
+	py?: '0' | '10' | '20' | '40' | '60' | '80';
+	type?: 'success' | 'error' | 'warning' | 'info' | null;
+	showIcon?: boolean;
+	icon?: IconProps;
+	closable?: boolean;
+	inverse?: boolean;
+	card?: CardProps;
+	transitionType?: 'scale' | 'fly' | 'fade' | 'slide' | 'blur' | null;
+	transitionParams?: object;
+	outDuration?: number;
+	easeType?: SvelteEasingProps;
+	easeOutType?: SvelteEasingProps;
+	zIndex?: number;
+	clickable?: boolean;
+	injClass?: string;
+	children?: Snippet;
+	onclose?: () => void;
+};
+
 export type BadgeProps = {
 	text?: string;
-	radius?: 'full' | 'sm' | 'none' | 'leaf';
+	radius?: SmallAreaRadius | 'leaf';
 	isLeft?: boolean;
 	isShow?: boolean;
 	offsetY?: number;
@@ -82,6 +179,149 @@ export type BadgeProps = {
 	isInner?: boolean;
 	injClass?: string;
 	children?: Snippet;
+};
+
+export type TagProps = {
+	text?: string;
+	state?: 'theme' | 'success' | 'warning' | 'error' | 'info' | 'neutral';
+	fill?: 'base' | 'line' | 'light';
+	size?: 'xs' | 'sm' | 'md' | 'lg';
+	radius?: SmallAreaRadius;
+	mark?: boolean;
+	closable?: boolean;
+	disabled?: boolean;
+	injClass?: string;
+	children?: Snippet;
+	onclick?: () => void;
+	onclose?: () => void;
+};
+
+export type TimeData = {
+	days: number;
+	hours: number;
+	minutes: number;
+	seconds: number;
+	milliseconds: number;
+};
+
+export type CountDownProps = {
+	time?: number;
+	format?: string;
+	autoStart?: boolean;
+	millisecond?: boolean;
+	injClass?: string;
+	children?: Snippet<[TimeData]>;
+	onfinish?: () => void;
+	onchange?: (timeData: TimeData) => void;
+};
+
+// 字符滚动组件预设字符集类型
+// Character roll preset character set type
+export type CharRollPreset = 'number' | 'letter' | 'letterUpper' | 'letterLower' | 'alphanumeric' | 'hex' | 'hexUpper' | 'binary' | 'octal';
+
+// 字符滚动组件属性
+// Character roll component props
+export type CharRollProps = {
+	value?: string | number; // 显示的值 Value to display
+	duration?: number; // 动画持续时间（毫秒）Animation duration (ms)
+	delay?: number; // 动画延迟（毫秒）Animation delay (ms)
+	stagger?: number; // 每个字符的错开延迟（毫秒）Stagger delay per character (ms)
+	direction?: 'up' | 'down'; // 滚动方向 Scroll direction
+	height?: number; // 字符高度（像素）Character height (px)
+	separator?: boolean; // 是否显示千分位分隔符 Show thousand separator
+	decimal?: number; // 小数位数 Decimal places
+	prefix?: string; // 前缀 Prefix
+	suffix?: string; // 后缀 Suffix
+	charSet?: string; // 自定义字符集 Custom character set
+	preset?: CharRollPreset; // 预设字符集 Preset character set
+	loops?: number; // 循环圈数 Number of loops
+	autoStart?: boolean; // 是否自动开始动画 Auto start animation
+	loop?: boolean; // 是否循环播放 Loop animation
+	loopInterval?: number; // 循环间隔（毫秒）Loop interval (ms)
+	easing?: SvelteEasingProps; // 缓动函数 Easing function
+	radius?: SmallAreaRadius; // 圆角 Border radius
+	bg?: 'none' | 'surface' | 'gray' | 'theme'; // 背景色 Background color
+	gap?: '0' | '1' | '2' | '3' | '4'; // 字符间距 Character gap
+	fontSize?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'; // 字体大小 Font size
+	fontWeight?: 'normal' | 'medium' | 'semibold' | 'bold'; // 字体粗细 Font weight
+	injClass?: string; // 注入 CSS 类 Inject CSS class
+	charClass?: string; // 字符 CSS 类 Character CSS class
+	children?: Snippet<[char: string, index: number]>; // 自定义字符渲染 Custom character render
+	onstart?: () => void; // 动画开始回调 Animation start callback
+	oncomplete?: () => void; // 动画完成回调 Animation complete callback
+	onchange?: (value: string) => void; // 值变化回调 Value change callback
+};
+
+export type CodeInputProps = {
+	value?: string;
+	length?: number;
+	mask?: boolean | string;
+	gutter?: '0' | '1' | '2' | '3' | '4';
+	focused?: boolean;
+	type?: 'number' | 'text';
+	inputMode?: 'text' | 'decimal' | 'email' | 'none' | 'numeric' | 'search' | 'tel' | 'url' | '';
+	native?: boolean;
+	info?: string;
+	errorInfo?: string;
+	radius?: SmallAreaRadius;
+	cellSize?: 'sm' | 'md' | 'lg';
+	cellStyle?: 'box' | 'line';
+	cellBg?: 'surface' | 'gray' | 'theme';
+	cellBorder?: 'none' | 'solid' | 'dashed' | 'dotted';
+	cursorStyle?: 'line' | 'underline';
+	cursorAnimation?: 'pulse' | 'blink';
+	keyboardVisible?: boolean;
+	autoClose?: boolean;
+	autoScroll?: boolean | number;
+	bold?: boolean;
+	injClass?: string;
+	onfinish?: (value: string) => void;
+	onclose?: () => void;
+	onfocus?: () => void;
+};
+
+export type FullKeyboardProps = {
+	value?: string;
+	visible?: boolean;
+	type?: 'button' | 'block';
+	mode?: 'letter' | 'letterNumber' | 'full';
+	done?: boolean;
+	doneText?: string;
+	doneDisabled?: boolean;
+	radius?: SmallAreaRadius;
+	preview?: boolean;
+	previewMask?: boolean;
+	panelClass?: string;
+	keyClass?: string;
+	doneClass?: string;
+	popup?: PopupProps | null;
+	onclick?: (key: string) => void;
+	onopen?: (height: number) => void;
+	onclose?: () => void;
+};
+
+export type CardProps = {
+	bg?: 'none' | 'surface' | 'gray' | 'theme';
+	radius?: LargeAreaRadius;
+	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	border?: 'none' | 'solid' | 'dashed' | 'dotted';
+	borderWidth?: '0' | '1' | '2' | '4';
+	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	p?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	px?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	py?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	overflow?: boolean;
+	headerLine?: boolean;
+	footerLine?: boolean;
+	injClass?: string;
+	headerClass?: string;
+	bodyClass?: string;
+	footerClass?: string;
+	header?: Snippet;
+	children?: Snippet;
+	footer?: Snippet;
+	onclick?: () => void;
 };
 
 export type BottomSheetProps = {
@@ -99,7 +339,8 @@ export type BottomSheetProps = {
 	stayHeightList?: number[];
 	stayHeightIndex?: number;
 	closeHeight?: number;
-	radius?: 'none' | 'middle' | 'full';
+	radius?: LargeAreaRadius;
+	iconRadius?: SmallAreaRadius;
 	children?: Snippet;
 	onheightChange?: (height: number) => void;
 	onclickMask?: () => void;
@@ -108,16 +349,15 @@ export type BottomSheetProps = {
 };
 
 export type ButtonProps = {
-	fill?: 'base' | 'line' | 'lineLight' | 'lineTheme' | 'text' | 'textTheme' | 'colorLight';
+	fill?: 'base' | 'line' | 'lineLight' | 'lineState' | 'text' | 'textState' | 'colorLight';
 	state?: 'theme' | 'success' | 'warning' | 'error' | 'info';
-	radius?: 'none' | 'sm' | 'xl' | '2xl' | 'full';
+	radius?: SmallAreaRadius;
 	size?: 'full' | 'big' | 'md' | 'sm' | 'auto';
-	line?: 'solid' | 'dashed' | 'dotted';
+	border?: 'solid' | 'dashed' | 'dotted';
 	injClass?: string;
 	love?: boolean;
 	heightOut?: '0' | '1' | '2' | '3' | '4';
 	heightIn?: '0' | '1' | '2' | '3' | '4';
-	group?: boolean;
 	disabled?: boolean;
 	customSize?: boolean;
 	customWidth?: number;
@@ -131,12 +371,39 @@ export type ButtonProps = {
 	onclick?: () => void;
 };
 
+// 按钮组中单个按钮项的属性
+// Button item props in ButtonGroup
+export type ButtonGroupItemProps = {
+	text?: string;
+	icon?: IconProps | null;
+	iconPosition?: 'left' | 'right';
+	disabled?: boolean;
+	onclick?: () => void;
+};
+
+// 按钮组整体属性
+// ButtonGroup props
+export type ButtonGroupProps = {
+	items?: ButtonGroupItemProps[];
+	fill?: 'base' | 'line' | 'lineLight' | 'lineState' | 'text' | 'textState' | 'colorLight';
+	state?: 'theme' | 'success' | 'warning' | 'error' | 'info';
+	radius?: SmallAreaRadius;
+	size?: 'full' | 'big' | 'md' | 'sm' | 'auto';
+	border?: 'solid' | 'dashed' | 'dotted';
+	dividerHeight?: 'full' | 'mid' | 'short';
+	heightIn?: '0' | '1' | '2' | '3' | '4';
+	heightOut?: '0' | '1' | '2' | '3' | '4';
+	injClass?: string;
+	children?: Snippet;
+};
+
 export type InfoDateProps = { text: string; info: string };
 export type CalendarProps = {
 	visible?: boolean;
 	startMonth?: string;
 	endMonth?: string;
 	initMonth?: string;
+	initSelectedDates?: string[];
 	mode?: 'single' | 'multiple' | 'range';
 	startSunday?: boolean;
 	weekendRed?: boolean;
@@ -146,7 +413,7 @@ export type CalendarProps = {
 	height?: number;
 	infoDates?: InfoDateProps[];
 	disabledDates?: string[];
-	radius?: 'none' | 'sm' | 'xl' | '2xl';
+	radius?: SmallAreaRadius;
 	showSelectedDay?: boolean;
 	confirmText?: string;
 	selectedText?: string;
@@ -156,8 +423,9 @@ export type CalendarProps = {
 	useAnimation?: boolean;
 	highlightToday?: boolean;
 	outFormat?: string;
-	popup?: PopupProps;
+	popup?: PopupProps | null;
 	button?: ButtonProps;
+	card?: CardProps;
 	clear?: boolean;
 	onconfirm?: (dates: string[]) => void;
 	onclose?: () => void;
@@ -172,9 +440,10 @@ export type CellProps = {
 	subTitle?: string;
 	info?: string;
 	line?: boolean;
+	bg?: 'surface' | 'gray' | 'theme' | 'white';
 	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
-	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: LargeAreaRadius;
 	switchActive?: boolean;
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
@@ -186,8 +455,9 @@ export type CellProps = {
 	onclick?: () => void;
 };
 export type CellGroupProps = {
-	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: LargeAreaRadius;
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	bg?: 'surface' | 'gray' | 'theme' | 'white';
 	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
 	children?: Snippet;
@@ -270,6 +540,7 @@ export type IconProps = {
 	size?: number;
 	width?: number;
 	height?: number;
+	state?: 'theme' | 'success' | 'warning' | 'error' | 'info';
 	theme?: boolean;
 	opacity?: number;
 	path?: string;
@@ -279,22 +550,23 @@ export type IconProps = {
 	onclick?: () => void;
 };
 
-export type IndexBarItemProps = {
+export type IndexBarItemProps<T = string> = {
 	index: string;
 	title: string;
-	child: string[];
+	child: T[];
 	height?: number;
 };
-export type IndexBarProps = {
-	data: IndexBarItemProps[];
+export type IndexBarProps<T = string> = {
+	data: IndexBarItemProps<T>[];
 	current?: number;
 	top?: number;
 	height: number;
-	radius?: 'none' | 'middle' | 'full';
+	radius?: SmallAreaRadius;
 	scrollAlign?: boolean;
 	titleInjClass?: string;
 	textInjClass?: string;
-	onclickChild?: (index: number, group: IndexBarItemProps, childIndex: number, child: string) => void;
+	children?: Snippet<[T, number, IndexBarItemProps<T>, number]>;
+	onclickChild?: (index: number, group: IndexBarItemProps<T>, childIndex: number, child: T) => void;
 };
 
 export type InputProps = {
@@ -302,7 +574,7 @@ export type InputProps = {
 	titlePosition?: 'in' | 'out' | null;
 	inputPosition?: 'left' | 'right';
 	placeholder?: string;
-	radius?: 'none' | 'sm' | 'xl' | 'full';
+	radius?: LargeAreaRadius;
 	inputStyle?: 'block' | 'line';
 	lineTransition?: null | 'center' | 'left';
 	duration?: 'fast' | 'base' | 'slow' | 'slower';
@@ -347,6 +619,8 @@ export type InputProps = {
 	data1Child?: Snippet;
 	data2Child?: Snippet;
 	data3Child?: Snippet;
+	inputChild?: Snippet;
+	children?: Snippet;
 	label1Child?: Snippet;
 	label2Child?: Snippet;
 	label3Child?: Snippet;
@@ -420,6 +694,7 @@ export type NoticeBarProps = {
 	duration?: 100 | 300 | 500 | 700 | 1000;
 	interval?: number;
 	injClass?: string;
+	radius?: LargeAreaRadius;
 	leftChild?: Snippet;
 	rightChild?: Snippet;
 	onclickRight?: () => void;
@@ -438,12 +713,14 @@ export type NumKeyboardProps = {
 	close?: boolean;
 	doneText?: string;
 	doneDisabled?: boolean;
-	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: SmallAreaRadius;
 	clear?: boolean;
+	preview?: boolean;
+	previewMask?: boolean;
 	panelClass?: string;
 	keyClass?: string;
 	doneClass?: string;
-	popup?: PopupProps;
+	popup?: PopupProps | null;
 	onclick?: (key: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '.' | 'delete' | 'close' | 'done') => void;
 	onopen?: (height: number) => void;
 	onclose?: () => void;
@@ -454,8 +731,9 @@ export type PaginationProps = {
 	pageSize?: number;
 	current?: number;
 	maxShowPage?: 5 | 7 | 9 | 11;
-	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+	radius?: SmallAreaRadius;
 	type?: 'border' | 'block' | 'bold';
+	bg?: 'surface' | 'gray' | 'theme' | 'white';
 	pageCol?: number;
 	showNextOmitPage?: boolean;
 	showPreOmitPage?: boolean;
@@ -483,6 +761,11 @@ export type PickerDatasProps = {
 	align?: 'left' | 'center' | 'right';
 	lastSelectedIndex?: number;
 };
+export type PickerMultipleItem = {
+	indexs: number[];
+	items: { [key: string]: string }[];
+	label: string;
+};
 export type PickerProps = {
 	visible?: boolean;
 	datas: PickerDatasProps[] | PickerDataChildProps[];
@@ -497,16 +780,22 @@ export type PickerProps = {
 	linkageAligns?: ('left' | 'center' | 'right')[];
 	linkageLabelKeys?: string[];
 	linkageChildrenKey?: string;
-	popup?: PopupProps;
+	height?: number;
+	popup?: PopupProps | null;
+	multiple?: boolean;
+	multipleIcon?: IconProps;
+	multipleIconActive?: IconProps;
+	multipleSelected?: PickerMultipleItem[];
 	onclose?: () => void;
 	onconfirm?: (items: { [key: string]: string }[], indexs: number[]) => void;
 	oncancel?: () => void;
+	onmultiplechange?: (selected: PickerMultipleItem[]) => void;
 };
 
 export type PlaceholderProps = {
 	py?: '0' | '1' | '2' | '3' | '4' | '8';
 	height?: 'full' | '1' | '2' | '4' | '8' | '16' | '24' | '32' | '48' | '64' | '96';
-	radius?: 'none' | 'sm' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: LargeAreaRadius;
 	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 	injClass?: string;
 	children?: Snippet;
@@ -524,11 +813,10 @@ export type PopupProps = {
 	py?: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '8' | '10' | '12' | '16' | '24' | '32' | '48' | '64';
 	mask?: MaskProps;
 	maskClosable?: boolean;
-	radiusPosition?: 'all' | 'top' | 'bottom' | 'left' | 'right';
-	radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	radiusPosition?: 'auto' | 'all' | 'top' | 'bottom' | 'left' | 'right' | 'none';
+	radius?: LargeAreaRadius;
 	transitionDistance?: number;
 	transparent?: boolean;
-	allowBodyScroll?: boolean;
 	zIndex?: number;
 	dynamicFixed?: boolean;
 	hideScrollbar?: boolean;
@@ -541,7 +829,7 @@ export type ProgressProps = {
 	percent?: number;
 	percentPosition?: 'inner' | 'right' | 'block' | null;
 	height?: '1' | '2' | '3' | '4';
-	radius?: 'full' | 'middle' | 'none';
+	radius?: SmallAreaRadius;
 	inactive?: boolean;
 	overflowPercent?: number;
 	duration?: '150' | '300' | '500' | '700' | '1000';
@@ -605,10 +893,12 @@ export type SkeletonProps = {
 	type?: 'div' | 'p' | 'img' | 'video' | 'code' | 'qrcode' | 'barcode';
 	width?: 'full' | '2' | '4' | '6' | '8' | '12' | '16' | '24' | '32' | '48' | '64' | '96';
 	height?: '1' | '2' | '4' | '6' | '8' | '12' | '16' | '24' | '32' | '48' | '64' | '96';
-	radius?: 'none' | 'sm' | 'md' | 'xl' | '2xl' | '3xl' | 'full';
+	radius?: LargeAreaRadius;
 	space?: '0.5' | '1' | '2' | '4' | '8';
 	lines?: number;
 	iconRatio?: number;
+	effect?: 'pulse' | 'wave' | 'breathe' | 'none';
+	bg?: 'gray' | 'theme';
 };
 
 export type SliderProps = {
@@ -621,12 +911,15 @@ export type SliderProps = {
 	startValue?: number;
 	endValue?: number;
 	showTip?: 'always' | 'touch' | 'never';
-	radius?: 'none' | 'sm' | 'xl' | 'full';
+	showSteps?: boolean;
+	stepsStyle?: 'block' | 'break';
+	stepLabels?: string[];
+	radius?: SmallAreaRadius;
 	lineBlock?: boolean;
 	disabled?: boolean;
 	readonly?: boolean;
 	children?: Snippet;
-	onchange?: (value: number, valueRange?: [number, number]) => void;
+	onchange?: (value: number, valueRange?: [number, number], label?: string | number, labelRange?: [string | number, string | number]) => void;
 };
 
 export type StepperProps = {
@@ -637,7 +930,7 @@ export type StepperProps = {
 	vertical?: boolean;
 	numberHighlight?: boolean;
 	theme?: boolean;
-	radius?: 'none' | 'sm' | 'xl' | 'full';
+	radius?: SmallAreaRadius;
 	decimal?: number;
 	async?: boolean;
 	asyncLoading?: boolean;
@@ -675,7 +968,7 @@ export type StepsItemProps = {
 export type StepsProps = {
 	steps: StepsItemProps[];
 	current?: number;
-	radius?: 'none' | 'sm' | 'xl' | 'full';
+	radius?: SmallAreaRadius;
 	barBorder?: boolean;
 	vertical?: boolean;
 };
@@ -692,7 +985,7 @@ export type SwiperProps = {
 	indicatePosition?: 'inner' | 'out' | null;
 	indicateAlign?: 'center' | 'right' | 'left';
 	indicateStyle?: 'point' | 'line' | 'pointLine' | 'longLine';
-	indicateRadius?: boolean;
+	indicateRadius?: SmallAreaRadius;
 	indicateInjClass?: string;
 	indicateColor?: string;
 	indicateActiveColor?: string;
@@ -707,7 +1000,7 @@ export type SwiperProps = {
 	rotateZ?: number;
 	activeInjClass?: string;
 	notActiveInjClass?: string;
-	radius?: 'none' | 'sm' | 'xl' | '2xl' | 'full';
+	radius?: LargeAreaRadius;
 	triggerLong?: number;
 	notTriggerLong?: number;
 	triggerSpeed?: number;
@@ -718,7 +1011,7 @@ export type SwiperProps = {
 
 export type SwitchProps = {
 	active?: boolean;
-	radius?: 'none' | 'middle' | 'full';
+	radius?: SmallAreaRadius;
 	inside?: 'state' | 'loading' | [string, string] | null;
 	injClass?: string;
 	disabled?: boolean;
@@ -750,7 +1043,7 @@ export type TabProps = {
 	labels?: TabLabelProps[];
 	active?: number;
 	lineType?: boolean;
-	radius?: 'none' | 'sm' | 'xl' | 'full';
+	radius?: SmallAreaRadius;
 	duration?: 'fast' | 'base' | 'slow' | 'slower';
 	layout?: 'h' | 'v';
 	love?: boolean;
@@ -834,7 +1127,8 @@ export type TimePickerProps = {
 	minuteText?: string;
 	secondText?: string;
 	outFormat?: string;
-	popup?: PopupProps;
+	height?: number;
+	popup?: PopupProps | null;
 	oncancel?: () => void;
 	onconfirm?: (timeStr: string, timeObj: TimePickerObjProps) => void;
 	onclose?: () => void;
@@ -846,10 +1140,12 @@ export type ToastProps = {
 	duration?: number;
 	position?: 'center' | 'top' | 'bottom';
 	py?: '0' | '10' | '20' | '40' | '60' | '80';
-	radius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+	radius?: LargeAreaRadius;
 	transitionType?: 'scale' | 'fly' | 'fade' | 'slide' | 'blur' | null;
 	transitionParams?: object;
 	outDuration?: number;
+	easeType?: SvelteEasingProps;
+	easeOutType?: SvelteEasingProps;
 	type?: 'success' | 'error' | 'warning' | 'info' | 'loading' | 'icon' | null;
 	mask?: MaskProps;
 	loading?: LoadingProps;
@@ -866,7 +1162,13 @@ export type FormTimePickerValue = { timeStr?: string; timeObj?: TimePickerObjPro
 export type FormActionSheetValue = { action?: ActionProps; index?: number };
 export type FormCalendarValue = { dates?: string[] };
 export type FormNumKeyboardValue = string;
-export type FormPickerValue = { items?: { [key: string]: string }[]; indexs?: number[] };
+export type FormFullKeyboardValue = string;
+export type FormPickerValue = {
+	items?: { [key: string]: string }[];
+	indexs?: number[];
+	multipleSelected?: PickerMultipleItem[];
+};
+export type FormColorPickerValue = ColorPickerValue | undefined;
 export type FormCheckboxValue = string[];
 export type FormRadioValue = string;
 export type FormSliderValue = { value?: number; valueRange?: [number, number] };
@@ -916,6 +1218,15 @@ export type FormNumKeyboardProps = {
 	numKeyboard?: NumKeyboardProps;
 	input?: InputProps;
 };
+export type FormFullKeyboardProps = {
+	type?: 'fullKeyboard';
+	name: string;
+	label: string;
+	initValue?: string;
+	required?: boolean;
+	fullKeyboard?: FullKeyboardProps;
+	input?: InputProps;
+};
 export type FormPickerProps = {
 	type?: 'picker';
 	name: string;
@@ -924,6 +1235,15 @@ export type FormPickerProps = {
 	linkageSeparator?: string;
 	required?: boolean;
 	picker?: PickerProps;
+	input?: InputProps;
+};
+export type FormColorPickerProps = {
+	type?: 'colorPicker';
+	name: string;
+	label: string;
+	initValue?: ColorPickerValue;
+	required?: boolean;
+	colorPicker?: ColorPickerProps;
 	input?: InputProps;
 };
 export type FormCheckboxProps = {
@@ -972,7 +1292,9 @@ export type FormItemProps =
 	| FormActionSheetProps
 	| FormCalendarProps
 	| FormNumKeyboardProps
+	| FormFullKeyboardProps
 	| FormPickerProps
+	| FormColorPickerProps
 	| FormCheckboxProps
 	| FormRadioProps
 	| FormSliderProps
@@ -984,7 +1306,9 @@ export type FormValueProps =
 	| FormActionSheetValue
 	| FormCalendarValue
 	| FormNumKeyboardValue
+	| FormFullKeyboardValue
 	| FormPickerValue
+	| FormColorPickerValue
 	| FormCheckboxValue
 	| FormRadioValue
 	| FormSliderValue
@@ -999,11 +1323,7 @@ export type FormProps = {
 	submitChildren?: Snippet;
 	resetChildren?: Snippet;
 	space?: '0' | '1' | '2' | '4' | '6' | '8';
-	card?: boolean;
-	mx?: '2' | '3' | '4' | '6' | '8';
-	px?: '0' | '1' | '2' | '4' | '6';
-	radius?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
-	shadow?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	card?: CardProps;
 	onchange?: (data: Record<string, FormValueProps>) => void;
 	onsubmit?: (data: Record<string, FormValueProps>) => void;
 	onreset?: () => void;
@@ -1041,3 +1361,339 @@ export type SvelteEasingProps =
 	| 'sineIn'
 	| 'sineInOut'
 	| 'sineOut';
+
+// List 过渡动画类型
+// List transition animation type
+export type ListTransition = 'slideRight' | 'slideUp' | 'fadeScale' | 'stagger' | null;
+
+// List 滑动操作项背景色类型
+// List swipe action background color type
+export type SwipeActionBgColor = 'theme' | 'primary' | 'success' | 'warning' | 'error' | 'info';
+
+// List 滑动操作项类型
+// List swipe action props
+export type SwipeActionProps = {
+	icon?: string; // 图标名称 Icon name
+	text?: string; // 文字 Text
+	bgColor?: SwipeActionBgColor; // 背景色 Background color
+	onclick?: () => void; // 点击事件 Click event
+};
+
+// List 滑动提示显示模式
+// List swipe hint display mode
+export type SwipeHintMode = 'none' | 'first' | 'all';
+
+// List 批量操作项类型
+// List batch action item type
+export type BatchActionProps = {
+	text: string; // 文字 Text
+	status?: 'theme' | 'success' | 'warning' | 'error' | 'info'; // 文字颜色 Text color
+	onclick?: (selected: (string | number)[]) => void; // 点击事件，传入当前选中项 Click event with selected items
+};
+
+// List 组件属性
+// List component props
+export type ListProps<T = Record<string, unknown>> = {
+	data: T[];
+	keyField?: string;
+	gap?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	mx?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	my?: '0' | '1' | '2' | '3' | '4' | '6' | '8';
+	transition?: ListTransition;
+	transitionDelay?: number;
+	batchMode?: boolean;
+	batchSelected?: (string | number)[];
+	batchSelectable?: boolean; // 是否显示批量选择功能 Show batch selection feature
+	batchActions?: BatchActionProps[]; // 批量操作按钮 Batch action buttons
+	injClass?: string;
+	itemInjClass?: string; // 列表项注入 CSS 类 Item inject class
+	clickable?: boolean; // 是否可点击 Whether clickable
+	arrow?: boolean; // 是否显示右侧箭头 Show right arrow
+	divider?: boolean; // 是否显示分割线 Show divider
+	itemRadius?: LargeAreaRadius; // 列表项圆角 Item radius
+	itemPx?: '0' | '1' | '2' | '3' | '4' | '6' | '8'; // 列表项水平内间距 Item horizontal padding
+	itemPy?: '0' | '1' | '2' | '3' | '4' | '6' | '8'; // 列表项垂直内间距 Item vertical padding
+	// 滑动操作相关 Swipe action related
+	swipeActions?: SwipeActionProps[]; // 滑动操作项（最多 4 项）Swipe actions (max 4)
+	swipeHint?: SwipeHintMode; // 滑动提示显示模式 Swipe hint display mode
+	swipeThreshold?: number; // 触发滑动的阈值（像素）Swipe threshold (px)
+	// Snippets
+	itemChild: Snippet<[item: T, index: number]>;
+	headerChild?: Snippet; // 列表头部 List header
+	footerChild?: Snippet; // 列表底部 List footer
+	// Events
+	onbatchChange?: (selected: (string | number)[]) => void;
+	onclickItem?: (item: T, index: number) => void; // 点击列表项 Click list item
+	onswipeAction?: (actionIndex: number, action: SwipeActionProps, item: T, itemIndex: number) => void; // 滑动操作点击 Swipe action click
+};
+
+// ColorPicker 颜色值类型
+// ColorPicker color value type
+export type OklchColor = {
+	l: number; // 亮度 Lightness 0-1
+	c: number; // 彩度 Chroma 0-0.4
+	h: number; // 色相 Hue 0-360
+};
+
+// ColorPicker 模式类型
+// ColorPicker mode type
+export type ColorPickerMode = 'oklch' | 'rgb' | 'hex';
+
+// ColorPicker 颜色值类型（支持多种格式）
+// ColorPicker color value type (supports multiple formats)
+export type ColorPickerValue = OklchColor | [number, number, number] | string;
+
+// ColorPicker 组件属性
+// ColorPicker component props
+export type ColorPickerProps = {
+	visible?: boolean; // 是否显示（Popup 模式）Visibility (Popup mode)
+	value?: ColorPickerValue; // 颜色值，格式与 modes[0] 对应：oklch 为对象，rgb 为数组，hex 为字符串 Color value matching modes[0]: oklch as object, rgb as array, hex as string
+	modes?: ColorPickerMode[]; // 支持的模式数组，默认第一个为初始模式 Supported modes array, first one is initial mode
+	showPreview?: boolean; // 显示颜色预览 Show color preview
+	showPanel?: boolean; // 显示颜色面板 Show color panel (canvas)
+	showInputs?: boolean; // 显示输入框 Show input fields
+	showCopy?: boolean; // 显示复制功能 Show copy feature
+	panelHeight?: number; // 面板高度 Panel height
+	sliderHeight?: number; // 滑动条高度 Slider height
+	radius?: LargeAreaRadius; // 圆角 Border radius
+	injClass?: string; // 自定义类名 Custom class name
+	popup?: PopupProps | null; // Popup 配置，null 时直接显示 Popup config, null for direct display
+	tab?: TabProps; // Tab 配置 Tab config
+	onchange?: (colors: string[]) => void; // 颜色变化回调（直接显示模式）Color change callback (direct display mode)
+	onclose?: (colors: string[]) => void; // 关闭回调（Popup 模式）Close callback (Popup mode)
+	oncopy?: (text: string) => void; // 复制回调 Copy callback
+};
+
+export type TooltipProps = {
+	content?: string; // 提示内容文本 Tooltip content text
+	position?: 'top' | 'bottom' | 'left' | 'right'; // 显示位置 Display position
+	visible?: boolean; // 是否显示（支持 $bindable）Visibility (supports $bindable)
+	delay?: number; // 显示延迟，毫秒 Show delay in milliseconds
+	hideDelay?: number; // 隐藏延迟，毫秒 Hide delay in milliseconds
+	arrow?: boolean; // 是否显示箭头 Show arrow
+	radius?: SmallAreaRadius; // 圆角风格 Border radius style
+	state?: 'theme' | 'success' | 'warning' | 'error' | 'info' | 'black'; // 配色方案 Color scheme
+	maxWidth?: number; // 最大宽度，像素 Max width in pixels
+	zIndex?: number; // z-index 层级 z-index level
+	disabled?: boolean; // 是否禁用 Disabled state
+	injClass?: string; // 注入 CSS 类 Inject CSS class
+	contentClass?: string; // 内容区域 CSS 类 Content area CSS class
+	children?: Snippet; // 触发元素 Trigger element
+	contentSnippet?: Snippet; // 自定义内容 Custom content
+	onshow?: () => void; // 显示回调 Show callback
+	onhide?: () => void; // 隐藏回调 Hide callback
+};
+
+// ==================== ImagePreview 组件类型 ====================
+// ==================== ImagePreview Component Types ====================
+
+// 图片预览项类型
+// Image preview item type
+export type ImagePreviewItemProps = {
+	url: string; // 图片地址 Image URL
+	thumbnail?: string; // 缩略图地址 Thumbnail URL
+	alt?: string; // 图片描述 Image description
+};
+
+export type ImagePreviewClosePosition = 'tl' | 'tr' | 'bl' | 'br';
+
+// 图片预览组件属性
+// ImagePreview component props
+export type ImagePreviewProps = {
+	visible?: boolean; // 是否显示（$bindable）Visibility (supports $bindable)
+	images?: string[] | ImagePreviewItemProps[]; // 图片列表 Image list
+	current?: number; // 当前索引（$bindable）Current index (supports $bindable)
+	loop?: boolean; // 是否循环切换 Loop switch
+	swipeDuration?: number; // 切换动画时长 Switch animation duration
+	minScale?: number; // 最小缩放 Minimum scale
+	maxScale?: number; // 最大缩放 Maximum scale
+	closePosition?: ImagePreviewClosePosition; // 关闭按钮位置 Close button position
+	showNavigation?: boolean; // 是否显示左右切换图标 Show prev/next navigation icons
+	navigationPosition?: 'center' | 'bottom'; // 导航图标垂直位置 Navigation icons vertical position
+	maskClosable?: boolean; // 点击蒙层是否关闭 Close on mask click
+	showIndex?: boolean; // 是否显示索引 Show index
+	indicatorType?: 'dot' | 'number' | null; // 指示器类型 Indicator type
+	zIndex?: number; // z-index 层级 z-index level
+	duration?: number; // 进入动画时长 Enter animation duration
+	outDuration?: number; // 退出动画时长 Exit animation duration
+	mask?: MaskProps; // 遮罩层参数 Mask layer parameters
+	icon?: IconProps; // 关闭图标参数 Close icon parameters
+	showRotation?: boolean; // 是否显示旋转按钮 Show rotation button
+	rotationIcon?: IconProps; // 旋转图标参数 Rotation icon parameters
+	children?: Snippet<[item: ImagePreviewItemProps, index: number]>; // 自定义内容（如图片描述）Custom content (like image description)
+	loadingChild?: Snippet; // 自定义加载中 Custom loading
+	errorChild?: Snippet; // 自定义加载失败 Custom error
+	indexChild?: Snippet<[current: number, total: number]>; // 自定义索引 Custom index
+	onchange?: (index: number) => void; // 切换图片回调 Switch image callback
+	onclose?: () => void; // 关闭回调 Close callback
+	onscale?: (scale: number) => void; // 缩放回调 Scale callback
+	onrotate?: (rotation: 0 | 90 | 180 | 270) => void; // 旋转回调 Rotation callback
+};
+
+// ==================== ImageList 组件类型 ====================
+// ==================== ImageList Component Types ====================
+
+// 图片列表状态类型
+// Image list status type
+export type ImageListStatus = 'pending' | 'uploading' | 'success' | 'error';
+
+// 图片列表项类型
+// Image list item type
+export type ImageListItemProps = {
+	id: string | number; // 唯一标识 Unique identifier
+	url?: string; // 图片地址 Image URL
+	file?: File; // 文件对象 File object
+	status?: ImageListStatus; // 状态 Status
+	message?: string; // 状态信息 Status message
+	thumbnail?: string; // 缩略图地址 Thumbnail URL
+};
+
+// 图片列表组件属性
+// ImageList component props
+export type ImageListProps = {
+	value?: ImageListItemProps[]; // 图片列表（$bindable）Image list (supports $bindable)
+	columns?: 3 | 4 | 5; // 每行数量 Columns per row
+	max?: number; // 最大数量 Maximum count
+	maxSize?: number; // 单张最大 MB Maximum size per image in MB
+	accept?: string; // 文件类型 Accept file types
+	multiple?: boolean; // 是否多选 Allow multiple selection
+	disabled?: boolean; // 是否禁用 Disabled state
+	readonly?: boolean; // 是否只读 Readonly state
+	deletable?: boolean; // 是否可删除 Allow delete
+	previewable?: boolean; // 是否可预览 Allow preview
+	gap?: '0' | '1' | '2' | '3' | '4'; // 间距 Gap
+	radius?: SmallAreaRadius; // 圆角 Border radius
+	aspectRatio?: [number, number]; // 宽高比 Aspect ratio
+	uploadText?: string; // 上传按钮文字 Upload button text
+	loading?: LoadingProps; // 加载组件参数 Loading component parameters
+	icon?: IconProps; // 上传图标参数 Upload icon parameters
+	deleteIcon?: IconProps; // 删除图标参数 Delete icon parameters
+	injClass?: string; // 注入 CSS 类 Inject CSS class
+	itemInjClass?: string; // 项注入 CSS 类 Item inject CSS class
+	uploadChild?: Snippet; // 自定义上传按钮 Custom upload button
+	itemChild?: Snippet<[item: ImageListItemProps, index: number]>; // 自定义每项 Custom item
+	statusChild?: Snippet<[item: ImageListItemProps]>; // 自定义状态 Custom status
+	onadd?: (files: File[]) => void; // 添加文件回调 Add files callback
+	ondelete?: (item: ImageListItemProps, index: number) => void; // 删除回调 Delete callback
+	onretry?: (item: ImageListItemProps, index: number) => void; // 重试回调 Retry callback
+	onpreview?: (item: ImageListItemProps, index: number) => void; // 预览回调 Preview callback
+	onexceed?: (files: File[], max: number) => void; // 超出数量回调 Exceed count callback
+	onoversized?: (file: File, maxSize: number) => void; // 超出大小回调 Oversized callback
+	onclickUpload?: () => void; // 点击上传回调 Click upload callback
+};
+
+// ==================== 函数式反馈 API 类型 ====================
+// ==================== Functional Feedback API Types ====================
+
+// Toast 函数式 API 选项类型
+// Toast functional API options type
+export type ToastFnOptions = Omit<ToastProps, 'visible' | 'children'>;
+
+// Alert 函数式 API 选项类型
+// Alert functional API options type
+export type AlertFnOptions = Omit<AlertProps, 'visible' | 'children'>;
+
+// Dialog 函数式 API 选项类型
+// Dialog functional API options type
+export type DialogFnOptions = Omit<DialogProps, 'visible' | 'onprimary' | 'onsecondary' | 'onclose' | 'contentChild' | 'primaryChild'>;
+
+// Dialog 返回结果类型
+// Dialog result type
+export type DialogResult = 'primary' | 'secondary' | 'close';
+
+// Modal 函数式 API 选项类型
+// Modal functional API options type
+export type ModalFnOptions = Omit<ModalProps, 'visible' | 'onclose' | 'contentChild'>;
+
+// Modal 返回结果类型
+// Modal result type
+export type ModalResult = 'confirm' | 'close';
+
+// Loading 函数式 API 选项类型
+// Loading functional API options type
+export type LoadingFnOptions = Partial<LoadingProps> & { message?: string };
+
+// Toast 函数类型
+// Toast function type
+export interface ToastFunction {
+	(options: ToastFnOptions | string): string;
+	success: (message: string, options?: Omit<ToastFnOptions, 'message' | 'type'>) => string;
+	error: (message: string, options?: Omit<ToastFnOptions, 'message' | 'type'>) => string;
+	warning: (message: string, options?: Omit<ToastFnOptions, 'message' | 'type'>) => string;
+	info: (message: string, options?: Omit<ToastFnOptions, 'message' | 'type'>) => string;
+	loading: (message: string, options?: Omit<ToastFnOptions, 'message' | 'type'>) => string;
+	hide: (id?: string) => void;
+	clear: () => void;
+}
+
+// Alert 函数类型
+// Alert function type
+export interface AlertFunction {
+	(options: AlertFnOptions | string): string;
+	success: (message: string, options?: Omit<AlertFnOptions, 'message' | 'type'>) => string;
+	error: (message: string, options?: Omit<AlertFnOptions, 'message' | 'type'>) => string;
+	warning: (message: string, options?: Omit<AlertFnOptions, 'message' | 'type'>) => string;
+	info: (message: string, options?: Omit<AlertFnOptions, 'message' | 'type'>) => string;
+	hide: (id?: string) => void;
+	clear: () => void;
+}
+
+// Dialog 函数类型
+// Dialog function type
+export interface DialogFunction {
+	(options: DialogFnOptions): Promise<DialogResult>;
+	confirm: (content: string, title?: string) => Promise<boolean>;
+	close: () => void;
+}
+
+// Modal 函数类型
+// Modal function type
+export interface ModalFunction {
+	(options: ModalFnOptions): Promise<ModalResult>;
+	info: (content: string, title?: string) => Promise<ModalResult>;
+	close: () => void;
+}
+
+// Loading 函数类型
+// Loading function type
+export interface LoadingFunction {
+	show: (options?: LoadingFnOptions | string) => void;
+	hide: () => void;
+}
+
+// ==================== Signature 签名组件类型 ====================
+// ==================== Signature Component Types ====================
+
+// 签名旋转角度类型
+// Signature rotation angle type
+export type SignatureRotation = 0 | 90 | 180 | 270;
+
+// 签名组件输出结果类型
+// Signature component output result type
+export type SignatureResult = {
+	dataUrl: string; // Base64 图片数据 Base64 image data
+	isEmpty: boolean; // 是否为空签名 Is empty signature
+};
+
+// 签名组件属性
+// Signature component props
+export type SignatureProps = {
+	aspectRatio?: [number, number]; // 画板宽高比 Canvas aspect ratio
+	lineWidth?: number; // 画笔粗细 Line width
+	lineColor?: string; // 画笔颜色（默认黑色）Line color (default black)
+	bgColor?: string; // 画板背景色（默认白色）Background color (default white)
+	radius?: LargeAreaRadius; // 画板圆角 Canvas border radius
+	showButtons?: boolean; // 是否显示操作按钮 Show action buttons
+	clearText?: string; // 清空按钮文字 Clear button text
+	confirmText?: string; // 确认按钮文字 Confirm button text
+	clearButton?: ButtonProps; // 清空按钮配置 Clear button config
+	confirmButton?: ButtonProps; // 确认按钮配置 Confirm button config
+	imageType?: 'png' | 'jpeg' | 'webp'; // 导出图片格式 Export image format
+	imageQuality?: number; // 导出图片质量（0-1，仅 jpeg/webp 有效）Export image quality (0-1, only for jpeg/webp)
+	injClass?: string; // 注入 CSS 类 Inject CSS class
+	canvasClass?: string; // 画布注入 CSS 类 Canvas inject CSS class
+	onclear?: () => void; // 清空回调 Clear callback
+	onconfirm?: (result: SignatureResult) => void; // 确认回调 Confirm callback
+	ondrawStart?: () => void; // 开始绘制回调 Draw start callback
+	ondrawEnd?: () => void; // 结束绘制回调 Draw end callback
+};

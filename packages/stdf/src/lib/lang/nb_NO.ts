@@ -81,6 +81,14 @@ const nb_NO: LangProps = {
 	},
 	form: {
 		submit: 'Send'
+	},
+	fullKeyboard: {
+		space: 'Mellomrom'
+	},
+	list: {
+		editText: 'Rediger',
+		doneText: 'Ferdig',
+		selectAllText: 'Velg alle'
 	}
 };
 

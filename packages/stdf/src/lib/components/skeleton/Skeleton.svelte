@@ -1,17 +1,26 @@
 <script lang="ts">
 	import type { SkeletonProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
-	let { type = 'div', width = '6', height = '6', radius = 'sm', space = '1', lines = 3, iconRatio = 0.6 }: SkeletonProps = $props();
+	let { type = 'div', width = '6', height = '6', radius = '', space = '1', lines = 3, iconRatio = 0.6, effect = 'pulse', bg = 'gray' }: SkeletonProps = $props();
 
-	const radiusObj = {
-		none: ' rounded-none',
-		sm: ' rounded-sm',
-		md: ' rounded-md',
-		xl: ' rounded-xl',
-		'2xl': ' rounded-2xl',
-		'3xl': ' rounded-3xl',
-		full: ' rounded-full'
+	// 计算圆角类名
+	// Calculate radius class name
+	const radiusClass = $derived(radius ? radiusObj[radius] : 'rounded-(--radius-box)');
+
+	// 效果类名
+	// Effect class name
+	const effectClass = $derived(
+		effect === 'pulse' ? 'animate-pulse' : effect === 'wave' ? 'skeleton-wave' : effect === 'breathe' ? 'skeleton-breathe' : ''
+	);
+
+	// 背景色类名
+	// Background color class name
+	const bgClass = {
+		gray: 'bg-black/20 dark:bg-white/20',
+		theme: 'bg-primary/20 dark:bg-dark/20'
 	};
+
 	const widthObj = {
 		full: ' w-full',
 		'2': ' w-2',
@@ -45,24 +54,23 @@
 </script>
 
 <div
-	class="animate-pulse {type === 'p' || width === 'full' ? 'block' : 'inline-block'}{paddingObj[space as keyof typeof paddingObj] ||
+	class="{effectClass} {type === 'p' || width === 'full' ? 'block' : 'inline-block'}{paddingObj[space as keyof typeof paddingObj] ||
 		paddingObj['1']}"
 >
 	{#if type === 'p'}
 		<div class="flex flex-col space-y-2">
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 			{#each new Array(lines - 1) as _, i (i)}
-				<div class="bg-black/20 dark:bg-white/20 w-full{heightObj[height] || heightObj['6']}{radiusObj[radius] || radiusObj.sm}"></div>
+				<div class="skeleton-item {bgClass[bg] || bgClass.gray} w-full{heightObj[height] || heightObj['6']} {radiusClass}"></div>
 			{/each}
 			<div
-				class="bg-black/20 dark:bg-white/20 {randomArr[Math.floor(Math.random() * randomArr.length)]}{heightObj[height] ||
-					heightObj['6']}{radiusObj[radius] || radiusObj.sm}"
+				class="skeleton-item {bgClass[bg] || bgClass.gray} {randomArr[Math.floor(Math.random() * randomArr.length)]}{heightObj[height] ||
+					heightObj['6']} {radiusClass}"
 			></div>
 		</div>
 	{:else}
 		<div
-			class="bg-black/20 dark:bg-white/20{widthObj[width] || widthObj.full}{heightObj[height] || heightObj['6']}{radiusObj[radius] ||
-				radiusObj.sm} flex flex-col justify-center"
+			class="skeleton-item {bgClass[bg] || bgClass.gray}{widthObj[width] || widthObj.full}{heightObj[height] || heightObj['6']} {radiusClass} flex flex-col justify-center"
 		>
 			{#if type === 'img' || type === 'video' || type === 'code' || type === 'qrcode' || type === 'barcode'}
 				<div class="m-auto" style="width:{iconRatio * 100 + '%'}">
@@ -108,3 +116,42 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.skeleton-wave .skeleton-item {
+		position: relative;
+		overflow: hidden;
+	}
+	.skeleton-wave .skeleton-item::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+		animation: wave 1.5s infinite;
+	}
+	@keyframes wave {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+	.skeleton-breathe .skeleton-item {
+		animation: breathe 2s ease-in-out infinite;
+	}
+	@keyframes breathe {
+		0%,
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.5;
+			transform: scale(0.97);
+		}
+	}
+</style>

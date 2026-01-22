@@ -39,10 +39,19 @@
 	let visible20 = $state(false);
 	let visible21 = $state(false);
 	let visible22 = $state(false);
+	let visible23 = $state(false);
+	let visible24 = $state(false);
+	let visible25 = $state(false);
 
 	let currentDetail = $state('请选择');
 	let allItems: { [key: string]: string }[] = $state([]);
 	let allIndexs: number[] = $state([]);
+
+	// 多选相关
+	import type { PickerMultipleItem } from '$lib/types/index.js';
+	let multipleSelected1: PickerMultipleItem[] = $state([]);
+	let multipleSelected2: PickerMultipleItem[] = $state([]);
+	let multipleSelected3: PickerMultipleItem[] = $state([]);
 </script>
 
 <div class="py-4">
@@ -152,6 +161,18 @@
 
 	<Cell title="顶部来点圆角" onclick={() => (visible19 = true)} />
 	<Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
+
+	<Cell title="单列多选" onclick={() => (visible23 = true)} subTitle={multipleSelected1.length > 0 ? `已选 ${multipleSelected1.length} 项` : ''} />
+	<Picker bind:visible={visible23} {datas} multiple bind:multipleSelected={multipleSelected1} />
+
+	<Cell title="多列多选" onclick={() => (visible24 = true)} subTitle={multipleSelected2.length > 0 ? `已选 ${multipleSelected2.length} 项` : ''} />
+	<Picker bind:visible={visible24} datas={col3Datas} multiple bind:multipleSelected={multipleSelected2} />
+
+	<Cell title="联动多选" onclick={() => (visible25 = true)} subTitle={multipleSelected3.length > 0 ? `已选 ${multipleSelected3.length} 项` : ''} />
+	<Picker bind:visible={visible25} datas={linkageData} isLinkage multiple bind:multipleSelected={multipleSelected3} />
+
+	<div class="px-4 py-2">不使用弹出层</div>
+	<Picker popup={null} {datas} height={30} />
 </div>
 
 <!-- data.js -->

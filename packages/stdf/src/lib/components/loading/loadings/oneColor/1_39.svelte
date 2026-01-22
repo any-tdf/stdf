@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} m-auto flex flex-col items-center justify-center">
-	{#each [0, 1, 2, 3, 4, 5] as item}
+	{#each [0, 1, 2, 3, 4, 5] as item (item)}
 		<div class="relative w-full" style="height: calc(32px / 6);">
 			<div
 				class="slice absolute top-0 h-full rounded-full shrink-0{colorClass()}"

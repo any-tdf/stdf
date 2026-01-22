@@ -26,7 +26,7 @@
 
 	//图标大小
 	//Icon size
-	const iconSize = love ? 30 : 24;
+	const iconSize = $derived(love ? 30 : 24);
 
 	// 标题对齐方式
 	// Title alignment
@@ -34,14 +34,14 @@
 </script>
 
 <div
-	class="flex h-12 w-full justify-between border-black/10 leading-[3rem] dark:border-white/10 {line
+	class="flex h-12 w-full justify-between border-black/10 leading-12 dark:border-white/10 {line
 		? 'border-b '
-		: ' '}bg-white dark:bg-black/50{love ? ' text-xl' : ''}{injClass === '' ? '' : ' ' + injClass}"
+		: ' '}bg-white dark:bg-black{love ? ' text-xl' : ''}{injClass === '' ? '' : ' ' + injClass}"
 >
 	{#if leftChild}
 		{@render leftChild()}
 	{:else if left === 'back'}
-		<button class="min-w-[3rem] text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()} aria-label="back">
+		<button class="min-w-12 text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()} aria-label="back">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={iconSize} height={iconSize} class="mx-auto block fill-current">
 				<path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
 			</svg>
@@ -49,7 +49,7 @@
 	{:else if left === null}
 		<div class="h-full w-4"></div>
 	{:else}
-		<button class="min-w-[3rem] text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()}>
+		<button class="min-w-12 text-center lining-nums active:opacity-80" onclick={() => onclickLeft && onclickLeft()}>
 			<Icon {...left} />
 		</button>
 	{/if}

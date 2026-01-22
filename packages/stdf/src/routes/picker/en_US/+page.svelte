@@ -39,10 +39,19 @@
 	let visible20 = $state(false);
 	let visible21 = $state(false);
 	let visible22 = $state(false);
+	let visible23 = $state(false);
+	let visible24 = $state(false);
+	let visible25 = $state(false);
 
 	let currentDetail = $state('Please select');
 	let allItems: { [key: string]: string }[] = $state([]);
 	let allIndexs: number[] = $state([]);
+
+	// Multiple selection
+	import type { PickerMultipleItem } from '$lib/types/index.js';
+	let multipleSelected1: PickerMultipleItem[] = $state([]);
+	let multipleSelected2: PickerMultipleItem[] = $state([]);
+	let multipleSelected3: PickerMultipleItem[] = $state([]);
 </script>
 
 <div class="py-4">
@@ -156,6 +165,18 @@
 
 	<Cell title="Top corner rounded" onclick={() => (visible19 = true)} />
 	<Picker bind:visible={visible19} {datas} popup={{ radius: 'xl' }} />
+
+	<Cell title="Single column multiple" onclick={() => (visible23 = true)} subTitle={multipleSelected1.length > 0 ? `${multipleSelected1.length} selected` : ''} />
+	<Picker bind:visible={visible23} {datas} multiple bind:multipleSelected={multipleSelected1} />
+
+	<Cell title="Multiple columns multiple" onclick={() => (visible24 = true)} subTitle={multipleSelected2.length > 0 ? `${multipleSelected2.length} selected` : ''} />
+	<Picker bind:visible={visible24} datas={col3Datas} multiple bind:multipleSelected={multipleSelected2} />
+
+	<Cell title="Linkage multiple" onclick={() => (visible25 = true)} subTitle={multipleSelected3.length > 0 ? `${multipleSelected3.length} selected` : ''} />
+	<Picker bind:visible={visible25} datas={linkageData} isLinkage multiple bind:multipleSelected={multipleSelected3} />
+
+	<div class="px-4 py-2">Without Popup</div>
+	<Picker popup={null} {datas} height={30} />
 </div>
 
 <!-- data_en.js -->

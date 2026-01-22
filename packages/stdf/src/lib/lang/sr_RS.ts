@@ -81,6 +81,14 @@ const sr_RS: LangProps = {
 	},
 	form: {
 		submit: 'Пошаљи'
+	},
+	fullKeyboard: {
+		space: 'Размак'
+	},
+	list: {
+		editText: 'Уреди',
+		doneText: 'Gotovo',
+		selectAllText: 'Изабери све'
 	}
 };
 

@@ -94,6 +94,14 @@ const hr_HR: LangProps = {
 	},
 	form: {
 		submit: 'Pošalji'
+	},
+	fullKeyboard: {
+		space: 'Razmak'
+	},
+	list: {
+		editText: 'Uredi',
+		doneText: 'Gotovo',
+		selectAllText: 'Odaberi sve'
 	}
 };
 

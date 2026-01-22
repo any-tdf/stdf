@@ -81,6 +81,14 @@ const tr_TR: LangProps = {
 	},
 	form: {
 		submit: 'Gönder'
+	},
+	fullKeyboard: {
+		space: 'Boşluk'
+	},
+	list: {
+		editText: 'Düzenle',
+		doneText: 'Tamam',
+		selectAllText: 'Tümünü seç'
 	}
 };
 

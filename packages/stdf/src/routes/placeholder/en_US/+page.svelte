@@ -13,14 +13,14 @@
 <div class="flex flex-col space-y-4">
 	<Placeholder radius="none">unfillet</Placeholder>
 	<Placeholder radius="xl">XL Rounded corner</Placeholder>
-	<Placeholder radius="full">Full fillet</Placeholder>
+	<Placeholder radius="4xl">Full fillet</Placeholder>
 </div>
 
 <div class="m-4 text-lg font-bold">shaded</div>
 <Placeholder shadow="md">shadow</Placeholder>
 
 <div class="m-4 text-lg font-bold">customize injClass</div>
-<Placeholder height="24" injClass="!bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white">Gradient background</Placeholder>
+<Placeholder height="24" injClass="!bg-linear-to-r from-[#CE9FFC] to-[#7367F0] !text-white">Gradient background</Placeholder>
 
 <div class="m-4 text-lg font-bold">Combined with Grids</div>
 <Grids>

@@ -38,8 +38,8 @@
 	<NavBar>
 		{#snippet titleChild()}
 			<div class="flex h-12 flex-col justify-around text-xs">
-				<div class="text-sm">title 插槽渲染标题区域</div>
-				<div>right 插槽渲染右侧且可点击</div>
+				<div class="text-sm">titleChild Snippet 渲染标题区域</div>
+				<div>rightChild Snippet 渲染右侧且可点击</div>
 			</div>
 		{/snippet}
 		{#snippet rightChild()}
@@ -48,7 +48,7 @@
 			</div>
 		{/snippet}
 	</NavBar>
-	<Toast bind:visible={visible3} message="点击了右侧插槽内容！" />
+	<Toast bind:visible={visible3} message="点击了右侧 Snippet 内容！" />
 	<NavBar title="关爱版导航栏" love rights={icons4} />
 	<NavBar injClass="!bg-transparent" line={false}>
 		{#snippet leftChild()}

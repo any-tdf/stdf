@@ -94,6 +94,14 @@ const kmr_IQ: LangProps = {
 	},
 	form: {
 		submit: 'Bişîne'
+	},
+	fullKeyboard: {
+		space: 'Cih'
+	},
+	list: {
+		editText: 'Sererast kirin',
+		doneText: 'Têkildar',
+		selectAllText: 'Hemû hilbijêre'
 	}
 };
 

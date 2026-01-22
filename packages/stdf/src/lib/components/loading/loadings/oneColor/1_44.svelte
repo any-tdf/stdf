@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} relative m-auto">
-	{#each [0, 0.4, 0.8] as item, i}
+	{#each [0, 0.4, 0.8] as item, i (i)}
 		<div
 			class="dot absolute left-0 top-0 flex h-full w-full items-center"
 			style="animation-duration: {2.5 / speed}s;transform: translateX({32 * item}px);animation-delay: {2.5 / speed / (-1.5 * i)}s"

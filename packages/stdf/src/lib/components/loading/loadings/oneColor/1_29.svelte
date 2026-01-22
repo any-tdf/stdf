@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} container relative m-auto flex items-center">
-	{#each [0, -0.125, -0.25, -0.375, -0.5, -0.625, -0.75, -0.875] as item, i}
+	{#each [0, -0.125, -0.25, -0.375, -0.5, -0.625, -0.75, -0.875] as item, i (i)}
 		<div class="absolute left-0 right-0 flex" style="transform: rotate({i * 45}deg); animation-duration: {0.3 / speed}s">
 			<div
 				class="dot h-1.5 w-1.5 rounded-full{colorClass()}"

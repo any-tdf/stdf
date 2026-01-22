@@ -94,6 +94,14 @@ const et_EE: LangProps = {
 	},
 	form: {
 		submit: 'Saada'
+	},
+	fullKeyboard: {
+		space: 'Tühik'
+	},
+	list: {
+		editText: 'Muuda',
+		doneText: 'Valmis',
+		selectAllText: 'Vali kõik'
 	}
 };
 

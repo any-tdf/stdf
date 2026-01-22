@@ -81,6 +81,14 @@ const ur_PK: LangProps = {
 	},
 	form: {
 		submit: 'جمع کریں'
+	},
+	fullKeyboard: {
+		space: 'اسپیس'
+	},
+	list: {
+		editText: 'ترمیم',
+		doneText: 'تمام',
+		selectAllText: 'سب منتخب کریں'
 	}
 };
 

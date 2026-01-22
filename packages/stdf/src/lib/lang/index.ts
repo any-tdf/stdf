@@ -147,4 +147,12 @@ export type LangProps = {
 	form: {
 		submit: string;
 	};
+	fullKeyboard: {
+		space: string;
+	};
+	list: {
+		editText: string;
+		doneText: string;
+		selectAllText: string;
+	};
 };

@@ -2,6 +2,7 @@
 	import Icon from '../icon/Icon.svelte';
 	import Switch from '../switch/Switch.svelte';
 	import type { CellProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		title = '',
@@ -11,9 +12,10 @@
 		subTitle = '',
 		info = '',
 		line = false,
+		bg = 'surface',
 		my = '4',
 		mx = '2',
-		radius = 'lg',
+		radius = '',
 		switchActive = $bindable(false),
 		shadow = 'xs',
 		injClass = '',
@@ -25,16 +27,22 @@
 		onclick
 	}: CellProps = $props();
 
-	// 圆角风格样式
-	// Rounded style style
-	const radiusObj = {
-		none: ' rounded-none',
-		sm: ' rounded-sm',
-		md: ' rounded-md',
-		lg: ' rounded-lg',
-		xl: ' rounded-xl',
-		'2xl': ' rounded-2xl',
-		full: ' rounded-full'
+	// 背景样式
+	// Background style
+	const bgClass = {
+		white: 'bg-white dark:bg-gray-800',
+		surface: 'bg-bg-surface dark:bg-bg-surface-dark',
+		gray: 'bg-text-primary/5 dark:bg-text-dark/5',
+		theme: 'bg-primary/5 dark:bg-dark/5'
+	};
+
+	// 激活背景样式
+	// Active background style
+	const activeBgClass = {
+		white: 'active:bg-black/5 dark:active:bg-white/5',
+		surface: 'active:bg-text-primary/5 dark:active:bg-text-dark/5',
+		gray: 'active:bg-text-primary/10 dark:active:bg-text-dark/10',
+		theme: 'active:bg-primary/10 dark:active:bg-dark/10'
 	};
 
 	// 阴影风格样式
@@ -88,61 +96,64 @@
 </script>
 
 <div
-	class="bg-white px-3 dark:bg-gray-800{clickAll ? ' active:bg-gray-100 dark:active:bg-gray-600' : ''} {myClass[my] ||
-		myClass['4']}{mxClass[mx] || mxClass['2']}{radiusObj[radius] || radiusObj['lg']} {shadowClass[shadow] || shadowClass['xs']}{love
-		? ' text-xl'
-		: ''} {injClass}"
+	class="relative overflow-hidden {myClass[my] || myClass['4']}{mxClass[mx] || mxClass['2']} {radius ? radiusObj[radius] : 'rounded-(--radius-box)'} {shadowClass[shadow] || shadowClass['xs']} {injClass}"
 >
-	<button
-		onclick={setClickFun}
-		class="flex w-full items-center justify-between gap-4 py-4{line && my === '0' ? ' border-b border-black/5 dark:border-white/5' : ''}"
+	<!-- 主内容区域 -->
+	<!-- Main content area -->
+	<div
+		class="{bgClass[bg] || bgClass['surface']} px-3{clickAll ? ` ${activeBgClass[bg] || activeBgClass['surface']}` : ''}{love ? ' text-xl' : ''}"
 	>
-		<div class="flex items-center justify-between">
-			{#if leftChild}
-				{@render leftChild?.()}
-			{:else if left}
-				<div class="mr-1 flex flex-col justify-center">
-					<Icon {...left} />
-				</div>
-			{:else}{/if}
-			<div class="flex flex-col text-left {subTitle === '' ? 'justify-center' : 'justify-between'}">
-				<div class="font-medium">{title}</div>
-				<div class="text-xs text-gray-500 dark:text-gray-400">{subTitle}</div>
-			</div>
-		</div>
-		<div class="11 flex items-center justify-between">
-			<div class="flex flex-col {info === '' ? 'justify-center' : 'justify-between'} text-right">
-				{#if detailChild}
-					{@render detailChild?.()}
-				{:else if detail}
-					<div class="text-gray-700 dark:text-gray-300">{detail}</div>
+		<button
+			onclick={setClickFun}
+			class="flex w-full items-center justify-between gap-4 py-4{line && my === '0' ? ' border-b border-text-primary/5 dark:border-text-dark/5' : ''}"
+		>
+			<div class="flex items-center justify-between">
+				{#if leftChild}
+					{@render leftChild?.()}
+				{:else if left}
+					<div class="mr-1 flex flex-col justify-center">
+						<Icon {...left} />
+					</div>
 				{:else}{/if}
-				<div class="text-xs font-light text-gray-500 dark:text-gray-400">{info}</div>
+				<div class="flex flex-col text-left {subTitle === '' ? 'justify-center' : 'justify-between'}">
+					<div class="font-medium">{title}</div>
+					<div class="text-xs text-gray-500 dark:text-gray-400">{subTitle}</div>
+				</div>
 			</div>
-			{#if rightChild}
-				{@render rightChild?.()}
-			{:else if right === 'arrow'}
-				<div class="flex flex-col justify-center text-gray-700 dark:text-gray-300">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						class="fill-current opacity-60"
-						width={love ? 26 : 20}
-						height={love ? 26 : 20}
-					>
-						<path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"
-						></path>
-					</svg>
+			<div class="11 flex items-center justify-between">
+				<div class="flex flex-col {info === '' ? 'justify-center' : 'justify-between'} text-right">
+					{#if detailChild}
+						{@render detailChild?.()}
+					{:else if detail}
+						<div class="text-gray-700 dark:text-gray-300">{detail}</div>
+					{:else}{/if}
+					<div class="text-xs font-light text-gray-500 dark:text-gray-400">{info}</div>
 				</div>
-			{:else if typeof right === 'object' && right?.type === 'switch'}
-				<div class="ml-1 flex flex-col justify-center">
-					<Switch active={switchActive} {...right?.switch} />
-				</div>
-			{:else if typeof right === 'object' && right?.type === 'icon' && right?.icon}
-				<div class="ml-1 flex flex-col justify-center">
-					<Icon {...right?.icon} />
-				</div>
-			{:else}{/if}
-		</div>
-	</button>
+				{#if rightChild}
+					{@render rightChild?.()}
+				{:else if right === 'arrow'}
+					<div class="flex flex-col justify-center text-gray-700 dark:text-gray-300">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							class="fill-current opacity-60"
+							width={love ? 26 : 20}
+							height={love ? 26 : 20}
+						>
+							<path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"
+							></path>
+						</svg>
+					</div>
+				{:else if typeof right === 'object' && right?.type === 'switch'}
+					<div class="ml-1 flex flex-col justify-center">
+						<Switch active={switchActive} {...right?.switch} />
+					</div>
+				{:else if typeof right === 'object' && right?.type === 'icon' && right?.icon}
+					<div class="ml-1 flex flex-col justify-center">
+						<Icon {...right?.icon} />
+					</div>
+				{:else}{/if}
+			</div>
+		</button>
+	</div>
 </div>

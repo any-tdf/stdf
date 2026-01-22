@@ -94,6 +94,14 @@ const fr_CA: LangProps = {
 	},
 	form: {
 		submit: 'Soumettre'
+	},
+	fullKeyboard: {
+		space: 'Espace'
+	},
+	list: {
+		editText: 'Modifier',
+		doneText: 'Terminé',
+		selectAllText: 'Tout sélectionner'
 	}
 };
 

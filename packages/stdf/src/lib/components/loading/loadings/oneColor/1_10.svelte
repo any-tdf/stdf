@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} m-auto flex items-center justify-between">
-	{#each [0, 1, 2] as i}
+	{#each [0, 1, 2] as i (i)}
 		<div
 			class="{colorClass()} loading h-2 w-2 rounded-full"
 			style="animation-delay: {i === 1 ? -0.3 : 0}s;background: {customColor[0]};animation-duration: {1 /

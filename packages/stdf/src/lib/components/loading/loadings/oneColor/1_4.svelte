@@ -19,11 +19,11 @@
 			speed}s;-webkit-animation-duration: {1 / speed}s;"
 	>
 		<div
-			class="absolute{colorClass()} border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent dark:border-l-transparent dark:border-r-transparent"
+			class="absolute{colorClass()} border-l-1.25 border-r-1.25 border-t-1.25 border-l-transparent border-r-transparent dark:border-l-transparent dark:border-r-transparent"
 			style="transform: rotate(225deg);border-color: {customColor[0]};border-right-color:transparent;border-left-color:transparent;"
 		></div>
 		<div
-			class="absolute bottom-0 right-0{colorClass()} border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent dark:border-l-transparent dark:border-r-transparent"
+			class="absolute bottom-0 right-0{colorClass()} border-l-1.25 border-r-1.25 border-t-1.25 border-l-transparent border-r-transparent dark:border-l-transparent dark:border-r-transparent"
 			style="transform: rotate(45deg);border-color: {customColor[0]};border-right-color:transparent;border-left-color:transparent;"
 		></div>
 	</div>

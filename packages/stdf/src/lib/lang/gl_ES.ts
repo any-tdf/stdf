@@ -81,6 +81,14 @@ const gl_ES: LangProps = {
 	},
 	form: {
 		submit: 'Enviar'
+	},
+	fullKeyboard: {
+		space: 'Espazo'
+	},
+	list: {
+		editText: 'Editar',
+		doneText: 'Hecho',
+		selectAllText: 'Seleccionar todo'
 	}
 };
 

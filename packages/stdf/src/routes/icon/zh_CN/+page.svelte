@@ -1,21 +1,23 @@
 <!-- Icon Demo，请确保已引入 symbol.svg 文件。 -->
 <script lang="ts">
 	import { Icon } from '$lib/index.js';
+	import type { IconProps } from '$lib/types/index.js';
 
 	const icons = ['ri-spy-fill', 'ri-chrome-fill', 'ri-riding-line', 'ri-switch-fill'];
-	const msIcons = [
+	const msIcons: IconProps[] = [
 		{ name: 'material-symbols--agriculture' },
-		{ name: 'material-symbols--brightness-5', theme: true },
+		{ name: 'material-symbols--brightness-5', state: 'theme' },
 		{ name: 'material-symbols--cardiology-outline', opacity: 0.5 },
 		{ name: 'material-symbols--e911-avatar-rounded', size: 36 }
 	];
-	const solarIcons = [
+	const solarIcons: IconProps[] = [
 		{ name: 'solar--cat-broken' },
-		{ name: 'solar--chair-2-line-duotone', theme: true },
+		{ name: 'solar--chair-2-line-duotone', state: 'theme' },
 		{ name: 'solar--bonfire-line-duotone', opacity: 0.5 },
 		{ name: 'solar--cup-hot-broken', size: 36 }
 	];
-	const fcIcons = [
+	const states = ['theme', 'success', 'warning', 'error', 'info'] as const;
+	const fcIcons: IconProps[] = [
 		{ name: 'fluent-color--building-store-24' },
 		{ name: 'fluent-color--slide-text-sparkle-16' },
 		{ name: 'fluent-color--chart-multiple-24', opacity: 0.5 },
@@ -23,9 +25,9 @@
 	];
 </script>
 
-<div class="felx felx-col space-y-12 px-4 py-8">
+<div class="flex flex-col space-y-12 px-4 py-8">
 	<div>
-		<div class="mb-2 text-xl font-bold">基础用法</div>
+		<div class="mb-2 font-bold text-xl">基础用法</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon (icon)}
 				<div class="flex-1 py-2 text-center">
@@ -36,17 +38,18 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">跟随主题色</div>
+		<div class="mb-2 font-bold text-xl">不同状态</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon (icon)}
+			{#each states as state (state)}
 				<div class="flex-1 py-2 text-center">
-					<Icon name={icon} theme />
+					<Icon name={icons[0]} {state} />
+					<div class="mt-2 text-xs">{state}</div>
 				</div>
 			{/each}
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">不同大小</div>
+		<div class="mb-2 font-bold text-xl">不同大小</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">
@@ -57,7 +60,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">不同透明度</div>
+		<div class="mb-2 font-bold text-xl">不同透明度</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">
@@ -68,7 +71,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">使用 iconify</div>
+		<div class="mb-2 font-bold text-xl">使用 iconify</div>
 		<div>material-symbols</div>
 		<div class="flex flex-wrap items-center justify-around py-2">
 			{#each msIcons as icon (icon)}
@@ -83,7 +86,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">使用 iconify-color</div>
+		<div class="mb-2 font-bold text-xl">使用 iconify-color</div>
 		<div class="flex flex-wrap items-center justify-around py-2">
 			{#each fcIcons as icon (icon)}
 				<Icon type="iconify-color" {...icon} />
@@ -91,8 +94,8 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">
-			自定义颜色<span class="ml-2 text-xs font-normal">通过 injClass</span>
+		<div class="mb-2 font-bold text-xl">
+			自定义颜色<span class="ml-2 font-normal text-xs">通过 injClass</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon (icon)}
@@ -103,8 +106,8 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">
-			自定义颜色<span class="ml-2 text-xs font-normal">通过 Snippet</span>
+		<div class="mb-2 font-bold text-xl">
+			自定义颜色<span class="ml-2 font-normal text-xs">通过 Snippet</span>
 		</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon (icon)}
@@ -115,7 +118,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">Snippet</div>
+		<div class="mb-2 font-bold text-xl">Snippet</div>
 		<div class="flex flex-wrap justify-between">
 			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 			{#each icons as icon, index (icon)}
@@ -141,7 +144,7 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">偏移</div>
+		<div class="mb-2 font-bold text-xl">偏移</div>
 		<div class="flex flex-wrap justify-between">
 			{#each icons as icon, i (icon)}
 				<div class="flex-1 py-2 text-center">

@@ -27,7 +27,7 @@
 <div bind:clientWidth={tabW} class="relative bg-white dark:bg-gray-800 {injClass}" style="padding-bottom: env(safe-area-inset-bottom);">
 	{#if line}
 		<div
-			class="bg-primary dark:bg-dark absolute bottom-px mx-auto h-[2px] rounded-full transition-all {activeInjClass}"
+			class="bg-primary dark:bg-dark absolute bottom-px mx-auto h-0.5 rounded-full transition-all {activeInjClass}"
 			style="width: {lineW < 1 ? tabW / labels.length : activeW < 2 ? 2 : activeW}px;left: {lineW < 1
 				? active * (tabW / labels.length)
 				: activeLeft}px;"
@@ -76,7 +76,7 @@
 					</div>
 				{/if}
 				{#if label.text}
-					<div class="{label.icon ? 'mt-[2px]' : 'py-1 text-lg'} {i === active && !label.icon ? ' font-bold' : ''}">
+					<div class="{label.icon ? 'mt-0.5' : 'py-1 text-lg'} {i === active && !label.icon ? ' font-bold' : ''}">
 						{label.text}
 					</div>
 				{/if}

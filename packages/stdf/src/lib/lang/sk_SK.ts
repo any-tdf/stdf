@@ -81,6 +81,14 @@ const sk_SK: LangProps = {
 	},
 	form: {
 		submit: 'Odoslať'
+	},
+	fullKeyboard: {
+		space: 'Medzera'
+	},
+	list: {
+		editText: 'Upraviť',
+		doneText: 'Hotovo',
+		selectAllText: 'Vybrať všetko'
 	}
 };
 

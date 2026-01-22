@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { throttleWithRAF } from '../utils/index.js';
+	import { throttleWithRAF, radiusObj } from '../utils/index.js';
 	import Mask from '../mask/Mask.svelte';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 	import type { BottomSheetProps } from '../../types/index.js';
@@ -26,7 +26,8 @@
 		stayHeightList = [10, 50, 90],
 		stayHeightIndex = 1,
 		closeHeight = 0,
-		radius = 'full',
+		radius = '',
+		iconRadius = '',
 		children,
 		onheightChange,
 		onclickMask,
@@ -36,7 +37,7 @@
 
 	// 固定高度
 	// stay height
-	let stayHeight = stayHeightList[stayHeightIndex] || stayHeightList[stayHeightList.length - 1];
+	let stayHeight = $derived(stayHeightList[stayHeightIndex] || stayHeightList[stayHeightList.length - 1]);
 
 	// 此时是否正在滑动
 	// is sliding or not now
@@ -52,7 +53,10 @@
 
 	// 滑动开始距离顶部高度，%
 	// start distance from top, %
-	let startTop = $state(100 - stayHeight);
+	let startTop = $state(0);
+	$effect(() => {
+		startTop = 100 - stayHeight;
+	});
 
 	// 滑动距离，%
 	// move distance, %
@@ -75,50 +79,58 @@
 
 	// 如果 stayHeightList 不是数组，或者元素不是正数，或者元素不是 0-100 之间的数，或者元素不是整数，给出警告。
 	// If stayHeightList is not an array, or the element is not a positive number, or the element is not a number between 0 and 100, or the element is not an integer, give a warning.
-	if (
-		!Array.isArray(stayHeightList) ||
-		stayHeightList.some((item) => typeof item !== 'number' || item < 0 || item > 100 || item % 1 !== 0)
-	) {
-		console.error(
-			'[STDF BottomSheet error]stayHeightList 必须是一个 0-100 之间的正整数数组。(stayHeightList must be an array of positive integers between 0 and 100)'
-		);
-	}
+	$effect(() => {
+		if (
+			!Array.isArray(stayHeightList) ||
+			stayHeightList.some((item) => typeof item !== 'number' || item < 0 || item > 100 || item % 1 !== 0)
+		) {
+			console.error(
+				'[STDF BottomSheet error]stayHeightList 必须是一个 0-100 之间的正整数数组。(stayHeightList must be an array of positive integers between 0 and 100)'
+			);
+		}
 
-	// 如果 stayHeightList 元素不是递增的，给出警告。
-	// If the elements of stayHeightList are not increasing, give a warning.
-	if (stayHeightList.some((item, index) => index > 0 && item <= stayHeightList[index - 1])) {
-		console.error(
-			'[STDF BottomSheet error]stayHeightList 数组元素必须是升序排列。(stayHeightList array elements must be in ascending order)'
-		);
-	}
+		// 如果 stayHeightList 元素不是递增的，给出警告。
+		// If the elements of stayHeightList are not increasing, give a warning.
+		if (stayHeightList.some((item, index) => index > 0 && item <= stayHeightList[index - 1])) {
+			console.error(
+				'[STDF BottomSheet error]stayHeightList 数组元素必须是升序排列。(stayHeightList array elements must be in ascending order)'
+			);
+		}
 
-	// 如果 stayHeightIndex 超出 stayHeightList 长度给出警告。
-	// If stayHeightIndex exceeds the length of stayHeightList, give a warning.
-	if (stayHeightIndex > stayHeightList.length - 1) {
-		console.warn(
-			'[STDF BottomSheet warn]stayHeightIndex 超出 stayHeightList 长度，将使用 stayHeightList 最后一个值。(stayHeightIndex exceeds the length of stayHeightList, the last value of stayHeightList will be used.)'
-		);
-	}
+		// 如果 stayHeightIndex 超出 stayHeightList 长度给出警告。
+		// If stayHeightIndex exceeds the length of stayHeightList, give a warning.
+		if (stayHeightIndex > stayHeightList.length - 1) {
+			console.warn(
+				'[STDF BottomSheet warn]stayHeightIndex 超出 stayHeightList 长度，将使用 stayHeightList 最后一个值。(stayHeightIndex exceeds the length of stayHeightList, the last value of stayHeightList will be used.)'
+			);
+		}
 
-	// 如果 closeHeight 大于 stayHeightList 最小值给出警告。
-	// If closeHeight is greater than the minimum value of stayHeightList, give a warning.
-	if (closeHeight > stayHeightList[0]) {
-		console.warn(
-			'[STDF BottomSheet warn]closeHeight 大于 stayHeightList 最小值，closeHeight 将失效。(closeHeight is greater than the minimum value of stayHeightList, closeHeight will be invalid.)'
-		);
-	}
+		// 如果 closeHeight 大于 stayHeightList 最小值给出警告。
+		// If closeHeight is greater than the minimum value of stayHeightList, give a warning.
+		if (closeHeight > stayHeightList[0]) {
+			console.warn(
+				'[STDF BottomSheet warn]closeHeight 大于 stayHeightList 最小值，closeHeight 将失效。(closeHeight is greater than the minimum value of stayHeightList, closeHeight will be invalid.)'
+			);
+		}
+	});
 
 	// 标题对齐方式
 	// title align
 	const titleAlignClass = { left: ' text-left', center: ' text-center', right: ' text-right' };
 
-	// 窗口圆角风格
-	// window radius style
-	const windowRadiusClass = { none: ' rounded-none', middle: ' rounded-t-lg', full: ' rounded-t-2xl' };
+	// 窗口圆角风格（顶部圆角）
+	// window radius style (top radius)
+	const windowRadiusClass = {
+		none: ' rounded-t-none',
+		sm: ' rounded-t-sm',
+		md: ' rounded-t-md',
+		lg: ' rounded-t-lg',
+		xl: ' rounded-t-xl',
+		'2xl': ' rounded-t-2xl',
+		'3xl': ' rounded-t-3xl',
+		'4xl': ' rounded-t-4xl'
+	};
 
-	// 图标圆角风格
-	// icon radius style
-	const iconRadiusClass = { none: ' rounded-none', middle: ' rounded-sm', full: ' rounded-full' };
 
 	// 滑动开始
 	// start sliding
@@ -204,29 +216,6 @@
 		onback?.();
 	};
 
-	// 滚动时禁止 body 滚动
-	// Disable body scrolling when scrolling
-	$effect(() => {
-		if (visible) {
-			//当 visible 为 true 时，禁止 body 滚动
-			//When visible is true, body scrolling is disabled
-			const top = document.documentElement.scrollTop || document.body.scrollTop;
-			document.body.style.cssText += `
-            position: fixed;
-            width: 100vw;
-            left: 0;
-            top: ${-top}px;
-            touch-action:none;
-        `;
-		} else {
-			const top = document.body.style.top;
-			document.body.style.cssText += `
-            position: static;
-            touch-action:auto;
-        `;
-			window.scrollTo(0, Math.abs(parseFloat(top)));
-		}
-	});
 	onMount(() => {
 		if (visible && scrollTopDom) {
 			// 滚动内容高度
@@ -243,7 +232,7 @@
 <div class="pointer-events-none fixed inset-0 flex h-screen w-screen flex-col justify-end px-0" style="z-index:{zIndex};">
 	{#if visible}
 		<div
-			class="fixed w-screen bg-white dark:bg-gray-950{windowRadiusClass[radius] || windowRadiusClass['full']} pointer-events-auto{isTouch
+			class="fixed w-screen bg-bg-overlay dark:bg-bg-overlay-dark {radius ? windowRadiusClass[radius] : 'rounded-t-(--radius-box)'} pointer-events-auto{isTouch
 				? ''
 				: ' transition-all duration-300'}"
 			style="height:{stayHeightList[stayHeightList.length - 1]}%;top:{currentTop}%"
@@ -265,11 +254,11 @@
 				bind:this={scrollTopDom}
 				class="cursor-move touch-none select-none py-1"
 			>
-				<div class="h-1 w-8 bg-black/20 dark:bg-white/30 mx-auto{radius === 'none' ? ' rounded-none' : ' rounded-full'}"></div>
+				<div class="h-1 w-8 bg-black/20 dark:bg-white/30 mx-auto rounded-full"></div>
 				<div class="flex items-center justify-between gap-2 px-3 py-1">
 					{#if showBackIcon}
 						<button
-							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
+							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center {iconRadius ? radiusObj[iconRadius] : 'rounded-(--radius-small)'}"
 							onclick={backFunc}
 							aria-label="back"
 						>
@@ -291,7 +280,7 @@
 						<!-- null -->
 					{:else if closeContent === 'closeIcon'}
 						<button
-							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
+							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center {iconRadius ? radiusObj[iconRadius] : 'rounded-(--radius-small)'}"
 							onclick={closeFunc}
 							aria-label="close"
 						>
@@ -310,7 +299,7 @@
 						</button>
 					{:else if closeContent === 'downIcon'}
 						<button
-							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center{iconRadiusClass[radius] || iconRadiusClass['full']}"
+							class="h-6 w-6 flex-none bg-black/5 dark:bg-white/10 text-center {iconRadius ? radiusObj[iconRadius] : 'rounded-(--radius-small)'}"
 							onclick={closeFunc}
 							aria-label="close"
 						>

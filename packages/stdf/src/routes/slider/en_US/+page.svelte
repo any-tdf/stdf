@@ -34,6 +34,20 @@
 <div class="px-6 py-4">
 	<Slider step={5} />
 </div>
+<div class="mx-4 mt-8 text-lg font-bold">Show Steps (block style)</div>
+<div class="px-6 py-4">
+	<Slider step={10} showSteps />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps radius="full" />
+</div>
+<div class="mx-4 mt-8 text-lg font-bold">Show Steps (break style)</div>
+<div class="px-6 py-4">
+	<Slider step={10} showSteps stepsStyle="break" />
+</div>
+<div class="px-6 py-4">
+	<Slider step={20} showSteps stepsStyle="break" radius="full" />
+</div>
 <div class="mx-4 mt-8 text-lg font-bold">Step size of 0.1</div>
 <div class="px-6 py-4">
 	<Slider step={0.1} value={0.2} minRange={0} maxRange={1} />
@@ -60,17 +74,17 @@
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">Different border radius</div>
 <div class="px-6 py-4">
-	<Slider radius="sm" />
+	<Slider radius="full" />
 </div>
 <div class="px-6 py-4">
 	<Slider radius="none" />
 </div>
 <div class="px-6 py-4">
-	<Slider radius="sm" isRange />
+	<Slider radius="full" isRange />
 </div>
 <div class="mx-4 mt-8 text-lg font-bold">Outlined slider</div>
 <div class="px-6 py-4">
-	<Slider lineBlock radius="sm" />
+	<Slider lineBlock radius="full" />
 </div>
 <div class="px-6 py-4">
 	<Slider lineBlock isRange />

@@ -24,13 +24,13 @@
 	}: Props = $props();
 
 	const sizeClass = { bottom: 'w-full', top: 'w-full', left: 'h-full', right: 'h-full', center: 'w-full' };
-	const sizeStyle = {
+	let sizeStyle = $derived({
 		bottom: `height:${size === 0 ? 'auto' : size + '%'}`,
 		top: `height:${size === 0 ? 'auto' : size + '%'}`,
 		left: `width:${size === 0 ? 'auto' : size + '%'}`,
 		right: `width:${size === 0 ? 'auto' : size + '%'}`,
 		center: `height:${size === 0 ? 'auto' : size + '%'}`
-	};
+	});
 	const pxClass = {
 		'0': ' px-0',
 		'1': ' px-1',

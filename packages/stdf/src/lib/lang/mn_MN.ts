@@ -82,6 +82,14 @@ const mn_MN: LangProps = {
 	},
 	form: {
 		submit: 'Илгээх'
+	},
+	fullKeyboard: {
+		space: 'Зай'
+	},
+	list: {
+		editText: 'Засах',
+		doneText: 'Дууссан',
+		selectAllText: 'Бүгдийг сонгох'
 	}
 };
 

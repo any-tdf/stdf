@@ -21,13 +21,16 @@
 	const actions1: ActionProps[] = [
 		{ content: '常规选项' },
 		{ content: '主题选项', style: 'theme' },
-		{ content: '禁用选项', style: 'disabled' },
-		{ content: '警告选项', style: 'danger' }
+		{ content: '成功选项', style: 'success' },
+		{ content: '警告选项', style: 'warning' },
+		{ content: '错误选项', style: 'error' },
+		{ content: '信息选项', style: 'info' },
+		{ content: '禁用选项', style: 'warning', disabled: true }
 	];
 	const actions2: ActionProps[] = [
 		{ content: '选项一' },
 		{ content: '选项二', desc: '这里是描述信息' },
-		{ content: '选项三', style: 'danger', desc: '这里是描述信息' }
+		{ content: '选项三', style: 'error', desc: '这里是描述信息' }
 	];
 	const actions3: ActionProps[] = [
 		{ content: '火女', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'sm' },

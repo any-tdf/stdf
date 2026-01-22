@@ -98,8 +98,14 @@
 <div class="m-4 mt-8 text-lg font-bold">Inject injClass</div>
 <Pagination {total} injClass="mx-2 rounded-full shadow-md dark:shadow-white/10" />
 
+<div class="m-4 mt-8 text-lg font-bold">White background</div>
+<Pagination {total} bg="white" />
+
+<div class="m-4 mt-8 text-lg font-bold">Theme background</div>
+<Pagination {total} bg="theme" />
+
 <div class="m-4 mt-8 text-lg font-bold">Simulate request</div>
-<div class="relative min-h-[20rem] divide-y divide-black/5 px-4 py-8 dark:divide-white/5">
+<div class="relative min-h-80 divide-y divide-black/5 px-4 py-8 dark:divide-white/5">
 	{#each data as item}
 		<div class:py-6={pageSize > 1}>
 			<div class="text-justify text-sm">{item.text}</div>

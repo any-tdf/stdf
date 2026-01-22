@@ -132,4 +132,7 @@
 
 	<Cell title="指定初始选定时分秒" onclick={() => (visible21 = true)} />
 	<TimePicker bind:visible={visible21} initHour="05" initMinute="05" initSecond="05" />
+
+	<div class="px-4 py-2">不使用弹出层</div>
+	<TimePicker popup={null} type="YYYYMMDD" height={30} />
 </div>

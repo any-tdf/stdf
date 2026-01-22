@@ -13,14 +13,14 @@
 <div class="flex flex-col space-y-4">
 	<Placeholder radius="none">无圆角</Placeholder>
 	<Placeholder radius="xl">XL 圆角</Placeholder>
-	<Placeholder radius="full">全圆角</Placeholder>
+	<Placeholder radius="4xl">全圆角</Placeholder>
 </div>
 
 <div class="m-4 text-lg font-bold">有阴影</div>
 <Placeholder shadow="md">阴影</Placeholder>
 
 <div class="m-4 text-lg font-bold">自定义 injClass</div>
-<Placeholder height="24" injClass="!bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white">渐变背景</Placeholder>
+<Placeholder height="24" injClass="!bg-linear-to-r from-[#CE9FFC] to-[#7367F0] !text-white">渐变背景</Placeholder>
 
 <div class="m-4 text-lg font-bold">与 Grids 结合</div>
 <Grids>

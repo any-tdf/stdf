@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Icon from '../icon/Icon.svelte';
 	import type { NoticeBarProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		textList = [],
@@ -13,6 +14,7 @@
 		duration = 500,
 		interval = 4,
 		injClass = '',
+		radius = '',
 		leftChild,
 		rightChild,
 		onclickRight
@@ -20,15 +22,17 @@
 
 	// 如果 textList 不是数组给出中英文报错
 	// If textList is not an array, give Chinese and English error
-	if (!Array.isArray(textList)) {
-		console.error('[STDF NoticeBar error]textList 必须是数组。(textList must be an array.)');
-	}
+	$effect(() => {
+		if (!Array.isArray(textList)) {
+			console.error('[STDF NoticeBar error]textList 必须是数组。(textList must be an array.)');
+		}
 
-	// 如果 textList 为空数组给出中英文报错
-	// If textList is an empty array, give Chinese and English error
-	if (textList.length === 0) {
-		console.error('[STDF NoticeBar error]textList must not be empty.');
-	}
+		// 如果 textList 为空数组给出中英文报错
+		// If textList is an empty array, give Chinese and English error
+		if (textList.length === 0) {
+			console.error('[STDF NoticeBar error]textList must not be empty.');
+		}
+	});
 
 	// 动画时长样式
 	// Animation duration style
@@ -40,7 +44,10 @@
 		'1000': ' duration-1000'
 	};
 
-	let left = $state(speed);
+	let left = $state(0);
+	$effect(() => {
+		left = speed;
+	});
 	let boxDom = $state<HTMLDivElement | null>(null);
 	let outBoxDom = $state<HTMLDivElement | null>(null);
 	let boxWidth = $state(0);
@@ -54,7 +61,7 @@
 	//Processing when scrolling vertically
 	let times: ReturnType<typeof setInterval>;
 	let currentIndex = $state(0);
-	let textListVertical = [...textList, textList[0]];
+	let textListVertical = $derived([...textList, textList[0]]);
 	let isTransition = $state(true);
 	const stepFun = (time: number) => {
 		fps = time - startTime;
@@ -65,7 +72,8 @@
 			left = 0;
 		}
 	};
-	let newTextList = $state([...textList, ...textList]);
+	let newTextListState = $state<string[] | null>(null);
+	let newTextList = $derived(newTextListState ?? [...textList, ...textList]);
 	onMount(() => {
 		if (!vertical) {
 			boxWidth = boxDom?.getBoundingClientRect().width || 0;
@@ -73,7 +81,7 @@
 		outBoxWidth = outBoxDom?.getBoundingClientRect().width || 0;
 		outBoxHeight = outBoxDom?.getBoundingClientRect().height || 0;
 		if (!vertical && boxWidth / 2 - space < outBoxWidth) {
-			newTextList = textList;
+			newTextListState = textList;
 			left = 0;
 			return;
 		}
@@ -116,9 +124,9 @@
 
 {#if isShowClose}
 	<div
-		class="bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark flex justify-between text-sm p-2{!rightIcon
+		class="bg-primary/10 text-primary dark:bg-dark/10 dark:text-dark flex items-center justify-between text-sm p-2{!rightIcon
 			? ' pr-2'
-			: ' pr-0'} transition-all duration-300{isShow ? '' : ' scale-0'}{injClass === '' ? '' : ` ${injClass}`}"
+			: ' pr-0'} transition-all duration-300{isShow ? '' : ' scale-0'}{injClass === '' ? '' : ` ${injClass}`} {radius ? radiusObj[radius] : 'rounded-(--radius-box)'}"
 	>
 		<div class={leftIcon ? 'mr-1' : ''}>
 			{#if leftChild}
@@ -135,7 +143,7 @@
 			{:else}{/if}
 		</div>
 		{#if vertical}
-			<div class="grow" bind:this={outBoxDom}>
+			<div class="grow h-5" bind:this={outBoxDom}>
 				<div class="relative overflow-hidden" style="height:{outBoxHeight}px;">
 					{#each textListVertical as item, i (i)}
 						<div
@@ -149,7 +157,7 @@
 				</div>
 			</div>
 		{:else}
-			<div class="relative grow overflow-hidden" bind:this={outBoxDom}>
+			<div class="relative grow overflow-hidden h-5" bind:this={outBoxDom}>
 				<div class="absolute whitespace-nowrap" style="left:{left}px" bind:this={boxDom}>
 					{#each newTextList as item, i (i)}
 						<div class="inline-block" style="margin-right:{space}px">{item}</div>

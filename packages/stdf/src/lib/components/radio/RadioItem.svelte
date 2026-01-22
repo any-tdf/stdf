@@ -43,7 +43,7 @@
 				</path>
 			</svg>
 		{:else}
-			<Icon {...iconChecked} theme />
+			<Icon {...iconChecked} state="theme" />
 		{/if}
 	</div>
 	<div class:hidden={checked}>

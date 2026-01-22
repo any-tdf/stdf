@@ -13,7 +13,7 @@
 		}
 	};
 	let color = $state(false);
-	let colorCss = $derived(color ? ' bg-gradient-to-tr from-extend0/70 to-extend2/70' : ' bg-gray-100 dark:bg-gray-700');
+	let colorCss = $derived(color ? ' bg-linear-to-tr from-blue/70 to-purple/70' : ' bg-gray-100 dark:bg-gray-700');
 	const changeColorFun = (active: boolean) => {
 		color = active;
 	};
@@ -140,7 +140,7 @@
 								<div><Icon name="ri-paint-brush-line" size={12} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div><Icon name="ri-paint-brush-fill" size={12} theme /></div>
+								<div><Icon name="ri-paint-brush-fill" size={12} state="theme" /></div>
 							{/snippet}
 						</Switch>
 					</div>
@@ -152,7 +152,7 @@
 				<div
 					class="flex h-full flex-col justify-center rounded-lg bg-white text-center text-xs shadow-sm dark:bg-black dark:shadow-white/10"
 				>
-					<Button fill="lineTheme" radius="full" onclick={changeDeviceFun}>切换设备</Button>
+					<Button fill="lineState" radius="full" onclick={changeDeviceFun}>切换设备</Button>
 				</div>
 			</Grid>
 			<Grid row="2" col="2">
@@ -212,7 +212,7 @@
 								<div><Icon name="ri-bluetooth-line" size={12} y={-1} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div><Icon name="ri-bluetooth-connect-line" size={12} theme y={-1} /></div>
+								<div><Icon name="ri-bluetooth-connect-line" size={12} state="theme" y={-1} /></div>
 							{/snippet}
 						</Switch>
 					</div>
@@ -236,7 +236,7 @@
 				>
 					<div>92%</div>
 					<div class="animate-pulse">
-						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-extend1" />
+						<Icon name="ri-battery-2-charge-line" size={30} injClass="text-purple" />
 					</div>
 					<div>充电中</div>
 				</div>
@@ -280,7 +280,7 @@
 								<div><Icon name="ri-wifi-off-line" size={12} /></div>
 							{/snippet}
 							{#snippet trueChild()}
-								<div><Icon name="ri-wifi-line" size={12} theme /></div>
+								<div><Icon name="ri-wifi-line" size={12} state="theme" /></div>
 							{/snippet}
 						</Switch>
 					</div>

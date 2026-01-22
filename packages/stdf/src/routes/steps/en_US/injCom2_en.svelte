@@ -6,6 +6,6 @@
 <div class="flex items-center space-x-4">
 	<Button size="full" heightIn="2" injClass="px-4">button</Button>
 	<Avatar image="/assets/images/avatar_1.jpg" size="sm" />
-	<Icon name="ri-money-cny-circle-line" theme />
-	<Icon name="ri-fingerprint-line" theme />
+	<Icon name="ri-money-cny-circle-line" state="theme" />
+	<Icon name="ri-fingerprint-line" state="theme" />
 </div>

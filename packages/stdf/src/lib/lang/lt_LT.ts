@@ -94,6 +94,14 @@ const lt_LT: LangProps = {
 	},
 	form: {
 		submit: 'Pateikti'
+	},
+	fullKeyboard: {
+		space: 'Tarpas'
+	},
+	list: {
+		editText: 'Redaguoti',
+		doneText: 'Atlikta',
+		selectAllText: 'Pažymėti viską'
 	}
 };
 

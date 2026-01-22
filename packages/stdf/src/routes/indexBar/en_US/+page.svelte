@@ -1,6 +1,6 @@
 <!-- IndexBar Demo -->
 <script lang="ts">
-	import { IndexBar, Button, Toast } from '$lib/index.js';
+	import { IndexBar, ButtonGroup, Toast, Icon } from '$lib/index.js';
 	import type { IndexBarItemProps } from '$lib/types/index.js';
 
 	const addressList: IndexBarItemProps[] = [
@@ -39,92 +39,126 @@
 		{ index: '⚠️', title: 'Symbols', child: ['🚫', '⚛️', '🛄', '🔱'] },
 		{ index: '🏁', title: 'Flags', child: ['🇨🇳', '🇺🇸', '🇧🇻', '🇦🇹'] }
 	];
-	const movieTVList: IndexBarItemProps[] = [
+
+	// Complex data structure: Contacts
+	type ContactItem = {
+		name: string;
+		phone: string;
+	};
+	const contactList: IndexBarItemProps<ContactItem>[] = [
 		{
-			index: '三',
-			title: '三体',
+			index: 'A',
+			title: 'A',
 			child: [
-				'地球往事',
-				'黑暗森林',
-				'死神永生',
-				'科学边界',
-				'射手和农场主',
-				'寂静的春天',
-				'宇宙闪烁',
-				'地球叛军',
-				'古筝行动',
-				'智子',
-				'面壁者',
-				'咒语',
-				'黑暗森林',
-				'危机纪元',
-				'威慑纪元',
-				'广播纪元',
-				'掩体纪元',
-				'银河纪元',
-				'时间开始',
-				'时间之外，我们的宇宙'
+				{ name: 'Alice', phone: '138****1234' },
+				{ name: 'Andy', phone: '139****5678' },
+				{ name: 'Amy', phone: '137****9012' }
 			]
 		},
 		{
-			index: '流',
-			title: '流浪地球',
+			index: 'B',
+			title: 'B',
 			child: [
-				'人类的勇气和坚毅必将被镌刻在星空之下。',
-				'希望是像钻石一样珍贵的东西！',
-				'希望，希望是我们唯一回家的方向。',
-				'让人类永远保持理智，是一种奢求。',
-				'道路千万条，安全第一条；行车不规范，亲人两行泪！',
-				'那时候人们还没注意到太阳，人们更喜欢叫做钱的东西。',
-				'为了我们的孩子，没有什么不能失去的了',
-				'moss 没有叛逃！',
-				'火石没了，我老婆孩子全他妈白死了！'
+				{ name: 'Bob', phone: '136****3456' },
+				{ name: 'Ben', phone: '135****7890' }
 			]
 		},
 		{
-			index: '仙',
-			title: '仙剑奇侠传',
+			index: 'C',
+			title: 'C',
 			child: [
-				'既不回头，何必不忘。既然无缘，何必誓言。',
-				'没有值得不值得，只有愿意不愿意。',
-				'不曾得到，谈何放下。既已得到，又如何放下。',
-				'轮回的是故人，不变的是初心！',
-				'明夕何夕，君已陌路。',
-				'我曾经也拥有过爱，只是，我放弃了。',
-				'你以为每天看到的东西，就会抓得住吗？',
-				'世有无情人，却有痴情妖。',
-				'君子，小人，皆在一念思量。',
-				'到家了，一定要叫醒我，我怕我醒不过来。',
-				'如果得道就是牺牲所有人来成全自己，我宁愿执迷不悟。',
-				'我们今日一别，让我们十年后再相见，不见不散！',
-				'一杯愁绪，几段情缘，莫过，与君对酒当歌。'
+				{ name: 'Charlie', phone: '134****1234' },
+				{ name: 'Chris', phone: '133****5678' },
+				{ name: 'Cathy', phone: '132****9012' }
+			]
+		},
+		{
+			index: 'D',
+			title: 'D',
+			child: [
+				{ name: 'David', phone: '131****3456' },
+				{ name: 'Diana', phone: '130****7890' }
+			]
+		},
+		{
+			index: 'J',
+			title: 'J',
+			child: [
+				{ name: 'Jack', phone: '158****1234' },
+				{ name: 'John', phone: '159****5678' },
+				{ name: 'Jane', phone: '157****9012' }
+			]
+		},
+		{
+			index: 'M',
+			title: 'M',
+			child: [
+				{ name: 'Mike', phone: '186****3456' },
+				{ name: 'Mary', phone: '187****7890' },
+				{ name: 'Mark', phone: '188****1234' }
+			]
+		},
+		{
+			index: 'T',
+			title: 'T',
+			child: [
+				{ name: 'Tom', phone: '198****5678' },
+				{ name: 'Tony', phone: '199****9012' },
+				{ name: 'Tina', phone: '197****3456' }
 			]
 		}
 	];
+
+	// Color list for dynamic selection in Snippet
+	const colors = [
+		'bg-red-500',
+		'bg-orange-500',
+		'bg-amber-500',
+		'bg-yellow-500',
+		'bg-lime-500',
+		'bg-green-500',
+		'bg-emerald-500',
+		'bg-teal-500',
+		'bg-cyan-500',
+		'bg-sky-500',
+		'bg-blue-500',
+		'bg-indigo-500',
+		'bg-violet-500',
+		'bg-purple-500',
+		'bg-fuchsia-500',
+		'bg-pink-500',
+		'bg-rose-500'
+	];
+
 	const navHeight = 48;
 	const bottomHeight = 50;
 	const height = window.innerHeight - navHeight - bottomHeight;
-	/**
-	 * @type {'base' | 'full' | 'none'}
-	 */
-	let radius: 'middle' | 'full' | 'none' = $state('middle');
-	let dataFlag = $state(0);
+	let radius: 'sm' | 'full' | 'none' = $state('sm');
+	let dataFlag = $state(2);
 	let scrollAlign = $state(true);
 	let injClassList: string[] = $state([]);
+	let snippetStyle = $state(0); // Contact Snippet style: 0-Avatar Card, 1-Simple List, 2-Colorful Tag
 	const changeRadiusFun = () => {
-		radius = radius === 'middle' ? 'full' : radius === 'full' ? 'none' : 'middle';
+		radius = radius === 'sm' ? 'full' : radius === 'full' ? 'none' : 'sm';
 	};
 	const changeListFun = () => {
 		dataFlag = dataFlag === 0 ? 1 : dataFlag === 1 ? 2 : 0;
+		snippetStyle = 0; // Reset style when switching data
 	};
 	const changeScrollAlignFun = () => {
 		scrollAlign = !scrollAlign;
 	};
-	const changeClassFun = () => {
-		injClassList = !injClassList.length ? ['!text-3xl text-center', 'text-xs text-center !py-1'] : [];
+	const changeStyleFun = () => {
+		if (dataFlag === 2) {
+			// Contact mode: switch Snippet style
+			snippetStyle = (snippetStyle + 1) % 3;
+		} else {
+			// Other modes: switch inject class
+			injClassList = !injClassList.length ? ['!text-3xl text-center', 'text-xs text-center !py-1'] : [];
+		}
 	};
 	let visible = $state(false);
-	let toastObj = $state({ index: 0, group: { title: '' }, childIndex: 0, child: '' });
+	let toastMessage = $state('');
 </script>
 
 {#if dataFlag === 0}
@@ -137,7 +171,7 @@
 		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `Clicked group ${index + 1} (${group.title}) item ${childIndex + 1} (${child})`;
 			visible = true;
 		}}
 	/>
@@ -151,35 +185,61 @@
 		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `Clicked group ${index + 1} (${group.title}) item ${childIndex + 1} (${child})`;
 			visible = true;
 		}}
 	/>
 {:else}
 	<IndexBar
-		data={movieTVList}
+		data={contactList}
 		{radius}
 		{height}
 		{scrollAlign}
-		titleInjClass={injClassList[0]}
-		textInjClass={injClassList[1]}
 		top={navHeight}
 		onclickChild={(index, group, childIndex, child) => {
-			toastObj = { index, group, childIndex, child };
+			toastMessage = `Clicked ${child.name}, Phone: ${child.phone}`;
 			visible = true;
 		}}
-	/>
+	>
+		{#snippet children(item, childIndex, group, groupIndex)}
+			{#if snippetStyle === 0}
+				<!-- Avatar Card Style -->
+				<div class="flex items-center gap-3 py-1">
+					<div class="{colors[(groupIndex * 3 + childIndex) % colors.length]} flex h-10 w-10 items-center justify-center rounded-full text-lg font-medium text-white">
+						{item.name[0]}
+					</div>
+					<div class="flex-1">
+						<div class="font-medium">{item.name}</div>
+						<div class="text-xs text-black/50 dark:text-white/50">{item.phone}</div>
+					</div>
+					<Icon name="ri-phone-line" />
+				</div>
+			{:else if snippetStyle === 1}
+				<!-- Simple List Style -->
+				<div class="flex items-center justify-between py-2">
+					<span class="font-medium">{item.name}</span>
+					<span class="text-sm text-black/60 dark:text-white/60">{item.phone}</span>
+				</div>
+			{:else}
+				<!-- Colorful Tag Style -->
+				<div class="flex items-center gap-2 py-1">
+					<span class="{colors[(groupIndex * 3 + childIndex) % colors.length]} rounded-md px-2 py-1 text-sm text-white">{item.name}</span>
+					<span class="text-xs text-black/50 dark:text-white/50">{item.phone}</span>
+				</div>
+			{/if}
+		{/snippet}
+	</IndexBar>
 {/if}
-<Toast
-	bind:visible
-	message={`Clicked ${toastObj.index + 1} group(${toastObj.group.title}) ${toastObj.childIndex + 1} item(${toastObj.child})`}
-/>
+<Toast bind:visible message={toastMessage} />
 
-<div class="sticky bottom-0 z-10 flex justify-between bg-white/90 px-2 dark:bg-black/90">
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeListFun}>Switch data</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeScrollAlignFun}>
-		{scrollAlign ? 'open' : 'close'} Align
-	</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeRadiusFun}>Switch rounded</Button>
-	<Button fill="lineTheme" size="auto" injClass="text-xs px-2" onclick={changeClassFun}>Switch style</Button>
+<div class="sticky bottom-0 z-10 bg-white/90 dark:bg-black/90">
+	<ButtonGroup
+		fill="lineState"
+		items={[
+			{ text: dataFlag === 0 ? 'City' : dataFlag === 1 ? 'Emoji' : 'Contact', onclick: changeListFun },
+			{ text: scrollAlign ? 'Align Off' : 'Align On', onclick: changeScrollAlignFun },
+			{ text: 'Radius', onclick: changeRadiusFun },
+			{ text: dataFlag === 2 ? (snippetStyle === 0 ? 'Card' : snippetStyle === 1 ? 'List' : 'Tag') : 'Style', onclick: changeStyleFun }
+		]}
+	/>
 </div>

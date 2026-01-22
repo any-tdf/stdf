@@ -283,13 +283,13 @@
 	<div class="mt-2 text-xs">未选：{noCheckDotas.map((a) => dotaAll.find((b) => b.name === a)?.label).join('-')}</div>
 	<div class="mt-2 flex">
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkAllFun}>全选</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkAllFun}>全选</Button>
 		</div>
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkNoneFun}>全不选</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkNoneFun}>全不选</Button>
 		</div>
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkReverseFun}>反选</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkReverseFun}>反选</Button>
 		</div>
 	</div>
 	<Divider />

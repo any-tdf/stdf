@@ -94,6 +94,14 @@ const ta_IN: LangProps = {
 	},
 	form: {
 		submit: 'சமர்ப்பிக்கவும்'
+	},
+	fullKeyboard: {
+		space: 'இடைவெளி'
+	},
+	list: {
+		editText: 'திருத்து',
+		doneText: 'முடிந்தது',
+		selectAllText: 'அனைத்தையும் தேர்ந்தெடு'
 	}
 };
 

@@ -95,6 +95,14 @@ const ml_IN: LangProps = {
 	},
 	form: {
 		submit: 'സമർപ്പിക്കുക'
+	},
+	fullKeyboard: {
+		space: 'സ്പേസ്'
+	},
+	list: {
+		editText: 'തിരുത്തുക',
+		doneText: 'ചെയ്തു',
+		selectAllText: 'എല്ലാം തിരഞ്ഞെടുക്കുക'
 	}
 };
 

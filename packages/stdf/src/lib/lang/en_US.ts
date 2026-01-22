@@ -94,6 +94,14 @@ const en_US: LangProps = {
 	},
 	form: {
 		submit: 'Submit'
+	},
+	fullKeyboard: {
+		space: 'space'
+	},
+	list: {
+		editText: 'Edit',
+		doneText: 'Done',
+		selectAllText: 'Select all'
 	}
 };
 

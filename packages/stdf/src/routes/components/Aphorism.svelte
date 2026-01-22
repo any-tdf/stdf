@@ -13,7 +13,7 @@
 
 	// 从 aphorisms 随机取出 num 条数据
 	// get num items from aphorisms randomly
-	const aphorismsList = aphorisms.sort(() => Math.random() - 0.5).slice(0, num);
+	let aphorismsList = $derived(aphorisms.sort(() => Math.random() - 0.5).slice(0, num));
 </script>
 
 <div class="{compact ? '' : 'px-4 py-8 '}divide-y divide-black/5 dark:divide-white/5">

@@ -12,9 +12,9 @@
 </script>
 
 <div class="{size} relative m-auto -translate-x-0.5">
-	{#each new Array(12) as item, i}
+	{#each new Array(12) as item, i (i)}
 		<div
-			class="absolute left-1/2 flex h-8 w-[3px] flex-col gap-5 rounded-full bg-transparent"
+			class="absolute left-1/2 flex h-8 w-0.75 flex-col gap-5 rounded-full bg-transparent"
 			style="transform: rotate(calc(360deg / -12*{i}));"
 		>
 			<div

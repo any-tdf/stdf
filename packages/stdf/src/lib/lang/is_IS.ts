@@ -81,6 +81,14 @@ const is_IS: LangProps = {
 	},
 	form: {
 		submit: 'Senda'
+	},
+	fullKeyboard: {
+		space: 'Bil'
+	},
+	list: {
+		editText: 'Breyta',
+		doneText: 'Lokið',
+		selectAllText: 'Velja allt'
 	}
 };
 

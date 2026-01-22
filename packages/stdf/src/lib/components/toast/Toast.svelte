@@ -4,6 +4,7 @@
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
 	import type { ToastProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		message = '',
@@ -11,10 +12,12 @@
 		duration = 2000,
 		position = 'center',
 		py = '0',
-		radius = 'sm',
+		radius = '',
 		transitionType = 'scale',
 		transitionParams = {},
 		outDuration = 0,
+		easeType = 'cubicOut',
+		easeOutType = 'cubicOut',
 		zIndex = 1000,
 		type = null,
 		mask = {},
@@ -41,16 +44,6 @@
 
 	const positionClass = { center: ' justify-center', top: ' justify-start', bottom: ' justify-end' };
 	const pyClass = { '0': ' py-0', '10': ' py-10', '20': ' py-20', '40': ' py-40', '60': ' py-60', '80': ' py-80' };
-	const radiusClass = {
-		sm: ' rounded-sm',
-		full: ' rounded-full',
-		none: ' rounded-none',
-		xs: ' rounded-xs',
-		md: ' rounded-md',
-		lg: ' rounded-lg',
-		xl: ' rounded-xl',
-		'2xl': ' rounded-2xl'
-	};
 
 	//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -64,17 +57,17 @@
 	//     document.documentElement.style.setProperty('--vh', `${vh}px`);
 	// });
 
-	let innerHeight = $state(0);
+	let innerHeight = $derived(window.innerHeight);
+	;
 	$effect(() => {
-		innerHeight = window.innerHeight;
+		if (dynamicFixed) {
+			//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
+			// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+			window.addEventListener('resize', () => {
+				innerHeight = window.innerHeight;
+			});
+		}
 	});
-	if (dynamicFixed) {
-		//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
-		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-		window.addEventListener('resize', () => {
-			innerHeight = window.innerHeight;
-		});
-	}
 </script>
 
 {#if visible}
@@ -87,11 +80,10 @@
 			: pyClass[py] || pyClass['20']} w-full h-full${clickable ? ' pointer-events-none' : ''}"
 		style="z-index:{zIndex};height:{innerHeight}px;"
 	>
-		<Transition {visible} {transitionType} {transitionParams} {outDuration}>
+		<Transition {visible} {transitionType} {transitionParams} {outDuration} {easeType} {easeOutType}>
 			<div class="flex justify-center px-10">
 				<div
-					class="inline-block bg-black/90 text-center dark:bg-white/90 p-4{radiusClass[radius] ||
-						radiusClass.sm} text-white dark:text-black"
+					class="inline-block bg-text-primary/90 text-center dark:bg-text-dark/90 p-4 {radius ? radiusObj[radius] : 'rounded-(--radius-box)'} text-text-dark dark:text-text-primary"
 				>
 					{#if children}
 						{@render children()}

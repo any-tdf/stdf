@@ -1,30 +1,20 @@
 <script lang="ts">
 	import Icon from '../icon/Icon.svelte';
 	import type { AvatarProps } from '$lib/types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		image = '',
 		alt = '',
 		icon = {},
 		altSize = 'md',
-		radius = 'sm',
+		radius = '',
 		size = 'base',
 		imgSize = 'l',
 		line = 'none',
 		injClass = '',
 		onclick
 	}: AvatarProps = $props();
-
-	// 圆角风格样式
-	// radius style
-	const radiusObj = {
-		none: 'rounded-none',
-		sm: 'rounded-sm',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		'3xl': 'rounded-3xl',
-		full: 'rounded-full'
-	};
 
 	// 头像框大小样式
 	// avatar size style
@@ -63,7 +53,7 @@
 <button
 	class="bg-primary-200 dark:bg-dark-200 flex flex-col items-center justify-center overflow-hidden relative{lineObj[line] || ''} {sizeObj[
 		size
-	] || sizeObj.md} {radiusObj[radius] || radiusObj.sm} {injClass}"
+	] || sizeObj.md} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'} {injClass}"
 	onclick={() => onclick && onclick()}
 >
 	{#if image === '' && alt === ''}

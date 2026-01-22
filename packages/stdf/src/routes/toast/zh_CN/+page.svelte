@@ -1,6 +1,7 @@
 <!-- Toast Demo -->
 <script lang="ts">
-	import { Toast, Cell, Button, Loading } from '$lib/index.js';
+	import { Toast, Cell, Button, Loading, Tab, Slider } from '$lib/index.js';
+	import type { TabLabelProps, SvelteEasingProps } from '$lib/types/index.js';
 
 	let visible1 = $state(false);
 	let visible2 = $state(false);
@@ -15,22 +16,12 @@
 	let visible11 = $state(false);
 	let visible12 = $state(false);
 	let visible13 = $state(false);
-	let visible14 = $state(false);
-	let visible15 = $state(false);
-	let visible16 = $state(false);
-	let visible17 = $state(false);
-	let visible18 = $state(false);
-	let visible19 = $state(false);
-	let visible20 = $state(false);
-	let visible21 = $state(false);
 	let visible22 = $state(false);
 	let visible23 = $state(false);
 	let visible24 = $state(false);
 	let visible25 = $state(false);
 	let visible26 = $state(false);
 	let visible27 = $state(false);
-	let visible28 = $state(false);
-	let visible29 = $state(false);
 	let visible30 = $state(false);
 	let visible31 = $state(false);
 	let visible32 = $state(false);
@@ -47,6 +38,44 @@
 				time = 3;
 			}
 		}, 1000);
+	};
+
+	// 动画类型控制
+	const transitionTypes = ['scale', 'fly', 'fade', 'blur'] as const;
+	const transitionLabels: TabLabelProps[] = transitionTypes.map((t) => ({ text: t }));
+	let transitionTypeIndex = $state(0);
+	let transitionType = $derived(transitionTypes[transitionTypeIndex]);
+
+	// 缓动函数控制
+	const easeTypes: SvelteEasingProps[] = ['cubicOut', 'bounceOut', 'elasticOut', 'backOut'];
+	const easeLabels: TabLabelProps[] = easeTypes.map((t) => ({ text: t.replace('Out', '') }));
+	let easeTypeIndex = $state(0);
+	let easeType = $derived(easeTypes[easeTypeIndex]);
+
+	// 动画时长控制
+	let inDuration = $state(300);
+	let outDuration = $state(300);
+
+	// fly 动画参数
+	let flyY = $state(-100);
+
+	// scale 动画参数
+	let scaleStart = $state(0);
+
+	// blur 动画参数
+	let blurAmount = $state(5);
+
+	// 根据动画类型生成 transitionParams
+	const getTransitionParams = () => {
+		const base = { duration: inDuration };
+		if (transitionType === 'fly') {
+			return { ...base, y: flyY };
+		} else if (transitionType === 'scale') {
+			return { ...base, start: scaleStart };
+		} else if (transitionType === 'blur') {
+			return { ...base, amount: blurAmount };
+		}
+		return base;
 	};
 </script>
 
@@ -99,44 +128,53 @@
 	<Cell title="遮罩模糊" onclick={() => (visible12 = true)} />
 	<Toast bind:visible={visible12} mask={{ opacity: '0', backdropBlur: 'sm' }} message="遮罩下层内容模糊" />
 
-	<Cell title="过渡较快" onclick={() => (visible13 = true)} />
-	<Toast bind:visible={visible13} transitionParams={{ duration: 150 }} message="过渡时间为 150ms" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">动画类型（transitionType: {transitionType}）</div>
+		<Tab labels={transitionLabels} active={transitionTypeIndex} onclickTab={(v) => (transitionTypeIndex = v)} />
+	</div>
 
-	<Cell title="过渡较慢" onclick={() => (visible14 = true)} />
-	<Toast bind:visible={visible14} transitionParams={{ duration: 1000 }} message="过渡时间为 1s" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">缓动函数（easeType: {easeType}）</div>
+		<Tab labels={easeLabels} active={easeTypeIndex} onclickTab={(v) => (easeTypeIndex = v)} />
+	</div>
 
-	<Cell title="淡入" onclick={() => (visible15 = true)} />
-	<Toast bind:visible={visible15} transitionType="fade" message="淡入呈现" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">进入动画时长：{inDuration}ms</div>
+		<Slider value={inDuration} minRange={0} maxRange={1000} step={50} onchange={(v) => (inDuration = v)} />
+	</div>
 
-	<Cell title="向下移入" onclick={() => (visible16 = true)} />
-	<Toast bind:visible={visible16} transitionType="fly" transitionParams={{ y: -150 }} message="向下移入呈现" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">退出动画时长：{outDuration}ms</div>
+		<Slider value={outDuration} minRange={0} maxRange={1000} step={50} onchange={(v) => (outDuration = v)} />
+	</div>
 
-	<Cell title="向右移入" onclick={() => (visible17 = true)} />
-	<Toast bind:visible={visible17} transitionType="fly" transitionParams={{ x: -150 }} message="向右移入呈现" />
+	{#if transitionType === 'fly'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">fly 动画 Y 偏移：{flyY}px</div>
+			<Slider value={flyY} minRange={-200} maxRange={200} step={10} onchange={(v) => (flyY = v)} />
+		</div>
+	{:else if transitionType === 'scale'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">scale 动画初始缩放：{scaleStart}</div>
+			<Slider value={scaleStart} minRange={0} maxRange={1} step={0.1} onchange={(v) => (scaleStart = v)} />
+		</div>
+	{:else if transitionType === 'blur'}
+		<div class="px-2 py-4">
+			<div class="text-sm text-black/50 dark:text-white/50 mb-2">blur 动画模糊程度：{blurAmount}px</div>
+			<Slider value={blurAmount} minRange={0} maxRange={20} step={1} onchange={(v) => (blurAmount = v)} />
+		</div>
+	{/if}
 
-	<Cell title="展开" onclick={() => (visible18 = true)} />
-	<Toast bind:visible={visible18} transitionType="slide" message="展开呈现" />
-
-	<Cell title="模糊" onclick={() => (visible19 = true)} />
-	<Toast bind:visible={visible19} transitionType="blur" transitionParams={{ duration: 1000 }} message="模糊呈现" />
-
-	<Cell title="无过渡" onclick={() => (visible20 = true)} />
-	<Toast bind:visible={visible20} transitionType={null} message="无过渡直接呈现" />
-
-	<Cell title="退出缩放动画" onclick={() => (visible28 = true)} />
-	<Toast bind:visible={visible28} outDuration={300} message="退出时缩放动画时间为 300ms" />
-
-	<Cell title="退出移出动画" onclick={() => (visible29 = true)} />
+	<Cell title="自定义动画效果" onclick={() => (visible13 = true)} />
 	<Toast
-		bind:visible={visible29}
-		outDuration={300}
-		transitionType="fly"
-		transitionParams={{ y: -150 }}
-		message="退出时移出动画时间为 300ms"
+		bind:visible={visible13}
+		{transitionType}
+		transitionParams={getTransitionParams()}
+		{outDuration}
+		{easeType}
+		easeOutType={easeType}
+		message="调整上方控件查看不同动画效果"
 	/>
-
-	<Cell title="延时出现" onclick={() => (visible21 = true)} />
-	<Toast bind:visible={visible21} transitionParams={{ delay: 1000 }} message="点击 1s 之后呈现" />
 
 	<Cell title="顶部" onclick={() => (visible22 = true)} />
 	<Toast bind:visible={visible22} position="top" message="提示位于顶部" />
@@ -157,11 +195,11 @@
 	</Toast>
 
 	<Cell title="不同圆角风格" onclick={() => (visible26 = true)} />
-	<Toast bind:visible={visible26} radius="xl" message="加大了圆角" />
+	<Toast bind:visible={visible26} radius="2xl" message="加大了圆角" />
 </div>
 
 <div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
 	<div class="flex-1">
-		<Button fill="lineTheme" onclick={() => (visible5 = false)}>手动关闭</Button>
+		<Button fill="lineState" onclick={() => (visible5 = false)}>手动关闭</Button>
 	</div>
 </div>

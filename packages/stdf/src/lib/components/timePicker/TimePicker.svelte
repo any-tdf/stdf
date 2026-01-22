@@ -44,11 +44,16 @@
 		minuteText = timePickerLang.defaultMinute,
 		secondText = timePickerLang.defaultSecond,
 		outFormat = '',
+		height = 30,
 		popup = {},
 		onclose,
 		onconfirm,
 		oncancel
 	}: TimePickerProps = $props();
+
+	// 是否使用弹出层，当 popup 为 null 时不使用
+	// Whether to use popup, when popup is null, do not use
+	const usePopup = $derived(popup !== null);
 
 	// 获取当前时间，取出对应的年月日时分秒，转成字符，月、日、时、分、秒小于 10 的前面补 0
 	// Get the current time, take out the corresponding year, month, day, hour, minute, and second, convert to a character, and add 0 to the front of month, day, hour, minute, and second less than 10
@@ -80,83 +85,100 @@
 
 	// 定义 typeInner，对不在 typeMap 的 type 做一个过滤，不在 typeMap 的 type 设置为默认值 YMDhms
 	// Define typeInner, filter out types that are not in typeMap, and set types that are not in typeMap to the default value YMDhms
-	let typeInner = typeMap[type] || 'YYYYMMDDhhmmss';
+	let typeInner = $derived(typeMap[type] || 'YYYYMMDDhhmmss');
 
 	// 如果 yearRange 长度为2且后一项大于前一项，表示限定区间，否则取当前年的的前后 10 年
 	// If the length of yearRange is 2 and the second item is greater than the first item, it means that the range is limited, otherwise the previous and next 10 years of the current year are taken
-	let yearData = [];
-	if (yearRange.length === 2 && yearRange[1] > yearRange[0]) {
-		for (let i = yearRange[0]; i <= yearRange[1]; i++) {
-			yearData.push({ label: i.toString() });
+	const yearData = $derived.by(() => {
+		const data: { label: string }[] = [];
+		if (yearRange.length === 2 && yearRange[1] > yearRange[0]) {
+			for (let i = yearRange[0]; i <= yearRange[1]; i++) {
+				data.push({ label: i.toString() });
+			}
+		} else {
+			for (let i = now.getFullYear() - 10; i <= now.getFullYear() + 10; i++) {
+				data.push({ label: i.toString() });
+			}
 		}
-	} else {
-		for (let i = now.getFullYear() - 10; i <= now.getFullYear() + 10; i++) {
-			yearData.push({ label: i.toString() });
-		}
-	}
+		return data;
+	});
 
 	// 月份列数据，固定 12 个月，如果有限定区间
 	// Month column data, fixed 12 months, if there is a limited range, it needs to be judged according to the year
-	const baseMonthData: { label: string }[] = [];
-	if (monthRange.length === 2 && monthRange[1] > monthRange[0] && monthRange[0] >= 1 && monthRange[1] <= 12) {
-		for (let i = monthRange[0]; i <= monthRange[1]; i++) {
-			baseMonthData.push({ label: (i < 10 ? '0' + i : i).toString() });
+	const baseMonthData = $derived.by(() => {
+		const data: { label: string }[] = [];
+		if (monthRange.length === 2 && monthRange[1] > monthRange[0] && monthRange[0] >= 1 && monthRange[1] <= 12) {
+			for (let i = monthRange[0]; i <= monthRange[1]; i++) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
+		} else {
+			for (let i = 1; i <= 12; i++) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
 		}
-	} else {
-		for (let i = 1; i <= 12; i++) {
-			baseMonthData.push({ label: (i < 10 ? '0' + i : i).toString() });
-		}
-	}
+		return data;
+	});
 
 	// 小时列数据，根据限定小时区间计算
 	// Hour column data, fixed 24 hours
-	const baseHourData: { label: string }[] = [];
-	if (hourRange.length === 2 && hourRange[1] > hourRange[0] && hourRange[0] >= 0 && hourRange[1] <= 23) {
-		for (let i = hourRange[0]; i <= hourRange[1]; i++) {
-			baseHourData.push({ label: (i < 10 ? '0' + i : i).toString() });
+	const baseHourData = $derived.by(() => {
+		const data: { label: string }[] = [];
+		if (hourRange.length === 2 && hourRange[1] > hourRange[0] && hourRange[0] >= 0 && hourRange[1] <= 23) {
+			for (let i = hourRange[0]; i <= hourRange[1]; i++) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
+		} else {
+			for (let i = 0; i < 24; i++) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
 		}
-	} else {
-		for (let i = 0; i < 24; i++) {
-			baseHourData.push({ label: (i < 10 ? '0' + i : i).toString() });
-		}
-	}
+		return data;
+	});
 
 	// 分钟列数据，根据限定分钟区间计算
 	// Minute column data, calculated according to the limited minute range
-	const baseMinuteData: { label: string }[] = [];
-	if (minuteRange.length === 2 && minuteRange[1] > minuteRange[0] && minuteRange[0] >= 0 && minuteRange[1] <= 59) {
-		for (let i = minuteRange[0]; i <= minuteRange[1]; i += minuteStep) {
-			baseMinuteData.push({ label: (i < 10 ? '0' + i : i).toString() });
+	const baseMinuteData = $derived.by(() => {
+		const data: { label: string }[] = [];
+		if (minuteRange.length === 2 && minuteRange[1] > minuteRange[0] && minuteRange[0] >= 0 && minuteRange[1] <= 59) {
+			for (let i = minuteRange[0]; i <= minuteRange[1]; i += minuteStep) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
+		} else {
+			for (let i = 0; i < 60; i += minuteStep) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
 		}
-	} else {
-		for (let i = 0; i < 60; i += minuteStep) {
-			baseMinuteData.push({ label: (i < 10 ? '0' + i : i).toString() });
-		}
-	}
+		return data;
+	});
 
 	// 秒列数据，根据限定秒区间计算
 	// Second column data, calculated according to the limited second range
-	const baseSecondData: { label: string }[] = [];
-	if (secondRange.length === 2 && secondRange[1] > secondRange[0] && secondRange[0] >= 0 && secondRange[1] <= 59) {
-		for (let i = secondRange[0]; i <= secondRange[1]; i += secondStep) {
-			baseSecondData.push({ label: (i < 10 ? '0' + i : i).toString() });
+	const baseSecondData = $derived.by(() => {
+		const data: { label: string }[] = [];
+		if (secondRange.length === 2 && secondRange[1] > secondRange[0] && secondRange[0] >= 0 && secondRange[1] <= 59) {
+			for (let i = secondRange[0]; i <= secondRange[1]; i += secondStep) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
+		} else {
+			for (let i = 0; i < 60; i += secondStep) {
+				data.push({ label: (i < 10 ? '0' + i : i).toString() });
+			}
 		}
-	} else {
-		for (let i = 0; i < 60; i += secondStep) {
-			baseSecondData.push({ label: (i < 10 ? '0' + i : i).toString() });
-		}
-	}
+		return data;
+	});
 
 	// 找出 yearProps、monthProps、dayProps、hourProps、minuteProps、secondProps 中 showRow 的最大值
 	// Find the maximum value of showRow in yearProps, monthProps, dayProps, hourProps, minuteProps, and secondProps
-	const showRowsArr: number[] = [];
-	showRowsArr.push(yearProps.showRow || 5);
-	showRowsArr.push(monthProps.showRow || 5);
-	showRowsArr.push(dayProps.showRow || 5);
-	showRowsArr.push(hourProps.showRow || 5);
-	showRowsArr.push(minuteProps.showRow || 5);
-	showRowsArr.push(secondProps.showRow || 5);
-	const maxShowRows = Math.max(...showRowsArr);
+	const maxShowRows = $derived(
+		Math.max(
+			yearProps.showRow || 5,
+			monthProps.showRow || 5,
+			dayProps.showRow || 5,
+			hourProps.showRow || 5,
+			minuteProps.showRow || 5,
+			secondProps.showRow || 5
+		)
+	);
 
 	// 天数列数据
 	// Day column data
@@ -164,7 +186,7 @@
 
 	// 根据当前年月初始一次天数列数据
 	// Initialize the day column data according to the current year and month
-	const tempDayData = [];
+	const tempDayData: { label: string }[] = [];
 	for (let i = 1; i <= getDayNum(currentYear, currentMonth); i++) {
 		tempDayData.push({ label: (i < 10 ? '0' + i : i).toString() });
 	}
@@ -172,21 +194,23 @@
 
 	// 初始时年份索引
 	// Initial year index
-	const initYearIndex =
+	const initYearIndex = $derived(
 		initYear === ''
 			? yearData.findIndex((item) => item.label === currentYear)
-			: yearData.findIndex((item) => item.label === initYear?.toString());
+			: yearData.findIndex((item) => item.label === initYear?.toString())
+	);
 
 	// 初始时月份索引
 	// Initial month index
-	const initMonthIndex =
+	const initMonthIndex = $derived(
 		initMonth === ''
 			? baseMonthData.findIndex((item) => item.label === currentMonth)
-			: baseMonthData.findIndex((item) => item.label === initMonth.toString());
+			: baseMonthData.findIndex((item) => item.label === initMonth.toString())
+	);
 
 	// 初始时天数索引
 	// Initial day index
-	let initDayIndex = $state(
+	let initDayIndex = $derived(
 		initDay === ''
 			? tempDayData.findIndex((item) => item.label === currentDay)
 			: tempDayData.findIndex((item) => item.label === initDay.toString())
@@ -194,24 +218,27 @@
 
 	// 初始时小时索引
 	// Initial hour index
-	const initHourIndex =
+	const initHourIndex = $derived(
 		initHour === ''
 			? baseHourData.findIndex((item) => item.label === currentHour)
-			: baseHourData.findIndex((item) => item.label === initHour.toString());
+			: baseHourData.findIndex((item) => item.label === initHour.toString())
+	);
 
 	// 初始时分钟索引
 	// Initial minute index
-	const initMinuteIndex =
+	const initMinuteIndex = $derived(
 		initMinute === ''
 			? baseMinuteData.findIndex((item) => item.label === currentMinute)
-			: baseMinuteData.findIndex((item) => item.label === initMinute.toString());
+			: baseMinuteData.findIndex((item) => item.label === initMinute.toString())
+	);
 
 	// 初始时秒索引
 	// Initial second index
-	const initSecondIndex =
+	const initSecondIndex = $derived(
 		initSecond === ''
 			? baseSecondData.findIndex((item) => item.label === currentSecond)
-			: baseSecondData.findIndex((item) => item.label === initSecond.toString());
+			: baseSecondData.findIndex((item) => item.label === initSecond.toString())
+	);
 
 	// 年月日时分秒初始索引
 	// Year, month, day, hour, minute, second initial index
@@ -233,7 +260,11 @@
 
 	// 初始一下生成天数数据
 	// Generate day data initially
-	updateDayDataFunc(getDayNum(yearData[yearIndex].label, baseMonthData[monthIndex].label));
+	$effect(() => {
+		if (yearData.length > 0 && baseMonthData.length > 0) {
+			updateDayDataFunc(getDayNum(yearData[yearIndex].label, baseMonthData[monthIndex].label));
+		}
+	});
 
 	// 年数据滚动结束时的回调函数
 	// Callback function when the year data scrolling ends
@@ -341,21 +372,15 @@
 	};
 </script>
 
-<Popup
-	bind:visible
-	size={0}
-	maskClosable
-	transitionDistance={(maxShowRows === 3 ? 64 : maxShowRows === 5 ? 48 : 32) * maxShowRows + 41 + (showTips ? 32 : 0)}
-	{...popup}
->
-	<div class="flex items-center justify-between border-b border-black/10 bg-white dark:border-white/20 dark:bg-black">
+{#snippet timePickerContent()}
+	<div class="flex items-center justify-between border-b border-black/10 bg-bg-surface dark:border-white/20 dark:bg-bg-surface-dark">
 		<button class="h-10 cursor-pointer px-4 leading-10 text-black/60 dark:text-white/60" onclick={clickCancelFunc}>{cancelText}</button>
 		<div>{title}</div>
 		<button class="text-primary dark:text-dark h-10 cursor-pointer px-4 leading-10" onclick={clickConfirmFunc}>{confirmText}</button>
 	</div>
 	{#if showTips}
 		<div
-			class="flex h-8 items-center justify-around gap-1 bg-white text-center text-sm leading-8 text-black/60 dark:bg-black dark:text-white/60"
+			class="flex h-8 items-center justify-around gap-1 bg-bg-surface text-center text-sm leading-8 text-black/60 dark:bg-bg-surface-dark dark:text-white/60"
 		>
 			{#if typeInner.includes('Y')}
 				<div class="px-2" style="flex:{yearProps.flex || '1'};text-align:{yearProps.align}">{yearText}</div>{/if}
@@ -371,7 +396,10 @@
 				<div class="px-2" style="flex:{secondProps.flex || '1'};text-align:{secondProps.align}">{secondText}</div>{/if}
 		</div>
 	{/if}
-	<div class="flex items-center justify-around gap-1 bg-white dark:bg-black">
+	<div
+		class="flex items-center justify-around gap-1 bg-bg-surface dark:bg-bg-surface-dark"
+		style={usePopup ? '' : `height:${(window.innerHeight * height) / 100}px`}
+	>
 		{#if typeInner.includes('Y')}
 			<div class="truncate" style="flex:{yearProps.flex || '1'}">
 				<ScrollRadio data={yearData} initIndex={initYearIndex} autoScrollToLast={false} {...yearProps} onscrollEnd={scrollEndYearFunc} />
@@ -413,4 +441,18 @@
 			</div>
 		{/if}
 	</div>
-</Popup>
+{/snippet}
+
+{#if usePopup}
+	<Popup
+		bind:visible
+		size={0}
+		maskClosable
+		transitionDistance={(maxShowRows === 3 ? 64 : maxShowRows === 5 ? 48 : 32) * maxShowRows + 41 + (showTips ? 32 : 0)}
+		{...popup}
+	>
+		{@render timePickerContent()}
+	</Popup>
+{:else}
+	{@render timePickerContent()}
+{/if}

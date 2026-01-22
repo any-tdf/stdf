@@ -69,7 +69,7 @@
 	<Modal bind:visible={visible9} button={{ radius: 'full' }} />
 
 	<Cell title="主题色纯文本按钮" onclick={() => (visible12 = true)} />
-	<Modal bind:visible={visible12} button={{ fill: 'textTheme' }} />
+	<Modal bind:visible={visible12} button={{ fill: 'textState' }} />
 
 	<Cell title="内容使用 Snippet 且滚动" onclick={() => (visible10 = true)} />
 	<Modal bind:visible={visible10}>

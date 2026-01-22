@@ -81,6 +81,14 @@ const da_DK: LangProps = {
 	},
 	form: {
 		submit: 'Indsend'
+	},
+	fullKeyboard: {
+		space: 'Mellemrum'
+	},
+	list: {
+		editText: 'Rediger',
+		doneText: 'Færdig',
+		selectAllText: 'Vælg alle'
 	}
 };
 

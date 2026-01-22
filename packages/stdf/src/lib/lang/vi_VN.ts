@@ -94,6 +94,14 @@ const vi_VN: LangProps = {
 	},
 	form: {
 		submit: 'Gửi'
+	},
+	fullKeyboard: {
+		space: 'Dấu cách'
+	},
+	list: {
+		editText: 'Chỉnh sửa',
+		doneText: 'Xong',
+		selectAllText: 'Chọn tất cả'
 	}
 };
 

@@ -3,6 +3,7 @@
 	import Icon from '../icon/Icon.svelte';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 	import type { InputProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	// 当前语言
 	// current language
@@ -14,7 +15,7 @@
 		titlePosition = 'out',
 		inputPosition = 'left',
 		placeholder = '',
-		radius = 'sm',
+		radius = '',
 		label1 = null,
 		label2 = null,
 		label3 = null,
@@ -59,6 +60,7 @@
 		data1Child,
 		data2Child,
 		data3Child,
+		inputChild,
 		label1Child,
 		label2Child,
 		label3Child,
@@ -80,6 +82,10 @@
 	//textarea element
 	let textareaDom: HTMLTextAreaElement | undefined = $state(undefined);
 
+	// 输入框引用
+	// Input ref
+	let inputDom: HTMLInputElement | null = $state(null);
+
 	// 输入模式判断
 	// Input mode judgment
 	const modeFun = (type: string) => {
@@ -99,6 +105,17 @@
 	// Input box type judgment
 	const mode = $derived(inputmode === '' ? modeFun(type) : inputmode);
 
+	// 占位符文本
+	// Placeholder text
+	const placeholderText = $derived(
+		placeholder !== ''
+			? placeholder
+			: title !== ''
+				? (select ? inputLang.pleaseSelect : inputLang.pleaseInput) + ' ' + title
+				: ''
+	);
+	const displayMinHeight = $derived(type === 'textarea' ? `${rows * 1.5}rem` : '1.5rem');
+
 	// 输入框类型判断
 	// Input type judgment
 	const typeAction = (node: HTMLInputElement | HTMLTextAreaElement) => {
@@ -107,16 +124,18 @@
 		}
 	};
 
-	// 圆角风格样式
-	// Corner style style
-	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', '2xl': 'rounded-2xl', full: 'rounded-full' };
+	// 计算圆角类名
+	// Calculate radius class name
+	const radiusClass = $derived(
+		radius ? radiusObj[radius] : type === 'textarea' ? 'rounded-(--radius-box)' : 'rounded-(--radius-form)'
+	);
 
 	// 输入框风格样式
 	// Input box style style
-	const inputStyleObj = {
-		block: 'px-2 ring-2 ring-transparent bg-black/5 dark:bg-white/5 ' + radiusObj[radius] || radiusObj.sm,
-		line: 'px-1 border-b bg-transparent border-black/20 dark:border-white/20'
-	};
+	const inputStyleObj = $derived({
+		block: 'px-2 ring-2 ring-transparent bg-text-primary/5 dark:bg-text-dark/5 ' + radiusClass,
+		line: 'px-1 border-b bg-transparent border-text-primary/20 dark:border-text-dark/20'
+	});
 
 	// 状态样式
 	// State style
@@ -131,8 +150,8 @@
 	// 根据是否获取焦点判断输入框样式
 	// Determine the input box style according to whether to get focus
 	const inputStyleFocusObj = $derived({
-		block: 'px-2 ring-2 bg-transparent ' + stateObj[inputState] || stateObj.theme + radiusObj[radius] || radiusObj.sm,
-		line: 'px-1 border-b bg-transparent border-black/20 dark:border-white/20'
+		block: 'px-2 ring-2 bg-transparent ' + (stateObj[inputState] || stateObj.theme) + ' ' + radiusClass,
+		line: 'px-1 border-b bg-transparent border-text-primary/20 dark:border-text-dark/20'
 	});
 
 	// 线性动画样式
@@ -260,6 +279,15 @@
 		// Dispatch events and pass out the key of the key
 		onkeydown?.(e.key);
 	};
+
+	const focusInput = () => {
+		if (disabled) return;
+		if (type === 'textarea') {
+			textareaDom?.focus();
+		} else {
+			inputDom?.focus();
+		}
+	};
 </script>
 
 <div class="px-2 {pyObj[py] || pyObj['2']}">
@@ -291,10 +319,10 @@
 			</div>
 		</div>
 		<div
-			class="relative my-0.5 flex items-center space-x-1 whitespace-nowrap text-sm transition-all {durationObj[duration] ||
+			class="relative my-0.5 flex space-x-1 text-sm transition-all {inputChild ? 'items-start whitespace-normal' : 'items-center whitespace-nowrap'} {durationObj[duration] ||
 				durationObj.base} {titlePosition === 'in' ? 'py-1' : 'py-3'} {focus
 				? inputStyleFocusObj[inputStyle] || inputStyleFocusObj.block
-				: inputStyleObj[inputStyle] || inputStyleObj.block} {inputStyle === 'block' ? radiusObj[radius] || radiusObj.sm : ''}"
+				: inputStyleObj[inputStyle] || inputStyleObj.block} {inputStyle === 'block' ? radiusClass : ''}"
 		>
 			{#if label1Child}
 				{@render label1Child?.()}
@@ -328,18 +356,64 @@
 				{/if}
 				<div class="flex space-x-1">
 					<div class="w-full">
-						{#if type === 'textarea'}
+						{#if inputChild}
+							<div class="relative w-full">
+								{#if type === 'textarea'}
+									<textarea
+										bind:value
+										use:typeAction
+										{rows}
+										inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
+										placeholder={placeholderText}
+										class="focus:outline-hidden absolute inset-0 h-full w-full opacity-0 pointer-events-none"
+										onfocus={onFocus}
+										onblur={() => onBlur()}
+										autocomplete={autocomplete === true ? 'on' : 'off'}
+										{disabled}
+										readonly
+										tabindex="-1"
+										bind:this={textareaDom}
+										onkeydown={keydownFunc}
+									></textarea>
+								{:else}
+									<input
+										bind:value
+										use:typeAction
+										inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
+										placeholder={placeholderText}
+										class="focus:outline-hidden absolute inset-0 h-full w-full opacity-0 pointer-events-none"
+										onfocus={onFocus}
+										onblur={() => onBlur()}
+										autocomplete={autocomplete === true ? 'on' : 'off'}
+										{disabled}
+										readonly
+										tabindex="-1"
+										bind:this={inputDom}
+									/>
+								{/if}
+								<div
+									class="flex w-full flex-wrap items-center gap-2 text-text-primary dark:text-text-dark {inputPosition ===
+									'left'
+										? 'text-left'
+										: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : 'cursor-text'}"
+									style="min-height: {displayMinHeight};"
+									role="textbox"
+									tabindex={disabled ? -1 : 0}
+									onfocus={focusInput}
+									onclick={focusInput}
+									onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && focusInput()}
+								>
+									{@render inputChild?.()}
+								</div>
+							</div>
+						{:else if type === 'textarea'}
 							<textarea
 								bind:value
 								use:typeAction
 								{rows}
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
-								placeholder={placeholder !== ''
-									? placeholder
-									: title !== ''
-										? (select ? inputLang.pleaseSelect : inputLang.pleaseInput) + ' ' + title
-										: ''}
-								class="focus:outline-hidden w-full bg-transparent font-semibold text-black dark:text-white {inputPosition === 'left'
+								placeholder={placeholderText}
+								class="focus:outline-hidden w-full bg-transparent font-semibold text-text-primary dark:text-text-dark {inputPosition === 'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"
 								onfocus={onFocus}
@@ -358,12 +432,8 @@
 								bind:value
 								use:typeAction
 								inputmode={mode as 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'email' | 'search' | 'url'}
-								placeholder={placeholder !== ''
-									? placeholder
-									: title !== ''
-										? (select ? inputLang.pleaseSelect : inputLang.pleaseInput) + ' ' + title
-										: ''}
-								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold text-black dark:text-white {inputPosition ===
+								placeholder={placeholderText}
+								class="focus:outline-hidden w-full whitespace-normal bg-transparent font-semibold text-text-primary dark:text-text-dark {inputPosition ===
 								'left'
 									? 'text-left'
 									: 'text-right'} {disabled ? 'cursor-not-allowed opacity-50' : ''}"

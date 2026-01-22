@@ -81,6 +81,14 @@ const ar_EG: LangProps = {
 	},
 	form: {
 		submit: 'إرسال'
+	},
+	fullKeyboard: {
+		space: 'مسافة'
+	},
+	list: {
+		editText: 'تعديل',
+		doneText: 'تم',
+		selectAllText: 'تحديد الكل'
 	}
 };
 

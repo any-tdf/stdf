@@ -94,6 +94,14 @@ const el_GR: LangProps = {
 	},
 	form: {
 		submit: 'Υποβολή'
+	},
+	fullKeyboard: {
+		space: 'Διάστημα'
+	},
+	list: {
+		editText: 'Επεξεργασία',
+		doneText: 'Έγινε',
+		selectAllText: 'Επιλογή όλων'
 	}
 };
 

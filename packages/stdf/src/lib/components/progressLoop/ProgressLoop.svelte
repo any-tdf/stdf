@@ -15,11 +15,11 @@
 
 	// 通过百分比计算半径
 	// calculate radius by percent
-	const r = 12 - strokeWidth / 2;
+	const r = $derived(12 - strokeWidth / 2);
 
 	// 计算圆周长
 	// calculate circle length
-	const circleLen = 2 * Math.PI * r;
+	const circleLen = $derived(2 * Math.PI * r);
 
 	// 动画时间 class
 	// animation duration class

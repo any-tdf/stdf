@@ -69,7 +69,7 @@
 	<Modal bind:visible={visible9} button={{ radius: 'full' }} />
 
 	<Cell title="Theme color plain text button" onclick={() => (visible12 = true)} />
-	<Modal bind:visible={visible12} button={{ fill: 'textTheme' }} />
+	<Modal bind:visible={visible12} button={{ fill: 'textState' }} />
 
 	<Cell title="Content uses Snippet and scrolls" onclick={() => (visible10 = true)} />
 	<Modal bind:visible={visible10}>

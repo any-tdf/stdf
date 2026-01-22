@@ -1,6 +1,7 @@
 <!-- Popup Demo -->
 <script lang="ts">
-	import { Cell, Popup, Button, Icon } from '$lib/index.js';
+	import { Cell, Popup, Button, Icon, Tab, Slider } from '$lib/index.js';
+	import type { TabLabelProps, SvelteEasingProps } from '$lib/types/index.js';
 	import Aphorism from '../../components/Aphorism.svelte';
 
 	let visible1 = $state(false);
@@ -18,12 +19,31 @@
 	let visible13 = $state(false);
 	let visible14 = $state(false);
 	let visible15 = $state(false);
-	let visible16 = $state(false);
 	let visible17 = $state(false);
 	let visible18 = $state(false);
 	let visible19 = $state(false);
 	let visible20 = $state(false);
-	let visible21 = $state(false);
+
+	const easeTypes: SvelteEasingProps[] = ['cubicOut', 'backOut', 'bounceOut', 'elasticOut'];
+	const easeLabels: TabLabelProps[] = easeTypes.map((t) => ({ text: t.replace('Out', '') }));
+	let easeTypeIndex = $state(0);
+	let easeType = $derived(easeTypes[easeTypeIndex]);
+
+	const durationModes = ['enter', 'exit'] as const;
+	const durationLabels: TabLabelProps[] = [{ text: '进入' }, { text: '退出' }];
+	let durationModeIndex = $state(0);
+	let durationMode = $derived(durationModes[durationModeIndex]);
+
+	let inDuration = $state(450);
+	let outDuration = $state(240);
+	let durationValue = $derived(durationMode === 'enter' ? inDuration : outDuration);
+	const handleDurationChange = (value: number) => {
+		if (durationMode === 'enter') {
+			inDuration = value;
+		} else {
+			outDuration = value;
+		}
+	};
 </script>
 
 <div class="py-4">
@@ -43,7 +63,7 @@
 	<Popup bind:visible={visible5} position="center" />
 
 	<Cell title="顶部位置有圆角" onclick={() => (visible6 = true)} />
-	<Popup bind:visible={visible6} radius="xl" />
+	<Popup bind:visible={visible6} radius="2xl" />
 
 	<Cell title="有圆角和间距" onclick={() => (visible7 = true)} />
 	<Popup bind:visible={visible7} radiusPosition="all" radius="3xl" px="4" py="4" />
@@ -51,11 +71,29 @@
 	<Cell title="中间位置有间距和圆角" onclick={() => (visible10 = true)} />
 	<Popup bind:visible={visible10} position="center" radiusPosition="all" radius="xl" px="8" />
 
-	<Cell title="设置出现动画缓动" detail="回弹" onclick={() => (visible11 = true)} />
-	<Popup bind:visible={visible11} position="center" radiusPosition="all" radius="xl" px="8" easeType="backOut" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">缓动函数（easeType： {easeType}）</div>
+		<Tab labels={easeLabels} active={easeTypeIndex} onclickTab={(v) => (easeTypeIndex = v)} />
+	</div>
 
-	<Cell title="换一个出现动画缓动" detail="弹跳" onclick={() => (visible16 = true)} />
-	<Popup bind:visible={visible16} easeType="bounceOut" />
+	<div class="px-2 py-4">
+		<div class="text-sm text-black/50 dark:text-white/50 mb-2">
+			动画时长（{durationMode === 'enter' ? '进入' : '退出'}： {durationValue} ms）
+		</div>
+		<Tab labels={durationLabels} active={durationModeIndex} onclickTab={(v) => (durationModeIndex = v)} />
+		<div class="mt-3">
+			<Slider value={durationValue} minRange={0} maxRange={1000} step={50} onchange={handleDurationChange} />
+		</div>
+	</div>
+
+	<Cell title="自定义动画缓动与时长" onclick={() => (visible11 = true)} />
+	<Popup
+		bind:visible={visible11}
+		{easeType}
+		easeOutType={easeType}
+		duration={inDuration}
+		outDuration={outDuration}
+	/>
 
 	<Cell title="不同大小" onclick={() => (visible8 = true)} />
 	<Popup bind:visible={visible8} size={80} />
@@ -136,8 +174,6 @@
 		<Aphorism num={4} />
 	</Popup>
 
-	<Cell title="允许 body 滚动" onclick={() => (visible21 = true)} />
-	<Popup bind:visible={visible21} allowBodyScroll />
 </div>
 
 <!-- Aphorism.svelte -->

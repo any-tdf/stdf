@@ -94,6 +94,14 @@ const si_LK: LangProps = {
 	},
 	form: {
 		submit: 'ඉදිරිපත් කරන්න'
+	},
+	fullKeyboard: {
+		space: 'හිස්තැන'
+	},
+	list: {
+		editText: 'සංස්කරණය',
+		doneText: 'ක්‍රියාත්මක කරන ලදි',
+		selectAllText: 'සියල්ල තෝරන්න'
 	}
 };
 

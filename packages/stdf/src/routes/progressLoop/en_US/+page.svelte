@@ -1,6 +1,6 @@
 <!--ProgressLoop Demo-->
 <script lang="ts">
-	import { ProgressLoop, Button } from '$lib/index.js';
+	import { ProgressLoop, ButtonGroup } from '$lib/index.js';
 
 	let percent = $state(20);
 	const changePercentFun = (type: string) => {
@@ -114,15 +114,13 @@
 	</div>
 </div>
 <div class="mx-4 pb-8">
-	<Button heightIn="0" group size="full">
-		<div class="flex w-full">
-			<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('-10')}>
-				-10
-			</button>
-			<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('+10')}>
-				+10
-			</button>
-			<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>Reset</button>
-		</div>
-	</Button>
+	<ButtonGroup heightIn="0" size="full">
+		<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('-10')}>
+			-10
+		</button>
+		<button class="flex-1 border-r border-white py-2 active:opacity-80 dark:border-black" onclick={() => changePercentFun('+10')}>
+			+10
+		</button>
+		<button class="flex-1 py-2 active:opacity-80" onclick={() => (percent = 20)}>Reset</button>
+	</ButtonGroup>
 </div>

@@ -94,6 +94,14 @@ const hy_AM: LangProps = {
 	},
 	form: {
 		submit: 'Ուղարկել'
+	},
+	fullKeyboard: {
+		space: 'Բացատ'
+	},
+	list: {
+		editText: 'Խմբագրել',
+		doneText: 'Ավարտված',
+		selectAllText: 'Ընտրել բոլորը'
 	}
 };
 

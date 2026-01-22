@@ -94,6 +94,14 @@ const fi_FI: LangProps = {
 	},
 	form: {
 		submit: 'Lähetä'
+	},
+	fullKeyboard: {
+		space: 'Välilyönti'
+	},
+	list: {
+		editText: 'Muokkaa',
+		doneText: 'Valmis',
+		selectAllText: 'Valitse kaikki'
 	}
 };
 

@@ -1,10 +1,14 @@
 <!-- Tabs Demo -->
 <script lang="ts">
-	import { Tabs, Tab, TabContent, Divider } from '$lib/index.js';
+	import { Tabs, Tab, TabContent, Divider, Slider } from '$lib/index.js';
 	import type { TabLabelProps } from '$lib/types/index.js';
 	import { fly } from 'svelte/transition';
 
 	const labels: TabLabelProps[] = [{ text: '飞机' }, { text: '轮船' }, { text: '火车' }, { text: '汽车' }];
+
+	// 圆角选项
+	const radiusOptions = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'] as const;
+	let radiusIndex = $state(3); // 默认 md
 	const labels1: TabLabelProps[] = [
 		{ icon: { name: 'ri-plane-line', theme: true, size: 20 } },
 		{ icon: { name: 'ri-ship-2-line', theme: true, size: 20 } },
@@ -170,10 +174,19 @@
 	<div class="mt-8 px-4 text-xl font-bold">不同的 Tab 风格</div>
 	<div class="mt-4 flex flex-col space-y-2">
 		<div class="px-4 font-bold">不同圆角</div>
-		<Tab {labels} radius="none" />
-		<Tab {labels} />
-		<Tab {labels} radius="xl" />
-		<Tab {labels} radius="full" />
+		<div class="px-4 text-xs text-gray-500">当前圆角：{radiusOptions[radiusIndex]}</div>
+		<div class="px-4">
+			<Slider
+				bind:value={radiusIndex}
+				minRange={0}
+				maxRange={7}
+				step={1}
+				showSteps
+				stepLabels={[...radiusOptions]}
+			/>
+		</div>
+		<Tab {labels} radius={radiusOptions[radiusIndex]} />
+		<Tab {labels} radius={radiusOptions[radiusIndex]} lineType />
 
 		<div class="px-4 font-bold">文字与图标搭配</div>
 		<Tab {labels} />
@@ -188,7 +201,7 @@
 		<Tab labels={labels2} lineType />
 
 		<div class="px-4 font-bold">自定义 Tab 外层风格</div>
-		<Tab {labels} injClass="bg-gradient-to-b from-[#e3c6ff] to-[#b6aeff]" />
+		<Tab {labels} injClass="bg-linear-to-b from-[#e3c6ff] to-[#b6aeff]" />
 
 		<div class="px-4 font-bold">自定义 Tab 风格</div>
 		<Tab {labels} tabInjClass="underline text-primary decoration-primary dark:text-dark dark:decoration-dark" />
@@ -197,8 +210,8 @@
 		<Tab {labels} activeTabInjClass="text-primary dark:text-dark !text-base transition-all" />
 
 		<div class="px-4 font-bold">自定义指示器风格</div>
-		<Tab {labels} activeInjClass="bg-gradient-to-b from-[#CE9FFC] to-[#7367F0]" activeTabInjClass="text-white" />
-		<Tab {labels} lineType activeInjClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]" />
+		<Tab {labels} activeInjClass="bg-linear-to-b from-[#CE9FFC] to-[#7367F0]" activeTabInjClass="text-white" />
+		<Tab {labels} lineType activeInjClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0]" />
 
 		<div class="px-4 font-bold">不同的左右间距</div>
 		<div class="mt-4 flex flex-col space-y-2">

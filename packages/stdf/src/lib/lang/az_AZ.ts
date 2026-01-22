@@ -81,6 +81,14 @@ const az_AZ: LangProps = {
 	},
 	form: {
 		submit: 'Göndər'
+	},
+	fullKeyboard: {
+		space: 'Boşluq'
+	},
+	list: {
+		editText: 'Redaktə et',
+		doneText: 'Hazır',
+		selectAllText: 'Hamısını seç'
 	}
 };
 

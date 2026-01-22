@@ -287,13 +287,13 @@
 	<div class="mt-2 text-xs">Unselected: {noCheckDotas.map((a) => dotaAll.find((b) => b.name === a)?.label).join('-')}</div>
 	<div class="mt-2 flex">
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkAllFun}>All</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkAllFun}>All</Button>
 		</div>
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkNoneFun}>None</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkNoneFun}>None</Button>
 		</div>
 		<div class="flex-1">
-			<Button fill="lineTheme" heightIn="1" onclick={checkReverseFun}>Reverse</Button>
+			<Button fill="lineState" heightIn="1" onclick={checkReverseFun}>Reverse</Button>
 		</div>
 	</div>
 	<Divider />

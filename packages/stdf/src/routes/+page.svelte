@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { CellGroup, Cell } from '$lib/index.js';
-	import { menuList, type MenuListChild } from '../data/menuList.js';
+	import { menuList } from '../data/menuList.js';
+	import type { MenuListChild } from '../data/menuList.js';
 
 	const menuListArr: MenuListChild[] = menuList.reduce((acc, cur) => {
 		if (cur.childs) {

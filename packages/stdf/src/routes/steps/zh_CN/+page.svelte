@@ -1,6 +1,7 @@
 <!--Steps Demo -->
 <script lang="ts">
-	import { Steps, Button, Divider } from '$lib/index.js';
+	import { Steps, ButtonGroup, Divider, Icon } from '$lib/index.js';
+	import type { ButtonGroupItemProps } from '$lib/types/index.js';
 	import type { StepsItemProps } from '$lib/types/index.js';
 	import injCom1 from './injCom1.svelte';
 	import injCom2 from './injCom2.svelte';
@@ -132,6 +133,11 @@
 	];
 
 	let current = $state(1);
+
+	const stepButtons: ButtonGroupItemProps[] = [
+		{ text: '上一步', icon: { name: 'ri-arrow-left-s-line', size: 18 }, onclick: () => current > 1 && current-- },
+		{ text: '下一步', icon: { name: 'ri-arrow-right-s-line', size: 18 }, iconPosition: 'right', onclick: () => current < steps.length + 1 && current++ }
+	];
 </script>
 
 <div class="mb-4 mt-8 px-4 text-2xl font-bold">横向排列</div>
@@ -210,13 +216,8 @@
 <div class="mb-4 mt-8 px-4 text-lg font-bold">内容区域注入元素</div>
 <Steps steps={steps9} {current} vertical />
 
-<div class="sticky bottom-0 z-10 flex bg-white/50 backdrop-blur-sm dark:bg-black/50">
-	<div class="flex-1">
-		<Button fill="lineTheme" disabled={current === 1} onclick={() => current > 1 && current--}>上一步</Button>
-	</div>
-	<div class="flex-1">
-		<Button fill="lineTheme" disabled={current === steps.length} onclick={() => current < steps.length + 1 && current++}>下一步</Button>
-	</div>
+<div class="sticky bottom-0 z-10 bg-white/50 backdrop-blur-sm dark:bg-black/50">
+	<ButtonGroup items={stepButtons} fill="lineState" size="full" />
 </div>
 
 <!-- injCom1.svelte -->
@@ -236,6 +237,6 @@
 <div class="flex items-center space-x-4">
     <Button size="full" heightIn="2" injClass="px-4">按钮</Button>
     <Avatar image="/assets/images/avatar_1.jpg" size="sm" />
-    <Icon name="ri-money-cny-circle-line" theme />
-    <Icon name="ri-fingerprint-line" theme />
+    <Icon name="ri-money-cny-circle-line" state="theme" />
+    <Icon name="ri-fingerprint-line" state="theme" />
 </div> -->

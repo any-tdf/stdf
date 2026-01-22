@@ -21,13 +21,16 @@
 	const actions1: ActionProps[] = [
 		{ content: 'Normal option' },
 		{ content: 'Theme option', style: 'theme' },
-		{ content: 'Disabled option', style: 'disabled' },
-		{ content: 'Danger option', style: 'danger' }
+		{ content: 'Success option', style: 'success' },
+		{ content: 'Warning option', style: 'warning' },
+		{ content: 'Error option', style: 'error' },
+		{ content: 'Info option', style: 'info' },
+		{ content: 'Disabled option', style: 'warning', disabled: true }
 	];
 	const actions2: ActionProps[] = [
 		{ content: 'Option one' },
 		{ content: 'Option two', desc: 'Here is the description information' },
-		{ content: 'Option three', style: 'danger', desc: 'Here is the description information' }
+		{ content: 'Option three', style: 'error', desc: 'Here is the description information' }
 	];
 	const actions3: ActionProps[] = [
 		{ content: 'Lina', showImg: true, imgSrc: '/assets/images/dota_火女.png', imgRadius: 'sm' },
@@ -75,22 +78,22 @@
 
 	<Cell title="Listen to close event" onclick={() => (visible7 = true)} />
 	<ActionSheet bind:visible={visible7} {actions} onclose={() => (toastVisible1 = true)} />
-	<Toast bind:visible={toastVisible1} message="Closed ActionSheet！" />
+	<Toast bind:visible={toastVisible1} message="Closed ActionSheet!" />
 
 	<Cell title="Listen to cancel event" onclick={() => (visible8 = true)} />
 	<ActionSheet bind:visible={visible8} {actions} showCancel oncancel={() => (toastVisible2 = true)} />
-	<Toast bind:visible={toastVisible2} message="Clicked cancel！" />
+	<Toast bind:visible={toastVisible2} message="Clicked cancel!" />
 
-	<Cell title="Listen to option click event" onclick={() => (visible9 = true)} />
+	<Cell title="Listen to action click event" onclick={() => (visible9 = true)} />
 	<ActionSheet bind:visible={visible9} {actions} onclickAction={clickActionFunc} />
-	<Toast bind:visible={toastVisible3} message={`Clicked the ${index + 1} item, ${item.content}!`} />
+	<Toast bind:visible={toastVisible3} message={`Clicked item ${index + 1}, ${item.content}!`} />
 
-	<Cell title="Click option not close" onclick={() => (visible10 = true)} />
+	<Cell title="Do not close on click" onclick={() => (visible10 = true)} />
 	<ActionSheet bind:visible={visible10} {actions} actionClosable={false} />
 
-	<Cell title="Option with image" onclick={() => (visible11 = true)} />
+	<Cell title="Options with images" onclick={() => (visible11 = true)} />
 	<ActionSheet bind:visible={visible11} actions={actions3} />
 
-	<Cell title="Option left aligned" onclick={() => (visible12 = true)} />
+	<Cell title="Left aligned options" onclick={() => (visible12 = true)} />
 	<ActionSheet bind:visible={visible12} actions={actions4} align="left" />
 </div>

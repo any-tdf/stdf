@@ -94,6 +94,14 @@ const nl_NL: LangProps = {
 	},
 	form: {
 		submit: 'Verzenden'
+	},
+	fullKeyboard: {
+		space: 'Spatie'
+	},
+	list: {
+		editText: 'Bewerken',
+		doneText: 'Gedaan',
+		selectAllText: 'Alles selecteren'
 	}
 };
 

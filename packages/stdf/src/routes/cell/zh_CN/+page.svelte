@@ -24,8 +24,8 @@
 		<Cell title="开关带文字" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="开关全圆角" right={{ type: 'switch', switch: { radius: 'full' } }} />
 		<Cell title="仅点击开关触发" clickAll={false} right={{ type: 'switch' }} />
-		<Cell title="左侧使用 Icon 组件" left={{ name: 'ri-bank-line', size: 20, theme: true }} />
-		<Cell title="右侧使用 Icon 组件" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, theme: true } }} />
+		<Cell title="左侧使用 Icon 组件" left={{ name: 'ri-bank-line', size: 20, state: 'theme' }} />
+		<Cell title="右侧使用 Icon 组件" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, state: 'theme' } }} />
 		<Cell title="左侧自定义图片">
 			{#snippet leftChild()}
 				<div class="mr-1 shrink-0">
@@ -105,12 +105,12 @@
 		<Cell title="大圆角" radius="lg" />
 		<Cell title="加大圆角" radius="xl" />
 		<Cell title="更大圆角" radius="2xl" />
-		<Cell title="全圆角" radius="full" />
+		<Cell title="全圆角" radius="4xl" />
 		<Cell title="加大投影" shadow="lg" />
 	</div>
 	<div>
 		<Cell title="自定义文字颜色" injClass="text-primary dark:text-dark" />
-		<Cell title="自定义背景颜色" injClass="!bg-extend0/20 active:!bg-extend0/10" line={false} />
+		<Cell title="自定义背景颜色" injClass="!bg-blue/20 active:!bg-purple/10" line={false} />
 	</div>
 	<div>
 		<Cell love title="关爱版" />

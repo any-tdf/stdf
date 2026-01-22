@@ -81,6 +81,14 @@ const ne_NP: LangProps = {
 	},
 	form: {
 		submit: 'पेश गर्नुहोस्'
+	},
+	fullKeyboard: {
+		space: 'स्पेस'
+	},
+	list: {
+		editText: 'सम्पादन',
+		doneText: 'गरियो',
+		selectAllText: 'सबै चयन गर्नुहोस्'
 	}
 };
 

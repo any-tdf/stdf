@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} container relative m-auto flex items-center" style="animation-duration: {2 / speed}s;">
-	{#each [0, -0.835, -0.668, -0.501, -0.334, -0.167] as item}
+	{#each [0, -0.835, -0.668, -0.501, -0.334, -0.167] as item (item)}
 		<div
 			class="dot absolute left-0 right-0 flex"
 			style="animation-duration: {2 / speed}s; animation-delay: calc({2 / speed}s * {item} * 0.5);"

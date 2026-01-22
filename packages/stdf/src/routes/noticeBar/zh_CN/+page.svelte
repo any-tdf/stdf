@@ -64,5 +64,5 @@
 <div class="my-4"></div>
 <NoticeBar leftIcon={{ name: 'ri-check-line', size: 16, y: -1 }} injClass="!text-success !bg-success/10" {textList}></NoticeBar>
 <div class="my-4"></div>
-<NoticeBar injClass="!text-extend0 !bg-extend0/10" {textList}></NoticeBar>
+<NoticeBar injClass="!text-blue !bg-purple/10" {textList}></NoticeBar>
 <div class="pb-8"></div>

@@ -81,6 +81,14 @@ const km_KH: LangProps = {
 	},
 	form: {
 		submit: 'ផ្ញើ'
+	},
+	fullKeyboard: {
+		space: 'ចន្លោះ'
+	},
+	list: {
+		editText: 'កែសម្រួល',
+		doneText: 'ធ្វើរួចរាល់',
+		selectAllText: 'ជ្រើសរើសទាំងអស់'
 	}
 };
 

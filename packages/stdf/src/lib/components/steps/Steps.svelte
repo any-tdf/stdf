@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Icon from '../icon/Icon.svelte';
 	import type { StepsProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
-	let { steps = [], current = 1, radius = 'sm', barBorder = true, vertical = false }: StepsProps = $props();
+	let { steps = [], current = 1, radius = '', barBorder = true, vertical = false }: StepsProps = $props();
 
-	const radiusObj = { none: 'rounded-none', sm: 'rounded-sm', xl: 'rounded-xl', full: 'rounded-full' };
 	let width = $state(0);
 
 	let heightList = $state<number[]>([]);
@@ -24,11 +24,11 @@
 							style="height:{i === steps.length - 1 ? '0px' : heightList[i] - 30 + 'px'};top:42px;left:30px"
 						></div>
 						<div
-							class="absolute box-border h-[30px] w-[30px] overflow-hidden border transition-all duration-300 {i < current - 1
+							class="absolute box-border h-7.5 w-7.5 overflow-hidden border transition-all duration-300 {i < current - 1
 								? 'border-primary dark:border-dark text-primary dark:text-dark'
 								: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] || radiusObj.sm} {!barBorder
+									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-text-on-primary dark:text-text-on-dark'
+									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-small)'} {!barBorder
 								? '!border-transparent'
 								: ''}"
 							style="top:12px"
@@ -77,7 +77,7 @@
 								? 'border-primary dark:border-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.sm}"
+									: 'border-black/30 dark:border-white/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-small)'}"
 							style="top:16px"
 						></div>
 					</div>
@@ -85,15 +85,15 @@
 				<div class="pr-4">
 					<div
 						class="font-medium transition-all duration-300 {i < current - 1
-							? 'text-black dark:text-white'
+							? ''
 							: i === current - 1
 								? 'text-primary dark:text-dark'
-								: 'text-black/30 dark:text-white/30'}"
+								: 'opacity-30'}"
 					>
 						{item.finishStep && i < current - 1 ? item.finishStep.title : item.step.title}
 					</div>
 					{#if item.step?.desc || item.finishStep?.desc}
-						<div class="text-xs transition-all duration-300{i <= current - 1 ? '' : ' text-black/30 dark:text-white/30'}">
+						<div class="text-xs transition-all duration-300{i <= current - 1 ? '' : ' opacity-30'}">
 							{item.finishStep && i < current - 1
 								? item.finishStep.desc
 									? item.finishStep.desc
@@ -122,11 +122,11 @@
 							style="top:16px;width:{i === steps.length - 1 ? '0' : width / steps.length - 30}px;left:calc(50% + 15px)"
 						></div>
 						<div
-							class="absolute box-border h-[30px] w-[30px] overflow-hidden border transition-all duration-300 {i < current - 1
+							class="absolute box-border h-7.5 w-7.5 overflow-hidden border transition-all duration-300 {i < current - 1
 								? 'border-primary dark:border-dark text-primary dark:text-dark'
 								: i === current - 1
-									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-white dark:text-black'
-									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radiusObj[radius] || radiusObj.sm} {!barBorder
+									? 'border-primary dark:border-dark bg-primary dark:bg-dark text-text-on-primary dark:text-text-on-dark'
+									: 'border-black/30 text-black/30 dark:border-white/30 dark:text-white/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-small)'} {!barBorder
 								? '!border-transparent'
 								: ''}"
 							style="left:calc(50% - 15px)"
@@ -178,17 +178,17 @@
 								? 'border-primary dark:border-dark'
 								: i === current - 1
 									? 'border-primary dark:border-dark bg-primary dark:bg-dark'
-									: 'border-black/30 dark:border-white/30'} {radiusObj[radius] || radiusObj.sm}"
+									: 'border-black/30 dark:border-white/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-small)'}"
 							style="left:calc(50% - 5px)"
 						></div>
 					</div>
 				{/if}
 				<div
 					class="text-center text-sm font-medium transition-all duration-300 {i < current - 1
-						? 'text-black dark:text-white'
+						? ''
 						: i === current - 1
 							? 'text-primary dark:text-dark'
-							: 'text-black/30 dark:text-white/30'}"
+							: 'opacity-30'}"
 				>
 					{item.finishStep && i < current - 1 ? item.finishStep.title : item.step?.title}
 				</div>

@@ -2,7 +2,7 @@ import type { LangProps } from './index.js';
 
 const zh_HK: LangProps = {
 	common: {
-		slotEmpty: '插槽內容為空！',
+		slotEmpty: 'Snippet 內容為空！',
 		loading: '載入中...',
 		noData: '暫無數據',
 		noMoreData: '沒有更多數據了',
@@ -81,6 +81,14 @@ const zh_HK: LangProps = {
 	},
 	form: {
 		submit: '提交'
+	},
+	fullKeyboard: {
+		space: '空格'
+	},
+	list: {
+		editText: '編輯',
+		doneText: '完成',
+		selectAllText: '全選'
 	}
 };
 

@@ -3,6 +3,7 @@
 	import Mask from '../mask/Mask.svelte';
 	import Transition from './Transition.svelte';
 	import type { PopupProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	let {
 		visible = $bindable(false),
@@ -16,11 +17,10 @@
 		py = '0',
 		mask = {},
 		maskClosable = true,
-		radiusPosition = 'top',
-		radius = 'none',
+		radiusPosition = 'auto',
+		radius = '',
 		transitionDistance = 0,
 		transparent = false,
-		allowBodyScroll = false,
 		zIndex = 600,
 		dynamicFixed = true,
 		hideScrollbar = false,
@@ -32,16 +32,6 @@
 	// 通过不同位置结合圆角参数，生成不同的 class
 	// Generate different classes by combining different positions and corner parameters
 	const radiusFun = () => {
-		const radioMap = {
-			none: 'rounded-none',
-			sm: 'rounded-sm',
-			md: 'rounded-md',
-			lg: 'rounded-lg',
-			xl: 'rounded-xl',
-			'2xl': 'rounded-2xl',
-			'3xl': 'rounded-3xl',
-			full: 'rounded-full'
-		};
 		const radiusTopMap = {
 			none: 'rounded-t-none',
 			sm: 'rounded-t-sm',
@@ -50,7 +40,7 @@
 			xl: 'rounded-t-xl',
 			'2xl': 'rounded-t-2xl',
 			'3xl': 'rounded-t-3xl',
-			full: 'rounded-t-full'
+			'4xl': 'rounded-t-4xl'
 		};
 		const radiusBottomMap = {
 			none: 'rounded-b-none',
@@ -60,7 +50,7 @@
 			xl: 'rounded-b-xl',
 			'2xl': 'rounded-b-2xl',
 			'3xl': 'rounded-b-3xl',
-			full: 'rounded-b-full'
+			'4xl': 'rounded-b-4xl'
 		};
 		const radiusLeftMap = {
 			none: 'rounded-l-none',
@@ -70,7 +60,7 @@
 			xl: 'rounded-l-xl',
 			'2xl': 'rounded-l-2xl',
 			'3xl': 'rounded-l-3xl',
-			full: 'rounded-l-full'
+			'4xl': 'rounded-l-4xl'
 		};
 		const radiusRightMap = {
 			none: 'rounded-r-none',
@@ -80,17 +70,50 @@
 			xl: 'rounded-r-xl',
 			'2xl': 'rounded-r-2xl',
 			'3xl': 'rounded-r-3xl',
-			full: 'rounded-r-full'
+			'4xl': 'rounded-r-4xl'
 		};
-		if (radiusPosition === 'all') {
-			return radioMap[radius];
-		} else if (radiusPosition === 'top') {
+
+		// 自动根据 position 计算 radiusPosition
+		// Automatically calculate radiusPosition based on position
+		let actualRadiusPosition: 'none' | 'left' | 'right' | 'auto' | 'top' | 'bottom' | 'all' = radiusPosition;
+		if (radiusPosition === 'auto') {
+			// bottom 弹出 → 圆角在上; top 弹出 → 圆角在下; left 弹出 → 圆角在右; right 弹出 → 圆角在左; center → 四周
+			const autoMap: Record<string, 'top' | 'bottom' | 'left' | 'right' | 'all'> = {
+				bottom: 'top',
+				top: 'bottom',
+				left: 'right',
+				right: 'left',
+				center: 'all'
+			};
+			actualRadiusPosition = autoMap[position] || 'top';
+		}
+
+		// 当 radius 为空时使用 CSS 变量
+		// Use CSS variable when radius is empty
+		if (!radius) {
+			if (actualRadiusPosition === 'all') {
+				return 'rounded-(--radius-box)';
+			} else if (actualRadiusPosition === 'top') {
+				return 'rounded-t-(--radius-box)';
+			} else if (actualRadiusPosition === 'bottom') {
+				return 'rounded-b-(--radius-box)';
+			} else if (actualRadiusPosition === 'left') {
+				return 'rounded-l-(--radius-box)';
+			} else if (actualRadiusPosition === 'right') {
+				return 'rounded-r-(--radius-box)';
+			} else {
+				return '';
+			}
+		}
+		if (actualRadiusPosition === 'all') {
+			return radiusObj[radius];
+		} else if (actualRadiusPosition === 'top') {
 			return radiusTopMap[radius];
-		} else if (radiusPosition === 'bottom') {
+		} else if (actualRadiusPosition === 'bottom') {
 			return radiusBottomMap[radius];
-		} else if (radiusPosition === 'left') {
+		} else if (actualRadiusPosition === 'left') {
 			return radiusLeftMap[radius];
-		} else if (radiusPosition === 'right') {
+		} else if (actualRadiusPosition === 'right') {
 			return radiusRightMap[radius];
 		} else {
 			return '';
@@ -184,41 +207,20 @@
 		}
 	};
 
-	// 监听 visible 与是否允许 body 滚动，动态控制 body 滚动
-	// Listen to the change of visible and allowBodyScroll, and dynamically control the body scroll
-	$effect(() => {
-		if (visible && !allowBodyScroll) {
-			const top = document.documentElement.scrollTop || document.body.scrollTop;
-			document.body.style.cssText += `
-            position: fixed;
-            width: 100vw;
-            left: 0;
-            top: ${-top}px;
-            touch-action:none;
-        `;
-		} else {
-			const top = document.body.style.top;
-			document.body.style.cssText += `
-            position: static;
-            touch-action:auto;
-        `;
-			window.scrollTo(0, Math.abs(parseFloat(top)));
-		}
-	});
-
 	// 页面滚动时，动态计算窗口高度
 	// Dynamically calculate the window height when the page scrolls
-	let innerHeight = $state(0);
+	let innerHeight = $state(typeof window !== 'undefined' ? window.innerHeight : 0);
 	$effect(() => {
-		innerHeight = window.innerHeight;
+		if (dynamicFixed) {
+			//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
+			//Solve the problem of window height change caused by Safari and Chrome or other browsers hiding and showing the toolbar when scrolling
+			const handleResize = () => {
+				innerHeight = window.innerHeight;
+			};
+			window.addEventListener('resize', handleResize);
+			return () => window.removeEventListener('resize', handleResize);
+		}
 	});
-	if (dynamicFixed) {
-		//解决 Safari 和 Chrome 或其他浏览器滚动时工具栏隐藏与显示引发的窗口高度变化问题
-		//Solve the problem of window height change caused by Safari and Chrome or other browsers hiding and showing the toolbar when scrolling
-		window.addEventListener('resize', () => {
-			innerHeight = window.innerHeight;
-		});
-	}
 </script>
 
 {#if visible}
@@ -240,7 +242,7 @@
 			transitionOutParams={transitionOutParamsFun()}
 		>
 			<div
-				class="w-full h-full{transparent ? ' bg-transparent' : ' bg-white dark:bg-gray-950'} {radiusFun()} overflow-y-auto"
+				class="w-full h-full{transparent ? ' bg-transparent' : ' bg-bg-overlay dark:bg-bg-overlay-dark'} {radiusFun()} overflow-y-auto"
 				class:popup-container={hideScrollbar}
 			>
 				{@render children?.()}

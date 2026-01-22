@@ -81,6 +81,14 @@ const cs_CZ: LangProps = {
 	},
 	form: {
 		submit: 'Odeslat'
+	},
+	fullKeyboard: {
+		space: 'Mezera'
+	},
+	list: {
+		editText: 'Upravit',
+		doneText: 'Hotovo',
+		selectAllText: 'Vybrat vše'
 	}
 };
 

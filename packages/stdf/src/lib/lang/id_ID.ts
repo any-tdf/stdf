@@ -94,6 +94,14 @@ const id_ID: LangProps = {
 	},
 	form: {
 		submit: 'Kirim'
+	},
+	fullKeyboard: {
+		space: 'Spasi'
+	},
+	list: {
+		editText: 'Edit',
+		doneText: 'Selesai',
+		selectAllText: 'Pilih semua'
 	}
 };
 

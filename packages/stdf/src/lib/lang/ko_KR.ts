@@ -81,6 +81,14 @@ const ko_KR: LangProps = {
 	},
 	form: {
 		submit: '제출'
+	},
+	fullKeyboard: {
+		space: '스페이스'
+	},
+	list: {
+		editText: '편집',
+		doneText: '완료',
+		selectAllText: '전체 선택'
 	}
 };
 

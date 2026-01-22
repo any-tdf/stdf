@@ -94,6 +94,14 @@ const sv_SE: LangProps = {
 	},
 	form: {
 		submit: 'Skicka'
+	},
+	fullKeyboard: {
+		space: 'Mellanslag'
+	},
+	list: {
+		editText: 'Redigera',
+		doneText: 'Klar',
+		selectAllText: 'Välj alla'
 	}
 };
 

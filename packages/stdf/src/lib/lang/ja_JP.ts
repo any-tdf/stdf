@@ -81,6 +81,14 @@ const ja_JP: LangProps = {
 	},
 	form: {
 		submit: '送信'
+	},
+	fullKeyboard: {
+		space: 'スペース'
+	},
+	list: {
+		editText: '編集',
+		doneText: '完了',
+		selectAllText: '全選択'
 	}
 };
 

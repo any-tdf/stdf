@@ -24,8 +24,8 @@
 		<Cell title="Switch with Text" right={{ type: 'switch', switch: { inside: ['😭', '😄'] } }} />
 		<Cell title="Rounded Switch" right={{ type: 'switch', switch: { radius: 'full' } }} />
 		<Cell title="Switch Only" clickAll={false} right={{ type: 'switch' }} />
-		<Cell title="Left Icon" left={{ name: 'ri-bank-line', size: 20, theme: true }} />
-		<Cell title="Right Icon" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, theme: true } }} />
+		<Cell title="Left Icon" left={{ name: 'ri-bank-line', size: 20, state: 'theme' }} />
+		<Cell title="Right Icon" right={{ type: 'icon', icon: { name: 'ri-battery-charge-line', size: 20, state: 'theme' } }} />
 		<Cell title="Left Image">
 			{#snippet leftChild()}
 				<div class="mr-1 shrink-0">
@@ -109,12 +109,12 @@
 		<Cell title="Large Radius" radius="lg" />
 		<Cell title="XL Radius" radius="xl" />
 		<Cell title="2XL Radius" radius="2xl" />
-		<Cell title="Full Radius" radius="full" />
+		<Cell title="Full Radius" radius="4xl" />
 		<Cell title="Large Shadow" shadow="lg" />
 	</div>
 	<div>
 		<Cell title="Custom Text Color" injClass="text-primary dark:text-dark" />
-		<Cell title="Custom Background" injClass="!bg-extend0/20 active:!bg-extend0/10" line={false} />
+		<Cell title="Custom Background" injClass="!bg-blue/20 active:!bg-purple/10" line={false} />
 	</div>
 	<div>
 		<Cell love title="Care Version" />

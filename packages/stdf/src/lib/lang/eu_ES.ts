@@ -94,6 +94,14 @@ const eu_ES: LangProps = {
 	},
 	form: {
 		submit: 'Bidali'
+	},
+	fullKeyboard: {
+		space: 'Tartea'
+	},
+	list: {
+		editText: 'Editatu',
+		doneText: 'Eginda',
+		selectAllText: 'Hautatu denak'
 	}
 };
 

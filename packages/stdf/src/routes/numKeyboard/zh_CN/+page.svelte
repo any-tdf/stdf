@@ -1,7 +1,13 @@
 <!-- NumKeyboard Demo -->
 <script lang="ts">
-	import { NumKeyboard, Cell, Toast } from '$lib/index.js';
+	import { NumKeyboard, Cell, Toast, Slider } from '$lib/index.js';
+	import type { SmallAreaRadius } from '$lib/types/index.js';
 	import { Confetti } from 'svelte-confetti';
+
+	// 按键圆角
+	const radiusValues: SmallAreaRadius[] = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	let radiusIndex = $state(2);
+	let currentRadius = $derived<SmallAreaRadius>(radiusValues[radiusIndex]);
 
 	let visible1 = $state(false);
 	let visible2 = $state(false);
@@ -24,6 +30,7 @@
 	let visible19 = $state(false);
 	let visible20 = $state(false);
 	let visible21 = $state(false);
+	let visible22 = $state(false);
 
 	// 演示监听点击事件
 	let visibleToast = $state(false);
@@ -112,12 +119,12 @@
 <NumKeyboard bind:visible={visible13} radius="2xl" />
 
 <Cell title="完成按键注入 Class" onclick={() => (visible14 = true)} />
-<NumKeyboard bind:visible={visible14} doneClass="!bg-gradient-to-r from-[#9820a8] to-[#d16b98]" />
+<NumKeyboard bind:visible={visible14} doneClass="!bg-linear-to-r from-[#9820a8] to-[#d16b98]" />
 
 <Cell title="面板与按键注入 Class" onclick={() => (visible15 = true)} />
 <NumKeyboard
 	bind:visible={visible15}
-	panelClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]"
+	panelClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0]"
 	keyClass="!bg-transparent border border-white/40 !text-white"
 />
 
@@ -129,3 +136,12 @@
 
 <Cell title="自定义按键字体" subTitle="需要 CSS 加载字体并在 @theme 中配置" onclick={() => (visible19 = true)} />
 <NumKeyboard bind:visible={visible19} keyClass="font-Trueno" />
+
+<Cell title="输入预览" subTitle="在键盘顶部显示输入内容" onclick={() => (visible22 = true)} />
+<NumKeyboard bind:visible={visible22} preview />
+
+<div class="px-4 py-2">不使用弹出层</div>
+<div class="px-4 pb-2">
+	<Slider bind:value={radiusIndex} maxRange={7} step={1} showSteps stepsStyle="break" stepLabels={radiusValues} />
+</div>
+<NumKeyboard popup={null} radius={currentRadius} />

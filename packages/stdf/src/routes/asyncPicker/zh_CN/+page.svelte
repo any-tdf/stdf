@@ -124,6 +124,50 @@
 			console.log('第一级');
 		}
 	};
+
+	// 不使用弹出层的状态
+	let inlineData: { label: string; children: { label: string; children: { label: string }[] }[] }[] = $state(linkageData);
+	let inlineCurrentLevel = $state(0);
+	let inlineLastLevel = $state(false);
+	let inlineFirstLevel = $state(true);
+	let inlineLevel1Data = $state(linkageData[0].children);
+	const inlineNextFunc = (index: number) => {
+		if (inlineCurrentLevel === 0) {
+			const nextData = linkageData[index].children;
+			inlineLevel1Data = nextData;
+			inlineData = [];
+			setTimeout(() => {
+				inlineData = nextData as { label: string; children: { label: string; children: { label: string }[] }[] }[];
+				inlineCurrentLevel = 1;
+				inlineFirstLevel = false;
+			}, 1000);
+		} else if (inlineCurrentLevel === 1) {
+			const nextData = inlineLevel1Data[index].children;
+			inlineData = [];
+			setTimeout(() => {
+				inlineData = nextData as { label: string; children: { label: string; children: { label: string }[] }[] }[];
+				inlineCurrentLevel = 2;
+				inlineLastLevel = true;
+			}, 1000);
+		}
+	};
+	const inlinePrevFunc = () => {
+		if (inlineCurrentLevel === 1) {
+			inlineData = [];
+			setTimeout(() => {
+				inlineData = linkageData;
+				inlineCurrentLevel = 0;
+				inlineFirstLevel = true;
+			}, 1000);
+		} else if (inlineCurrentLevel === 2) {
+			inlineData = [];
+			setTimeout(() => {
+				inlineData = inlineLevel1Data as { label: string; children: { label: string; children: { label: string }[] }[] }[];
+				inlineCurrentLevel = 1;
+				inlineLastLevel = false;
+			}, 1000);
+		}
+	};
 </script>
 
 <div class="py-4">
@@ -313,6 +357,17 @@
 		bind:title={titleBind}
 		onnext={nextFunc}
 		onprev={prevFunc}
+	/>
+
+	<div class="px-4 py-2">不使用弹出层</div>
+	<AsyncPicker
+		popup={null}
+		bind:data={inlineData}
+		bind:lastLevel={inlineLastLevel}
+		bind:firstLevel={inlineFirstLevel}
+		onnext={inlineNextFunc}
+		onprev={inlinePrevFunc}
+		height={30}
 	/>
 </div>
 <!-- 

@@ -94,6 +94,14 @@ const mk_MK: LangProps = {
 	},
 	form: {
 		submit: 'Испрати'
+	},
+	fullKeyboard: {
+		space: 'Размак'
+	},
+	list: {
+		editText: 'Уреди',
+		doneText: 'Завршено',
+		selectAllText: 'Избери сè'
 	}
 };
 

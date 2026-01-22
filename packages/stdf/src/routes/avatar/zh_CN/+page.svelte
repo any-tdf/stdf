@@ -1,7 +1,7 @@
 <!-- Avatar Demo -->
 <script lang="ts">
-	import { Avatar, Avatars, Divider, Icon } from '$lib/index.js';
-	import type { IconProps } from '$lib/types/index.js';
+	import { Avatar, Slider } from '$lib/index.js';
+	import type { IconProps, AvatarProps } from '$lib/types/index.js';
 
 	const icons: IconProps[] = [
 		{ name: 'ri-aliens-fill', theme: true, y: -1, size: 16 },
@@ -10,32 +10,32 @@
 		{ type: 'iconify', name: 'solar--user-hands-line-duotone', theme: true, size: 28 }
 	];
 
-	const imgNames = [
-		'dota_火女.png',
-		'dota_火枪.png',
-		'dota_小牛.png',
-		'wall_1.jpg',
-		'dota_斯温.png',
-		'dota_水人.png',
-		'wall_2.jpg',
-		'wall_3.jpg',
-		'wall_4.jpg',
-		'avatar_1.jpg',
-		'dota_火枪.png',
-		'dota_小牛.png',
-		'dota_斯温.png'
-	];
-	const data = imgNames.map((name) => ({ image: `/assets/images/${name}` }));
+	// 圆角配置
+	const radiusOptions: AvatarProps['radius'][] = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	const radiusLabels = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'];
+	let radiusIndex = $state(1); // 默认 sm
+	let currentRadius: AvatarProps['radius'] = $derived(radiusOptions[radiusIndex]);
 </script>
 
 <div class="px-4 py-8">
 	<div class="font-bold">不同圆角</div>
+	<div class="py-4">
+		<Slider
+			value={radiusIndex}
+			minRange={0}
+			maxRange={6}
+			step={1}
+			showSteps
+			stepLabels={radiusLabels}
+			onchange={(v) => (radiusIndex = v)}
+		/>
+	</div>
 	<div class="mb-8 mt-4 flex justify-between">
-		<Avatar radius="none" />
-		<Avatar />
-		<Avatar radius="xl" />
-		<Avatar radius="2xl" />
-		<Avatar radius="full" />
+		<Avatar radius={currentRadius} />
+		<Avatar radius={currentRadius} image="/assets/images/avatar_1.jpg" />
+		<Avatar radius={currentRadius} image="/assets/images/avatar_2.png" imgSize="m" />
+		<Avatar radius={currentRadius} alt="张" />
+		<Avatar radius={currentRadius} icon={{ name: 'ri-bear-smile-line', theme: true }} />
 	</div>
 
 	<div class="font-bold">不同图片类型与大小</div>
@@ -50,7 +50,7 @@
 	<div class="mb-8 mt-4 flex justify-between">
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-success" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-[#D65786]" />
-		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0] !text-white" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0] !text-white" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" injClass="!bg-[rgba(0,0,0,0)]" />
 	</div>
 
@@ -59,7 +59,7 @@
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dashed" />
 		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="dotted" />
-		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-extend1" />
+		<Avatar image="/assets/images/avatar_2.png" imgSize="m" line="solid" injClass="border-[red] dark:border-purple" />
 	</div>
 
 	<div class="font-bold">替换文本</div>
@@ -94,45 +94,4 @@
 			<Avatar radius="full" size="xl" alt="张" altSize="xl" />
 		</div>
 	</div>
-
-	<Divider />
-
-	<div class="my-4 text-2xl font-bold">头像组</div>
-	<div class="mb-2 mt-6 font-bold">默认</div>
-	<Avatars {data} />
-
-	<div class="mb-2 mt-6 font-bold">小点</div>
-	<Avatars {data} size="sm" lineWidth="1" />
-
-	<div class="mb-2 mt-6 font-bold">宽松一点</div>
-	<Avatars {data} compact={4} />
-
-	<div class="mb-2 mt-6 font-bold">边框粗点</div>
-	<Avatars {data} lineWidth="8" />
-
-	<div class="mb-2 mt-6 font-bold">圆角小点</div>
-	<Avatars {data} radius="2xl" />
-
-	<div class="mb-2 mt-6 font-bold">反向</div>
-	<Avatars {data} reverse />
-
-	<div class="mb-2 mt-6 font-bold">最多显示 6 个</div>
-	<Avatars {data} max={6} />
-
-	<div class="mb-2 mt-6 font-bold">顶层显示增加</div>
-	<Avatars {data} top="add" />
-
-	<div class="mb-2 mt-6 font-bold">不显示顶层</div>
-	<Avatars {data} top={null} />
-
-	<div class="mb-2 mt-6 font-bold">自定义顶层</div>
-	<Avatars {data}>
-		{#snippet top()}
-			<button class="bg-primary-200 dark:bg-dark-200 relative flex h-12 w-12 justify-center overflow-hidden rounded-full">
-				<div class="text-primary-950 dark:text-dark-950 flex h-full w-full items-center justify-center">
-					<Icon name="ri-svelte-line" />
-				</div>
-			</button>
-		{/snippet}
-	</Avatars>
 </div>

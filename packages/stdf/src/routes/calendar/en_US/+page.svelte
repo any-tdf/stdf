@@ -27,6 +27,7 @@
 	let visible22 = $state(false);
 	let visible23 = $state(false);
 	let visible24 = $state(false);
+	let visible25 = $state(false);
 
 	// The 6 days after the current date randomly takes out the INFODATES array, the Date format is yyyymmdd, and the month and day make up for 2 digits
 	const now = new Date();
@@ -79,6 +80,11 @@
 	let selectedFormatDates: string[] = $state([]);
 	const getSelectedFormatDatesFunc = (dates: string[]) => {
 		selectedFormatDates = dates;
+	};
+
+	let noPopupDates: string[] = $state([]);
+	const getNoPopupDatesFunc = (dates: string[]) => {
+		noPopupDates = dates;
 	};
 </script>
 
@@ -178,4 +184,20 @@
 
 	<Cell title="Do not clear the selected date when closing" onclick={() => (visible24 = true)} />
 	<Calendar bind:visible={visible24} mode="range" clear={false} />
+
+	<Cell title="Custom month card style" onclick={() => (visible25 = true)} />
+	<Calendar bind:visible={visible25} card={{ bg: 'theme' }} />
+
+	<div class="px-4 py-2">Without popup</div>
+	{#if noPopupDates.length}
+		<div class="px-4">
+			The following is the following total {noPopupDates.length} day:
+		</div>
+		<div class="grid grid-cols-4 gap-2 p-2 text-primary dark:text-dark">
+			{#each noPopupDates as item}
+				<div class="text-center">{item}</div>
+			{/each}
+		</div>
+	{/if}
+	<Calendar popup={null} mode="range" onconfirm={getNoPopupDatesFunc} />
 </div>

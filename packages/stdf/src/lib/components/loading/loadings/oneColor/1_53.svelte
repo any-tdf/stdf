@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} relative m-auto">
-	{#each [[-0.375, 1], [-0.375, 0.8], [-0.3, 0.6], [-0.225, 0.4], [-0.15, 0.2], [-0.075, 0.1]] as item}
+	{#each [[-0.375, 1], [-0.375, 0.8], [-0.3, 0.6], [-0.225, 0.4], [-0.15, 0.2], [-0.075, 0.1]] as item, i (i)}
 		<div
 			class="line absolute left-0 h-1 w-full rounded-full{colorClass()}"
 			style="background-color: {customColor[0]};top: 50%;animation-duration: {0.9 / speed}s;animation-delay: {(0.9 / speed) *

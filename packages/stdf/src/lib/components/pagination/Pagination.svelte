@@ -5,6 +5,7 @@
 	import SecondPagePre from './SecondPagePre.svelte';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 	import type { PaginationProps } from '../../types/index.js';
+	import { radiusObj, bgObj } from '../utils/index.js';
 
 	// 当前语言
 	// current language
@@ -17,8 +18,9 @@
 		pageSize = 10,
 		current = $bindable(1),
 		maxShowPage = 7,
-		radius = 'md',
+		radius = '',
 		type = 'bold',
+		bg = 'gray',
 		pageCol = 3,
 		showNextOmitPage = $bindable(false),
 		showPreOmitPage = $bindable(false),
@@ -179,27 +181,16 @@
 	// type class
 	const typeClass = {
 		border: 'border-primary dark:border-dark text-primary dark:text-dark',
-		block: 'bg-primary text-white dark:bg-dark dark:text-black',
+		block: 'bg-primary text-text-on-primary dark:bg-dark dark:text-text-on-dark border-transparent',
 		bold: 'font-bold text-primary dark:text-dark border-transparent'
-	};
-
-	// 圆角样式
-	// radius class
-	const radiusClass = {
-		sm: 'rounded-sm',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-		none: 'rounded-none'
 	};
 </script>
 
-<div class="relative flex justify-between bg-white py-1 text-center text-sm dark:bg-black {injClass}">
+<div class="relative flex justify-between {bgObj[bg] || bgObj['gray']} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'} py-1 text-center text-sm {injClass}">
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current > 1
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} {current > 1 ? 'active:scale-75' : ''}"
+			: 'text-primary/30 dark:text-dark/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'} {current > 1 ? 'active:scale-75' : ''}"
 		disabled={current === 1}
 		onclick={preFunc}
 		aria-label="pre"
@@ -225,10 +216,10 @@
 			<button
 				class="flex-1 border py-2 {showPreOmitPage
 					? typeClass[type] || typeClass.border
-					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.md}"
+					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'}"
 				onclick={() => !continuous && clickPreEllipsisFunc()}
 			>
-				{#if type === 'bold' && showPreOmitPage}
+				{#if showPreOmitPage}
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-current">
 						<path
 							d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
@@ -236,7 +227,7 @@
 						</path>
 					</svg>
 				{:else}
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-black/50 dark:fill-white/50">
 						<path
 							d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"
 						>
@@ -277,10 +268,10 @@
 			<button
 				class="flex-1 border py-2 {showNextOmitPage
 					? typeClass[type] || typeClass.border
-					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radiusClass[radius] || radiusClass.md}"
+					: 'border-transparent' + (type === 'bold' ? ' opacity-50' : '')} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'}"
 				onclick={() => !continuous && clickNextEllipsisFunc()}
 			>
-				{#if type === 'bold' && showNextOmitPage}
+				{#if showNextOmitPage}
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-current">
 						<path
 							d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
@@ -288,7 +279,7 @@
 						</path>
 					</svg>
 				{:else}
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mx-auto block fill-black/50 dark:fill-white/50">
 						<path
 							d="M4.5 10.5C3.675 10.5 3 11.175 3 12C3 12.825 3.675 13.5 4.5 13.5C5.325 13.5 6 12.825 6 12C6 11.175 5.325 10.5 4.5 10.5ZM19.5 10.5C18.675 10.5 18 11.175 18 12C18 12.825 18.675 13.5 19.5 13.5C20.325 13.5 21 12.825 21 12C21 11.175 20.325 10.5 19.5 10.5ZM12 10.5C11.175 10.5 10.5 11.175 10.5 12C10.5 12.825 11.175 13.5 12 13.5C12.825 13.5 13.5 12.825 13.5 12C13.5 11.175 12.825 10.5 12 10.5Z"
 						>
@@ -302,7 +293,7 @@
 	<button
 		class="flex-1 border border-transparent py-2 transition-all {current < totalPage
 			? 'text-primary dark:text-dark'
-			: 'text-primary/30 dark:text-dark/30'} {radiusClass[radius] || radiusClass.md} {current < totalPage ? 'active:scale-75' : ''}"
+			: 'text-primary/30 dark:text-dark/30'} {radius ? radiusObj[radius] : 'rounded-(--radius-form)'} {current < totalPage ? 'active:scale-75' : ''}"
 		disabled={current === totalPage}
 		onclick={nextFunc}
 		aria-label="next"
@@ -312,9 +303,9 @@
 		</svg>
 	</button>
 	{#if showNextOmitPage}
-		<SecondPageNext {pageCol} Pages={nextEllipsisPages} {type} {radius} onclickItem={clickSecondPageItemFunc} {maxShowPage} />
+		<SecondPageNext {pageCol} Pages={nextEllipsisPages} {type} {radius} {bg} onclickItem={clickSecondPageItemFunc} {maxShowPage} />
 	{/if}
 	{#if showPreOmitPage}
-		<SecondPagePre {pageCol} Pages={preEllipsisPages} {type} {radius} onclickItem={clickSecondPageItemFunc} {maxShowPage} />
+		<SecondPagePre {pageCol} Pages={preEllipsisPages} {type} {radius} {bg} onclickItem={clickSecondPageItemFunc} {maxShowPage} />
 	{/if}
 </div>

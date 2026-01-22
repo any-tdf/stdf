@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} m-auto flex items-end justify-between">
-	{#each [0, -0.36, -0.2] as item}
+	{#each [0, -0.36, -0.2] as item (item)}
 		<div class="cube h-2 w-2" style="animation-duration: {1.75 / speed}s; animation-delay: calc({1.75 / speed}s * {item})">
 			<div
 				class="cube__inner h-2 w-2 rounded-xs{colorClass()}"

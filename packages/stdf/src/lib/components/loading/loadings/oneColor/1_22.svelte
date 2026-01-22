@@ -17,9 +17,9 @@
 		viewBox="0 0 40 40"
 		style="color: {customColor[0]}"
 	>
-		<circle class="track stroke-[5px] opacity-0" stroke="currentColor" cx="20" cy="20" r="17.5" fill="none" />
+		<circle class="track stroke-1.25 opacity-0" stroke="currentColor" cx="20" cy="20" r="17.5" fill="none" />
 		<circle
-			class="car stroke-[5px]"
+			class="car stroke-1.25"
 			style="animation-duration: {(2 / speed) * 0.75}s;-webkit-animation-duration: {(2 / speed) * 0.75}s;"
 			stroke="currentColor"
 			cx="20"

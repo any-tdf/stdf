@@ -1,21 +1,23 @@
 <!-- Icon Demo, Please make sure you have been introduced symbol.svg file. -->
 <script lang="ts">
 	import { Icon } from '$lib/index.js';
+	import type { IconProps } from '$lib/types/index.js';
 
 	const icons = ['ri-spy-fill', 'ri-chrome-fill', 'ri-riding-line', 'ri-switch-fill'];
-	const msIcons = [
+	const msIcons: IconProps[] = [
 		{ name: 'material-symbols--agriculture' },
-		{ name: 'material-symbols--brightness-5', theme: true },
+		{ name: 'material-symbols--brightness-5', state: 'theme' },
 		{ name: 'material-symbols--cardiology-outline', opacity: 0.5 },
 		{ name: 'material-symbols--e911-avatar-rounded', size: 36 }
 	];
-	const solarIcons = [
+	const solarIcons: IconProps[] = [
 		{ name: 'solar--cat-broken' },
-		{ name: 'solar--chair-2-line-duotone', theme: true },
+		{ name: 'solar--chair-2-line-duotone', state: 'theme' },
 		{ name: 'solar--bonfire-line-duotone', opacity: 0.5 },
 		{ name: 'solar--cup-hot-broken', size: 36 }
 	];
-	const fcIcons = [
+	const states = ['theme', 'success', 'warning', 'error', 'info'] as const;
+	const fcIcons: IconProps[] = [
 		{ name: 'fluent-color--building-store-24' },
 		{ name: 'fluent-color--slide-text-sparkle-16' },
 		{ name: 'fluent-color--chart-multiple-24', opacity: 0.5 },
@@ -36,11 +38,12 @@
 		</div>
 	</div>
 	<div>
-		<div class="mb-2 text-xl font-bold">Follow the theme color</div>
+		<div class="mb-2 text-xl font-bold">Different states</div>
 		<div class="flex flex-wrap justify-between">
-			{#each icons as icon (icon)}
+			{#each states as state (state)}
 				<div class="flex-1 py-2 text-center">
-					<Icon name={icon} theme />
+					<Icon name={icons[0]} {state} />
+					<div class="mt-2 text-xs">{state}</div>
 				</div>
 			{/each}
 		</div>

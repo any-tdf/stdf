@@ -3,6 +3,7 @@
 	import Popup from '../popup/Popup.svelte';
 	import { zh_CN, type LangProps } from '../../lang/index.js';
 	import type { NumKeyboardProps } from '../../types/index.js';
+	import { radiusObj } from '../utils/index.js';
 
 	// 当前语言
 	// current language
@@ -22,8 +23,10 @@
 		close = false,
 		doneText = commonLang.done,
 		doneDisabled = $bindable(false),
-		radius = 'sm',
+		radius = '',
 		clear = false,
+		preview = false,
+		previewMask = false,
 		panelClass = '',
 		keyClass = '',
 		doneClass = '',
@@ -32,6 +35,10 @@
 		onopen,
 		onclose
 	}: NumKeyboardProps = $props();
+
+	// 是否使用弹出层，当 popup 为 null 时不使用
+	// Whether to use popup, when popup is null, do not use
+	const usePopup = $derived(popup !== null);
 
 	// 高度 class
 	// Height class
@@ -49,18 +56,9 @@
 	// padding class
 	const pClass = { '0': 'p-0', '1': 'p-1', '2': 'p-2', '3': 'p-3', '4': 'p-4' };
 
-	// 圆角 class
-	// radius class
-	const radiusClass = {
-		none: 'rounded-none',
-		sm: 'rounded-sm',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		'2xl': 'rounded-2xl',
-		'3xl': 'rounded-3xl',
-		full: 'rounded-full'
-	};
+	// 预览区高度（px）
+	// Preview area height (px)
+	const previewHeight = 44;
 
 	// 根据 p、gap、height 计算出键盘高度
 	// Calculate the keyboard height based on p, gap, height
@@ -68,28 +66,33 @@
 		const pNum = parseInt(p);
 		const gapNum = type === 'button' ? parseInt(space) : 0;
 		const heightNum = parseInt(height);
-		return (pNum * 2 + gapNum * 3 + heightNum * 4) * 4 + (type === 'block' ? 4 : 0);
+		const baseHeight = (pNum * 2 + gapNum * 3 + heightNum * 4) * 4 + (type === 'block' ? 4 : 0);
+		return preview ? baseHeight + previewHeight : baseHeight;
 	};
 
 	// 按钮式 class
 	// Button type class
-	const buttonClass = `flex flex-col justify-center items-center shadow-xs font-bold active:scale-95 transition-all duration-100 ${
-		heightClass[height] || 'h-12'
-	} ${fontSizeClass[height] || 'text-base'} ${radiusClass[radius] || 'rounded-sm'}${keyClass ? ' ' + keyClass : ''}`;
+	const buttonClass = $derived(
+		`flex flex-col justify-center items-center shadow-xs font-bold active:scale-95 transition-all duration-100 ${
+			heightClass[height] || 'h-12'
+		} ${fontSizeClass[height] || 'text-base'} ${radius ? radiusObj[radius] : 'rounded-(--radius-form)'}${keyClass ? ' ' + keyClass : ''}`
+	);
 
 	// 块式 class
 	// Block type class
-	const blockClass = `flex flex-col justify-center items-center font-bold active:opacity-40 transition-all duration-100 ${
-		heightClass[height] || 'h-12'
-	} ${fontSizeClass[height] || 'text-base'}${keyClass ? ' ' + keyClass : ''}`;
+	const blockClass = $derived(
+		`flex flex-col justify-center items-center font-bold active:opacity-40 transition-all duration-100 ${
+			heightClass[height] || 'h-12'
+		} ${fontSizeClass[height] || 'text-base'}${keyClass ? ' ' + keyClass : ''}`
+	);
 
 	// 根据 type 类型，生成不同的基础样式
 	// Generate different basic styles based on type type
 	const baseClassFunc = (key: string | number) => {
 		if (type === 'button') {
-			return key === 'done' ? buttonClass : 'bg-white dark:bg-gray-700 ' + buttonClass;
+			return key === 'done' ? buttonClass : 'bg-bg-highlight dark:bg-bg-highlight-dark ' + buttonClass;
 		} else {
-			return key === 'done' ? blockClass : 'bg-white dark:bg-gray-700 ' + blockClass;
+			return key === 'done' ? blockClass : 'bg-bg-highlight dark:bg-bg-highlight-dark ' + blockClass;
 		}
 	};
 
@@ -141,11 +144,24 @@
 	});
 </script>
 
-<Popup bind:visible size={0} mask={{ opacity: '0' }} transitionDistance={keyboardHeight()} {...popup}>
+{#snippet keyboardContent()}
 	<div
-		class="bg-gray-100 text-center dark:bg-gray-950 {type === 'block' ? 'border-t border-gray-100 dark:border-gray-950' : ''} {pClass[p] ||
+		class="bg-black/5 text-center dark:bg-white/5 {type === 'block' ? 'border-t border-gray-100 dark:border-gray-950' : ''} {pClass[p] ||
 			'p-2'}{panelClass ? ' ' + panelClass : ''}"
 	>
+		{#if preview}
+			<!-- 输入预览区 -->
+			<!-- Input preview area -->
+			<div class="flex items-center justify-center h-11 mb-2 bg-bg-highlight dark:bg-bg-highlight-dark rounded-(--radius-form) text-xl font-semibold tracking-widest">
+				{#if previewMask && value}
+					{#each value.split('') as _ (_)}
+						<span class="w-2.5 h-2.5 mx-1 rounded-full bg-text-primary dark:bg-text-dark"></span>
+					{/each}
+				{:else}
+					{value || ''}
+				{/if}
+			</div>
+		{/if}
 		<div class="grid {type === 'button' ? gapClass[space] || 'gap-2' : 'gap-px'} {done ? 'grid-cols-4' : 'grid-cols-3'}">
 			{#each reverse ? ['7', '8', '9'] : ['1', '2', '3'] as item (item)}
 				<button class={baseClassFunc(item)} onclick={() => clickFunc(item)}>{item} </button>
@@ -171,7 +187,7 @@
 			{/each}
 			{#if done}
 				<button
-					class="{baseClassFunc('done')} bg-primary dark:bg-dark row-span-3 h-full text-white dark:text-black {doneDisabled
+					class="{baseClassFunc('done')} bg-primary dark:bg-dark row-span-3 h-full text-text-on-primary dark:text-text-on-dark {doneDisabled
 						? '!opacity-50 transition-none active:!scale-100'
 						: ''}{doneClass ? '' + doneClass : ''}"
 					onclick={() => clickFunc('done')}
@@ -220,4 +236,12 @@
 			{/if}
 		</div>
 	</div>
-</Popup>
+{/snippet}
+
+{#if usePopup}
+	<Popup bind:visible size={0} mask={{ opacity: '0' }} transitionDistance={keyboardHeight()} {...popup}>
+		{@render keyboardContent()}
+	</Popup>
+{:else}
+	{@render keyboardContent()}
+{/if}

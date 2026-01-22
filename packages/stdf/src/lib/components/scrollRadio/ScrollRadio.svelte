@@ -11,6 +11,7 @@
 		lastSelectedIndex?: number;
 		align?: 'center' | 'left' | 'right';
 		onscrollEnd?: (index: number, isTouch: boolean) => void;
+		onscrolling?: (index: number) => void;
 	};
 	let {
 		data = [],
@@ -21,7 +22,8 @@
 		useAnimation = true,
 		lastSelectedIndex = 0,
 		align = 'center',
-		onscrollEnd
+		onscrollEnd,
+		onscrolling
 	}: Props = $props();
 
 	// 是否触摸
@@ -38,22 +40,26 @@
 
 	// 实际显示行数
 	// Actual number of rows displayed
-	const showRowsInner = showRow === 3 || showRow === 5 || showRow === 7 ? showRow : 5;
+	let showRowsInner = $derived(showRow === 3 || showRow === 5 || showRow === 7 ? showRow : 5);
 
 	// 单条高度
 	// Single height
-	const itemHeight = itemHeightObj[showRowsInner];
+	let itemHeight = $derived(itemHeightObj[showRowsInner]);
 
 	// 定义空对象 emptyObj，当 showRowsInner 为 3 时，newData 前后各补足一条 emptyObj，当 showRowsInner 为 5 时，newData 前后各补足两条 emptyObj，当 showRowsInner 为 7 时，newData 前后各补足三条 emptyObj
 	// Define empty object emptyObj, when showRowsInner is 3, newData is supplemented with one emptyObj at the front and back, when showRowsInner is 5, newData is supplemented with two emptyObj at the front and back, when showRowsInner is 7, newData is supplemented with three emptyObj at the front and back
-	const emptyObj: Record<string, string> = {};
-	emptyObj[labelKey] = '';
-	const newData =
+	let emptyObj = $derived.by(() => {
+		const obj: Record<string, string> = {};
+		obj[labelKey] = '';
+		return obj;
+	});
+	let newData = $derived(
 		showRowsInner === 3
 			? [...[emptyObj], ...data, ...[emptyObj]]
 			: showRowsInner === 5
 				? [...[emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj]]
-				: [...[emptyObj, emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj, emptyObj]];
+				: [...[emptyObj, emptyObj, emptyObj], ...data, ...[emptyObj, emptyObj, emptyObj]]
+	);
 
 	// 滚动元素
 	// Scroll element
@@ -68,9 +74,14 @@
 			// Listen to the scroll event of scrollElement, and consider throttling at the same time. The index of the element in the middle is calculated when the scroll ends
 			let scrollTimer: ReturnType<typeof setTimeout>;
 			scrollElement.addEventListener('scroll', (e: Event) => {
+				// 滚动过程中实时计算当前索引
+				// Calculate current index in real-time during scrolling
+				const scrollTop = (e.target as HTMLElement)?.scrollTop;
+				const scrollingIndex = Math.round(scrollTop / (itemHeight * 16));
+				onscrolling?.(scrollingIndex);
+
 				if (scrollTimer) clearTimeout(scrollTimer);
 				scrollTimer = setTimeout(() => {
-					const scrollTop = (e.target as HTMLElement)?.scrollTop;
 					currentIndex = Math.round(scrollTop / (itemHeight * 16));
 					onscrollEnd?.(currentIndex, isTouch);
 				});
@@ -103,16 +114,16 @@
 			</div>
 		{/each}
 		<div
-			class="pointer-events-none absolute inset-0 w-full border-b border-t border-white dark:border-black"
+			class="pointer-events-none absolute inset-0 w-full border-b border-t border-bg-surface dark:border-bg-surface-dark"
 			style="height:{itemHeight * showRowsInner}rem"
 		>
 			<div
-				class="border-b border-black/10 bg-gradient-to-b from-white to-white/60 dark:border-white/20 dark:from-black dark:to-black/60"
+				class="border-b border-black/10 bg-linear-to-b from-bg-surface to-bg-surface/60 dark:border-white/20 dark:from-bg-surface-dark dark:to-bg-surface-dark/60"
 				style="height:{itemHeight * ((showRowsInner - 1) / 2)}rem;"
 			></div>
-			<div style="height:{itemHeight}rem;"></div>
+			<div class="bg-primary/10 dark:bg-dark/10" style="height:{itemHeight}rem;"></div>
 			<div
-				class="border-t border-black/10 bg-gradient-to-t from-white to-white/60 dark:border-white/20 dark:from-black dark:to-black/60"
+				class="border-t border-black/10 bg-linear-to-t from-bg-surface to-bg-surface/60 dark:border-white/20 dark:from-bg-surface-dark dark:to-bg-surface-dark/60"
 				style="height:{itemHeight * ((showRowsInner - 1) / 2)}rem;"
 			></div>
 		</div>

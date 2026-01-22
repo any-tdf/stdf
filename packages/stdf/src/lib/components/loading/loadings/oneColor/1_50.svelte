@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} relative m-auto">
-	{#each [0, -2] as item}
+	{#each [0, -2] as item (item)}
 		<div
 			class="dot absolute left-0 top-0 h-full w-full rounded-full{colorClass()}"
 			style="background-color: {customColor[0]};animation-duration: {2 / speed}s;animation-delay: {2 / speed / item}s;"

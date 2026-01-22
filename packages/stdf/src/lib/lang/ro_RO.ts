@@ -94,6 +94,14 @@ const ro_RO: LangProps = {
 	},
 	form: {
 		submit: 'Trimite'
+	},
+	fullKeyboard: {
+		space: 'Spațiu'
+	},
+	list: {
+		editText: 'Editează',
+		doneText: 'Gata',
+		selectAllText: 'Selectează tot'
 	}
 };
 

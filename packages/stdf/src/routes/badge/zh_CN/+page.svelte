@@ -1,8 +1,15 @@
 <!-- Badge Demo -->
 <script lang="ts">
-	import { Badge, Avatar, Button, Icon, Input, Cell } from '$lib/index.js';
+	import { Badge, Avatar, Button, Icon, Input, Cell, Slider } from '$lib/index.js';
+	import type { BadgeProps } from '$lib/types/index.js';
 
 	let isShow = $state(true);
+
+	// 圆角配置
+	const radiusOptions: BadgeProps['radius'][] = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full', 'leaf'];
+	const radiusLabels = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full', 'leaf'];
+	let radiusIndex = $state(6); // 默认 full
+	let currentRadius: BadgeProps['radius'] = $derived(radiusOptions[radiusIndex]);
 </script>
 
 <div class="pb-4 pt-1">
@@ -15,11 +22,22 @@
 	</div>
 
 	<div class="mx-4 mt-8 text-lg font-bold">不同圆角</div>
+	<div class="px-4 py-2">
+		<Slider
+			value={radiusIndex}
+			minRange={0}
+			maxRange={7}
+			step={1}
+			showSteps
+			stepLabels={radiusLabels}
+			onchange={(v) => (radiusIndex = v)}
+		/>
+	</div>
 	<div class="flex justify-around p-4">
-		<Badge radius="sm"><Avatar /></Badge>
-		<Badge text="24" radius="none"><Avatar /></Badge>
-		<Badge text="24" radius="sm"><Avatar /></Badge>
-		<Badge text="Hot" radius="leaf"><Avatar /></Badge>
+		<Badge radius={currentRadius}><Avatar /></Badge>
+		<Badge text="24" radius={currentRadius}><Avatar /></Badge>
+		<Badge text="99+" radius={currentRadius}><Avatar /></Badge>
+		<Badge text="Hot" radius={currentRadius}><Avatar /></Badge>
 	</div>
 
 	<div class="mx-4 mt-8 text-lg font-bold">位于左侧</div>
@@ -50,10 +68,10 @@
 	</Cell>
 	<Cell title="搭配无圆角 Cell" radius="none">
 		{#snippet detailChild()}
-			<Badge text="新版本" radius="sm" isInner />
+			<Badge text="新版本" radius="lg" isInner />
 		{/snippet}
 	</Cell>
-	<Cell title="搭配全圆角 Cell" radius="full">
+	<Cell title="搭配全圆角 Cell" radius="4xl">
 		{#snippet detailChild()}
 			<Badge isInner />
 		{/snippet}
@@ -63,7 +81,7 @@
 	<div class="flex justify-around p-4">
 		<Badge {isShow}><Avatar /></Badge>
 		<Badge text="24" {isShow}><Avatar /></Badge>
-		<Badge text="24" radius="sm" {isShow}><Avatar /></Badge>
+		<Badge text="24" radius="lg" {isShow}><Avatar /></Badge>
 		<Badge text="Hot" radius="leaf" {isShow}><Avatar /></Badge>
 	</div>
 	<Cell title={!isShow ? '隐藏' : '显示'}>
@@ -76,8 +94,8 @@
 	<div class="mx-4 mt-8 text-lg font-bold">自定义背景色与边框</div>
 	<div class="flex justify-around p-4">
 		<Badge text="Theme" injClass="!bg-primary dark:!bg-dark text-white dark:text-black"><Avatar /></Badge>
-		<Badge text="New" injClass="bg-gradient-to-r from-[#CE9FFC] to-[#7367F0]"><Avatar /></Badge>
-		<Badge radius="sm" injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]"><Avatar image="/assets/images/avatar_1.jpg" /></Badge>
+		<Badge text="New" injClass="bg-linear-to-r from-[#CE9FFC] to-[#7367F0]"><Avatar /></Badge>
+		<Badge radius="lg" injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]"><Avatar image="/assets/images/avatar_1.jpg" /></Badge>
 		<Badge offsetX={9} offsetY={9} injClass="ring-2 ring-[#ebeef2] dark:ring-[#414248]">
 			<Avatar radius="full" image="/assets/images/avatar_1.jpg" />
 		</Badge>

@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} m-auto flex items-center justify-center">
-	{#each [0, 1, 2, 3] as item}
+	{#each [0, 1, 2, 3] as item (item)}
 		<div
 			class="dot relative flex h-full w-1/4 items-center"
 			class:dot1={item === 0}

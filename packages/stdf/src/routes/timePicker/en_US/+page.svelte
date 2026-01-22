@@ -136,4 +136,7 @@
 
 	<Cell title="Specify initial selected hour, minute, second" onclick={() => (visible21 = true)} />
 	<TimePicker bind:visible={visible21} initHour="05" initMinute="05" initSecond="05" />
+
+	<div class="px-4 py-2">Without Popup</div>
+	<TimePicker popup={null} type="YYYYMMDD" height={30} />
 </div>

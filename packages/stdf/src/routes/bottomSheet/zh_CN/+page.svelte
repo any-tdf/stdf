@@ -108,7 +108,7 @@
 	</BottomSheet>
 
 	<Cell title="图标不同圆角风格" onclick={() => (visible12 = true)} />
-	<BottomSheet bind:visible={visible12} radius="middle" showBackIcon>
+	<BottomSheet bind:visible={visible12} radius="md" showBackIcon>
 		<Aphorism num={2} />
 	</BottomSheet>
 

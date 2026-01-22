@@ -82,9 +82,9 @@
 <div class="px-4 pt-8 text-xl font-bold">Different Border Radius Styles</div>
 <Input title="Text" />
 <Input title="Text" radius="xl" />
-<Input title="Text" radius="full" />
+<Input title="Text" radius="4xl" />
 <Input title="Text" radius="none" />
-<Input title="Line Style (Radius Invalid)" radius="full" inputStyle="line" />
+<Input title="Line Style (Radius Invalid)" radius="4xl" inputStyle="line" />
 
 <div class="px-4 pt-8 text-xl font-bold">Different Vertical Spacing</div>
 <Input placeholder="Please enter text (Spacing 0)" py="0" inputStyle="line" />
@@ -229,7 +229,7 @@
 	{/snippet}
 	{#snippet label4Child()}
 		<div>
-			<Button size="auto" heightOut="0" heightIn="1" fill="lineTheme">
+			<Button size="auto" heightOut="0" heightIn="1" fill="lineState">
 				<div class="px-2">Get Code</div>
 			</Button>
 		</div>

@@ -8,16 +8,32 @@
 	const formConfig: FormItemProps[] = [
 		{ type: 'input', name: 'username', label: 'Username', required: true },
 		{ type: 'numKeyboard', name: 'numKeyboard', label: 'Number Keyboard', input: { placeholder: 'Please enter numbers' } },
+		{ type: 'fullKeyboard', name: 'fullKeyboard', label: 'Full Keyboard', input: { placeholder: 'Please enter text' } },
 		{ type: 'timePicker', name: 'time', label: 'Time', required: true },
 		{
 			type: 'actionSheet',
 			name: 'action',
 			label: 'Action',
-			actionSheet: { actions: [{ content: 'Add' }, { content: 'Edit' }, { content: 'Delete', style: 'danger', desc: 'Cannot be restored after deletion' }] }
+			actionSheet: { actions: [{ content: 'Add' }, { content: 'Edit' }, { content: 'Delete', style: 'error', desc: 'Cannot be restored after deletion' }] }
 		},
 		{ type: 'calendar', name: 'calendar', label: 'Date Range', calendar: { mode: 'range' } },
+		{ type: 'calendar', name: 'calendarMultiple', label: 'Multiple Dates', calendar: { mode: 'multiple' } },
 		{ type: 'picker', name: 'picker', label: 'State', picker: { datas: [{ data: someProvinceList }] } },
 		{ type: 'picker', name: 'pickerLinkage', label: 'Region', picker: { datas: linkageData, isLinkage: true } },
+		{
+			type: 'picker',
+			name: 'pickerMultiple',
+			label: 'Multiple States',
+			picker: { datas: [{ data: someProvinceList }], multiple: true }
+		},
+		{
+			type: 'colorPicker',
+			name: 'colorPicker',
+			label: 'Color Picker',
+			initValue: '#FF6B6B',
+			input: { placeholder: 'Select a color' },
+			colorPicker: { modes: ['hex', 'rgb', 'oklch'] }
+		},
 		{
 			type: 'checkbox',
 			name: 'checkbox',
@@ -74,9 +90,9 @@
 	];
 
 	const formCardRadioConfig: FormItemProps[] = [
-		{ type: 'input', name: 'username', label: 'Username', required: true, input: { radius: 'full' } },
-		{ type: 'calendar', name: 'calendar', label: 'Date Range', calendar: { mode: 'range' }, input: { radius: 'full' } },
-		{ type: 'picker', name: 'pickerLinkage', label: 'Region', picker: { datas: linkageData, isLinkage: true }, input: { radius: 'full' } }
+		{ type: 'input', name: 'username', label: 'Username', required: true, input: { radius: '4xl' } },
+		{ type: 'calendar', name: 'calendar', label: 'Date Range', calendar: { mode: 'range' }, input: { radius: '4xl' } },
+		{ type: 'picker', name: 'pickerLinkage', label: 'Region', picker: { datas: linkageData, isLinkage: true }, input: { radius: '4xl' } }
 	];
 
 	const formCardLineConfig: FormItemProps[] = [
@@ -97,13 +113,13 @@
 <Toast bind:visible={submitToastVisible} message={toastMessage} type={toastType} />
 
 <Divider text="Card Layout" />
-<Form form={formCardConfig} card />
+<Form form={formCardConfig} card={{}} />
 
 <Divider text="Increased Spacing" />
 <Form form={formCardConfig} space="4" />
 
 <Divider text="Increase the radius of cards, inputs and submit button" />
-<Form form={formCardRadioConfig} card radius="4xl" submitButton={{ radius: 'full' }} />
+<Form form={formCardRadioConfig} card={{ radius: '4xl' }} submitButton={{ radius: 'full' }} />
 
 <Divider text="Input Field Line Style" />
 <Form form={formCardLineConfig} />

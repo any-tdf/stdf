@@ -1,59 +1,107 @@
 <script lang="ts">
-	import { switchTheme } from '$lib/theme/index.js';
-	import themes from '../../data/themes/index.js';
+	import { switchTheme, themes as stdfThemes } from '$lib/theme/index.js';
 
 	const isZh = sessionStorage.getItem('lang') === 'zh_CN';
 
+	// 主题中文名称映射
+	const themeLabels: Record<string, string> = {
+		STDF: 'STDF',
+		Nintendo: '红蓝天堂',
+		Ocean: '海蓝金沙',
+		Forest: '翠林暖棕',
+		Sunset: '橙霞蓝天',
+		Cherry: '粉樱翠影',
+		Twilight: '暮紫粉霞',
+		Amber: '琥珀紫韵',
+		Mint: '薄荷玫红',
+		Coral: '珊瑚碧蓝',
+		Slate: '石墨暖棕',
+		Emerald: '翡翠丹霞',
+		Crimson: '绯红碧波',
+		Navy: '藏蓝珊瑚',
+		Olive: '橄榄紫烟',
+		Plum: '梅紫青翠',
+		Cyan: '青碧暖橙',
+		Tangerine: '蜜橘深蓝',
+		Sage: '草绿粉紫',
+		Berry: '浆紫嫩绿',
+		Wine: '酒红翠青',
+		IKEA: '宜家蓝黄',
+		Ferrari: '法拉红金',
+		Tiffany: '蒂芙蓝白',
+		Pepsi: '百事蓝红',
+		Spotify: '声田绿米',
+		Netflix: '奈飞红白',
+		Hermes: '爱马橙棕',
+		CocaCola: '可乐红白',
+		Starbucks: '星巴绿棕',
+		McDonalds: '金拱红黄',
+		Gucci: '古驰绿红',
+		Chanel: '香奈黑米',
+		Rolex: '劳力绿金',
+		LouisVuitton: '路威棕金',
+		Mastercard: '万事红橙',
+		Sepia: '泛黄记忆',
+		GoldWood: '金色森林',
+		CyberNeon: '赛博霓虹',
+		Aurora: '极光幻夜',
+		Terracotta: '陶青梦境',
+		Sakura: '靛蓝樱花'
+	};
+
+	// 解析 oklch 颜色获取色相
+	const parseOklch = (color: string) => {
+		const match = color.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
+		if (!match) return { l: 0.5, c: 0.15, h: 0 };
+		return { l: parseFloat(match[1]), c: parseFloat(match[2]), h: parseFloat(match[3]) };
+	};
+
+	// 从内置主题生成显示数据
+	const themes = stdfThemes.map((t) => {
+		const p = parseOklch(t['color-primary']);
+		const d = parseOklch(t['color-dark']);
+		return {
+			name: t.name,
+			label: isZh ? themeLabels[t.name] || t.name : t.name,
+			primary: t['color-primary'],
+			dark: t['color-dark'],
+			bgLight: `oklch(0.975 ${(p.c * 0.05).toFixed(3)} ${p.h.toFixed(1)})`,
+			bgDark: `oklch(0.15 ${(d.c * 0.08).toFixed(3)} ${d.h.toFixed(1)})`
+		};
+	});
+
 	let { currentColor } = $props();
 
-	const selectColorFunc = (e: MouseEvent, item: (typeof themes)[number]) => {
+	const selectColorFunc = (e: MouseEvent, themeName: string) => {
 		// 阻止冒泡
 		// Prevent bubbling
 		e.stopPropagation();
-		currentColor = item.name;
-		switchTheme(item.theme);
+		currentColor = themeName;
+		localStorage.setItem('theme_color', themeName);
+		switchTheme(themeName);
 	};
 </script>
 
-<div class="my-2 flex flex-col flex-wrap gap-1">
+<div class="my-2 grid grid-cols-3 gap-1">
 	{#each themes as item (item.name)}
 		<button
-			class="flex items-center justify-between gap-0.5 border px-0.5 py-1 {currentColor === item.name
+			class="flex items-center gap-1.5 border px-1.5 py-1 {currentColor === item.name
 				? 'border-primary dark:border-dark'
-				: 'border-gray-100 dark:border-gray-700'} cursor-pointer rounded-sm"
-			onclick={(e) => selectColorFunc(e, item)}
+				: 'border-gray-100 dark:border-gray-700'} cursor-pointer rounded-sm transition-all"
+			onclick={(e) => selectColorFunc(e, item.name)}
 		>
-			<div class="size-3 {currentColor === item.name ? 'fill-primary dark:fill-dark' : 'fill-gray-300 dark:fill-gray-700'}">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-					<path
-						d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM7.5 12C8.32843 12 9 11.3284 9 10.5C9 9.67157 8.32843 9 7.5 9C6.67157 9 6 9.67157 6 10.5C6 11.3284 6.67157 12 7.5 12ZM16.5 12C17.3284 12 18 11.3284 18 10.5C18 9.67157 17.3284 9 16.5 9C15.6716 9 15 9.67157 15 10.5C15 11.3284 15.6716 12 16.5 12ZM12 9C12.8284 9 13.5 8.32843 13.5 7.5C13.5 6.67157 12.8284 6 12 6C11.1716 6 10.5 6.67157 10.5 7.5C10.5 8.32843 11.1716 9 12 9Z"
-					>
-					</path>
-				</svg>
-			</div>
-			<div class="flex-1 whitespace-nowrap text-left text-xs font-normal">{isZh ? item.name_CN : item.name}</div>
-			<div class="flex justify-between gap-1">
-				<!-- theme  -->
-				<div class="rounded-xs flex overflow-hidden">
-					<div class="bg-primary w-3" style="background-color: {item.theme.color.primary.default};"></div>
-					<div class="bg-dark w-3" style="background-color: {item.theme.color.dark.default};"></div>
+			<!-- 主题色块预览 -->
+			<div class="flex h-5 w-7 shrink-0 overflow-hidden rounded-sm border border-black/5 dark:border-white/5">
+				<!-- 左半部分：亮色背景 + 主题色 -->
+				<div class="relative flex-1" style="background-color: {item.bgLight}">
+					<div class="absolute bottom-0.5 left-0.5 h-2 w-2 rounded-xs" style="background-color: {item.primary}"></div>
 				</div>
-				<div class="flex flex-col justify-between gap-px">
-					<!-- Functional -->
-					<div class="flex gap-px">
-						<div class="size-1.5 rounded" style="background-color: {item.theme.color.functional.success};"></div>
-						<div class="size-1.5 rounded" style="background-color: {item.theme.color.functional.warning};"></div>
-						<div class="size-1.5 rounded" style="background-color: {item.theme.color.functional.error};"></div>
-						<div class="size-1.5 rounded" style="background-color: {item.theme.color.functional.info};"></div>
-					</div>
-					<!-- Extended -->
-					<div class="flex justify-between gap-px">
-						{#each item.theme.color?.extend ?? [] as child (child.alias)}
-							<div class="size-1.5 rounded" style="background-color: {child.color};"></div>
-						{/each}
-					</div>
+				<!-- 右半部分：暗色背景 + 暗色主题色 -->
+				<div class="relative flex-1" style="background-color: {item.bgDark}">
+					<div class="absolute bottom-0.5 right-0.5 h-2 w-2 rounded-xs" style="background-color: {item.dark}"></div>
 				</div>
 			</div>
+			<div class="min-w-0 flex-1 truncate text-left text-xs font-normal {currentColor === item.name ? 'text-primary dark:text-dark font-medium' : ''}">{item.label}</div>
 		</button>
 	{/each}
 </div>

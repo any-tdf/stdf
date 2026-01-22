@@ -94,6 +94,14 @@ const sl_SI: LangProps = {
 	},
 	form: {
 		submit: 'Pošlji'
+	},
+	fullKeyboard: {
+		space: 'Presledek'
+	},
+	list: {
+		editText: 'Uredi',
+		doneText: 'Končano',
+		selectAllText: 'Izberi vse'
 	}
 };
 

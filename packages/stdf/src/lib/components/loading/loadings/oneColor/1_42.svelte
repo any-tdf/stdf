@@ -12,7 +12,7 @@
 </script>
 
 <div class="{size} container relative m-auto inline-block" style="animation-duration: {1.5 / speed}s;">
-	{#each [120, -120, 0] as item}
+	{#each [120, -120, 0] as item (item)}
 		<div class="absolute h-full" style="transform: rotate({item}deg);left: 37.5%;width:25%;">
 			<div
 				class="dot absolute left-0 top-0 h-0 w-full rounded-full{colorClass()}"
