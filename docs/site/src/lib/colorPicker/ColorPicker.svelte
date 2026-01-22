@@ -837,7 +837,7 @@
 					<svg class="h-3.5 w-3.5 cursor-help text-black/40 dark:text-white/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 						<path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"/>
 					</svg>
-					<div class="pointer-events-none absolute bottom-full right-0 z-10 mb-2 w-48 rounded bg-black px-2.5 py-2 text-2.5 leading-relaxed text-white opacity-0 transition-opacity group-hover/wcag:opacity-100 dark:bg-white dark:text-black">
+					<div class="pointer-events-none absolute bottom-full right-0 z-10 mb-2 w-48 rounded bg-black px-2.5 py-2 text-xs leading-relaxed text-white opacity-0 transition-opacity group-hover/wcag:opacity-100 dark:bg-white dark:text-black">
 						<div class="mb-1 font-medium">{isZh ? '网页内容无障碍指南' : 'Web Content Accessibility Guidelines'}</div>
 						<div class="space-y-0.5 text-white/80 dark:text-black/70">
 							<div><span class="font-bold text-green-400 dark:text-green-600">AAA</span> ≥7:1 {isZh ? '最高标准' : 'Enhanced'}</div>
@@ -977,7 +977,7 @@
 
 	<!-- 快捷键提示 -->
 	{#if colorMode !== 'hex'}
-		<div class="mt-2 text-center text-2.5 text-black/40 dark:text-white/40">
+		<div class="mt-2 text-center text-xs text-black/40 dark:text-white/40">
 			{#if colorMode === 'oklch'}
 				{#if isMac}
 					↑↓ ±0.01 | ⇧ ±0.1 | ⌥ ±0.001

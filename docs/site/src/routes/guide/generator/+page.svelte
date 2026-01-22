@@ -1119,7 +1119,7 @@ ${extendListStr2}
 
 <div class="block md:hidden">{isZh ? '请在桌面端使用！' : 'Please use it on the desktop!'}</div>
 <div class="mb-2 hidden justify-between md:flex">
-	<div class="w-48 shrink-0 overflow-y-auto overflow-x-hidden pb-2 pr-2 pt-2" style="height:{windowHeight - 90}px">
+	<div class="w-52 shrink-0 overflow-y-auto overflow-x-hidden pb-2 pr-2 pt-2" style="height:{windowHeight - 90}px">
 		<!-- 主题名称 -->
 		<div class="flex items-center gap-2">
 			<div class="shrink-0 text-xs">{isZh ? '名称' : 'Name'}</div>
@@ -1146,7 +1146,7 @@ ${extendListStr2}
 			</div>
 
 			<!-- 主题色：Primary & Dark -->
-			<div class="mt-1 text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '主题色' : 'Theme colors'}</div>
+			<div class="mt-1 text-center text-xs text-black/50 dark:text-white/50">{isZh ? '主题色' : 'Theme colors'}</div>
 			<div class="flex gap-1">
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1157,7 +1157,7 @@ ${extendListStr2}
 						showContrast
 						contrastTarget={{ l: 1, c: 0, h: 0 }}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">primary</span>
+					<span class="text-xs text-black/50 dark:text-white/50">primary</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1168,13 +1168,13 @@ ${extendListStr2}
 						showContrast
 						contrastTarget={{ l: 0, c: 0, h: 0 }}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">dark</span>
+					<span class="text-xs text-black/50 dark:text-white/50">dark</span>
 				</div>
 			</div>
 
 			<!-- 背景色 -->
 			<div class="mt-2 flex items-center justify-center gap-1">
-				<span class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '背景色' : 'Background'}</span>
+				<span class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '背景色' : 'Background'}</span>
 				<div class="group/bg relative">
 					<svg
 						class="h-3 w-3 cursor-help text-black/30 dark:text-white/30"
@@ -1187,7 +1187,7 @@ ${extendListStr2}
 						/>
 					</svg>
 					<div
-						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 w-48 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-2.5 leading-relaxed text-white opacity-0 transition-opacity group-hover/bg:opacity-100 dark:bg-white dark:text-black"
+						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 w-48 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-xs leading-relaxed text-white opacity-0 transition-opacity group-hover/bg:opacity-100 dark:bg-white dark:text-black"
 					>
 						{#if isZh}
 							<div class="space-y-0.5">
@@ -1218,7 +1218,7 @@ ${extendListStr2}
 						contrastTarget={textLightOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">base</span>
+					<span class="text-xs text-black/50 dark:text-white/50">base</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1228,7 +1228,7 @@ ${extendListStr2}
 						contrastTarget={textLightOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">surface</span>
+					<span class="text-xs text-black/50 dark:text-white/50">surface</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1238,7 +1238,7 @@ ${extendListStr2}
 						contrastTarget={textLightOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">overlay</span>
+					<span class="text-xs text-black/50 dark:text-white/50">overlay</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1248,7 +1248,7 @@ ${extendListStr2}
 						contrastTarget={textLightOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">highlight</span>
+					<span class="text-xs text-black/50 dark:text-white/50">highlight</span>
 				</div>
 			</div>
 			<div class="mt-1 flex gap-1">
@@ -1260,7 +1260,7 @@ ${extendListStr2}
 						contrastTarget={textDarkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">base-D</span>
+					<span class="text-xs text-black/50 dark:text-white/50">base-D</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1270,7 +1270,7 @@ ${extendListStr2}
 						contrastTarget={textDarkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">surf-D</span>
+					<span class="text-xs text-black/50 dark:text-white/50">surf-D</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1280,7 +1280,7 @@ ${extendListStr2}
 						contrastTarget={textDarkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">over-D</span>
+					<span class="text-xs text-black/50 dark:text-white/50">over-D</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1290,13 +1290,13 @@ ${extendListStr2}
 						contrastTarget={textDarkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">hl-D</span>
+					<span class="text-xs text-black/50 dark:text-white/50">hl-D</span>
 				</div>
 			</div>
 
 			<!-- 文字色 -->
 			<div class="mt-2 flex items-center justify-center gap-1">
-				<span class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '文字色' : 'Text'}</span>
+				<span class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '文字色' : 'Text'}</span>
 				<div class="group/text relative">
 					<svg
 						class="h-3 w-3 cursor-help text-black/30 dark:text-white/30"
@@ -1309,7 +1309,7 @@ ${extendListStr2}
 						/>
 					</svg>
 					<div
-						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 w-48 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-2.5 leading-relaxed text-white opacity-0 transition-opacity group-hover/text:opacity-100 dark:bg-white dark:text-black"
+						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 w-48 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-xs leading-relaxed text-white opacity-0 transition-opacity group-hover/text:opacity-100 dark:bg-white dark:text-black"
 					>
 						{#if isZh}
 							<div class="space-y-0.5">
@@ -1340,7 +1340,7 @@ ${extendListStr2}
 						bgColor={bgBaseOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">primary</span>
+					<span class="text-xs text-black/50 dark:text-white/50">primary</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1352,7 +1352,7 @@ ${extendListStr2}
 						bgColor={primaryOklch}
 						onopen={() => setSiteMode(false)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">onPri</span>
+					<span class="text-xs text-black/50 dark:text-white/50">onPri</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1364,7 +1364,7 @@ ${extendListStr2}
 						bgColor={bgBaseDarkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">dark</span>
+					<span class="text-xs text-black/50 dark:text-white/50">dark</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton
@@ -1376,34 +1376,34 @@ ${extendListStr2}
 						bgColor={darkOklch}
 						onopen={() => setSiteMode(true)}
 					/>
-					<span class="text-2.5 text-black/50 dark:text-white/50">onDark</span>
+					<span class="text-xs text-black/50 dark:text-white/50">onDark</span>
 				</div>
 			</div>
 
 			<!-- 功能色：Success, Warning, Error, Info -->
-			<div class="mt-2 text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '功能色' : 'Functional colors'}</div>
+			<div class="mt-2 text-center text-xs text-black/50 dark:text-white/50">{isZh ? '功能色' : 'Functional colors'}</div>
 			<div class="flex gap-1">
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton bind:value={successOklch} size="sm" onchange={onSuccessOklchChange} />
-					<span class="text-2.5 text-black/50 dark:text-white/50">success</span>
+					<span class="text-xs text-black/50 dark:text-white/50">success</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton bind:value={warningOklch} size="sm" onchange={onWarningOklchChange} />
-					<span class="text-2.5 text-black/50 dark:text-white/50">warning</span>
+					<span class="text-xs text-black/50 dark:text-white/50">warning</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton bind:value={errorOklch} size="sm" onchange={onErrorOklchChange} />
-					<span class="text-2.5 text-black/50 dark:text-white/50">error</span>
+					<span class="text-xs text-black/50 dark:text-white/50">error</span>
 				</div>
 				<div class="flex flex-1 flex-col items-center gap-0.5">
 					<ColorPickerButton bind:value={infoOklch} size="sm" onchange={onInfoOklchChange} />
-					<span class="text-2.5 text-black/50 dark:text-white/50">info</span>
+					<span class="text-xs text-black/50 dark:text-white/50">info</span>
 				</div>
 			</div>
 
 			<!-- 扩展色 -->
 			<div class="mt-2 flex items-center justify-center gap-2">
-				<div class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '扩展色' : 'Extended colors'}</div>
+				<div class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '扩展色' : 'Extended colors'}</div>
 				<button aria-label="add" class="cursor-pointer rounded-sm bg-black/5 px-1 dark:bg-white/10" onclick={addExtendFunc}>
 					<svg class="h-3 w-3 transition-all hover:scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path class="fill-black dark:fill-white" d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
@@ -1456,7 +1456,7 @@ ${extendListStr2}
 						></path>
 					</svg>
 					<div
-						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-40 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-2.5 leading-tight text-white opacity-0 transition-opacity group-hover/radiusTip:opacity-100 dark:bg-white dark:text-black"
+						class="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-40 -translate-x-1/2 rounded bg-black px-2 py-1.5 text-xs leading-tight text-white opacity-0 transition-opacity group-hover/radiusTip:opacity-100 dark:bg-white dark:text-black"
 					>
 						{isZh ? '全局配置后，组件仍可通过 API 单独自定义' : 'After global config, components can still customize via API'}
 						<div class="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-black dark:border-t-white"></div>
@@ -1466,7 +1466,7 @@ ${extendListStr2}
 			</div>
 
 			<!-- 容器类圆角配置 (box) -->
-			<div class="mt-1 text-2.5 text-black/50 dark:text-white/50">
+			<div class="mt-1 text-xs text-black/50 dark:text-white/50">
 				{isZh ? '容器类（弹窗/卡片/单元格/骨架屏）' : 'Box (Popup/Card/Cell/Skeleton)'}
 			</div>
 			<div class="grid grid-cols-4 gap-x-1 gap-y-1 py-1">
@@ -1483,7 +1483,7 @@ ${extendListStr2}
 							></div>
 						</div>
 						<span
-							class="text-2.5 transition-colors {boxRadius === option.value
+							class="text-xs transition-colors {boxRadius === option.value
 								? 'text-primary dark:text-dark'
 								: 'text-black/40 dark:text-white/40'}"
 						>
@@ -1494,7 +1494,7 @@ ${extendListStr2}
 			</div>
 
 			<!-- 表单类圆角配置 (form) -->
-			<div class="mt-1 text-2.5 text-black/50 dark:text-white/50">
+			<div class="mt-1 text-xs text-black/50 dark:text-white/50">
 				{isZh ? '表单类（按钮/输入框/日历/分页）' : 'Form (Button/Input/Calendar/Pagination)'}
 			</div>
 			<div class="grid grid-cols-4 gap-x-1 gap-y-1 py-1">
@@ -1511,7 +1511,7 @@ ${extendListStr2}
 							></div>
 						</div>
 						<span
-							class="text-2.5 transition-colors {formRadius === option.value
+							class="text-xs transition-colors {formRadius === option.value
 								? 'text-primary dark:text-dark'
 								: 'text-black/40 dark:text-white/40'}"
 						>
@@ -1522,7 +1522,7 @@ ${extendListStr2}
 			</div>
 
 			<!-- 小型控件类圆角配置 (small) -->
-			<div class="mt-1 text-2.5 text-black/50 dark:text-white/50">
+			<div class="mt-1 text-xs text-black/50 dark:text-white/50">
 				{isZh ? '小型控件类（开关/进度/滑块/步进器）' : 'Small (Switch/Progress/Slider/Stepper)'}
 			</div>
 			<div class="grid grid-cols-4 gap-x-1 gap-y-1 py-1">
@@ -1539,7 +1539,7 @@ ${extendListStr2}
 							></div>
 						</div>
 						<span
-							class="text-2.5 transition-colors {smallRadius === option.value
+							class="text-xs transition-colors {smallRadius === option.value
 								? 'text-primary dark:text-dark'
 								: 'text-black/40 dark:text-white/40'}"
 						>
@@ -1731,73 +1731,73 @@ ${extendListStr2}
 					<div class="flex flex-1 gap-1">
 						<!-- 亮色背景 -->
 						<div class="flex flex-1 flex-col gap-1 rounded-sm border border-black/10 p-1 dark:border-white/10">
-							<div class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '亮色背景' : 'Light BG'}</div>
+							<div class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '亮色背景' : 'Light BG'}</div>
 							<div class="flex gap-1">
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div class="h-6 w-full rounded-sm border border-black/10" style="background-color: {oklchObjToStr(bgBaseOklch)};"></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">base</span>
+									<span class="text-xs text-black/50 dark:text-white/50">base</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-black/10"
 										style="background-color: {oklchObjToStr(bgSurfaceOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">surface</span>
+									<span class="text-xs text-black/50 dark:text-white/50">surface</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-black/10"
 										style="background-color: {oklchObjToStr(bgOverlayOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">overlay</span>
+									<span class="text-xs text-black/50 dark:text-white/50">overlay</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-black/10"
 										style="background-color: {oklchObjToStr(bgHighlightOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">highlight</span>
+									<span class="text-xs text-black/50 dark:text-white/50">highlight</span>
 								</div>
 							</div>
 						</div>
 						<!-- 暗色背景 -->
 						<div class="flex flex-1 flex-col gap-1 rounded-sm border border-black/10 p-1 dark:border-white/10">
-							<div class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '暗色背景' : 'Dark BG'}</div>
+							<div class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '暗色背景' : 'Dark BG'}</div>
 							<div class="flex gap-1">
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-white/10"
 										style="background-color: {oklchObjToStr(bgBaseDarkOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">base</span>
+									<span class="text-xs text-black/50 dark:text-white/50">base</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-white/10"
 										style="background-color: {oklchObjToStr(bgSurfaceDarkOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">surface</span>
+									<span class="text-xs text-black/50 dark:text-white/50">surface</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-white/10"
 										style="background-color: {oklchObjToStr(bgOverlayDarkOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">overlay</span>
+									<span class="text-xs text-black/50 dark:text-white/50">overlay</span>
 								</div>
 								<div class="flex flex-1 flex-col items-center gap-0.5">
 									<div
 										class="h-6 w-full rounded-sm border border-white/10"
 										style="background-color: {oklchObjToStr(bgHighlightDarkOklch)};"
 									></div>
-									<span class="text-2.25 text-black/50 dark:text-white/50">highlight</span>
+									<span class="text-xs text-black/50 dark:text-white/50">highlight</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- 文字色 -->
 					<div class="flex flex-1 flex-col gap-1 rounded-sm border border-black/10 p-1 dark:border-white/10">
-						<div class="text-center text-2.5 text-black/50 dark:text-white/50">{isZh ? '文字色' : 'Text'}</div>
+						<div class="text-center text-xs text-black/50 dark:text-white/50">{isZh ? '文字色' : 'Text'}</div>
 						<div class="flex gap-1">
 							<!-- 全局文字色：对应背景色 + A -->
 							<div class="flex flex-1 flex-col items-center gap-0.5">
@@ -1807,7 +1807,7 @@ ${extendListStr2}
 								>
 									A
 								</div>
-								<span class="text-2.25 text-black/50 dark:text-white/50">light</span>
+								<span class="text-xs text-black/50 dark:text-white/50">light</span>
 							</div>
 							<div class="flex flex-1 flex-col items-center gap-0.5">
 								<div
@@ -1816,7 +1816,7 @@ ${extendListStr2}
 								>
 									A
 								</div>
-								<span class="text-2.25 text-black/50 dark:text-white/50">dark</span>
+								<span class="text-xs text-black/50 dark:text-white/50">dark</span>
 							</div>
 							<!-- 主题色上文字：主题色背景 + A -->
 							<div class="flex flex-1 flex-col items-center gap-0.5">
@@ -1826,7 +1826,7 @@ ${extendListStr2}
 								>
 									A
 								</div>
-								<span class="text-2.25 text-black/50 dark:text-white/50">onPri-L</span>
+								<span class="text-xs text-black/50 dark:text-white/50">onPri-L</span>
 							</div>
 							<div class="flex flex-1 flex-col items-center gap-0.5">
 								<div
@@ -1835,7 +1835,7 @@ ${extendListStr2}
 								>
 									A
 								</div>
-								<span class="text-2.25 text-black/50 dark:text-white/50">onDark</span>
+								<span class="text-xs text-black/50 dark:text-white/50">onDark</span>
 							</div>
 						</div>
 					</div>

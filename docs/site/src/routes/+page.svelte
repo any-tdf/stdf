@@ -438,7 +438,7 @@
 	</div>
 
 	<!-- 主题系统（单独一行） -->
-	<div class="mt-16 px-8">
+	<div class="mt-16 px-4">
 		<ThemeSystem />
 	</div>
 

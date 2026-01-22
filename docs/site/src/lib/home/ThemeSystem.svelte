@@ -345,7 +345,7 @@
 				</div>
 
 				<!-- 主题网格 -->
-				<div class="grid grid-cols-6 gap-2">
+				<div class="grid grid-cols-6 gap-x-1.5 gap-y-2">
 					{#each themes as theme (theme)}
 						<button
 							onclick={() => selectTheme(theme.name)}
@@ -374,7 +374,7 @@
 								</div>
 							</div>
 
-							<span class="text-2.25 font-medium leading-tight text-gray-600 dark:text-gray-400">
+							<span class="text-xs leading-tight text-gray-600 dark:text-gray-400">
 								{theme.label}
 							</span>
 						</button>
@@ -384,14 +384,14 @@
 				<!-- 当前主题信息 -->
 				<div class="rounded-xl border border-gray-200/50 bg-white/60 p-3 backdrop-blur-sm dark:border-gray-700/30 dark:bg-gray-900/60">
 					<!-- 主题色 -->
-					<div class="mb-1 text-center text-2.5 text-gray-500 dark:text-gray-400">{isZh ? '主题色' : 'Theme'}</div>
+					<div class="mb-1 text-center text-xs text-gray-500 dark:text-gray-400">{isZh ? '主题色' : 'Theme'}</div>
 					<div class="mb-1.5 flex gap-1">
 						<div class="h-6 flex-1 rounded shadow-sm" style="background: {currentThemeColors().primary}"></div>
 						<div class="h-6 flex-1 rounded shadow-sm" style="background: {currentThemeColors().dark}"></div>
 					</div>
 
 					<!-- 背景色 -->
-					<div class="mb-1 text-center text-2.5 text-gray-500 dark:text-gray-400">{isZh ? '背景色' : 'Background'}</div>
+					<div class="mb-1 text-center text-xs text-gray-500 dark:text-gray-400">{isZh ? '背景色' : 'Background'}</div>
 					<div class="mb-1.5 flex gap-1">
 						<div
 							class="h-5 flex-1 rounded border border-gray-200 shadow-sm dark:border-gray-700"
@@ -416,28 +416,28 @@
 					</div>
 
 					<!-- 文字色 -->
-					<div class="mb-1 text-center text-2.5 text-gray-500 dark:text-gray-400">{isZh ? '文字色' : 'Text'}</div>
+					<div class="mb-1 text-center text-xs text-gray-500 dark:text-gray-400">{isZh ? '文字色' : 'Text'}</div>
 					<div class="mb-1.5 flex gap-1">
 						<div
-							class="flex h-5 flex-1 items-center justify-center rounded text-2.5 font-medium"
+							class="flex h-5 flex-1 items-center justify-center rounded text-xs font-medium"
 							style="background: {currentThemeColors().bgBase}; color: {currentThemeColors().textPrimary}"
 						>
 							Aa
 						</div>
 						<div
-							class="flex h-5 flex-1 items-center justify-center rounded text-2.5 font-medium"
+							class="flex h-5 flex-1 items-center justify-center rounded text-xs font-medium"
 							style="background: {currentThemeColors().primary}; color: {currentThemeColors().textOnPrimary}"
 						>
 							Aa
 						</div>
 						<div
-							class="flex h-5 flex-1 items-center justify-center rounded text-2.5 font-medium"
+							class="flex h-5 flex-1 items-center justify-center rounded text-xs font-medium"
 							style="background: {currentThemeColors().bgBaseDark}; color: {currentThemeColors().textDark}"
 						>
 							Aa
 						</div>
 						<div
-							class="flex h-5 flex-1 items-center justify-center rounded text-2.5 font-medium"
+							class="flex h-5 flex-1 items-center justify-center rounded text-xs font-medium"
 							style="background: {currentThemeColors().dark}; color: {currentThemeColors().textOnDark}"
 						>
 							Aa
@@ -445,7 +445,7 @@
 					</div>
 
 					<!-- 功能色 -->
-					<div class="mb-1 text-center text-2.5 text-gray-500 dark:text-gray-400">{isZh ? '功能色' : 'Functional'}</div>
+					<div class="mb-1 text-center text-xs text-gray-500 dark:text-gray-400">{isZh ? '功能色' : 'Functional'}</div>
 					<div class="mb-1.5 flex gap-1">
 						<div class="h-5 flex-1 rounded shadow-sm" style="background: {currentThemeColors().success}"></div>
 						<div class="h-5 flex-1 rounded shadow-sm" style="background: {currentThemeColors().warning}"></div>
@@ -454,7 +454,7 @@
 					</div>
 
 					<!-- 圆角 -->
-					<div class="mb-1 text-center text-2.5 text-gray-500 dark:text-gray-400">{isZh ? '圆角' : 'Radius'}</div>
+					<div class="mb-1 text-center text-xs text-gray-500 dark:text-gray-400">{isZh ? '圆角' : 'Radius'}</div>
 					<div class="flex gap-1">
 						<div class="relative h-6 flex-1 overflow-hidden rounded bg-gray-100 dark:bg-gray-800">
 							<div
@@ -605,7 +605,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-success text-2.5">{isZh ? '成功' : 'OK'}</span>
+										<span class="text-success text-xs">{isZh ? '成功' : 'OK'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-black/5">
@@ -617,7 +617,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-warning text-2.5">{isZh ? '警告' : 'Warn'}</span>
+										<span class="text-warning text-xs">{isZh ? '警告' : 'Warn'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-black/5">
@@ -629,7 +629,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-error text-2.5">{isZh ? '错误' : 'Error'}</span>
+										<span class="text-error text-xs">{isZh ? '错误' : 'Error'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-black/5">
@@ -641,7 +641,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-info text-2.5">{isZh ? '信息' : 'Info'}</span>
+										<span class="text-info text-xs">{isZh ? '信息' : 'Info'}</span>
 									</div>
 								</Card>
 							</div>
@@ -752,7 +752,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-success text-2.5">{isZh ? '成功' : 'OK'}</span>
+										<span class="text-success text-xs">{isZh ? '成功' : 'OK'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-white/10">
@@ -764,7 +764,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-warning text-2.5">{isZh ? '警告' : 'Warn'}</span>
+										<span class="text-warning text-xs">{isZh ? '警告' : 'Warn'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-white/10">
@@ -776,7 +776,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-error text-2.5">{isZh ? '错误' : 'Error'}</span>
+										<span class="text-error text-xs">{isZh ? '错误' : 'Error'}</span>
 									</div>
 								</Card>
 								<Card mx="0" my="0" p="2" shadow="sm" border="solid" borderWidth="1" injClass="border-white/10">
@@ -788,7 +788,7 @@
 												/></svg
 											>
 										</div>
-										<span class="text-info text-2.5">{isZh ? '信息' : 'Info'}</span>
+										<span class="text-info text-xs">{isZh ? '信息' : 'Info'}</span>
 									</div>
 								</Card>
 							</div>
