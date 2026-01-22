@@ -37,6 +37,8 @@ When using multi-level linkage, make sure to specify the data hierarchy before p
 
 The Picker selector is based on Popup and encapsulated by predefining some Popup Props, so different effects can be achieved by passing in Popup attributes. For example, changing the rounded corner style by setting the `radius` of `popup`.
 
+If you don't need to use a popup, you can set `popup` to `null`, and the Picker will be displayed directly on the page. You can set the display area height percentage with the `height` property.
+
 ## Differences Between Radio, ActionSheet, IndexBar, Picker, and AsyncPicker
 
 Radio, Checkbox, ActionSheet, IndexBar, Picker, and AsyncPicker components are essentially used to provide a series of data for users to choose from or to perform certain operations. However, there are some differences in usage:

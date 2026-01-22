@@ -1,53 +1,87 @@
 <script lang="ts">
-	let { useViewTransition = true } = $props();
+	import { onMount, onDestroy } from 'svelte';
 	import darkMode from './darkMode';
 	import { themeStore, sysThemeStore, currentThemeStore } from '../../store';
-	let isClick = $state(false);
-	//手动切换主题
-	const toggleFun = (e: MouseEvent) => {
-		// 阻止冒泡
-		e.stopPropagation();
-		isClick = true;
-		setTimeout(() => {
-			isClick = false;
-		}, 150);
-		if ($themeStore === 'light') {
-			// 切换到 dark
-			themeStore.set('dark');
-			currentThemeStore.set('dark');
-			localStorage.setItem('theme', 'dark');
-			darkMode(true, e, useViewTransition);
-		} else if ($themeStore === 'dark') {
-			// 切换到 auto
-			themeStore.set('auto');
-			localStorage.setItem('theme', 'auto');
-			if ($sysThemeStore === 'dark') {
-				// 系统是暗模式
-				darkMode(true, e, useViewTransition);
-				currentThemeStore.set('dark');
-			} else {
-				darkMode(false, e, useViewTransition);
-				currentThemeStore.set('light');
+	let clickedMode = $state<'light' | 'dark' | 'auto' | ''>('');
+
+	// 监听外部对 data-mode 的修改，同步更新 store
+	let observer: MutationObserver | null = null;
+	onMount(() => {
+		observer = new MutationObserver((mutations) => {
+			for (const mutation of mutations) {
+				if (mutation.type === 'attributes' && mutation.attributeName === 'data-mode') {
+					const mode = document.documentElement.getAttribute('data-mode');
+					const isDark = mode === 'dark';
+					const themeMode = isDark ? 'dark' : 'light';
+					// 当 themeStore 为 'auto' 时，只更新 currentThemeStore，不覆盖 themeStore
+					if ($themeStore === 'auto') {
+						currentThemeStore.set(themeMode);
+					} else if ($themeStore !== themeMode) {
+						// 只有当 store 值与实际不同时才更新，避免循环
+						themeStore.set(themeMode);
+						currentThemeStore.set(themeMode);
+						localStorage.setItem('theme', themeMode);
+					}
+				}
 			}
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-mode'] });
+	});
+	onDestroy(() => {
+		observer?.disconnect();
+	});
+
+	// 切换到亮色模式
+	const setLight = (e: MouseEvent) => {
+		e.stopPropagation();
+		if ($themeStore === 'light') return;
+		clickedMode = 'light';
+		setTimeout(() => (clickedMode = ''), 150);
+		themeStore.set('light');
+		currentThemeStore.set('light');
+		localStorage.setItem('theme', 'light');
+		darkMode(false);
+	};
+
+	// 切换到暗色模式
+	const setDark = (e: MouseEvent) => {
+		e.stopPropagation();
+		if ($themeStore === 'dark') return;
+		clickedMode = 'dark';
+		setTimeout(() => (clickedMode = ''), 150);
+		themeStore.set('dark');
+		currentThemeStore.set('dark');
+		localStorage.setItem('theme', 'dark');
+		darkMode(true);
+	};
+
+	// 切换到跟随系统
+	const setAuto = (e: MouseEvent) => {
+		e.stopPropagation();
+		if ($themeStore === 'auto') return;
+		clickedMode = 'auto';
+		setTimeout(() => (clickedMode = ''), 150);
+		themeStore.set('auto');
+		localStorage.setItem('theme', 'auto');
+		if ($sysThemeStore === 'dark') {
+			darkMode(true);
+			currentThemeStore.set('dark');
 		} else {
-			// 切换到 light
-			themeStore.set('light');
+			darkMode(false);
 			currentThemeStore.set('light');
-			localStorage.setItem('theme', 'light');
-			darkMode(false, e, useViewTransition);
 		}
 	};
-	//auto 时，监听系统主题
+
+	// auto 时，监听系统主题
 	const mql: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
 	mql.addEventListener('change', (e: MediaQueryListEvent) => {
 		if ($themeStore === 'auto') {
 			if (e.matches) {
-				// 系统是暗模式
-				darkMode(true, e as unknown as MouseEvent);
+				darkMode(true);
 				sysThemeStore.set('dark');
 				currentThemeStore.set('dark');
 			} else {
-				darkMode(false, e as unknown as MouseEvent);
+				darkMode(false);
 				sysThemeStore.set('light');
 				currentThemeStore.set('light');
 			}
@@ -56,16 +90,16 @@
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 </script>
 
-<button
-	class="mx-auto flex cursor-pointer justify-between rounded-sm bg-black/5 p-0.5 text-center dark:bg-white/10"
+<div
+	class="mx-auto flex justify-between rounded-sm bg-black/5 p-0.5 text-center dark:bg-white/10"
 	aria-label={isZh
 		? `${$themeStore === 'light' ? '亮模式' : $themeStore === 'dark' ? '暗模式' : '跟随系统'}`
 		: `${$themeStore === 'light' ? 'Light' : $themeStore === 'dark' ? 'Dark' : 'System'}`}
-	onclick={toggleFun}
 >
-	<div
-		class:scale-75={isClick}
-		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'light' ? ' shadow-xs bg-white/80' : ''}"
+	<button
+		onclick={setLight}
+		class:scale-75={clickedMode === 'light'}
+		class="min-h-full cursor-pointer px-1 transition-all duration-150 rounded-sm{$themeStore === 'light' ? ' shadow-xs bg-white/80' : ''}"
 		style="color:{$sysThemeStore === 'dark'
 			? $themeStore === 'light'
 				? '#ff3f2e'
@@ -75,6 +109,7 @@
 				: $themeStore === 'dark'
 					? '#646464'
 					: '#cecece'}"
+		aria-label={isZh ? '亮模式' : 'Light'}
 	>
 		<svg width="20" height="20" viewBox="0 0 20 24" fill="none" style="display: inline;" xmlns="http://www.w3.org/2000/svg">
 			<path
@@ -114,10 +149,11 @@
 				d="M5.43469 4.4837C5.43469 5.00896 5.00887 5.43478 4.4836 5.43478C3.95833 5.43478 3.53252 5.00896 3.53252 4.4837C3.53252 3.95843 3.95833 3.53261 4.4836 3.53261C5.00887 3.53261 5.43469 3.95843 5.43469 4.4837Z"
 			/>
 		</svg>
-	</div>
-	<div
-		class:scale-75={isClick}
-		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'dark' ? ' shadow-xs bg-black/50' : ''}"
+	</button>
+	<button
+		onclick={setDark}
+		class:scale-75={clickedMode === 'dark'}
+		class="min-h-full cursor-pointer px-1 transition-all duration-150 rounded-sm{$themeStore === 'dark' ? ' shadow-xs bg-black/50' : ''}"
 		style="color:{$sysThemeStore === 'light'
 			? $themeStore === 'auto'
 				? '#cecece'
@@ -129,6 +165,7 @@
 				: $themeStore === 'auto'
 					? '#646464'
 					: '#fff'}"
+		aria-label={isZh ? '暗模式' : 'Dark'}
 	>
 		<svg width="20" height="20" style="display: inline;position:relative;top:-1px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 			<path
@@ -136,9 +173,11 @@
 				d="M9.99993 3.12494C6.20294 3.12494 3.12488 6.203 3.12488 10C3.12488 13.797 6.20294 16.8751 9.99993 16.8751C13.7969 16.8751 16.875 13.797 16.875 10C16.875 9.52352 16.8264 9.0577 16.7337 8.6075C16.6752 8.32295 16.4282 8.11628 16.1378 8.10872C15.8474 8.10117 15.5901 8.29473 15.5168 8.57585C15.1411 10.0167 13.8302 11.0795 12.2727 11.0795C10.4212 11.0795 8.92039 9.57869 8.92039 7.72726C8.92039 6.16969 9.98319 4.85879 11.4241 4.48312C11.7052 4.40983 11.8988 4.15249 11.8912 3.86207C11.8836 3.57165 11.677 3.32473 11.3924 3.26616C10.9422 3.1735 10.4764 3.12494 9.99993 3.12494Z"
 			/>
 		</svg>
-	</div>
-	<div
-		class="min-h-full px-1 transition-all duration-150 rounded-sm{$themeStore === 'auto' && $sysThemeStore === 'light'
+	</button>
+	<button
+		onclick={setAuto}
+		class:scale-75={clickedMode === 'auto'}
+		class="min-h-full cursor-pointer px-1 transition-all duration-150 rounded-sm{$themeStore === 'auto' && $sysThemeStore === 'light'
 			? ' bg-white/80'
 			: ''}{$themeStore === 'auto' && $sysThemeStore === 'dark' ? ' bg-black/50' : ''}{$themeStore === 'auto' && $sysThemeStore === 'light'
 			? ' shadow-xs'
@@ -150,6 +189,7 @@
 				: $themeStore === 'auto' && $sysThemeStore === 'light'
 					? '#ff3f2e'
 					: '#fff'};background-size: 30%;"
+		aria-label={isZh ? '跟随系统' : 'System'}
 	>
 		<svg xmlns="http://www.w3.org/2000/svg" style="display: inline;" viewBox="0 0 24 28" width="20" height="20">
 			<path
@@ -157,5 +197,5 @@
 				d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-2V6a6 6 0 1 1 0 12z"
 			/>
 		</svg>
-	</div>
-</button>
+	</button>
+</div>

@@ -3,7 +3,7 @@
 	import { currentThemeStore, isWideScreenStore } from '../../store';
 	// @ts-expect-error - beautify-qrcode 缺少类型定义
 	import { encodeData, rendererLine } from 'beautify-qrcode';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let { currentTab = 0, onclickTab } = $props();
 
@@ -24,7 +24,7 @@
 	let A_a1Svg = $state('');
 
 	const mouseenterFun = () => {
-		const params = new URLSearchParams('?' + $page.url.searchParams);
+		const params = new URLSearchParams('?' + page.url.searchParams);
 		QRValue =
 			(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'HTTPS://DEMO.STDF.DESIGN/') +
 			params.get('nav') +
@@ -56,7 +56,7 @@
 	let showStackblitz = $state(false);
 	let stackblitzValue = $state('');
 	const showStackblitzFunc = () => {
-		const nav = $page.url.searchParams.get('nav');
+		const nav = page.url.searchParams.get('nav');
 		stackblitzValue = `https://stackblitz.com/github/any-tdf/demo-stdf?file=src%2Froutes%2F${
 			nav
 		}%2F${isZh ? 'zh_CN' : 'en_US'}%2F%2Bpage.svelte&startScript=${nav}${isZh ? '' : '_en'}`;
@@ -66,7 +66,7 @@
 	let showCode = $state(false);
 	let codeValue = $state('');
 	const showCodeFunc = () => {
-		const nav = $page.url.searchParams.get('nav');
+		const nav = page.url.searchParams.get('nav');
 		// 将 nav 首字母大写
 		const navFirst = nav ? nav.slice(0, 1).toUpperCase() + nav.slice(1) : '';
 		codeValue = `https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
@@ -86,10 +86,10 @@
 </script>
 
 <div class="w-82 md:w-102 relative top-14">
-	<div class="relative rounded-sm bg-gray-100 p-1 dark:bg-gray-700">
+	<div class="relative rounded-sm bg-black/5 p-1 dark:bg-white/5">
 		<!--滑块-->
 		<div
-			class="absolute top-1 h-10 w-16 rounded-sm bg-white shadow-md transition-all duration-300 md:w-20 dark:bg-black dark:shadow-white/10"
+			class="absolute top-1 h-10 w-16 rounded-sm bg-bg-highlight transition-all duration-300 md:w-20 dark:bg-bg-highlight-dark"
 			class:left-1={currentTab === 0}
 			class:left-17={currentTab === 1}
 			class:md:left-21={currentTab === 1}
@@ -105,7 +105,7 @@
 			<button
 				onmouseleave={() => (showQr = false)}
 				onmouseenter={mouseenterFun}
-				class="left-106 absolute top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="left-106 absolute top-0 hidden h-12 w-12 rounded-sm bg-black/5 p-3 md:block dark:bg-white/5"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -139,7 +139,7 @@
 			<button
 				onmouseleave={() => (showCode = false)}
 				onmouseenter={showCodeFunc}
-				class="absolute left-[30.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="absolute left-122 top-0 hidden h-12 w-12 rounded-sm bg-black/5 p-3 md:block dark:bg-white/5"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path
@@ -150,7 +150,7 @@
 					<div
 						class="{isZh
 							? 'w-28'
-							: 'w-52'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+							: 'w-52'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-6 text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '组件源码' : 'Component source code'}
@@ -163,14 +163,14 @@
 			<button
 				onmouseleave={() => (showStackblitz = false)}
 				onmouseenter={showStackblitzFunc}
-				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="absolute left-138 top-0 hidden h-12 w-12 rounded-sm bg-black/5 p-3 md:block dark:bg-white/5"
 			>
 				<svg viewBox="0 0 28 28" height="24">
 					<path fill="#3275e7" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z" />
 				</svg>
 				{#if showStackblitz}
 					<div
-						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-6 text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '在 StackBlitz 中打开' : 'Open in StackBlitz'}
@@ -185,7 +185,7 @@
 			onmouseenter={() => (showFull = true)}
 			onfocus={() => (showFull = true)}
 			onblur={() => (showFull = false)}
-			class="absolute left-[38.5rem] top-0 hidden h-12 w-12 cursor-pointer rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+			class="absolute left-154 top-0 hidden h-12 w-12 cursor-pointer rounded-sm bg-black/5 p-3 md:block dark:bg-white/5"
 		>
 			{#if $isWideScreenStore}
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@
 				<div
 					class="{isZh
 						? 'w-20'
-						: 'w-32'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						: 'w-32'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-6 text-white shadow-lg"
 					transition:fade={{ duration: 200 }}
 				>
 					{isZh ? '宽屏' : 'Full screen'}
@@ -214,7 +214,7 @@
 			{/if}
 		</button>
 		<div class="relative flex">
-			{#each tabList as item, index}
+			{#each tabList as item, index (index)}
 				<button onclick={() => changeIndexFun(index)} class="w-16 cursor-pointer rounded-sm py-2 text-center md:w-20">
 					{isZh ? item.zh : item.en}
 				</button>

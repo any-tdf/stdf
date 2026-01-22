@@ -1,3 +1,7 @@
+## 1.3.0
+
+- [!tag|A|0|]`popup` property supports `null` to display keyboard without popup.
+
 ## 1.0.3
 
 - [!tag|A|0|]Add `value` and `clear` properties, related to Issue [#36](https://github.com/any-tdf/stdf/issues/36). [!issue|sbscan|]

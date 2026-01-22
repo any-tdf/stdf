@@ -39,3 +39,11 @@ Cell component supports combination usage by passing Cells to CellGroup. To avoi
 ## Customization
 
 Using vertical and horizontal margin parameters and top/bottom border radius parameters, you can configure various Cell styles. If these still don't meet your needs, you can use injected CSS (injClass) to achieve more custom styles, please refer to examples.
+
+## Swipe Actions
+
+Cell component supports swipe actions by passing an action array through the `swipeActions` parameter. Maximum 4 action items are supported.
+
+Each action item supports `text`, `icon`, `state` (background color state), and `onclick` (click callback) properties. `state` supports preset values `'theme'`, `'success'`, `'warning'`, `'error'`, `'info'` or custom color values.
+
+Set `swipeOpen` to `true` to initially open the swipe actions. Actions automatically close after clicking an action item.

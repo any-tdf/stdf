@@ -11,7 +11,7 @@
 | line         | `boolean`                                                         | `false`   | N        | Show bottom divider.         |
 | my           | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`                               | `'4'`     | N        | Vertical margin.             |
 | mx           | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`                               | `'2'`     | N        | Horizontal margin.           |
-| radius       | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`                 | `'lg'`    | N        | Border radius style.         |
+| radius       | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'\|''` | `''`      | N        | Border radius style.         |
 | switchActive | `boolean`                                                         | `false`   | N        | Switch state.                |
 | shadow       | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                   | `'xs'`    | N        | Shadow style.                |
 | injClass     | `string`                                                          | `''`      | N        | Inject CSS class name.       |
@@ -38,7 +38,7 @@
 | ------ | ------------------------------------------------- | ------- | -------- | ------------------ |
 | my     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'4'`   | N        | Vertical margin.   |
 | mx     | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'`               | `'2'`   | N        | Horizontal margin. |
-| radius | `'none'\|'base'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'lg'`  | N        | Border radius.     |
+| radius | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'\|''` | `''`    | N        | Border radius.     |
 | shadow | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`     | `'xs'`  | N        | Shadow style.      |
 
 ## CellGroup Snippets

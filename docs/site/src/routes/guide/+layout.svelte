@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { isShowNavStore, isWideScreenStore } from '../../store';
 	import Menu from '$lib/menu/Menu.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { MenuListChild } from '../../data/menuList.js';
 	import { goto } from '$app/navigation';
 
@@ -20,6 +20,7 @@
 				{ title: '快速上手', title_en: 'Quick start', nav: 'quick-start', doc: 'quickStart' },
 				{ title: '主题配置', title_en: 'Theme', nav: 'theme', doc: 'theme' },
 				{ title: '图标', title_en: 'Icon', nav: 'icon', doc: 'icon' },
+				{ title: '函数式反馈', title_en: 'Functional Feedback', nav: 'feedback', doc: 'feedback' },
 				{
 					title: '国际化',
 					title_en: 'Internationalization',
@@ -34,7 +35,8 @@
 					nav: 'contribution',
 					doc: 'contribution'
 				},
-				{ title: '兼容性', title_en: 'Compatibility', nav: 'compatibility', doc: 'compatibility' }
+				{ title: '兼容性', title_en: 'Compatibility', nav: 'compatibility', doc: 'compatibility' },
+				{ title: '升级指南', title_en: 'Upgrade Guide', nav: 'upgrade', doc: 'upgrade' }
 			]
 		},
 		{
@@ -50,6 +52,7 @@
 			class_en: 'Tools',
 			childs: [
 				{ title: '主题生成器', title_en: 'Theme generator', nav: 'generator' },
+				{ title: '工具方法', title_en: 'Utils', nav: 'utils', doc: 'utils' },
 				{ title: 'IDE 插件', title_en: 'IDE plugin', nav: 'vscode', doc: 'vscode' },
 				{ title: '脚手架', title_en: 'Create cli', nav: 'create' },
 				{ title: '图标插件', title_en: 'Icon plugin', nav: 'icon-plugin' },
@@ -91,8 +94,8 @@
 		menuHeight = document.documentElement.clientHeight - 56;
 		window.addEventListener('resize', getMenuHeightFun);
 
-		// 根据 $page.url.pathname 获取 currentNav
-		const urlNav = flatMenuList.find((item) => ($page.url.pathname.includes(item.nav) ? item : null));
+		// 根据 page.url.pathname 获取 currentNav
+		const urlNav = flatMenuList.find((item) => (page.url.pathname.includes(item.nav) ? item : null));
 		currentNav = urlNav || flatMenuList[0];
 
 		return () => {
@@ -124,7 +127,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-48 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
+		class="z-100 bg-bg-base dark:bg-bg-base-dark fixed -left-52 top-14 w-48 overflow-y-scroll border-black/10 transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
@@ -132,7 +135,7 @@
 		<Menu {menuList} currentNav={currentNav.nav} onclickMenu={menuClickFun} showNum={false} />
 	</div>
 	<div class="w-screen md:pl-48">
-		<!-- {#if !$page.url.pathname.includes('generator')}
+		<!-- {#if !page.url.pathname.includes('generator')}
 			<div class="px-4 py-12 md:px-8 md:py-4">
 				<div class="text-4xl font-bold">
 					{isZh ? currentNav.title : currentNav.title_en}
@@ -140,10 +143,10 @@
 			</div>
 			<div class="h-px bg-black/10 dark:bg-white/20"></div>
 		{/if} -->
-		<div class="px-4 pt-4 {$page.url.pathname.includes('generator') ? 'md:px-4 md:pt-4' : 'md:px-8 md:pt-12'}">
+		<div class="px-4 pt-4 {page.url.pathname.includes('generator') ? 'md:px-4 md:pt-4' : 'md:px-8 md:pt-12'}">
 			{@render children()}
 		</div>
-		{#if !$page.url.pathname.includes('generator') && currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey'}
+		{#if !page.url.pathname.includes('generator') && currentNav.nav != 'color' && currentNav.nav != 'logo' && currentNav.nav != 'shortkey'}
 			<div class="mx-auto flex gap-2 px-4 pb-8 text-xs {$isWideScreenStore ? 'max-w-full md:px-8' : 'max-w-7xl md:px-0'}">
 				<a href={editUrlFn(currentNav.nav)} class="text-primary dark:text-dark flex w-full" target="_blank">
 					<span class="mr-1 h-4 w-4">
@@ -159,7 +162,7 @@
 		{/if}
 	</div>
 </div>
-{#if !$page.url.pathname.includes('generator')}
+{#if !page.url.pathname.includes('generator')}
 	<button
 		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 cursor-pointer rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 		onclick={changeFullFunc}
@@ -212,5 +215,5 @@ peer-checked/tab-2-4:block peer-checked/tab-2-5:block peer-checked/tab-3-0:block
 peer-checked/tab-3-1:block peer-checked/tab-3-2:block peer-checked/tab-3-3:block
 peer-checked/tab-3-4:block peer-checked/tab-3-5:block peer-checked/tab-4-0:block
 peer-checked/tab-4-1:block peer-checked/tab-4-2:block peer-checked/tab-4-3:block
-peer-checked/tab-4-4:block peer-checked/tab-4-5:block dark:border-white/10 dark:bg-[#202020]"
+peer-checked/tab-4-4:block peer-checked/tab-4-5:block dark:border-white/10 dark:bg-white/5"
 ></div>

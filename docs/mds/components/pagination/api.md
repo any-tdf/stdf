@@ -6,7 +6,7 @@
 | pageSize         | `number`                                 | `10`                                     | N    | 每页条数。           |
 | current          | `number`                                 | `1`                                      | N    | 当前页。             |
 | maxShowPage      | `5\|7\|9\|11`                            | `7`                                      | N    | 最大显示页码数。     |
-| radius           | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'full'` | `'md'`                                   | N    | 圆角风格。           |
+| radius           | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'sm'`                                   | N    | 圆角风格。           |
 | type             | `'border'\|'block'\|'bold'`              | `'bold'`                                 | N    | 高亮页码类型。       |
 | pageCol          | `number`                                 | `3`                                      | N    | 省略页码列数。       |
 | showNextOmitPage | `boolean`                                | `false`                                  | N    | 是否显示后省略页码。 |

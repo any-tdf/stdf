@@ -1,3 +1,8 @@
+## 1.3.0
+
+- [!tag|A|0|]`popup` property supports `null` to display calendar without popup.
+- [!tag|A|0|]Add `initSelectedDates` property to set initially selected dates.
+
 ## 1.0.3
 
 - [!tag|A|0|]Add `clear` property, keep the selected date when closed.

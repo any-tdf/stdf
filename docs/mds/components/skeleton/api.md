@@ -5,7 +5,7 @@
 | type      | `'div'\|'p'\|'img'\|'video'\|'code'\|'qrcode'\|'barcode'`              | `'div'` | N    | Skeleton 类型。                                                       |
 | width     | `'2'\|'4'\|'6'\|'8'\|'12'\|'16'\|'24'\|'32'\|'48'\|'64'\|'96'\|'full'` | `'6'`   | N    | 宽度。                                                                |
 | height    | `'1'\|'2'\|'4'\|'6'\|'8'\|'12'\|'16'\|'24'\|'32'\|'48'\|'64'\|'96'`    | `'6'`   | N    | 高度。                                                                |
-| radius    | `'none'\|'sm'\|'md'\|'xl'\|'2xl'\|'3xl'\|'full'`                       | `'sm'`  | N    | 圆角风格。                                                            |
+| radius    | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'\|''` | `''`    | N    | 圆角风格。                                                            |
 | padding   | `'0.5'\|'1'\|'2'\|'4'\|'8'`                                            | `'1'`   | N    | 内边距。                                                              |
 | lines     | `number`                                                               | `3`     | N    | 行数，仅在 type 为 p 时生效。                                         |
 | iconRatio | `number`                                                               | `0.6`   | N    | 内部图标比例，仅在 type 为 img、video、code、qrcode、barcode 时生效。 |

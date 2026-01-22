@@ -1,3 +1,7 @@
+## 2026-01-22
+
+v2 版本发布，新增 18 个组件，主题系统升级为 Tailwind CSS 插件，支持更多可配置项。
+
 ## 2025-04-07
 
 v1 版本发布，完整支持 Svelte v5、Tailwind CSS v4 与 TypeScript。

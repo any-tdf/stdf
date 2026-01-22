@@ -6,7 +6,7 @@
 | titlePosition     | `'in'\|'out'\|null`                                                                                       | `'out'`   | N        | Title position.                   |
 | inputPosition     | `'left'\|'right'`                                                                                         | `'left'`  | N        | Input text position.              |
 | placeholder       | `string`                                                                                                  | `''`      | N        | Input placeholder text.           |
-| radius            | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`                                                                         | `'sm'`    | N        | Border radius style.              |
+| radius            | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'\|''` | `''`      | N        | Border radius style.              |
 | inputStyle        | `'block'\|'line'`                                                                                         | `'block'` | N        | Input box style.                  |
 | lineTransition    | `'left'\|'center'\|null`                                                                                   | `null`    | N        | Linear transition position.       |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                                                                        | `'base'`  | N        | Transition duration.              |

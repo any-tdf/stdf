@@ -1,3 +1,8 @@
+## 2.0.0
+
+- [!tag|A|0|] 新增 `state` 属性，用于主题与状态色渲染。
+- [!tag|O|0|] 移除 `theme` 属性，改用 `state="theme"`。
+
 ## 1.1.0
 
 - [!tag|A|0|] 支持 [Iconify](https://iconify.design) 方式使用图标，通过新增的 `type` 属性设置，具体方法参考指南。

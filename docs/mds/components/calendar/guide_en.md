@@ -38,10 +38,17 @@ When user clicks confirm button located at bottom part of Calendar component it 
 ## Month Watermark
 
 By setting monthMark property Calendar component decides whether watermark text displaying name(s)of months appears inside every calendar month view; since different languages have varying lengths for their respective names one may adjust font size via monthMarkSize property.
-]=[]
 
 ### Note
 
 Calendar was built atop Popup module utilizing predefined Props thus allowing various effects achieved through properties passed into Popup object itself e.g., radius style change demonstrated via sample code snippet provided hereunder.
 
 Calendar's Confirm Button uses Button Component enabling customization options available through button parameter - refer to examples provided below.
+
+## Without Popup
+
+By default, Calendar uses Popup to display. If you need to render the calendar directly on the page, you can set popup to null. The calendar will be rendered inline without popping up, which is suitable for scenarios where you need to embed the calendar into the page layout.
+
+## Month Card Style
+
+When the monthCard property is true, each month will be wrapped and displayed using the Card component. You can customize the card style by passing the card parameter, such as setting dashed borders, theme background colors, etc. Please refer to the examples.

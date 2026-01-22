@@ -3,14 +3,14 @@
 	import ModeSwitch from '../modeSwitch/ModeSwitch.svelte';
 	import ThemeSwitch from '../themeSwitch/ThemeSwitch.svelte';
 	import { isShowNavStore, isShowFundStore, showThemeSwitchStore } from '../../store';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import stdfPackage from '../../../../../packages/stdf/package.json';
 
 	let { showLeftNav = false, showBottonLine = false, onclickCmdK } = $props();
 
 	let currentRoute = $state('/guide');
 	$effect(() => {
-		currentRoute = $page.url.pathname;
+		currentRoute = page.url.pathname;
 	});
 	let showNav = $state(false); //是否显示导航
 	const toggleNavFun = () => {
@@ -33,24 +33,27 @@
 	const showThemeFunc = () => {
 		showThemeSwitchStore.set(!$showThemeSwitchStore);
 	};
-	let ThemeSwitchDom: HTMLButtonElement | null = $state(null);
-	// 监听 window 点击事件，如果点击的不是 ThemeSwitchDom，则隐藏主题切换
+	let themeSwitchMobileRef: HTMLButtonElement | null = $state(null);
+	let themeSwitchDesktopRef: HTMLDivElement | null = $state(null);
+	// 监听 window 点击事件，如果点击的不是主题切换区域，则隐藏主题切换
 	window.addEventListener('click', (e: MouseEvent) => {
-		if (ThemeSwitchDom && !ThemeSwitchDom.contains(e.target as Node)) {
-			showThemeSwitchStore.set(false);
+		const target = e.target as Node;
+		if (
+			(themeSwitchMobileRef && themeSwitchMobileRef.contains(target)) ||
+			(themeSwitchDesktopRef && themeSwitchDesktopRef.contains(target))
+		) {
+			return;
 		}
+		showThemeSwitchStore.set(false);
 	});
 
 	let showVersion = $state(false);
 	let versionBtnRef: HTMLButtonElement | null = $state(null);
 
 	const switchLangFunc = () => {
-		const isHaveParams = window.location.href.includes('?');
-		// 如果有参数，则增加 &lang=xxx，否则增加 ?lang=xxx
-		const newUrl = isHaveParams
-			? window.location.href + '&lang=' + (isZh ? 'en_US' : 'zh_CN')
-			: window.location.href + '?lang=' + (isZh ? 'en_US' : 'zh_CN');
-		window.location.href = newUrl;
+		const url = new URL(window.location.href);
+		url.searchParams.set('lang', isZh ? 'en_US' : 'zh_CN');
+		window.location.href = url.toString();
 	};
 </script>
 
@@ -62,7 +65,7 @@
 	}}
 />
 
-<div class="sticky top-0 z-[100] flex h-14 items-center justify-between border-black/5 backdrop-blur-sm dark:border-white/10">
+<div class="z-100 sticky top-0 flex h-14 items-center justify-between border-black/5 backdrop-blur-sm dark:border-white/10">
 	{#if showLeftNav}
 		<button class="cursor-pointer p-4 md:hidden" onclick={toggleNavFun}>
 			{#if !$isShowNavStore}
@@ -88,17 +91,17 @@
 	<div class="flex items-end">
 		<a href="/" class="flex items-center justify-between py-2 md:pl-6" aria-label={isZh ? '首页' : 'Home'}>
 			<div class="fill-primary flex h-8 w-16 flex-col items-center justify-center">
-				<svg viewBox="0 0 90 80">
+				<svg viewBox="0 0 80 80">
 					<path
 						class="fill-primary dark:fill-dark"
-						d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
+						d="M40 0C54.8054 0 67.7312 8.04427 74.6475 20H30V30H40C45.5228 30 50 34.4772 50 40C50 45.5228 45.5228 50 40 50H30V80H10V20H0V0H40ZM78.7393 30C79.5619 33.1962 80 36.547 80 40C80 62.0914 62.0914 80 40 80V60C51.0457 60 60 51.0457 60 40C60 36.3571 59.0259 32.9417 57.3242 30H78.7393Z"
 					/>
-					<path class="fill-dark dark:fill-primary" d="M20 30V0L0 50H20V80L40 30H20Z" />
+					<path class="fill-dark dark:fill-primary" d="M20 30H40L20 80V50H0L20 0V30Z" />
 				</svg>
 			</div>
 		</a>
 		<!-- 下拉选项，选择版本 -->
-		{#if $page.url.pathname === '' || $page.url.pathname === '/'}
+		{#if page.url.pathname === '/'}
 			<div class="relative bottom-1">
 				<button
 					bind:this={versionBtnRef}
@@ -148,7 +151,7 @@
 						</a>
 						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
 						<div class="flex flex-col space-y-2">
-							<a href="https://1.0.stdf.design" target="_blank" class="hover:underline">Version 1.0.x </a>
+							<a href="https://1.stdf.design" target="_blank" class="hover:underline">Version 1.x </a>
 							<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
 						</div>
 					</div>
@@ -211,15 +214,15 @@
 					>
 						{isZh ? '组件' : 'Components'}
 					</a>
-					<button class="relative px-4 py-1 text-center" onclick={showThemeFunc} bind:this={ThemeSwitchDom}>
+					<button class="relative px-4 py-1 text-center" onclick={showThemeFunc} bind:this={themeSwitchMobileRef}>
 						{isZh ? '主题' : 'Theme'}
 						{#if $showThemeSwitchStore}
 							<div
 								transition:slide={{ duration: 300, axis: 'x' }}
-								class="absolute top-0 h-80 overflow-y-auto rounded-lg bg-white p-3 shadow-lg dark:bg-black/95 dark:shadow-white/40"
+								class="absolute top-0 min-w-44 rounded-lg bg-white p-3 shadow-lg dark:bg-black/95 dark:shadow-white/40"
 								style="right:{isZh ? '66px' : '128px'}"
 							>
-								<ModeSwitch useViewTransition={false} />
+								<ModeSwitch />
 								<ThemeSwitch vertical />
 							</div>
 						{/if}
@@ -308,23 +311,43 @@
 			>
 				{isZh ? '组件' : 'Components'}
 			</a>
-			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
-			<button
-				class="relative px-2 py-1 text-center"
-				onmouseover={() => showThemeSwitchStore.set(true)}
-				onmouseout={() => showThemeSwitchStore.set(false)}
-				bind:this={ThemeSwitchDom}
+			<div
+				class="relative"
+				role="button"
+				tabindex="0"
+				bind:this={themeSwitchDesktopRef}
+				onmouseenter={() => showThemeSwitchStore.set(true)}
+				onmouseleave={() => showThemeSwitchStore.set(false)}
 			>
-				{isZh ? '主题' : 'Theme'}
+				<button class="px-2 py-1 text-center">
+					{isZh ? '主题' : 'Theme'}
+				</button>
 				{#if $showThemeSwitchStore}
 					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute left-1/2 top-8 -translate-x-1/2 pt-2">
-						<div class="rounded-md bg-white px-3 pb-1 pt-2 shadow-lg dark:bg-black/95 dark:shadow-white/10">
-							<ModeSwitch useViewTransition={false} />
+						<div class="min-w-44 rounded-md bg-white px-3 pb-1 pt-2 shadow-lg dark:bg-black/95 dark:shadow-white/10">
+							<div class="mb-2 flex items-center justify-between">
+								<div class="w-auto">
+									<ModeSwitch />
+								</div>
+								<a
+									href="/guide/generator"
+									target="_blank"
+									class="text-primary hover:bg-primary/10 dark:text-dark dark:hover:bg-dark/10 flex items-center gap-1 rounded-sm px-2 py-1 text-xs transition-all duration-300"
+								>
+									<svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path
+											class="fill-primary dark:fill-dark"
+											d="M15.1986 9.94435C14.7649 9.53358 14.4859 8.98601 14.4085 8.39371L14.0056 5.31126L11.275 6.79711C10.7503 7.08262 10.1433 7.17876 9.55608 7.06936L6.49998 6.50003L7.06931 9.55612C7.17871 10.1434 7.08257 10.7503 6.79707 11.275L5.31121 14.0056L8.39367 14.4085C8.98596 14.4859 9.53353 14.7649 9.94431 15.1986L12.0821 17.4555L13.4178 14.6485C13.6745 14.1091 14.109 13.6745 14.6484 13.4179L17.4555 12.0821L15.1986 9.94435ZM15.2238 15.5078L13.0111 20.1579C12.8687 20.4572 12.5107 20.5843 12.2115 20.4419C12.1448 20.4102 12.0845 20.3664 12.0337 20.3127L8.49229 16.574C8.39749 16.4739 8.27113 16.4095 8.13445 16.3917L3.02816 15.7242C2.69958 15.6812 2.46804 15.3801 2.51099 15.0515C2.52056 14.9782 2.54359 14.9074 2.5789 14.8425L5.04031 10.3191C5.1062 10.198 5.12839 10.0579 5.10314 9.92241L4.16 4.85979C4.09931 4.53402 4.3142 4.22074 4.63997 4.16005C4.7126 4.14652 4.78711 4.14652 4.85974 4.16005L9.92237 5.10319C10.0579 5.12843 10.198 5.10625 10.319 5.04036L14.8424 2.57895C15.1335 2.42056 15.4979 2.52812 15.6562 2.81919C15.6916 2.88409 15.7146 2.95495 15.7241 3.02821L16.3916 8.13449C16.4095 8.27118 16.4739 8.39754 16.5739 8.49233L20.3127 12.0337C20.5533 12.2616 20.5636 12.6414 20.3357 12.8819C20.2849 12.9356 20.2246 12.9794 20.1579 13.0111L15.5078 15.2238C15.3833 15.2831 15.283 15.3833 15.2238 15.5078ZM16.0206 17.4349L17.4348 16.0207L21.6775 20.2633L20.2633 21.6775L16.0206 17.4349Z"
+										></path>
+									</svg>
+									{isZh ? '创建新主题' : 'Create'}
+								</a>
+							</div>
 							<ThemeSwitch vertical />
 						</div>
 					</div>
 				{/if}
-			</button>
+			</div>
 			<button class="cursor-pointer px-2 py-1 text-center" onclick={toggleFundFunc}>
 				{isZh ? '支持' : 'Support'}
 			</button>

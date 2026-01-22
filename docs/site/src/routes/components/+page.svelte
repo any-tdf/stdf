@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import { isShowNavStore, isCmdKStore, isWideScreenStore, currentColorStore, currentThemeStore } from '../../store';
 	import { menuList, type MenuList } from '../../data/menuList';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import hljs from 'highlight.js';
 	import type { MenuListChild } from '../../data/menuList.js';
 	import Menu from '$lib/menu/Menu.svelte';
@@ -20,7 +20,7 @@
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
-	const params = $page.url.searchParams;
+	const params = page.url.searchParams;
 
 	//数组二级组成新数组
 	const ArrChildFun = (arr: MenuList[]) => {
@@ -64,7 +64,7 @@
 		if (params.get('nav')) {
 			currentNav = menuChildList.filter((item) => item.nav === params.get('nav'))[0];
 		} else {
-			currentNav = menuList[0].childs[1];
+			currentNav = menuList[0].childs[0];
 		}
 		loading = true;
 
@@ -190,7 +190,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
+		class="z-100 fixed -left-52 top-14 w-52 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{navBarHeight + 'px'}"
@@ -199,7 +199,7 @@
 	</div>
 	{#if visible}
 		<div
-			class="mx-auto flex w-full flex-col md:pl-48 {$isWideScreenStore ? 'max-w-full' : 'max-w-[1472px]'}"
+			class="mx-auto flex w-full flex-col md:pl-48 {$isWideScreenStore ? 'max-w-full' : 'max-w-368'}"
 			in:fly={{ x: 100, duration: 500 }}
 			out:fly={{ x: 100, duration: 100 }}
 		>
@@ -242,11 +242,11 @@
 						class="mt-2 flex flex-1 justify-around py-4 md:pl-8 md:pr-4"
 						style="width:{titleWidth}px;"
 					>
-						<div class="bg-codeLight dark:bg-codeDark grow overflow-y-scroll rounded-sm" style="height:{demoHeight}px;">
+						<div class="grow overflow-y-scroll rounded-sm bg-black/5 dark:bg-white/5" style="height:{demoHeight}px;">
 							<Component {highlightedCode} />
 						</div>
 						<div
-							class="ml-2 hidden w-[392px] shrink-0 grow-0 border border-black/10 md:block dark:border-white/10"
+							class="ml-2 hidden w-98 shrink-0 grow-0 border border-black/10 md:block dark:border-white/10"
 							style="height:{demoHeight}px"
 						>
 							{#if currentNav?.nav}

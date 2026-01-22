@@ -4,7 +4,7 @@
 | --------- | ---------------------------- | ------- | -------- | ------------------------------------------------- |
 | steps     | `StepsItem[]`                | `[]`    | Y        | Array composed of step Props or finishStep Props. |
 | current   | `number`                     | `1`     | N        | Current step number.                              |
-| radius    | `'none'\|'sm'\|'xl'\|'full'` | `'sm'`  | N        | Border radius style.                              |
+| radius    | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''` | `'sm'`  | N        | Border radius style.                              |
 | barBorder | `boolean`                    | `true`  | N        | Whether the icon has a border.                    |
 | vertical  | `boolean`                    | `false` | N        | Whether to use vertical layout.                   |
 

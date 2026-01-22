@@ -9,7 +9,7 @@
 | vertical        | `boolean`                                                     | `false` | N    | 是否纵向。                                     |
 | numberHighlight | `boolean`                                                     | `false` | N    | 是否强调数字区域。                             |
 | theme           | `boolean`                                                     | `true`  | N    | 强调区域是否是主题色。                         |
-| radius          | `'none'\|'sm'\|'xl'\|'full'`                                  | `'sm'`  | N    | 圆角风格。                                     |
+| radius          | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'`         | `'sm'`  | N    | 圆角风格。                                     |
 | decimal         | `number`                                                      | `0`     | N    | 对内部显示数字保留小数位数。                   |
 | async           | `boolean`                                                     | `false` | N    | 是否异步状态。                                 |
 | asyncLoading    | `boolean`                                                     | `false` | N    | 异步状态时，是否显示内部 Loading。             |

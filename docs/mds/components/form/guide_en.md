@@ -4,19 +4,21 @@ The Form component is used to quickly build complete form pages, supporting vari
 
 ## Supported Form Item Types
 
-The Form component supports the following 11 form item types:
+The Form component supports the following 13 form item types:
 
 1. **input** - Text input
 2. **numKeyboard** - Number keyboard
-3. **timePicker** - Time picker
-4. **actionSheet** - Action sheet
-5. **calendar** - Date picker
-6. **picker** - Picker
-7. **checkbox** - Checkbox group
-8. **radio** - Radio group
-9. **slider** - Slider
-10. **switch** - Switch
-11. **stepper** - Stepper
+3. **fullKeyboard** - Full keyboard
+4. **timePicker** - Time picker
+5. **actionSheet** - Action sheet
+6. **calendar** - Date picker
+7. **picker** - Picker
+8. **colorPicker** - Color picker
+9. **checkbox** - Checkbox group
+10. **radio** - Radio group
+11. **slider** - Slider
+12. **switch** - Switch
+13. **stepper** - Stepper
 
 ## Card Layout
 
@@ -45,3 +47,4 @@ The Form component supports the following 11 form item types:
 3. **Initial Value**: `initValue` must match the correct type for each form item
 4. **Sub-component Configuration**: Sub-components can be customized through configuration objects like `input`, `picker`, etc.
 5. **Return Value Types**: Different form items return different types of data
+6. **Multi Selection Display**: When Calendar uses multiple mode or Picker uses multiple mode, Form shows selected values as Tag style chips and supports removing them

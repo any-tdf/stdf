@@ -37,6 +37,8 @@ Picker 组件返回的数据有两项，一项是选定的多列数据组成的�
 
 Picker 选择器是在 Popup 基础上封装的，通过预先定义一些 Popup 的 Props 实现，因此可以通过传入 Popup 的属性来实现不同的效果。比如示例中通过设置 popup 的 radius 改变圆角风格。
 
+如果不需要使用弹出层，可以将 `popup` 设置为 `null`，此时 Picker 将直接展示在页面上。可通过 `height` 属性设置展示区域高度占页面百分比。
+
 ## Radio、ActionSheet、IndexBar、Picker、AsyncPicker 区别
 
 Radio、Checkbox、ActionSheet、IndexBar、Picker、AsyncPicker 组件本质都是给出一系列数据，让用户进行数据选择或执行一些操作，但在使用上有一些区别：

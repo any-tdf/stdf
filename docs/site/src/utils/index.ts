@@ -1,5 +1,4 @@
-import Color from 'color';
-import { oklch, parse, formatHex } from 'culori';
+import { oklchStrToHex, oklchStrToRgbStr } from 'stdf/utils';
 import codeGroupSvgData from './code-group-svg-data';
 import hljs from 'highlight.js';
 // @ts-expect-error - highlightjs-svelte 缺少类型定义
@@ -151,7 +150,7 @@ export const groupIconMdPlugin = (md: string) => {
 			arr.push({ label, code });
 		});
 		return `
-			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-[#202020] rounded-sm mb-4">
+			<section class="flex flex-row flex-wrap bg-black/5 dark:bg-white/5 rounded-sm mb-4">
 				${arr.map((item) => item.label).join('')}
 				${arr.map((item) => item.code).join('')}
 			</section>
@@ -215,261 +214,49 @@ export const delParamsUrl = (url: string, name: string) => {
 	}
 };
 
+/** OKLCH 颜色对象类型 */
+export type OklchColor = { l: number; c: number; h: number };
+
 /**
- * 传入 hex 格式的颜色值，将其转换成 oklch 格式，oklch(l c h),其中 lch 为 0-1 之间的值，保留三位小数
- * @param {string} str - 颜色值
- * @returns {string} - 返回 oklch 格式的颜色值
- * @example
- * getOklchFunc('#000') // 'oklch(0 0 0)'
+ * 生成主题黑白色的公共函数（使用 OKLCH 算法）
+ * @param {OklchColor} color - OKLCH 颜色对象 { l, c, h }
+ * @param {boolean} isBlack - 是否生成主题黑色
+ * @returns {string} oklch 格式的颜色字符串
+ * @description
+ * 保留原色的色相，调整亮度和色度：
+ * - 主题黑：L = 0.15，C = 原色度的 20%（保留微弱色彩倾向）
+ * - 主题白：L = 0.97，C = 原色度的 10%（接近纯白但带一点色彩）
  */
-export const getOklchFunc = (str: string) => {
-	const l = oklch(parse(str))?.l || 0;
-	const c = oklch(parse(str))?.c || 0;
-	const h = oklch(parse(str))?.h || 0;
-	return `oklch(${parseFloat(l.toFixed(3))} ${parseFloat(c.toFixed(3))} ${parseFloat(h.toFixed(3))})`;
+const generateThemeBW = (color: OklchColor, isBlack: boolean): string => {
+	const { c, h } = color;
+	const newL = isBlack ? 0.15 : 0.97;
+	const newC = isBlack ? c * 0.2 : c * 0.1;
+
+	return `oklch(${+newL.toFixed(3)} ${+newC.toFixed(3)} ${+h.toFixed(3)})`;
+};
+
+/** 根据给定颜色计算出主题黑 */
+export const generateThemeBlack = (color: OklchColor): string => generateThemeBW(color, true);
+
+/** 根据给定颜色计算出主题白 */
+export const generateThemeWhite = (color: OklchColor): string => generateThemeBW(color, false);
+
+/**
+ * 将 oklch 格式颜色字符串转换为十六进制格式
+ * @param {string} oklchStr - oklch 格式的颜色字符串
+ * @returns {string} - 返回十六进制格式的颜色值
+ */
+export const oklchToHex = (oklchStr: string): string => {
+	return oklchStrToHex(oklchStr);
 };
 
 /**
- * 传入 oklch 格式色值，将其转为成 hex 格式
- * @param {string} str - 颜色值
- * @returns {string} - 返回 hex 格式的颜色值
- * @example
- * getHexFunc('oklch(0 0 0)') // '#000000'
+ * 将 oklch 格式颜色字符串转换为 RGB 格式
+ * @param {string} oklchStr - oklch 格式的颜色字符串
+ * @returns {string} - 返回 rgb(r, g, b) 格式的颜色值
  */
-export const getHexFunc = (oklchString: string) => {
-	// 解析字符串，提取 l, c, h 值
-	const match = oklchString.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/);
-	if (match) {
-		const [_, l, c, h] = match.map(Number); // 转换为数字
-		// 创建 OKLCH 对象
-		const oklchColor = { mode: 'oklch' as const, l, c, h };
-		// 转换为 HEX
-		const hexColor = formatHex(oklchColor);
-		return hexColor;
-	} else {
-		return oklchString;
-	}
-};
-
-const formats = ['hex', 'rgb', 'hsl'];
-/**
- * 获取颜色格式
- * @param {string} format - 颜色格式
- * @returns {string} - 返回颜色格式
- * @example
- * getFormat('hex') // hex
- */
-const getFormat = (format: string) => {
-	if (!format || formats.indexOf(format) < 0) {
-		return 'hex';
-	}
-	return format;
-};
-
-/**
- * 获取颜色字符串
- * @param {object} color - 颜色对象
- * @param {string} format - 颜色格式
- * @returns {string} - 返回颜色字符串
- * @example
- * getColorString(Color('#fff'),'rgb') // rgb(255,255,255)
- */
-const getColorString = (color: Color, format: string) => {
-	const innerFormat = getFormat(format);
-
-	if (innerFormat === 'hex') {
-		return color[innerFormat as 'hex']();
-	}
-	return color[innerFormat as 'rgb' | 'hsl']().round().string();
-};
-
-/**
- * 动态梯度算法
- * @param {string} originColor - 颜色值
- * @param {number} i - 中间值
- * @param {string} format - 颜色格式
- * @returns {string} - 返回颜色字符串
- */
-const colorPalette = (originColor: string, i: number, format: string) => {
-	const color = Color(originColor.indexOf('#') > -1 ? originColor : getHexFunc(originColor));
-	const h = color.hue();
-	const s = color.saturationv();
-	const v = color.value();
-
-	const hueStep = 2;
-	const maxSaturationStep = 100;
-	const minSaturationStep = 9;
-
-	const maxValue = 100;
-	const minValue = 30;
-
-	const getNewHue = (isLight: boolean, i: number) => {
-		let hue;
-		if (h >= 60 && h <= 240) {
-			hue = isLight ? h - hueStep * i : h + hueStep * i;
-		} else {
-			hue = isLight ? h + hueStep * i : h - hueStep * i;
-		}
-		if (hue < 0) {
-			hue += 360;
-		} else if (hue >= 360) {
-			hue -= 360;
-		}
-		return Math.round(hue);
-	};
-
-	const getNewSaturation = (isLight: boolean, i: number) => {
-		let newSaturation;
-		if (isLight) {
-			newSaturation = s <= minSaturationStep ? s : s - ((s - minSaturationStep) / 5) * i;
-		} else {
-			newSaturation = s + ((maxSaturationStep - s) / 4) * i;
-		}
-		return newSaturation;
-	};
-
-	const getNewValue = (isLight: boolean, i: number) => {
-		return isLight ? v + ((maxValue - v) / 5) * i : v <= minValue ? v : v - ((v - minValue) / 4) * i;
-	};
-
-	const isLight = i < 6;
-	const index = isLight ? 6 - i : i - 6;
-	const retColor =
-		i === 6
-			? color
-			: Color({
-					h: getNewHue(isLight, index),
-					s: getNewSaturation(isLight, index) < 0 ? 4 : getNewSaturation(isLight, index),
-					v: getNewValue(isLight, index)
-				});
-
-	return getColorString(retColor, format);
-};
-
-/**
- * 根据给定颜色通过算法生成指定包含十一个颜色的梯度色板
- * @param {string} color - 颜色值
- * @param {Object} options - 配置项
- * @param {number} options.index - 指定生成的颜色在梯度色板中的位置，取值范围为 1-10，默认为 6
- * @param {boolean} options.list - 是否生成包含十个颜色的梯度色板
- * @param {string} options.format 'hex' | 'rgb' | 'hsl'
- * @return string | string[]
- * @example
- * generatePalette('#0B24FB' { index: 1 }) // '#E8EEFF'
- */
-export const generatePalette = (
-	color: string,
-	options: { list: boolean; index: number; format: string } = {
-		list: true,
-		index: 6,
-		format: 'hex'
-	}
-) => {
-	const { list, index, format } = options;
-	if (list) {
-		const list = [];
-		for (let i = 0; i <= 10; i++) {
-			list.push(colorPalette(color, i, format));
-		}
-		return list;
-	}
-	return colorPalette(color, index, format);
-};
-
-/**
- * 根据给定颜色计算出主题黑
- * @param {string} color - 颜色值 hex 格式
- * @return {object} - 返回两项主题黑，包含 hex、rgb、hsl、oklch 四种格式的颜色值
- * @example
- * generateThemeBlack('#0B24FB')
- */
-export const generateThemeBlack = (color: string) => {
-	// 将 hex 颜色转换成 hsl 格式
-	const colorHsl = Color(color.indexOf('#') > -1 ? color : getHexFunc(color))
-		.hsl()
-		.round()
-		.string();
-
-	// 将 hsl 格式的颜色值转换成数组
-	const colorHslArr = colorHsl.split(',');
-	// 将 colorHslArr 的 s 和 l 值分别改为 95% 和 5% 生成主题黑
-	colorHslArr[1] = ' 95%';
-	colorHslArr[2] = ' 5%)';
-	// 将 colorHslArr 转换成 hsl 格式
-	const blackHsl = colorHslArr.join(',');
-	// 将 hsl 格式的颜色值转换成 hex 格式和 rgb 格式
-	const blackHex = Color(blackHsl).hex();
-	const blackRgb = Color(blackHsl).rgb().round().string();
-	// 将 hex 格式转换成 oklch 格式
-	const colorOklch = getOklchFunc(blackHex);
-	// 返回颜色值
-	return { hex: blackHex, rgb: blackRgb, hsl: blackHsl, oklch: colorOklch };
-};
-
-/**
- * 根据给定颜色计算出主题白
- * @param {string} color - 颜色值 hex 格式
- * @return {object} - 返回两项主题白，包含 hex、rgb、hsl 三种格式的颜色值
- * @example
- * generateThemeWhite('#0B24FB')
- */
-export const generateThemeWhite = (color: string) => {
-	// 将 hex 颜色转换成 hsl 格式
-	const colorHsl = Color(color.indexOf('#') > -1 ? color : getHexFunc(color))
-		.hsl()
-		.round()
-		.string();
-	// 将 hsl 格式的颜色值转换成数组
-	const colorHslArr = colorHsl.split(',');
-	// 将 colorHslArr 的 s 和 l 值分别改为 95% 和 5% 生成主题黑
-	colorHslArr[1] = ' 5%';
-	colorHslArr[2] = ' 95%)';
-	// 将 colorHslArr 转换成 hsl 格式
-	const whiteHsl = colorHslArr.join(',');
-	// 将 hsl 格式的颜色值转换成 hex 格式和 rgb 格式
-	const whiteHex = Color(whiteHsl).hex();
-	const whiteRgb = Color(whiteHsl).rgb().round().string();
-	// 返回主题白
-	return { hex: whiteHex, rgb: whiteRgb, hsl: whiteHsl, oklch: getOklchFunc(whiteHex) };
-};
-
-/**
- * 颜色转换函数
- * @param {string} str - 颜色值
- * @returns {object} - 返回 hex、rgb、hsl、oklch 四种格式的颜色值
- * @example
- * colorConvertFunc('#000') // {hex: '#000000', rgb: 'rgb(0,0,0)', hsl: {h: 0, s: 0, l: 0}, oklch: 'oklch(0 0 0)'}
- */
-export const colorConvertFunc = (str: string = '#000') => {
-	// 传入 hsl(222, 100%, 98%) 这种字符，将其中的数字四舍五入取整后返回字符
-	const getHslFunc = (str: string) => {
-		const arr = str.split(',');
-		const h = Math.round(Number(arr[0].split('(')[1]));
-		const s = Math.round(Number(arr[1].split('%')[0]));
-		const l = Math.round(Number(arr[2].split('%')[0]));
-		return `hsl(${h}, ${s}%, ${l}%)`;
-	};
-
-	const colorObj = Color(str.indexOf('#') > -1 ? str : getHexFunc(str));
-
-	return {
-		hex: colorObj.hex(),
-		rgb: colorObj.rgb().string(),
-		hsl: getHslFunc(colorObj.hsl().string()),
-		rgbStr: colorObj.rgb().array().join(', '),
-		oklch: getOklchFunc(colorObj.hex())
-	};
-};
-
-/**
- * 传入 hex 格式的颜色值，将其中所有颜色值转换成 rgb 格式
- * @param {string} str - 颜色值
- * @returns {string} - 返回 rgb 格式的颜色值
- * @example
- * hexToRgb('#000') // '0,0,0'
- */
-export const hexToRgb = (str: string) => {
-	return Color(str).rgb().array().join(', ');
+export const oklchToRgb = (oklchStr: string): string => {
+	return oklchStrToRgbStr(oklchStr);
 };
 
 /**
@@ -502,4 +289,114 @@ export const colorObjToArr = (obj: Record<string, string>) => {
 export const getOklchOpacity = (str: string, opacity: number) => {
 	// 将最后一个 ) 替换为【/ 透明度】
 	return str.replace(/\)$/, ` / ${opacity})`);
+};
+
+/**
+ * 计算两个 OKLCH 颜色之间的对比度
+ * @param {OklchColor} color1 - OKLCH 颜色对象
+ * @param {OklchColor} color2 - OKLCH 颜色对象
+ * @returns {number} 对比度比值 (1:1 到 21:1)
+ * @description
+ * 基于 WCAG 2.1 对比度计算标准的近似算法。
+ * 使用 OKLCH 的 L 值作为感知亮度的近似。
+ */
+export const calculateContrastRatio = (color1: OklchColor, color2: OklchColor): number => {
+	const l1 = Math.max(color1.l, color2.l);
+	const l2 = Math.min(color1.l, color2.l);
+	return (l1 + 0.05) / (l2 + 0.05);
+};
+
+/** WCAG 等级类型 */
+export type WCAGLevel = 'AAA' | 'AA' | 'A' | 'Fail';
+
+/**
+ * 获取 WCAG 等级
+ * @param {number} ratio - 对比度比值
+ * @param {boolean} isLargeText - 是否为大文本（>=18pt 或 >=14pt bold）
+ * @returns {WCAGLevel} WCAG 等级
+ * @description
+ * WCAG 2.1 对比度要求：
+ * - 普通文本：AAA >= 7:1, AA >= 4.5:1, A >= 3:1
+ * - 大文本：AAA >= 4.5:1, AA >= 3:1
+ */
+export const getWCAGLevel = (ratio: number, isLargeText: boolean = false): WCAGLevel => {
+	if (isLargeText) {
+		if (ratio >= 4.5) return 'AAA';
+		if (ratio >= 3) return 'AA';
+		return 'Fail';
+	}
+	if (ratio >= 7) return 'AAA';
+	if (ratio >= 4.5) return 'AA';
+	if (ratio >= 3) return 'A';
+	return 'Fail';
+};
+
+/**
+ * 计算对比度分数 (0-100)
+ * @param {number} ratio - 对比度比值
+ * @returns {number} 0-100 的分数
+ * @description
+ * 以 7:1（AAA 等级）为满分 100，线性映射
+ */
+export const getContrastScore = (ratio: number): number => {
+	return Math.min((ratio / 7) * 100, 100);
+};
+
+/**
+ * 评估颜色在背景上的可见性
+ * @param {OklchColor} foreground - 前景色
+ * @param {OklchColor} background - 背景色
+ * @returns {{ ratio: number; level: WCAGLevel; score: number }} 评估结果
+ */
+export const evaluateColorContrast = (
+	foreground: OklchColor,
+	background: OklchColor
+): { ratio: number; level: WCAGLevel; score: number } => {
+	const ratio = calculateContrastRatio(foreground, background);
+	const level = getWCAGLevel(ratio);
+	const score = getContrastScore(ratio);
+	return { ratio, level, score };
+};
+
+/**
+ * 生成满足对比度要求的随机 OKLCH 颜色
+ * @param {'light' | 'dark'} mode - 颜色模式
+ * @returns {OklchColor} OKLCH 颜色对象
+ * @description
+ * - light 模式：生成在白色背景上突出的颜色（L: 0.35-0.55）
+ * - dark 模式：生成在黑色背景上突出的颜色（L: 0.7-0.9）
+ */
+export const generateRandomOklchColor = (mode: 'light' | 'dark'): OklchColor => {
+	const h = Math.random() * 360; // 色相全范围
+	const c = 0.12 + Math.random() * 0.13; // 色度 0.12-0.25
+
+	let l: number;
+	if (mode === 'light') {
+		// 亮色模式：需要在白色背景上突出，L 应该较低
+		l = 0.35 + Math.random() * 0.2; // L: 0.35-0.55
+	} else {
+		// 暗色模式：需要在黑色背景上突出，L 应该较高
+		l = 0.7 + Math.random() * 0.2; // L: 0.7-0.9
+	}
+
+	return { l, c, h };
+};
+
+/**
+ * 生成满足对比度的文字颜色
+ * @param {OklchColor} backgroundColor - 背景色
+ * @param {number} minRatio - 最小对比度要求，默认 4.5（AA 等级）
+ * @returns {OklchColor} OKLCH 颜色对象
+ * @description
+ * 根据背景色亮度自动选择深色或浅色文字
+ */
+export const generateTextColor = (backgroundColor: OklchColor, minRatio: number = 4.5): OklchColor => {
+	// 根据背景色亮度决定文字颜色
+	if (backgroundColor.l > 0.5) {
+		// 浅色背景使用深色文字
+		return { l: 0.15, c: 0, h: 0 };
+	} else {
+		// 深色背景使用浅色文字
+		return { l: 0.95, c: 0, h: 0 };
+	}
 };

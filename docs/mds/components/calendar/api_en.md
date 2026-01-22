@@ -15,7 +15,7 @@
 | height          | `number`                                                      | `50`                                       | N        | Display height as percentage of page height.                                   |
 | infoDates       | `InfoDate[]`                                                  | `[]`                                       | N        | Dates that need to display information.                                        |
 | disabledDates   | `string[]`                                                    | `[]`                                       | N        | Disabled dates.                                                                |
-| radius          | `'none'\|'sm'\|'xl'\|'2xl'`                                   | `'xl'`                                     | N        | Border radius style for selected dates.                                        |
+| radius          | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''`      | `'sm'`                                     | N        | Border radius style for selected dates.                                        |
 | showSelectedDay | `boolean`                                                     | `true`                                     | N        | Whether to show selected days count in confirm button for multiple/range mode. |
 | confirmText     | `string`                                                      | Current language calendarLang.confirmText  | N        | Confirm button text.                                                           |
 | selectedText    | `string`                                                      | Current language calendarLang.selectedText | N        | Part of confirm button text when showSelectedDay is true.                      |
@@ -25,9 +25,11 @@
 | highlightToday  | `boolean`                                                     | `true`                                     | N        | Whether to highlight today.                                                    |
 | useAnimation    | `boolean`                                                     | `true`                                     | N        | Whether to use animation when auto-scrolling to specified month.               |
 | outFormat       | `string`                                                      | `'YMD'`                                    | N        | Output date format.                                                            |
-| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1)   | `{}`                                       | N        | Popup parameters.                                                              |
+| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1) \| `null` | `{}`                                       | N        | Popup parameters, pass null to disable popup.                                  |
 | button          | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                                       | N        | Confirm button parameters.                                                     |
+| card            | [`Card`](https://stdf.design/components?nav=card&tab=1)     | `{}`                                       | N        | Month card parameters, effective when monthCard is true.                       |
 | clear           | `boolean`                                                     | `true`                                     | N        | Whether to clear selected dates when closing.                                  |
+| initSelectedDates | `string[]`                                                  | `[]`                                       | N        | Initially selected dates in YYYYMMDD format.                                   |
 
 ## Calendar Events
 

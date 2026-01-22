@@ -32,6 +32,12 @@ After the panelClass is injected, it will affect the keyboard panel. After the k
 
 If the injected class does not take effect, please prepend "!" to the class name being injected. You can refer to the [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier) for more information.
 
+## preview
+
+When `preview` is set to `true`, an input preview area will be displayed at the top of the keyboard, showing the current input content in real-time. This is very useful for scenarios where you need to confirm the input content. `previewMask` can display the preview content as dot masks.
+
 ## Popup
 
 The NumKeyboard is built on top of the Popup component. Different effects can be achieved by passing in Popup properties. For example, in the example, the transition animation and background transparency are changed by setting popup.
+
+If you don't need to use a popup, you can set `popup` to `null`, and the NumKeyboard will be displayed directly on the page.

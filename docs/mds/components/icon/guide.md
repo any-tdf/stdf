@@ -10,7 +10,7 @@
 
 ## 图标颜色
 
-如果 theme 不传或传入 false，图标颜色将继承自父级文字颜色，传入 true 图标颜色会根据主题色变化（包含亮暗模式）；如果要实现自定义颜色，可以使用 `iconify-color`，或者使用 CSS 注入或 Snippet 渲染，在 injClass 或 Snippet 中分别配置亮暗模式，请查看示例。
+通过 `state` 属性可以设置图标的状态颜色，支持 `theme`（主题色）、`success`（成功）、`warning`（警告）、`error`（错误）、`info`（信息）五种状态。如果不传 `state`，图标颜色将继承自父级文字颜色；如果要实现自定义颜色，可以使用 `iconify-color`，或者使用 CSS 注入或 Snippet 渲染，在 injClass 或 Snippet 中分别配置亮暗模式，请查看示例。
 
 ## 图标大小
 
@@ -18,7 +18,7 @@
 
 ## 颜色优先级
 
-颜色优先级 Snippet > injClass > theme > 默认。
+颜色优先级 Snippet > injClass > state > 默认。
 
 ## 偏移量
 
@@ -30,7 +30,7 @@
 
 ## Snippet
 
-可放入任何元素（甚至 Icon 组件自身），当然主要用于自定义图标或自定义图标颜色，如将自定义 SVG 放入 Icon 组件，请注意 SVG 的 viewBox、height、width 关系与 display 属性。此时图标内容取决于传入的元素，Props 中的 name、size、theme 等参数都将失效。通过 Snippet 将使组件内容有更多自定义可能性。
+可放入任何元素（甚至 Icon 组件自身），当然主要用于自定义图标或自定义图标颜色，如将自定义 SVG 放入 Icon 组件，请注意 SVG 的 viewBox、height、width 关系与 display 属性。此时图标内容取决于传入的元素，Props 中的 name、size、state 等参数都将失效。通过 Snippet 将使组件内容有更多自定义可能性。
 
 ## 全局注入图标 svg 路径
 

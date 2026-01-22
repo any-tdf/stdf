@@ -10,17 +10,17 @@
 </script>
 
 <div class="flex flex-col px-2 py-4">
-	<span class="pb-3 text-xs text-gray-500">
+	<span class="pb-3 text-xs opacity-60">
 		{isZh ? '文档更新：' : 'Document last updated:'}
 		<br />
 		{isZh ? import.meta.env.VITE_BUILD_TIME_ZH : import.meta.env.VITE_BUILD_TIME_EN}
 	</span>
-	{#each menuList as menu}
+	{#each menuList as menu (menu)}
 		<div class="text-xs">
 			{isZh ? menu.class : menu.class_en}{showNum ? `（${menu.childs.length}）` : ''}
 		</div>
 		<div class="my-2 ml-1 flex flex-col gap-3 border-l-2 border-black/10 pr-0 dark:border-white/20">
-			{#each menu.childs as child}
+			{#each menu.childs as child (child)}
 				<button
 					onclick={(e: MouseEvent) => {
 						e.preventDefault();

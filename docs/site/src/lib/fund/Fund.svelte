@@ -26,7 +26,7 @@
 >
 	<div
 		in:fly={{ y: -400 }}
-		class="mx-auto w-full rounded-xl bg-white p-4 shadow-lg md:w-[800px] md:p-8 dark:bg-gray-950"
+		class="mx-auto w-full rounded-xl bg-white p-4 shadow-lg md:w-200 md:p-8 dark:bg-gray-950"
 		onclick={(e: Event) => e.stopPropagation()}
 	>
 		<div class="flex justify-between">

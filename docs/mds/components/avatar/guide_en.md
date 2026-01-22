@@ -17,11 +17,3 @@ This parameter determines the ratio of the internal image to the entire avatar f
 The injClass parameter allows injecting CSS class names (not limited to Tailwind CSS) into the component's internal button element, enabling more customization possibilities for component styles. The example demonstrates custom background color and border color through injClass.
 
 If the injected class doesn't take effect, please add "!" before the class name. Refer to [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier).
-
-## Avatar Group
-
-Starting from v0.4.0, avatar groups are supported. Avatar groups are used to display multiple avatars within an avatar frame, such as group chat avatars or comment avatars. Simply pass in an array composed of Avatar Props, and the avatar group has its own Props to control different styles.
-
-By default, the top layer displays the total number of avatars. The top parameter can control the top layer content, with options including totle (display total avatar count), add (add avatar Icon), null (no display), and Snippet (custom top layer content).
-
-Avatar group Props also has its own injClass, which can inject Class names for the avatar group, typically used to unify the ring color when the default border color doesn't match the background color.

@@ -11,7 +11,7 @@
 | indicatePosition    | `'inner'\|'out'\|null`                           | `'inner'`     | N        | Indicator position.                             |
 | indicateAlign       | `'center'\|'right'\|'left'`                      | `'center'`    | N        | Indicator alignment.                            |
 | indicateStyle       | `'point'\|'line'\|'pointLine'\|'longLine'`       | `'pointLine'` | N        | Indicator style.                                |
-| indicateRadius      | `boolean`                                        | `true`        | N        | Whether indicator has rounded corners.          |
+| indicateRadius      | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'sm'`      | N        | Indicator border radius style.                  |
 | indicateInjClass    | `string`                                         | `''`          | N        | Indicator injected class.                       |
 | indicateColor       | `string`                                         | `''`          | N        | Indicator color.                                |
 | indicateActiveColor | `string`                                         | `''`          | N        | Active indicator color.                         |
@@ -26,7 +26,7 @@
 | rotateZ             | `number`                                         | `0`           | N        | Inactive container Z-axis rotation.             |
 | activeInjClass      | `string`                                         | `''`          | N        | Active container injected class.                |
 | notActiveInjClass   | `string`                                         | `''`          | N        | Inactive container injected class.              |
-| radius              | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`              | `'none'`      | N        | Container inner area border radius.             |
+| radius              | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'` | `'xl'`      | N        | Container inner area border radius.             |
 | triggerLong         | `number`                                         | `30`          | N        | Slide distance percentage that always triggers. |
 | notTriggerLong      | `number`                                         | `10`          | N        | Slide distance percentage that never triggers.  |
 | triggerSpeed        | `number`                                         | `0.5`         | N        | Slide speed coefficient that triggers.          |

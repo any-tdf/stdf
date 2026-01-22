@@ -6,7 +6,7 @@
 | pageSize         | `number`                                 | `10`                                             | N        | Number of items per page.                    |
 | current          | `number`                                 | `1`                                              | N        | Current page number.                         |
 | maxShowPage      | `5\|7\|9\|11`                            | `7`                                              | N        | Maximum number of page numbers to display.   |
-| radius           | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'full'` | `'md'`                                           | N        | Border radius style.                         |
+| radius           | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'sm'`                                           | N        | Border radius style.                         |
 | type             | `'border'\|'block'\|'bold'`              | `'bold'`                                         | N        | Highlighted page number style.               |
 | pageCol          | `number`                                 | `3`                                              | N        | Number of columns for omitted page numbers.  |
 | showNextOmitPage | `boolean`                                | `false`                                          | N        | Whether to show omitted page numbers after.  |

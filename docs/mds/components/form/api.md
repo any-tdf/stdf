@@ -10,11 +10,7 @@
 | submitChildren | `Snippet`                                                                                | -         | N    | 自定义提交按钮内容。                     |
 | resetChildren  | `Snippet`                                                                                | -         | N    | 自定义重置按钮内容。                     |
 | space          | `'0'\|'1'\|'2'\|'4'\|'6'\|'8'`                                                           | `'0'`     | N    | 表单项垂直间距。                         |
-| card           | `boolean`                                                                                | `false`   | N    | 是否开启卡片布局。                       |
-| mx             | `'2'\|'3'\|'4'\|'6'\|'8'`                                                                | `'4'`     | N    | 水平外边距（card 模式时生效）。          |
-| px             | `'0'\|'1'\|'2'\|'4'\|'6'`                                                                | `'2'`     | N    | 水平内边距（card 模式时生效）。          |
-| radius         | `'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'`                                            | `'xl'`    | N    | 卡片圆角（card 模式时生效）。            |
-| shadow         | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                                            | `'sm'`    | N    | 卡片阴影（card 模式时生效）。            |
+| card           | [`CardProps`](https://stdf.design/components?nav=card&tab=1)                             | -         | N    | 卡片配置，传入后使用 Card 组件包裹表单。 |
 | onchange       | `(data: Record<string, FormValueProps>) => void`                                         | -         | N    | 表单项值变化时触发。                     |
 | onsubmit       | `(data: Record<string, FormValueProps>) => void`                                         | -         | N    | 提交时触发。                             |
 | onreset        | `() => void`                                                                             | -         | N    | 重置时触发。                             |
@@ -67,6 +63,16 @@
 | numKeyboard | `object`       | NumKeyboard 组件配置。|
 | input     | `object`       | Input 组件配置。     |
 
+### fullKeyboard
+
+全键盘。
+
+| 名称       | 类型             | 说明                  |
+| ---------- | ---------------- | --------------------- |
+| type      | `'fullKeyboard'` | 类型标识。            |
+| fullKeyboard | `object`       | FullKeyboard 组件配置。|
+| input     | `object`         | Input 组件配置。      |
+
 ### timePicker
 
 时间选择器。
@@ -106,6 +112,18 @@
 | type  | `'picker'` | 类型标识。     |
 | picker | `object` | Picker 组件配置。|
 | input | `object` | Input 组件配置。|
+
+当 Picker 使用 multiple 模式时，Form 返回值为 FormPickerValue，其中 multipleSelected 为已选项列表。
+
+### colorPicker
+
+颜色选择器。
+
+| 名称        | 类型             | 说明                    |
+| ----------- | ---------------- | ----------------------- |
+| type       | `'colorPicker'`  | 类型标识。              |
+| colorPicker | `object`        | ColorPicker 组件配置。  |
+| input      | `object`         | Input 组件配置。        |
 
 ### checkbox
 
@@ -160,10 +178,12 @@
 | ------------ | -------------------------------- |
 | input        | `string`                         |
 | numKeyboard  | `string`                         |
+| fullKeyboard | `string`                         |
 | timePicker   | `FormTimePickerValue`            |
 | actionSheet  | `FormActionSheetValue`           |
 | calendar     | `FormCalendarValue`              |
 | picker       | `FormPickerValue`                |
+| colorPicker  | `FormColorPickerValue`           |
 | checkbox     | `string[]`                       |
 | radio        | `string`                         |
 | slider       | `FormSliderValue`                |

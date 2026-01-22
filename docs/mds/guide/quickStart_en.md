@@ -4,6 +4,11 @@
 ## 1. [create-stdf](https://www.npmjs.com/package/create-stdf) (Recommended)
 
 <!-- :::code-groups -->
+<!-- bun -->
+```sh
+bun create stdf@latest
+```
+<!-- :: -->
 <!-- pnpm -->
 ```sh
 pnpm create stdf@latest
@@ -18,11 +23,6 @@ npm init stdf@latest
 npx create-stdf@latest
 ```
 <!-- :: -->
-<!-- bun -->
-```sh
-bun create stdf@latest
-```
-<!-- :: -->
 <!-- yarn -->
 ```sh
 yarn create stdf@latest
@@ -34,6 +34,11 @@ yarn create stdf@latest
 2.1 Use the [Svelte CLI](https://svelte.dev/docs/cli/sv-create) to create the project.
 
 <!-- :::code-groups -->
+<!-- bun -->
+```sh
+bunx sv create
+```
+<!-- :: -->
 <!-- pnpm -->
 ```sh
 pnpm dlx sv create
@@ -42,11 +47,6 @@ pnpm dlx sv create
 <!-- npm -->
 ```sh
 npx sv create
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bunx sv create
 ```
 <!-- :: -->
 <!-- yarn -->
@@ -60,6 +60,11 @@ yarn dlx sv create
 Refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/vite#svelte) to configure Tailwind CSS.
 
 <!-- :::code-groups -->
+<!-- bun -->
+```sh
+bun add tailwindcss @tailwindcss/vite -D
+```
+<!-- :: -->
 <!-- pnpm -->
 ```sh
 pnpm i tailwindcss @tailwindcss/vite -D
@@ -68,11 +73,6 @@ pnpm i tailwindcss @tailwindcss/vite -D
 <!-- npm -->
 ```sh
 npm i tailwindcss @tailwindcss/vite -D
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun i tailwindcss @tailwindcss/vite -D
 ```
 <!-- :: -->
 <!-- yarn -->
@@ -88,7 +88,9 @@ The following are the default theme colors of STDF, please modify them according
 ```css
 /* app.css */
 @import 'tailwindcss';
-@custom-variant dark (&:where(.dark, .dark *));
+
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *):not(:where([data-mode=light], [data-mode=light] *):not([data-mode=dark], [data-mode=dark] *)));
+
 @theme {
 	/* Theme Colors */
 	--color-primary-50: oklch(0.979 0.01 267.36);
@@ -115,11 +117,6 @@ The following are the default theme colors of STDF, please modify them according
 	--color-dark-900: oklch(0.449 0.097 65.209);
 	--color-dark-950: oklch(0.321 0.074 62.379);
 
-	--color-primaryBlack: oklch(0.116 0.054 267.087);
-	--color-primaryWhite: oklch(0.961 0.001 286.375);
-	--color-darkBlack: oklch(0.183 0.035 86.634);
-	--color-darkWhite: oklch(0.962 0.001 17.178);
-
 	/* Functional Colors */
 	--color-success: oklch(0.704 0.142 167.084);
 	--color-warning: oklch(0.558 0.154 47.186);
@@ -127,11 +124,8 @@ The following are the default theme colors of STDF, please modify them according
 	--color-info: oklch(0.482 0.14 261.518);
 
 	/* Extended Colors */
-	--color-extend0: oklch(0.703 0.149 235.059);
 	--color-Twitter: oklch(0.703 0.149 235.059);
-	--color-extend1: oklch(0.702 0.194 38.137);
 	--color-Svelte: oklch(0.702 0.194 38.137);
-	--color-extend2: oklch(0.482 0.107 161.212);
 	--color-Starbucks: oklch(0.482 0.107 161.212);
 
 	/* Neutral Colors */
@@ -149,6 +143,29 @@ The following are the default theme colors of STDF, please modify them according
 	--color-gray-900: oklch(0.218 0 0);
 	--color-gray-950: oklch(0.159 0 0);
 	--color-transparent: transparent;
+
+	/* Background Colors - Light Mode */
+	--color-bg-base: oklch(1 0 0);
+	--color-bg-surface: oklch(0.98 0 0);
+	--color-bg-overlay: oklch(0.99 0 0);
+	--color-bg-highlight: oklch(0.99 0 0);
+
+	/* Background Colors - Dark Mode */
+	--color-bg-base-dark: oklch(0.15 0 0);
+	--color-bg-surface-dark: oklch(0.2 0 0);
+	--color-bg-overlay-dark: oklch(0.12 0 0);
+	--color-bg-highlight-dark: oklch(0.08 0 0);
+
+	/* Text Colors */
+	--color-text-primary: oklch(0.15 0 0);
+	--color-text-dark: oklch(0.95 0 0);
+	--color-text-on-primary: oklch(1 0 0);
+	--color-text-on-dark: oklch(0.1 0 0);
+
+	/* Radius Variables */
+	--radius-box: 0.5rem;
+	--radius-form: 0.25rem;
+	--radius-small: calc(infinity * 1px);
 }
 @source "../node_modules/stdf/**/*.svelte";
 ```
@@ -166,6 +183,11 @@ The following are the default theme colors of STDF, please modify them according
 2.5 Start the project.
 
 <!-- :::code-groups -->
+<!-- bun -->
+```sh
+bun dev
+```
+<!-- :: -->
 <!-- pnpm -->
 ```sh
 pnpm dev
@@ -174,11 +196,6 @@ pnpm dev
 <!-- npm -->
 ```sh
 npm run dev
-```
-<!-- :: -->
-<!-- bun -->
-```sh
-bun dev
 ```
 <!-- :: -->
 <!-- yarn -->

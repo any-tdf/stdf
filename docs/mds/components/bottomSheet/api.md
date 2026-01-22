@@ -16,7 +16,7 @@
 | stayHeightList  | `number[]`                                                | `[10, 50, 90]`               | N    | 固定高度列表。                     |
 | stayHeightIndex | `number`                                                  | `1`                          | N    | 初始固定高度索引。                 |
 | closeHeight     | `number`                                                  | `0`                          | N    | 滑动结束时位置低于此高度自动关闭。 |
-| radius          | `'none'\|'middle'\|'full'`                                | `'full'`                     | N    | 圆角风格。                         |
+| radius          | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'\|''` | `''`                         | N    | 圆角风格。                         |
 
 ## BottomSheet Events
 

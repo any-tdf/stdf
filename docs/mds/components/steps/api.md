@@ -4,7 +4,7 @@
 | --------- | ---------------------------- | ------- | ---- | ------------------------------------------- |
 | steps     | `StepsItem[]`                | `[]`    | Y    | step Props 或 finishStep Props 组成的数组。 |
 | current   | `number`                     | `1`     | N    | 当前进行的步骤序号。                        |
-| radius    | `'none'\|'sm'\|'xl'\|'full'` | `'sm'`  | N    | 圆角风格。                                  |
+| radius    | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''` | `'sm'`  | N    | 圆角风格。                                  |
 | barBorder | `boolean`                    | `true`  | N    | 图标是否带边框。                            |
 | vertical  | `boolean`                    | `false` | N    | 是否纵向布局。                              |
 

@@ -1,61 +1,80 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *):not(:where([data-mode=light], [data-mode=light] *):not([data-mode=dark], [data-mode=dark] *)));
+
 @plugin "@tailwindcss/typography";
+
+/* STDF 内置主题 - 生成所有 42 套主题 */
+@plugin "stdf/theme" {
+	all: true;
+}
+
 @theme {
-	--color-primary-50: oklch(0.979 0.01 267.36);
-	--color-primary-100: oklch(0.95 0.024 270.343);
-	--color-primary-200: oklch(0.847 0.074 271.188);
-	--color-primary-300: oklch(0.741 0.13 272.232);
-	--color-primary-400: oklch(0.634 0.193 271.595);
-	--color-primary-500: oklch(0.536 0.252 268.66);
+	/* STDF 主题色 - 这些变量会被 @plugin "stdf/theme" 通过 data-theme 覆盖 */
+	--color-primary-50: oklch(0.967 0.0296 264.886);
+	--color-primary-100: oklch(0.917 0.0444 264.886);
+	--color-primary-200: oklch(0.817 0.1036 264.886);
+	--color-primary-300: oklch(0.717 0.1628 264.886);
+	--color-primary-400: oklch(0.617 0.222 264.886);
+	--color-primary-500: oklch(0.547 0.2664 264.886);
 	--color-primary: oklch(0.467 0.296 264.886);
-	--color-primary-700: oklch(0.397 0.26 264.877);
-	--color-primary-800: oklch(0.331 0.221 264.833);
-	--color-primary-900: oklch(0.26 0.178 264.428);
-	--color-primary-950: oklch(0.192 0.13 266.64);
+	--color-primary-700: oklch(0.387 0.2812 264.886);
+	--color-primary-800: oklch(0.317 0.2516 264.886);
+	--color-primary-900: oklch(0.267 0.222 264.886);
+	--color-primary-950: oklch(0.187 0.1776 264.886);
 
-	--color-dark-50: oklch(0.995 0.012 101.474);
-	--color-dark-100: oklch(0.986 0.025 97.107);
-	--color-dark-200: oklch(0.965 0.059 95.884);
-	--color-dark-300: oklch(0.938 0.089 92.952);
-	--color-dark-400: oklch(0.91 0.114 89.711);
-	--color-dark-500: oklch(0.88 0.136 86.375);
+	--color-dark-50: oklch(0.98 0.0153 80.597);
+	--color-dark-100: oklch(0.95 0.02295 80.597);
+	--color-dark-200: oklch(0.88 0.05355 80.597);
+	--color-dark-300: oklch(0.78 0.08415 80.597);
+	--color-dark-400: oklch(0.68 0.11475 80.597);
+	--color-dark-500: oklch(0.58 0.1377 80.597);
 	--color-dark: oklch(0.845 0.153 80.597);
-	--color-dark-700: oklch(0.71 0.137 75.734);
-	--color-dark-800: oklch(0.58 0.118 70.166);
-	--color-dark-900: oklch(0.449 0.097 65.209);
-	--color-dark-950: oklch(0.321 0.074 62.379);
+	--color-dark-700: oklch(0.765 0.14535 80.597);
+	--color-dark-800: oklch(0.695 0.13005 80.597);
+	--color-dark-900: oklch(0.645 0.11475 80.597);
+	--color-dark-950: oklch(0.565 0.0918 80.597);
 
-	--color-primaryBlack: oklch(0.116 0.054 267.087);
-	--color-primaryWhite: oklch(0.961 0.001 286.375);
-	--color-darkBlack: oklch(0.183 0.035 86.634);
-	--color-darkWhite: oklch(0.962 0.001 17.178);
+	--color-bg-base: oklch(0.967 0.0148 264.9);
+	--color-bg-surface: oklch(0.985 0.005 80.6);
+	--color-bg-overlay: oklch(0.955 0.005 80.6);
+	--color-bg-highlight: oklch(0.98 0.0089 264.9);
+	--color-bg-base-dark: oklch(0.15 0.0122 80.6);
+	--color-bg-surface-dark: oklch(0.22 0.0092 95.6);
+	--color-bg-overlay-dark: oklch(0.19 0.0077 80.6);
+	--color-bg-highlight-dark: oklch(0.08 0.0061 80.6);
+
+	--color-text-primary: oklch(0.144 0.0148 264.886);
+	--color-text-dark: oklch(0.917 0.03825 80.597);
+	--color-text-on-primary: oklch(0.883 0.04284 80.597);
+	--color-text-on-dark: oklch(0.189 0.05032 264.886);
 
 	--color-success: oklch(0.704 0.142 167.084);
-	--color-warning: oklch(0.558 0.154 47.186);
+	--color-warning: oklch(0.558 0.153 47.186);
 	--color-error: oklch(0.564 0.223 28.46);
 	--color-info: oklch(0.482 0.14 261.518);
 
-	--color-extend0: oklch(0.703 0.149 235.059);
-	--color-Twitter: oklch(0.703 0.149 235.059);
-	--color-extend1: oklch(0.702 0.194 38.137);
-	--color-Svelte: oklch(0.702 0.194 38.137);
-	--color-extend2: oklch(0.482 0.107 161.212);
-	--color-Starbucks: oklch(0.482 0.107 161.212);
+	--radius-box: 0.75rem;
+	--radius-form: 0.5rem;
+	--radius-small: 0.25rem;
 
-	--color-black: oklch(0 0 0);
-	--color-white: oklch(1 0 0);
-	--color-gray-50: oklch(0.961 0 0);
-	--color-gray-100: oklch(0.925 0 0);
-	--color-gray-200: oklch(0.845 0 0);
-	--color-gray-300: oklch(0.767 0 0);
-	--color-gray-400: oklch(0.683 0 0);
-	--color-gray-500: oklch(0.6 0 0);
-	--color-gray-600: oklch(0.51 0 0);
-	--color-gray-700: oklch(0.42 0 0);
-	--color-gray-800: oklch(0.321 0 0);
-	--color-gray-900: oklch(0.218 0 0);
-	--color-gray-950: oklch(0.159 0 0);
+	--color-blue: oklch(0.6 0.2 250); /* #3b6bff rgb(59, 107, 255) */
+	--color-purple: oklch(0.6 0.2 300); /* #b95cff rgb(185, 92, 255) */
+	--color-orange: oklch(0.7 0.18 50); /* #ff8c33 rgb(255, 140, 51) */
+	--color-cyan: oklch(0.7 0.15 190); /* #00b5b5 rgb(0, 181, 181) */
+
+	--color-black: oklch(0 0 0); /* #000000 rgb(0, 0, 0) */
+	--color-white: oklch(1 0 0); /* #FFFFFF rgb(255, 255, 255) */
+	--color-gray-50: oklch(0.961 0 0); /* #F5F5F5 rgb(245, 245, 245) */
+	--color-gray-100: oklch(0.925 0 0); /* #E8E8E8 rgb(232, 232, 232) */
+	--color-gray-200: oklch(0.845 0 0); /* #D1D1D1 rgb(209, 209, 209) */
+	--color-gray-300: oklch(0.767 0 0); /* #B8B8B8 rgb(184, 184, 184) */
+	--color-gray-400: oklch(0.683 0 0); /* #9E9E9E rgb(158, 158, 158) */
+	--color-gray-500: oklch(0.6 0 0); /* #858585 rgb(133, 133, 133) */
+	--color-gray-600: oklch(0.51 0 0); /* #6B6B6B rgb(107, 107, 107) */
+	--color-gray-700: oklch(0.42 0 0); /* #525252 rgb(82, 82, 82) */
+	--color-gray-800: oklch(0.321 0 0); /* #383838 rgb(56, 56, 56) */
+	--color-gray-900: oklch(0.218 0 0); /* #1F1F1F rgb(31, 31, 31) */
+	--color-gray-950: oklch(0.159 0 0); /* #121212 rgb(18, 18, 18) */
 	--color-transparent: transparent;
 
 	--color-bug1: oklch(0.579 0.214 27.172);
@@ -229,8 +248,34 @@
 			transform: translateY(-20px);
 		}
 	}
+
+	/* 渐变球动效 */
+	--animate-blob: blob 7s infinite;
+	@keyframes blob {
+		0% {
+			transform: translate(0px, 0px) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+		100% {
+			transform: translate(0px, 0px) scale(1);
+		}
+	}
 }
+
 @source "../../../packages/stdf/dist/**/*.svelte";
+
+/* 动画延迟类 */
+.animation-delay-2000 {
+	animation-delay: 2s;
+}
+.animation-delay-4000 {
+	animation-delay: 4s;
+}
 
 pre {
 	background-color: transparent;
@@ -261,6 +306,14 @@ html {
 	scrollbar-width: thin;
 }
 
+.prose {
+	color: inherit;
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
+	color: inherit;
+}
+
 .prose :where(code):not(:where([class~='not-prose'] *))::before {
 	content: '' !important;
 }
@@ -269,24 +322,25 @@ html {
 	content: '' !important;
 }
 
-.prose :where(code):not(:where([class~='not-prose'] *)) {
+.prose :where(code):not(:where([class~='not-prose'] *, pre *)) {
 	padding-left: 4px;
 	padding-right: 4px;
 	border-radius: 2px;
-	background: #e4e4e4 !important;
+	background: rgba(0, 0, 0, 0.05) !important;
+	font-size: 0.8em;
 }
 
-.dark .dark\:prose-invert :where(code):not(:where([class~='not-prose'] *)) {
-	background: #202020 !important;
+.prose pre code {
+	font-size: 0.8em;
+}
+
+[data-mode="dark"] .prose :where(code):not(:where([class~='not-prose'] *, pre *)) {
+	background: rgba(255, 255, 255, 0.05) !important;
 }
 
 /*!
   Theme: GitHub Light
 */
-.prose pre code.hljs {
-	background: #e4e4e4 !important;
-}
-
 .prose pre code.hljs {
 	display: block;
 	overflow-x: auto;
@@ -298,7 +352,7 @@ html {
 }
 
 .prose .hljs {
-	/* background: #ebebeb !important; */
+	background: rgba(0, 0, 0, 0.05) !important;
 	color: #434f54;
 }
 
@@ -384,149 +438,108 @@ html {
 	color: #8a7b52;
 }
 
-.dark .dark\:prose-invert pre code.hljs {
-	background: #202020 !important;
-}
-
-.dark .dark\:prose-invert pre code.hljs {
+[data-mode="dark"] .prose pre code.hljs {
 	display: block;
 	overflow-x: auto;
 	padding: 1em;
 }
 
-.dark .dark\:prose-invert code.hljs {
+[data-mode="dark"] .prose code.hljs {
 	padding: 3px 5px;
 }
 
 /*!
   Theme: GitHub Dark
 */
-.dark .dark\:prose-invert .hljs {
+[data-mode="dark"] .prose .hljs {
 	color: #c9d1d9;
-	/* background: #0d1117; */
+	background: rgba(255, 255, 255, 0.05) !important;
 }
 
-.dark .dark\:prose-invert .hljs-doctag,
-.dark .dark\:prose-invert .hljs-keyword,
-.dark .dark\:prose-invert .hljs-meta .hljs-keyword,
-.dark .dark\:prose-invert .hljs-template-tag,
-.dark .dark\:prose-invert .hljs-template-variable,
-.dark .dark\:prose-invert .hljs-type,
-.dark .dark\:prose-invert .hljs-variable.language_ {
+[data-mode="dark"] .prose .hljs-doctag,
+[data-mode="dark"] .prose .hljs-keyword,
+[data-mode="dark"] .prose .hljs-meta .hljs-keyword,
+[data-mode="dark"] .prose .hljs-template-tag,
+[data-mode="dark"] .prose .hljs-template-variable,
+[data-mode="dark"] .prose .hljs-type,
+[data-mode="dark"] .prose .hljs-variable.language_ {
 	/* color: #ff7b72; */
 	color: #ffc043;
 }
 
-.dark .dark\:prose-invert .hljs-title,
-.dark .dark\:prose-invert .hljs-title.class_,
-.dark .dark\:prose-invert .hljs-title.class_.inherited__,
-.dark .dark\:prose-invert .hljs-title.function_ {
+[data-mode="dark"] .prose .hljs-title,
+[data-mode="dark"] .prose .hljs-title.class_,
+[data-mode="dark"] .prose .hljs-title.class_.inherited__,
+[data-mode="dark"] .prose .hljs-title.function_ {
 	color: #d2a8ff;
 }
 
-.dark .dark\:prose-invert .hljs-attr,
-.dark .dark\:prose-invert .hljs-attribute,
-.dark .dark\:prose-invert .hljs-literal,
-.dark .dark\:prose-invert .hljs-meta,
-.dark .dark\:prose-invert .hljs-number,
-.dark .dark\:prose-invert .hljs-operator,
-.dark .dark\:prose-invert .hljs-selector-attr,
-.dark .dark\:prose-invert .hljs-selector-class,
-.dark .dark\:prose-invert .hljs-selector-id,
-.dark .dark\:prose-invert .hljs-variable {
+[data-mode="dark"] .prose .hljs-attr,
+[data-mode="dark"] .prose .hljs-attribute,
+[data-mode="dark"] .prose .hljs-literal,
+[data-mode="dark"] .prose .hljs-meta,
+[data-mode="dark"] .prose .hljs-number,
+[data-mode="dark"] .prose .hljs-operator,
+[data-mode="dark"] .prose .hljs-selector-attr,
+[data-mode="dark"] .prose .hljs-selector-class,
+[data-mode="dark"] .prose .hljs-selector-id,
+[data-mode="dark"] .prose .hljs-variable {
 	color: #79c0ff;
 }
 
-.dark .dark\:prose-invert .hljs-meta .hljs-string,
-.dark .dark\:prose-invert .hljs-regexp,
-.dark .dark\:prose-invert .hljs-string {
+[data-mode="dark"] .prose .hljs-meta .hljs-string,
+[data-mode="dark"] .prose .hljs-regexp,
+[data-mode="dark"] .prose .hljs-string {
 	color: #a5d6ff;
 }
 
-.dark .dark\:prose-invert .hljs-built_in,
-.dark .dark\:prose-invert .hljs-symbol {
+[data-mode="dark"] .prose .hljs-built_in,
+[data-mode="dark"] .prose .hljs-symbol {
 	color: #ffa657;
 }
 
-.dark .dark\:prose-invert .hljs-code,
-.dark .dark\:prose-invert .hljs-comment,
-.dark .dark\:prose-invert .hljs-formula {
+[data-mode="dark"] .prose .hljs-code,
+[data-mode="dark"] .prose .hljs-comment,
+[data-mode="dark"] .prose .hljs-formula {
 	color: #8b949e;
 }
 
-.dark .dark\:prose-invert .hljs-name,
-.dark .dark\:prose-invert .hljs-quote,
-.dark .dark\:prose-invert .hljs-selector-pseudo,
-.dark .dark\:prose-invert .hljs-selector-tag {
+[data-mode="dark"] .prose .hljs-name,
+[data-mode="dark"] .prose .hljs-quote,
+[data-mode="dark"] .prose .hljs-selector-pseudo,
+[data-mode="dark"] .prose .hljs-selector-tag {
 	color: #7ee787;
 }
 
-.dark .dark\:prose-invert .hljs-subst {
+[data-mode="dark"] .prose .hljs-subst {
 	color: #c9d1d9;
 }
 
-.dark .dark\:prose-invert .hljs-section {
+[data-mode="dark"] .prose .hljs-section {
 	color: #1f6feb;
 	font-weight: 700;
 }
 
-.dark .dark\:prose-invert .hljs-bullet {
+[data-mode="dark"] .prose .hljs-bullet {
 	color: #f2cc60;
 }
 
-.dark .dark\:prose-invert .hljs-emphasis {
+[data-mode="dark"] .prose .hljs-emphasis {
 	color: #c9d1d9;
 	font-style: italic;
 }
 
-.dark .dark\:prose-invert .hljs-strong {
+[data-mode="dark"] .prose .hljs-strong {
 	color: #c9d1d9;
 	font-weight: 700;
 }
 
-.dark .dark\:prose-invert .hljs-addition {
+[data-mode="dark"] .prose .hljs-addition {
 	color: #aff5b4;
 	background-color: #033a16;
 }
 
-.dark .dark\:prose-invert .hljs-deletion {
+[data-mode="dark"] .prose .hljs-deletion {
 	color: #ffdcd7;
 	background-color: #67060c;
 }
-
-@font-face {
-	font-family: 'JetBrainsMono';
-	src: url('/assets/fonts/JetBrainsMono-Regular.woff2');
-}
-
-code {
-	font-family: 'JetBrainsMono' !important;
-}
-
-/* 模拟设计软件的透明层 */
-.transparent-background {
-	background-image: linear-gradient(45deg, #666 25%, transparent 25%, transparent 75%, #666 75%),
-		linear-gradient(45deg, #666 25%, transparent 25%, transparent 75%, #666 75%);
-	background-position:
-		0 0,
-		10px 10px;
-	background-size: 20px 20px;
-}
-
-@keyframes clip {
-	from {
-		clip-path: circle(0% at var(--x) var(--y));
-	}
-	to {
-		clip-path: circle(100% at var(--x) var(--y));
-	}
-}
-
-::view-transition-old(root) {
-	animation: none;
-}
-::view-transition-new(root) {
-	mix-blend-mode: normal;
-	animation: clip 0.6s ease-in;
-}
-

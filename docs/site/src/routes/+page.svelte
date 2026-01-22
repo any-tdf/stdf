@@ -1,94 +1,73 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { Confetti } from 'svelte-confetti';
 	import { currentThemeStore, currentColorStore } from '../store';
 	// @ts-ignore
 	import { encodeData, rendererLine } from 'beautify-qrcode';
-	import { Tab, Loading, Switch, Avatar, Pagination, Input, Rate, Icon, NoticeBar, Slider, Swiper, Button } from 'stdf';
-	import type { SwiperImgProps, SwiperProps } from 'stdf/types';
+	import { Tab, Loading, Switch, Avatar, Pagination, Input, Rate, Icon, NoticeBar, Slider, Swiper, Button, Card } from 'stdf';
 	import { menuList, type MenuList } from '../data/menuList';
-	import themes from '../data/themes/index.js';
-	import { switchTheme } from 'stdf/theme';
-	import Clis from '../lib/clis/Clis.svelte';
+	import { switchTheme, themes } from 'stdf/theme';
+
+	// 导入首页子组件
+	import ThemeSystem from '../lib/home/ThemeSystem.svelte';
+	import ApiPlayground from '../lib/home/ApiPlayground.svelte';
+	import StatCounter from '../lib/home/StatCounter.svelte';
+	import ComponentsGrid from '../lib/home/ComponentsGrid.svelte';
+	import LazyLoad from '../lib/LazyLoad.svelte';
+	// 新增组件
+	import TerminalDemo from '../lib/home/TerminalDemo.svelte';
+	import ApiRichness from '../lib/home/ApiRichness.svelte';
+	import MobileAdvantages from '../lib/home/MobileAdvantages.svelte';
+	import TechStack from '../lib/home/TechStack.svelte';
+
+	// 导入数据和工具
+	import {
+		themeLabels,
+		swiperOptions,
+		descList,
+		ugly,
+		thinkGithub,
+		bottomInfo,
+		avatarRadiusList,
+		avatarImgs,
+		switchRadiusList,
+		switchInsideList,
+		sliderRadiusList,
+		sliderShowTipList,
+		tabRadiusList,
+		paginationTypeList,
+		paginationRadiusList,
+		injPaginationRadiusMap,
+		inputRadiusList,
+		inputStyleList,
+		randomPick,
+		randomRange,
+		randomBool,
+		getRandomEmoji,
+		type AvatarRadius,
+		type SwitchRadius,
+		type SwitchInside,
+		type SliderRadius,
+		type SliderShowTip,
+		type TabRadius,
+		type PaginationType,
+		type PaginationRadius,
+		type InputRadius,
+		type InputStyle
+	} from '../data/homeData';
+
+	// 导入 actions
+	import { fadeInUp, staggerChildren } from '../actions';
+
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 
-	// 随机生成 1_0 到 1_53 这种字符串
-	const randomNum = Math.floor(Math.random() * 53) + 1;
-	const randomNumStr = `1_${randomNum}`;
-	const swiperData: SwiperImgProps[] = [
-		{ type: 'img', url: '/assets/images/home/wall_1.jpg' },
-		{ type: 'img', url: '/assets/images/home/wall_2.jpg' },
-		{ type: 'img', url: '/assets/images/home/wall_3.jpg' },
-		{ type: 'img', url: '/assets/images/home/wall_4.jpg' }
-	];
-	const swiperOptions: SwiperProps[] = [
-		{
-			data: swiperData,
-			containerWidth: 390,
-			px: '6',
-			py: '6',
-			indicateInjClass: 'bg-none',
-			indicateColor: 'bg-black/5 dark:bg-white/10',
-			indicateActiveColor: 'bg-primary dark:bg-dark',
-			radius: 'xl',
-			indicateStyle: 'longLine'
-		},
-		{
-			data: swiperData,
-			containerWidth: 390,
-			px: '16',
-			py: '6',
-			indicateInjClass: 'bg-none',
-			indicateColor: 'bg-primary dark:bg-dark',
-			indicateActiveColor: 'bg-primary dark:bg-dark',
-			radius: 'xl',
-			aspectRatio: [3, 1],
-			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20',
-			translateX: 100
-		},
-		{
-			data: swiperData,
-			containerWidth: 390,
-			px: '4',
-			py: '8',
-			indicateInjClass: 'bg-none',
-			indicateColor: 'bg-primary dark:bg-dark',
-			indicateActiveColor: 'bg-primary dark:bg-dark',
-			radius: 'xl',
-			rotateY: 90,
-			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20'
-		},
-		{
-			data: swiperData,
-			containerWidth: 390,
-			px: '24',
-			py: '8',
-			indicateInjClass: 'bg-none',
-			indicateColor: 'bg-primary dark:bg-dark',
-			indicateActiveColor: 'bg-primary dark:bg-dark',
-			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20',
-			radius: 'xl',
-			aspectRatio: [3, 1],
-			translateX: 160,
-			notActiveInjClass: 'grayscale'
-		},
-		{
-			data: swiperData,
-			indicateStyle: 'longLine',
-			containerWidth: 390,
-			px: '12',
-			py: '8',
-			indicateInjClass: 'bg-none',
-			indicateColor: 'bg-black/5 dark:bg-white/10',
-			indicateActiveColor: 'bg-primary dark:bg-dark',
-			radius: 'xl',
-			translateZ: 600,
-			innerInjClass: 'shadow-md shadow-black/20 dark:shadow-white/20'
-		}
-	];
-	const swiperOption = swiperOptions[Math.floor(Math.random() * swiperOptions.length)];
-	//数组二级组成新数组
+	// 随机生成 Loading 类型
+	const randomNumStr = `1_${randomRange(1, 53)}`;
+
+	// 随机 Swiper 配置
+	const swiperOption = randomPick(swiperOptions);
+
+	// 数组二级组成新数组
 	const ArrChildFun = (arr: MenuList[]) => {
 		const newArr = [];
 		for (let e = 0; e < arr.length; e++) {
@@ -97,6 +76,7 @@
 		return newArr;
 	};
 	const menuChildList = ArrChildFun(menuList);
+
 	// 从 menuChildList 中随机取 3 个
 	const randomMenuChildList = menuChildList.sort(() => Math.random() - 0.5).slice(0, 3);
 	const textList = randomMenuChildList.map((item, index) => {
@@ -105,308 +85,48 @@
 	const labels = randomMenuChildList.map((item) => {
 		return { text: isZh ? item.title_zh : item.title_en };
 	});
-	// Avatar radius 随机 'none'|'sm'|'xl'|'2xl'|'3xl'|'full'
-	const avatarRadiusList = ['none', 'sm', 'xl', '2xl', '3xl', 'full'] as const;
-	const avatarRadius = avatarRadiusList[Math.floor(Math.random() * avatarRadiusList.length)];
-	const avatarImgs = ['/assets/images/home/wall_3.jpg', '/assets/images/home/avatar_1.jpg', null];
-	const avatar = avatarImgs[Math.floor(Math.random() * avatarImgs.length)];
-	// Switch radius 随机 'none'|'middle'|'full' ，inside 随机 'state'|'loading'|null
-	const switchRadiusList = ['none', 'middle', 'full'];
-	const switchRadius = switchRadiusList[Math.floor(Math.random() * switchRadiusList.length)] as 'none' | 'middle' | 'full';
-	const switchInsideList = ['state', 'loading', null];
-	const switchInside = switchInsideList[Math.floor(Math.random() * switchInsideList.length)] as 'state' | 'loading' | null;
-	// Slider 随机 0-100
-	const sliderValue = Math.floor(Math.random() * 100);
-	// slider radius 随机 'none'|'full'|'sm'|'xl'
-	const sliderRadiusList = ['none', 'full', 'sm', 'xl'];
-	const sliderRadius = sliderRadiusList[Math.floor(Math.random() * sliderRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
-	const sliderShowTipList = ['always', 'never', 'touch'];
-	const sliderShowTip = sliderShowTipList[Math.floor(Math.random() * sliderShowTipList.length)] as 'always' | 'never' | 'touch';
-	// 列举 20 个与评分相关的 emoji 表情
-	const emojiList1 = ['love', 'default'];
-	const emojiList2 = ['👍', '👋', '👏', '🌺', '🏆', '🎯', '💯', '🎳', '🎖️'];
-	// 随机出一个 emoji，emojiList1 的概率为 0.5，emojiList2 的概率为 0.5
-	const emoji =
-		Math.random() > 0.5
-			? emojiList1[Math.floor(Math.random() * emojiList1.length)]
-			: emojiList2[Math.floor(Math.random() * emojiList2.length)];
-	// Tab radius 随机 'none'|'full'|'sm'|'xl'
-	const tabRadiusList = ['none', 'full', 'sm', 'xl'];
-	const tabRadius = tabRadiusList[Math.floor(Math.random() * tabRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
-	// lineType 随机 true 或 false
-	const lineType = Math.random() > 0.5;
-	// Pagination 随机总条数 50 - 200 和当前页，保证当前页在 1 - 总条数/10 之间
-	const paginationTotal = Math.floor(Math.random() * 150) + 50;
-	const paginationCurrent = Math.floor(Math.random() * (paginationTotal / 10)) + 1;
-	// paginationType 随机 'block'|'bold'|'border'
-	const paginationTypeList = ['block', 'bold', 'border'];
-	const paginationType = paginationTypeList[Math.floor(Math.random() * paginationTypeList.length)] as 'block' | 'bold' | 'border';
-	const paginationRadiusList = ['none', 'sm', 'md', 'lg', 'xl', 'full'];
-	const paginationRadius = paginationRadiusList[Math.floor(Math.random() * paginationRadiusList.length)] as
-		| 'none'
-		| 'sm'
-		| 'md'
-		| 'lg'
-		| 'xl'
-		| 'full';
-	const injPaginationRadiusList = {
-		none: 'rounded-none',
-		sm: 'rounded-sm',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full'
-	};
-	const injPaginationRadius = injPaginationRadiusList[paginationRadius];
+
+	// 使用数据文件中的配置和工具函数
+	const avatarRadius: AvatarRadius = randomPick(avatarRadiusList);
+	const avatar = randomPick(avatarImgs);
+	const switchRadius: SwitchRadius = randomPick(switchRadiusList);
+	const switchInside: SwitchInside = randomPick(switchInsideList);
+	const sliderValue = randomRange(0, 100);
+	const sliderRadius: SliderRadius = randomPick(sliderRadiusList);
+	const sliderShowTip: SliderShowTip = randomPick(sliderShowTipList);
+	const emoji = getRandomEmoji();
+	const tabRadius: TabRadius = randomPick(tabRadiusList);
+	const lineType = randomBool();
+	const paginationTotal = randomRange(50, 200);
+	const paginationCurrent = randomRange(1, Math.floor(paginationTotal / 10));
+	const paginationType: PaginationType = randomPick(paginationTypeList);
+	const paginationRadius: PaginationRadius = randomPick(paginationRadiusList);
+	const injPaginationRadius = injPaginationRadiusMap[paginationRadius];
+
 	// 随机主题
 	const randomThemeFunc = () => {
-		const item = themes[Math.floor(Math.random() * themes.length)];
+		const item = randomPick(themes);
 		currentColorStore.set(item.name);
 		localStorage.setItem('theme_color', item.name);
-		const theme = item.theme;
-
-		switchTheme(theme);
-		// 修改 HTML 的 meta name="theme-color" 属性，适配 Safari 的 tab 背景色，需要设置 light 和 dark 两种颜色
-		const safariLight = theme.color.primaryWhite;
-		const safariDark = theme.color.darkBlack;
-		// 查找 meta 标签，name="theme-color" 且 media="(prefers-color-scheme: light)"
-		const lightMeta = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: light)"]');
-		// 查找 meta 标签，name="theme-color" 且 media="(prefers-color-scheme: dark)"
-		const darkMeta = document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]');
-		// 如果找到了，就修改它的 content 属性
-		if (lightMeta) {
-			lightMeta.setAttribute('content', safariLight);
-		}
-		if (darkMeta) {
-			darkMeta.setAttribute('content', safariDark);
-		}
+		switchTheme(item.name);
 	};
-	// randomMenuChildList 随机出一个
-	const inputList = randomMenuChildList[Math.floor(Math.random() * randomMenuChildList.length)];
+
+	// Input 配置
+	const inputList = randomPick(randomMenuChildList);
 	const inputTitle = isZh ? inputList.title_zh : inputList.title_en;
 	let inputValue = $state(isZh ? inputList.tip : inputList.tip_en);
-	const inputRadiusList = ['none', 'full', 'sm', 'xl'];
-	const inputRadius = inputRadiusList[Math.floor(Math.random() * inputRadiusList.length)] as 'none' | 'full' | 'sm' | 'xl';
-	const inputStyleList = ['line', 'block'];
-	const inputStyle = inputStyleList[Math.floor(Math.random() * inputStyleList.length)] as 'line' | 'block';
+	const inputRadius: InputRadius = randomPick(inputRadiusList);
+	const inputStyle: InputStyle = randomPick(inputStyleList);
 	let showInputConfetti = $derived(inputValue === inputTitle);
-	// 当 inputValue === inputTitle 时，显示 confetti
+
 	const inputFun = (v: string) => {
 		inputValue = v;
 	};
 
-	const descList = [
-		{
-			title: 'Simple',
-			titleZh: '简单',
-			desc: '代码清晰，文档完善，易于使用。',
-			descEn: 'Clear code, complete docs, easy to use.',
-			icon: '/assets/images/home/s.jpeg',
-			icon_d: '/assets/images/home/s-d.png',
-			shwTip: false
-		},
-		{
-			title: 'Tiny',
-			titleZh: '轻量',
-			desc: '体积小，无依赖，适合移动端。',
-			descEn: 'Small size, no deps, for mobile.',
-			icon: '/assets/images/home/t.jpeg',
-			icon_d: '/assets/images/home/t-d.png',
-			shwTip: true
-		},
-		{
-			title: 'Design',
-			titleZh: '设计',
-			desc: '优化移动端设计交互，支持主题配置。',
-			descEn: 'Better mobile design & themes.',
-			icon: '/assets/images/home/d.jpeg',
-			icon_d: '/assets/images/home/d-d.png',
-			shwTip: false
-		},
-		{
-			title: 'Fast',
-			titleZh: '快速',
-			desc: '配套脚手架，无虚拟 DOM，性能卓越。',
-			descEn: 'With CLI, no vDOM, high performance.',
-			icon: '/assets/images/home/f.jpeg',
-			icon_d: '/assets/images/home/f.jpeg',
-			shwTip: false
-		}
-	];
-	const dominant = {
-		title: '优势 & 目标',
-		title_en: 'Advantages & Goals',
-		data: [
-			{
-				icon: 'svelte',
-				p: '丰富 Svelte 生态，为开发者提供高效、优质的组件库。',
-				p_en: 'Enrich the Svelte ecosystem by providing efficient, high-quality component library.'
-			},
-			{
-				icon: 'css3-line',
-				p: '简化 CSS 开发流程，让开发者专注业务逻辑实现。',
-				p_en: 'Streamline CSS development so developers can focus on business logic implementation.'
-			},
-			{
-				icon: 'contrast-2-line',
-				p: '内置暗黑模式与主题系统，轻松构建现代化界面。',
-				p_en: 'Built-in dark mode and theming system for easily creating modern interfaces.'
-			},
-			{
-				icon: 'paint-brush-line',
-				p: '面向移动端的通用组件库，提供灵活的 UI 定制能力。',
-				p_en: 'A versatile mobile component library with flexible UI customization capabilities.'
-			},
-			{
-				icon: 'clockwise-line',
-				p: '精心设计的交互体验，流畅的动画过渡，带来极致用户体验。',
-				p_en: 'Carefully crafted interactions with smooth animations for ultimate user experience.'
-			},
-			{
-				icon: 'article-line',
-				p: '完整的中英文支持，文档、示例和注释清晰完整。',
-				p_en: 'Full Chinese and English support with clear documentation, examples and comments.'
-			},
-			{
-				icon: 'file-copy-2-line',
-				p: '提供完善的脚手架和插件，助力开发者高效开发。',
-				p_en: 'Provides comprehensive scaffolding and plugins for efficient development.'
-			},
-			{
-				icon: 'planet-line',
-				p: '强大的国际化支持，内置 60+ 语言包，快速实现多语言应用。',
-				p_en: 'Powerful i18n with 60+ built-in language packs for quick multilingual implementation.'
-			}
-		]
-	};
-	const ugly = {
-		title: '提前警告',
-		title_en: 'Early Warning',
-		data: [
-			{
-				icon: 'medal-line',
-				p: 'STDF 不追求高大上的概念，只专注于为您提供简单实用的开发工具。',
-				p_en: 'STDF focuses solely on providing practical development tools, without any fancy concepts.'
-			},
-			{
-				icon: 'service-line',
-				p: 'Svelte 生态仍在发展中，欢迎您加入我们一起建设更好的 Svelte 社区。',
-				p_en: 'The Svelte ecosystem is still growing. We welcome you to join us in building a better Svelte community.'
-			},
-			{
-				icon: 'bard-line',
-				p: 'STDF 可能使用到 Vite、SvelteKit 等生态，建议先了解这些项目的核心概念。',
-				p_en: 'STDF may use Vite, SvelteKit, etc. We recommend understanding their core concepts first.'
-			},
-			{
-				icon: 'git-close-pull-request-line',
-				p: 'STDF 支持 UnoCSS 等 Tailwind CSS 类库，使用前请先掌握相关基础知识。',
-				p_en: 'STDF supports Tailwind CSS-like libraries such as UnoCSS. Please master the basics before using them.'
-			}
-		]
-	};
-
-	// 赞助人员
-	const thinkGithub = [
-		{ name: 'sbscan', amount: 100 },
-		{ name: 'MuGuiLin', amount: 50 },
-		{ name: 'yuedanlabs', amount: 10 }
-	];
-
-	const bottomInfo = [
-		{
-			title: '相关',
-			title_en: 'Related',
-			list: [
-				{ title: 'Svelte', title_en: 'Svelte', link: 'https://svelte.dev', _blank: true },
-				{ title: 'Tailwind', title_en: 'Tailwind', link: 'https://tailwindcss.com', _blank: true },
-				{ title: 'Remix Icon', title_en: 'Remix Icon', link: 'https://remixicon.com', _blank: true }
-				// { title: 'RTDF(计划中)', title_en: 'RTDF(intend)', link: '', _blank: false },
-				// { title: 'VTDF(计划中)', title_en: 'VTDF(intend)', link: '', _blank: false },
-			]
-		},
-		{
-			title: '工具',
-			title_en: 'Tools',
-			list: [
-				{ title: 'create-stdf', title_en: 'create-stdf', link: 'https://www.npmjs.com/package/create-stdf', _blank: true },
-				{
-					title: 'rollup-plugin-stdf-icon',
-					title_en: 'rollup-plugin-stdf-icon',
-					link: 'https://www.npmjs.com/package/rollup-plugin-stdf-icon',
-					_blank: true
-				},
-				{
-					title: 'rollup-plugin-md-ts',
-					title_en: 'rollup-plugin-md-ts',
-					link: 'https://www.npmjs.com/package/rollup-plugin-md-ts',
-					_blank: true
-				},
-				{
-					title: 'STDF for VS Code',
-					title_en: 'STDF for VS Code',
-					link: 'https://marketplace.visualstudio.com/items?itemName=STDF.stdf-vscode-extension',
-					_blank: true
-				}
-			]
-		},
-		{
-			title: '帮助',
-			title_en: 'Help',
-			list: [
-				{ title: '关于', title_en: 'About', link: '/guide/about', _blank: false },
-				{ title: '常见问题', title_en: 'FAQ', link: '/guide/faq', _blank: false },
-				{ title: '更新日志', title_en: 'Changelog', link: '/guide/changelog', _blank: false },
-				{ title: '开源许可', title_en: 'License', link: 'https://github.com/any-tdf/stdf/blob/main/LICENSE', _blank: true }
-			]
-		},
-		{
-			title: '社区',
-			title_en: 'Community',
-			list: [
-				{
-					title: 'QQ 群',
-					title_en: 'QQ Group',
-					link: 'https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=U8ZlXJ3KVpTI9oZzs1jBnyWc3gVA0h6Y&authKey=ScWu0nU9g8BqNsC7o2eYkESwgVDVz9vzGNZEb17MrEAay9%2F7bTkXDiLJRIzo2vrg&noverify=0&group_code=581073686',
-					_blank: true
-				},
-				{ title: 'Discord', title_en: 'Discord', link: 'https://discord.gg/DMkHu8GGre', _blank: true },
-				{ title: 'QQ 频道', title_en: 'QQ Discord', link: 'https://pd.qq.com/s/fdd8incyr', _blank: true },
-				{ title: 'Discussions', title_en: 'Discussions', link: 'https://github.com/any-tdf/stdf/discussions', _blank: true }
-			]
-		}
-	];
 	let showQr = $state(false);
-
-	const io = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-		for (const item of entries) {
-			// isIntersecting 是一个 Boolean 值，判断目标元素当前是否可见
-			if (item.isIntersecting) {
-				const target = item.target as HTMLElement;
-				target.style.opacity = '1';
-				target.style.transform = 'translateY(0)';
-				setTimeout(() => {
-					target.style.transitionDuration = '300ms';
-				}, 1000);
-			} else {
-				// item.target.style.opacity = 0;
-				// item.target.style.transform = 'translateY(200px)';
-			}
-		}
-	});
 	let A_a1Svg = $state();
+
 	const mouseenterFun = () => {
-		/**
-		 * A_a1
-		 * @param {Object} qrcode
-		 * @param {Object} options
-		 * @param {String} [options.type]  连线方向 0=>左右 1=>上下 2=>纵横 3=>回环 4=>左上—右下 5=>右上—左下 6=>交叉"
-		 * @param {String} [options.size] 连线粗细
-		 * @param {String} [options.opacity] 连线不透明度
-		 * @param {String} [options.posType] 定位点样式  0=>矩形 1=>圆形 2=>行星 3=>圆角矩形
-		 * @param {String} [options.otherColor] 连线颜色
-		 * @param {String} [options.posColor] 定位点颜色
-		 */
 		const qrcode = encodeData({
 			text: `HTTPS://DEMO.STDF.DESIGN?lang=${isZh ? 'zh_CN' : 'en_US'}`,
 			isSpace: false
@@ -417,23 +137,41 @@
 	};
 
 	let showConfetti = $state(false);
-	onMount(() => {
-		const intersectionList = document.querySelectorAll('.intersection');
-		for (const item of intersectionList) {
-			// 开始时 opacity 为 0，不可见，transform 为 translateY(200px)
-			const target = item as HTMLElement;
-			target.style.opacity = '0';
-			target.style.transform = 'translateY(200px)';
-			target.style.transitionDuration = '1s';
-			io.observe(item);
-		}
+
+	// 获取当前主题的圆角配置
+	const currentThemeRadius = $derived(() => {
+		const theme = themes.find((t) => t.name === $currentColorStore);
+		const t = theme || themes[0];
+		return {
+			radiusBox: t['radius-box'],
+			radiusForm: t['radius-form'],
+			radiusSmall: t['radius-small']
+		};
 	});
 </script>
 
 <!-- <div style="width: 100%; height: 100vh; background: #f0f0f0"> -->
 <!-- </div> -->
 
-<div class="mx-auto max-w-[1536px]">
+<!-- 全局背景效果 -->
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+	<!-- 渐变球 -->
+	<div
+		class="animate-blob from-primary/20 dark:from-dark/15 absolute -left-40 -top-40 h-125 w-125 rounded-full bg-linear-to-r to-purple-500/20 blur-3xl dark:to-cyan-500/15"
+	></div>
+	<div
+		class="animation-delay-2000 animate-blob absolute -bottom-40 -right-40 h-125 w-125 rounded-full bg-linear-to-r from-pink-500/20 to-orange-500/20 blur-3xl dark:from-blue-500/15 dark:to-purple-500/15"
+	></div>
+	<div
+		class="animation-delay-4000 animate-blob absolute left-1/4 top-1/3 h-100 w-100 rounded-full bg-linear-to-r from-cyan-500/15 to-blue-500/15 blur-3xl dark:from-emerald-500/10 dark:to-teal-500/10"
+	></div>
+	<!-- 网格背景 -->
+	<div
+		class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:80px_80px] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]"
+	></div>
+</div>
+
+<div class="relative z-10 mx-auto max-w-screen-2xl">
 	<div class="justify-center lg:flex">
 		<div class="flex basis-2/5 flex-col justify-center py-16 text-center md:py-20">
 			<div class="relative mb-20 mt-16 flex h-20 flex-col items-center justify-center md:h-28">
@@ -461,15 +199,15 @@
 					class="absolute h-full w-28 md:w-36"
 					style="filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.05)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));"
 				>
-					<svg viewBox="0 0 90 80" class="group">
+					<svg viewBox="0 0 80 80" class="group">
 						<path
 							class="fill-primary dark:fill-dark"
-							d="M0 0H20H40H50C64.8056 0 77.7325 8.04398 84.6487 20H50H40V22.6757V30H50C55.5229 30 60 34.4771 60 40C60 45.5229 55.5229 50 50 50H40V57.3243V78.7398V80H20V66.4583V20H15.3513H0V0ZM50 80C72.0914 80 90 62.0914 90 40C90 36.547 89.5625 33.1962 88.7398 30H67.3244C69.0261 32.9417 70 36.3571 70 40C70 51.0457 61.0457 60 50 60V80Z"
+							d="M40 0C54.8054 0 67.7312 8.04427 74.6475 20H30V30H40C45.5228 30 50 34.4772 50 40C50 45.5228 45.5228 50 40 50H30V80H10V20H0V0H40ZM78.7393 30C79.5619 33.1962 80 36.547 80 40C80 62.0914 62.0914 80 40 80V60C51.0457 60 60 51.0457 60 40C60 36.3571 59.0259 32.9417 57.3242 30H78.7393Z"
 						/>
 						<path
 							style="stroke-dasharray: 400;stroke-dashoffset: 400;"
 							class="fill-dark stroke-dark text-dark group-hover:animate-path dark:fill-primary dark:stroke-primary dark:text-primary stroke-1"
-							d="M20 30V0L0 50H20V80L40 30H20Z"
+							d="M20 30H40L20 80V50H0L20 0V30Z"
 						/>
 					</svg>
 				</div>
@@ -581,50 +319,47 @@
 					{isZh ? '示例' : 'Demo'}
 				</a>
 			</div>
-			<Clis />
 		</div>
-		<div class="relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
+		<div
+			class="relative mt-10 hidden basis-3/5 xl:mt-0 xl:block"
+			data-theme={$currentColorStore}
+			data-mode={$currentThemeStore}
+			style="--radius-box: {currentThemeRadius().radiusBox}; --radius-form: {currentThemeRadius().radiusForm}; --radius-small: {currentThemeRadius().radiusSmall};"
+		>
 			<div class="animate-elementUpDownMove1 -translate-x-18 absolute inset-1/2 size-20 -translate-y-12">
 				{#if avatar}
-					<Avatar size="md" radius={avatarRadius} image={avatar} injClass="shadow-lg dark:shadow-white/10" />
+					<Avatar size="md" image={avatar} injClass="shadow-lg dark:shadow-white/10" />
 				{:else}
-					<Avatar size="md" radius={avatarRadius} injClass="shadow-lg dark:shadow-white/10" />
+					<Avatar size="md" injClass="shadow-lg dark:shadow-white/10" />
 				{/if}
 			</div>
 			<div class="animate-elementUpDownMove1 absolute inset-1/2 -translate-x-96 -translate-y-40">
 				<Loading type={randomNumStr} theme />
 			</div>
 			<div class="animate-elementUpDownMove3 absolute inset-1/2 -translate-y-48 translate-x-52">
-				<Switch radius={switchRadius} inside={switchInside} active />
+				<Switch inside={switchInside} active />
 			</div>
 			<div class="animate-elementUpDownMove6 -translate-y-42 absolute inset-1/2 w-96 -translate-x-72">
-				<Tab {labels} radius={tabRadius} {lineType} />
+				<Tab {labels} {lineType} />
 			</div>
-			<div
-				class="animate-elementUpDownMove5 w-84 absolute inset-1/2 h-24 translate-x-20 translate-y-6 rounded-lg bg-white px-2 shadow-lg dark:bg-black/80 dark:shadow-white/10"
-			>
-				<Input
-					title={inputTitle}
-					value={inputValue}
-					{inputStyle}
-					placeholder={isZh ? `请输入${inputTitle}` : `Input ${inputTitle}`}
-					radius={inputRadius}
-					lineTransition="left"
-					clear
-					onchange={inputFun}
-				/>
+			<div class="animate-elementUpDownMove5 absolute inset-1/2 h-24 w-96 translate-x-20 translate-y-6">
+				<Card bg="gray" injClass="shadow-lg dark:shadow-white/10 px-2">
+					<Input
+						title={inputTitle}
+						value={inputValue}
+						{inputStyle}
+						placeholder={isZh ? `请输入${inputTitle}` : `Input ${inputTitle}`}
+						lineTransition="left"
+						clear
+						onchange={inputFun}
+					/>
+				</Card>
 				<span class="absolute left-0 top-1/2 {showInputConfetti ? 'block' : 'hidden'}">
 					<Confetti infinite rounded x={[-0.5, 0.5]} y={[-0.5, 0.5]} />
 				</span>
 			</div>
 			<div class="animate-elementUpDownMove6 absolute inset-1/2 w-96 translate-x-2 translate-y-48">
-				<Pagination
-					total={paginationTotal}
-					type={paginationType}
-					current={paginationCurrent}
-					radius={paginationRadius}
-					injClass="{injPaginationRadius} shadow-lg dark:shadow-white/10"
-				/>
+				<Pagination total={paginationTotal} type={paginationType} current={paginationCurrent} injClass="shadow-lg dark:shadow-white/10" />
 			</div>
 			<div class="animate-elementUpDownMove4 absolute inset-1/2 w-64 -translate-x-80 -translate-y-8">
 				{#if emoji === 'default'}
@@ -639,21 +374,21 @@
 					</Rate>
 				{/if}
 			</div>
-			<div
-				class="animate-elementUpDownMove3 h-15 absolute inset-1/2 w-96 -translate-x-96 -translate-y-72 rounded-lg bg-white p-3 shadow-lg dark:bg-black/80 dark:shadow-white/10"
-			>
-				<NoticeBar vertical {textList}></NoticeBar>
+			<div class="animate-elementUpDownMove3 absolute inset-1/2 w-96 -translate-x-96 -translate-y-80">
+				<Card bg="gray" injClass="shadow-lg dark:shadow-white/10 p-3">
+					<NoticeBar vertical {textList}></NoticeBar>
+				</Card>
 			</div>
 			<div class="animate-elementUpDownMove1 absolute inset-1/2 w-64 -translate-y-20 translate-x-32">
-				<Slider value={sliderValue} showTip={sliderShowTip} radius={sliderRadius} />
+				<Slider value={sliderValue} showTip={sliderShowTip} />
 			</div>
-			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-[390px] translate-y-16 overflow-hidden">
+			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-97.5 translate-y-16 overflow-hidden">
 				<Swiper {...swiperOption} />
 			</div>
 			<div class="animate-elementUpDownMove1 -translate-y-74 group absolute inset-1/2 w-64 translate-x-32">
 				<Button heightIn="2" onclick={randomThemeFunc}>
 					<span class="transition-all duration-500 group-hover:translate-x-1">
-						{themes.find((item) => item.name === $currentColorStore)?.[isZh ? 'name_CN' : 'name']}
+						{isZh ? themeLabels[$currentColorStore] || $currentColorStore : $currentColorStore}
 					</span>
 					<span
 						class="ml-1 size-4 -translate-x-4 text-white opacity-0 transition-all delay-100 duration-500 group-hover:translate-x-0 group-hover:opacity-100 dark:text-black"
@@ -668,10 +403,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="mt-16 flex flex-wrap justify-around gap-12 px-8 xl:flex-nowrap">
-		{#each descList as desc}
+	<div class="mt-16 flex flex-wrap justify-around gap-12 px-8 xl:flex-nowrap" use:staggerChildren={{ stagger: 100 }}>
+		{#each descList as desc (desc)}
 			<div
-				class="intersection shadow-primary/10 dark:shadow-dark/20 group flex w-full flex-col space-y-5 overflow-hidden rounded-2xl shadow-xl transition-all duration-300 sm:w-2/3 md:w-80 lg:w-96"
+				class="shadow-primary/10 dark:shadow-dark/20 group flex w-full flex-col space-y-5 overflow-hidden rounded-2xl shadow-xl transition-all duration-300 sm:w-2/3 md:w-80 lg:w-96"
 			>
 				<div class="relative w-full">
 					<img
@@ -697,61 +432,127 @@
 		{/each}
 	</div>
 
-	<div class="px-4 pb-10 md:px-12 md:pb-20" class:text-left={!isZh}>
-		<div class="mt-40">
-			<div class="intersection my-10 text-center text-2xl font-bold md:my-20 md:text-4xl">
-				{isZh ? dominant.title : dominant.title_en}
-			</div>
-			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
-				{#each dominant.data as item}
-					<div
-						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/10 group rounded-xl border p-4 shadow-lg"
-					>
-						<div class="text-primary dark:text-dark size-6 transition-all duration-300 group-hover:scale-110">
-							<svg class="fill-current" viewBox="0 0 24 24">
-								<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
-							</svg>
-						</div>
-						<p class="mt-4 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
-					</div>
-				{/each}
-			</div>
+	<!-- 终端演示 -->
+	<div class="mt-16 px-8">
+		<TerminalDemo lang={isZh ? 'zh_CN' : 'en_US'} />
+	</div>
+
+	<!-- 主题系统（单独一行） -->
+	<div class="mt-16 px-8">
+		<ThemeSystem />
+	</div>
+
+	<!-- StatCounter -->
+	<div class="mt-16 px-8">
+		<LazyLoad height="600px">
+			<StatCounter />
+		</LazyLoad>
+	</div>
+
+	<!-- ApiPlayground + ApiRichness -->
+	<div class="mt-16 flex flex-col gap-8 px-8 xl:flex-row xl:items-start xl:gap-12">
+		<div class="xl:w-1/2">
+			<LazyLoad height="600px">
+				<ApiPlayground />
+			</LazyLoad>
 		</div>
-		<div class="mt-32 md:mt-48">
-			<div class="intersection my-10 text-center text-2xl font-bold md:my-20 md:text-4xl">
-				{isZh ? ugly.title : ugly.title_en}
-			</div>
-			<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
-				{#each ugly.data as item}
-					<div
-						class="intersection shadow-primary/10 dark:shadow-dark/10 border-primary/10 dark:border-dark/10 group rounded-xl border p-4 shadow-lg"
-					>
-						<div class="text-primary dark:text-dark size-6 transition-all duration-300 group-hover:scale-110">
-							<svg class="fill-current" viewBox="0 0 24 24">
-								<use xlink:href="/assets/fonts/home.symbol.svg#{item.icon}" />
-							</svg>
-						</div>
-						<p class="mt-4 text-sm opacity-90">{isZh ? item.p : item.p_en}</p>
-					</div>
-				{/each}
-			</div>
+		<div class="xl:w-1/2">
+			<LazyLoad height="600px">
+				<ApiRichness lang={isZh ? 'zh_CN' : 'en_US'} />
+			</LazyLoad>
 		</div>
 	</div>
+
+	<!-- MobileAdvantages -->
+	<div class="mt-16 px-8">
+		<LazyLoad height="800px">
+			<MobileAdvantages lang={isZh ? 'zh_CN' : 'en_US'} />
+		</LazyLoad>
+	</div>
+
+	<!-- TechStack -->
+	<div class="mt-16 px-8">
+		<LazyLoad height="700px">
+			<TechStack lang={isZh ? 'zh_CN' : 'en_US'} />
+		</LazyLoad>
+	</div>
+
+	<!-- ComponentsGrid -->
+	<div class="mt-16 px-8">
+		<LazyLoad height="600px">
+			<ComponentsGrid />
+		</LazyLoad>
+	</div>
+
+	<!-- 提前警告 -->
+	<section class="py-20 md:py-32">
+		<div class="mx-auto max-w-6xl px-4">
+			<!-- 标题区域 -->
+			<div class="mb-12 text-center" use:fadeInUp>
+				<!-- 标签 -->
+				<div
+					class="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-4 py-1.5 text-sm text-amber-600 dark:border-amber-400/20 dark:bg-amber-400/5 dark:text-amber-400"
+				>
+					<svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+						<path
+							d="M12.866 3l9.526 16.5a1 1 0 0 1-.866 1.5H2.474a1 1 0 0 1-.866-1.5L11.134 3a1 1 0 0 1 1.732 0zM11 16v2h2v-2h-2zm0-7v5h2V9h-2z"
+						/>
+					</svg>
+					<span>{isZh ? '提前警告' : 'Early Warning'}</span>
+				</div>
+
+				<h2
+					class="mb-4 bg-linear-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-3xl font-bold text-transparent md:text-4xl dark:from-white dark:via-gray-300 dark:to-white"
+				>
+					{isZh ? '使用前须知' : 'Before You Start'}
+				</h2>
+				<p class="mx-auto max-w-2xl text-base text-gray-600 dark:text-gray-400">
+					{isZh ? '一些需要提前了解的事项' : 'Things you need to know in advance'}
+				</p>
+			</div>
+
+			<!-- 警告卡片网格 -->
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2" use:staggerChildren={{ stagger: 100 }}>
+				{#each ugly.data as item, i (i)}
+					{@const warningIcons = [
+						'M12 6.99999C16.4183 6.99999 20 10.5817 20 15C20 19.4183 16.4183 23 12 23C7.58172 23 4 19.4183 4 15C4 10.5817 7.58172 6.99999 12 6.99999ZM12 8.99999C8.68629 8.99999 6 11.6863 6 15C6 18.3137 8.68629 21 12 21C15.3137 21 18 18.3137 18 15C18 11.6863 15.3137 8.99999 12 8.99999ZM12 10.5L13.3225 13.1797L16.2798 13.6094L14.1399 15.6953L14.645 18.6406L12 17.25L9.35497 18.6406L9.86012 15.6953L7.72025 13.6094L10.6775 13.1797L12 10.5ZM18 1.99999V4.99999L16.6366 6.13755C15.5305 5.5577 14.3025 5.17884 13.0011 5.04948L13 1.99899L18 1.99999ZM11 1.99899L10.9997 5.04939C9.6984 5.17863 8.47046 5.55735 7.36441 6.13703L6 4.99999V1.99999L11 1.99899Z',
+						'M3.16113 4.46875C5.58508 2.0448 9.44716 1.9355 12.0008 4.14085C14.5528 1.9355 18.4149 2.0448 20.8388 4.46875C23.2584 6.88836 23.3716 10.741 21.1785 13.2947L13.4142 21.0858C12.6686 21.8313 11.4809 21.8652 10.6952 21.1874L10.5858 21.0858L2.82141 13.2947C0.628282 10.741 0.741522 6.88836 3.16113 4.46875ZM4.57534 5.88296C2.86819 7.59011 2.81942 10.3276 4.42902 12.0937L4.57534 12.2469L12 19.6715L17.3026 14.3675L13.7677 10.8327L12.7071 11.8934C11.5355 13.0649 9.636 13.0649 8.46443 11.8934C7.29286 10.7218 7.29286 8.8223 8.46443 7.65073L10.5656 5.54823C8.85292 4.17713 6.37076 4.23993 4.7286 5.73663L4.57534 5.88296ZM13.0606 8.71139C13.4511 8.32086 14.0843 8.32086 14.4748 8.71139L18.7168 12.9533L19.4246 12.2469C21.1819 10.4896 21.1819 7.64032 19.4246 5.88296C17.7174 4.17581 14.9799 4.12704 13.2139 5.73663L13.0606 5.88296L9.87864 9.06494C9.51601 9.42757 9.49011 9.99942 9.80094 10.3919L9.87864 10.4792C10.2413 10.8418 10.8131 10.8677 11.2056 10.5569L11.2929 10.4792L13.0606 8.71139Z',
+						'M10.6144 17.7956C10.277 18.5682 9.20776 18.5682 8.8704 17.7956L7.99275 15.7854C7.21171 13.9966 5.80589 12.5726 4.0523 11.7942L1.63658 10.7219C.868536 10.381.868537 9.26368 1.63658 8.92276L3.97685 7.88394C5.77553 7.08552 7.20657 5.60881 7.97427 3.75892L8.8633 1.61673C9.19319.821767 10.2916.821765 10.6215 1.61673L11.5105 3.75894C12.2782 5.60881 13.7092 7.08552 15.5079 7.88394L17.8482 8.92276C18.6162 9.26368 18.6162 10.381 17.8482 10.7219L15.4325 11.7942C13.6789 12.5726 12.2731 13.9966 11.492 15.7854L10.6144 17.7956ZM4.53956 9.82234C6.8254 10.837 8.68402 12.5048 9.74238 14.7996 10.8008 12.5048 12.6594 10.837 14.9452 9.82234 12.6321 8.79557 10.7676 7.04647 9.74239 4.71088 8.71719 7.04648 6.85267 8.79557 4.53956 9.82234ZM19.4014 22.6899 19.6482 22.1242C20.0882 21.1156 20.8807 20.3125 21.8695 19.8732L22.6299 19.5353C23.0412 19.3526 23.0412 18.7549 22.6299 18.5722L21.9121 18.2532C20.8978 17.8026 20.0911 16.9698 19.6586 15.9269L19.4052 15.3156C19.2285 14.8896 18.6395 14.8896 18.4628 15.3156L18.2094 15.9269C17.777 16.9698 16.9703 17.8026 15.956 18.2532L15.2381 18.5722C14.8269 18.7549 14.8269 19.3526 15.2381 19.5353L15.9985 19.8732C16.9874 20.3125 17.7798 21.1156 18.2198 22.1242L18.4667 22.6899C18.6473 23.104 19.2207 23.104 19.4014 22.6899ZM18.3745 19.0469 18.937 18.4883 19.4878 19.0469 18.937 19.5898 18.3745 19.0469Z',
+						'M6 5C5.44772 5 5 5.44772 5 6C5 6.55228 5.44772 7 6 7C6.55228 7 7 6.55228 7 6C7 5.44772 6.55228 5 6 5ZM3 6C3 4.34315 4.34315 3 6 3C7.65685 3 9 4.34315 9 6C9 7.30622 8.16519 8.41746 7 8.82929V15.1707C8.16519 15.5825 9 16.6938 9 18C9 19.6569 7.65685 21 6 21C4.34315 21 3 19.6569 3 18C3 16.6938 3.83481 15.5825 5 15.1707V8.82929C3.83481 8.41746 3 7.30622 3 6ZM15.2929 3.29289C15.6834 2.90237 16.3166 2.90237 16.7071 3.29289L18 4.58579L19.2929 3.29289C19.6834 2.90237 20.3166 2.90237 20.7071 3.29289C21.0976 3.68342 21.0976 4.31658 20.7071 4.70711L19.4142 6L20.7071 7.29289C21.0976 7.68342 21.0976 8.31658 20.7071 8.70711C20.3166 9.09763 19.6834 9.09763 19.2929 8.70711L18 7.41421L16.7071 8.70711C16.3166 9.09763 15.6834 9.09763 15.2929 8.70711C14.9024 8.31658 14.9024 7.68342 15.2929 7.29289L16.5858 6L15.2929 4.70711C14.9024 4.31658 14.9024 3.68342 15.2929 3.29289ZM18 10C18.5523 10 19 10.4477 19 11V15.1707C20.1652 15.5825 21 16.6938 21 18C21 19.6569 19.6569 21 18 21C16.3431 21 15 19.6569 15 18C15 16.6938 15.8348 15.5825 17 15.1707V11C17 10.4477 17.4477 10 18 10ZM6 17C5.44772 17 5 17.4477 5 18C5 18.5523 5.44772 19 6 19C6.55228 19 7 18.5523 7 18C7 17.4477 6.55228 17 6 17ZM18 17C17.4477 17 17 17.4477 17 18C17 18.5523 17.4477 19 18 19C18.5523 19 19 18.5523 19 18C19 17.4477 18.5523 17 18 17Z'
+					]}
+					<div
+						class="group rounded-2xl bg-white/50 p-6 transition-all duration-500 ease-out hover:bg-white/80 dark:bg-gray-800/50 dark:hover:bg-gray-800/80"
+					>
+						<div
+							class="mb-4 flex size-12 items-center justify-center rounded-xl bg-amber-500/10 transition-transform duration-300 group-hover:scale-110 dark:bg-amber-400/10"
+						>
+							<svg class="size-6 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+								<path d={warningIcons[i]} />
+							</svg>
+						</div>
+						<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+							{isZh ? item.p : item.p_en}
+						</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
 
 	<!-- <div class="hidden md:flex justify-center mb-20">
     <article class={`prose dark:prose-invert max-w-none text-xs overflow-auto`} style="height:{500}px">
         <pre><code class="hljs">{@html highlightedCode}</code></pre>
     </article>
-    <div class=" ml-2 border border-black/10 dark:border-gray-400 w-[392px] grow-0 shrink-0 overflow-auto" style="height:{500}px">
+    <div class=" ml-2 border border-black/10 dark:border-gray-400 w-98 grow-0 shrink-0 overflow-auto" style="height:{500}px">
         <img src="/assets/images/home/zh/9.png" alt="" class='w-full' />
     </div>
 </div> -->
 
 	<div class="px-4 pb-10 text-center md:px-12 md:pb-20">
-		<div class="intersection my-5 text-2xl font-bold transition-all ease-out md:my-10 md:text-4xl">
+		<div class="my-5 text-2xl font-bold transition-all ease-out md:my-10 md:text-4xl" use:fadeInUp>
 			🎖 {isZh ? '贡献者' : 'Contributors'}
 		</div>
-		<div class="intersection flex justify-center">
+		<div class="flex justify-center" use:fadeInUp={{ delay: 100 }}>
 			<a href="https://github.com/any-tdf/stdf/graphs/contributors" target="_blank">
 				<img src="https://contrib.nn.ci/api?repo=any-tdf/stdf&cols=7" title={isZh ? '贡献者' : 'Contributors'} alt="" />
 			</a>
@@ -760,14 +561,14 @@
 
 	<!-- 赞助者 -->
 	<div class="px-4 pb-20 text-center md:px-12 md:pb-40">
-		<div class="intersection my-5 text-2xl font-bold transition-all ease-out md:my-10 md:text-4xl">
+		<div class="my-5 text-2xl font-bold transition-all ease-out md:my-10 md:text-4xl" use:fadeInUp>
 			🙏 {isZh ? '赞助者' : 'Sponsors'}
 		</div>
-		<div>
-			<div class="intersection mb-4">GitHub</div>
+		<div use:fadeInUp={{ delay: 100 }}>
+			<div class="mb-4">GitHub</div>
 			<div class="flex flex-wrap justify-center gap-4">
-				{#each thinkGithub as item}
-					<a class="intersection" href={'https://github.com/' + item.name} target="_blank">
+				{#each thinkGithub as item (item)}
+					<a href={'https://github.com/' + item.name} target="_blank">
 						<img
 							class="h-16 w-16 overflow-hidden rounded-full"
 							src={'https://avatars.githubusercontent.com/' + item.name}
@@ -780,13 +581,13 @@
 		</div>
 	</div>
 </div>
-<div class="bg-gray-100 dark:bg-gray-950">
-	<div class="mx-auto grid max-w-[1536px] grid-cols-2 gap-10 px-6 py-10 md:grid-cols-4 md:px-20">
-		{#each bottomInfo as item}
+<div>
+	<div class="mx-auto grid max-w-screen-2xl grid-cols-2 gap-10 px-6 py-10 md:grid-cols-4 md:px-20">
+		{#each bottomInfo as item (item)}
 			<div>
 				<div class="mb-2 text-lg font-bold">{isZh ? item.title : item.title_en}</div>
 				<div class="flex flex-col gap-2">
-					{#each item.list as i}
+					{#each item.list as i (i)}
 						<a href={i.link} target={i._blank ? '_blank' : '_self'} title={i.link} class="text-sm hover:underline">
 							{isZh ? i.title : i.title_en}
 						</a>
@@ -799,7 +600,7 @@
 
 <div class="py-4 text-center text-xs">
 	<div class="flex justify-center gap-1">
-		<div>STDF DESIGN • MADE BY DUFU</div>
+		<div><span title="Svelte · Tailwind · DuFu">STDF</span> DESIGN • MADE BY DUFU</div>
 		<div>
 			{#if isZh}
 				• <a href="https://beian.miit.gov.cn" target="_blank">滇 ICP 备 17004037 号 -4</a>

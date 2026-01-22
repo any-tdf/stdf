@@ -26,6 +26,8 @@ In actual development, AsyncPicker data is usually obtained dynamically, typical
 
 AsyncPicker is built on top of Popup by pre-defining some Popup Props. Therefore, different effects can be achieved by passing in Popup properties. For example, in the demo, the border radius style is changed by setting the popup's radius.
 
+If you don't need to use a popup, you can set `popup` to `null`, and the AsyncPicker will be displayed directly on the page. You can set the display area height percentage with the `height` property.
+
 The loading display in AsyncPicker during data loading is built on top of the Loading component. Different effects can be achieved by passing in Loading properties. For example, in the demo, a different loading effect is achieved by setting some loading parameters.
 
 ## Differences between Radio, ActionSheet, IndexBar, Picker, and AsyncPicker

@@ -32,6 +32,12 @@ panelClass 注入后作用到键盘面板，keyClass 注入后作用到所有按
 
 若注入的 class 没生效，请在注入的 class 名称前添加“!” ，可参考 [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier)。
 
+## preview
+
+设置 `preview` 为 `true` 时，键盘顶部会显示一个输入预览区域，实时展示当前输入的内容。这对于需要确认输入内容的场景非常有用。`previewMask` 可将预览内容显示为圆点掩码。
+
 ## popup
 
 NumKeyboard 是在 Popup 的基础上封装的，通过预先定义一些 Popup 的 Props 实现，因此可以通过传入 Popup 的属性来实现不同的效果。比如示例中通过设置 popup 改变了过渡动画和背景透明度。
+
+如果不需要使用弹出层，可以将 `popup` 设置为 `null`，此时 NumKeyboard 将直接展示在页面上。

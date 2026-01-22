@@ -10,7 +10,10 @@
 | startValue | `number`                    | `20`      | N        | Start value for range selection.    |
 | endValue   | `number`                    | `60`      | N        | End value for range selection.      |
 | showTip    | `'always'\|'never'\|'touch'` | `'touch'` | N        | Tip display mode.                   |
-| radius     | `'none'\|'sm'\|'xl'\|'full'` | `'full'`  | N        | Border radius style.                |
+| showSteps  | `boolean`                   | `false`   | N        | Whether to show step markers.       |
+| stepsStyle | `'block'\|'break'`          | `'block'` | N        | Step marker style. block shows markers on continuous track, break shows track segments separated by markers. |
+| stepLabels | `string[]`                  | `[]`      | N        | Step label array for displaying custom text instead of numbers in the tip. |
+| radius     | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''` | `'sm'`    | N        | Border radius style.                |
 | lineBlock  | `boolean`                   | `false`   | N        | Whether the slider is a line block. |
 | disabled   | `boolean`                   | `false`   | N        | Whether it's disabled.              |
 | readonly   | `boolean`                   | `false`   | N        | Whether it's read-only.             |
@@ -19,7 +22,7 @@
 
 | Name     | Type                                  | Parameters                                          | Description                   |
 | -------- | ------------------------------------- | --------------------------------------------------- | ----------------------------- |
-| onchange | `(values: [number, number?]) => void` | values - Current value array (two items for range). | Triggered when value changes. |
+| onchange | `(value: number, valueRange?: [number, number], label?: string \| number, labelRange?: [string \| number, string \| number]) => void` | value - Current value; valueRange - Value array for range selection; label - Current label (if stepLabels provided); labelRange - Label array for range selection. | Triggered when value changes. |
 
 ## Slider Snippets
 

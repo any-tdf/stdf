@@ -11,7 +11,7 @@
 | indicatePosition    | `'inner'\|'out'\|null`                           | `'inner'`     | N    | 指示器位置。                 |
 | indicateAlign       | `'center'\|'right'\|'left'`                      | `'center'`    | N    | 指示器对齐方式。             |
 | indicateStyle       | `'point'\|'line'\|'pointLine'\|'longLine'`       | `'pointLine'` | N    | 指示器样式。                 |
-| indicateRadius      | `boolean`                                        | `true`        | N    | 指示器是否圆角。             |
+| indicateRadius      | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'` | `'sm'`      | N    | 指示器圆角风格。             |
 | indicateInjClass    | `string`                                         | `''`          | N    | 指示器注入 Class。           |
 | indicateColor       | `string`                                         | `''`          | N    | 指示器颜色。                 |
 | indicateActiveColor | `string`                                         | `''`          | N    | 指示器激活颜色。             |
@@ -26,7 +26,7 @@
 | rotateZ             | `number`                                         | `0`           | N    | 未激活容器 Z 轴旋转值。      |
 | activeInjClass      | `string`                                         | `''`          | N    | 激活容器注入 Class。         |
 | notActiveInjClass   | `string`                                         | `''`          | N    | 未激活容器注入 Class。       |
-| radius              | `'none'\|'sm'\|'xl'\|'2xl'\|'full'`              | `'none'`      | N    | 容器内部区域圆角。           |
+| radius              | `'none'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'` | `'xl'`      | N    | 容器内部区域圆角。           |
 | triggerLong         | `number`                                         | `30`          | N    | 始终触发的滑动距离百分比。   |
 | notTriggerLong      | `number`                                         | `10`          | N    | 始终不触发的滑动距离百分比。 |
 | triggerSpeed        | `number`                                         | `0.5`         | N    | 触发的滑动速度系数。         |

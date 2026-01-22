@@ -4,7 +4,17 @@ In the practical application of mobile web, the use of large theme color buttons
 
 ## Fill pattern
 
-In fill mode, line is a linear button (ghost button), lineLight is a linear light button, text is a plain text button, and lineTheme and textTheme indicate that the corresponding border and text color will follow the theme color, including light and dark colors.
+Fill modes include:
+
+- `base`: Solid fill button (default), background color follows state color
+- `line`: Linear button (ghost button), colorless border, black/white text
+- `lineLight`: Linear light button, light border
+- `lineState`: Linear state button, border and text color follow state color
+- `text`: Plain text button, colorless text
+- `textState`: Text state button, text color follows state color
+- `colorLight`: Light background button, light background + state color text
+
+Among them, `base`, `lineState`, `textState`, and `colorLight` will change color following the `state` parameter, while `line`, `lineLight`, and `text` are colorless modes, not affected by `state`.
 
 ## Status color
 
@@ -16,7 +26,7 @@ The button size is full and big for block-level elements, md, sm, and xs for inl
 
 ## Border style
 
-The border style (line) will only take effect if the fill mode (fill) is line or lineTheme.
+The border style will only take effect if the fill mode (fill) is `line`, `lineLight`, or `lineState`.
 
 ## CSS injection
 
@@ -26,7 +36,7 @@ If the injected class does not take effect, please add "!" before the injected c
 
 ## Button group
 
-To use the button group, you can directly put multiple elements in the inner Snippet, which can be achieved by combining heightOut and heightIn. It should be noted that the click event needs to be bound to the internal independent element at this time. In addition, by setting the group of Props to true, the click effect of the entire button area will not be displayed. Examples are available.
+The button group feature has been extracted to the [ButtonGroup](/components?nav=buttonGroup&tab=0) component, which supports two ways of use: `items` array or `children` customization.
 
 ## With icon or loading
 

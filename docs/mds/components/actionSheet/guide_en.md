@@ -1,6 +1,7 @@
 ## Usage
 
 ActionSheet is a panel that pops up from the bottom of the page and provides operation actions related to the current scene. This operation generally does not carry data, so there is no need to worry about accidental touch. The cancel operation item is not displayed by default and clicking the mask can close it.
+For inline popups near the trigger, use ActionPopover.
 
 ## Description
 

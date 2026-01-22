@@ -27,7 +27,7 @@
 | labels            | `TabLabel[]`                                          | `[]`     | Y    | 选项卡内容组。                     |
 | active            | `number`                                              | `0`      | N    | 激活的选项卡索引值。               |
 | lineType          | `boolean`                                             | `false`  | N    | 是否使用线性风格。                 |
-| radius            | `'none'\|'sm'\|'xl'\|'full'`                          | `'sm'`   | N    | 圆角风格。                         |
+| radius            | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''` | `'sm'`   | N    | 圆角风格。                         |
 | mx                | `'0'\|'1'\|'2'\|'3'\|'4'\|'6'\|'8'\|'12'\|'16'\|'20'` | `'2'`    | N    | 左右间距。                         |
 | duration          | `'fast'\|'base'\|'slow'\|'slower'`                    | `'base'` | N    | 过渡动画快慢。                     |
 | layout            | `'h'\|'v'`                                            | `'h'`    | N    | 水平或垂直布局。                   |

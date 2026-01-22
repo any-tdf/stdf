@@ -15,15 +15,21 @@
 | linkageAligns      | `('left'\|'center'\|'right')[]`                             | `[]`                             | N    | 多级联动时，设置每列的对齐方式。           |
 | linkageLabelKeys   | `string[]`                                                  | `[]`                             | N    | 多级联动时，自定义每列 label 的 Key。      |
 | linkageChildrenKey | `string`                                                    | `'children'`                     | N    | 多级联动时，自定义上下级 children 的 key。 |
-| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                             | N    | 弹出层参数。                               |
+| height             | `number`                                                    | `30`                             | N    | 不使用弹出层时，展示区域高度占页面百分比。 |
+| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1)\|`null` | `{}`                             | N    | 弹出层参数，传 `null` 时不使用弹出层直接展示。 |
+| multiple           | `boolean`                                                   | `false`                          | N    | 是否多选模式。                             |
+| multipleIcon       | [`Icon`](https://stdf.design/components?nav=icon&tab=1)     | `{ name: 'ri-checkbox-circle-line', ... }` | N    | 多选模式未选中图标。               |
+| multipleIconActive | [`Icon`](https://stdf.design/components?nav=icon&tab=1)     | `{ name: 'ri-checkbox-circle-fill', ... }` | N    | 多选模式选中图标。                 |
+| multipleSelected   | `PickerMultipleItem[]`                                      | `[]`                             | N    | 多选模式已选中项数组（bindable）。         |
 
 ## Picker Events
 
-| 名称      | 类型                                                             | 参数                                                                        | 描述                 |
-| --------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------- |
-| onclose   | `() => void`                                                     |                                                                             | 关闭时触发。         |
-| oncancel  | `() => void`                                                     |                                                                             | 点击左侧取消时触发。 |
-| onconfirm | `(items: { [key: string]: string }[], indexs: number[]) => void` | items - 选定多列数据组成的数组；<br />indexs - 选定多列数据索引组成的数组。 | 点击右侧确定时触发。 |
+| 名称             | 类型                                                             | 参数                                                                        | 描述                       |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------- |
+| onclose          | `() => void`                                                     |                                                                             | 关闭时触发。               |
+| oncancel         | `() => void`                                                     |                                                                             | 点击左侧取消时触发。       |
+| onconfirm        | `(items: { [key: string]: string }[], indexs: number[]) => void` | items - 选定多列数据组成的数组；<br />indexs - 选定多列数据索引组成的数组。 | 点击右侧确定时触发。       |
+| onmultiplechange | `(selected: PickerMultipleItem[]) => void`                       | selected - 多选模式下已选中项数组。                                         | 多选模式选中项变化时触发。 |
 
 ## PickerDatas Props
 
@@ -44,3 +50,11 @@
 | children      | `PickerDatas[]`                        | `[]`      | Y    | 子数据。              |
 | [key: string] | `string\|PickerDataChild[]\|undefined` | `'label'` | N    | 自定义 label 的 key。 |
 |               |
+
+## PickerMultipleItem
+
+| 名称   | 类型                          | 说明                             |
+| ------ | ----------------------------- | -------------------------------- |
+| indexs | `number[]`                    | 各列选中项的索引数组。           |
+| items  | `{ [key: string]: string }[]` | 各列选中项数据组成的数组。       |
+| label  | `string`                      | 选中项显示文本（拼接各列标签）。 |

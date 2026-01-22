@@ -46,3 +46,5 @@ Note that the second parameter returned by onconfirm is the selected time object
 ## Note
 
 TimePicker is encapsulated based on Popup by pre-defining some Popup Props, so different effects can be achieved by passing in Popup properties. For example, in the example, the radius style is changed by setting the popup's radius.
+
+If you don't need to use a popup, you can set `popup` to `null`, and the TimePicker will be displayed directly on the page. You can set the display area height percentage with the `height` property.

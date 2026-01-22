@@ -16,12 +16,4 @@ image > alt > icon。
 
 通过 injClass 参数可以向组件内部 button 元素注入 CSS 名称（不仅限于 Tailwind CSS），这将使组件样式有更多自定义可能性，示例中通过 injClass 实现了自定义背景色和边框颜色。
 
-若注入的 class 没生效，请在注入的 class 名称前添加“!” ，可参考 [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier)。
-
-## 头像组
-
-v0.4.0 开始支持头像组，头像组的使用场景是在头像框内部显示多个头像，例如群聊头像、评论头像等。传入由 Avatar Props 组成的数组即可，头像组有自己的 Props 用于控制不同样式。
-
-默认顶层显示头像总数，可通过 top 参数控制顶层显示内容，可选值有 totle（显示头像总数）、add（新增头像 Icon）、null（不显示）、Snippet（自定义顶层内容）。
-
-头像组 Props 自己也有一个 injClass，可为头像组注入 Class 名称，一般用于当默认边框颜色与背景色不统一时传入传入 ring 的颜色使其统一。
+若注入的 class 没生效，请在注入的 class 名称前添加"!" ，可参考 [Tailwind Important modifier](https://tailwindcss.com/docs/configuration#important-modifier)。

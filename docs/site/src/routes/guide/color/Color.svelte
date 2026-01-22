@@ -1,15 +1,40 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import ColorCard from '$lib/colorCard/ColorCard.svelte';
 	import ModeSwitch from '$lib/modeSwitch/ModeSwitch.svelte';
 	import ThemeSwitch from '$lib/themeSwitch/ThemeSwitch.svelte';
-	import themes from '../../../data/themes';
-	import { currentColorStore, isWideScreenStore } from '../../../store';
-	import { colorConvertFunc, colorObjToArr, getOklchOpacity } from '../../../utils';
+	import { isWideScreenStore, currentColorStore } from '../../../store';
+	import { colorObjToArr, getOklchOpacity } from '../../../utils';
+	import { themes, generateColorScale } from 'stdf/theme';
+	import { parseOklch, getContrastRatio } from 'stdf/utils';
 	import hljs from 'highlight.js';
-	import { type ThemeProps, type PrimaryAndDarkColor } from 'stdf/theme';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
+
+	// 从 STDF 导入的主题，转换为 name -> config 映射
+	const builtInThemes: Record<
+		string,
+		{
+			primaryColor: string;
+			darkColor: string;
+			successColor: string;
+			warningColor: string;
+			errorColor: string;
+			infoColor: string;
+		}
+	> = Object.fromEntries(
+		themes.map((t) => [
+			t.name,
+			{
+				primaryColor: t['color-primary'],
+				darkColor: t['color-dark'],
+				successColor: t['color-success'],
+				warningColor: t['color-warning'],
+				errorColor: t['color-error'],
+				infoColor: t['color-info']
+			}
+		])
+	);
 
 	const colorGrayList = [
 		{ key: 'gray-50', color: 'oklch(0.961 0 0)' },
@@ -24,97 +49,121 @@
 		{ key: 'gray-900', color: 'oklch(0.218 0 0)' },
 		{ key: 'gray-950', color: 'oklch(0.159 0 0)' }
 	];
-	onMount(() => hljs.highlightAll());
 
-	let currentColorObj: ThemeProps | undefined = undefined;
-	let primaryColors: PrimaryAndDarkColor | undefined = $state(undefined);
-	// primaryColors 转为数组，且 default 在第 6 项
-	let primaryColorsList = $derived(colorObjToArr(primaryColors ?? {}));
-	let darkColors: PrimaryAndDarkColor | undefined = $state(undefined);
-	let darkColorsList = $derived(colorObjToArr(darkColors ?? {}));
-	let themeBlack: { primary: string; dark: string } | undefined = $state(undefined);
-	let themeWhite: { primary: string; dark: string } | undefined = $state(undefined);
-	let stateColor: { success: string; warning: string; error: string; info: string } | undefined = $state(undefined);
-	let extendList: { color: string; alias: string }[] | undefined = $state(undefined);
+	const getContrastTextColor = (color: string) => {
+		const background = parseOklch(color);
+		if (!background) return '#000';
+		const black = { l: 0.08, c: 0, h: 0 };
+		const white = { l: 0.98, c: 0, h: 0 };
+		const blackRatio = getContrastRatio(black, background);
+		const whiteRatio = getContrastRatio(white, background);
+		return blackRatio >= whiteRatio ? '#000' : '#fff';
+	};
 
-	const unsubscribe = currentColorStore.subscribe((value) => {
-		// 根据 $currentColorStore 从 themes 中获取对应的颜色对象
-		currentColorObj = themes.find((item) => item.name === value)?.theme;
-		// 传入数组，按照 Tailwind 规则生成颜色列表
-		const createTWColorFunc = (colorList: string[]) => {
-			if (colorList.length !== 11) {
-				console.error('颜色列表长度必须为 11');
-				return;
-			}
-			const colorArr: { n: number; hex: string; rgb: string; hsl: string }[] = [];
-			colorList.forEach((item, index) => {
-				// 第 0 项和最后一项的 key 为 50 和 950，其他项为 100-900，颜色有 hex、rgb、hsl 三种格式，注意 hsl 保留整数
-				let colorObj: { n: number; hex: string; rgb: string; hsl: string; oklch: string } = {
-					n: 0,
-					hex: '',
-					rgb: '',
-					hsl: '',
-					oklch: ''
-				};
-				if (index === 0) {
-					colorObj = {
-						n: 50,
-						hex: item,
-						rgb: colorConvertFunc(item).rgb,
-						hsl: colorConvertFunc(item).hsl,
-						oklch: colorConvertFunc(item).oklch
-					};
-				} else if (index === 10) {
-					colorObj = {
-						n: 950,
-						hex: item,
-						rgb: colorConvertFunc(item).rgb,
-						hsl: colorConvertFunc(item).hsl,
-						oklch: colorConvertFunc(item).oklch
-					};
-				} else {
-					colorObj = {
-						n: 100 * index,
-						hex: item,
-						rgb: colorConvertFunc(item).rgb,
-						hsl: colorConvertFunc(item).hsl,
-						oklch: colorConvertFunc(item).oklch
-					};
-				}
-				colorArr.push(colorObj);
-			});
-			return colorArr;
+	const parseOklchSafe = (color: string) => parseOklch(color) ?? { l: 0.5, c: 0.15, h: 0 };
+
+	const formatOklchValue = (value: string) => {
+		const num = Number(value);
+		if (!Number.isFinite(num)) return value;
+		return num.toFixed(3).replace(/\.?0+$/, '');
+	};
+
+	const formatOklch = (color: string) => {
+		const match = color.match(/oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)\s*\)/);
+		if (!match) return color;
+		return `oklch(${formatOklchValue(match[1])} ${formatOklchValue(match[2])} ${formatOklchValue(match[3])})`;
+	};
+
+	const buildColorScale = (baseColor: string) => {
+		const scale = generateColorScale(baseColor);
+		return {
+			50: formatOklch(scale[50]),
+			100: formatOklch(scale[100]),
+			200: formatOklch(scale[200]),
+			300: formatOklch(scale[300]),
+			400: formatOklch(scale[400]),
+			500: formatOklch(scale[500]),
+			700: formatOklch(scale[700]),
+			800: formatOklch(scale[800]),
+			900: formatOklch(scale[900]),
+			950: formatOklch(scale[950]),
+			default: formatOklch(scale[600])
 		};
-		if (!currentColorObj) return;
-		primaryColors = currentColorObj.color.primary;
-		darkColors = currentColorObj.color.dark;
+	};
 
-		// 根据主题色生成主题黑和白
-		themeBlack = { primary: currentColorObj.color.primaryBlack, dark: currentColorObj.color.darkBlack };
-		themeWhite = { primary: currentColorObj.color.primaryWhite, dark: currentColorObj.color.darkWhite };
-		stateColor = currentColorObj.color.functional;
-		extendList = currentColorObj.color.extend;
-	});
-	// svelte 组件销毁时取消订阅
-	onDestroy(() => {
-		unsubscribe();
-	});
-	// 传入 rgb(0, 98, 57) 这种格式与透明度，返回 rgba(0, 98, 57, 0.1) 这种格式
-	const rgbaFunc = (str = '#000', n = 0.1) => {
-		const arr = str.split(',');
-		const r = arr[0].split('(')[1];
-		const g = arr[1];
-		const b = arr[2].split(')')[0];
-		return `rgba(${r}, ${g}, ${b}, ${n / 10})`;
+	// 生成背景色
+	const generateBgColors = (primaryColor: string, darkColor: string) => {
+		const p = parseOklchSafe(primaryColor);
+		const d = parseOklchSafe(darkColor);
+		return {
+			base: `oklch(0.967 ${(p.c * 0.05).toFixed(4)} ${p.h.toFixed(1)})`,
+			surface: `oklch(0.985 0.005 ${d.h.toFixed(1)})`,
+			overlay: `oklch(0.955 0.005 ${d.h.toFixed(1)})`,
+			highlight: `oklch(0.98 ${(p.c * 0.03).toFixed(4)} ${p.h.toFixed(1)})`,
+			baseDark: `oklch(0.15 ${(d.c * 0.08).toFixed(4)} ${d.h.toFixed(1)})`,
+			surfaceDark: `oklch(0.22 ${(d.c * 0.06).toFixed(4)} ${((d.h + 15) % 360).toFixed(1)})`,
+			overlayDark: `oklch(0.19 ${(d.c * 0.05).toFixed(4)} ${d.h.toFixed(1)})`,
+			highlightDark: `oklch(0.08 ${(d.c * 0.04).toFixed(4)} ${d.h.toFixed(1)})`
+		};
 	};
-	// 传入 hsl(157, 100%, 15%) 这种格式与透明度，返回 hsla(157, 100%, 15%, 0.1) 这种格式
-	const hslaFunc = (str = 'hsl(157, 100%, 15%)', n = 0.1) => {
-		const arr = str.split(',');
-		const h = arr[0].split('(')[1];
-		const s = arr[1];
-		const l = arr[2].split(')')[0];
-		return `hsla(${h}, ${s}, ${l}, ${n / 10})`;
+
+	// 生成文字色
+	const generateTextColors = (primaryColor: string, darkColor: string) => {
+		const p = parseOklchSafe(primaryColor);
+		const d = parseOklchSafe(darkColor);
+		return {
+			primary: `oklch(0.144 ${(p.c * 0.05).toFixed(3)} ${p.h.toFixed(1)})`,
+			dark: `oklch(0.917 ${(d.c * 0.25).toFixed(3)} ${d.h.toFixed(1)})`,
+			onPrimary: `oklch(0.883 ${(d.c * 0.28).toFixed(3)} ${d.h.toFixed(1)})`,
+			onDark: `oklch(0.189 ${(p.c * 0.17).toFixed(3)} ${p.h.toFixed(1)})`
+		};
 	};
+
+	// 响应式状态
+	let primaryColors = $state(buildColorScale(builtInThemes.STDF.primaryColor));
+	let darkColors = $state(buildColorScale(builtInThemes.STDF.darkColor));
+	let bgColors = $state(generateBgColors(builtInThemes.STDF.primaryColor, builtInThemes.STDF.darkColor));
+	let textColors = $state(generateTextColors(builtInThemes.STDF.primaryColor, builtInThemes.STDF.darkColor));
+	let stateColor = $state({
+		success: builtInThemes.STDF.successColor,
+		warning: builtInThemes.STDF.warningColor,
+		error: builtInThemes.STDF.errorColor,
+		info: builtInThemes.STDF.infoColor
+	});
+
+	// 派生列表
+	let primaryColorsList = $derived(colorObjToArr(primaryColors));
+	let darkColorsList = $derived(colorObjToArr(darkColors));
+
+	// 默认扩展色（STDF 主题）
+	const extendList = [
+		{ color: 'oklch(0.6 0.2 250)', alias: 'blue' },
+		{ color: 'oklch(0.6 0.2 300)', alias: 'purple' },
+		{ color: 'oklch(0.7 0.18 50)', alias: 'orange' },
+		{ color: 'oklch(0.7 0.15 190)', alias: 'cyan' }
+	];
+
+	// 监听主题变化
+	const updateColors = (themeName: string) => {
+		const theme = builtInThemes[themeName] || builtInThemes.STDF;
+		primaryColors = buildColorScale(theme.primaryColor);
+		darkColors = buildColorScale(theme.darkColor);
+		bgColors = generateBgColors(theme.primaryColor, theme.darkColor);
+		textColors = generateTextColors(theme.primaryColor, theme.darkColor);
+		stateColor = {
+			success: theme.successColor,
+			warning: theme.warningColor,
+			error: theme.errorColor,
+			info: theme.infoColor
+		};
+	};
+
+	// 订阅主题变化
+	currentColorStore.subscribe((themeName) => {
+		updateColors(themeName);
+	});
+
+	onMount(() => hljs.highlightAll());
 </script>
 
 <article
@@ -196,13 +245,16 @@
 		</p>
 	{/if}
 	<div class="justify-between md:flex md:space-x-8">
-		<div class="flex h-32 flex-1 flex-col justify-between rounded-sm p-4 text-white" style="background-color: {primaryColors?.default};">
+		<div
+			class="flex h-32 flex-1 flex-col justify-between rounded-sm p-4"
+			style="background-color: {primaryColors?.default}; color: var(--color-text-on-primary);"
+		>
 			<div class="text-xl font-bold">{isZh ? 'primary（亮模式）' : 'primary (Light Mode)'}</div>
 			<div>{primaryColors?.default}</div>
 		</div>
 		<div
-			class="mt-4 flex h-32 flex-1 flex-col justify-between rounded-sm p-4 text-black md:mt-0"
-			style="background-color: {darkColors?.default};"
+			class="mt-4 flex h-32 flex-1 flex-col justify-between rounded-sm p-4 md:mt-0"
+			style="background-color: {darkColors?.default}; color: var(--color-text-on-dark);"
 		>
 			<div class="text-xl font-bold">{isZh ? 'dark（暗模式）' : 'dark (Dark Mode)'}</div>
 			<div>{darkColors?.default}</div>
@@ -225,10 +277,10 @@
 	{/if}
 	<div class="justify-between space-y-8 md:flex md:space-x-8 md:space-y-0">
 		<div class="flex flex-1 flex-col justify-between rounded-sm bg-white text-sm">
-			{#each primaryColorsList as item, index}
+			{#each primaryColorsList as item, index (index)}
 				<div
-					class="p-4 transition hover:scale-105 hover:rounded-sm {index >= 6 ? 'text-white' : 'text-black'}"
-					style="background-color: {item.value};"
+					class="p-4 transition hover:scale-105 hover:rounded-sm"
+					style="background-color: {item.value}; color: {getContrastTextColor(item.value)};"
 				>
 					<div class="flex items-center justify-between">
 						<div class="flex-1 text-left font-bold">primary{index === 6 ? '' : `-${item.key}`}</div>
@@ -240,10 +292,10 @@
 			{/each}
 		</div>
 		<div class="flex flex-1 flex-col justify-between rounded-sm bg-white text-sm">
-			{#each darkColorsList as item, index}
+			{#each darkColorsList as item, index (index)}
 				<div
-					class="p-4 transition hover:scale-105 hover:rounded-sm {index >= 7 ? 'text-white' : 'text-black'}"
-					style="background-color: {item.value};"
+					class="p-4 transition hover:scale-105 hover:rounded-sm"
+					style="background-color: {item.value}; color: {getContrastTextColor(item.value)};"
 				>
 					<div class="flex items-center justify-between">
 						<div class="flex-1 text-left font-bold">dark{index === 6 ? '' : `-${item.key}`}</div>
@@ -263,7 +315,7 @@
 	</p>
 	<div class="transparent-background justify-between space-y-8 md:flex md:space-x-8 md:space-y-0">
 		<div class="flex flex-1 flex-col justify-between rounded-sm text-black">
-			{#each [0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 0.95] as color}
+			{#each [0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 0.95] as color (color)}
 				<div
 					class="p-2 transition hover:scale-105 hover:rounded-sm"
 					style="background-color: {getOklchOpacity(primaryColors?.default ?? '', color)};"
@@ -278,7 +330,7 @@
 			{/each}
 		</div>
 		<div class="flex flex-1 flex-col justify-between rounded-sm text-black">
-			{#each [0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 0.95] as color}
+			{#each [0.05, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 0.95] as color (color)}
 				<div
 					class="p-2 transition hover:scale-105 hover:rounded-sm"
 					style="background-color: {getOklchOpacity(darkColors?.default ?? '', color)};"
@@ -293,26 +345,104 @@
 			{/each}
 		</div>
 	</div>
-	<h3>{isZh ? '主题黑白色' : 'Theme Black and White'}</h3>
+	<h3>{isZh ? '背景色' : 'Background Colors'}</h3>
 	<p>
 		{isZh
-			? '通常情况下，设计中应避免大面积使用纯黑色 oklch(0 0 0)，使用接近纯黑的颜色。同时 STDF 会根据算法计算出两个接近纯黑但是带有主题色的黑色，方便设计搭配。同样也会计算出两个接近纯白但是带有主题色的白色。一般可用于多套主题搭配时的文字颜色，亮暗背景颜色等场景。'
-			: 'In most cases, designers should avoid using pure black oklch(0 0 0) on a large scale, and use a color close to pure black. At the same time, STDF will calculate two black colors close to pure black but with a theme color for design. Similarly, it will calculate two white colors close to pure white but with a theme color. Generally, it can be used in the text color of multiple theme combinations, the light and dark background color, etc.'}
+			? 'STDF 提供四个层级的背景色，分别用于不同的界面层级。亮色模式下使用 bg-base、bg-surface、bg-overlay、bg-highlight，暗色模式下使用 bg-base-dark、bg-surface-dark、bg-overlay-dark、bg-highlight-dark。'
+			: 'STDF provides four levels of background colors for different interface layers. In light mode, use bg-base, bg-surface, bg-overlay, bg-highlight. In dark mode, use bg-base-dark, bg-surface-dark, bg-overlay-dark, bg-highlight-dark.'}
 	</p>
-	<div class="flex-wrap justify-around space-y-4 md:flex md:space-x-4 md:space-y-0">
-		{#each [themeBlack?.primary, themeBlack?.dark, themeWhite?.primary, themeWhite?.dark] as item, i}
-			<div
-				class="flex h-24 flex-1 flex-col justify-between rounded-sm border p-2 {i === 0 || i === 1
-					? 'border-gray-700 text-white'
-					: 'border-gray-300 text-black'}"
-				style="background-color: {item};"
-			>
-				<div class="font-bold">
-					{i === 0 ? 'primaryBlack' : i === 1 ? 'darkBlack' : i === 2 ? 'primaryWhite' : 'darkWhite'}
-				</div>
-				<div class="text-sm">{item}</div>
-			</div>
-		{/each}
+	<div class="mb-2 flex-wrap justify-around space-y-2 md:flex md:space-x-2 md:space-y-0">
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-300 p-2 text-black"
+			style="background-color: {bgColors.base};"
+		>
+			<div class="font-bold">bg-base</div>
+			<div class="text-xs">{bgColors.base}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-300 p-2 text-black"
+			style="background-color: {bgColors.surface};"
+		>
+			<div class="font-bold">bg-surface</div>
+			<div class="text-xs">{bgColors.surface}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-300 p-2 text-black"
+			style="background-color: {bgColors.overlay};"
+		>
+			<div class="font-bold">bg-overlay</div>
+			<div class="text-xs">{bgColors.overlay}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-300 p-2 text-black"
+			style="background-color: {bgColors.highlight};"
+		>
+			<div class="font-bold">bg-highlight</div>
+			<div class="text-xs">{bgColors.highlight}</div>
+		</div>
+	</div>
+	<div class="flex-wrap justify-around space-y-2 md:flex md:space-x-2 md:space-y-0">
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2 text-white"
+			style="background-color: {bgColors.baseDark};"
+		>
+			<div class="font-bold">bg-base-dark</div>
+			<div class="text-xs">{bgColors.baseDark}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2 text-white"
+			style="background-color: {bgColors.surfaceDark};"
+		>
+			<div class="font-bold">bg-surface-dark</div>
+			<div class="text-xs">{bgColors.surfaceDark}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2 text-white"
+			style="background-color: {bgColors.overlayDark};"
+		>
+			<div class="font-bold">bg-overlay-dark</div>
+			<div class="text-xs">{bgColors.overlayDark}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2 text-white"
+			style="background-color: {bgColors.highlightDark};"
+		>
+			<div class="font-bold">bg-highlight-dark</div>
+			<div class="text-xs">{bgColors.highlightDark}</div>
+		</div>
+	</div>
+	<h3>{isZh ? '文字色' : 'Text Colors'}</h3>
+	<p>
+		{isZh
+			? 'STDF 提供四种文字色变量：text-primary 用于亮色背景上的文字，text-dark 用于暗色背景上的文字，text-on-primary 用于主题色上的文字，text-on-dark 用于暗色主题色上的文字。'
+			: 'STDF provides four text color variables: text-primary for text on light backgrounds, text-dark for text on dark backgrounds, text-on-primary for text on theme color, text-on-dark for text on dark theme color.'}
+	</p>
+	<div class="flex-wrap justify-around space-y-2 md:flex md:space-x-2 md:space-y-0">
+		<div class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-300 p-2" style="background-color: {bgColors.base};">
+			<div class="font-bold" style="color: {textColors.primary};">text-primary</div>
+			<div class="text-xs" style="color: {textColors.primary};">{textColors.primary}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2"
+			style="background-color: {bgColors.baseDark};"
+		>
+			<div class="font-bold" style="color: {textColors.dark};">text-dark</div>
+			<div class="text-xs" style="color: {textColors.dark};">{textColors.dark}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2"
+			style="background-color: {primaryColors.default};"
+		>
+			<div class="font-bold" style="color: {textColors.onPrimary};">text-on-primary</div>
+			<div class="text-xs" style="color: {textColors.onPrimary};">{textColors.onPrimary}</div>
+		</div>
+		<div
+			class="flex h-20 flex-1 flex-col justify-between rounded-sm border border-gray-700 p-2"
+			style="background-color: {darkColors.default};"
+		>
+			<div class="font-bold" style="color: {textColors.onDark};">text-on-dark</div>
+			<div class="text-xs" style="color: {textColors.onDark};">{textColors.onDark}</div>
+		</div>
 	</div>
 	<h2>{isZh ? '功能色' : 'Functional Color'}</h2>
 	<p>
@@ -321,12 +451,22 @@
 			: 'Functional color is a color used for specific scenarios, specific states, etc. It usually includes four types: success, warning, error, and information. Of course, it also supports the transparent writing method similar to the theme color.'}
 	</p>
 	<div class="flex-wrap justify-around space-y-4 md:flex md:space-x-4 md:space-y-0">
-		{#each [stateColor?.success, stateColor?.warning, stateColor?.error, stateColor?.info] as item, i}
-			<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {item};">
-				<div class="font-bold">{i === 0 ? 'success' : i === 1 ? 'warning' : i === 2 ? 'error' : 'info'}</div>
-				<div class="text-sm">{item}</div>
-			</div>
-		{/each}
+		<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {stateColor.success};">
+			<div class="font-bold">success</div>
+			<div class="text-sm">{stateColor.success}</div>
+		</div>
+		<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {stateColor.warning};">
+			<div class="font-bold">warning</div>
+			<div class="text-sm">{stateColor.warning}</div>
+		</div>
+		<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {stateColor.error};">
+			<div class="font-bold">error</div>
+			<div class="text-sm">{stateColor.error}</div>
+		</div>
+		<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {stateColor.info};">
+			<div class="font-bold">info</div>
+			<div class="text-sm">{stateColor.info}</div>
+		</div>
 	</div>
 	<h2>{isZh ? '中性色' : 'Neutral Color'}</h2>
 	<p>
@@ -341,7 +481,7 @@
 	</p>
 	<div class="justify-between space-y-8 text-black md:flex md:space-x-8 md:space-y-0">
 		<div class="transparent-background flex flex-1 flex-col justify-between rounded-sm text-sm">
-			{#each [0.5, 1, 2, 2.5, 3, 4, 5, 6, 7, 7.5, 8, 9, 9.5] as color}
+			{#each [0.5, 1, 2, 2.5, 3, 4, 5, 6, 7, 7.5, 8, 9, 9.5] as color (color)}
 				<div class="p-2 transition hover:scale-105 hover:rounded-sm" style="background-color: oklch(0 0 0 / {color / 10});">
 					<div class="flex items-center justify-between">
 						<div class="rounded-sm bg-white px-2 py-1 text-left">
@@ -363,7 +503,7 @@
 			</div>
 		</div>
 		<div class="transparent-background flex flex-1 flex-col justify-between rounded text-sm">
-			{#each [0.5, 1, 2, 2.5, 3, 4, 5, 6, 7, 7.5, 8, 9, 9.5] as color}
+			{#each [0.5, 1, 2, 2.5, 3, 4, 5, 6, 7, 7.5, 8, 9, 9.5] as color (color)}
 				<div class="p-2 transition hover:scale-105 hover:rounded-sm" style="background-color: oklch(1 0 0 / {color / 10});">
 					<div class="flex items-center justify-between">
 						<div class="rounded-sm bg-white px-2 py-1 text-left">
@@ -392,35 +532,33 @@
 	{#if isZh}
 		<p>
 			扩展色是一些区分功能色与主题色的非必需装饰性颜色，主要是在需要多个颜色搭配的界面时使用。统一配置可以使全局搭配颜色更加协调，通过
-			Tailwind 配置之后写起来也更加方便。数量不限，使用方式不限，使用规则不限。但请注意使用<strong
-				>多主题时，不同主题的扩展色数量应保持一致。</strong
-			>STDF 内置主题都提供了三种扩展色，请根据你的实际配色方案搭配。当然也都支持类似主题色的透明度写法。
+			Tailwind 配置之后写起来也更加方便。数量不限，使用方式不限，使用规则不限。当然也都支持类似主题色的透明度写法。
 		</p>
 		<p>
 			写扩展色类名时使用 extend0、extend1...
-			这种方式不方便记忆，推荐使用颜色的别名。别名的命名规则不限，如颜色名称、品牌、情绪、场景、编号、关联事物......皆可。如下面的
-			extend0、extend1、extend2 分别对应当前主题【{themes.find((item) => item.name === $currentColorStore)?.name_CN}】的三个扩展色。STDF
-			提供的<a href="/guide/generator" target="_blank"> 主题生成器 </a>也支持配置别名。
+			这种方式不方便记忆，推荐使用颜色的别名。别名的命名规则不限，如颜色名称、品牌、情绪、场景、编号、关联事物......皆可。STDF 提供的<a
+				href="/guide/generator"
+				target="_blank"
+			>
+				主题生成器
+			</a>也支持配置别名。
 		</p>
 	{:else}
 		<p>
 			Extended color is some non-essential decorative colors that are not required to distinguish between functional colors and theme
 			colors. Mainly used in interfaces that need multiple color combinations. Unifying the configuration can make the global color more
 			harmonious, and writing it is also more convenient after Tailwind configuration. The number is unlimited, the usage is unlimited, and
-			the usage rules are unlimited. But please note that when using multiple themes, the number of extended colors in different themes
-			should be kept consistent. STDF provides three extended colors for the built-in themes, please match according to your actual color
-			scheme. Of course, it also supports the transparent writing method similar to the theme color.
+			the usage rules are unlimited. Of course, it also supports the transparent writing method similar to the theme color.
 		</p>
 		<p>
 			When writing the class name of the extended color, use extend0, extend1..., this method is not convenient to remember, it is
 			recommended to use the alias of the color. The naming rules of the alias are unlimited, such as the color name, brand, emotion, scene,
-			number, related things... Such as the following extend0, extend1, extend2, which correspond to the three extended colors of the
-			current theme [{themes.find((item) => item.name === $currentColorStore)?.name}]. STDF's
+			number, related things... STDF's
 			<a href="/guide/generator" target="_blank">Theme Generator</a> also supports configuration aliases.
 		</p>
 	{/if}
 	<div class="flex-wrap justify-around space-y-4 md:flex md:space-x-4 md:space-y-0">
-		{#each extendList ?? [] as extend}
+		{#each extendList ?? [] as extend (extend)}
 			<div class="flex h-24 flex-1 flex-col justify-between rounded-sm p-2 text-white" style="background-color: {extend.color};">
 				<div class="font-bold">{extend.alias}</div>
 				<div>{extend.color}</div>

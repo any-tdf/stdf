@@ -2,7 +2,7 @@
 	let { colorList = [] } = $props();
 </script>
 
-{#each colorList as color, index}
+{#each colorList as color, index (index)}
 	<div
 		class="flex w-full flex-1 justify-between self-center px-4 transition hover:scale-105 hover:rounded-sm md:py-0 {index > 5
 			? 'text-white'

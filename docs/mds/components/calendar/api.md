@@ -15,7 +15,7 @@
 | height          | `number`                                                      | `50`                                 | N    | 显示高度占页面高度百分比。                   |
 | infoDates       | `InfoDate[]`                                                  | `[]`                                 | N    | 需要显示信息的日期。                         |
 | disabledDates   | `string[]`                                                    | `[]`                                 | N    | 不可选的日期。                               |
-| radius          | `'none'\|'sm'\|'xl'\|'2xl'`                                   | `'xl'`                               | N    | 选定日期的圆角风格。                         |
+| radius          | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'full'\|''`      | `'sm'`                               | N    | 选定日期的圆角风格。                         |
 | showSelectedDay | `boolean`                                                     | `true`                               | N    | 多选和范围选择时确定按钮是否显示已选天数。   |
 | confirmText     | `string`                                                      | 当前语言的 calendarLang.confirmText  | N    | 确定按钮文案。                               |
 | selectedText    | `string`                                                      | 当前语言的 calendarLang.selectedText | N    | showSelectedDay 为 true 时确定按钮部分文案。 |
@@ -25,9 +25,11 @@
 | highlightToday  | `boolean`                                                     | `true`                               | N    | 是否高亮今天。                               |
 | useAnimation    | `boolean`                                                     | `true`                               | N    | 自动滚动到指定月份时是否使用动画。           |
 | outFormat       | `string`                                                      | `'YMD'`                              | N    | 返回日期数据格式。                           |
-| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1)   | `{}`                                 | N    | 弹出层参数。                                 |
+| popup           | [`Popup`](https://stdf.design/components?nav=popup&tab=1) \| `null` | `{}`                                 | N    | 弹出层参数，传 null 时不使用弹出层。         |
 | button          | [`Button`](https://stdf.design/components?nav=button&tab=1) | `{}`                                 | N    | 确定按钮参数。                               |
+| card            | [`Card`](https://stdf.design/components?nav=card&tab=1)     | `{}`                                 | N    | 月份卡片参数，monthCard 为 true 时生效。     |
 | clear           | `boolean`                                                     | `true`                               | N    | 关闭时是否清空已选日期。                     |
+| initSelectedDates | `string[]`                                                  | `[]`                                 | N    | 初始化时已选日期，格式为 YYYYMMDD。          |
 
 ## Calendar Events
 

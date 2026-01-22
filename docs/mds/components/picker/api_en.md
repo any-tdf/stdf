@@ -15,15 +15,21 @@
 | linkageAligns      | `('left'\|'center'\|'right')[]`                             | `[]`                                   | N        | Alignment of each column in linkage mode.                  |
 | linkageLabelKeys   | `string[]`                                                  | `[]`                                   | N        | Custom label keys for each column in linkage mode.         |
 | linkageChildrenKey | `string`                                                    | `'children'`                           | N        | Custom children key for parent-child data in linkage mode. |
-| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1) | `{}`                                   | N        | Popup parameters.                                          |
+| height             | `number`                                                    | `30`                                   | N        | Height percentage of display area when not using popup.    |
+| popup              | [`Popup`](https://stdf.design/components?nav=popup&tab=1)\|`null` | `{}`                             | N        | Popup parameters. Pass `null` to display without popup.    |
+| multiple           | `boolean`                                                   | `false`                                | N        | Whether to enable multiple selection mode.                 |
+| multipleIcon       | [`Icon`](https://stdf.design/components?nav=icon&tab=1)     | `{ name: 'ri-checkbox-circle-line', ... }` | N    | Icon for unselected state in multiple mode.                |
+| multipleIconActive | [`Icon`](https://stdf.design/components?nav=icon&tab=1)     | `{ name: 'ri-checkbox-circle-fill', ... }` | N    | Icon for selected state in multiple mode.                  |
+| multipleSelected   | `PickerMultipleItem[]`                                      | `[]`                                   | N        | Selected items array in multiple mode (bindable).          |
 
 ## Picker Events
 
-| Name      | Type                                                             | Parameters                                                                      | Description                      |
-| --------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------- |
-| onclose   | `() => void`                                                     |                                                                                 | Triggered when closing.          |
-| oncancel  | `() => void`                                                     |                                                                                 | Triggered when clicking cancel.  |
-| onconfirm | `(items: { [key: string]: string }[], indexs: number[]) => void` | items - Array of selected column data;<br />indexs - Array of selected indexes. | Triggered when clicking confirm. |
+| Name             | Type                                                             | Parameters                                                                      | Description                          |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------ |
+| onclose          | `() => void`                                                     |                                                                                 | Triggered when closing.              |
+| oncancel         | `() => void`                                                     |                                                                                 | Triggered when clicking cancel.      |
+| onconfirm        | `(items: { [key: string]: string }[], indexs: number[]) => void` | items - Array of selected column data;<br />indexs - Array of selected indexes. | Triggered when clicking confirm.     |
+| onmultiplechange | `(selected: PickerMultipleItem[]) => void`                       | selected - Selected items array in multiple mode.                               | Triggered when selection changes in multiple mode. |
 
 ## PickerDatas Props
 
@@ -43,4 +49,11 @@
 | ------------- | -------------------------------------- | --------- | -------- | ----------------- |
 | children      | `PickerDatas[]`                        | `[]`      | Y        | Child data.       |
 | [key: string] | `string\|PickerDataChild[]\|undefined` | `'label'` | N        | Custom label key. |
-|               |
+
+## PickerMultipleItem
+
+| Name   | Type                          | Description                                       |
+| ------ | ----------------------------- | ------------------------------------------------- |
+| indexs | `number[]`                    | Array of selected indexes for each column.        |
+| items  | `{ [key: string]: string }[]` | Array of selected item data for each column.      |
+| label  | `string`                      | Display text of selected items (concatenated labels). |

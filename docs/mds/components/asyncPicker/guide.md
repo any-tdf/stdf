@@ -26,6 +26,8 @@ AsyncPicker 组件最终返回的数据有两项，一项是选定的多列数�
 
 AsyncPicker 是在 Popup 基础上封装的，通过预先定义一些 Popup 的 Props 实现，因此可以通过传入 Popup 的属性来实现不同的效果。比如示例中通过设置 popup 的 radius 改变圆角风格。
 
+如果不需要使用弹出层，可以将 `popup` 设置为 `null`，此时 AsyncPicker 将直接展示在页面上。可通过 `height` 属性设置展示区域高度占页面百分比。
+
 AsyncPicker 内加载数据时显示的 loading 是在 Loading 组件基础上封装的，可以通过传入 Loading 的属性来实现不同的效果。比如示例中通过设置 loading 的一些参数换了一个 loading 效果。
 
 ## Radio、ActionSheet、IndexBar、Picker、AsyncPicker 区别

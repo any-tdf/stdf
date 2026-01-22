@@ -4,6 +4,7 @@
 
 <!-- 记得带上版本号和更新日期，以下是一个示例：
 
+
 ## 0.0.1
 
 -   [!tag|B|1|] 严重 BUG。[!contribute|dufu1991|][!issue|dufu1991|]
@@ -12,6 +13,13 @@
 -   [!tag|O|0|] 优化。
 -   [!tag|A|0|] 新增。
  -->
+
+## 2.0.0
+
+- [!tag|A|0|] 新增 `border` 属性用于边框风格，替代原 `line` 属性。
+- [!tag|O|0|] `fill` 选项调整为 `lineState` 与 `textState`，原 `lineTheme` 与 `textTheme` 迁移为状态版。
+- [!tag|O|0|] 移除 `group` 属性，按钮组改用 ButtonGroup 组件。
+- [!tag|O|0|] `radius` 选项补充更多等级并支持空值。
 
 ## 1.1.0
 

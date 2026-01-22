@@ -4,7 +4,17 @@
 
 ## 填充模式
 
-填充模式中，line 为线性按钮（幽灵按钮）；lineLight 线性浅色按钮；text 为纯文本按钮；而 lineTheme 与 textTheme 表示对应边框和文字颜色会跟随主题色，包括亮暗模式；colorLight 为带透明度浅色背景按钮，也自动适配亮暗模式。
+填充模式中：
+
+- `base`：实心填充按钮（默认），背景色跟随状态色
+- `line`：线性按钮（幽灵按钮），无色边框，黑/白色文字
+- `lineLight`：线性浅色按钮，淡色边框
+- `lineState`：线性状态按钮，边框和文字颜色跟随状态色
+- `text`：纯文本按钮，无色文字
+- `textState`：纯文本状态按钮，文字颜色跟随状态色
+- `colorLight`：浅色背景按钮，浅色背景 + 状态色文字
+
+其中 `base`、`lineState`、`textState`、`colorLight` 会跟随 `state` 参数变化颜色，而 `line`、`lineLight`、`text` 为无色模式，不受 `state` 影响。
 
 ## 状态色
 
@@ -16,7 +26,7 @@
 
 ## 边框风格
 
-边框风格（line）必须在填充模式（fill）为 line 或 lineTheme 情况下才会生效。
+边框风格（border）必须在填充模式（fill）为 `line`、`lineLight` 或 `lineState` 情况下才会生效。
 
 ## CSS 注入
 
@@ -26,7 +36,7 @@
 
 ## 按钮组
 
-要使用按钮组可以直接通过在内部 Snippet 放入多个元素，结合 heightOut 与 heightIn 就可以实现。需要注意的是此时点击事件就需要绑定在内部独立元素之上，另外需要通过将 Props 的 group 设置为 true，将不显示整个按钮区域的点击效果。可参考示例。
+按钮组功能已独立为 [ButtonGroup](/components?nav=buttonGroup&tab=0) 组件，支持通过 `items` 数组或 `children` 自定义两种方式使用。
 
 ## 带图标或加载
 

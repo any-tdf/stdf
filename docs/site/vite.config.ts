@@ -11,6 +11,14 @@ export default defineConfig({
 		md({ marked: {}, include: ['../mds/**/*.md', '../../packages/**/*.md'] }),
 		svgSprite([{ inFile: 'src/lib/symbol', outFile: 'static/fonts', fileName: 'symbol' }])
 	],
-	server: { hmr: true, host: '0.0.0.0', port: 5555 },
+	server: {
+		hmr: true,
+		host: '0.0.0.0',
+		port: 5555,
+		fs: {
+			// 允许访问 packages 目录
+			allow: ['../..']
+		}
+	},
 	build: { assetsDir: 'build' }
 });

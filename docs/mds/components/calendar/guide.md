@@ -39,6 +39,10 @@ Calendar 组件可以通过传入 monthMark 属性来决定是否在日历的每
 
 ## 说明
 
-Calendar 是在 Popup 基础上封装的，通过预先定义一些 Popup 的 Props 实现，因此可以通过传入 Popup 的属性来实现不同的效果。比如示例中通过设置 popup 的 radius 改变圆角风格。
+Calendar 是在 Popup 基础上封装的，通过预先定义一些 Popup 的 Props 实现，因此可以通过传入 Popup 的属性来实现不同的效果。比如示例中通过设置 popup 的 radius 改变圆角风格。如果需要在页面内直接展示日历而不使用弹出层，可以通过设置 popup 为 null 来实现，此时日历将直接渲染在页面内，适合需要将日历嵌入页面布局的场景。
 
 Calendar 内底部的确定按钮使用了 Button 组件，可以通过传入 button 参数来自定义按钮的样式，请参考示例。
+
+## 月份卡片样式
+
+当 monthCard 属性为 true 时，每个月份会使用 Card 组件来包裹显示。可以通过传入 card 参数来自定义卡片的样式，例如设置主题色背景、圆角风格等。请参考示例。

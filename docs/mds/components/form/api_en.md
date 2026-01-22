@@ -10,11 +10,7 @@
 | submitChildren | `Snippet`                                                                                | -         | N        | Custom submit button content.                    |
 | resetChildren  | `Snippet`                                                                                | -         | N        | Custom reset button content.                     |
 | space          | `'0'\|'1'\|'2'\|'4'\|'6'\|'8'`                                                           | `'0'`     | N        | Vertical spacing between form items.             |
-| card           | `boolean`                                                                                | `false`   | N        | Whether to enable card layout.                   |
-| mx             | `'2'\|'3'\|'4'\|'6'\|'8'`                                                                | `'4'`     | N        | Horizontal margin (works in card mode).          |
-| px             | `'0'\|'1'\|'2'\|'4'\|'6'`                                                                | `'2'`     | N        | Horizontal padding (works in card mode).         |
-| radius         | `'sm'\|'md'\|'lg'\|'xl'\|'2xl'\|'3xl'\|'4xl'`                                            | `'xl'`    | N        | Card border radius (works in card mode).         |
-| shadow         | `'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'`                                            | `'sm'`    | N        | Card shadow (works in card mode).                |
+| card           | [`CardProps`](https://stdf.design/components?nav=card&tab=1)                             | -         | N        | Card configuration, uses Card component to wrap form when provided. |
 | onchange       | `(data: Record<string, FormValueProps>) => void`                                         | -         | N        | Triggered when any form item value changes.      |
 | onsubmit       | `(data: Record<string, FormValueProps>) => void`                                         | -         | N        | Triggered when form is submitted.                |
 | onreset        | `() => void`                                                                             | -         | N        | Triggered when form is reset.                    |
@@ -67,6 +63,16 @@ Number keyboard.
 | numKeyboard | `object`       | NumKeyboard component config.|
 | input     | `object`       | Input component config.     |
 
+### fullKeyboard
+
+Full keyboard.
+
+| Name       | Type             | Description                  |
+| ---------- | ---------------- | ---------------------------- |
+| type      | `'fullKeyboard'` | Type identifier.             |
+| fullKeyboard | `object`       | FullKeyboard component config.|
+| input     | `object`         | Input component config.      |
+
 ### timePicker
 
 Time picker.
@@ -106,6 +112,18 @@ Picker.
 | type | `'picker'` | Type identifier.   |
 | picker | `object` | Picker component config.|
 | input | `object` | Input component config.|
+
+When Picker uses multiple mode, Form returns FormPickerValue with multipleSelected as the selected items list.
+
+### colorPicker
+
+Color picker.
+
+| Name       | Type            | Description                    |
+| ---------- | --------------- | ------------------------------ |
+| type      | `'colorPicker'` | Type identifier.               |
+| colorPicker | `object`       | ColorPicker component config.  |
+| input     | `object`        | Input component config.        |
 
 ### checkbox
 
@@ -160,10 +178,12 @@ Form value type is `Record<string, FormValueProps>`, where FormValueProps is a u
 | -------------- | ------------------------------------ |
 | input          | `string`                             |
 | numKeyboard    | `string`                             |
+| fullKeyboard   | `string`                             |
 | timePicker     | `FormTimePickerValue`                |
 | actionSheet    | `FormActionSheetValue`               |
 | calendar       | `FormCalendarValue`                  |
 | picker         | `FormPickerValue`                    |
+| colorPicker    | `FormColorPickerValue`               |
 | checkbox       | `string[]`                           |
 | radio          | `string`                             |
 | slider         | `FormSliderValue`                    |

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, scale } from 'svelte/transition';
 	import { menuList, type MenuList, type MenuListChild } from '../../data/menuList';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { isCmdKStore } from '../../store';
 
@@ -142,7 +142,7 @@
 			params.set('nav', nav);
 			params.set('tab', tab.toString());
 			goto(`/components?nav=${nav}&tab=${tab}`);
-			if ($page.url.pathname.includes('/components')) {
+			if (page.url.pathname.includes('/components')) {
 				setTimeout(() => {
 					window.location.reload();
 				}, 10);
@@ -181,7 +181,7 @@
 		params.set('nav', nav);
 		params.set('tab', tab.toString());
 		goto(`/components?nav=${nav}&tab=${tab}`);
-		if ($page.url.pathname.includes('/components')) {
+		if (page.url.pathname.includes('/components')) {
 			setTimeout(() => {
 				window.location.reload();
 			}, 10);
@@ -266,7 +266,7 @@
 						</div>
 					{/if}
 				{/if}
-				{#each cmdKList as item, index}
+				{#each cmdKList as item, index (index)}
 					<div class="flex items-center">
 						<div
 							class="w-lg mr-2 transition-all {index === currentIndex

@@ -4,19 +4,21 @@ Form 组件用于快速构建完整的表单页面，支持多种表单项类型
 
 ## 支持的表单项类型
 
-Form 组件支持以下 11 种表单项类型：
+Form 组件支持以下 13 种表单项类型：
 
 1. **input** - 文本输入框
 2. **numKeyboard** - 数字键盘
-3. **timePicker** - 时间选择器
-4. **actionSheet** - 操作面板
-5. **calendar** - 日期选择器
-6. **picker** - 选择器
-7. **checkbox** - 复选框组
-8. **radio** - 单选框组
-9. **slider** - 滑块
-10. **switch** - 开关
-11. **stepper** - 步进器
+3. **fullKeyboard** - 全键盘
+4. **timePicker** - 时间选择器
+5. **actionSheet** - 操作面板
+6. **calendar** - 日期选择器
+7. **picker** - 选择器
+8. **colorPicker** - 颜色选择器
+9. **checkbox** - 复选框组
+10. **radio** - 单选框组
+11. **slider** - 滑块
+12. **switch** - 开关
+13. **stepper** - 步进器
 
 ## 卡片布局
 
@@ -47,3 +49,4 @@ Form 组件支持以下 11 种表单项类型：
 3. **初始值**：`initValue` 需要对应表单项的正确类型
 4. **子组件配置**：可通过 `input`、`picker` 等配置对象定制子组件行为
 5. **返回值类型**：不同表单项返回不同类型的数据
+6. **多选展示**：当 Calendar 使用 multiple 模式或 Picker 使用 multiple 模式时，Form 会使用 Tag 组件样式展示已选值，支持点击删除同步更新

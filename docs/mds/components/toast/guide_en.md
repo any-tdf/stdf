@@ -1,3 +1,12 @@
+## Design Philosophy and Use Case Differences
+
+In STDF, Toast, Alert, Modal, and Dialog all provide user feedback, but they emphasize different interaction levels.
+
+- **Toast**: Lightweight, non-blocking, focused on short status feedback for quick actions.
+- **Alert**: Card-style notification emphasizing content readability, suitable for richer notices with title, icon, or actions.
+- **Modal**: Strong awareness with minimal interaction, often a single confirm or acknowledgment.
+- **Dialog**: Strong awareness with decision-making, usually primary/secondary actions for confirmations or risky flows.
+
 ## Display Position
 
 By default, the toast appears in the center of the screen. You can also set its position using the `position` prop. When position is set to `top` or `bottom`, you can use the `py` prop to set the distance from the top or bottom.
@@ -11,6 +20,23 @@ For detailed supported parameters of transitionParams, please refer to [svelte/t
 For better user experience, the toast appears with a short animation (default 300ms) to catch user attention. Since toast messages generally need to close quickly after display, the exit animation is 0ms by default. However, you can set the exit animation duration using the `outDuration` prop.
 
 The exit animation only allows setting the duration, while other parameters inherit from the entry animation to ensure the animation effect "returns where it came from".
+
+## Easing Functions
+
+Set the easing function for enter animation via `easeType` property, and `easeOutType` for exit animation. Supports all [svelte/easing](https://svelte.dev/docs/svelte/svelte-easing) easing functions:
+
+- `'linear'`: Linear
+- `'cubicOut'`: Cubic ease-out (default)
+- `'bounceOut'`: Bounce ease-out
+- `'elasticOut'`: Elastic ease-out
+- `'backOut'`: Back ease-out
+- For more easing functions, refer to svelte/easing documentation
+
+For example, using elastic easing effect:
+
+```svelte
+<Toast easeType="elasticOut" />
+```
 
 ## Display Duration
 

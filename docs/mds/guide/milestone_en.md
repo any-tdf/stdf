@@ -1,3 +1,7 @@
+## 2026-01-22
+
+v2 version released, 18 new components, theme system upgraded to Tailwind CSS plugin with more configurable options.
+
 ## 2025-04-07
 
 v1 version released, full support for Svelte v5, Tailwind CSS v4, and TypeScript.

@@ -10,7 +10,7 @@ When a Snippet is passed, it indicates that the icon internally uses the passed 
 
 ## Icon Colors
 
-If theme is not passed or set to false, the icon color will inherit from the parent text color. When set to true, the icon color will change according to the theme color (including light and dark modes). To implement custom colors, you can use `iconify-color`, or use CSS injection or Snippet rendering, configuring light and dark modes separately in injClass or Snippet. Please refer to the examples.
+Through the `state` property, you can set the icon's state color, supporting five states: `theme` (theme color), `success`, `warning`, `error`, and `info`. If `state` is not passed, the icon color will inherit from the parent text color. To implement custom colors, you can use `iconify-color`, or use CSS injection or Snippet rendering, configuring light and dark modes separately in injClass or Snippet. Please refer to the examples.
 
 ## Icon Size
 
@@ -18,7 +18,7 @@ The default icon size is 24px. When width or height is passed, the icon will set
 
 ## Color Priority
 
-Color priority: Snippet > injClass > theme > default.
+Color priority: Snippet > injClass > state > default.
 
 ## Offset
 
@@ -30,7 +30,7 @@ Through the injClass parameter, you can inject CSS class names (not limited to T
 
 ## Snippet
 
-You can place any element (even the Icon component itself), mainly used for custom icons or custom icon colors, such as placing custom SVG into the Icon component. Please note the relationship between SVG's viewBox, height, width and the display property. At this point, the icon content depends on the passed element, and parameters like name, size, theme in Props will all become ineffective. Using Snippet provides more customization possibilities for component content.
+You can place any element (even the Icon component itself), mainly used for custom icons or custom icon colors, such as placing custom SVG into the Icon component. Please note the relationship between SVG's viewBox, height, width and the display property. At this point, the icon content depends on the passed element, and parameters like name, size, state in Props will all become ineffective. Using Snippet provides more customization possibilities for component content.
 
 ## Global Icon SVG Path Injection
 
