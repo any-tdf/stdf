@@ -1,3 +1,9 @@
+## 2.0.1 <font size=1>2026-01-23</font>
+
+- Component directory updates: AvatarGroup and ButtonGroup moved to dedicated directories with updated export paths.
+- Feedback component rename: `FeedbackContainer` renamed to `Feedback`, with updated imports and usage.
+- Icon build update: switched to `@any-tdf/vite-plugin-svg-symbol`, removed `rollup-plugin-stdf-icon` dependency.
+
 ## 2.0.0 <font size=1>2026-01-22</font>
 
 - New components: [Accordion](https://stdf.design/components?nav=accordion&tab=0), [ActionPopover](https://stdf.design/components?nav=actionPopover&tab=0), [Alert](https://stdf.design/components?nav=alert&tab=0), [AvatarGroup](https://stdf.design/components?nav=avatarGroup&tab=0), [ButtonGroup](https://stdf.design/components?nav=buttonGroup&tab=0), [Card](https://stdf.design/components?nav=card&tab=0), [CharRoll](https://stdf.design/components?nav=charRoll&tab=0), [CodeInput](https://stdf.design/components?nav=codeInput&tab=0), [ColorPicker](https://stdf.design/components?nav=colorPicker&tab=0), [CountDown](https://stdf.design/components?nav=countDown&tab=0), [Feedback](https://stdf.design/components?nav=feedback&tab=0), [FullKeyboard](https://stdf.design/components?nav=fullKeyboard&tab=0), [ImageList](https://stdf.design/components?nav=imageList&tab=0), [ImagePreview](https://stdf.design/components?nav=imagePreview&tab=0), [List](https://stdf.design/components?nav=list&tab=0), [Signature](https://stdf.design/components?nav=signature&tab=0), [Tag](https://stdf.design/components?nav=tag&tab=0), [Tooltip](https://stdf.design/components?nav=tooltip&tab=0).

@@ -1,3 +1,9 @@
+## 2.0.1 <font size=1>2026-01-23</font>
+
+- 组件目录调整：AvatarGroup 和 ButtonGroup 独立目录并修正导出路径。
+- 反馈组件更名： `FeedbackContainer` 更名为 `Feedback`，更新导入与引用。
+- 图标构建更新：改用 `@any-tdf/vite-plugin-svg-symbol`，移除 `rollup-plugin-stdf-icon` 依赖。
+
 ## 2.0.0 <font size=1>2026-01-22</font>
 
 - 新增组件： [手风琴 Accordion](https://stdf.design/components?nav=accordion&tab=0)、 [操作气泡 ActionPopover](https://stdf.design/components?nav=actionPopover&tab=0)、 [弹窗提示 Alert](https://stdf.design/components?nav=alert&tab=0)、 [头像组 AvatarGroup](https://stdf.design/components?nav=avatarGroup&tab=0)、 [按钮组 ButtonGroup](https://stdf.design/components?nav=buttonGroup&tab=0)、 [卡片 Card](https://stdf.design/components?nav=card&tab=0)、 [字符滚动 CharRoll](https://stdf.design/components?nav=charRoll&tab=0)、 [码输入框 CodeInput](https://stdf.design/components?nav=codeInput&tab=0)、 [颜色选择器 ColorPicker](https://stdf.design/components?nav=colorPicker&tab=0)、 [倒计时 CountDown](https://stdf.design/components?nav=countDown&tab=0)、 [函数式反馈 Feedback](https://stdf.design/components?nav=feedback&tab=0)、 [全键盘 FullKeyboard](https://stdf.design/components?nav=fullKeyboard&tab=0)、 [图片列表 ImageList](https://stdf.design/components?nav=imageList&tab=0)、 [图片预览 ImagePreview](https://stdf.design/components?nav=imagePreview&tab=0)、 [列表 List](https://stdf.design/components?nav=list&tab=0)、 [签名 Signature](https://stdf.design/components?nav=signature&tab=0)、 [标签 Tag](https://stdf.design/components?nav=tag&tab=0)、 [文字提示 Tooltip](https://stdf.design/components?nav=tooltip&tab=0)。
