@@ -4,11 +4,11 @@ export { default as ActionSheet } from './components/actionSheet/ActionSheet.sve
 export { default as Alert } from './components/alert/Alert.svelte';
 export { default as AsyncPicker } from './components/asyncPicker/AsyncPicker.svelte';
 export { default as Avatar } from './components/avatar/Avatar.svelte';
-export { default as AvatarGroup } from './components/avatar/AvatarGroup.svelte';
+export { default as AvatarGroup } from './components/avatarGroup/AvatarGroup.svelte';
 export { default as Badge } from './components/badge/Badge.svelte';
 export { default as BottomSheet } from './components/bottomSheet/BottomSheet.svelte';
 export { default as Button } from './components/button/Button.svelte';
-export { default as ButtonGroup } from './components/button/ButtonGroup.svelte';
+export { default as ButtonGroup } from './components/buttonGroup/ButtonGroup.svelte';
 export { default as Calendar } from './components/calendar/Calendar.svelte';
 export { default as Card } from './components/card/Card.svelte';
 export { default as ColorPicker } from './components/colorPicker/ColorPicker.svelte';
@@ -65,4 +65,4 @@ export { default as Signature } from './components/signature/Signature.svelte';
 // 函数式反馈 API
 // Functional feedback API
 export { toast, showAlert, dialog, modal, loading, setFeedbackLang } from './components/feedback/index.js';
-export { default as FeedbackContainer } from './components/feedback/FeedbackContainer.svelte';
+export { default as Feedback } from './components/feedback/Feedback.svelte';

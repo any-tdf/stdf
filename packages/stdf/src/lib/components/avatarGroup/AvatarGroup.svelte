@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Avatar from './Avatar.svelte';
+	import Avatar from '../avatar/Avatar.svelte';
 	import type { AvatarGroupProps } from '../../types/index.js';
 	import { radiusObj } from '../utils/index.js';
 

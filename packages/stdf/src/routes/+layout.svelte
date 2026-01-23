@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { page } from '$app/state';
-	import { NavBar, Icon, FeedbackContainer } from '$lib/index.js';
+	import { NavBar, Icon, Feedback } from '$lib/index.js';
 	import { zh_CN, en_US } from '$lib/lang/index.js';
 	import '../app.css';
 	import { menuList } from '../data/menuList.js';
@@ -215,4 +215,4 @@
 
 <!-- 全局反馈组件容器 -->
 <!-- Global feedback component container -->
-<FeedbackContainer />
+<Feedback />

@@ -1,6 +1,6 @@
 {
 	"name": "stdf",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Mobile web component library based on Svelte and Tailwind",
 	"author": "any-tdf",
 	"funding": "https://stdf.design?fund",
@@ -188,6 +188,7 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
+		"@any-tdf/vite-plugin-svg-symbol": "^0.0.3",
 		"@iconify-json/carbon": "^1.2.18",
 		"@iconify-json/fluent-color": "^1.2.21",
 		"@iconify-json/material-symbols": "^1.2.52",
@@ -206,7 +207,6 @@
 		"prettier-plugin-svelte": "^3.4.1",
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"publint": "^0.3.17",
-		"rollup-plugin-stdf-icon": "file:../rollup-plugin-stdf-icon",
 		"svelte": "^5.48.0",
 		"svelte-check": "^4.3.5",
 		"svelte-confetti": "^2.3.2",

@@ -286,6 +286,6 @@ export function setFeedbackLang(lang: LangProps): void {
 	feedbackState.lang = lang;
 }
 
-// 导出状态（供 FeedbackContainer 使用）
-// Export state (for FeedbackContainer)
+// 导出状态（供 Feedback 使用）
+// Export state (for Feedback)
 export { feedbackState };
