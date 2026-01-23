@@ -1879,7 +1879,6 @@ ${extendListStr2}
 						style="height:{windowWidth >= 1280 ? windowHeight - 350 : (windowHeight - 350) / 2}px"
 					>
 						<article class="prose dark:prose-invert max-w-none text-xs">
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							<pre><code class="hljs language-css" id="myCodeBlock">{@html configStr}</code></pre>
 						</article>
 						<button
@@ -1905,7 +1904,6 @@ ${extendListStr2}
 						style="height:{windowWidth >= 1280 ? windowHeight - 350 : (windowHeight - 350) / 2}px"
 					>
 						<article class="prose dark:prose-invert max-w-none text-xs">
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							<pre><code class="hljs language-css" id="myCodeBlock2">{@html configStr2}</code></pre>
 						</article>
 						<button

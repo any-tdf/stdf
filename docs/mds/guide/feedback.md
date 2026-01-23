@@ -4,17 +4,17 @@ STDF 提供了 5 种反馈组件的函数式调用方式，可以在任意位置
 
 ## 初始化
 
-在使用函数式 API 之前，需要在应用根布局中添加 `FeedbackContainer` 组件：
+在使用函数式 API 之前，需要在应用根布局中添加 `Feedback` 组件：
 
 ```svelte
 <!-- +layout.svelte -->
 <script>
-    import { FeedbackContainer } from 'stdf';
+    import { Feedback } from 'stdf';
     let { children } = $props();
 </script>
 
 {@render children()}
-<FeedbackContainer />
+<Feedback />
 ```
 
 ## Toast 轻提示

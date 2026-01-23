@@ -38,17 +38,11 @@ jobs:
               with:
                   bun-version: 'latest'
 
-            - name: Build rollup-plugin-stdf-icon & stdf & rollup-plugin-md-ts
+            - name: Build STDF
               run: |
-                  cd packages/rollup-plugin-stdf-icon
-                  bun i
-                  bun run build
-                  cd ../stdf
+                  cd packages/stdf
                   bun i
                   bun run package
-                  cd ../rollup-plugin-md-ts
-                  bun i
-                  bun run build
                   cd ../../
 
             - name: Install dependencies and build

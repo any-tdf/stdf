@@ -1,16 +1,16 @@
 ## Initialization
 
-Before using the functional API, add the `FeedbackContainer` component to your app's root layout:
+Before using the functional API, add the `Feedback` component to your app's root layout:
 
 ```svelte
 <!-- +layout.svelte -->
 <script>
-    import { FeedbackContainer } from 'stdf';
+    import { Feedback } from 'stdf';
     let { children } = $props();
 </script>
 
 {@render children()}
-<FeedbackContainer />
+<Feedback />
 ```
 
 ## toast Function

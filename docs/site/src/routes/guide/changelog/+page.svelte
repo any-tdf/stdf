@@ -75,6 +75,5 @@
 			? '注：此处仅展示站点更新说明或总体概述，具体组件更新内容请查看组件内部更新日志。描述后面的头像表示此项的提出者或贡献者，感谢他们。发布时间格式均为 GMT+8。'
 			: 'Note: Only the site update instructions or general overview are displayed here. For the specific component update content, please refer to the update log inside the component. The avatars after the description represent the submitter or contributor, thank them for their contribution. The release time format is GMT+8.'}
 	</p>
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html mdTextToHljsFun(hljsText)}
 </article>

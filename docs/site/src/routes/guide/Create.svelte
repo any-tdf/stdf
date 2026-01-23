@@ -18,6 +18,5 @@
 		? 'max-w-full'
 		: 'max-w-5xl'}"
 >
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html text}
 </article>

@@ -3,9 +3,9 @@
 	import { isWideScreenStore } from '../../../store';
 
 	// @ts-ignore
-	import mdPluginText from '../../../../../../packages/rollup-plugin-md-ts/README_CN.md';
+	import mdPluginText from '../../../../../mds/guide/mdPlugin.md';
 	// @ts-ignore
-	import mdPluginText_en from '../../../../../../packages/rollup-plugin-md-ts/README.md';
+	import mdPluginText_en from '../../../../../mds/guide/mdPlugin_en.md';
 
 	const isZh = localStorage.getItem('lang') === 'zh_CN';
 	const text = mdTextToHljs(
@@ -18,6 +18,5 @@
 		? 'max-w-full'
 		: 'max-w-7xl'}"
 >
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html text}
 </article>

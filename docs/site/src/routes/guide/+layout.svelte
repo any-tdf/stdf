@@ -18,23 +18,13 @@
 			class_en: 'General',
 			childs: [
 				{ title: '快速上手', title_en: 'Quick start', nav: 'quick-start', doc: 'quickStart' },
+				{ title: '更新日志', title_en: 'Changelog', nav: 'changelog', doc: 'changelog' },
 				{ title: '主题配置', title_en: 'Theme', nav: 'theme', doc: 'theme' },
 				{ title: '图标', title_en: 'Icon', nav: 'icon', doc: 'icon' },
 				{ title: '函数式反馈', title_en: 'Functional Feedback', nav: 'feedback', doc: 'feedback' },
-				{
-					title: '国际化',
-					title_en: 'Internationalization',
-					nav: 'internation',
-					doc: 'internation'
-				},
-				{ title: '更新日志', title_en: 'Changelog', nav: 'changelog', doc: 'changelog' },
+				{ title: '国际化', title_en: 'Internationalization', nav: 'internation', doc: 'internation' },
 				{ title: '常见问题', title_en: 'FAQ', nav: 'faq', doc: 'faq' },
-				{
-					title: '贡献指南',
-					title_en: 'Contribution Guide',
-					nav: 'contribution',
-					doc: 'contribution'
-				},
+				{ title: '贡献指南', title_en: 'Contribution Guide', nav: 'contribution', doc: 'contribution' },
 				{ title: '兼容性', title_en: 'Compatibility', nav: 'compatibility', doc: 'compatibility' },
 				{ title: '升级指南', title_en: 'Upgrade Guide', nav: 'upgrade', doc: 'upgrade' }
 			]
@@ -127,7 +117,7 @@
 
 <div class="flex">
 	<div
-		class="z-100 bg-bg-base dark:bg-bg-base-dark fixed -left-52 top-14 w-48 overflow-y-scroll border-black/10 transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:md:bg-transparent"
+		class="bg-bg-base dark:bg-bg-base-dark fixed top-14 -left-52 z-100 w-48 overflow-y-scroll border-black/10 transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{menuHeight + 'px'}"
@@ -164,7 +154,7 @@
 </div>
 {#if !page.url.pathname.includes('generator')}
 	<button
-		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed bottom-4 right-2 z-50 hidden h-8 w-8 cursor-pointer rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
+		class="bg-primary shadow-primary/50 dark:bg-dark dark:shadow-dark/50 fixed right-2 bottom-4 z-50 hidden h-8 w-8 cursor-pointer rounded-full p-1.5 text-white shadow-md md:block dark:text-black"
 		onclick={changeFullFunc}
 	>
 		{#if $isWideScreenStore}
