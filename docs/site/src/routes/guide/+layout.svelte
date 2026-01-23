@@ -106,7 +106,7 @@
 	const editUrlFn = (nav: string) => {
 		const baseUrl = 'https://github.com/any-tdf/stdf/edit/main/';
 		if (nav === 'create') {
-			return baseUrl + 'packages/create-stdf/README' + (isZh ? '_CN' : '') + '.md';
+			return baseUrl + 'packages/create/README' + (isZh ? '_CN' : '') + '.md';
 		}
 		if (nav === 'icon-plugin') {
 			return baseUrl + 'packages/rollup-plugin-stdf-icon/README' + (isZh ? '_CN' : '') + '.md';
