@@ -1,0 +1,18 @@
+# 忽略模板中的 node_modules
+templates/**/node_modules
+
+# 忽略模板中的 .svelte-kit
+templates/**/.svelte-kit
+
+# 忽略模板中的 lock 文件
+templates/**/bun.lock
+templates/**/bun.lockb
+templates/**/pnpm-lock.yaml
+templates/**/package-lock.json
+
+# 忽略模板中的构建产物
+templates/**/dist
+templates/**/build
+
+# 忽略 .DS_Store
+**/.DS_Store

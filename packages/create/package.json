@@ -1,0 +1,56 @@
+{
+	"name": "create-stdf",
+	"version": "0.3.0",
+	"description": "A CLI for creating new STDF projects",
+	"bin": {
+		"create-stdf": "index.js"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"bt": "rollup -c && bun run dist/index.js"
+	},
+	"files": [
+		"dist/**",
+		"templates/**",
+		"snippet/**"
+	],
+	"engines": {
+		"node": ">=14.14"
+	},
+	"dependencies": {
+		"@clack/prompts": "^0.11.0",
+		"fs-extra": "^11.3.3",
+		"kleur": "^4.1.5",
+		"minimist": "^1.2.8",
+		"pacote": "^21.0.4"
+	},
+	"devDependencies": {
+		"@rollup/plugin-terser": "^0.4.4",
+		"rollup": "^4.56.0"
+	},
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"tailwind",
+		"unocss",
+		"typescript",
+		"stdf",
+		"cli",
+		"mobile",
+		"vite",
+		"iconify"
+	],
+	"author": "any-tdf",
+	"funding": "https://stdf.design?fund",
+	"license": "MIT",
+	"type": "module",
+	"homepage": "https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/any-tdf/stdf"
+	},
+	"bugs": {
+		"url": "https://github.com/any-tdf/stdf/issues?q=is:issue+is:open+create"
+	}
+}
