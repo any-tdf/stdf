@@ -1,6 +1,6 @@
 {
 	"name": "create-stdf",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "A CLI for creating new STDF projects",
 	"bin": {
 		"create-stdf": "index.js"
@@ -45,7 +45,7 @@
 	"funding": "https://stdf.design?fund",
 	"license": "MIT",
 	"type": "module",
-	"homepage": "https://github.com/any-tdf/stdf/blob/main/packages/create-stdf/README.md",
+	"homepage": "https://github.com/any-tdf/stdf/blob/main/packages/create/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/any-tdf/stdf"
