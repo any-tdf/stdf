@@ -102,7 +102,7 @@
 			<div class="relative bottom-1">
 				<button
 					bind:this={versionBtnRef}
-					class="flex cursor-pointer py-0.5 pl-2 pr-4 text-xs text-gray-500"
+					class="flex cursor-pointer py-0.5 pr-4 pl-2 text-xs text-gray-500"
 					onclick={() => (showVersion = !showVersion)}
 				>
 					{stdfPackage.version}
@@ -115,17 +115,9 @@
 				{#if showVersion}
 					<div
 						transition:fly={{ duration: 300, y: -20, opacity: 0 }}
-						class="absolute left-0 top-10 w-28 rounded-xl bg-white p-4 text-xs shadow-md dark:bg-black dark:shadow-white/10"
+						class="absolute top-10 left-0 w-32 rounded-xl bg-white p-4 text-xs shadow-md dark:bg-black dark:shadow-white/10"
 					>
 						<div class="text-primary dark:text-dark relative flex py-0.5">
-							<span class="mr-1">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 24 24">
-									<path
-										fill="currentColor"
-										d="M3 20q-.825 0-1.412-.587T1 18V6q0-.825.588-1.412T3 4h18q.825 0 1.413.588T23 6v12q0 .825-.587 1.413T21 20zm1.75-8.5l2.375 3.25q.075.125.2.188T7.6 15h.3q.25 0 .425-.175T8.5 14.4V9.625q0-.275-.175-.45T7.875 9t-.45.175t-.175.45V12.5L4.925 9.25q-.1-.125-.225-.187T4.425 9h-.3q-.275 0-.45.175t-.175.45v4.75q0 .275.175.45t.45.175t.45-.175t.175-.45zM10 15h2.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.1h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.15h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H10q-.2 0-.35.15t-.15.35v5q0 .2.15.35T10 15m5.5 0h4q.425 0 .713-.288T20.5 14V9.625q0-.275-.175-.45T19.875 9t-.45.175t-.175.45V13.5h-1.1v-2.875q0-.275-.175-.45t-.45-.175t-.45.175t-.175.45V13.5h-1.15V9.625q0-.275-.175-.45T15.125 9t-.45.175t-.175.45V14q0 .425.288.713T15.5 15"
-									/>
-								</svg>
-							</span>
 							{stdfPackage.version}
 							<span class="absolute bottom-1 left-12 w-3">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -148,7 +140,17 @@
 						</a>
 						<div class="my-2 h-px bg-black/5 dark:bg-white/20"></div>
 						<div class="flex flex-col space-y-2">
-							<a href="https://1.0.stdf.design" target="_blank" class="hover:underline">Version 1.0.x </a>
+							<a href="https://stdf.design" target="_blank" class="inline-flex hover:underline">
+								Version 2.x
+								<span class="ml-1">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 24 24">
+										<path
+											fill="currentColor"
+											d="M3 20q-.825 0-1.412-.587T1 18V6q0-.825.588-1.412T3 4h18q.825 0 1.413.588T23 6v12q0 .825-.587 1.413T21 20zm1.75-8.5l2.375 3.25q.075.125.2.188T7.6 15h.3q.25 0 .425-.175T8.5 14.4V9.625q0-.275-.175-.45T7.875 9t-.45.175t-.175.45V12.5L4.925 9.25q-.1-.125-.225-.187T4.425 9h-.3q-.275 0-.45.175t-.175.45v4.75q0 .275.175.45t.45.175t.45-.175t.175-.45zM10 15h2.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.1h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H11v-1.15h1.875q.275 0 .45-.175t.175-.45t-.175-.45t-.45-.175H10q-.2 0-.35.15t-.15.35v5q0 .2.15.35T10 15m5.5 0h4q.425 0 .713-.288T20.5 14V9.625q0-.275-.175-.45T19.875 9t-.45.175t-.175.45V13.5h-1.1v-2.875q0-.275-.175-.45t-.45-.175t-.45.175t-.175.45V13.5h-1.15V9.625q0-.275-.175-.45T15.125 9t-.45.175t-.175.45V14q0 .425.288.713T15.5 15"
+										/>
+									</svg>
+								</span>
+							</a>
 							<a href="https://0.stdf.design" target="_blank" class="hover:underline">Version 0.x </a>
 						</div>
 					</div>
@@ -182,7 +184,7 @@
 				<!-- 移动端 -->
 				<div
 					transition:slide={{ duration: 300, axis: 'y' }}
-					class="absolute right-2 top-14 flex flex-col space-y-3 rounded-sm border border-black/10 bg-white p-1 pt-4 text-center text-sm font-bold shadow-lg backdrop-blur-sm dark:border-white/20 dark:bg-gray-950 dark:shadow-white/20"
+					class="absolute top-14 right-2 flex flex-col space-y-3 rounded-sm border border-black/10 bg-white p-1 pt-4 text-center text-sm font-bold shadow-lg backdrop-blur-sm dark:border-white/20 dark:bg-gray-950 dark:shadow-white/20"
 				>
 					<!-- AI 问答 -->
 					<a
@@ -317,8 +319,8 @@
 			>
 				{isZh ? '主题' : 'Theme'}
 				{#if $showThemeSwitchStore}
-					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute left-1/2 top-8 -translate-x-1/2 pt-2">
-						<div class="rounded-md bg-white px-3 pb-1 pt-2 shadow-lg dark:bg-black/95 dark:shadow-white/10">
+					<div transition:slide={{ duration: 300, axis: 'y' }} class="absolute top-8 left-1/2 -translate-x-1/2 pt-2">
+						<div class="rounded-md bg-white px-3 pt-2 pb-1 shadow-lg dark:bg-black/95 dark:shadow-white/10">
 							<ModeSwitch useViewTransition={false} />
 							<ThemeSwitch vertical />
 						</div>
