@@ -180,7 +180,7 @@
 		goto(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
 	};
 	let QRValue = $derived(
-		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://demo.stdf.design/') +
+		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://1.demo.stdf.design/') +
 			currentNav?.nav +
 			(isZh ? '/zh_CN' : '/en_US')
 	);
@@ -190,7 +190,7 @@
 
 <div class="flex">
 	<div
-		class="fixed -left-52 top-14 z-[100] w-52 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
+		class="fixed top-14 -left-52 z-[100] w-52 overflow-y-scroll border-black/10 bg-white transition-all duration-300 md:left-0 md:bg-transparent dark:border-white/20 dark:bg-black dark:md:bg-transparent"
 		class:left-0={$isShowNavStore}
 		class:-left-52={!$isShowNavStore}
 		style="height:{navBarHeight + 'px'}"
@@ -239,7 +239,7 @@
 					<div
 						in:fly={{ y: 100, duration: 500 }}
 						out:fly={{ y: 100, duration: 100 }}
-						class="mt-2 flex flex-1 justify-around py-4 md:pl-8 md:pr-4"
+						class="mt-2 flex flex-1 justify-around py-4 md:pr-4 md:pl-8"
 						style="width:{titleWidth}px;"
 					>
 						<div class="bg-codeLight dark:bg-codeDark grow overflow-y-scroll rounded-sm" style="height:{demoHeight}px;">
@@ -256,7 +256,7 @@
 										id="iframe-id"
 										src={import.meta.env.DEV
 											? `http://localhost:8888/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`
-											: `https://demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`}
+											: `https://1.demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`}
 										height={demoHeight - 2}
 										width="390"
 									></iframe>

@@ -69,7 +69,7 @@
 		const nav = $page.url.searchParams.get('nav');
 		// 将 nav 首字母大写
 		const navFirst = nav ? nav.slice(0, 1).toUpperCase() + nav.slice(1) : '';
-		codeValue = `https://github.com/any-tdf/stdf/blob/main/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
+		codeValue = `https://github.com/any-tdf/stdf/blob/1.x/packages/stdf/src/lib/components/${nav}/${navFirst}.svelte`;
 		showCode = true;
 	};
 	let showFull = $state(false);
@@ -85,7 +85,7 @@
 	};
 </script>
 
-<div class="w-82 md:w-102 relative top-14">
+<div class="relative top-14 w-82 md:w-102">
 	<div class="relative rounded-sm bg-gray-100 p-1 dark:bg-gray-700">
 		<!--滑块-->
 		<div
@@ -105,7 +105,7 @@
 			<button
 				onmouseleave={() => (showQr = false)}
 				onmouseenter={mouseenterFun}
-				class="left-106 absolute top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="absolute top-0 left-106 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path fill="none" d="M0 0h24v24H0z" />
@@ -115,7 +115,7 @@
 				</svg>
 				{#if showQr}
 					<div
-						class="absolute left-0 top-14 z-50 hidden w-60 rounded-sm bg-black p-6 shadow-lg dark:block"
+						class="absolute top-14 left-0 z-50 hidden w-60 rounded-sm bg-black p-6 shadow-lg dark:block"
 						transition:fade={{ duration: 200 }}
 					>
 						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -124,7 +124,7 @@
 				{/if}
 				{#if showQr}
 					<div
-						class="absolute left-0 top-14 z-50 block w-60 rounded-sm bg-white p-6 shadow-lg dark:hidden"
+						class="absolute top-14 left-0 z-50 block w-60 rounded-sm bg-white p-6 shadow-lg dark:hidden"
 						transition:fade={{ duration: 200 }}
 					>
 						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -139,7 +139,7 @@
 			<button
 				onmouseleave={() => (showCode = false)}
 				onmouseenter={showCodeFunc}
-				class="absolute left-[30.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="absolute top-0 left-[30.5rem] hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor">
 					<path
@@ -150,7 +150,7 @@
 					<div
 						class="{isZh
 							? 'w-28'
-							: 'w-52'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+							: 'w-52'} absolute top-14 left-0 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '组件源码' : 'Component source code'}
@@ -163,14 +163,14 @@
 			<button
 				onmouseleave={() => (showStackblitz = false)}
 				onmouseenter={showStackblitzFunc}
-				class="absolute left-[34.5rem] top-0 hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+				class="absolute top-0 left-[34.5rem] hidden h-12 w-12 rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 			>
 				<svg viewBox="0 0 28 28" height="24">
 					<path fill="#3275e7" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z" />
 				</svg>
 				{#if showStackblitz}
 					<div
-						class="absolute left-0 top-14 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						class="absolute top-14 left-0 z-50 h-12 w-44 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
 						transition:fade={{ duration: 200 }}
 					>
 						{isZh ? '在 StackBlitz 中打开' : 'Open in StackBlitz'}
@@ -185,7 +185,7 @@
 			onmouseenter={() => (showFull = true)}
 			onfocus={() => (showFull = true)}
 			onblur={() => (showFull = false)}
-			class="absolute left-[38.5rem] top-0 hidden h-12 w-12 cursor-pointer rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
+			class="absolute top-0 left-[38.5rem] hidden h-12 w-12 cursor-pointer rounded-sm bg-gray-100 p-3 md:block dark:bg-gray-700"
 		>
 			{#if $isWideScreenStore}
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@
 				<div
 					class="{isZh
 						? 'w-20'
-						: 'w-32'} absolute left-0 top-14 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
+						: 'w-32'} absolute top-14 left-0 z-50 h-12 rounded-sm bg-gray-700 py-3 text-center leading-[1.5rem] text-white shadow-lg"
 					transition:fade={{ duration: 200 }}
 				>
 					{isZh ? '宽屏' : 'Full screen'}

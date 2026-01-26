@@ -13,6 +13,8 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {
+		"@any-tdf/vite-plugin-md-ts": "^0.0.2",
+		"@any-tdf/vite-plugin-svg-symbol": "^0.0.3",
 		"@eslint/compat": "^1.2.4",
 		"@sveltejs/adapter-static": "^3.0.6",
 		"@sveltejs/kit": "^2.21.2",
@@ -34,8 +36,6 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
 		"prettier-plugin-tailwindcss": "^0.6.9",
-		"rollup-plugin-md-ts": "file:../../packages/rollup-plugin-md-ts",
-		"rollup-plugin-stdf-icon": "file:../../packages/rollup-plugin-stdf-icon",
 		"stdf": "file:../../packages/stdf",
 		"svelte": "^5.7.1",
 		"svelte-check": "^4.1.1",

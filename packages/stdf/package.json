@@ -149,6 +149,7 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
+		"@any-tdf/vite-plugin-svg-symbol": "^0.0.3",
 		"@iconify-json/carbon": "^1.2.8",
 		"@iconify-json/fluent-color": "^1.2.12",
 		"@iconify-json/material-symbols": "^1.2.21",
@@ -167,7 +168,6 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"publint": "^0.3.9",
-		"rollup-plugin-stdf-icon": "file:../rollup-plugin-stdf-icon",
 		"svelte": "^5.22.6",
 		"svelte-check": "^4.1.5",
 		"svelte-confetti": "^2.3.1",

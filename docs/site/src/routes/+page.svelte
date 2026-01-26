@@ -436,7 +436,7 @@
 <div class="mx-auto max-w-[1536px]">
 	<div class="justify-center lg:flex">
 		<div class="flex basis-2/5 flex-col justify-center py-16 text-center md:py-20">
-			<div class="relative mb-20 mt-16 flex h-20 flex-col items-center justify-center md:h-28">
+			<div class="relative mt-16 mb-20 flex h-20 flex-col items-center justify-center md:h-28">
 				<div class="animate-dynamicsBg absolute rounded-full opacity-50 blur-xl md:opacity-100 md:blur-3xl">
 					<svg viewBox="0 0 100 100">
 						<path
@@ -475,7 +475,7 @@
 				</div>
 			</div>
 			<div class="text-6xl md:text-8xl">STDF</div>
-			<div class="md:text-md mb-10 mt-4 px-4 text-gray-700 md:mb-0 dark:text-gray-300">
+			<div class="md:text-md mt-4 mb-10 px-4 text-gray-700 md:mb-0 dark:text-gray-300">
 				{#if isZh}
 					基于
 					<a
@@ -517,7 +517,7 @@
 					</a>
 				{/if}
 			</div>
-			<div class="mb-16 mt-8 flex justify-center gap-8 md:mt-16">
+			<div class="mt-8 mb-16 flex justify-center gap-8 md:mt-16">
 				<a
 					href="/guide"
 					onmouseenter={() => (showConfetti = true)}
@@ -534,7 +534,7 @@
 									width="10"
 									height="2"
 									fill="currentColor"
-									class="scale-x-135 -translate-x-2 -translate-y-2 transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0"
+									class="-translate-x-2 -translate-y-2 scale-x-135 transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0"
 								/>
 								<path
 									d="M8.48535 7.07129L1.41406 14.1426L0 12.7275L5.65625 7.07031L0 1.41406L1.41406 0L8.48535 7.07129Z"
@@ -544,14 +544,14 @@
 							</svg>
 						</div>
 						{#if showConfetti}
-							<span class="absolute left-1/2 top-0">
+							<span class="absolute top-0 left-1/2">
 								<Confetti rounded />
 							</span>
 						{/if}
 					</div>
 				</a>
 				<a
-					href={`https://demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`}
+					href={`https://1.demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`}
 					target="_blank"
 					onmouseleave={() => (showQr = false)}
 					onmouseenter={mouseenterFun}
@@ -561,20 +561,20 @@
 					{#if showQr}
 						<div
 							transition:fly={{ duration: 300, x: -10, opacity: 0 }}
-							class="z-100 absolute left-full top-0 block w-44 -translate-y-1/3 translate-x-1 rounded-lg border border-black/5 p-2 shadow-lg dark:hidden"
+							class="absolute top-0 left-full z-100 block w-44 translate-x-1 -translate-y-1/3 rounded-lg border border-black/5 p-2 shadow-lg dark:hidden"
 						>
 							<span>{@html A_a1Svg}</span>
 						</div>
 						<div
 							transition:fly={{ duration: 300, x: -10, opacity: 0 }}
-							class="z-100 absolute left-full top-0 hidden w-44 -translate-y-1/3 translate-x-1 rounded-lg border bg-black p-2 shadow-lg shadow-white/10 dark:block dark:border-white/10"
+							class="absolute top-0 left-full z-100 hidden w-44 translate-x-1 -translate-y-1/3 rounded-lg border bg-black p-2 shadow-lg shadow-white/10 dark:block dark:border-white/10"
 						>
 							<span>{@html A_a1Svg}</span>
 						</div>
 					{/if}
 				</a>
 				<a
-					href={'https://demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
+					href={'https://1.demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"
 					class="border-primary dark:border-dark block rounded-sm border border-solid px-6 py-2 transition-all md:hidden"
 				>
@@ -584,7 +584,7 @@
 			<Clis />
 		</div>
 		<div class="relative mt-10 hidden basis-3/5 xl:mt-0 xl:block">
-			<div class="animate-elementUpDownMove1 -translate-x-18 absolute inset-1/2 size-20 -translate-y-12">
+			<div class="animate-elementUpDownMove1 absolute inset-1/2 size-20 -translate-x-18 -translate-y-12">
 				{#if avatar}
 					<Avatar size="md" radius={avatarRadius} image={avatar} injClass="shadow-lg dark:shadow-white/10" />
 				{:else}
@@ -594,14 +594,14 @@
 			<div class="animate-elementUpDownMove1 absolute inset-1/2 -translate-x-96 -translate-y-40">
 				<Loading type={randomNumStr} theme />
 			</div>
-			<div class="animate-elementUpDownMove3 absolute inset-1/2 -translate-y-48 translate-x-52">
+			<div class="animate-elementUpDownMove3 absolute inset-1/2 translate-x-52 -translate-y-48">
 				<Switch radius={switchRadius} inside={switchInside} active />
 			</div>
-			<div class="animate-elementUpDownMove6 -translate-y-42 absolute inset-1/2 w-96 -translate-x-72">
+			<div class="animate-elementUpDownMove6 absolute inset-1/2 w-96 -translate-x-72 -translate-y-42">
 				<Tab {labels} radius={tabRadius} {lineType} />
 			</div>
 			<div
-				class="animate-elementUpDownMove5 w-84 absolute inset-1/2 h-24 translate-x-20 translate-y-6 rounded-lg bg-white px-2 shadow-lg dark:bg-black/80 dark:shadow-white/10"
+				class="animate-elementUpDownMove5 absolute inset-1/2 h-24 w-84 translate-x-20 translate-y-6 rounded-lg bg-white px-2 shadow-lg dark:bg-black/80 dark:shadow-white/10"
 			>
 				<Input
 					title={inputTitle}
@@ -613,7 +613,7 @@
 					clear
 					onchange={inputFun}
 				/>
-				<span class="absolute left-0 top-1/2 {showInputConfetti ? 'block' : 'hidden'}">
+				<span class="absolute top-1/2 left-0 {showInputConfetti ? 'block' : 'hidden'}">
 					<Confetti infinite rounded x={[-0.5, 0.5]} y={[-0.5, 0.5]} />
 				</span>
 			</div>
@@ -640,17 +640,17 @@
 				{/if}
 			</div>
 			<div
-				class="animate-elementUpDownMove3 h-15 absolute inset-1/2 w-96 -translate-x-96 -translate-y-72 rounded-lg bg-white p-3 shadow-lg dark:bg-black/80 dark:shadow-white/10"
+				class="animate-elementUpDownMove3 absolute inset-1/2 h-15 w-96 -translate-x-96 -translate-y-72 rounded-lg bg-white p-3 shadow-lg dark:bg-black/80 dark:shadow-white/10"
 			>
 				<NoticeBar vertical {textList}></NoticeBar>
 			</div>
-			<div class="animate-elementUpDownMove1 absolute inset-1/2 w-64 -translate-y-20 translate-x-32">
+			<div class="animate-elementUpDownMove1 absolute inset-1/2 w-64 translate-x-32 -translate-y-20">
 				<Slider value={sliderValue} showTip={sliderShowTip} radius={sliderRadius} />
 			</div>
-			<div class="animate-elementUpDownMove5 h-54 -translate-x-110 absolute inset-1/2 w-[390px] translate-y-16 overflow-hidden">
+			<div class="animate-elementUpDownMove5 absolute inset-1/2 h-54 w-[390px] -translate-x-110 translate-y-16 overflow-hidden">
 				<Swiper {...swiperOption} />
 			</div>
-			<div class="animate-elementUpDownMove1 -translate-y-74 group absolute inset-1/2 w-64 translate-x-32">
+			<div class="animate-elementUpDownMove1 group absolute inset-1/2 w-64 translate-x-32 -translate-y-74">
 				<Button heightIn="2" onclick={randomThemeFunc}>
 					<span class="transition-all duration-500 group-hover:translate-x-1">
 						{themes.find((item) => item.name === $currentColorStore)?.[isZh ? 'name_CN' : 'name']}
@@ -675,17 +675,17 @@
 			>
 				<div class="relative w-full">
 					<img
-						class="aspect-5/3 block h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:hidden"
+						class="block aspect-5/3 h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:hidden"
 						src={desc.icon}
 						alt=""
 					/>
 					<img
-						class="aspect-5/3 hidden h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:block"
+						class="hidden aspect-5/3 h-full w-full object-cover transition-all duration-500 group-hover:scale-125 dark:block"
 						src={desc.icon_d}
 						alt=""
 					/>
 					<div
-						class="text-shadow-lg bg-primary/10 dark:bg-dark/10 absolute bottom-1.5 left-0 right-0 mx-1.5 flex flex-col justify-center rounded-2xl border border-white/30 px-3 py-1.5 text-white backdrop-blur-sm"
+						class="bg-primary/10 dark:bg-dark/10 absolute right-0 bottom-1.5 left-0 mx-1.5 flex flex-col justify-center rounded-2xl border border-white/30 px-3 py-1.5 text-white backdrop-blur-sm text-shadow-lg"
 					>
 						<div class="mb-0.5 text-3xl font-bold transition-all duration-500 group-hover:translate-x-4">{desc.title}</div>
 						<div class="text-xs font-bold transition-all duration-500">
