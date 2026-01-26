@@ -180,7 +180,7 @@
 		goto(`/components?nav=${params.get('nav') ? params.get('nav') : 'button'}&tab=${currentTab}`);
 	};
 	let QRValue = $derived(
-		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://1.demo.stdf.design/') +
+		(import.meta.env.DEV ? location.protocol + '//' + location.hostname + ':8888/' : 'https://1-demo.stdf.design/') +
 			currentNav?.nav +
 			(isZh ? '/zh_CN' : '/en_US')
 	);
@@ -256,7 +256,7 @@
 										id="iframe-id"
 										src={import.meta.env.DEV
 											? `http://localhost:8888/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`
-											: `https://1.demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`}
+											: `https://1-demo.stdf.design/${currentNav?.nav}/${isZh ? 'zh_CN' : 'en_US'}?channel=iframe&theme=${$currentColorStore}&darkMode=${$currentThemeStore}&lang=${localStorage.getItem('lang')}`}
 										height={demoHeight - 2}
 										width="390"
 									></iframe>

@@ -551,7 +551,7 @@
 					</div>
 				</a>
 				<a
-					href={`https://1.demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`}
+					href={`https://1-demo.stdf.design?lang=${isZh ? 'zh_CN' : 'en_US'}`}
 					target="_blank"
 					onmouseleave={() => (showQr = false)}
 					onmouseenter={mouseenterFun}
@@ -574,7 +574,7 @@
 					{/if}
 				</a>
 				<a
-					href={'https://1.demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
+					href={'https://1-demo.stdf.design?lang=' + (isZh ? 'zh_CN' : 'en_US')}
 					target="_blank"
 					class="border-primary dark:border-dark block rounded-sm border border-solid px-6 py-2 transition-all md:hidden"
 				>
